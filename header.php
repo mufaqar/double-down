@@ -18,10 +18,8 @@
         <nav>
             <div class="top_nav">
                 <div class="container mx-auto d-flex justify-content-between align-items-center">
-                    <div class="left">                     
-
+                    <div class="left"> 
                         <?php 
-
                             wp_nav_menu( array(                              
                                 'menu_class'        => "d-flex", 
                                 'menu_id'           => "", 
@@ -30,10 +28,6 @@
                               ) );
 
                             ?>
-
-
-
-
                     </div>
                     <div class="right d-flex">
                         <ul class="d-flex align-items-center">
@@ -56,25 +50,16 @@
             <div class="main_nav">
                 <div class="container mx-auto d-flex align-items-center justify-content-between">
                     <div class="w-100 position-relative d-flex justify-content-between align-items-center">
-
-                        <div class="logo "><img src="<?php bloginfo('template_directory'); ?>/resources/img/logo.png" alt=""></div>
-                        <div class="menu w-100 d-flex flex-column flex-md-row justify-content-between align-items-center">
-
-                        
-                        <?php 
-
-                            wp_nav_menu( array(  
-                                'menu'              => "",                             
-                                'menu_class'        => "d-flex flex-column flex-md-row align-items-center",                       
-                                'container'         => false, 
-                                 'theme_location'    => "primary"
-                              ) );
-
+                        <div class="logo "><a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/resources/img/logo.png" alt="Logo"></a></div>
+                        <div class="menu w-100 d-flex flex-column flex-md-row justify-content-between align-items-center">                        
+                            <?php 
+                                wp_nav_menu( array(  
+                                    'menu'              => "",                             
+                                    'menu_class'        => "d-flex flex-column flex-md-row align-items-center",                       
+                                    'container'         => false, 
+                                    'theme_location'    => "primary"
+                                ) );
                             ?>
-
-                            
-                           
-                            
                             <div class="search_side d-flex align-items-center">
                                 <div class="search">
                                     <i class="fa-solid fa-magnifying-glass"></i>
