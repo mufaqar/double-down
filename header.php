@@ -1,15 +1,3 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package CT_Custom
- */
-
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -26,18 +14,26 @@
 
 
 <body <?php body_class(); ?>>
-<!-- header + main section  -->
 <header>
         <nav>
             <div class="top_nav">
                 <div class="container mx-auto d-flex justify-content-between align-items-center">
-                    <div class="left">
-                        <ul class="d-flex">
-                            <li><a href="#">Tickets</a></li>
-                            <li><a href="#">Al ahly store</a></li>
-                            <li><a href="#">Membership</a></li>
-                            <li><a href="#">Social responsibility</a></li>
-                        </ul>
+                    <div class="left">                     
+
+                        <?php 
+
+                            wp_nav_menu( array(                              
+                                'menu_class'        => "d-flex", 
+                                'menu_id'           => "", 
+                                'container'         => "false", 
+                              'theme_location'    => "top"
+                              ) );
+
+                            ?>
+
+
+
+
                     </div>
                     <div class="right d-flex">
                         <ul class="d-flex align-items-center">
@@ -63,26 +59,21 @@
 
                         <div class="logo "><img src="<?php bloginfo('template_directory'); ?>/resources/img/logo.png" alt=""></div>
                         <div class="menu w-100 d-flex flex-column flex-md-row justify-content-between align-items-center">
+
+                        
+                        <?php 
+
+                            wp_nav_menu( array(  
+                                'menu'              => "",                             
+                                'menu_class'        => "d-flex flex-column flex-md-row align-items-center",                       
+                                'container'         => false, 
+                                 'theme_location'    => "primary"
+                              ) );
+
+                            ?>
+
                             
-                            <ul class="d-flex flex-column flex-md-row align-items-center">
-                                <li><a href="#">Our Goal</a></li>
-                                <li><a href="#">Club Team</a>
-                                    <!-- <ul class="dropdown">
-                                        <li><a href="#">Sub-1</a></li>
-                                        <li><a href="#">Sub-2</a></li>
-                                        <li><a href="#">Sub-3</a></li>
-                                    </ul> -->
-                                </li>
-                                <li><a href="#">Tranning</a>
-                                    <!-- <ul class="dropdown">
-                                        <li><a href="#">Sub-1</a></li>
-                                        <li><a href="#">Sub-2</a></li>
-                                        <li><a href="#">Sub-3</a></li>
-                                    </ul> -->
-                                </li>
-                                <li><a href="#">Surveys</a></li>
-                                <li><a href="#">News</a></li>
-                            </ul>
+                           
                             
                             <div class="search_side d-flex align-items-center">
                                 <div class="search">
@@ -101,7 +92,12 @@
             </div>
         </nav>
 
-        <main>
+        
+
+        <?php 
+
+        if ( is_front_page() ) :
+            ?><main>
             <div class="container">
                 <div class="row">
                     <div class="content col-md-6">
@@ -139,6 +135,22 @@
                 </div>
 
             </div>
-        </main>
+        </main> <?php
+        else :
+            ?><main>
+            <div class="container">
+                <div class="row">
+                    <div class="content col-md-6">
+                        <h1><?php the_title()?></h1>                      
+                        
+                    </div>
+                    
+                </div>
+
+            </div>
+        </main>  <?php
+        endif;
+
+        ?>
 
     </header>

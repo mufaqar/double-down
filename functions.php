@@ -45,6 +45,7 @@ if ( ! function_exists( 'ct_custom_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'ct-custom' ),
+			'top' => esc_html__( 'Top Menu', 'ct-custom' ),
 		) );
 
 		/*
@@ -227,16 +228,3 @@ function get_breadcrumb() {
 
 
 
-
-
-
-add_filter('wp_nav_menu_items','add_new_menu_item', 10, 2);
-function add_new_menu_item( $nav, $args ) {
-    $newmenuitem = '<li class="mob-block">
-	<button aria-label="Close Mobile Menu" class="close-mobile-menu">
-		<i class="fa-solid fa-xmark"></i>
-	</button>
-  </li>';
-    $nav = $newmenuitem.$nav;
-    return $nav;
-}
