@@ -24,17 +24,6 @@
 	<?php wp_head(); ?>
 </head>
 
-<?php
-	/*	global $data;
-
-		$company_logo = $data['company_logo'];
-		$company_favicon = $data['company_favicon'];
-		$header_tell = $data['header_tell']; 
-
-        $header_tell = $data['header_tell']; 
-
-        $login_info = $data['login_info'];  */
-	?>
 
 <body <?php body_class(); ?>>
 <!-- header + main section  -->
