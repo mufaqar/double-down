@@ -4,242 +4,396 @@
  * Template Name: Home 
  */
 get_header();
-$studio = get_field('our_studios');
-$workshops = get_field('our_workshops');
+
 ?>
-
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-
-<?php get_template_part('template-parts/banner')?>
-
-<div class="exhale-pilates">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="padding">
-                    <div class="welcome-text">
-                        <h1><?php echo get_post_meta(get_the_ID(), 'heading',  true); ?></h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="padding">
-                    <div class="para">
-                        <p><?php echo get_post_meta(get_the_ID(), 'short_instructions',  true); ?></p>
-                        <div class="time-class">
-                        <button class="btn btn-buy"><a href="<?php the_field('more_info_link') ?>">MORE INFO</a></button>
-                    </div>
-                    </div>                    
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-<div class="our-studios pb-0">
-    <div class="container">
-        <div class="title">
-            <div class="padding">
-                <div class="text-center">
-                    <h2><?php echo $studio['heading'] ?></h2>
-                </div>
+    <!-- blogs  -->
+    <section class="container mb-5">
+        <div class="news text-center d-flex justify-content-between flex-column flex-md-row align-items-center">
+            <h2>Alahlifc News</h2>
+            <div class="d-flex align-items-center flex-column flex-md-row">
+                <ul class="d-flex flex-wrap justify-content-center">
+                    <li><a href="">Business News</a></li>
+                    <li><a href="">Business</a></li>
+                    <li><a href="">Business News</a></li>
+                    <li><a href="">Business</a></li>
+                </ul>
+                <a href="#" class="btn bluebtn view mt-3 mt-md-0">View All</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="images">
-                    <img src="<?php echo $studio['studio_image_1'] ?>" alt="primsore-hall">
-                    <div class="heading">
-                        <p><a href="<?php echo $studio['studio_ulr_1'] ?>"> <?php echo $studio['studio_title_1'] ?> </a></p>
+        <div class="blogwrapper row">
+            <div class="col-md-6 d-flex flex flex-column">
+                <div class="feature f1">
+                    <div class="info d-flex flex-column h-100 justify-content-end">
+                        <h3>Lorem ipsum dolor, sit amet consectetur.</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit alias corporis
+                            aliquid,</p>
+                        <p>By <span>Williom</span> and <span>Wilson</span></p>
+                        <p class="badgh">Main Story</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="images">
-                    <img src="<?php echo $studio['studio_image_2'] ?>" alt="north">
-                    <div class="heading">
-                        <p><a href="<?php echo $studio['studio_ulr_2'] ?>"><?php echo $studio['studio_title_2'] ?></a></p>
+                <div class="subfeature row mt-4">
+                    <div class="col-md-6">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/feature.jpg" alt="">
+                        <p class="date mt-3 mb-2">10 oct 2022</p>
+                        <h4 class="mb-3"><a href="">Lorem ipsum dolor sit amet, consectetur vitae..</a></h4>
+                        <div class="d-flex justify-content-between auth-info">
+                            <p>By <span>Williom</span> and <span>Willson</span> </p>
+                            <p>23 mint ago</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="our-studios">
-    <div class="container">
-        <div class="title">
-            <div class="padding">
-                <div class="text-center">
-                    <h2><?php echo $workshops['heading'] ?></h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="images">
-                    <img src="<?php echo $workshops['workshops_image_1'] ?>" alt="trainer">
-                    <div class="heading">
-                        <p><a href="<?php echo $workshops['workshops_link_1'] ?>"><?php echo $workshops['workshops_title_1'] ?></a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="images">
-                    <img src="<?php echo $workshops['workshops_image_2'] ?>" alt="workshops">
-                    <div class="heading">
-                        <p><a href="<?php echo $workshops['workshops_link_2'] ?>"><?php echo $workshops['workshops_title_1'] ?></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="our-classes">
-    <div class="container">
-        <div class="padding">
-            <div class="title">
-                <h1><?php echo get_post_meta(get_the_ID(), 'our_classes_title',  true); ?></h1>
-                <P><?php echo get_post_meta(get_the_ID(), 'our_classes_',  true); ?></P>
-            </div>
-            <div class="upcoming-course">
-                <div class="container">
-                    <div class="text-center">
-                        <div class="primary-btn">
-                        <a href="<?php the_field('class_time_table_link') ?>" class="btn-border btn-light">VIEW CLASS TIMETABLE</a>
+                    <div class="col-md-6">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/feature.jpg" alt="">
+                        <p class="date mt-3 mb-2">10 oct 2022</p>
+                        <h4 class="mb-3"><a href="">Lorem ipsum dolor sit amet, consectetur vitae..</a></h4>
+                        <div class="d-flex justify-content-between auth-info">
+                            <p>By <span>Williom</span> and <span>Willson</span> </p>
+                            <p>23 mint ago</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+
+
+                <div class="subfeature row">
+                    <div class="col-md-6">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/feature.jpg" alt="">
+                        <p class="date mt-3 mb-2">10 oct 2022</p>
+                        <h4 class="mb-3"><a href="">Lorem ipsum dolor sit amet, consectetur vitae..</a></h4>
+                        <div class="d-flex justify-content-between auth-info">
+                            <p>By <span>Williom</span> and <span>Willson</span> </p>
+                            <p>23 mint ago</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/p1.png" alt="">
+                        <p class="date mt-3 mb-2">10 oct 2022</p>
+                        <h4 class="mb-3"><a href="">Lorem ipsum dolor sit amet, consectetur vitae..</a></h4>
+                        <div class="d-flex justify-content-between auth-info">
+                            <p>By <span>Williom</span> and <span>Willson</span> </p>
+                            <p>23 mint ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature f2">
+                    <div class="info d-flex flex-column h-100 justify-content-end">
+                        <h3>Lorem ipsum dolor, sit amet consectetur.</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sit alias corporis
+                            aliquid,</p>
+                        <p>By <span>Williom</span> and <span>Wilson</span></p>
+                        <p class="badgh">Main Story</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="row">
+    </section>
 
+    <!-- matches record -->
+    <section class="record container mb-5">
 
-            <?php query_posts(array(
-                'post_type' => 'classes',
-                'posts_per_page' => 9,
-                'order' => 'desc',
-            ));
-            if (have_posts()) :  while (have_posts()) : the_post();
-
-            $custom_link = get_field('custom_link');
-           
-
-        
-
-            
-            
-            
-            ?>
-                    <div class="col-md-4">
-                        <div class="padding">
-
-                            <div class="hover-img">
-                                <?php if (has_post_thumbnail()) {
-                                    the_post_thumbnail('class-thumbnail');
-                                } else { ?>
-                                    <img src="<?php bloginfo('template_directory'); ?>/assets/img/inductions.jpg" alt="Featured Thumbnail" />
-                                <?php } ?>
-                                <h5> <a href="<?php if($custom_link == '') { the_permalink(); } else { echo $custom_link; } ?>"><?php the_title() ?></a></h5>
-                                <a href="<?php if($custom_link == '') { the_permalink(); } else { echo $custom_link; } ?>">
-                                    <div class="content">
-                                        <?php the_content() ?>
-                                    </div>
-                                </a>
+        <div class="record-wrapper p-4 d-flex flex-column align-items-center justify-content-center">
+            <h2>Matches</h2>
+            <div class="row w-100 outer">
+                <div class="col-md-4">
+                    <h4>Prince Mohammed bin Salman Professional League</h4>
+                    <h6>Stamford Bridge - 22 May 2022, 08:00 PM</h6>
+                    <div class="score_wrapper">
+                        <div class="score d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="<?php bloginfo('template_directory'); ?>/resources/img/team (1).png" alt="Team Logo">
+                                <p>alahlifc</p>
                             </div>
+                            <h6>4</h6>
+                        </div>
+                        <!-- 2nd -->
+                        <div class="score d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="<?php bloginfo('template_directory'); ?>/resources/img/team (2).png" alt="Team Logo">
+                                <p>alahlifc</p>
+                            </div>
+                            <h6>1</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4 pt-2">
+                        <a href="" class="btn small greenbtn ">Match center</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Next Match</h4>
+                    <h6>30 May 2022, 08:00 PM</h6>
+                    <div class="score_wrapper">
+                        <div class="score d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="<?php bloginfo('template_directory'); ?>/resources/img/team (1).png" alt="Team Logo">
+                                <p>alahlifc</p>
+                            </div>
+                            <h6>3</h6>
+                        </div>
+                        <!-- 2nd -->
+                        <div class="score d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="<?php bloginfo('template_directory'); ?>/resources/img/team (2).png" alt="Team Logo">
+                                <p>Al Nassr</p>
+                            </div>
+                            <h6>2</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4 pt-2">
+                        <a href="" class="btn small greenbtn ">Match center</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Premier League 2021/2022</h4>
+                    <h6>Stamford Bridge - 22 May 2022, 08:00 PM</h6>
+                    <div class="preamium-league-table mt-3">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Team</th>
+                                    <th scope="col">P</th>
+                                    <th scope="col">GD</th>
+                                    <th scope="col">Pts</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center">
+                                            <img class="p-league-logo" src="<?php bloginfo('template_directory'); ?>/resources/img/team (1).png"
+                                                alt="Team Logo">
+                                            <h6>lorem</h6>
+                                        </div>
+                                    </th>
+                                    <td>23</td>
+                                    <td>16</td>
+                                    <td>34</td>
+                                </tr>
 
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center">
+                                            <img class="p-league-logo" src="<?php bloginfo('template_directory'); ?>/resources/img/team (1).png"
+                                                alt="Team Logo">
+                                            <h6>lorem</h6>
+                                        </div>
+                                    </th>
+                                    <td>23</td>
+                                    <td>16</td>
+                                    <td>34</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center">
+                                            <img class="p-league-logo" src="<?php bloginfo('template_directory'); ?>/resources/img/team (1).png"
+                                                alt="Team Logo">
+                                            <h6>lorem</h6>
+                                        </div>
+                                    </th>
+                                    <td>23</td>
+                                    <td>16</td>
+                                    <td>34</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-end mt-4">
+                            <a href="" class="btn small greenbtn ">Match center</a>
                         </div>
 
-                    </div>
-
-                <?php endwhile;
-                wp_reset_query();
-            else : ?>
-                <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
-            <?php endif; ?>
-
-        </div>
-    </div>
-</div>
-
-<div class="instagram-feed">
-    <div class="container">
-        <div class="padding">
-            <div class="text-center">           
-            <a href="https://instagram.com/exhalepilateslondon" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/insta.png" alt="insta" > <h2>@exhalepilateslondon</h2></a>
-                
-             </div>
-        </div>
-        <div class="instagram_feeds">
-                     <?php echo do_shortcode('[instagram-feed feed=3]')?>
-                </div>
-     </div>
-
-
-     
-
-
-
-
-<div class="recommended-by">
-    <div class="container">
-        <div class="padding">
-            <div class="text-center">
-                <h2><?php the_field('recommended_by_title'); ?></h2>
-                <div class="padding">
-                    <div class="slider">
-
-                        <?php query_posts(array(
-                            'post_type' => 'client',
-                            'posts_per_page' => -1,
-                            'order' => 'desc'
-                        ));
-                        if (have_posts()) :  while (have_posts()) : the_post();
-                                $url = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'full'); ?>
-
-                                <div class="col-md-4 ">
-                                    <a href="<?php the_field('client_link'); ?>" style="cursor: pointer;"><img src="<?php echo $url ?>" alt="traainer"></a>
-                                </div>
-
-                            <?php endwhile;
-                            wp_reset_query();
-                        else : ?>
-                            <h2><?php _e('Nothing Found', 'lbt_translate');
-                                ?></h2>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+
+    <!-- tranning section  -->
+    <section class="tranning mb-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2>Tranning</h2>
+            <a href="#" class="btn bluebtn">View All</a>
+        </div>
+        <div class="">
+            <div class="right-side-slider mt-4">
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel minima tempora corporis!
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel minima tempora corporis!
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel minima tempora corporis!
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel minima tempora corporis!
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel minima tempora corporis!
+                            </p>
+                        </a>
+                    </div>
+                </div>
 
 
 
+            </div>
+        </div>
+    </section>
+
+    <!-- player section  -->
+    <section class="tranning player">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2>Tranning</h2>
+            <a href="#" class="btn bluebtn">View All</a>
+        </div>
+        <div class="">
+            <div class="right-side-slider _playerwrapper mt-4">
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Deffender Saudia Arabia</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Deffender Saudia Arabia</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Deffender Saudia Arabia</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Deffender Saudia Arabia</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="card-item p-4 d-flex flex-column justify-content-end"
+                        style="background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.9)), url('<?php bloginfo('template_directory'); ?>/resources/img/c1.png');">
+                        <a href="#">
+                            <h4>Under 18</h4>
+                            <p>Deffender Saudia Arabia</p>
+                        </a>
+                    </div>
+                </div>
 
 
 
-<?php
+            </div>
+        </div>
+    </section>
 
-get_footer();  ?>
+    <!-- products  -->
+    <section class="container products mb-5">
+        <div class="news text-center d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <h2>Al Ahly Store</h2>
+            <div class="d-flex align-items-center flex-column flex-md-row">
+                <ul class="d-flex flex-wrap justify-content-center">
+                    <li><a href="">Business News</a></li>
+                    <li><a href="">Business </a></li>
+                    <li><a href="">Business News</a></li>
+                    <li><a href="">Business </a></li>
+                </ul>
+                <a href="#" class="btn bluebtn view mt-4 mt-md-0">View All</a>
+            </div>
+        </div>
+        <div class="row product-wrapper">
+            <div class="col-md-6 col-lg-3">
+                <div class="product">
+                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
+                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
+                        <p class="product-price">€ <span>26.00</span></p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="product">
+                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
+                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
+                        <p class="product-price">€ <span>26.00</span></p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="product">
+                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
+                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
+                        <p class="product-price">€ <span>26.00</span></p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="product">
+                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
+                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
+                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
+                        <p class="product-price">€ <span>26.00</span></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="load-more d-flex justify-content-center align-items-center flex-column mt-5">
+            <a href="" class="d-flex justify-content-center align-items-center flex-column">
+                <i class="fa-solid fa-arrow-down"></i>
+                <h6 class="mt-2">BROWSE ALL PRODUCTS</h6>
+            </a>
+        </div>
+    </section>
 
+    <?php get_footer()?>
 
-
-
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('.slider').slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            speed: 3000,
-        });
-    });
-</script>
+  
