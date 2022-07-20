@@ -5,39 +5,41 @@
 get_header();
 
 
-?> <header class="container">
-<nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
-    <div class="container-fluid">
-        <img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" />
-        <div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse nav_wrapper navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Lunsjmeny</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">This is how it works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Meeting Food</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">About Us</a>
-                    </li>
-                </ul>
-                <a class="signin">Sign In</a>
+?>
+
+<header class="container">
+    <nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
+        <div class="container-fluid">
+            <img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" />
+            <div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse nav_wrapper navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Lunsjmeny</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">This is how it works</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Meeting Food</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                        </li>
+                    </ul>
+                    <a href="signin" class="signin">Sign In</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </header>
 
 <!-- login section  -->
