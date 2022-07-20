@@ -133,9 +133,6 @@
                 </div>
 
             </div>
-        </main>  <?php
-        endif;
-
-        ?>
+        </main>  <?php   endif;    ?>
 
     </header>
