@@ -38,7 +38,7 @@ $meta_boxes = array();
 $meta_boxes[] = array(
 	'id'		=> 'locationsinfo',
 	'title'		=> 'Location Info',
-	'pages'		=> array(  'page' ),
+	'pages'		=> array( ),
 	'fields'	=> array(
 	
 			array(
