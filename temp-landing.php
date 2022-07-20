@@ -10,7 +10,7 @@ get_header();
 <header class="container">
     <nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
         <div class="container-fluid">
-            <img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" />
+           <a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" /> </a>
             <div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -35,7 +35,7 @@ get_header();
                             <a class="nav-link active" aria-current="page" href="#">About Us</a>
                         </li>
                     </ul>
-                    <a href="signin" class="signin">Sign In</a>
+                    <a href="<?php echo home_url('login'); ?>" class="signin">Sign In</a>
                 </div>
             </div>
         </div>
@@ -58,8 +58,11 @@ get_header();
     </div>
 
 </div>
+
+
 <img src="<?php bloginfo('template_directory'); ?>/reources/images/leaf.png" class="position-absolute top-0 leaf" alt="">
-<img src="<?php bloginfo('template_directory'); ?>/reources/images/mobile.png" class="position-absolute mobile" alt="">
+        <img src="<?php bloginfo('template_directory'); ?>/reources/images/mobile.png" class="position-absolute mobile" alt="">
+        <img src="<?php bloginfo('template_directory'); ?>/reources/images/banner-boll.png" class="position-absolute boll" alt="">
 </main>
 
 
