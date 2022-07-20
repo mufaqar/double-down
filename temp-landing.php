@@ -49,7 +49,7 @@ get_header();
     <div class="d-flex justify-content-between align-content-center align-items-center row">
         <div class="col-md-6 hero_content">
             <h1>Lunch <span>Boxes</span> For <br> Service</h1>
-            <p class="mb-4">Smart job lunch with full flexibility and cost control...</p>
+            <p class="mb-4">Smart job lunch with full flexibility and cost control... 123</p>
             <a href="" class="btn_primary">The Sea</a>
         </div>
         <div class="col-md-6 hero_right">

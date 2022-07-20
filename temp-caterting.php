@@ -1,27 +1,14 @@
 <?php /* Template Name: Catering  */ 
-
-
-
 get_header();
 
-
 ?>
+ <main class="launch_calandar">
+                <?php include('navigation.php'); ?>              
 
-                <?php include('navigation.php'); ?>
-          
-            
-
-                    <!-- tabs -->
-
-                    <div class="tab_wrapper">
-                        <div class='toggle'>
-                            <div class='tabs'>
-                                <div class='tab'>Lunch calendar</div>
-                                <div class='tab'>Settings</div>
-                                <div class='tab'>Fast levering</div>
-                            </div>
+                        <div class="_info">
+                            <h2><?php the_title(); ?></h2>                           
                         </div>
-                    </div>
+                        <hr>
 
                     <div class="custom_container catering_wrapper mt-5 mb-5">
                         <div class="catering_menu">
