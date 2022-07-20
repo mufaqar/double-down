@@ -6,7 +6,7 @@ get_header();
 
 
 ?>
- <main class="launch_calandar ">
+ <main class="launch_calandar">
         <div class="row d-flex">
             <div class="" style="width: 230px;">
             <div class="sidebar p-0 align-items-start pt-5">
@@ -22,13 +22,13 @@ get_header();
                     <ul class="myProfileNav">
                         <li class="active"><a href="/caldendar">Business Overview</a></li>
                         <li class=""><a href="meeting">Meeting</a></li>
-                        <li class=""><a href="#">Lunsjmeny</a></li>
+                        <li class=""><a href="/catering">Catering</a></li>
                         <li class=""><a href="#">Blog</a></li>
                     </ul>
                     <ul class="companyProfileNav">
                         <li class="active"><a href="#">C Business Overview</a></li>
                         <li class=""><a href="#">Meeting</a></li>
-                        <li class=""><a href="#">Lunsjmeny</a></li>
+                        <li class=""><a href="/">Catering</a></li>
                         <li class=""><a href="#">Blog</a></li>
                     </ul>
                 </div>
@@ -58,7 +58,6 @@ get_header();
                     </div>
 
                     <!-- tabs -->
-
                     <div class="tab_wrapper">
                         <div class='toggle'>
                             <div class='tabs'>

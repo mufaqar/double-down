@@ -5,23 +5,17 @@ get_header(); ?>
 
 
 
-
-<?php include('navigation.php'); ?>
-
-
-
-
-            <div class="tab_wrapper">
-                <div class='toggle'>
-                    <div class='tabs'>
-                        <div class='tab'>Lunch calendar</div>
-                        <div class='tab'>Settings</div>
-                        <div class='tab'>Fast levering</div>
+<main class="launch_calandar">
+    <?php include('navigation.php'); ?>
+                <div class="tab_wrapper">
+                    <div class='toggle'>
+                        <div class='tabs'>
+                            <div class='tab'>Lunch calendar</div>
+                            <div class='tab'>Settings</div>
+                            <div class='tab'>Fast levering</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-
         <div class='blogs_wrapper mt-4'>
             <div class='blogs'>
                 <h2><?php the_title()?></h2>
@@ -31,21 +25,19 @@ get_header(); ?>
                         'posts_per_page' => -1,
                         'paged' => $paged
                         ));   ?>
-                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                                <div <?php post_class() ?> id="post-<?php the_ID(); ?>"> 
-                                    <div class="blog_wrapper col-md-6 col-lg-4 col-xl-3">
+                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>                              
+                                    <div class="blog_wrapper col-md-6 col-lg-4 col-xl-3" id="post-<?php the_ID(); ?>">
                                             <div class="blog p-2 bg-body">                       
-                                                <?php if ( has_post_thumbnail() ) { ?>
-                                                <div class="post-image">
-                                                <a href="<?php the_permalink() ?>">    <?php the_post_thumbnail(); ?></a>
-                                                </div>
+                                            <?php if ( has_post_thumbnail() ) {
+                                                the_post_thumbnail('services-small-thumbnail');
+                                            } else { ?>
+                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/blog_img.png" alt="Featured Thumbnail" class="feature_img w-100" />
                                                 <?php } ?>
                                                 <h3 class="heading mt-2"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
                                                 <p class="short_info"> <?php  echo strip_shortcodes(wp_trim_words( get_the_content(), 400 )); ?></p>
                                                 <h6 class="author mt-2">Written by Maria Mørseth</h6>
                                             </div>
-                                    </div>                      
-                                </div>
+                                    </div>   
                         <?php endwhile; ?>        
                     <?php else : ?>
                         <p class="noposts"><?php _e('To add Blog Posts, go to Admin Panel > Posts > Add New','author_ts'); ?></p>

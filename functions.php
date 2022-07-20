@@ -107,6 +107,6 @@ function add_first_and_last($items) {
 add_filter('wp_nav_menu_objects', 'add_first_and_last');
 
 // Theme Options
-include_once('admin/index.php');
+//include_once('admin/index.php');
 //Metabox
-include_once('metaboxes.php');
+//include_once('metaboxes.php');

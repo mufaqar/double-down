@@ -1,5 +1,5 @@
            
-    <main class="launch_calandar">
+  
         <div class="row d-flex">
             <div class="" style="width: 230px;">
            
@@ -16,18 +16,18 @@
                             <li class="active"><a>Business Overview</a></li>
                             <li class=""><a>Meeting</a></li>
                             <li class=""><a>Lunsjmeny</a></li>
-                            <li class=""><a>Blog</a></li>
+                            <li class=""><a href="<?php echo home_url('blog'); ?>">Blog</a></li>
                         </ul>
                         <ul class="companyProfileNav">
                             <li class=""><a>C Business Overview</a></li>
                             <li class=""><a>Meeting</a></li>
                             <li class=""><a>Lunsjmeny</a></li>
                             <li class="active"><a>Catering</a></li>
-                            <li class=""><a>Blog</a></li>
+                            <li class=""><a href="<?php echo home_url('blog'); ?>">Blog</a></li>
                         </ul>
                     </div>
-                    <div class="logout">
-                        <img src="<?php bloginfo('template_directory'); ?>/reources//images/logout.png" alt=""><span>Log Out</span>
+                    <div class="logout">                       	
+                    <a href="<?php echo wp_logout_url( home_url() ); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources//images/logout.png" alt=""><span>Log Out</span></a>
                     </div>
                     <img src="<?php bloginfo('template_directory'); ?>/reources/images/cancel.png" class="hide_nav" alt="" onclick="HideNav()">
             </div>
