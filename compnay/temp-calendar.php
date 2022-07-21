@@ -1,8 +1,17 @@
-<?php /* Template Name: Caleddar  */ 
+<?php /* Template Name: Profile ( Company )  */ 
 get_header();
 ?>
+ <?php include('navigation.php'); ?>
 
-<?php include('navigation.php'); ?>
+                    <!-- tabs -->
+
+                    <div class="tab_wrapper">
+                        <div class='toggle'>
+                            <div class='tabs'>
+                                <div class='tab active'>Lunch calendar</div>
+                                <div class='tab'>Settings</div>
+                                <div class='tab'>Fast levering</div>
+                            </div>
                             <div class='panels'>
                                 <div class='panel launchClander'>
                                     <h2>Business lunch calendar</h2>
@@ -70,30 +79,30 @@ get_header();
                                                             </div>
                                                             <div class="food_card_wrapper row">
                                                                 <div class="food_card col-lg-3 col-md-6 ">
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images//food1.png" alt="">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images//food1.png" alt="">
                                                                     <h4 class="mt-2">Bread Slice or Roll</h4>
                                                                     <p>Nok 15</p>
                                                                 </div>
                                                                 <div class="food_card col-lg-3 col-md-6">
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images//food2.png" alt="">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images//food2.png" alt="">
                                                                     <h4 class="mt-2">Today’s Juice</h4>
                                                                     <p>Nok 22</p>
                                                                 </div>
                                                                 <div class="food_card col-lg-3 col-md-6">
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images//food3.png" alt="">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images//food3.png" alt="">
                                                                     <h4 class="mt-2">Today’s Juice</h4>
                                                                     <p>Nok 25</p>
                                                                 </div>
                                                                 <div class="food_card col-lg-3 col-md-6">
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images//food4.png" alt="">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images//food4.png" alt="">
                                                                     <h4 class="mt-2">Bread Slice or Roll</h4>
                                                                     <p>Nok 15</p>
                                                                 </div>
                                                             </div>
                                                             <div
                                                                 class="accordion_btns d-flex justify-content-end mb-5 mr-3">
-                                                                <a class="btn_primary btn_sec" href="">Add
-                                                                    allergy-friendly</a>
+                                                                <a class="btn_primary btn_sec" href="">Choose Location</a>
+                                                                <a class="btn_primary btn_sec" href="">Add allergy-friendly</a>
                                                                 <a class="btn_primary" href="">Save</a>
                                                             </div>
                                                         </div>
@@ -281,18 +290,18 @@ get_header();
                                     <div class="product_wrapper row mb-4">
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id1"
                                                     onclick="showCounter(1)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid1">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -300,18 +309,18 @@ get_header();
                                         <!-- 2nd  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id2"
                                                     onclick="showCounter(2)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid2">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -319,18 +328,18 @@ get_header();
                                         <!-- 3rd  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id3"
                                                     onclick="showCounter(3)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -340,7 +349,7 @@ get_header();
                                     <div class="d-flex justify-content-between mt-5 mb-4 accessories">
                                         <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
                                         <a href="" class="btn_primary d-flex align-items-center">
-                                            <img src="<?php bloginfo('template_directory'); ?>/reources/images/positive.png" alt="">
+                                            <img src="./reources/images//positive.png" alt="">
                                             <p>Allergy Pass</p>
                                         </a>
                                     </div>
@@ -348,18 +357,18 @@ get_header();
                                     <div class="product_wrapper row mb-4">
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id1"
                                                     onclick="showCounter(1)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid1">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -367,18 +376,18 @@ get_header();
                                         <!-- 2nd  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id2"
                                                     onclick="showCounter(2)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid2">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -386,18 +395,18 @@ get_header();
                                         <!-- 3rd  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id3"
                                                     onclick="showCounter(3)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -405,18 +414,18 @@ get_header();
                                         <!-- 4th  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id3"
                                                     onclick="showCounter(3)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -424,18 +433,18 @@ get_header();
                                         <!-- 5th  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id3"
                                                     onclick="showCounter(3)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
@@ -443,18 +452,18 @@ get_header();
                                         <!-- 6th  -->
                                         <div class="col-md-6 col-lg-4 mt-4">
                                             <div class="product_card p-4">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/product1.png" alt="">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                 <h2>Bread Lunch 91, - </h2>
                                                 <button href="" class="btn_primary  select_product_btn id3"
                                                     onclick="showCounter(3)">Select</button>
 
                                                 <div
                                                     class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/neg.png"
+                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                             alt=""></i>
                                                     <input type="text" value="1"
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus.png"
+                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
                                             </div>
