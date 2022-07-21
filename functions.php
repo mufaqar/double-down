@@ -68,6 +68,7 @@ function pagination($pages = '', $range = 4)
 if (function_exists('register_nav_menus')) {
 register_nav_menus( array(
 		'main' => __( 'Main Menu', '' ),
+        'landing' => __( 'Landing Menu', '' ),
 		'footer' => __( 'Footer Menu', '' ),
 	) );
 }

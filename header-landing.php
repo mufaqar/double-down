@@ -52,23 +52,28 @@
 								<span class="navbar-toggler-icon"></span>
 							</button>
 							<div class="collapse nav_wrapper navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">Lunsjmeny</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">This is how it works</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">Meeting Food</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">Blog</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link active" aria-current="page" href="#">About Us</a>
-									</li>
-								</ul>
+								
+								<?php 
+								
+
+								  wp_nav_menu( array(
+									'theme_location'  => 'landing',
+									'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+									'container'       => false,									
+									'menu_class'      => 'navbar-nav me-auto mb-2 mb-lg-0',
+									'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+									'walker'          => new WP_Bootstrap_Navwalker(),
+								) );
+
+
+
+
+								?>
+
+
+
+
+
 								<a href="<?php echo is_user_logged_in() ? home_url('profile') : home_url('login') ;  ?>" class="signin"><?php echo is_user_logged_in() ? 'My Profile' : 'Sign In'; ?></a>
 							</div>
 						</div>
