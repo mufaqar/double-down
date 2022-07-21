@@ -69,7 +69,8 @@ if (function_exists('register_nav_menus')) {
 register_nav_menus( array(
 		'main' => __( 'Main Menu', '' ),
         'landing' => __( 'Landing Menu', '' ),
-		'footer' => __( 'Footer Menu', '' ),
+		'profile' => __( 'Profile Menu', '' ),
+        'company' => __( 'Company Menu', '' )
 	) );
 }
 
