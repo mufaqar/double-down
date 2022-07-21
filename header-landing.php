@@ -37,6 +37,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/reources/images/logo.png">
 	
 </head>
 <body <?php body_class(); ?> >
