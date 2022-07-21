@@ -11,19 +11,25 @@
                         <button href="" class="companyProfile" onclick="companyProfile()">Company<br> Profile</button>
                     </div>
                     <div>
-                        <ul class="myProfileNav">
-                            <li class="active"><a>Business Overview</a></li>
-                            <li class=""><a>Meeting</a></li>
-                            <li class=""><a>Lunsjmeny</a></li>
-                            <li class=""><a href="<?php echo home_url('blog'); ?>">Blog</a></li>
-                        </ul>
-                        <ul class="companyProfileNav">
-                            <li class=""><a>C Business Overview</a></li>
-                            <li class=""><a>Meeting</a></li>
-                            <li class=""><a>Lunsjmeny</a></li>
-                            <li class="active"><a>Catering</a></li>
-                            <li class=""><a href="<?php echo home_url('blog'); ?>">Blog</a></li>
-                        </ul>
+                        
+                        <?php 	
+								  wp_nav_menu ( array(
+                                    'container'       => false,	
+									'theme_location'  => 'profile',	
+									'menu_class'      => 'myProfileNav'
+								) );
+								?>
+
+                       
+                            
+                        <?php 	
+								  wp_nav_menu ( array(
+									'theme_location'  => 'company',								
+									'container'       => false,									
+									'menu_class'      => 'companyProfileNav'
+								) );
+								?>
+
                     </div>
                     <div class="logout">                       	
                     <a href="<?php echo wp_logout_url( home_url() ); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources//images/logout.png" alt=""><span>Log Out</span></a>
