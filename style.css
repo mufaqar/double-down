@@ -998,7 +998,7 @@ input[type='checkbox']:checked:disabled + label:before {
 /* HOME SECTION  */
 
 .main {
-  height: 850px;
+  height: 750px;
   background: rgb(239, 243, 243);
   /* background: linear-gradient(0deg, rgba(239,243,243,1) 35%, rgba(255,255,255,1) 100%); */
   background: url('./reources/images/main-banner.png');
@@ -1024,12 +1024,12 @@ input[type='checkbox']:checked:disabled + label:before {
 .main img.mobile {
   left: 50%;
   top: 56%;
-  transform: translate(-50%, -50%);
+  transform: translate(-46%, -50%) rotate(-8deg);
   z-index: 1;
 }
 
 .main .hero_content {
-  padding-top: 17rem !important;
+  padding-top: 14rem !important;
 }
 
 .main .hero_content a {
@@ -1052,6 +1052,8 @@ input[type='checkbox']:checked:disabled + label:before {
   line-height: 30px;
   color: #555555;
   max-width: 350px;
+  margin-top: -36px !important;
+  padding-bottom: 1.5rem;
 }
 
 section.landing_contents h1 {
