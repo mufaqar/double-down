@@ -1,5 +1,6 @@
 <?php
 include_once('login.php');
+include_once('register.php');
 
 include_once('class-wp-bootstrap-navwalker.php');
 

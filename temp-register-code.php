@@ -71,22 +71,18 @@ exit();
 		
 		
 	$("#addEducation").submit(function(e) { 
-	
-
-
         e.preventDefault();
         var username = jQuery('#username').val();
-		var email = jQuery('#email').val();
+	    	var email = jQuery('#email').val();
         var password = jQuery('#password').val();	
-
         jQuery.ajax({
           type:"POST",
           url:"<?php echo admin_url('admin-ajax.php'); ?>",
           data: {
             action: "usersignup",
             username : username,
-			email : email,
-			password : password
+		        email : email,
+			      password : password
           },
           success: function(response){
             console.log(response);
@@ -103,7 +99,7 @@ exit();
         });
       });
 	  
-	  jQuery("#updateForm").submit(function(e) {});
+	 
 		   
 	
 	});

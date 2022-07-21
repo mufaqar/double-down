@@ -10,7 +10,7 @@ get_header();
     class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
     <img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" />
 
-    <form>
+    <form class="addprofile" id="addProfile" action="#" > 
         <div class="first_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
             <img src="<?php echo get_template_directory_uri(); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow" />
             <h2 class="mt-5">Your Information</h2>
@@ -22,23 +22,20 @@ get_header();
             <div class="mt-5 w-500">
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Referral Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Hasnain Ali" />
+                    <input type="text" class="form-control" id="referral" aria-describedby="emailHelp" placeholder="Hasnain Ali" />
                 </div>
                 <div class="form-group  mt-3">
                     <label for="exampleInputEmail1">Full Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
                         placeholder="" />
                 </div>
                 <div class="form-group  mt-3">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="" />
+                    <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder=""  required  />
                 </div>
                 <div class="form-group  mt-3 mb-5">
                     <label for="exampleInputEmail1">Phone</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="" />
+                    <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder=""  />
                 </div>
 
                 <div class="tou mt-5">
@@ -67,7 +64,7 @@ get_header();
 
                 </div>
 
-                <a type="next" class="btn_primary d-block next" onclick="lastStep()">Complete</a>
+                <button type="next" class="btn_primary d-block next" >Complete</button>
             </div>
         </div>
 
@@ -102,6 +99,49 @@ get_header();
 
 
     <?php get_footer();?>
+    <script type="text/javascript">
+   
+   jQuery(document).ready(function($) {
+
+  
+		
+		
+	$("#addProfile").submit(function(e) {     
+        e.preventDefault();
+        var username = jQuery('#username').val();
+	    var email = jQuery('#email').val();
+        var referral = jQuery('#referral').val();	
+        var phone = jQuery('#phone').val();	
+        jQuery.ajax({
+          type:"POST",
+          url:"<?php echo admin_url('admin-ajax.php'); ?>",
+          data: {
+            action: "usersignup",
+            username : username,
+		        email : email,
+			      password : password
+          },
+          success: function(response){
+            console.log(response);
+			  $('.error').html(response);
+			//  alert(response); 
+			  // setInterval('location.reload()', 1000);
+			  
+       
+          },
+          error: function(results) {
+			   jQuery('.register-message').text(fail).show();
+
+          }
+        });
+      });
+	  
+	 
+		   
+	
+	});
+
+	</script>
 
 
 
