@@ -2,7 +2,7 @@
 get_header();
 
 ?>
- <?php include('./compnay/navigation.php'); ?>         
+ <?php include get_theme_file_path('/compnay/navigation.php'); ?>         
 
                         <div class="_info">
                             <h2><?php the_title(); ?></h2>                           
