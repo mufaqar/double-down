@@ -1,16 +1,9 @@
 <?php /* Template Name: Landing  */ 
 
 
-
 get_header('landing');
-
-
 ?>
-
-
-
 <!-- login section  -->
-
 <main class="main position-relative">
 <div class="container ml-auto">
     <div class="d-flex justify-content-between align-content-center align-items-center row">
@@ -27,7 +20,7 @@ get_header('landing');
 </div>
 
 
-<img src="<?php bloginfo('template_directory'); ?>/reources/images/leaf.png" class="position-absolute top-0 leaf" alt="">
+        <img src="<?php bloginfo('template_directory'); ?>/reources/images/leaf.png" class="position-absolute top-0 leaf" alt="">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/mobile.png" class="position-absolute mobile" alt="">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/banner-boll.png" class="position-absolute boll" alt="">
 </main>
