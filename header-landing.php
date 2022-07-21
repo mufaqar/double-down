@@ -44,7 +44,7 @@
 	<header class="container">
 				<nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
 					<div class="container-fluid">
-						<img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" />
+					    <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" alt="Logo" /> </a>
 						<div>
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 								data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -52,10 +52,7 @@
 								<span class="navbar-toggler-icon"></span>
 							</button>
 							<div class="collapse nav_wrapper navbar-collapse" id="navbarSupportedContent">
-								
-								<?php 
-								
-
+								<?php 	
 								  wp_nav_menu( array(
 									'theme_location'  => 'landing',
 									'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
@@ -64,16 +61,7 @@
 									'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
 									'walker'          => new WP_Bootstrap_Navwalker(),
 								) );
-
-
-
-
 								?>
-
-
-
-
-
 								<a href="<?php echo is_user_logged_in() ? home_url('profile') : home_url('login') ;  ?>" class="signin"><?php echo is_user_logged_in() ? 'My Profile' : 'Sign In'; ?></a>
 							</div>
 						</div>
