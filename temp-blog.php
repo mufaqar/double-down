@@ -2,7 +2,7 @@
  /*  Template Name:  Blog  */
 
 get_header(); ?>
-    <?php include('navigation.php'); ?>
+  <?php include get_theme_file_path('/compnay/navigation.php'); ?>    
                 <div class="tab_wrapper">
                     <div class='toggle'>
                         <div class='tabs'>
