@@ -95,14 +95,12 @@ if ( is_user_logged_in() ) {
   
 
 <?php get_footer('landing'); ?>
-
-
 <script type="text/javascript">   
    jQuery(document).ready(function($) {    
         $("#loginform").submit(function(e) {          
             e.preventDefault();
             var username = jQuery('#username').val();
-            var password = jQuery('#password').val();
+            var password = jQuery('#password').val();       
             jQuery.ajax({
             type:"POST",
             url:"<?php echo admin_url('admin-ajax.php'); ?>",
@@ -112,7 +110,7 @@ if ( is_user_logged_in() ) {
                 password : password
             },
             success: function(response){
-                alert(response);
+                window.location.href = "<?php echo home_url(); ?>";
             },
             error: function(results) {
                 alert("Error");
@@ -121,7 +119,6 @@ if ( is_user_logged_in() ) {
         });
 	
 	});
-
 	</script>
 
 
