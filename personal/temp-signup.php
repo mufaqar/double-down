@@ -10,7 +10,7 @@ get_header();
     class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
     <img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" />
 
-    <form class="addprofile" id="addProfile" action="#" > 
+    <form class="addprofile" id="profileform" action="#" > 
         <div class="first_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
             <img src="<?php echo get_template_directory_uri(); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow" />
             <h2 class="mt-5">Your Information</h2>
@@ -106,7 +106,8 @@ get_header();
   
 		
 		
-	$("#addProfile").submit(function(e) {     
+	$("#profileform").submit(function(e) {   
+        alert("Submit");  
         e.preventDefault();
         var username = jQuery('#username').val();
 	    var email = jQuery('#email').val();
