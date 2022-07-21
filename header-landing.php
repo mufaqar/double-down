@@ -68,7 +68,7 @@
 										<a class="nav-link active" aria-current="page" href="#">About Us</a>
 									</li>
 								</ul>
-								<a href="<?php echo is_user_logged_in() ? home_url('profile') : home_url('login') ;  ?>" class="signin"><?php echo is_user_logged_in() ? 'Profile' : 'Sign In'; ?></a>
+								<a href="<?php echo is_user_logged_in() ? home_url('profile') : home_url('login') ;  ?>" class="signin"><?php echo is_user_logged_in() ? 'My Profile' : 'Sign In'; ?></a>
 							</div>
 						</div>
 					</div>

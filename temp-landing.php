@@ -18,8 +18,6 @@ get_header('landing');
     </div>
 
 </div>
-
-
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/leaf.png" class="position-absolute top-0 leaf" alt="">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/mobile.png" class="position-absolute mobile" alt="">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/banner-boll.png" class="position-absolute boll" alt="">
