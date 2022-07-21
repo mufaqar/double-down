@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<?php include('../navigation.php'); ?>
+<?php include('navigation.php'); ?>
                             <div class='panels'>
                                 <div class='panel launchClander'>
                                     <h2>Business lunch calendar</h2>
