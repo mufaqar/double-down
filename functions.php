@@ -113,4 +113,11 @@ add_filter('wp_nav_menu_objects', 'add_first_and_last');
 include_once('inc/login.php');
 
 //add_role( 'company', 'Company', array( 'read' => true, 'level_0' => true ) );
-add_role( 'personal', 'Personal', array( 'read' => true, 'level_0' => true ) );
+//add_role( 'personal', 'Personal', array( 'read' => true, 'level_0' => true ) );
+
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
+  }
+}
