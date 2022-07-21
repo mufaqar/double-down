@@ -2,8 +2,7 @@
 get_header();
 
 ?>
- <main class="launch_calandar">
-                <?php include('navigation.php'); ?>              
+ <?php include('navigation.php'); ?>         
 
                         <div class="_info">
                             <h2><?php the_title(); ?></h2>                           

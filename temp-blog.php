@@ -2,10 +2,6 @@
  /*  Template Name:  Blog  */
 
 get_header(); ?>
-
-
-
-<main class="launch_calandar">
     <?php include('navigation.php'); ?>
                 <div class="tab_wrapper">
                     <div class='toggle'>
