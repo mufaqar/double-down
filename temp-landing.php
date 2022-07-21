@@ -10,7 +10,7 @@ get_header('landing');
         <div class="col-md-6 hero_content">
             <h1>Lunch <span>Boxes</span> For <br> Service</h1>
             <p class="mb-4">Smart job lunch with full flexibility and cost control...</p>
-            <a href="" class="btn_primary">The Sea</a>
+            <a href="<?php echo home_url('sign-up'); ?>" class="btn_primary">The Sea</a>
         </div>
         <div class="col-md-6 hero_right">
             <!-- <img src="<?php bloginfo('template_directory'); ?>/reources/images/right_banner.png" alt="" class="w-100"> -->
