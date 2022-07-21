@@ -3097,3 +3097,9 @@ body {
     top: -12.5rem;
   }
 }
+
+/* Code By Mufaqar */
+
+body.page-template-temp-landing {
+  background: #fff;
+}
