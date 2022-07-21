@@ -72,12 +72,12 @@ if ( is_user_logged_in() ) {
                     <div class="form-group">
                         <label for="username">Email</label>
                         <input type="email" class="form-control border-0 border-bottom rounded-0"
-                            id="username" aria-describedby="emailHelp" placeholder="abc@example.com" value="mufaqar@gmail.com">                  
+                            id="username" aria-describedby="emailHelp" placeholder="abc@example.com" value="mufaqar@gmail.com" required>                  
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" class="form-control border-0 border-bottom rounded-0"
-                            id="password" placeholder="Input your password">
+                            id="password" placeholder="Input your password" required>
                     </div>
                     <div class="d-flex justify-content-between align-items-center " style="margin-top: 3rem !important;">
                         <span>Don't remember your <a>password?</a></span>
@@ -94,8 +94,7 @@ if ( is_user_logged_in() ) {
 
   
 
-<?php
-get_footer('landing'); ?>
+<?php get_footer('landing'); ?>
 
 
 <script type="text/javascript">   
