@@ -3,9 +3,7 @@ get_header();
 ?>
 
 <?php include('navigation.php'); ?>
-
                     <!-- tabs -->
-
                     <div class="tab_wrapper">
                         <div class='toggle'>
                             <div class='tabs'>
@@ -15,8 +13,6 @@ get_header();
                             </div>
                         </div>
                     </div>
-
-
                     <div class="custom_container c2">
                         <div class="row">
                             <div class="catering_wrapper c2 mt-5 mb-5">
