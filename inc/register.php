@@ -39,9 +39,17 @@ function usersignup() {
 	 $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {
 		    $to = $username;
+			$admin = 'hei@doubledowndish.no;';
 			$subject = 'Username & Password';
 			$body = "<p> Username $username </p> <p> Password : $password  </p>";
-			$headers = array('Content-Type: text/html; charset=UTF-8');		
+			$headers = array('Content-Type: text/html; charset=UTF-8');	
+			$headers  = "From: " . $admin . "\r\n";
+			$headers .= "Reply-To: " . $username . "\r\n";		
+			$headers .= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+
+
 			mail( $to, $subject, $body, $headers );
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
