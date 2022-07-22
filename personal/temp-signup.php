@@ -1,11 +1,12 @@
 <?php /* Template Name: Signup ( Profile ) */ 
 
+get_header('company');
 
 
-get_header();
+?>  
 
 
-?>  <main class="business_agreement">
+<main class="business_agreement">
 <div
     class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
     <img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" />
@@ -67,12 +68,12 @@ get_header();
                 <button type="next" class="btn_primary d-block next" >Complete</button>
             </div>
         </div>
+        </form>
 
         <!-- finish step  -->
-
-        <div class="finish_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
-            <!-- <img src="./reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow"
-                onclick="backToStepThree()"> -->
+        <div id="last_step">
+        <div class="finish_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center" >
+           
             <div class="content mt-5">
                 <div class="right">
                     <img src="./reources/images/img 3.png" alt="" />
@@ -87,10 +88,11 @@ get_header();
                 <h3 class="employees_receive">
                     Employees receive it at the end of each week
                 </h3>
-                <a href="" class="btn_primary mb-5">Go to the front</a>
+                <a href="<?php echo home_url(); ?>" class="btn_primary mb-5">Go to the front</a>
             </div>
         </div>
-    </form>
+        </div>
+   
 </div>
 </main>
 
@@ -98,40 +100,36 @@ get_header();
 
 
 
-    <?php get_footer();?>
+    <?php get_footer('company');?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
    
-   jQuery(document).ready(function($) {
-
-  
+   jQuery(document).ready(function($) {		
 		
-		
-	$("#profileform").submit(function(e) {   
-        alert("Submit");  
+	$("#profileform").submit(function(e) { 
         e.preventDefault();
         var username = jQuery('#username').val();
-	    var email = jQuery('#email').val();
+	    var name = jQuery('#name').val();
         var referral = jQuery('#referral').val();	
         var phone = jQuery('#phone').val();	
-        jQuery.ajax({
+        $.ajax({
           type:"POST",
           url:"<?php echo admin_url('admin-ajax.php'); ?>",
           data: {
             action: "usersignup",
             username : username,
-		        email : email,
-			      password : password
+		    name : name,
+            referral : phone,
+            phone : phone
           },
-          success: function(response){
-            console.log(response);
-			  $('.error').html(response);
-			//  alert(response); 
-			  // setInterval('location.reload()', 1000);
-			  
-       
-          },
+          success: function(response){  
+            alert("Sucess");  
+            $(".addprofile").css("display", "none");
+            $("#last_step").css("display", "block");
+         },
           error: function(results) {
-			   jQuery('.register-message').text(fail).show();
+
+            alert(results); 
 
           }
         });
