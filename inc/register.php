@@ -84,7 +84,10 @@ function companysignup() {
 		$company_address = $_POST['company_address'];	
 		$oranch_as = $_POST['oranch_as'];	
 		$lunch_benefit = $_POST['lunch_benefit'];
-		$lunch_benfit_type = $_POST['lunch_benfit_type'];	
+		$lunch_benfit_type = $_POST['lunch_benfit_type'];
+		$start_date = $_POST['start_date'];
+		
+		
 		$invite_user1 = $_POST['invite_user1'];	
 		$invite_user2 = $_POST['invite_user2'];	
 		$invite_user3 = $_POST['invite_user3'];	
@@ -110,7 +113,7 @@ function companysignup() {
 		'user_email' => $email,
 		'user_pass' => $password,	
 		'display_name' => $compnay_name,
-		'role' => 'Company'
+		'role' => 'company'
 		);
 	    $user_id = wp_insert_user($user_data);
 		
@@ -121,20 +124,46 @@ function companysignup() {
 			update_user_meta( $user_id, '_lunch_benefit', $lunch_benefit);
 			update_user_meta( $user_id, '_lunch_benfit_type', $lunch_benfit_type);
 			update_user_meta( $user_id, '_oranch_as', $oranch_as);
+			update_user_meta( $user_id, '_start_date', $start_date);
 
-			update_user_meta( $user_id, '_start_date', '01 March 2022');
-
-
+			// User Inviated 
 			if($invite_user1 != '') {
 				$invited_user_data = array(
 					'user_login' => $invite_user1,
 					'user_email' => $invite_user1,
-					'user_pass' => $password,	
-					'display_name' => $name,
+					'user_pass' => $password,
 					'role' => 'personal'
 					);
 	
-				$user_id = wp_insert_user($invited_user_data);
+				$c_user_id = wp_insert_user($invited_user_data);
+				update_user_meta( $c_user_id, '_afflite', $username);
+	
+			}
+			// User Inviated 
+			if($invite_user2 != '') {
+				$invited_user2_data = array(
+					'user_login' => $invite_user2,
+					'user_email' => $invite_user2,
+					'user_pass' => $password,
+					'role' => 'personal'
+					);
+	
+				$c_user2_id = wp_insert_user($invited_user2_data);
+				update_user_meta( $c_user2_id, '_afflite', $username);
+	
+			}
+
+			// User Inviated 
+			if($invite_user3 != '') {
+				$invite_user3_data = array(
+					'user_login' => $invite_user3,
+					'user_email' => $invite_user3,
+					'user_pass' => $password,
+					'role' => 'personal'
+					);
+	
+				$c_user3_id = wp_insert_user($invite_user3_data);
+				update_user_meta( $c_user3_id, '_afflite', $username);
 	
 			}
 
@@ -151,9 +180,6 @@ function companysignup() {
 			$headers .= "Reply-To: " . $username . "\r\n";		
 			$headers .= "MIME-Version: 1.0\r\n";
 			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-
-
 			mail( $to, $subject, $body, $headers );
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 

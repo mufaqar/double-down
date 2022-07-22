@@ -60,7 +60,7 @@ get_header();
                         earlier than the specific date</p>
 
                     <div class="form-group w-100 mt-3 mb-5">
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input type="text" class="form-control" id="start_date" aria-describedby="emailHelp"
                             placeholder="20.05.2022">
                         <p class="invite">Invite more people from work to the company agreement</p>
                         <h6>It’s easy to add more employees Later too</h6>
@@ -179,6 +179,8 @@ get_header();
             var phone = jQuery('#phone').val();	             
             var compnay_name = jQuery('#compnay_name').val();	 
             var company_address = jQuery('#company_address').val();	 
+            var start_date = jQuery('#start_date').val();	 
+            
             var oranch_as = jQuery('#oranch_as').val();	 
             var lunch_benefit = jQuery('#lunch_benefit').val();	 
             var lunch_benfit_type = jQuery('#lunch_benfit_type').val();	 
@@ -202,6 +204,8 @@ get_header();
                         invite_user1 : invite_user1,
                         invite_user2 : invite_user2,
                         invite_user3 : invite_user3,
+                        start_date : start_date
+                        
 
                     },   
                     success: function(data){ 
