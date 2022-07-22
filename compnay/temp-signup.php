@@ -100,17 +100,17 @@ get_header();
                     <div class="form-group w-100">
                         <label for="exampleInputEmail1">Full Name</label>
                         <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                            placeholder="" value="Ali">
+                            placeholder="" value="" required >
                     </div>
                     <div class="form-group w-100 mt-3">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
-                            placeholder="" value="ali@gmail.com">
+                            placeholder="email@sitename.com" value="" required>
                     </div>
                     <div class="form-group w-100 mt-3">
                         <label for="exampleInputEmail1">Phone</label>
                         <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"
-                            placeholder="" value="123456">
+                            placeholder="" value="">
                     </div>
 
                     <div class="pinfo mt-5">

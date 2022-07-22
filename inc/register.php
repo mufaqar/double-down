@@ -100,6 +100,8 @@ function companysignup() {
 		}
 
 		$password = generateRandomString();
+
+		
 	
 
 	
@@ -122,6 +124,24 @@ function companysignup() {
 
 			update_user_meta( $user_id, '_start_date', '01 March 2022');
 
+
+			if($invite_user1 != '') {
+				$invited_user_data = array(
+					'user_login' => $invite_user1,
+					'user_email' => $invite_user1,
+					'user_pass' => $password,	
+					'display_name' => $name,
+					'role' => 'personal'
+					);
+	
+				$user_id = wp_insert_user($invited_user_data);
+	
+			}
+
+
+
+
+
 		    $to = $username;
 			$admin = 'hei@doubledowndish.no';
 			$subject = 'Double Down Dish | Username & Password';
@@ -134,15 +154,13 @@ function companysignup() {
 
 
 
-			//mail( $to, $subject, $body, $headers );
+			mail( $to, $subject, $body, $headers );
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
 	  	} else {
-	    	if (isset($user_id->errors['empty_user_login'])) {
-	          
+	    	if (isset($user_id->errors['empty_user_login'])) {	          
 			  echo wp_send_json( array('code' => 0 , 'message'=>__('User Name and Email are mandatory')));
 	      	} elseif (isset($user_id->errors['existing_user_login'])) {
-	         // echo 'User name already exixts.';
 			  echo wp_send_json( array('code' => 0 , 'message'=>__('This email address is already registered.')));
 	      	} else {	         
 			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up the sign up form carefully.')));
