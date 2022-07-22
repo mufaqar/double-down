@@ -29,7 +29,7 @@ get_header('company');
             <div class="mt-5 w-500">
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Referral Name</label>
-                    <input type="text" class="form-control" id="referral" aria-describedby="emailHelp" placeholder="Hasnain Ali" value="Hassan" />
+                    <input type="text" class="form-control" id="referral" aria-describedby="emailHelp" placeholder="Matt" value="" />
                 </div>
                 <div class="form-group  mt-3">
                     <label for="exampleInputEmail1">Full Name</label>
@@ -38,11 +38,11 @@ get_header('company');
                 </div>
                 <div class="form-group  mt-3">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="info@website.com" value="user1@gmail.com"  required  />
+                    <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="info@website.com" value=""  required  />
                 </div>
                 <div class="form-group  mt-3 mb-5">
                     <label for="exampleInputEmail1">Phone</label>
-                    <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="001 123 456 789" value="03026006280"   />
+                    <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="001 123 456 789" value=""   />
                 </div>
 
                 <div class="tou mt-5">
