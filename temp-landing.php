@@ -35,7 +35,7 @@ get_header('landing');
     <div class="col-md-3">
         <div class="head d-flex">
             <div class="icon_wrapper">
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/Register.png" alt="">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/Register.png" alt="Register" >
             </div>
             <div>
                 <h3>1. Register</h3>
