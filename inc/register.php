@@ -25,13 +25,12 @@ function usersignup() {
 		);
 	 $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {
-				      
-		    echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 		    $to = $username;
 			$subject = 'Username & Password';
 			$body = "Username $username <br/> Password : $password";
 			$headers = array('Content-Type: text/html; charset=UTF-8');		
 			wp_mail( $to, $subject, $body, $headers );
+			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
 	  	} else {
 	    	if (isset($user_id->errors['empty_user_login'])) {
