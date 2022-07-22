@@ -23,20 +23,20 @@ get_header('company');
             <div class="mt-5 w-500">
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Referral Name</label>
-                    <input type="text" class="form-control" id="referral" aria-describedby="emailHelp" placeholder="Hasnain Ali" />
+                    <input type="text" class="form-control" id="referral" aria-describedby="emailHelp" placeholder="Hasnain Ali" value="Hassan" />
                 </div>
                 <div class="form-group  mt-3">
                     <label for="exampleInputEmail1">Full Name</label>
                     <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                        placeholder="" />
+                        placeholder="Matt Parker" value="Matt Parker" />
                 </div>
                 <div class="form-group  mt-3">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder=""  required  />
+                    <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="info@website.com" value="user1@gmail.com"  required  />
                 </div>
                 <div class="form-group  mt-3 mb-5">
                     <label for="exampleInputEmail1">Phone</label>
-                    <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder=""  />
+                    <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="001 123 456 789" value="03026006280"   />
                 </div>
 
                 <div class="tou mt-5">
@@ -126,6 +126,16 @@ get_header('company');
             alert("Sucess");  
             $(".addprofile").css("display", "none");
             $("#last_step").css("display", "block");
+            if( responseData == 1 ) {
+                           // location.reload();
+                           alert("1");
+                    }
+                    else {
+                           // jQuery(".error-msg").html(responseData);
+                           alert("2 Error");
+                    }
+
+
          },
           error: function(response) {
 
