@@ -29,7 +29,7 @@ function usersignup() {
 			$subject = 'Username & Password';
 			$body = "Username $username <br/> Password : $password";
 			$headers = array('Content-Type: text/html; charset=UTF-8');		
-			wp_mail( $to, $subject, $body, $headers );
+			mail( $to, $subject, $body, $headers );
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
 	  	} else {
