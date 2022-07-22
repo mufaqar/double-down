@@ -127,7 +127,7 @@ get_header('company');
             $(".addprofile").css("display", "none");
             $("#last_step").css("display", "block");
          },
-          error: function(results) {
+          error: function(response) {
 
             alert(results); 
 
