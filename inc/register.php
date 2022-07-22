@@ -36,12 +36,13 @@ function usersignup() {
 		'display_name' => $name,
 		'role' => 'personal'
 		);
-	 $user_id = wp_insert_user($user_data);
+	    $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {
+
 		    $to = $username;
-			$admin = 'hei@doubledowndish.no;';
-			$subject = 'Username & Password';
-			$body = "<p> Username $username </p> <p> Password : $password  </p>";
+			$admin = 'hei@doubledowndish.no';
+			$subject = 'Double Down Dish | Username & Password';
+			$body  = "<p><strong> Username :  </strong> $username </p> <p> <strong> Password : </strong> $password  </p>";
 			$headers = array('Content-Type: text/html; charset=UTF-8');	
 			$headers  = "From: " . $admin . "\r\n";
 			$headers .= "Reply-To: " . $username . "\r\n";		
