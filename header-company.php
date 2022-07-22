@@ -34,8 +34,6 @@
 	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/reources/images/logo.png">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/reources/css/bootstrap.min.css" />	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />	
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>/reources/css/slick-crousel.css" />	
-	
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>

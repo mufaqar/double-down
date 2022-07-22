@@ -7,8 +7,10 @@ get_header('company');
 
 
 <main class="business_agreement">
-<div
-    class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
+
+
+
+<div    class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
     <img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" />
 
     <form class="addprofile" id="profileform" action="#" > 
@@ -20,6 +22,10 @@ get_header('company');
                 Then you get full access tothe corporate agreement , and can add
                 more administrators
             </p>
+
+           
+<p class="register-message"
+> Error Message</p>
             <div class="mt-5 w-500">
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Referral Name</label>
@@ -76,7 +82,7 @@ get_header('company');
            
             <div class="content mt-5">
                 <div class="right">
-                    <img src="./reources/images/img 3.png" alt="" />
+                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt="" />
                 </div>
                 <h1 class="finished">Finished!</h1>
                 <h2 class="looking">We Looking forward to make lunch with you</h2>
@@ -106,12 +112,12 @@ get_header('company');
    
    jQuery(document).ready(function($) {		
 		
-	$("#profileform").submit(function(e) { 
+	$("#profileform").submit(function(e) {        
         e.preventDefault();
         var username = jQuery('#username').val();
 	    var name = jQuery('#name').val();
         var referral = jQuery('#referral').val();	
-        var phone = jQuery('#phone').val();	
+        var phone = jQuery('#phone').val();	 
         $.ajax({
           type:"POST",
           url:"<?php echo admin_url('admin-ajax.php'); ?>",
@@ -121,27 +127,27 @@ get_header('company');
 		    name : name,
             referral : phone,
             phone : phone
-          },
-          success: function(response){  
-            alert("Sucess");  
-            $(".addprofile").css("display", "none");
-            $("#last_step").css("display", "block");
-            if( responseData == 1 ) {
-                           // location.reload();
-                           alert("1");
-                    }
+          },   
+          success: function(data){  
+
+           // alert(data);
+           
+            if(data.code==0)
+                    {
+                        alert(data.message);
+                    }  
                     else {
-                           // jQuery(".error-msg").html(responseData);
-                           alert("2 Error");
-                    }
+
+                 
+                    $(".addprofile").css("display", "none");
+                    $("#last_step").css("display", "block");
 
 
-         },
-          error: function(response) {
-
-            alert(results); 
-
-          }
+                    }              
+                   
+                   
+         }
+         
         });
       });
 	  

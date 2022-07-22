@@ -3,7 +3,7 @@ add_action('wp_ajax_usersignup', 'usersignup', 0);
 add_action('wp_ajax_nopriv_usersignup', 'usersignup');
 function usersignup() {	
 
-	require_once('../../../wp-config.php');
+	//require_once('../../../wp-config.php');
 		global $wpdb;
 
 
@@ -15,6 +15,31 @@ function usersignup() {
       $name = stripcslashes($_POST['name']);
       $password = "123456789";
 
+	
+	  $user_data = array(
+		'user_login' => $username,
+		'user_email' => $email,
+		'user_pass' => $password,	
+		'display_name' => $name,
+		'role' => 'personal'
+		);
+	 $user_id = wp_insert_user($user_data);
+	  	if (!is_wp_error($user_id)) {
+	      
+		  echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
+	  	} else {
+	    	if (isset($user_id->errors['empty_user_login'])) {
+	          
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('User Name and Email are mandatory')));
+	      	} elseif (isset($user_id->errors['existing_user_login'])) {
+	         // echo 'User name already exixts.';
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('This email address is already registered.')));
+	      	} else {	         
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up the sign up form carefully.')));
+	      	}
+	  	}
+	die;
+
 
 	 
 
@@ -22,40 +47,7 @@ function usersignup() {
 
 	
 
-			$errors = array();  
-			// Check username is present and not already in use  
-			$username = $wpdb->escape($username);  
-			 
-			if(empty($username)) 
-			{   
-				$errors['username'] = "Please enter a username";  
-				
-				
-			} elseif( username_exists( $username ) ) 
-			{  
-				$errors['username'] = "Username already exists, please try another";
-				
-			} 
-
-
-			if(count($errors) > 0 ){
-				foreach($errors as $e){
-					echo $e . "<br />";
-				}
-				
-			}
-			else {
-
-				echo "User Added";
 			
-			 //$new_user_id = wp_create_user( $username, $password, $email );  
-			 
-			 //echo "User Created Sucess Fully";  
-      		 exit();  
-		
-			
-				}
-
 
 
 
