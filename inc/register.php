@@ -12,8 +12,21 @@ function usersignup() {
       $email = ($_POST['username']);
       $phone = stripcslashes($_POST['phone']);
       $referral = stripcslashes($_POST['referral']);	
-      $name = stripcslashes($_POST['name']);
-      $password = "123456789";
+      $name = stripcslashes($_POST['name']);    
+
+
+	  function generateRandomString($length = 10) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++) {
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		}
+		return $randomString;
+	}
+
+	$password = generateRandomString();
+	
 
 	
 	  $user_data = array(
@@ -27,7 +40,7 @@ function usersignup() {
 	  	if (!is_wp_error($user_id)) {
 		    $to = $username;
 			$subject = 'Username & Password';
-			$body = "Username $username <br/> Password : $password";
+			$body = "<p> Username $username </p> <p> Password : $password  </p>";
 			$headers = array('Content-Type: text/html; charset=UTF-8');		
 			mail( $to, $subject, $body, $headers );
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
