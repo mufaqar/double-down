@@ -1,18 +1,27 @@
 <?php
 
+
+function generateRandomString($length = 10) {
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$charactersLength = strlen($characters);
+	$randomString = '';
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $characters[rand(0, $charactersLength - 1)];
+	}
+	return $randomString;
+}
+
 function sendmail($to,$password) {
 	$to = $to;
 	$admin = 'hei@doubledowndish.no';
 	$subject = 'Double Down Dish | Username & Password';
-	$body  = "<p><strong> Username :  </strong> $username </p> <p> <strong> Password : </strong> $password  </p>";
+	$body  = "<p><strong> Username :  </strong> $to </p> <p> <strong> Password : </strong> $password  </p>";
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
 	$headers  = "From: " . $admin . "\r\n";
-	$headers .= "Reply-To: " . $username . "\r\n";		
+	$headers .= "Reply-To: " . $to . "\r\n";		
 	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	mail( $to, $subject, $body, $headers );
-
-
 	}
 
 
@@ -23,8 +32,8 @@ add_action('wp_ajax_nopriv_usersignup', 'usersignup');
 
 function usersignup() {	
 
-	//require_once('../../../wp-config.php');
-		global $wpdb;
+	  //require_once('../../../wp-config.php');
+	  global $wpdb;
 
 
 		
@@ -32,23 +41,8 @@ function usersignup() {
       $email = ($_POST['username']);
       $phone = stripcslashes($_POST['phone']);
       $referral = stripcslashes($_POST['referral']);	
-      $name = stripcslashes($_POST['name']);    
-
-
-	  function generateRandomString($length = 10) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$charactersLength = strlen($characters);
-		$randomString = '';
-		for ($i = 0; $i < $length; $i++) {
-			$randomString .= $characters[rand(0, $charactersLength - 1)];
-		}
-		return $randomString;
-	}
-
-	$password = generateRandomString();
-	
-
-	
+      $name = stripcslashes($_POST['name']);  
+	  $password = generateRandomString();	
 	  $user_data = array(
 		'user_login' => $username,
 		'user_email' => $email,
@@ -57,11 +51,8 @@ function usersignup() {
 		'role' => 'personal'
 		);
 	    $user_id = wp_insert_user($user_data);
-	  	if (!is_wp_error($user_id)) {
-		    
+	  	if (!is_wp_error($user_id)) {		    
 			sendmail($username,$password);
-
-
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
 	  	} else {
@@ -95,36 +86,19 @@ function companysignup() {
 		$oranch_as = $_POST['oranch_as'];	
 		$lunch_benefit = $_POST['lunch_benefit'];
 		$lunch_benfit_type = $_POST['lunch_benfit_type'];
-		$start_date = $_POST['start_date'];
-		
-		
+		$start_date = $_POST['start_date'];		
 		$invite_user1 = $_POST['invite_user1'];	
 		$invite_user2 = $_POST['invite_user2'];	
 		$invite_user3 = $_POST['invite_user3'];	
+		$password = generateRandomString();	
 
-		function generateRandomString($length = 10) {
-			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-			$charactersLength = strlen($characters);
-			$randomString = '';
-			for ($i = 0; $i < $length; $i++) {
-				$randomString .= $characters[rand(0, $charactersLength - 1)];
-			}
-			return $randomString;
-		}
-
-		$password = generateRandomString();
-
-		
-	
-
-	
-	  $user_data = array(
-		'user_login' => $username,
-		'user_email' => $email,
-		'user_pass' => $password,	
-		'display_name' => $compnay_name,
-		'role' => 'company'
-		);
+		$user_data = array(
+			'user_login' => $username,
+			'user_email' => $email,
+			'user_pass' => $password,	
+			'display_name' => $compnay_name,
+			'role' => 'company'
+			);
 	    $user_id = wp_insert_user($user_data);
 		
 	  	if (!is_wp_error($user_id)) {
@@ -147,6 +121,7 @@ function companysignup() {
 	
 				$c_user_id = wp_insert_user($invited_user_data);
 				update_user_meta( $c_user_id, '_afflite', $username);
+				sendmail($invite_user1,$password);
 	
 			}
 			// User Inviated 
@@ -160,6 +135,7 @@ function companysignup() {
 	
 				$c_user2_id = wp_insert_user($invited_user2_data);
 				update_user_meta( $c_user2_id, '_afflite', $username);
+				sendmail($invite_user2,$password);
 	
 			}
 
@@ -174,26 +150,11 @@ function companysignup() {
 	
 				$c_user3_id = wp_insert_user($invite_user3_data);
 				update_user_meta( $c_user3_id, '_afflite', $username);
+				sendmail($invite_user3,$password);
 	
 			}
 
-			
-
-			
-
-
-
-
-		    $to = $username;
-			$admin = 'hei@doubledowndish.no';
-			$subject = 'Double Down Dish | Username & Password';
-			$body  = "<p><strong> Username :  </strong> $username </p> <p> <strong> Password : </strong> $password  </p>";
-			$headers = array('Content-Type: text/html; charset=UTF-8');	
-			$headers  = "From: " . $admin . "\r\n";
-			$headers .= "Reply-To: " . $username . "\r\n";		
-			$headers .= "MIME-Version: 1.0\r\n";
-			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-			mail( $to, $subject, $body, $headers );
+			sendmail($username,$password);
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
 	  	} else {
