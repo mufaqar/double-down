@@ -72,7 +72,7 @@ if ( is_user_logged_in() ) {
                     <div class="form-group">
                         <label for="username">Email</label>
                         <input type="email" class="form-control border-0 border-bottom rounded-0"
-                            id="username" aria-describedby="emailHelp" placeholder="abc@example.com" value="mufaqar@gmail.com" required>                  
+                            id="username" aria-describedby="emailHelp" placeholder="abc@example.com" value="" required>                  
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
