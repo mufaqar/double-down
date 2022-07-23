@@ -60,7 +60,7 @@ get_header();
                         earlier than the specific date</p>
 
                     <div class="form-group w-100 mt-3 mb-5">
-                        <input type="text" class="form-control" id="start_date" aria-describedby="emailHelp"
+                        <input type="date" class="form-control" id="start_date" aria-describedby="emailHelp"
                             placeholder="20.05.2022">
                         <p class="invite">Invite more people from work to the company agreement</p>
                         <h6>It’s easy to add more employees Later too</h6>
