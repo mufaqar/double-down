@@ -204,8 +204,7 @@ get_header();
                         invite_user1 : invite_user1,
                         invite_user2 : invite_user2,
                         invite_user3 : invite_user3,
-                        start_date : start_date
-                        
+                        start_date : start_date                     
 
                     },   
                     success: function(data){ 

@@ -1,6 +1,26 @@
 <?php
+
+function sendmail($to,$password) {
+	$to = $username;
+	$admin = 'hei@doubledowndish.no';
+	$subject = 'Double Down Dish | Username & Password';
+	$body  = "<p><strong> Username :  </strong> $username </p> <p> <strong> Password : </strong> $password  </p>";
+	$headers = array('Content-Type: text/html; charset=UTF-8');	
+	$headers  = "From: " . $admin . "\r\n";
+	$headers .= "Reply-To: " . $username . "\r\n";		
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+	mail( $to, $subject, $body, $headers );
+
+
+	}
+
+
+
 add_action('wp_ajax_usersignup', 'usersignup', 0);
 add_action('wp_ajax_nopriv_usersignup', 'usersignup');
+
+
 function usersignup() {	
 
 	//require_once('../../../wp-config.php');
@@ -38,20 +58,10 @@ function usersignup() {
 		);
 	    $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {
-
-		    $to = $username;
-			$admin = 'hei@doubledowndish.no';
-			$subject = 'Double Down Dish | Username & Password';
-			$body  = "<p><strong> Username :  </strong> $username </p> <p> <strong> Password : </strong> $password  </p>";
-			$headers = array('Content-Type: text/html; charset=UTF-8');	
-			$headers  = "From: " . $admin . "\r\n";
-			$headers .= "Reply-To: " . $username . "\r\n";		
-			$headers .= "MIME-Version: 1.0\r\n";
-			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+		    
+			sendmail($to,$password);
 
 
-
-			mail( $to, $subject, $body, $headers );
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
 	  	} else {
@@ -167,6 +177,9 @@ function companysignup() {
 	
 			}
 
+			
+
+			
 
 
 
