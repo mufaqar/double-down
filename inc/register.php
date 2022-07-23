@@ -59,7 +59,7 @@ function usersignup() {
 	    $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {
 		    
-			sendmail($to,$password);
+			sendmail($username,$password);
 
 
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
