@@ -1,7 +1,7 @@
 <?php
 
 function sendmail($to,$password) {
-	$to = $username;
+	$to = $to;
 	$admin = 'hei@doubledowndish.no';
 	$subject = 'Double Down Dish | Username & Password';
 	$body  = "<p><strong> Username :  </strong> $username </p> <p> <strong> Password : </strong> $password  </p>";
