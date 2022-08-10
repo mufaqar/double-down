@@ -12,10 +12,21 @@ get_header();
             <h2>Alahlifc News</h2>
             <div class="d-flex align-items-center flex-column flex-md-row">
                 <ul class="d-flex flex-wrap justify-content-center">
-                    <li><a href="">Business News</a></li>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Business News</a></li>
-                    <li><a href="">Business</a></li>
+                    <li><a href="">Football News</a></li>
+                    
+
+                    <?php                                
+                                     $category_tax = get_terms( array('taxonomy' => 'category','hide_empty' => false ) ); 
+                                          foreach( $category_tax as $cate ) 
+                                                    { ?>
+                                                    <li><a href="<?php echo $cate->slug ?>"><?php echo $cate->name ?> <?php
+                                                     }
+                                             
+                                           ?>
+
+
+
+
                 </ul>
                 <a href="#" class="btn bluebtn view mt-3 mt-md-0">View All</a>
             </div>
@@ -288,65 +299,278 @@ get_header();
         </div>
     </section>
 
-    <!-- products  -->
-    <section class="container products mb-5">
-        <div class="news text-center d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <h2>Al Ahly Store</h2>
-            <div class="d-flex align-items-center flex-column flex-md-row">
-                <ul class="d-flex flex-wrap justify-content-center">
-                    <li><a href="">Business News</a></li>
-                    <li><a href="">Business </a></li>
-                    <li><a href="">Business News</a></li>
-                    <li><a href="">Business </a></li>
-                </ul>
-                <a href="#" class="btn bluebtn view mt-4 mt-md-0">View All</a>
+
+    <!-- Team Slider  -->
+    <section class="team_slider">
+        <div class="container">
+            <h2>First Team</h2>
+            <div class="slider_wrapper">
+                <div class="center-slider">
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img//player1.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">20</h4>
+                                <h3 class="player_name">Mohammed El Shenawy</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img/t2.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">22</h4>
+                                <h3 class="player_name">El Shenawy</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img/t3.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">5</h4>
+                                <h3 class="player_name">Shenawy</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img/t4.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">7</h4>
+                                <h3 class="player_name">Mohammed El</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img/t5.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">26</h4>
+                                <h3 class="player_name">Mohammed Shenawy</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img//player1.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">20</h4>
+                                <h3 class="player_name">Mohammed El Shenawy</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="player_info">
+                            <img src="<?php echo get_template_directory_uri(); ?>/resources/img/t6.png" alt="Player">
+                            <div class="player_data">
+                                <h4 class="number">40</h4>
+                                <h3 class="player_name">El Shenawy</h3>
+                                <h6 class="player_position">Goalkeeper</h6>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="nav">
+                <div class="next_team">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="previous_team">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
             </div>
         </div>
-        <div class="row product-wrapper">
-            <div class="col-md-6 col-lg-3">
-                <div class="product">
-                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
-                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
-                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
-                        <p class="product-price">€ <span>26.00</span></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="product">
-                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
-                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
-                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
-                        <p class="product-price">€ <span>26.00</span></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="product">
-                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
-                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
-                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
-                        <p class="product-price">€ <span>26.00</span></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="product">
-                    <a class="d-flex justify-content-center flex-column align-items-center" href="">
-                        <img src="<?php bloginfo('template_directory'); ?>/resources/img/product.png" alt="product">
-                        <h6 class="product-title mt-3">Handcut Lisbon</h6>
-                        <p class="product-price">€ <span>26.00</span></p>
-                    </a>
-                </div>
-            </div>
+        <div class="_overlay"></div>
+    </section>
+
+     <!-- Next Matches section  -->
+     <section class="tranning mt-5 mb-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2>Next Matches</h2>
+            <a href="#" class="btn bluebtn">View All</a>
         </div>
-        <div class="load-more d-flex justify-content-center align-items-center flex-column mt-5">
-            <a href="" class="d-flex justify-content-center align-items-center flex-column">
-                <i class="fa-solid fa-arrow-down"></i>
-                <h6 class="mt-2">BROWSE ALL PRODUCTS</h6>
-            </a>
+        <div class="nextmatch_slider">
+            <div class="right-side-slider mt-4">
+                <div class="record m-2">
+                    <div class="record-wrapper">
+                        <div class="p-4">
+                            <h4>Next Match</h4>
+                            <h6>30 May 2022, 08:00 PM</h6>
+                            <div class="score_wrapper">
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (1).png" alt="Team Logo">
+                                        <p>alahlifc</p>
+                                    </div>
+                                    <h6>3</h6>
+                                </div>
+                                <!-- 2nd -->
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (2).png" alt="Team Logo">
+                                        <p>Al Nassr</p>
+                                    </div>
+                                    <h6>2</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 pt-2">
+                                <a href="" class="btn small greenbtn ">Match center</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="record m-2">
+                    <div class="record-wrapper">
+                        <div class="p-4">
+                            <h4>Next Match</h4>
+                            <h6>30 May 2022, 08:00 PM</h6>
+                            <div class="score_wrapper">
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (1).png" alt="Team Logo">
+                                        <p>alahlifc</p>
+                                    </div>
+                                    <h6>3</h6>
+                                </div>
+                                <!-- 2nd -->
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (2).png" alt="Team Logo">
+                                        <p>Al Nassr</p>
+                                    </div>
+                                    <h6>2</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 pt-2">
+                                <a href="" class="btn small greenbtn ">Match center</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="record m-2">
+                    <div class="record-wrapper">
+                        <div class="p-4">
+                            <h4>Next Match</h4>
+                            <h6>30 May 2022, 08:00 PM</h6>
+                            <div class="score_wrapper">
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (1).png" alt="Team Logo">
+                                        <p>alahlifc</p>
+                                    </div>
+                                    <h6>3</h6>
+                                </div>
+                                <!-- 2nd -->
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (2).png" alt="Team Logo">
+                                        <p>Al Nassr</p>
+                                    </div>
+                                    <h6>2</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 pt-2">
+                                <a href="" class="btn small greenbtn ">Match center</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="record m-2">
+                    <div class="record-wrapper">
+                        <div class="p-4">
+                            <h4>Next Match</h4>
+                            <h6>30 May 2022, 08:00 PM</h6>
+                            <div class="score_wrapper">
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (1).png" alt="Team Logo">
+                                        <p>alahlifc</p>
+                                    </div>
+                                    <h6>3</h6>
+                                </div>
+                                <!-- 2nd -->
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (2).png" alt="Team Logo">
+                                        <p>Al Nassr</p>
+                                    </div>
+                                    <h6>2</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 pt-2">
+                                <a href="" class="btn small greenbtn ">Match center</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="record m-2">
+                    <div class="record-wrapper">
+                        <div class="p-4">
+                            <h4>Next Match</h4>
+                            <h6>30 May 2022, 08:00 PM</h6>
+                            <div class="score_wrapper">
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (1).png" alt="Team Logo">
+                                        <p>alahlifc</p>
+                                    </div>
+                                    <h6>3</h6>
+                                </div>
+                                <!-- 2nd -->
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (2).png" alt="Team Logo">
+                                        <p>Al Nassr</p>
+                                    </div>
+                                    <h6>2</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 pt-2">
+                                <a href="" class="btn small greenbtn ">Match center</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="record m-2">
+                    <div class="record-wrapper">
+                        <div class="p-4">
+                            <h4>Next Match</h4>
+                            <h6>30 May 2022, 08:00 PM</h6>
+                            <div class="score_wrapper">
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (1).png" alt="Team Logo">
+                                        <p>alahlifc</p>
+                                    </div>
+                                    <h6>3</h6>
+                                </div>
+                                <!-- 2nd -->
+                                <div class="score d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/resources/img/team (2).png" alt="Team Logo">
+                                        <p>Al Nassr</p>
+                                    </div>
+                                    <h6>2</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4 pt-2">
+                                <a href="" class="btn small greenbtn ">Match center</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <?php get_footer()?>
 

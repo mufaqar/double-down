@@ -5,8 +5,7 @@ Description: Description
 Version: 1.2.1
  Text Domain: alahlifc-theme */
 
-
- /* import Fonts  */
+/* import Fonts  */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
@@ -604,6 +603,164 @@ footer .social ul li:nth-child(1){
 .closenav{
     display: none;
 }
+.nextmatch_slider{
+    margin-top: -4rem;
+}
+/* team slider */
+
+.team_slider {
+    background: linear-gradient(180deg, rgba(0,0,0,0.5634628851540616) 0%, rgba(0,0,0,1) 58%) ,url('./resources/img/stadium.jpg');
+    padding: 6rem 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.team_slider>div>h2{
+    font-size: 2.875rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.team_slider .center-slider{
+    position: relative;
+}
+.team_slider .slick-list{
+    min-height: 500px !important;
+}
+
+.team_slider .slick-track{ 
+    margin-top: 180px;  
+}
+.team_slider .slick-slide{
+    transform: scale(0.5, 0.5) !important;
+    transition: .5s ease-in-out;
+}
+.team_slider .slick-slide .player_info img{
+    -webkit-filter: grayscale(99%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(99%);
+}
+.team_slider .slick-slide .player_info .player_data{
+    display: none;
+    transition: 1s ease-in-out;
+    opacity: 0;
+
+}
+.team_slider .slick-slide.slick-current{
+    transform: scale(0.8, 0.8) !important;
+    transition: .5s ease-in-out;
+}
+.team_slider .slick-slide.slick-current .player_info img{
+    -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0);
+}
+.team_slider .slick-slide.slick-current .player_info .player_data{
+    display: block;
+    opacity: 1;
+    
+}
+.player_info .player_data h3{
+    font-size: 3.5rem;
+    white-space: nowrap;   
+}
+.player_info .player_data h6{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+.team_slider .slider_wrapper .slick-slide.slick-current .player_info .player_data h3 {
+    position: absolute;
+    bottom: -8.5rem;
+    left: 50%;
+    transform: translatex(-50%);
+}
+.player_info .player_data h4{
+    color: white;
+    font-size: 6rem !important;
+    position: absolute;
+    top: -10rem;
+    right: -7rem;
+    font-weight: 700;
+}
+
+.center-slider .slick-slide{
+    color: #FFF;
+    height: 200px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: all 0.4s ease-in-out;
+  }
+  .center-slider .slick-slide,
+  .center-slider .slick-slide[aria-hidden="true"]:not(.slick-cloned) ~ .slick-cloned[aria-hidden="true"] {
+    transform: scale(0.8, 0.8);
+    transition: all 0.4s ease-in-out;
+  }
+  
+  /* Active center slide (You can change anything here for cenetr slide)*/
+  .center-slider .slick-center,
+  .center-slider .slick-slide[aria-hidden="true"]:not([tabindex="-1"]) + .slick-cloned[aria-hidden="true"] {
+    transform: scale(1.1);
+    
+  }
+  .center-slider .slick-current.slick-active{
+    transform: scale(1.1);
+    
+  }
+  
+  .slick-next, .slick-prev{
+    z-index: 5;
+  }
+  .slick-next{
+    right: 15px;
+  }
+  .slick-prev{
+    left: 15px;
+  }
+  .slick-next:before, .slick-prev:before{
+    color: #000;
+    font-size: 26px;
+  }
+
+.team_slider .nav i{
+    cursor: pointer;
+    color: white;
+    font-size: 1.4rem;
+}
+
+.team_slider .nav>div{
+    border: 1px solid white !important;
+    padding: .6rem 1.2rem;
+    padding-top: .9rem;
+    border-radius: 5px;
+}
+.team_slider .container{
+    position: relative;
+  
+}
+.team_slider .nav .next_team{
+    position: absolute;
+    right: 0;
+    top: 65%;
+    transform: translatey(-65%);
+}
+.team_slider .nav .previous_team{
+    position: absolute;
+    left: 0;
+    top: 65%;
+    transform: translatey(-65%);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* mediaQuries */
@@ -687,6 +844,12 @@ footer .social ul li:nth-child(1){
     footer ul li{
         text-align: center;
     }  
+    .team_slider .slider_wrapper .slick-slide.slick-current .player_info .player_data h3{
+        font-size: 2.2rem;
+    }
+    .player_info .player_data h4{
+        right: -5rem;
+    }
 }
 
 @media (min-width:769px) and (max-width:1196px){

@@ -4,7 +4,7 @@
 	add_image_size( 'single-post-thumbnail', 300, 9999 );
 
 	// Add RSS links to <head> section
-	automatic_feed_links();
+	//automatic_feed_links();
 	
 	// Clean up the <head>
 	function removeHeadLinks() {

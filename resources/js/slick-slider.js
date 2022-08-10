@@ -37,3 +37,41 @@ $('.right-side-slider').slick({
 });
 
 
+// team slider 
+
+
+    $('.center-slider').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        centerMode: true,
+        arrows: true,
+        dots: false,
+        speed: 200,
+        centerPadding: '20px',
+        infinite: true,
+        autoplaySpeed: 5000,
+        autoplay: false,
+        nextArrow: '.next_team',
+        prevArrow: '.previous_team',
+        responsive: [
+            {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+            }
+            }
+        ]
+    });
+  
