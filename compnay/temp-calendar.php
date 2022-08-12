@@ -74,7 +74,7 @@ get_header();
                                                                       <?php endwhile; wp_reset_query(); else : ?>
                                                                         <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
                                                                     <?php endif; ?> 
-                                                                    
+
                                                                 </div>
 
                                                             </div>
@@ -122,8 +122,8 @@ get_header();
                                                         <div id="headingtwo" aria-labelledby="headingOne"
                                                             data-parent="#accordionExample"
                                                             class="collapse accordion_content">
-                                                            <div class="card-body p-md-5">
-
+                                                            <div class="card-body p-md-5">                                                           
+                                                                <?php get_template_part('partials/content', 'daylunch'); ?>
                                                             </div>
                                                         </div>
                                                     </div><!-- End -->
@@ -146,6 +146,7 @@ get_header();
                                                             data-parent="#accordionExample"
                                                             class="collapse accordion_content">
                                                             <div class="card-body p-md-5">
+                                                            <?php get_template_part('partials/content', 'daylunch'); ?>
 
                                                             </div>
                                                         </div>
@@ -169,7 +170,7 @@ get_header();
                                                             data-parent="#accordionExample"
                                                             class="collapse accordion_content">
                                                             <div class="card-body p-md-5">
-
+                                                              <?php get_template_part('partials/content', 'daylunch'); ?>
                                                             </div>
                                                         </div>
                                                     </div><!-- End -->
