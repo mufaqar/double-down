@@ -209,6 +209,8 @@ get_header();
             <!-- Fast levering tab content  -->
 
             <div class='panel launchClander Fixed_delivery'>
+                <form action="" class="lavering">
+               
                 <h2>Fixed delivery to company</h2>
                 <p>Here you can easily choose between or cancel the various lunch options from day
                     to day. If you want to change a fixed subscription, do so <a href="">her.</a>
@@ -335,6 +337,7 @@ get_header();
                         <a href="" class="btn_primary">Save</a>
                     </div>
                 </div>
+                    </form>
             </div>
 
         </div>

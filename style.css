@@ -3165,3 +3165,5 @@ body.page-template-temp-landing {
   width: 100%;
   max-width: 900px;
 }
+
+.week_days { display: flex; justify-content: space-around;}
