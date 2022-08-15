@@ -3,6 +3,7 @@ include_once('login.php');
 include_once('register.php');
 include_once('cpts.php');
 include_once('class-wp-bootstrap-navwalker.php');
+include_once('ajax_request.php');
 
 //add_role( 'company', 'Company', array( 'read' => true, 'level_0' => true ) );
 //add_role( 'personal', 'Personal', array( 'read' => true, 'level_0' => true ) );

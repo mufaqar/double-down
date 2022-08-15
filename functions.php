@@ -113,4 +113,3 @@ add_filter('wp_nav_menu_objects', 'add_first_and_last');
 //include_once('metaboxes.php');
 include_once('inc/extra_function.php');
 
-

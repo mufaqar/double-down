@@ -3156,6 +3156,8 @@ body.page-template-temp-landing {
 }
 
 .hideme {
+display: none;
+z-index: 99;
  
 }
 
