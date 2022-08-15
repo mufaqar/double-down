@@ -31,8 +31,10 @@ get_header();
                         if (have_posts()) :  while (have_posts()) : the_post(); ?>
 
                             <div class="catering_card">
-                            <?php  $timestamp = strtotime(get_field('date'));
-                                    $day = date('l', $timestamp); ?>
+                            <?php                             
+                            $date =  get_field('date');
+                                $timestamp = strtotime($date);
+                                $day = date('l', $timestamp); ?>
                                 <h3><?php echo $day; ?> | <span><?php the_title()?></span></h3>
                                 <div class="d-flex justify-content-between flex-wrap mt-4">
                                     <div class="">
