@@ -18,30 +18,15 @@ get_header();
                 <p>Here you can easily choose between or cancel the various lunch options from day
                     to day. If you want to change a fixed subscription, do so <a href="">her.</a>
                 </p>
-
                 <?php
 
-
-$monday = strtotime("last monday");
-$monday = date('w', $monday)==date('w') ? $monday+7*86400 : $monday;
-
-$sunday = strtotime(date("Y-m-d",$monday)." +4 days");
-
-$this_week_start = date("Y-m-d",$monday);
-$this_week_end = date("Y-m-d",$sunday);
-
-//echo "Current week range from $this_week_start to $this_week_end ";
-
-
-
-
-
-
-?>
-
-
-
-
+                    $monday = strtotime("last monday");
+                    $monday = date('w', $monday)==date('w') ? $monday+7*86400 : $monday;
+                    $sunday = strtotime(date("Y-m-d",$monday)." +4 days");
+                    $this_week_start = date("Y-m-d",$monday);
+                    $this_week_end = date("Y-m-d",$sunday);
+                    //echo "Current week range from $this_week_start to $this_week_end ";
+                    ?>
                 <div class="calender_wrapper d-flex justify-content-between align-items-center">
                     <div class="calender">
                         <input type="date">
@@ -142,7 +127,7 @@ $this_week_end = date("Y-m-d",$sunday);
                     </div>
                 </div>
             </div>
-            <!-- ==================== -->
+
             <!-- setting tab content  -->
 
             <div class='panel launchClander setting_tab'>
@@ -230,13 +215,9 @@ $this_week_end = date("Y-m-d",$sunday);
             </div>
 
 
-            <!-- ===================================================================================
-                                ===================================================================================
-                                =================================================================================== -->
+
             <!-- Fast levering tab content  -->
-            <!-- ===================================================================================
-                                ===================================================================================
-                                =================================================================================== -->
+
             <div class='panel launchClander Fixed_delivery'>
                 <h2>Fixed delivery to company</h2>
                 <p>Here you can easily choose between or cancel the various lunch options from day
@@ -244,23 +225,19 @@ $this_week_end = date("Y-m-d",$sunday);
                 </p>
                 <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
                 <div class="product_wrapper row mb-4">
-
                     <?php query_posts(array(
-                    'post_type' => 'menu_items',
-                    'posts_per_page' => -1,
-                    'order' => 'desc',
-                    'menu_types' => 'lunch-boxes'                                                                     
-                )); 
-                if (have_posts()) :  while (have_posts()) : the_post(); ?>
-
-
+                                'post_type' => 'menu_items',
+                                'posts_per_page' => -1,
+                                'order' => 'desc',
+                                'menu_types' => 'lunch-boxes'                                                                     
+                                )); 
+                            if (have_posts()) :  while (have_posts()) : the_post(); ?>
                     <div class="col-md-6 col-lg-4 mt-4">
                         <div class="product_card p-4">
                             <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                             <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
                             <button href="" class="btn_primary  select_product_btn id1"
                                 onclick="showCounter(1)">Select</button>
-
                             <div
                                 class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid1">
                                 <i class="count-down"><img
@@ -274,7 +251,6 @@ $this_week_end = date("Y-m-d",$sunday);
                             </div>
                         </div>
                     </div>
-
                     <?php endwhile; wp_reset_query(); else : ?>
                     <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
                     <?php endif; ?>
@@ -285,7 +261,7 @@ $this_week_end = date("Y-m-d",$sunday);
                 <div class="d-flex justify-content-between mt-5 mb-4 accessories">
                     <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
                     <a href="" class="btn_primary d-flex align-items-center">
-                        <img src="./reources/images//positive.png" alt="">
+                        <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
                         <p>Allergy Pass</p>
                     </a>
                 </div>
@@ -294,12 +270,12 @@ $this_week_end = date("Y-m-d",$sunday);
 
 
                     <?php query_posts(array(
-                    'post_type' => 'menu_items',
-                    'posts_per_page' => -1,
-                    'order' => 'desc',
-                    'menu_types' => 'accessories'                                                                     
-                    )); 
-                    if (have_posts()) :  while (have_posts()) : the_post(); ?>
+                                'post_type' => 'menu_items',
+                                'posts_per_page' => -1,
+                                'order' => 'desc',
+                                'menu_types' => 'accessories'                                                                     
+                                )); 
+                                if (have_posts()) :  while (have_posts()) : the_post(); ?>
 
 
                     <div class="col-md-6 col-lg-4 mt-4">
@@ -370,9 +346,10 @@ $this_week_end = date("Y-m-d",$sunday);
                         <a href="" class="btn_primary">Save</a>
                     </div>
                 </div>
-
             </div>
+
         </div>
+
     </div>
 </div>
 
@@ -401,3 +378,59 @@ $this_week_end = date("Y-m-d",$sunday);
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $("#profileform").submit(function(e) {
+        e.preventDefault();
+        var username = jQuery('#username').val();
+        var name = jQuery('#name').val();
+        var phone = jQuery('#phone').val();
+        var compnay_name = jQuery('#compnay_name').val();
+        var company_address = jQuery('#company_address').val();
+        var start_date = jQuery('#start_date').val();
+
+        var oranch_as = jQuery('#oranch_as').val();
+        var lunch_benefit = jQuery('#lunch_benefit').val();
+        var lunch_benfit_type = jQuery('#lunch_benfit_type').val();
+        var invite_user1 = jQuery('#invite_user1').val();
+        var invite_user2 = jQuery('#invite_user2').val();
+        var invite_user3 = jQuery('#invite_user3').val();
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: {
+                action: "companysignup",
+                username: username,
+                name: name,
+                compnay_name: compnay_name,
+                company_address: company_address,
+                oranch_as: oranch_as,
+                lunch_benfit_type: lunch_benfit_type,
+                lunch_benefit: lunch_benefit,
+                invite_user1: invite_user1,
+                invite_user2: invite_user2,
+                invite_user3: invite_user3,
+                start_date: start_date
+
+            },
+            success: function(data) {
+
+                if (data.code == 0) {
+                    alert(data.message);
+                } else {
+                    $(".addprofile").css("display", "none");
+                    $("#last_step").css("display", "block");
+                }
+            }
+
+        });
+    });
+
+
+});
+</script>
