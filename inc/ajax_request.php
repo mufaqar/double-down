@@ -19,8 +19,7 @@ function addcatering() {
 	  $allergens = $_POST['allergens'];
       
 	  $post = array(
-		'post_title'    => $date,
-		'post_content'  => $date,
+		'post_title'    => $date,	
 		'post_status'   => 'publish',
 		'post_type'     => 'catering',
 		'tax_input'    => array(
@@ -35,6 +34,7 @@ function addcatering() {
 			'time' => $time,
 			'address' => $address,
 			'person' => $person,
+			'date' => $date,
 		),
 		
 	);
