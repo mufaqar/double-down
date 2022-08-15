@@ -5,12 +5,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	<?php if (is_search()) { ?>
-	   <meta name="robots" content="noindex, nofollow" /> 
-	<?php } ?>
-		<title>
-			<?php
+    <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+    <?php if (is_search()) { ?>
+    <meta name="robots" content="noindex, nofollow" />
+    <?php } ?>
+    <title>
+        <?php
 				/*
 				 * Print the <title> tag based on what is being viewed.
 				 */
@@ -30,16 +30,17 @@
 				if ( $paged >= 2 || $page >= 2 )
 					echo ' | ' . sprintf( __( 'Page %s', 'wpv' ), max( $paged, $page ) );
             ?>
-	</title>
-	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/reources/images/logo.png">
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/reources/css/bootstrap.min.css" />	
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />	
-	
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-	<?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>
-	<?php wp_head(); ?>
-	
-	
-	
+    </title>
+    <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/reources/images/logo.png">
+    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/reources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
+
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+    <?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>
+    <?php wp_head(); ?>
+
+
+
 </head>
+
 <body <?php body_class(); ?>>

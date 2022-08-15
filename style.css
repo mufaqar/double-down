@@ -3121,3 +3121,47 @@ body.page-template-temp-landing {
 #last_step {
   display: none;
 }
+
+.order_wrapper .product_counter {
+  background: var(--green);
+  width: min-content;
+  padding: 0.3rem 0.8rem;
+  border-radius: 36px;
+}
+
+.order_wrapper .product_counter > i {
+  margin: 0 0.7rem;
+}
+
+.order_wrapper .product_counter > input {
+  background: transparent;
+  border-radius: 0;
+  width: 60px;
+  border-top: none;
+  border-bottom: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.order_wrapper .product_counter > i img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.order_wrapper .product_counter.show {
+  display: flex !important;
+}
+
+.hideme {
+ 
+}
+
+.launchClander {
+  margin-top: 1rem;
+  padding-left: 0 !important;
+  width: 100%;
+  max-width: 900px;
+}
