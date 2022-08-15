@@ -34,6 +34,7 @@ function addcatering() {
 			'people' => $people,
 			'time' => $time,
 			'address' => $address,
+			'person' => $person,
 		),
 		
 	);

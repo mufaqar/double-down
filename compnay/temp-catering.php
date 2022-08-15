@@ -43,15 +43,15 @@ get_header();
                                     </div>
                                     <div class="">
                                         <h6>Food Type:</h6>
-                                        <p>Wraps</p>
+                                        <?php echo get_the_terms( $post->ID, 'food_type' )[0]->name;?>
                                     </div>
                                     <div class="">
                                         <h6>Budget per person:</h6>
-                                        <p>NOK 349</p>
+                                        <p>NOK <?php the_field('person'); ?></p>
                                     </div>
                                     <div class="">
                                         <h6>Need allergens</h6>
-                                        <p>NOK 349</p>
+                                        <p> <?php echo get_the_terms( $post->ID, 'allergens' )[0]->name;?></p>
                                     </div>
                                 </div>
                             </div>
