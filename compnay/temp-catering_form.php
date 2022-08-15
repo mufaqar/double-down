@@ -63,7 +63,7 @@ get_header();
                             <?php   
                             $types_tax = get_terms( array('taxonomy' => 'food_type','hide_empty' => false ) ); 
                             foreach( $types_tax as $type )  {
-                                        $type_slug = $type->slug ;
+                                        $type_slug = $type->term_id ;
                                         $type_name = $type->name ; ?>                            
                                         <option value="<?php echo $type_slug; ?>" > <?php echo $type_name; ?> </option>
                                             <?php
@@ -81,7 +81,7 @@ get_header();
                         <?php   
                             $food_categories = get_terms( array('taxonomy' => 'food_categories','hide_empty' => false ) ); 
                             foreach( $food_categories as $food_cat )  {
-                                        $food_cat_slug = $food_cat->slug ;
+                                        $food_cat_slug = $food_cat->term_id ;
                                         $food_cat_name = $food_cat->name ; ?>                            
                                         <option value="<?php echo $food_cat_slug; ?>" > <?php echo $food_cat_name; ?> </option>
                                             <?php
@@ -99,7 +99,7 @@ get_header();
                     <?php   
                             $product_tax = get_terms( array('taxonomy' => 'product_category','hide_empty' => false ) ); 
                             foreach( $product_tax as $product_cat )  {
-                                        $product_cat_slug = $product_cat->slug ;
+                                        $product_cat_slug = $product_cat->term_id ;
                                         $product_cat_name = $product_cat->name ; ?>                            
                                         <option value="<?php echo $product_cat_slug; ?>" > <?php echo $product_cat_name; ?> </option>
                                             <?php
@@ -119,7 +119,7 @@ get_header();
                         <?php   
                             $product_sub_tax = get_terms( array('taxonomy' => 'product_sub_category','hide_empty' => false ) ); 
                             foreach( $product_sub_tax as $product_sub_cat )  {
-                                        $product_sub_cat_slug = $product_sub_cat->slug ;
+                                        $product_sub_cat_slug = $product_sub_cat->term_id ;
                                         $product_sub_cat_name = $product_sub_cat->name ; ?>                            
                                         <option value="<?php echo $product_sub_cat_slug; ?>" > <?php echo $product_sub_cat_name; ?> </option>
                                             <?php
@@ -137,8 +137,8 @@ get_header();
                         <select id="allergens">
                         <?php   
                             $allergens_tax = get_terms( array('taxonomy' => 'allergens','hide_empty' => false ) ); 
-                            foreach( $allergens_tax as $allergens_cat )  {
-                                        $allergens_cat_slug = $allergens_cat->slug ;
+                            foreach( $allergens_tax as $allergens_cat )  {                                
+                                        $allergens_cat_slug = $allergens_cat->term_id ;
                                         $allergens_cat_name = $allergens_cat->name ; ?>                            
                                         <option value="<?php echo $allergens_cat_slug; ?>" > <?php echo $allergens_cat_name; ?> </option>
                                             <?php

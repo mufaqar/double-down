@@ -1,7 +1,4 @@
 <?php /* Template Name: Catering (C)  */ 
-
-
-
 get_header();
 
 
@@ -25,16 +22,24 @@ get_header();
                         </div>
                         <div class="catering_card_wrapper">
 
+                <?php query_posts(array(
+                            'post_type' => 'catering',
+                            'posts_per_page' => -1,
+                            'order' => 'desc'
+                            
+                        )); 
+                        if (have_posts()) :  while (have_posts()) : the_post(); ?>
+
                             <div class="catering_card">
-                                <h3>Monday | <span>May 22</span></h3>
+                                <h3>Monday | <span><?php the_title()?></span></h3>
                                 <div class="d-flex justify-content-between flex-wrap mt-4">
                                     <div class="">
                                         <h6>Number of people:</h6>
-                                        <p>6</p>
+                                        <p><?php the_field('people'); ?> </p>
                                     </div>
                                     <div class="">
                                         <h6>Address:</h6>
-                                        <p>B-15471-New Jersy</p>
+                                        <p><?php the_field('address'); ?> </p>
                                     </div>
                                     <div class="">
                                         <h6>Food Type:</h6>
@@ -51,83 +56,12 @@ get_header();
                                 </div>
                             </div>
 
-                            <div class="catering_card">
-                                <h3>Monday | <span>May 22</span></h3>
-                                <div class="d-flex justify-content-between flex-wrap mt-4">
-                                    <div class="">
-                                        <h6>Number of people:</h6>
-                                        <p>6</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Address:</h6>
-                                        <p>B-15471-New Jersy</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Food Type:</h6>
-                                        <p>Wraps</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Budget per person:</h6>
-                                        <p>NOK 349</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Need allergens</h6>
-                                        <p>NOK 349</p>
-                                    </div>
-                                </div>
-                            </div>
+                    
+                <?php endwhile; wp_reset_query(); else : ?>
+                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                <?php endif; ?>         
 
-                            <div class="catering_card">
-                                <h3>Monday | <span>May 22</span></h3>
-                                <div class="d-flex justify-content-between flex-wrap mt-4">
-                                    <div class="">
-                                        <h6>Number of people:</h6>
-                                        <p>6</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Address:</h6>
-                                        <p>B-15471-New Jersy</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Food Type:</h6>
-                                        <p>Wraps</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Budget per person:</h6>
-                                        <p>NOK 349</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Need allergens</h6>
-                                        <p>NOK 349</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="catering_card">
-                                <h3>Monday | <span>May 22</span></h3>
-                                <div class="d-flex justify-content-between flex-wrap mt-4">
-                                    <div class="">
-                                        <h6>Number of people:</h6>
-                                        <p>6</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Address:</h6>
-                                        <p>B-15471-New Jersy</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Food Type:</h6>
-                                        <p>Wraps</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Budget per person:</h6>
-                                        <p>NOK 349</p>
-                                    </div>
-                                    <div class="">
-                                        <h6>Need allergens</h6>
-                                        <p>NOK 349</p>
-                                    </div>
-                                </div>
-                            </div>
+                           
 
 
                         </div>

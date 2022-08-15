@@ -22,7 +22,19 @@ function addcatering() {
 		'post_title'    => $date,
 		'post_content'  => $date,
 		'post_status'   => 'publish',
-		'post_type'     => 'catering'
+		'post_type'     => 'catering',
+		'tax_input'    => array(
+			'food_type' => array($food_type),
+			'food_categories' => array($food_cat),
+			'product_category' => array($pro_cat),
+			'product_sub_category' => array($pro_sub_cat),
+			'allergens' => array($allergens)
+		),
+		'meta_input'   => array(
+			'people' => $people,
+			'time' => $time,
+			'address' => $address,
+		),
 		
 	);
 	    $user_id = wp_insert_post($post);
