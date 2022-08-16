@@ -22,10 +22,15 @@ get_header('company');
                         </div>
                         <div class="catering_card_wrapper">
 
-                <?php query_posts(array(
+                <?php
+                 global $current_user;
+                 wp_get_current_user();
+                
+                query_posts(array(
                             'post_type' => 'catering',
                             'posts_per_page' => -1,
-                            'order' => 'desc'
+                            'order' => 'desc',
+                            'author' => $current_user->ID
                             
                         )); 
                         if (have_posts()) :  while (have_posts()) : the_post(); ?>
