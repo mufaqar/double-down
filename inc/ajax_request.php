@@ -21,20 +21,20 @@ function addcatering() {
 	  $post = array(
 		'post_title'    => $date,	
 		'post_status'   => 'publish',
-		'post_type'     => 'catering',
-		'tax_input'    => array(
-			'food_type' => array($food_type),
-			'food_categories' => array($food_cat),
-			'product_category' => array($pro_cat),
-			'product_sub_category' => array($pro_sub_cat),
-			'allergens' => array($allergens)
-		),
+		'post_type'     => 'catering',		
 		'meta_input'   => array(
 			'people' => $people,
 			'time' => $time,
 			'address' => $address,
 			'person' => $person,
 			'date' => $date
+		),
+		'tax_input'    => array(
+			'food_type' => array($food_type),
+			'food_categories' => array($food_cat),
+			'product_category' => array($pro_cat),
+			'product_sub_category' => array($pro_sub_cat),
+			'allergens' => array($allergens)
 		),
 		
 	);
