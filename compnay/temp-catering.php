@@ -1,5 +1,5 @@
 <?php /* Template Name: Catering (C)  */ 
-get_header();
+get_header('company');
 
 
 ?>
