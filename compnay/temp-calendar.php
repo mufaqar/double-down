@@ -209,139 +209,137 @@ get_header();
             <!-- Fast levering tab content  -->
 
             <div class='panel launchClander Fixed_delivery'>
-                <form action="" class="lavering">
-               
-                <h2>Fixed delivery to company</h2>
-                <p>Here you can easily choose between or cancel the various lunch options from day
-                    to day. If you want to change a fixed subscription, do so <a href="">her.</a>
-                </p>
-                <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
-                <div class="product_wrapper row mb-4">
-                    <?php query_posts(array(
-                                'post_type' => 'menu_items',
-                                'posts_per_page' => -1,
-                                'order' => 'desc',
-                                'menu_types' => 'lunch-boxes'                                                                     
-                                )); 
-                            if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
-                                <div class="col-md-6 col-lg-4 mt-4">
-                                    <div class="product_card p-4">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                        <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
-                                        <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                            onclick="showCounter(<?php echo $pid;?>)">Select</button>
-                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                            <i class="count-down"><img
-                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                    alt=""></i>
-                                            <input type="text" value="1"
-                                                class="product-quantity form-control text-center incrDecrCounter" />
-                                            <i class="count-up"><img
-                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                    alt=""></i>
+                <form class="weeklyfood" id="weeklyfood" action="#" >                 
+                    <h2>Fixed delivery to company</h2>
+                    <p>Here you can easily choose between or cancel the various lunch options from day
+                        to day. If you want to change a fixed subscription, do so <a href="">her.</a>
+                    </p>
+                    <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
+                    <div class="product_wrapper row mb-4">
+                        <?php query_posts(array(
+                                    'post_type' => 'menu_items',
+                                    'posts_per_page' => -1,
+                                    'order' => 'desc',
+                                    'menu_types' => 'lunch-boxes'                                                                     
+                                    )); 
+                                if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
+                                    <div class="col-md-6 col-lg-4 mt-4">
+                                        <div class="product_card p-4">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
+                                            <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                            <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                                onclick="showCounter(<?php echo $pid;?>)">Select</button>
+                                            <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
+                                                <i class="count-down"><img
+                                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                        alt=""></i>
+                                                <input type="text" value="1"
+                                                    class="product-quantity form-control text-center incrDecrCounter" />
+                                                <i class="count-up"><img
+                                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                        alt=""></i>
+                                            </div>
                                         </div>
                                     </div>
+                        <?php endwhile; wp_reset_query(); else : ?>
+                        <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                        <?php endif; ?>
+
+
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-5 mb-4 accessories">
+                        <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
+                        <a href="" class="btn_primary d-flex align-items-center">
+                            <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
+                            <p>Allergy Pass</p>
+                        </a>
+                    </div>
+
+                    <div class="product_wrapper row mb-4">
+
+
+                        <?php query_posts(array(
+                                    'post_type' => 'menu_items',
+                                    'posts_per_page' => -1,
+                                    'order' => 'desc',
+                                    'menu_types' => 'accessories'                                                                     
+                                    )); 
+                                    if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
+
+
+                        <div class="col-md-6 col-lg-4 mt-4">
+                            <div class="product_card p-4">
+                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
+                                <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                    onclick="showCounter(<?php echo $pid;?>)">Select</button>
+                                <div
+                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
+                                    <i class="count-down"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                            alt=""></i>
+                                    <input type="text" value="1"
+                                        class="product-quantity form-control text-center incrDecrCounter" />
+                                    <i class="count-up"><img
+                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                            alt=""></i>
                                 </div>
-                    <?php endwhile; wp_reset_query(); else : ?>
-                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
-                    <?php endif; ?>
-
-
-                </div>
-
-                <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                    <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
-                    <a href="" class="btn_primary d-flex align-items-center">
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
-                        <p>Allergy Pass</p>
-                    </a>
-                </div>
-
-                <div class="product_wrapper row mb-4">
-
-
-                    <?php query_posts(array(
-                                'post_type' => 'menu_items',
-                                'posts_per_page' => -1,
-                                'order' => 'desc',
-                                'menu_types' => 'accessories'                                                                     
-                                )); 
-                                if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
-
-
-                    <div class="col-md-6 col-lg-4 mt-4">
-                        <div class="product_card p-4">
-                            <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                            <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
-                            <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                onclick="showCounter(<?php echo $pid;?>)">Select</button>
-                            <div
-                                class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                <i class="count-down"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                        alt=""></i>
-                                <input type="text" value="1"
-                                    class="product-quantity form-control text-center incrDecrCounter" />
-                                <i class="count-up"><img
-                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                        alt=""></i>
                             </div>
                         </div>
+
+                        <?php endwhile; wp_reset_query(); else : ?>
+                        <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                        <?php endif; ?>
+
                     </div>
 
-                    <?php endwhile; wp_reset_query(); else : ?>
-                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
-                    <?php endif; ?>
-
-                </div>
-
-                <div class="d-flex justify-content-between mt-1 mb-4 accessories">
-                    <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
-                </div>
-
-                <div class="week_days">
-                    <form class="d-flex justify-content-between flex-wrap">
-                        <div class="d-flex align-items-center">
-                            <input type="checkbox" id="weekday-1" name="weekday-1" value="Monday" checked>
-                            <label for="weekday-1">Monday</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="weekday-2" name="weekday-2" value="Tuesday">
-                            <label for="weekday-2">Tuesday</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="weekday-3" name="weekday-3" value="Wednesday">
-                            <label for="weekday-3">Wednesday</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="weekday-4" name="weekday-4" value="Thursday">
-                            <label for="weekday-4">Thursday</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="weekday-5" name="weekday-5" value="Friday">
-                            <label for="weekday-5">Friday</label>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="vat">
-                    <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
-                </div>
-
-                <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center">
-                        <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
-                        <a href="" class="btn_primary btn_sec d-block">Daily</a>
+                    <div class="d-flex justify-content-between mt-1 mb-4 accessories">
+                        <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
                     </div>
-                    <div>
-                        <a href="" class="btn_primary">Save</a>
+
+                        <div class="week_days">
+                            <form class="d-flex justify-content-between flex-wrap">
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" id="weekday-1" name="weekday-1" value="Monday" checked>
+                                    <label for="weekday-1">Monday</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="weekday-2" name="weekday-2" value="Tuesday">
+                                    <label for="weekday-2">Tuesday</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="weekday-3" name="weekday-3" value="Wednesday">
+                                    <label for="weekday-3">Wednesday</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="weekday-4" name="weekday-4" value="Thursday">
+                                    <label for="weekday-4">Thursday</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="weekday-5" name="weekday-5" value="Friday">
+                                    <label for="weekday-5">Friday</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="vat">
+                            <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
+                        </div>
+
+                         <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
+                                <a href="" class="btn_primary btn_sec d-block">Daily</a>
+                            </div>
+                        <div>
+
+                        <input type="submit" class="btn_primary"  value="Save"/>
+                        </div>
                     </div>
-                </div>
-                    </form>
+                </form>
             </div>
-
         </div>
-
     </div>
 </div>
 
@@ -368,3 +366,64 @@ get_header();
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript">   
+     jQuery(document).ready(function($) {	
+        	
+        $("#weeklyfood").submit(function(e) { 
+            e.preventDefault();     
+            alert("Weekly");                    
+            var people = jQuery('#people').val();	             
+            var date = jQuery('#date').val();	 
+            var time = jQuery('#time').val();	 
+            var address = jQuery('#address').val();	             
+            var food_type = jQuery('#food_type').val();	 
+            var food_cat = jQuery('#food_cat').val();	 
+            var pro_cat = jQuery('#pro_cat').val();	 
+            var pro_sub_cat = jQuery('#pro_sub_cat').val();	
+            var person = jQuery('#person').val();           
+            var allergens = jQuery('#allergens').val();  
+           
+            $.ajax(
+                {
+                    type:"POST",
+                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                    data: {
+                        action: "addcatering",
+                        people : people,
+                        date : date,                  
+                        time : time,
+                        address : address,
+                        food_type : food_type,
+                        food_cat : food_cat,
+                        allergens : allergens ,
+                        pro_cat : pro_cat,
+                        pro_sub_cat : pro_sub_cat,
+                        person : person
+                    },   
+                    success: function(data){                      
+                     
+                        if(data.code==0) {
+                                    alert(data.message);
+                        }  
+                        else {
+                           $(".overlay").css("display", "flex");
+                      
+                        }      
+            }
+            
+             });
+         }); 
+            
+        
+     });
+	</script>
+
+
+
+
+
+
+

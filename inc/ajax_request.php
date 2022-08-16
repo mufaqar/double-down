@@ -34,17 +34,17 @@ function addcatering() {
 			'time' => $time,
 			'address' => $address,
 			'person' => $person,
-			'date' => $date,
+			'date' => $date
 		),
 		
 	);
 	    $user_id = wp_insert_post($post);
 	  	if (!is_wp_error($user_id)) {		    
 			//sendmail($username,$password);
-			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
+			echo wp_send_json( array('code' => 200 , 'message'=>__('Order Sucessfully Create')));
 
 	  	} else {        
-			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up the sign up form carefully.')));
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up form carefully.')));
 	      	}
 	  	
 	die;   
