@@ -66,39 +66,21 @@ function weeklyfood() {
       $weekdays = $_POST['weekdays'];
 	  $menu_items = $_POST['menu_items'];
 
-	  die();
-
-
-
-
-	  
-
-	
-
-	
-	  
       
-	  $post = array(
-		'post_title'    => "Order" ,	
-		'post_status'   => 'publish',
-		'post_type'     => 'orders',		
-		
-		
-		
-	);
+		$post = array(
+			'post_title'    => "Order" ,	
+			'post_status'   => 'publish',
+			'post_type'     => 'orders',		
+			
+			
+			
+		);
 	   $user_id = wp_insert_post($post);
-
-	   
-
 	   foreach($weekdays as $weekday){
-
 		$day = $weekday;
-		add_post_meta($user_id, $day, $day, true);
-
-	   
+		add_post_meta($user_id, $day, $day, true);   
 	 }
 
-	
 	 foreach($menu_items as $menu_item){
 		$product_id = $menu_item[0];
 		$menu_item = $menu_item[1];	
