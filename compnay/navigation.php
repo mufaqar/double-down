@@ -52,8 +52,7 @@
                                     echo 'Hey, ' .  $current_user->display_name ; } 
                                     else {
 
-                                        wp_redirect( home_url('login'));
-                                       
+                                        wp_redirect( home_url('login'));                                     
                                         exit;
 
 
