@@ -11,7 +11,7 @@ function addcatering() {
 	  $date = $_POST['date'];
 	  $time = $_POST['time'];
 	  $address = $_POST['address'];
-	  $person = stripcslashes($_POST['person']);
+	  $person = $_POST['person'];
 	  $food_type = $_POST['food_type'];
 	  $food_cat = $_POST['food_cat'];
 	  $pro_cat = $_POST['pro_cat'];
@@ -21,6 +21,7 @@ function addcatering() {
 	  $post = array(
 		'post_title'    => $date,	
 		'post_status'   => 'publish',
+		'post_content'   => $food_type . $food_cat . $pro_cat . $pro_sub_cat . $allergens,
 		'post_type'     => 'catering',		
 		'meta_input'   => array(
 			'people' => $people,
