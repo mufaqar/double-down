@@ -7,8 +7,8 @@
                        <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" class="logo" alt=""></a>
                     </div>
                     <div class="toggle_btn bg-light mt-4 mb-4 d-flex mx-3">
-                        <button href="" class="myprofile active" onclick="myProfile()">My <br> Profile</button>
-                        <button href="" class="companyProfile" onclick="companyProfile()">Company<br> Profile</button>
+                        <button href="" class="myprofile " onclick="myProfile()">My <br> Profile</button>
+                        <button href="" class="companyProfile active" onclick="companyProfile()">Company<br> Profile</button>
                     </div>
                     <div>
                         
@@ -47,8 +47,32 @@
                         </div>
                         <div class="proofile_info d-flex align-items-center">
                             <div class="user">
-                                <h6>Hey, Jose!</h6>
+                                <h6><?php global $current_user; wp_get_current_user(); ?>
+                                    <?php if ( is_user_logged_in() ) { 
+                                    echo 'Hey, ' .  $current_user->display_name ; } 
+                                    else {
+
+                                        wp_redirect( home_url('login'));
+                                       
+                                        exit;
+
+
+                                    }
+                                    ?></h6>
                                 <p>Agreement: Oranchy AS</p>
+
+                                <?php 
+
+                        $current_user = wp_get_current_user();
+                      //  print_r($current_user);
+
+                        ?>
+
+
+
+
+
+
                             </div>
                             <img src="<?php bloginfo('template_directory'); ?>/reources//images/profile.webp" alt="">
                         </div>                        
