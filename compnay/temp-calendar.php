@@ -349,7 +349,7 @@ get_header();
                     </div>
                     
                 </div>
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+                <img src="<?php // bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -490,7 +490,7 @@ get_header();
                                 alert(data.message);
                             }  
                             else {
-                          // $(".overlay").css("display", "flex");                          
+                           $(".overlay").css("display", "flex");                          
                            $(".message").html("Order Created");
                             }      
                          }

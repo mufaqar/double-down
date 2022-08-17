@@ -22,10 +22,11 @@ add_action( 'manage_orders_posts_custom_column' , 'custom_orders_column', 10, 2 
 
 function set_custom_edit_orders_columns($columns) {    
     unset( $columns['author'] );
-    $columns['order_status'] = 'Payment Status';
+   
     $columns['order_type'] = 'Order Type';
     $columns['user_type'] = 'User Type';
     $columns['order_price'] = 'Order Price';
+    $columns['order_status'] = 'Payment Status';
     return $columns;    
 }
 
