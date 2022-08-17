@@ -62,11 +62,9 @@ get_header();
                                     foreach (range(0, 4) as $day) {
                                         $week[] = date("Y-m-d", (($day * 86400) + $saturday));
                                         $today_date =  $week[$i];
-                                        $i++;
-                                       
+                                        $i++;                                       
                                         $timestamp = strtotime($today_date);
                                         $today_day = date('l', $timestamp);
-
                                        
                                      // print_r($week);
                                         ?>
