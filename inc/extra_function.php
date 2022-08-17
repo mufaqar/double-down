@@ -57,7 +57,7 @@ function custom_orders_column( $column, $post_id ) {
       break;  
         case 'order_price' :
           if(get_field( "total_price", $post_id )) {
-              echo get_field( "total_price", $post_id );
+              echo " NOK " .get_field( "total_price", $post_id );
           } else {
               echo 0;
           }
