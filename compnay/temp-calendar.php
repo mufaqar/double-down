@@ -54,17 +54,27 @@ get_header();
                                 <!-- Accordion item 1 -->
 
                                 <?php
+
+
                                     $week = [];
                                     $saturday = strtotime('monday this week');
+                                    $i= 0;
                                     foreach (range(0, 4) as $day) {
                                         $week[] = date("Y-m-d", (($day * 86400) + $saturday));
-                                       // print_r($week);
+                                        $today_date =  $week[$i];
+                                        $i++;
+                                       
+                                        $timestamp = strtotime($today_date);
+                                        $today_day = date('l', $timestamp);
+
+                                       
+                                     // print_r($week);
                                         ?>
 
                                             <div class="card">
                                                         <form class="dailyfood" id="dailyfood" action="#">
                                                             <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
-                                                            <input type="hidden" value="<?php echo $week[0]; ?>" id="day" >
+                                                            <input type="hidden" value="<?php echo $today_date ?>" id="day" >
                                                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
 
                                                             
@@ -72,7 +82,7 @@ get_header();
                                                                                 <button type="button" data-toggle="collapse" data-target="#collapseOne"
                                                                                     aria-expanded="true" aria-controls="collapseOne"
                                                                                     class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                                                    Tuesday | <span><?php echo $week[0]; ?></span>
+                                                                                    <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
                                                                                 </button>
                                                                                 <h6 class="text-nowrap mb-0">No Booking</h6>
                                                                             </div>
