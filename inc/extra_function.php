@@ -25,6 +25,7 @@ function set_custom_edit_orders_columns($columns) {
     $columns['order_status'] = 'Payment Status';
     $columns['order_type'] = 'Order Type';
     $columns['user_type'] = 'User Type';
+    $columns['order_price'] = 'Order Price';
     return $columns;    
 }
 
@@ -49,6 +50,14 @@ function custom_orders_column( $column, $post_id ) {
         case 'user_type' :
           if(get_field( "user_type", $post_id )) {
               echo get_field( "user_type", $post_id );
+          } else {
+              echo 0;
+          }
+      break; 
+      break;  
+        case 'order_price' :
+          if(get_field( "total_price", $post_id )) {
+              echo get_field( "total_price", $post_id );
           } else {
               echo 0;
           }
