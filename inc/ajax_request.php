@@ -118,26 +118,27 @@ function dailyfood() {
 	 
       $day = $_POST['day'];
 	  $menu_items = $_POST['menu_items'];
+	  $uid = $_POST['uid'];
+	  $author_obj = get_user_by('id', $uid);
+	  $author =  $author_obj->display_name;
 
       
 		$post = array(
-			'post_title'    => "Order" ,	
+			'post_title'    => "Order -  2Y7OZ1HYSX1-" . rand(10,100) ,	
 			'post_status'   => 'publish',
-			'post_type'     => 'orders'
+			'post_type'     => 'orders',
+			'post_author' => $uid
 		);
-	   $user_id = wp_insert_post($post);
-	   
-		add_post_meta($user_id, $day, $day, true);
-
-	 foreach($menu_items as $menu_item){
-		$product_id = $menu_item[0];
-		$menu_item = $menu_item[1];	
-		$price =  get_post_meta( $product_id, 'menu_item_price', true );
-		$total_price = ($price * $menu_item) ;
-		add_post_meta($user_id, 'total_price', $total_price, true);
-		add_post_meta($user_id, 'productid-'.$product_id, $menu_item, true);
-	  
-	 }
+	    $user_id = wp_insert_post($post);	   
+		add_post_meta($user_id, 'order_day', $day, true);
+		foreach($menu_items as $menu_item){
+			$product_id = $menu_item[0];
+			$menu_item = $menu_item[1];	
+			$price =  get_post_meta( $product_id, 'menu_item_price', true );
+			$total_price = ($price * $menu_item) ;
+			add_post_meta($user_id, 'total_price', $total_price, true);
+			add_post_meta($user_id, 'productid-'.$product_id, $menu_item, true);	  
+	 	}
 
 	  	if (!is_wp_error($user_id)) {		    
 			//sendmail($username,$password);

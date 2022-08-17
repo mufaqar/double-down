@@ -12,7 +12,7 @@
                     If you want to change a fixed subscription,
                     do so <a href="#">her.</a></p>
 
-                    <input type="text" value="08/17/2022" id="day" >
+                   
                     <div class="order_wrapper mt-3 ">
                             <button href="" class="btn_primary  _id<?php echo $pid ?>"
                                 onmouseover="showOrderCounter(<?php echo $pid ?>)">Select</button>

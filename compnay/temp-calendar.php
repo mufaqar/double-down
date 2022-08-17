@@ -19,6 +19,19 @@ get_header();
                     to day. If you want to change a fixed subscription, do so <a href="">her.</a>
                 </p>
 
+                <?php
+                 $week = [];
+                 $saturday = strtotime('monday this week');
+                 foreach (range(0, 4) as $day) {
+                     $week[] = date("Y-m-d", (($day * 86400) + $saturday));
+                 }
+
+                //  print "<pre>";
+                //  print_r($week);
+                //  print "</pre>";
+
+                 ?>
+
               
               
 
@@ -39,87 +52,50 @@ get_header();
                             <!-- Accordion -->
                             <div id="accordionExample" class="accordion">
                                 <!-- Accordion item 1 -->
-                                <div class="card">
-                                <form class="dailyfood" id="dailyfood" action="#" >    
-                                        <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
-                                                <div class="mb-0 d-flex align-items-center">
-                                                    <button type="button" data-toggle="collapse" data-target="#collapseOne"
-                                                        aria-expanded="true" aria-controls="collapseOne"
-                                                        class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                        Tuesday | <span>Aug 7</span>
-                                                    </button>
-                                                    <h6 class="text-nowrap mb-0">No Booking</h6>
-                                                </div>
-                                        </div>
-                                        <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample"
-                                            class="collapse show accordion_content">
-                                            <div class="card-body p-md-5">
-                                                <?php get_template_part('partials/content', 'daylunch'); ?>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div><!-- End -->
 
-                                <!-- Accordion item 2 -->
-                                <div class="card">
-                                    <div id="headingtwo" class="card-header bg-white shadow-sm border-0 py-4">
-                                        <div class="mb-0 d-flex align-items-center">
-                                            <button type="button" data-toggle="collapse" data-target="#headingtwo"
-                                                aria-expanded="true" aria-controls="headingtwo"
-                                                class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                Thursday | <span>Au 7</span>
-                                            </button>
-                                            <h6 class="text-nowrap mb-0">No Booking</h6>
-                                        </div>
-                                    </div>
-                                    <div id="headingtwo" aria-labelledby="headingOne" data-parent="#accordionExample"
-                                        class="collapse accordion_content">
-                                        <div class="card-body p-md-5">
-                                            <?php get_template_part('partials/content', 'daylunch'); ?>
-                                        </div>
-                                    </div>
-                                </div><!-- End -->
+                                <?php
+                                    $week = [];
+                                    $saturday = strtotime('monday this week');
+                                    foreach (range(0, 4) as $day) {
+                                        $week[] = date("Y-m-d", (($day * 86400) + $saturday));
+                                       // print_r($week);
+                                        ?>
 
-                                <!-- Accordion item 3 -->
-                                <div class="card">
-                                    <div id="headingthree" class="card-header bg-white shadow-sm border-0 py-4">
-                                        <div class="mb-0 d-flex align-items-center">
-                                            <button type="button" data-toggle="collapse" data-target="#headingthree"
-                                                aria-expanded="true" aria-controls="headingthree"
-                                                class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                Friday | <span>Au 7</span>
-                                            </button>
-                                            <h6 class="text-nowrap mb-0">No Booking</h6>
-                                        </div>
-                                    </div>
-                                    <div id="headingthree" aria-labelledby="headingOne" data-parent="#accordionExample"
-                                        class="collapse accordion_content">
-                                        <div class="card-body p-md-5">
-                                            <?php get_template_part('partials/content', 'daylunch'); ?>
+                                            <div class="card">
+                                                        <form class="dailyfood" id="dailyfood" action="#">
+                                                            <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
+                                                            <input type="hidden" value="<?php echo $week[0]; ?>" id="day" >
+                                                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
 
-                                        </div>
-                                    </div>
-                                </div><!-- End -->
+                                                            
+                                                                            <div class="mb-0 d-flex align-items-center">
+                                                                                <button type="button" data-toggle="collapse" data-target="#collapseOne"
+                                                                                    aria-expanded="true" aria-controls="collapseOne"
+                                                                                    class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
+                                                                                    Tuesday | <span><?php echo $week[0]; ?></span>
+                                                                                </button>
+                                                                                <h6 class="text-nowrap mb-0">No Booking</h6>
+                                                                            </div>
+                                                                </div>
+                                                                <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample"
+                                                                    class="collapse show accordion_content">
+                                                                    <div class="card-body p-md-5">
+                                                                        <?php get_template_part('partials/content', 'daylunch'); ?>
+                                                                    </div>
+                                                            </div>
+                                                        </form>
+                                                </div><!-- End -->
+                                        <?php
+                                    }
 
-                                <!-- Accordion item 4 -->
-                                <div class="card">
-                                    <div id="headingfour" class="card-header bg-white shadow-sm border-0 py-4">
-                                        <div class="mb-0 d-flex align-items-center">
-                                            <button type="button" data-toggle="collapse" data-target="#headingfour"
-                                                aria-expanded="true" aria-controls="headingfour"
-                                                class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                Saturday | <span>Au 7</span>
-                                            </button>
-                                            <h6 class="text-nowrap mb-0">No Booking</h6>
-                                        </div>
-                                    </div>
-                                    <div id="headingfour" aria-labelledby="headingOne" data-parent="#accordionExample"
-                                        class="collapse accordion_content">
-                                        <div class="card-body p-md-5">
-                                            <?php get_template_part('partials/content', 'daylunch'); ?>
-                                        </div>
-                                    </div>
-                                </div><!-- End -->
+                                
+                                    ?>
+
+
+
+
+                              
+
 
                             </div><!-- End -->
                         </div>
@@ -355,7 +331,7 @@ get_header();
 </main>
 
 
-<section class="hideme zindex-modal overlay">
+<section class="hideme overlay">
         <div class="popup">
             <div class="popup_wrapper">
                 <div
@@ -373,7 +349,7 @@ get_header();
                     </div>
                     
                 </div>
-                <img src="./reources//images/red cross.png" alt="" class="_cross">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -453,57 +429,44 @@ get_header();
              });
          }); 
 
-         $("#dailyfood").submit(function(e) { 
-            e.preventDefault();  
-
-            var username = jQuery('#day').val();
-           
-            var datas = [];
-                    var newdata = [];
-                    $("#dailyfood .product-quantity").each(function () {
-                      var productid =  $(this).data('id');
-                      var value = $(this).val() ;
-                        if(value >1) {
-                            datas.push( [productid, $(this).val() ]);   
-                            }                     
-                       newdata.push(datas);
-                    });
-                   alert(newdata[0]);
-                    var menu_items = newdata[0];
-                    alert(menu_items);
-                    console.log(menu_items);
-                  //  alert(postid);          
-                            
-            var weekdays = weekdays;	             
-            var menu_items = menu_items;     
-           
-            $.ajax(
-                {
-                    type:"POST",
-                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                    data: {
-                        action: "dailyfood",
-                        day : day,
-                        menu_items : menu_items,                  
-                       
-                    },   
-                    success: function(data){                      
-                     
-                        if(data.code==0) {
-                                    alert(data.message);
-                        }  
-                        else {
-                           $(".overlay").css("display", "flex");
-                      
-                        }      
-            }
+            $("#dailyfood").submit(function(e) { 
+                e.preventDefault();  
+                var day = jQuery('#day').val();
+                var uid = jQuery('#uid').val();            
+                var datas = [];
+                var newdata = [];
+                $("#dailyfood .product-quantity").each(function () {
+                    var productid =  $(this).data('id');
+                    var value = $(this).val() ;
+                    if(value >1) {
+                        datas.push( [productid, $(this).val() ]);   
+                        }                     
+                    newdata.push(datas);
+                });                
+                var menu_items = newdata[0];                
+                console.log(menu_items);   
+                $.ajax(
+                    {   
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "dailyfood",
+                            day : day,
+                            menu_items : menu_items,  
+                            uid : uid                
+                        
+                        },   
+                        success: function(data){  
+                            if(data.code==0) {
+                                alert(data.message);
+                            }  
+                            else {
+                               $(".overlay").css("display", "flex");
+                            }      
+                         }
             
-             });
-         }); 
-
-
-
-
+                     });
+            }); 
         });
             
         
