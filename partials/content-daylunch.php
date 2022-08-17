@@ -11,14 +11,16 @@
                     the various lunch options from day to day.
                     If you want to change a fixed subscription,
                     do so <a href="#">her.</a></p>
+
+                    <input type="text" value="08/17/2022" id="day" >
                     <div class="order_wrapper mt-3 ">
                             <button href="" class="btn_primary  _id<?php echo $pid ?>"
-                                onclick="showOrderCounter(<?php echo $pid ?>)">Select</button>
+                                onmouseover="showOrderCounter(<?php echo $pid ?>)">Select</button>
                             <div
                                 class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo $pid ?>">
                                 <i class="count-down"><img
                                         src="<?php bloginfo('template_directory'); ?>/reources/images/minus-thin.png" alt=""></i>
-                                <input type="text" value="1" class="product-quantity form-control text-center incrDecrCounter" />
+                                <input type="text" data-id="<?php echo $pid;?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
                                 <i class="count-up"><img
                                         src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt=""></i>
                             </div>
@@ -52,5 +54,5 @@
     <div class="accordion_btns d-flex justify-content-end mb-5 mr-3">
         <a class="btn_primary btn_sec" href="">Choose Location</a>
         <a class="btn_primary btn_sec" href="">Add allergy-friendly</a>
-        <a class="btn_primary" href="">Save</a>
+        <input type="submit" class="btn_primary"  value="Save"/>
     </div>

@@ -70,25 +70,74 @@ function weeklyfood() {
 		$post = array(
 			'post_title'    => "Order" ,	
 			'post_status'   => 'publish',
-			'post_type'     => 'orders',		
-			
-			
-			
+			'post_type'     => 'orders'
 		);
 	   $user_id = wp_insert_post($post);
 	   foreach($weekdays as $weekday){
 		$day = $weekday;
 		add_post_meta($user_id, $day, $day, true);   
+
+		
 	 }
+
+	 $t_day = count($weekdays);
+
+	 add_post_meta($user_id, 'total_days', $t_day, true);   
 
 	 foreach($menu_items as $menu_item){
 		$product_id = $menu_item[0];
 		$menu_item = $menu_item[1];	
-		add_post_meta($user_id, $menu_item, $menu_item, true);
+		$price =  get_post_meta( $product_id, 'menu_item_price', true );
+		$total_price = ($price * $menu_item) * $t_day;
+		add_post_meta($user_id, 'total_price', $total_price, true);
+		add_post_meta($user_id, 'productid-'.$product_id, $menu_item, true);
 	  
 	 }
 
+	  	if (!is_wp_error($user_id)) {		    
+			//sendmail($username,$password);
+			echo wp_send_json( array('code' => 200 , 'message'=>__('Order Sucessfully Create')));
 
+	  	} else {        
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up form carefully.')));
+	      	}
+	  	
+	die;   
+
+	
+		
+}
+
+
+
+add_action('wp_ajax_dailyfood', 'dailyfood', 0);
+add_action('wp_ajax_nopriv_dailyfood', 'dailyfood');
+
+function dailyfood() {		
+	  global $wpdb;		
+	 
+      $day = $_POST['day'];
+	  $menu_items = $_POST['menu_items'];
+
+      
+		$post = array(
+			'post_title'    => "Order" ,	
+			'post_status'   => 'publish',
+			'post_type'     => 'orders'
+		);
+	   $user_id = wp_insert_post($post);
+	   
+		add_post_meta($user_id, $day, $day, true);
+
+	 foreach($menu_items as $menu_item){
+		$product_id = $menu_item[0];
+		$menu_item = $menu_item[1];	
+		$price =  get_post_meta( $product_id, 'menu_item_price', true );
+		$total_price = ($price * $menu_item) ;
+		add_post_meta($user_id, 'total_price', $total_price, true);
+		add_post_meta($user_id, 'productid-'.$product_id, $menu_item, true);
+	  
+	 }
 
 	  	if (!is_wp_error($user_id)) {		    
 			//sendmail($username,$password);

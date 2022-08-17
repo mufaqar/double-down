@@ -40,22 +40,24 @@ get_header();
                             <div id="accordionExample" class="accordion">
                                 <!-- Accordion item 1 -->
                                 <div class="card">
-                                    <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
-                                        <div class="mb-0 d-flex align-items-center">
-                                            <button type="button" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne"
-                                                class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                Tuesday | <span>Aug 7</span>
-                                            </button>
-                                            <h6 class="text-nowrap mb-0">No Booking</h6>
+                                <form class="dailyfood" id="dailyfood" action="#" >    
+                                        <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
+                                                <div class="mb-0 d-flex align-items-center">
+                                                    <button type="button" data-toggle="collapse" data-target="#collapseOne"
+                                                        aria-expanded="true" aria-controls="collapseOne"
+                                                        class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
+                                                        Tuesday | <span>Aug 7</span>
+                                                    </button>
+                                                    <h6 class="text-nowrap mb-0">No Booking</h6>
+                                                </div>
                                         </div>
-                                    </div>
-                                    <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample"
-                                        class="collapse show accordion_content">
-                                        <div class="card-body p-md-5">
-                                            <?php get_template_part('partials/content', 'daylunch'); ?>
+                                        <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample"
+                                            class="collapse show accordion_content">
+                                            <div class="card-body p-md-5">
+                                                <?php get_template_part('partials/content', 'daylunch'); ?>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div><!-- End -->
 
                                 <!-- Accordion item 2 -->
@@ -366,7 +368,7 @@ get_header();
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
                             <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                        
-                            <a href="<?php echo home_url('order'); ?>" class="btn_primary mb-5">View  Orders</a>
+                            <a href="<?php echo home_url(''); ?>" class="btn_primary mb-5">View  Orders</a>
                         </div>
                     </div>
                     
@@ -396,26 +398,19 @@ get_header();
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script type="text/javascript">   
-     jQuery(document).ready(function($) {
-
-
-       
+     jQuery(document).ready(function($) {      
                     	
         $("#weeklyfood").submit(function(e) { 
-            e.preventDefault();    
+            e.preventDefault();   
+            
+            
+
             var weekdays = [];
             $.each($("input[name='sport']:checked"), function(){            
                 weekdays.push($(this).val());
             });
             
-           
-
-         
-
-
-
-          
-                    var datas = [];
+            var datas = [];
                     var newdata = [];
                     $("#weeklyfood .product-quantity").each(function () {
                       var productid =  $(this).data('id');
@@ -429,14 +424,10 @@ get_header();
                     var menu_items = newdata[0];
                     alert(menu_items);
                     console.log(menu_items);
-                  //  alert(postid);
-           
+                  //  alert(postid);          
                             
             var weekdays = weekdays;	             
-            var menu_items = menu_items;	
-            
-         
-           
+            var menu_items = menu_items;     
            
             $.ajax(
                 {
@@ -454,13 +445,65 @@ get_header();
                                     alert(data.message);
                         }  
                         else {
-                          // $(".overlay").css("display", "flex");
+                           $(".overlay").css("display", "flex");
                       
                         }      
             }
             
              });
          }); 
+
+         $("#dailyfood").submit(function(e) { 
+            e.preventDefault();  
+
+            var username = jQuery('#day').val();
+           
+            var datas = [];
+                    var newdata = [];
+                    $("#dailyfood .product-quantity").each(function () {
+                      var productid =  $(this).data('id');
+                      var value = $(this).val() ;
+                        if(value >1) {
+                            datas.push( [productid, $(this).val() ]);   
+                            }                     
+                       newdata.push(datas);
+                    });
+                   alert(newdata[0]);
+                    var menu_items = newdata[0];
+                    alert(menu_items);
+                    console.log(menu_items);
+                  //  alert(postid);          
+                            
+            var weekdays = weekdays;	             
+            var menu_items = menu_items;     
+           
+            $.ajax(
+                {
+                    type:"POST",
+                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                    data: {
+                        action: "dailyfood",
+                        day : day,
+                        menu_items : menu_items,                  
+                       
+                    },   
+                    success: function(data){                      
+                     
+                        if(data.code==0) {
+                                    alert(data.message);
+                        }  
+                        else {
+                           $(".overlay").css("display", "flex");
+                      
+                        }      
+            }
+            
+             });
+         }); 
+
+
+
+
         });
             
         
