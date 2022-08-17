@@ -63,12 +63,16 @@ function weeklyfood() {
 	 
       $weekdays = $_POST['weekdays'];
 	  $menu_items = $_POST['menu_items'];
+	  $uid = $_POST['uid'];
+	  $weekid = $_POST['weekid'];
+
 
       
 		$post = array(
-			'post_title'    => "Order" ,	
+			'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10,100),
 			'post_status'   => 'publish',
-			'post_type'     => 'orders'
+			'post_type'     => 'orders',
+			'post_author' => $uid
 		);
 	   $user_id = wp_insert_post($post);
 	   foreach($weekdays as $weekday){
@@ -79,6 +83,14 @@ function weeklyfood() {
 	 }
 
 	 $t_day = count($weekdays);
+	 add_post_meta($user_id, 'week_id', $weekid, true);  
+	 add_post_meta($user_id, 'order_status', 'Pending', true);  
+	 add_post_meta($user_id, 'order_type', 'Weekly', true);  
+	 add_post_meta($user_id, 'user_type', 'Company', true);  
+
+	 
+	 
+	 
 
 	 add_post_meta($user_id, 'total_days', $t_day, true);   
 
@@ -128,6 +140,11 @@ function dailyfood() {
 		);
 	    $user_id = wp_insert_post($post);	   
 		add_post_meta($user_id, 'order_day', $day, true);
+		add_post_meta($user_id, 'order_status', 'Pending', true);  
+		add_post_meta($user_id, 'order_type', 'Day', true);  
+		add_post_meta($user_id, 'user_type', 'Company', true);  
+
+		
 		$items = array();
 		foreach($menu_items as $menu_item){
 			$product_id = $menu_item[0];

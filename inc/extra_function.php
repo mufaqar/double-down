@@ -14,3 +14,52 @@ function remove_admin_bar() {
     show_admin_bar(false);
   }
 }
+
+
+
+add_filter( 'manage_orders_posts_columns', 'set_custom_edit_orders_columns' );    
+add_action( 'manage_orders_posts_custom_column' , 'custom_orders_column', 10, 2 );
+
+function set_custom_edit_orders_columns($columns) {    
+    unset( $columns['author'] );
+    $columns['order_status'] = 'Payment Status';
+    $columns['order_type'] = 'Order Type';
+    $columns['user_type'] = 'User Type';
+    return $columns;    
+}
+
+function custom_orders_column( $column, $post_id ) {   
+    global $post;
+    switch ( $column ) {
+        case 'order_status' :
+            if(get_field( "order_status", $post_id )) {
+                echo get_field( "order_status", $post_id );
+            } else {
+                echo 0;
+            }
+        break;
+
+        case 'order_type' :
+            if(get_field( "order_type", $post_id )) {
+                echo get_field( "order_type", $post_id );
+            } else {
+                echo 0;
+            }
+        break;  
+        case 'user_type' :
+          if(get_field( "user_type", $post_id )) {
+              echo get_field( "user_type", $post_id );
+          } else {
+              echo 0;
+          }
+      break;    
+    }   
+}
+
+function my_column_register_sortable( $columns ) {
+     $columns['order_status'] = 'order_status';
+    $columns['order_type'] = 'order_type';
+    return $columns;
+}
+
+add_filter("manage_edit-orders_sortable_columns", "my_column_register_sortable" );

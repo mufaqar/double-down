@@ -19,25 +19,7 @@ get_header();
                     to day. If you want to change a fixed subscription, do so <a href="">her.</a>
                 </p>
 
-                <?php
-                 $week = [];
-                 $saturday = strtotime('monday this week');
-                 foreach (range(0, 4) as $day) {
-                     $week[] = date("Y-m-d", (($day * 86400) + $saturday));
-                 }
-
-                //  print "<pre>";
-                //  print_r($week);
-                //  print "</pre>";
-
-                 ?>
-
-              
-              
-
-
-
-                <div class="calender_wrapper d-flex justify-content-between align-items-center">
+          <div class="calender_wrapper d-flex justify-content-between align-items-center">
                     <div class="calender">
                         <input type="date">
                     </div>
@@ -70,22 +52,20 @@ get_header();
                                         ?>
 
                                             <div class="card">
-                                                        <form class="dailyfood" id="dailyfood" action="#">
+                                                        <form class="dailyfood" id="dailyfood<?php echo $day ?>" action="#">
                                                             <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
                                                             <input type="hidden" value="<?php echo $today_date ?>" id="day" >
-                                                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
-
-                                                            
+                                                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                                                            
                                                                             <div class="mb-0 d-flex align-items-center">
-                                                                                <button type="button" data-toggle="collapse" data-target="#collapseOne"
-                                                                                    aria-expanded="true" aria-controls="collapseOne"
+                                                                                <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $day?>"
+                                                                                    aria-expanded="true" aria-controls="collapse<?php echo $day?>"
                                                                                     class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
                                                                                     <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
                                                                                 </button>
-                                                                                <h6 class="text-nowrap mb-0">No Booking</h6>
+                                                                                <h6 class="text-nowrap mb-0"><div class="message">No Booking </div> </h6>
                                                                             </div>
                                                                 </div>
-                                                                <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample"
+                                                                <div id="collapse<?php echo $day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
                                                                     class="collapse show accordion_content">
                                                                     <div class="card-body p-md-5">
                                                                         <?php get_template_part('partials/content', 'daylunch'); ?>
@@ -205,8 +185,20 @@ get_header();
                     <p>Here you can easily choose between or cancel the various lunch options from day
                         to day. If you want to change a fixed subscription, do so <a href="">her.</a>
                     </p>
+                    <?php 
+                        $ddate = "today";
+                        $date = new DateTime($ddate);
+                        $weeksid = $date->format("W");
+             
+                    
+                    
+                    ?>
                     <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
                         <div class="product_wrapper row mb-4">
+                        <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
+                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
+
+                        
                             <?php query_posts(array(
                                         'post_type' => 'menu_items',
                                         'posts_per_page' => -1,
@@ -382,68 +374,97 @@ get_header();
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script type="text/javascript">   
-     jQuery(document).ready(function($) {      
+     jQuery(document).ready(function($) 
+        {      
                     	
-        $("#weeklyfood").submit(function(e) { 
-            e.preventDefault();   
-            
-            
-
-            var weekdays = [];
-            $.each($("input[name='sport']:checked"), function(){            
-                weekdays.push($(this).val());
-            });
-            
-            var datas = [];
-                    var newdata = [];
-                    $("#weeklyfood .product-quantity").each(function () {
-                      var productid =  $(this).data('id');
-                      var value = $(this).val() ;
-                        if(value >1) {
-                            datas.push( [productid, $(this).val() ]);   
-                            }                     
-                       newdata.push(datas);
-                    });
-                   // alert(newdata[0]);
-                    var menu_items = newdata[0];
-                    alert(menu_items);
-                    console.log(menu_items);
-                  //  alert(postid);          
-                            
-            var weekdays = weekdays;	             
-            var menu_items = menu_items;     
-           
-            $.ajax(
-                {
-                    type:"POST",
-                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                    data: {
-                        action: "weeklyfood",
-                        weekdays : weekdays,
-                        menu_items : menu_items,                  
-                       
-                    },   
-                    success: function(data){                      
-                     
-                        if(data.code==0) {
-                                    alert(data.message);
-                        }  
-                        else {
-                           $(".overlay").css("display", "flex");
-                      
-                        }      
-            }
-            
-             });
-         }); 
-
-            $("#dailyfood").submit(function(e) { 
+            $("#weeklyfood").submit(function(e) { 
                 e.preventDefault();  
-                var day = jQuery('#day').val();
-                var uid = jQuery('#uid').val();            
+                var weekid = jQuery('#weekid').val();
+                var uid = jQuery('#uid').val();
+                var weekdays = [];
+                $.each($("input[name='sport']:checked"), function(){            
+                    weekdays.push($(this).val());
+                });
+                
+                var datas = [];
+                        var newdata = [];
+                        $("#weeklyfood .product-quantity").each(function () {
+                        var productid =  $(this).data('id');
+                        var value = $(this).val() ;
+                            if(value >1) {
+                                datas.push( [productid, $(this).val() ]);   
+                                }                     
+                        newdata.push(datas);
+                        });
+                    // alert(newdata[0]);
+                        var menu_items = newdata[0];
+                  
+                        console.log(menu_items);
+                    //  alert(postid);          
+                                
+                var weekdays = weekdays;	             
+                var menu_items = menu_items;     
+            
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "weeklyfood",
+                            weekdays : weekdays,
+                            menu_items : menu_items,   
+                            weekid : weekid,
+                            uid : uid,                  
+                        
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                            $(".overlay").css("display", "flex");
+                        
+                            }      
+                    }
+                
+                });
+            }); 
+
+            $("#dailyfood0").submit(function(e) { 
+                
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+
+            $("#dailyfood1").submit(function(e) { 
+
+               
+                e.preventDefault(); 
+                submitTwoForms(this);
+                
+            }); 
+            $("#dailyfood2").submit(function(e) { 
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+            $("#dailyfood3").submit(function(e) { 
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+        });
+
+
+        function submitTwoForms() { 
+
+            var day = jQuery('#day').val();
+            var uid = jQuery('#uid').val();
                 var datas = [];
                 var newdata = [];
-                $("#dailyfood .product-quantity").each(function () {
+                $(".dailyfood .product-quantity").each(function () {
                     var productid =  $(this).data('id');
                     var value = $(this).val() ;
                     if(value >1) {
@@ -469,13 +490,14 @@ get_header();
                                 alert(data.message);
                             }  
                             else {
-                               $(".overlay").css("display", "flex");
+                          // $(".overlay").css("display", "flex");                          
+                           $(".message").html("Order Created");
                             }      
                          }
             
                      });
-            }); 
-        });
+        
+}
             
         
     
