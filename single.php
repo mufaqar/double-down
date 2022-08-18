@@ -1,24 +1,33 @@
 <?php get_header(); ?>
+<?php include get_theme_file_path('/compnay/navigation.php'); ?> 
+
+<div class='blogs_wrapper mt-4'>
+            <div class='blogs'>
+            
+                <div class="row">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-	<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-    	<h1><?php the_title(); ?></h1>
-        <?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>	
-		<div class="entry">
-           <?php if ( has_post_thumbnail() ) { ?>
-    		    <div class="featured-image">
-			<?php the_post_thumbnail( 'single-post-thumbnail' ); ?>
-    		    </div>
-			<?php } ?>		
-			<?php the_content(); ?>
-            <?php wp_link_pages(array('before' => 'Pages: ', 'next_or_number' => 'number')); ?>
-            <div class="clear"></div>
-			<div class="tags">
-				<?php the_tags( __('Tags:','text_domain'),'','.'); ?>
+<div class="col-md-12 " id="post-<?php the_ID(); ?>">
+                                            <div class="blog p-2 bg-body">                       
+                                            <?php if ( has_post_thumbnail() ) {
+                                                the_post_thumbnail('full', array('class' => 'feature_img w-100'));
+                                            } else { ?>
+                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/blog_img.png" alt="Featured Thumbnail" class="feature_img w-100" />
+                                                <?php } ?>
+                                                <h3 class="heading mt-2"><?php the_title(); ?></h3>
+                                                <p class="short_info"> <?php  the_content(); ?></p>
+                                                <h6 class="author mt-2">Written by <?php echo get_the_author(); ?> </h6>
+                                            </div>
+                                    </div>  
+	<?php edit_post_link(__('Edit','text_domain'),'','.'); ?>
+	<?php //comments_template(); ?>
+<?php endwhile; endif; ?>
+
+</div>
             </div>
         </div>
-    </div>
-	<?php edit_post_link(__('Edit','text_domain'),'','.'); ?>
-	<?php comments_template(); ?>
-<?php endwhile; endif; ?>
-<?php get_sidebar(); ?>	
+        
+    </main>
+
+
+<?php //get_sidebar('blog'); ?>
 <?php get_footer(); ?>

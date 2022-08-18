@@ -22,8 +22,8 @@ get_header(); ?>
                                                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/blog_img.png" alt="Featured Thumbnail" class="feature_img w-100" />
                                                 <?php } ?>
                                                 <h3 class="heading mt-2"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
-                                                <p class="short_info"> <?php  echo strip_shortcodes(wp_trim_words( get_the_content(), 400 )); ?></p>
-                                                <h6 class="author mt-2">Written by Maria Mørseth</h6>
+                                                <p class="short_info"> <?php  echo strip_shortcodes(wp_trim_words( get_the_content(), 40 )); ?></p>
+                                                <h6 class="author mt-2">Written by <?php echo get_the_author(); ?> </h6>
                                             </div>
                                     </div>   
                         <?php endwhile; ?>        
