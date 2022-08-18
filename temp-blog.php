@@ -3,15 +3,7 @@
 
 get_header(); ?>
   <?php include get_theme_file_path('/compnay/navigation.php'); ?>    
-                <div class="tab_wrapper">
-                    <div class='toggle'>
-                        <div class='tabs'>
-                            <div class='tab'>Lunch calendar</div>
-                            <div class='tab'>Settings</div>
-                            <div class='tab'>Fast levering</div>
-                        </div>
-                    </div>
-                </div>
+               
         <div class='blogs_wrapper mt-4'>
             <div class='blogs'>
                 <h2><?php the_title()?></h2>
@@ -25,7 +17,7 @@ get_header(); ?>
                                     <div class="blog_wrapper col-md-6 col-lg-4 col-xl-3" id="post-<?php the_ID(); ?>">
                                             <div class="blog p-2 bg-body">                       
                                             <?php if ( has_post_thumbnail() ) {
-                                                the_post_thumbnail('services-small-thumbnail');
+                                                the_post_thumbnail('full');
                                             } else { ?>
                                                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/blog_img.png" alt="Featured Thumbnail" class="feature_img w-100" />
                                                 <?php } ?>
