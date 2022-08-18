@@ -1,4 +1,4 @@
-<?php /* Template Name: Meeting  */ 
+<?php /* Template Name: Meeting (C)  */ 
 
 
 
