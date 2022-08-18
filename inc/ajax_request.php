@@ -192,7 +192,8 @@ function addmeeting() {
 			'post_author' => $uid
 		);
 	    $user_id = wp_insert_post($post); 
-	    
+		$price =  get_post_meta( $product_id, 'menu_item_price', true );
+		add_post_meta($user_id, 'date', $date, true);    
 
 		$items = array();
 		foreach($menu_items as $menu_item){
