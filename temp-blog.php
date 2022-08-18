@@ -17,7 +17,7 @@ get_header(); ?>
                                     <div class="blog_wrapper col-md-6 col-lg-4 col-xl-3" id="post-<?php the_ID(); ?>">
                                             <div class="blog p-2 bg-body">                       
                                             <?php if ( has_post_thumbnail() ) {
-                                                the_post_thumbnail('full');
+                                                the_post_thumbnail('full', array('class' => 'feature_img w-100'));
                                             } else { ?>
                                                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/blog_img.png" alt="Featured Thumbnail" class="feature_img w-100" />
                                                 <?php } ?>
