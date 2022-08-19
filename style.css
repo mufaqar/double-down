@@ -33,7 +33,7 @@ p {
   font-family: 'DM Sans', sans-serif !important;
 }
 a{
-  color: white;
+  color: white  !important;
 }
 body {
   font-family: 'DM Sans', sans-serif !important;
