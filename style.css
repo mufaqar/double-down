@@ -2787,6 +2787,7 @@ th {
 
 body {
   background: #eeeae9;
+  overflow-x: hidden;
 }
 
 /* app */
@@ -3088,7 +3089,7 @@ body {
   }
 
   .main img.mobile {
-    top: 73%;
+    top: 76%;
   }
   ._pro_salat ._info {
     margin-top: -5rem;
