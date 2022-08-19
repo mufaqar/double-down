@@ -4,7 +4,7 @@
 get_header('landing');
 ?>
 <!-- login section  -->
-<main class="main ">
+<main class="main overflow-hidden">
  <div class="position-relative">
  <div class="container ml-auto">
     <div class="d-flex justify-content-between align-content-center align-items-center row">
