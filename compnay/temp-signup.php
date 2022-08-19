@@ -7,7 +7,7 @@ get_header();
 
 ?>  <main class="business_agreement">
         <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
-            <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
+        <a href="<?php echo home_url(); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo"></a>
             <div class="agreement_steps d-flex justify-content-center align-items-center mt-4 mt-lg-5 mb-lg-5">
                 <div class="step step_one"></div>
                 <div class="step step_two"></div>
@@ -15,23 +15,22 @@ get_header();
             </div>
         <form class="addprofile" id="profileform" action="#" > 
             <div class="first_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow">
+            <a href="<?php echo home_url(); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow"> </a>
                 <p>NB! Is the company you work for already registered? Feel free toask an admin for the corporate
                     agreement for an invitation to join</p>
                 <div class="pl-4 pr-4">
                     <h2 class="">Create Buisness Agreement</h2>
                     <div class="form-group w-100">
-                        <label for="exampleInputEmail1">Company Name</label>
-                        <input type="text" class="form-control" id="compnay_name" aria-describedby="emailHelp"
-                            placeholder="Oranch AS">
+                        <label for="compnay_name">Company Name</label>
+                        <input type="text" class="form-control" id="compnay_name" placeholder="Company Name" required >
                     </div>
 
                     <div class="form-group w-100 mt-3 mb-5">
-                        <label for="exampleInputEmail1">Delivery adress</label>
+                        <label for="company_address">Delivery adress</label>
                         <textarea class="form-control" id="company_address" rows="3"
-                            placeholder="Adress.."></textarea>
-                        <input type="text" class="form-control" id="oranch_as" aria-describedby="emailHelp"
-                            placeholder="Oranch AS">
+                            placeholder="Enter Delivery adress"></textarea>
+                        <input type="text" class="form-control" id="oranch_as" 
+                            placeholder="Agreement" required>
                     </div>
 
                     <a type="next" class="btn_primary d-block next" onclick="stepOne()">Continue</a>
@@ -47,8 +46,8 @@ get_header();
                     <h2 class=""> Customize company agreement for Oranchy AS</h2>
                     <p class="align-self-start">Should the company cover all or some of the lunch?</p>
                     <div class="launch mt-3 mb-4 form-group w-100 d-lg-flex align-items-center">
-                        <input type="text" class="form-control" id="lunch_benefit" aria-describedby="emailHelp"
-                            placeholder="Oranch AS">
+                        <input type="text" class="form-control" id="lunch_benefit" 
+                            placeholder="Company Pay 20">
                         <select name="lunch_benfit_type" id="lunch_benfit_type" class="">
                             <option value="percentange">%</option>
                             <option value="usd">$</option>
