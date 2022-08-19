@@ -31,7 +31,7 @@ get_header(); ?>
                         <p class="noposts"><?php _e('To add Blog Posts, go to Admin Panel > Posts > Add New','author_ts'); ?></p>
                     <?php endif; ?>
                 </div>
-                <div class="load_more d-flex justify-content-center mt-5 mb-5">
+                <div class="d-none load_more d-flex justify-content-center mt-5 mb-5">
                     <a href="" class="d-flex align-items-center">
                         <p>Load More</p>
                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/right-arrow.png" alt="">
