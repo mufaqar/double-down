@@ -28,7 +28,7 @@ get_header('landing');
 <section class="container landing_contents" id="work">
 <h1>We are your canteen 2.0 <span>Digital Management</span> <br>
     for a varied, nutritious and <br>
-    <span>flexible job lunch</span>
+    <span>Flexible job lunch</span>
 </h1>
 <p>The company saves time on administration and gets a flexible lunch arrangement where you obviously do not pay
     for lunch on the days that are canceled. Have a good lunch!</p>
