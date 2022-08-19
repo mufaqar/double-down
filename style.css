@@ -2932,6 +2932,11 @@ body {
   transform: translate(-50%, 5%);
 }
 
+input[type=submit]{
+  outline: none;
+  border: 1px transparent;
+}
+
 /* ###################################################################
 ######################################################################
 
@@ -3198,9 +3203,29 @@ z-index: 99;
   max-width: 900px;
 }
 
-
-
 .company_pages {background: #e5e5e55c;}
 .sidebar li.current-menu-item  {
   background: var(--green);
+}
+
+
+/* **************************************
+***********   1020px  ****************
+************************************** */
+@media (min-width: 1400px) and (max-width: 1919){
+  .tab_wrapper .panels .launchClander{
+    max-width: 1200px;
+  }
+  .custom_container{
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1920px){
+  .tab_wrapper .panels .launchClander{
+    max-width: 1500px;
+  }
+  .custom_container{
+    max-width: 1500px;
+  }
 }
