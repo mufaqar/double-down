@@ -3212,23 +3212,7 @@ z-index: 99;
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */
-@media (min-width: 1300px) and (max-width: 1500){
-  .tab_wrapper .panels .launchClander{
-    max-width: 1200px;
-  }
-  .custom_container{
-    max-width: 1200px;
-  }
-}
 
-@media (min-width: 1501px) and (max-width: 1700){
-  .tab_wrapper .panels .launchClander{
-    max-width: 1300px;
-  }
-  .custom_container{
-    max-width: 1300px;
-  }
-}
 
 @media (min-width: 1701px) and (max-width: 1919){
   .tab_wrapper .panels .launchClander{
