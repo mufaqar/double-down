@@ -94,7 +94,6 @@ if ( is_user_logged_in() ) {
    jQuery(document).ready(function($) {    
         $("#resetpassword").submit(function(e) {          
             e.preventDefault();
-            alert("username");
             var username = jQuery('#username').val();              
             jQuery.ajax({
             type:"POST",
@@ -104,7 +103,8 @@ if ( is_user_logged_in() ) {
                 username : username              
             },
             success: function(response){
-                window.location.href = "<?php echo home_url('login'); ?>";
+               
+               alert(response.message);
             },
             error: function(results) {
                 alert("Error");
