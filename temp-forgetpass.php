@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Login
+ * Template Name: Forget
  */
 
 get_header('landing');
@@ -66,22 +66,17 @@ if ( is_user_logged_in() ) {
             </div>
             <div class="col-sm-12 right col-md-6 p-3">
                 <h3>Welcome Back to <br>Double Down Dish</h3>
-                <p>This is our dedication in serving customers, so that we can find out which customers are really
-                    interested in</p>
-                <form class="login_form" id="loginform">
+                <p>Reset Password</p>
+                <form class="resetpassword" id="resetpassword">
                     <div class="form-group">
                         <label for="username">Email</label>
                         <input type="email" class="form-control border-0 border-bottom rounded-0"
                             id="username" aria-describedby="emailHelp" placeholder="abc@example.com" value="" required>                  
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control border-0 border-bottom rounded-0"
-                            id="password" placeholder="Input your password" required>
-                    </div>
+                    
                     <div class="d-flex justify-content-between align-items-center " style="margin-top: 3rem !important;">
-                        <span>Don't remember your <a href="<?php echo home_url('forget-password'); ?>">password?</a></span>
-                        <button type="submit" class="green_btn">Login</button>
+                    
+                        <button type="submit" class="green_btn">Reset Password</button>
                     </div>
                     
                 </form>
@@ -97,20 +92,19 @@ if ( is_user_logged_in() ) {
 <?php get_footer('landing'); ?>
 <script type="text/javascript">   
    jQuery(document).ready(function($) {    
-        $("#loginform").submit(function(e) {          
+        $("#resetpassword").submit(function(e) {          
             e.preventDefault();
-            var username = jQuery('#username').val();
-            var password = jQuery('#password').val();       
+            alert("username");
+            var username = jQuery('#username').val();              
             jQuery.ajax({
             type:"POST",
             url:"<?php echo admin_url('admin-ajax.php'); ?>",
             data: {
-                action: "userlogin",
-                username : username,
-                password : password
+                action: "resetpassword",
+                username : username              
             },
             success: function(response){
-                window.location.href = "<?php echo home_url(); ?>";
+                window.location.href = "<?php echo home_url('login'); ?>";
             },
             error: function(results) {
                 alert("Error");
