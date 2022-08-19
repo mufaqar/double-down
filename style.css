@@ -2961,6 +2961,9 @@ body {
     border-radius: 6px !important;
     
   }
+  .category_slider .startNow {
+    padding-right: 2rem !important;
+  }
   .category_slider ._slider ._slider_items .slick-slider {
      margin-right: 0 !important;
   }

@@ -90,7 +90,7 @@ get_header('landing');
 <div class="mt-5 category_slider">
 <h2>Price NOK 79.13</h2>
 <p>Really big company? Get in touch and we will find a solution!</p>
-<div class="row d-flex align-items-center _slider mt-4 mb-5">
+<div class="row d-flex align-items-center _slider mt-4">
     <div class="col-lg-2 categories_links">
         <a href="">Salatlus</a>
         <a href="">Bread Lunch</a>
@@ -140,7 +140,7 @@ get_header('landing');
         </div>
         
     </div>
-    <div class="mt-5 mb-5 d-flex justify-content-end startNow">
+    <div class="mt-3 mb-5 d-flex justify-content-end startNow">
         <a href="" class="btn_primary">Start Now</a>
     </div>
 </div>
