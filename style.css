@@ -1039,7 +1039,7 @@ input[type='checkbox']:checked:disabled + label:before {
 
 .main img.mobile {
   left: 50%;
-  top: 56%;
+  top: 78%;
   transform: translate(-46%, -50%) rotate(-8deg);
   z-index: 1;
 }
@@ -3033,7 +3033,7 @@ body {
   }
 
   .category_slider ._slider ._slider_items {
-    padding-left: 0rem;
+    padding-left: 0.5rem;
     margin-top: 8rem;
   }
 
@@ -3093,7 +3093,7 @@ body {
   }
 
   .main img.mobile {
-    top: 76%;
+    top: 150%;
   }
   ._pro_salat ._info {
     margin-top: -5rem;
