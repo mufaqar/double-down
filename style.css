@@ -32,7 +32,9 @@ p {
   box-sizing: border-box;
   font-family: 'DM Sans', sans-serif !important;
 }
-
+a{
+  color: white;
+}
 body {
   font-family: 'DM Sans', sans-serif !important;
   overflow-x: hidden;
@@ -1336,6 +1338,7 @@ section.landing_contents .links a {
   padding: 0.1rem 0.3rem;
   border-radius: 50%;
   cursor: pointer;
+  padding-right: 0.45rem;
 }
 
 /* catering form  */
@@ -3214,20 +3217,13 @@ z-index: 99;
 ************************************** */
 
 
-@media (min-width: 1701px) and (max-width: 1919){
-  .tab_wrapper .panels .launchClander{
-    max-width: 1400px;
-  }
-  .custom_container{
-    max-width: 1400px;
-  }
-}
 
-@media (min-width: 1920px){
+@media (min-width: 1300px){
   .tab_wrapper .panels .launchClander{
-    max-width: 1500px;
+    max-width: 1100px;
   }
   .custom_container{
-    max-width: 1500px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 }
