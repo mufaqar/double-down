@@ -2787,6 +2787,7 @@ th {
 
 body {
   background: #eeeae9;
+  overflow-x: hidden;
 }
 
 /* app */
@@ -2958,7 +2959,10 @@ body {
   .navbar-toggler{
     padding: 0.5rem 0.6rem !important;
     border-radius: 6px !important;
-    box-shadow: #5fb227 !important;
+    
+  }
+  .category_slider ._slider ._slider_items .slick-slider {
+     margin-right: 0 !important;
   }
   #navbarSupportedContent .signin{
     margin-left: 1.5rem;
@@ -3021,6 +3025,7 @@ body {
 
   .category_slider {
     margin-left: 0rem;
+    
   }
 
   .category_slider ._slider .categories_links {
@@ -3088,7 +3093,7 @@ body {
   }
 
   .main img.mobile {
-    top: 73%;
+    top: 76%;
   }
   ._pro_salat ._info {
     margin-top: -5rem;
