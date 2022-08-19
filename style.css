@@ -32,7 +32,7 @@ p {
   box-sizing: border-box;
   font-family: 'DM Sans', sans-serif !important;
 }
-a{
+.catering_heading  a{
   color: white  !important;
 }
 body {
@@ -1338,7 +1338,6 @@ section.landing_contents .links a {
   padding: 0.1rem 0.3rem;
   border-radius: 50%;
   cursor: pointer;
-  padding-right: 0.45rem;
 }
 
 /* catering form  */
