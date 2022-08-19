@@ -25,7 +25,7 @@ get_header('landing');
 </main>
 
 
-<section class="container landing_contents">
+<section class="container landing_contents" id="work">
 <h1>We are your canteen 2.0 <span>Digital Management</span> <br>
     for a varied, nutritious and <br>
     <span>flexible job lunch</span>

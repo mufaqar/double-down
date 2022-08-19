@@ -24,8 +24,7 @@ get_header();
                         <input type="date">
                     </div>
                     <div class="info">
-                        <h6>Total this Week | <span>NOK 0, -</span></h6>
-                        <p>* All prices incl. 15% VAT</p>
+                        <h6>Total this Week | <span>NOK 0, -</span></h6>                 
                     </div>
                 </div>
                 <div class="accordion_wrapper">
