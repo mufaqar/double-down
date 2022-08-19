@@ -24,7 +24,7 @@ get_header('company');
                 <div class="mt-5 w-500">
                     <div class="form-group ">
                         <label for="exampleInputEmail1">Referral Name</label>
-                        <input type="text" class="form-control" id="referral"  placeholder="Matt" value="" />
+                        <input type="text" class="form-control" id="referral"  placeholder="Your Referral" value="" />
                     </div>
                     <div class="form-group  mt-3">
                         <label for="exampleInputEmail1">Full Name</label>
