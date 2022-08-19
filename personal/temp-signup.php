@@ -9,11 +9,11 @@ get_header('company');
 <main class="business_agreement">
     
     <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
-        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" />
+        <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" /></a>
 
         <form class="addprofile" id="profileform" action="#" > 
             <div class="first_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow" />
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow" /></a>
                 <h2 class="mt-5">Your Information</h2>
                 <p>
                     As a buisness administrator, you must hve your own user to log in.
@@ -24,20 +24,19 @@ get_header('company');
                 <div class="mt-5 w-500">
                     <div class="form-group ">
                         <label for="exampleInputEmail1">Referral Name</label>
-                        <input type="text" class="form-control" id="referral" aria-describedby="emailHelp" placeholder="Matt" value="" />
+                        <input type="text" class="form-control" id="referral"  placeholder="Matt" value="" />
                     </div>
                     <div class="form-group  mt-3">
                         <label for="exampleInputEmail1">Full Name</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                            placeholder="Matt Parker" value="Matt Parker" />
+                        <input type="text" class="form-control" id="name"  placeholder="Your Name" value="" required  />
                     </div>
                     <div class="form-group  mt-3">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="info@website.com" value=""  required  />
+                        <input type="email" class="form-control" id="username"  placeholder="Enter Email Address" value=""  required  />
                     </div>
                     <div class="form-group  mt-3 mb-5">
                         <label for="exampleInputEmail1">Phone</label>
-                        <input type="number" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="001 123 456 789" value=""   />
+                        <input type="number" class="form-control" id="phone"  placeholder="Enter Phone Number" value=""   />
                     </div>
 
                     <div class="tou mt-5">
