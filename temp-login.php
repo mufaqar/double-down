@@ -80,7 +80,7 @@ if ( is_user_logged_in() ) {
                             id="password" placeholder="Input your password" required>
                     </div>
                     <div class="d-flex justify-content-between align-items-center " style="margin-top: 3rem !important;">
-                        <span>Don't remember your <a href="<?php echo home_url('forget-password'); ?>">password?</a></span>
+                        <span>Don't remember your <a href="<?php echo home_url('forget-password'); ?>">Password?</a></span>
                         <button type="submit" class="green_btn">Login</button>
                     </div>
                     
