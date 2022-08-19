@@ -2955,7 +2955,7 @@ body {
     padding-bottom: 2rem !important;
     border-radius: 18px;
   }
-  navbar-toggler {
+  .navbar-toggler{
     padding: 0.5rem 0.6rem !important;
     border-radius: 6px !important;
     box-shadow: #5fb227 !important;
