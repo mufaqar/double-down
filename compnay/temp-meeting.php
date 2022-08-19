@@ -9,7 +9,6 @@ wp_get_current_user();
 
 ?>
  <?php include('navigation.php'); ?>
-
                     <div class="custom_container order_wrapper mt-5 mb-5">
                         <form class="addmeeting" id="addmeeting" action="#" > 
                             <div class="_inner mt-4 p-5">
@@ -35,8 +34,6 @@ wp_get_current_user();
                                                     <p>Here you can easily choose between or cancel the various lunch options
                                                         from day to day. If you want to change a fixed subscription, do so
                                                         <span>her.</span></p>
-                                                    
-
                                                     <button href="" class="btn_primary  id<?php echo $pid;?>"
                                                        onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
                                                     <div class="d-none product_counter mt-4 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
@@ -50,23 +47,17 @@ wp_get_current_user();
                                                                 src="<?php echo get_template_directory_uri(); ?>/reources/images/plus-thin.png"
                                                                 alt=""></i>
                                                     </div>
-
                                                 </div>
                                             </div>
-
                                         <?php endwhile; wp_reset_query(); else : ?>
                                         <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
-                                        <?php endif; ?>
-
-                                        
+                                        <?php endif; ?>                                     
 
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h6><strong>Total</strong></h6>
-                                        <p>NOK 205</p>
                                         <h6 class="mt-2"><strong>Delivery Address</strong></h6>
                                         <p>Oranchy AS , Pilestredet 75C 
                                         , 0354 OSLO</p>
