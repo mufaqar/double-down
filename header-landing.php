@@ -41,12 +41,12 @@
 	
 </head>
 <body <?php body_class(); ?> >
-	<header class="container">
-				<nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
+	<header class="container" >
+				<nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3" style="z-index: 2000;">
 					<div class="container-fluid">
 					    <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" alt="Logo" /> </a>
 						<div>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+							<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
 								data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 								aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
