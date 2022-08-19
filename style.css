@@ -2961,6 +2961,9 @@ body {
     border-radius: 6px !important;
     
   }
+  .category_slider ._slider ._slider_items .slick-slider {
+     margin-right: 0 !important;
+  }
   #navbarSupportedContent .signin{
     margin-left: 1.5rem;
     margin-top: 1rem;
@@ -3032,7 +3035,6 @@ body {
   .category_slider ._slider ._slider_items {
     padding-left: 0rem;
     margin-top: 8rem;
-    overflow-x: hidden;
   }
 
   .category_slider ._slider ._slider_items .nav_btn {
