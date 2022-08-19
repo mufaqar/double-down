@@ -1,4 +1,4 @@
-    <div class="food_info row">
+    <div class="food_info day__food row">
                 <?php query_posts(array(
                 'post_type' => 'menu_items',
                 'posts_per_page' => 2,
