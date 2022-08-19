@@ -1,4 +1,4 @@
-<?php /* Template Name: Profile ( Company )  */ 
+<?php /* Template Name: Lunch (C)  */ 
 get_header();
 ?>
 <?php include('navigation.php'); ?>
