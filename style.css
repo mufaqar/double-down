@@ -3022,6 +3022,7 @@ body {
 
   .category_slider {
     margin-left: 0rem;
+    
   }
 
   .category_slider ._slider .categories_links {
@@ -3031,6 +3032,7 @@ body {
   .category_slider ._slider ._slider_items {
     padding-left: 0rem;
     margin-top: 8rem;
+    overflow-x: hidden;
   }
 
   .category_slider ._slider ._slider_items .nav_btn {
