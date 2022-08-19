@@ -98,19 +98,16 @@ get_header();
                         tothe corporate agreement , and can add more administrators</p>
                     <h2 class="">Your Information</h2>
                     <div class="form-group w-100">
-                        <label for="exampleInputEmail1">Full Name</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                            placeholder="" value="" required >
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" value="" required >
                     </div>
                     <div class="form-group w-100 mt-3">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
-                            placeholder="email@sitename.com" value="" required>
+                        <label for="username">Email</label>
+                        <input type="text" class="form-control" id="username" placeholder="Your Email Address" value="" required>
                     </div>
                     <div class="form-group w-100 mt-3">
-                        <label for="exampleInputEmail1">Phone</label>
-                        <input type="text" class="form-control" id="phone" aria-describedby="emailHelp"
-                            placeholder="" value="">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Your Phone Number" value="">
                     </div>
 
                     <div class="pinfo mt-5">
