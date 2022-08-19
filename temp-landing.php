@@ -4,8 +4,9 @@
 get_header('landing');
 ?>
 <!-- login section  -->
-<main class="main position-relative">
-<div class="container ml-auto">
+<main class="main ">
+ <div class="position-relative">
+ <div class="container ml-auto">
     <div class="d-flex justify-content-between align-content-center align-items-center row">
         <div class="col-md-6 hero_content">
             <h1>Lunch <span>Boxes</span> For <br> Service</h1>
@@ -16,11 +17,11 @@ get_header('landing');
             <!-- <img src="<?php bloginfo('template_directory'); ?>/reources/images/right_banner.png" alt="" class="w-100"> -->
         </div>
     </div>
-
 </div>
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/leaf.png" class="position-absolute top-0 leaf" alt="">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/mobile.png" class="position-absolute mobile" alt="">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/banner-boll.png" class="position-absolute boll" alt="">
+ </div>
 </main>
 
 
