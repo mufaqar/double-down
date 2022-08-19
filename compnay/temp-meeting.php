@@ -30,7 +30,7 @@ wp_get_current_user();
                                             <div class="col-md-6">
                                                 <div class="order_product">
                                                     <img src="<?php bloginfo('template_directory'); ?>/reources//images/order-pic-1.png" alt="" class="w-100">
-                                                    <h3><?php the_title(); ?> | <span>NOK <?php the_field('menu_item_price'); ?> </span></h3>                                                  
+                                                    <h3><?php the_title(); ?><span> | NOK <?php the_field('menu_item_price'); ?> </span></h3>                                                  
                                                     <p>Here you can easily choose between or cancel the various lunch options
                                                         from day to day. If you want to change a fixed subscription, do so
                                                         <span>her.</span></p>
