@@ -15,7 +15,7 @@
                         <?php 	
 								  wp_nav_menu ( array(
                                     'container'       => false,	
-									'theme_location'  => 'company',	
+									'theme_location'  => 'profile',	
 									'menu_class'      => 'myProfileNav'
 								) );
 								?>
