@@ -111,8 +111,8 @@ get_header();
                         </ul>
                     </div>
 
-                    <div class="">
-                        <a href="" class="btn_primary">Change</a>
+                    <div >
+                        <button id="agreement" class="btn_primary">Change</button>
                     </div>
                 </div>
                 <!-- 2nd -->
@@ -121,8 +121,8 @@ get_header();
                         <h3>Employees in the agreement</h3>
                         <p>1 employee : Sumit</p>
                     </div>
-                    <div class="">
-                        <button href="" id="agreement" class="btn_primary">See or Overrid</button>
+                    <div>
+                        <button id="emp_agreement" class="btn_primary">See or Overrid</button>
                         
                     </div>
 
@@ -140,7 +140,7 @@ get_header();
                         <p>Everyone deserves good food - even those you
                             have invited to a meeting!</p>
                     </div>
-                    <div class="">
+                    <div >
                         <a href="<?php echo home_url('meeting'); ?>" class="btn_primary">Order Meeting Food</a>
                     </div>
                 </div>
@@ -156,7 +156,7 @@ get_header();
                         </ul>
                     </div>
                     <div class="">
-                        <button href="#" id="delivery_address" class="btn_primary">Change</button>
+                        <button id="delivery_address" class="btn_primary">Change</button>
                     </div>
                 </div>
 
@@ -389,6 +389,75 @@ get_header();
     </section> 
 
     
+    <section class="hideme overlay emp_agreement">
+        <div class="popup">
+            <div class="popup_wrapper">
+                <h3>Employees in the Agreement</h3>
+                <h6>Total number of employees: 1</h6>
+                <hr>
+                <div>
+                    <div class="btn_toggle">
+                        <div class="btn_wrapper d-flex justify-content-center">
+                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | 01</button>
+                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
+                        </div>
+                    </div>
+
+                    <!-- active content  -->
+                    <div class="activeEmp_content ">
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <!-- inactive content  -->
+                    <div class="inactiveEmp_content active">
+                        <div>
+                            <section>
+                                <form>
+                                    <div class="__inner d-flex align-items-center justify-content-between mt-5">
+                                        <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="emp" name="emp" value="Employee" checked>
+                                            <label for="emp" class="label"></label>
+                                            <p>Employee</p>
+                                        </div>
+                                        <p>No fixed delivery</p>
+                                    </div>
+
+                                    <div class="__inner d-flex align-items-center justify-content-between mt-3">
+                                        <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="days" name="days" value="days" >
+                                            <label for="days" class="label"></label>
+                                            <p>Jose Olsen Barros</p>
+                                        </div>
+                                        <p>Number of delivery days</p>
+                                    </div>
+
+                                    <hr class="mt-4 mb-4">
+                                    <h3>+ Invite new employees</h3>
+
+                                    <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
+                                        <div class="d-flex align-items-center w-100">
+                                            <input type="email" id="days" name="days" value="days" class="w-100">
+                                            <button class="d-flex align-items-center">
+                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
+                                                <span>Add</span>
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </div>
+    </section>
+
     <section class="hideme overlay agreement">
         <div class="popup">
             <div class="popup_wrapper">
@@ -530,12 +599,19 @@ get_header();
      jQuery(document).ready(function($) 
         {   
             
-            $('#delivery_address').click(function(){
+            $('#delivery_address').click(function(){            
                 $(".delivery_address").css("display", "block");
             });
             $('#agreement').click(function(){
                 $(".agreement").css("display", "block");
             });
+
+            $('#emp_agreement').click(function(){
+                $(".emp_agreement").css("display", "block");
+            });
+
+
+            
             $('#invoice').click(function(){
                 $(".invoice").css("display", "block");
             });
