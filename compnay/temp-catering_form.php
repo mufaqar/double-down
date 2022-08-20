@@ -35,7 +35,7 @@ get_header();
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Date</label>
                     <div class="_select">
-                        <input type="date" valu="" placeholder="02-05-22" id="date">
+                        <input type="date" valu="" placeholder="02-05-22" id="date" required>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ get_header();
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Address</label>
                     <div class="_select">
-                        <input type="text" valu="" placeholder="Add your address" id="address">
+                        <input type="text" valu="" placeholder="Add your address" id="address" required>
                     </div>
                 </div>
 
@@ -152,7 +152,7 @@ get_header();
                 <div class="col-md-6 mb-3">
                 <label for="">Budget Per Person</label>
                     <div class="_select">
-                        <input type="text" valu="" placeholder="NOK 349" id="person">
+                        <input type="text" valu="" placeholder="NOK 349" id="person" required>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end savebtn">
@@ -180,13 +180,12 @@ get_header();
                         <div class="content mt-5">
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
-                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                        
-                            <a href="<?php echo home_url('catering'); ?>" class="btn_primary mb-5">View Catering Orders</a>
+                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>
                         </div>
                     </div>
                     
                 </div>
-                <img src="./reources//images/red cross.png" alt="" class="_cross">
+                <img src="<?php bloginfo('template_directory'); ?>/reources//images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -198,7 +197,12 @@ get_header();
  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script> 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script type="text/javascript">   
-     jQuery(document).ready(function($) {	      	
+     jQuery(document).ready(function($) {	
+        $('._cross').click(function(){
+           
+           $(".hideme").css("display", "none");
+       });
+                 
         $("#addcatering").submit(function(e) {                     
             e.preventDefault();                     
             var people = jQuery('#people').val();	             

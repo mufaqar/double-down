@@ -95,7 +95,7 @@ wp_get_current_user();
                     </div>
                     
                 </div>
-                <img src="<?php // bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+                <img src="<?php  bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -104,9 +104,14 @@ wp_get_current_user();
 
     <?php get_footer();?>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script type="text/javascript">   
-     jQuery(document).ready(function($) {	      	
+     jQuery(document).ready(function($) {	
+        $('._cross').click(function(){
+           
+           $(".hideme").css("display", "none");
+       });
+                 
         $("#addmeeting").submit(function(e) {                     
             e.preventDefault();  
             var date = jQuery('#date').val();
