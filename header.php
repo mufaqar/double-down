@@ -43,4 +43,4 @@
 	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/reources/images/logo.png">
 	
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class("profile_pages"); ?>>

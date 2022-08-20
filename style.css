@@ -3216,6 +3216,9 @@ body.page-template-temp-landing {
 .myProfileNav {
   display: none;
 }
+.profile_pages .myProfileNav {
+  display: block;
+}
 
 .company_pages .companyProfileNav {
   display: block !important;
