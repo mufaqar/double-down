@@ -32,8 +32,8 @@ p {
   box-sizing: border-box;
   font-family: 'DM Sans', sans-serif !important;
 }
-.catering_heading  a{
-  color: white  !important;
+.catering_heading a {
+  color: white !important;
 }
 body {
   font-family: 'DM Sans', sans-serif !important;
@@ -2934,12 +2934,12 @@ body {
   transform: translate(-50%, 5%);
 }
 
-input[type=submit]{
+input[type='submit'] {
   outline: none;
   border: 1px transparent;
 }
 
-.day__food>div:nth-child(2){
+.day__food > div:nth-child(2) {
   border-right: 0 !important;
 }
 
@@ -2956,7 +2956,7 @@ input[type=submit]{
     bottom: 2rem;
     right: 2rem;
   }
-  #navbarSupportedContent{
+  #navbarSupportedContent {
     position: absolute !important;
     left: 0;
     background: white !important;
@@ -2967,22 +2967,21 @@ input[type=submit]{
     padding-bottom: 2rem !important;
     border-radius: 18px;
   }
-  .navbar-toggler{
+  .navbar-toggler {
     padding: 0.5rem 0.6rem !important;
     border-radius: 6px !important;
-    
   }
   .category_slider .startNow {
     padding-right: 2rem !important;
   }
   .category_slider ._slider ._slider_items .slick-slider {
-     margin-right: 0 !important;
+    margin-right: 0 !important;
   }
-  #navbarSupportedContent .signin{
+  #navbarSupportedContent .signin {
     margin-left: 1.5rem;
     margin-top: 1rem;
   }
-  #navbarSupportedContent ul#menu-landing-menu li{
+  #navbarSupportedContent ul#menu-landing-menu li {
     margin-bottom: 1rem;
   }
   .accordion_content .food_info .border-end {
@@ -3039,7 +3038,6 @@ input[type=submit]{
 
   .category_slider {
     margin-left: 0rem;
-    
   }
 
   .category_slider ._slider .categories_links {
@@ -3197,9 +3195,8 @@ body.page-template-temp-landing {
 }
 
 .hideme {
-display: none;
-z-index: 99;
- 
+  display: none;
+  z-index: 99;
 }
 
 .launchClander {
@@ -3209,24 +3206,30 @@ z-index: 99;
   max-width: 900px;
 }
 
-.company_pages {background: #e5e5e55c;}
-.sidebar li.current-menu-item  {
+.company_pages {
+  background: #e5e5e55c;
+}
+.sidebar li.current-menu-item {
   background: var(--green);
 }
 
+.myProfileNav {
+  display: none;
+}
+
+.company_pages .companyProfileNav {
+  display: block !important;
+}
 
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */
 
-
-
-@media (min-width: 1300px){
-  .tab_wrapper .panels .launchClander{
+@media (min-width: 1300px) {
+  .tab_wrapper .panels .launchClander {
     max-width: 1100px;
   }
-  .custom_container{
+  .custom_container {
     max-width: 1100px;
-
   }
 }

@@ -1,5 +1,5 @@
 <?php /* Template Name: Lunch (C)  */ 
-get_header();
+get_header('company');
 ?>
 <?php include('navigation.php'); ?>
 

@@ -1,7 +1,7 @@
 <?php
  /*  Template Name:  Blog  */
 
-get_header(); ?>
+get_header('company'); ?>
   <?php include get_theme_file_path('/compnay/navigation.php'); ?>    
                
         <div class='blogs_wrapper mt-4'>

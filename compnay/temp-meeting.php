@@ -2,7 +2,7 @@
 
 
 
-get_header();
+get_header('company');
 global $current_user;
 wp_get_current_user();
 
