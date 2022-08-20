@@ -35,7 +35,7 @@ get_header();
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Date</label>
                     <div class="_select">
-                        <input type="date" valu="" placeholder="02-05-22" id="date" required>
+                        <input type="date" value="" placeholder="02-05-22" id="date" required>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@ get_header();
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Time</label>
                     <div class="_select">
-                        <input type="time" valu="" placeholder="02-05-22" id="time">
+                        <input type="time" value="" placeholder="02-05-22" id="time">
                         <!-- <img src="./reources//images/date.png" alt=""> -->
                     </div>
                 </div>
@@ -51,7 +51,7 @@ get_header();
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Address</label>
                     <div class="_select">
-                        <input type="text" valu="" placeholder="Add your address" id="address" required>
+                        <input type="text" value="" placeholder="Add your address" id="address" required>
                     </div>
                 </div>
 
@@ -152,7 +152,7 @@ get_header();
                 <div class="col-md-6 mb-3">
                 <label for="">Budget Per Person</label>
                     <div class="_select">
-                        <input type="text" valu="" placeholder="NOK 349" id="person" required>
+                        <input type="text" value="" placeholder="NOK 349" id="person" required>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end savebtn">
