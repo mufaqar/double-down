@@ -156,7 +156,7 @@ get_header();
                         </ul>
                     </div>
                     <div class="">
-                        <a href="" id="delivery_address" class="btn_primary">Change</a>
+                        <button href="#" id="delivery_address" class="btn_primary">Change</button>
                     </div>
                 </div>
 
@@ -167,7 +167,7 @@ get_header();
                         <p>Daily overview of orders</p>
                     </div>
                     <div class="">
-                        <a href="" class="btn_primary">See</a>
+                    <button id="orders" class="btn_primary">See</button>
                     </div>
                 </div>
 
@@ -178,7 +178,7 @@ get_header();
                         <p>Overview</p>
                     </div>
                     <div class="">
-                        <a href="" class="btn_primary">See</a>
+                    <button href="" id="invoice" class="btn_primary">See</button>
                     </div>
                 </div>
 
@@ -338,7 +338,7 @@ get_header();
 </main>
 
 
-<section class="hideme overlay">
+<section class="hideme alertmessage">
         <div class="popup">
             <div class="popup_wrapper">
                 <div
@@ -350,13 +350,13 @@ get_header();
                         <div class="content mt-5">
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
-                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                        
-                            <a href="<?php echo home_url(''); ?>" class="btn_primary mb-5">View  Orders</a>
+                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                       
+                         
                         </div>
                     </div>
                     
                 </div>
-                <img src="<?php // bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+                <img src="<?php  bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -459,6 +459,51 @@ get_header();
     </section>
 
 
+ <section class="hideme overlay invoice">
+    <div class="popup">
+      <div class="popup_wrapper">
+        <h3 class="ad_productss">Invoice</h3>
+
+        <div class="invoice_table">
+          <table class="_table">
+            <thead>
+              <tr>
+                <th scope="col">Invoice Date</th>
+                <th scope="col">Total</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">Sunday, May 29, 2022</td>
+                <td>80</td>
+                <td>459.2</td>
+                <td>Complete <i class="fa-solid fa-down-to-line"></i></td>
+              </tr>
+              <tr>
+                <td scope="row">Sunday, June 5, 2022</td>
+                <td>80</td>
+                <td>459.2</td>
+                <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
+              </tr>
+              <tr>
+                <td scope="row">Sunday, June 6, 2022</td>
+                <td>80</td>
+                <td>459.2</td>
+                <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+      </div>
+    </div>
+  </section>
+
+
+
 
 
 
@@ -490,6 +535,9 @@ get_header();
             });
             $('#agreement').click(function(){
                 $(".agreement").css("display", "block");
+            });
+            $('#invoice').click(function(){
+                $(".invoice").css("display", "block");
             });
 
             $('._cross').click(function(){
@@ -614,8 +662,7 @@ get_header();
                                 alert(data.message);
                             }  
                             else {
-                           $(".overlay").css("display", "flex");                          
-                           $(".message").html("Order Created");
+                           $(".alertmessage").css("display", "flex");  
                             }      
                          }
             

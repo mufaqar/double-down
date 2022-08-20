@@ -52,7 +52,7 @@
     </div>
 
     <div class="accordion_btns d-flex justify-content-end mb-5 mr-3">
-        <a class="btn_primary btn_sec" href="">Choose Location</a>
-        <a class="btn_primary btn_sec" href="">Add allergy-friendly</a>
+        <button id="delivery_address" class="btn_primary btn_sec">Choose Location</buton>
+        <button class="btn_primary btn_sec" href="">Add allergy-friendly</button>
         <input type="submit" class="btn_primary"  value="Save"/>
     </div>
