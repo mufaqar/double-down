@@ -122,8 +122,16 @@ get_header();
                         <p>1 employee : Sumit</p>
                     </div>
                     <div class="">
-                        <a href="" class="btn_primary">See or Overrid</a>
+                        <button href="" id="agreement" class="btn_primary">See or Overrid</button>
+                        
                     </div>
+
+                    
+  
+
+
+
+
                 </div>
                 <!-- 3rd  -->
                 <div class="deatil_card d-flex justify-content-between align-items-center">
@@ -133,7 +141,7 @@ get_header();
                             have invited to a meeting!</p>
                     </div>
                     <div class="">
-                        <a href="" class="btn_primary">Order Meeting Food</a>
+                        <a href="<?php echo home_url('meeting'); ?>" class="btn_primary">Order Meeting Food</a>
                     </div>
                 </div>
 
@@ -148,7 +156,7 @@ get_header();
                         </ul>
                     </div>
                     <div class="">
-                        <a href="" class="btn_primary">Change</a>
+                        <a href="" id="delivery_address" class="btn_primary">Change</a>
                     </div>
                 </div>
 
@@ -354,6 +362,107 @@ get_header();
     </section>
 
 
+
+
+    <section class="hideme overlay delivery_address">
+        <div class="popup">
+            <div class="popup_wrapper">
+                <h3 class="ad_productss">Delivery Address</h3>               
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>Delivery Address</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="" id="" placeholder="Pilestredet 75C ">
+                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
+                    </div>
+                </div>
+                <div class="add_address d-flex align-items-center justify-content-end mt-3">
+                    <p><span>Add more address!</span></p>
+                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
+                </div>
+                <div class="mt-5">
+                    <a href="" class="btn_primary">Save</a>
+                </div>
+                
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </div>
+    </section> 
+
+    
+    <section class="hideme overlay agreement">
+        <div class="popup">
+            <div class="popup_wrapper">
+                <h3>Employees in the Agreement</h3>
+                <h6>Total number of employees: 1</h6>
+                <hr>
+                <div>
+                    <div class="btn_toggle">
+                        <div class="btn_wrapper d-flex justify-content-center">
+                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | 01</button>
+                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
+                        </div>
+                    </div>
+
+                    <!-- active content  -->
+                    <div class="activeEmp_content ">
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <!-- inactive content  -->
+                    <div class="inactiveEmp_content active">
+                        <div>
+                            <section>
+                                <form>
+                                    <div class="__inner d-flex align-items-center justify-content-between mt-5">
+                                        <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="emp" name="emp" value="Employee" checked>
+                                            <label for="emp" class="label"></label>
+                                            <p>Employee</p>
+                                        </div>
+                                        <p>No fixed delivery</p>
+                                    </div>
+
+                                    <div class="__inner d-flex align-items-center justify-content-between mt-3">
+                                        <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="days" name="days" value="days" >
+                                            <label for="days" class="label"></label>
+                                            <p>Jose Olsen Barros</p>
+                                        </div>
+                                        <p>Number of delivery days</p>
+                                    </div>
+
+                                    <hr class="mt-4 mb-4">
+                                    <h3>+ Invite new employees</h3>
+
+                                    <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
+                                        <div class="d-flex align-items-center w-100">
+                                            <input type="email" id="days" name="days" value="days" class="w-100">
+                                            <button class="d-flex align-items-center">
+                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
+                                                <span>Add</span>
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
 <?php get_footer();?>
 
 
@@ -374,7 +483,21 @@ get_header();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
-        {      
+        {   
+            
+            $('#delivery_address').click(function(){
+                $(".delivery_address").css("display", "block");
+            });
+            $('#agreement').click(function(){
+                $(".agreement").css("display", "block");
+            });
+
+            $('._cross').click(function(){
+           
+                $(".hideme").css("display", "none");
+            });
+            
+         
                     	
             $("#weeklyfood").submit(function(e) { 
                 e.preventDefault();  
@@ -454,6 +577,8 @@ get_header();
                 submitTwoForms();
                 
             }); 
+
+
         });
 
 

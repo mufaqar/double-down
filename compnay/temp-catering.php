@@ -1,8 +1,13 @@
 <?php /* Template Name: Catering (C)  */ 
+
+
 get_header('company');
 
-$q_date  = $_GET['date']; 
-echo $q_date;
+
+    $q_date  = $_GET['qdate']; 
+
+
+
 
 
 ?>
@@ -15,7 +20,7 @@ echo $q_date;
                             </div>
                             <div class="calender">
                              <form class="showresult" id="showresult" action="" > 
-                                <input type="date" value="" name="date" id="date" onchange="this.form.submit()">
+                                <input type="date" value="" name="qdate" onchange="this.form.submit()">
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
                                 </form>
 

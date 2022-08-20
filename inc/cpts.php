@@ -2,16 +2,16 @@
 function cptui_register_my_cpts_menu_items() {
 
 	/**
-	 * Post Type: Menu Items.
+	 * Post Type: Food Items.
 	 */
 
 	$labels = [
-		"name" => __( "Menu Items", "twentytwentytwo" ),
-		"singular_name" => __( "Menu Item", "twentytwentytwo" ),
+		"name" => __( "Food Items", "twentytwentytwo" ),
+		"singular_name" => __( "Food Item", "twentytwentytwo" ),
 	];
 
 	$args = [
-		"label" => __( "Menu Items", "twentytwentytwo" ),
+		"label" => __( "Food Items", "twentytwentytwo" ),
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
@@ -48,13 +48,13 @@ function cptui_register_my_taxes_menu_types() {
 	 */
 
 	$labels = [
-		"name" => __( "Types", "twentytwentytwo" ),
-		"singular_name" => __( "Type", "twentytwentytwo" ),
+		"name" => __( "Product Categories", "twentytwentytwo" ),
+		"singular_name" => __( "Product Category", "twentytwentytwo" ),
 	];
 
 	
 	$args = [
-		"label" => __( "Types", "twentytwentytwo" ),
+		"label" => __( "Product Category", "twentytwentytwo" ),
 		"labels" => $labels,
 		"public" => true,
 		"publicly_queryable" => true,
@@ -77,6 +77,43 @@ function cptui_register_my_taxes_menu_types() {
 	register_taxonomy( "menu_types", [ "menu_items" ], $args );
 }
 add_action( 'init', 'cptui_register_my_taxes_menu_types' );
+
+function cptui_register_my_taxes_menu_sub_types() {
+
+	/**
+	 * Taxonomy: Types.
+	 */
+
+	$labels = [
+		"name" => __( "Product Sub Categories", "twentytwentytwo" ),
+		"singular_name" => __( "Product Sub Category", "twentytwentytwo" ),
+	];
+
+	
+	$args = [
+		"label" => __( "Product Sub Category", "twentytwentytwo" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'menu_sub_types', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "menu_sub_types",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"rest_namespace" => "wp/v2",
+		"show_in_quick_edit" => true,
+		"sort" => true,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "menu_sub_types", [ "menu_items" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes_menu_sub_types' );
 
 
 
