@@ -62,6 +62,7 @@ function weeklyfood() {
 	  global $wpdb;		
 	 
       $weekdays = $_POST['weekdays'];
+	  $usertype = $_POST['usertype'];
 	  $menu_items = $_POST['menu_items'];
 	  $uid = $_POST['uid'];
 	  $weekid = $_POST['weekid'];
@@ -85,8 +86,13 @@ function weeklyfood() {
 	 $t_day = count($weekdays);
 	 add_post_meta($user_id, 'week_id', $weekid, true);  
 	 add_post_meta($user_id, 'order_status', 'Pending', true);  
-	 add_post_meta($user_id, 'order_type', 'Weekly', true);  
-	 add_post_meta($user_id, 'user_type', 'Company', true);  
+	 add_post_meta($user_id, 'order_type', 'Weekly', true); 
+	
+
+		add_post_meta($user_id, 'user_type', $usertype, true);  
+
+	
+	 
 
 	 
 	 

@@ -197,6 +197,7 @@ get_header();
                                             <div class="product_wrapper row mb-4">
                                                     <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
                                                     <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
+                                                    <input type="hidden" value="Personal" id="usertype" >    
 
                                             
                                                 <?php query_posts(array(
@@ -393,6 +394,9 @@ get_header();
             $("#weeklyfood").submit(function(e) { 
                 e.preventDefault();  
                 var weekid = jQuery('#weekid').val();
+                var usertype = jQuery('#usertype').val();
+
+                
                 var uid = jQuery('#uid').val();
                 var weekdays = [];
                 $.each($("input[name='sport']:checked"), function(){            
@@ -427,6 +431,7 @@ get_header();
                             weekdays : weekdays,
                             menu_items : menu_items,   
                             weekid : weekid,
+                            usertype : usertype,                            
                             uid : uid,                  
                         
                         },   
