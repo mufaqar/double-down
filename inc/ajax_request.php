@@ -8,7 +8,7 @@ function addcatering() {
 	  global $wpdb;		
 	 
       $people = stripcslashes($_POST['people']);
-	  $menu_items = $_POST['date'];
+	  $date = $_POST['date'];
 	  $time = $_POST['time'];
 	  $address = $_POST['address'];
 	  $person = $_POST['person'];
