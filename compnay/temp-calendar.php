@@ -202,8 +202,8 @@ get_header('company');
                     ?>
                     <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
                         <div class="product_wrapper row mb-4">
-                        <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
-                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
+                                <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
+                                <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
 
                         
                             <?php query_posts(array(
@@ -245,8 +245,6 @@ get_header('company');
                         </div>
 
                         <div class="product_wrapper row mb-4">
-
-
                             <?php query_posts(array(
                                         'post_type' => 'menu_items',
                                         'posts_per_page' => -1,
@@ -320,7 +318,6 @@ get_header('company');
                                 <a href="" class="btn_primary btn_sec d-block">Daily</a>
                             </div>
                         <div>
-
                         <input type="submit" id="order" class="btn_primary"  value="Save"/>
                        
                     </div>

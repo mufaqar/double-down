@@ -179,239 +179,143 @@ get_header();
                                 ===================================================================================
                                 =================================================================================== -->
                                 <div class='panel launchClander Fixed_delivery'>
-                                    <h2>Fixed delivery to company</h2>
-                                    <p>Here you can easily choose between or cancel the various lunch options from day
-                                        to day. If you want to change a fixed subscription, do so <a href="">her.</a>
-                                    </p>
-                                    <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
-                                    <div class="product_wrapper row mb-4">
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id1"
-                                                    onclick="showCounter(1)">Select</button>
 
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid1">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
+                                    <form class="weeklyfood" id="weeklyfood" action="#" >                 
+                                        <h2>Fixed delivery to company</h2>
+                                        <p>Here you can easily choose between or cancel the various lunch options from day
+                                            to day. If you want to change a fixed subscription, do so <a href="">her.</a>
+                                        </p>
+                                        <?php 
+                                            $ddate = "today";
+                                            $date = new DateTime($ddate);
+                                            $weeksid = $date->format("W");
+                                
+                                        
+                                        
+                                        ?>
+                                        <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
+                                            <div class="product_wrapper row mb-4">
+                                                    <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
+                                                    <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
+
+                                            
+                                                <?php query_posts(array(
+                                                            'post_type' => 'menu_items',
+                                                            'posts_per_page' => -1,
+                                                            'order' => 'desc',
+                                                            'menu_types' => 'lunch-boxes'                                                                     
+                                                            )); 
+                                                        if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
+                                                            <div class="col-md-6 col-lg-4 mt-4">
+                                                                <div class="product_card p-4">
+                                                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
+                                                                    <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                                                    <button href="" id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                                                    onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
+                                                                    <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
+                                                                        <i class="count-down"><img
+                                                                                src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                                                alt=""></i>
+                                                                        <input type="text"  data-id="<?php echo $pid;?>" value="1" 
+                                                                            class="product-quantity form-control text-center incrDecrCounter" />
+                                                                        <i class="count-up"><img
+                                                                                src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                                                alt=""></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                <?php endwhile; wp_reset_query(); else : ?>
+                                                <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <?php endif; ?>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between mt-5 mb-4 accessories">
+                                                <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
+                                                <a href="" class="btn_primary d-flex align-items-center">
+                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
+                                                    <p>Allergy Pass</p>
+                                                </a>
+                                            </div>
+
+                                            <div class="product_wrapper row mb-4">
+                                                <?php query_posts(array(
+                                                            'post_type' => 'menu_items',
+                                                            'posts_per_page' => -1,
+                                                            'order' => 'desc',
+                                                            'menu_types' => 'accessories'                                                                     
+                                                            )); 
+                                                            if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
+
+                                                        <div class="col-md-6 col-lg-4 mt-4">
+                                                            <div class="product_card p-4">
+                                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
+                                                                <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                                                <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                                                onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
+                                                                    <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
+                                                                        <i class="count-down"><img
+                                                                                src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                                                alt=""></i>
+                                                                        <input type="text" data-id="<?php echo $pid;?>" value="1" 
+                                                                            class="product-quantity form-control text-center incrDecrCounter" />
+                                                                            
+                                                                        <i class="count-up"><img
+                                                                                src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                                                alt=""></i>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+
+                                                <?php endwhile; wp_reset_query(); else : ?>
+                                                <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <?php endif; ?>
+
+                                            </div>
+
+                                            <div class="d-flex justify-content-between mt-1 mb-4 accessories">
+                                                <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
+                                            </div>
+
+                                            <div class="week_days">
+                                                <div class="d-flex justify-content-between flex-wrap">
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="checkbox" id="weekday-1" name="sport" value="Monday" checked>
+                                                        <label for="weekday-1">Monday</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" id="weekday-2" name="sport" value="Tuesday">
+                                                        <label for="weekday-2">Tuesday</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" id="weekday-3" name="sport" value="Wednesday">
+                                                        <label for="weekday-3">Wednesday</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" id="weekday-4" name="sport" value="Thursday">
+                                                        <label for="weekday-4">Thursday</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="checkbox" id="weekday-5" name="sport" value="Friday">
+                                                        <label for="weekday-5">Friday</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- 2nd  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id2"
-                                                    onclick="showCounter(2)">Select</button>
 
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid2">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
+                                            <div class="vat">
+                                                <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
+                                            </div>
+
+                                            <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
+                                                    <a href="" class="btn_primary btn_sec d-block">Daily</a>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- 3rd  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id3"
-                                                    onclick="showCounter(3)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                                        <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
-                                        <a href="" class="btn_primary d-flex align-items-center">
-                                            <img src="../reources/images//positive.png" alt="">
-                                            <p>Allergy Pass</p>
-                                        </a>
-                                    </div>
-
-                                    <div class="product_wrapper row mb-4">
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id1"
-                                                    onclick="showCounter(1)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid1">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 2nd  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id2"
-                                                    onclick="showCounter(2)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid2">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 3rd  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id3"
-                                                    onclick="showCounter(3)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 4th  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id3"
-                                                    onclick="showCounter(3)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 5th  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id3"
-                                                    onclick="showCounter(3)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 6th  -->
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2>Bread Lunch 91, - </h2>
-                                                <button href="" class="btn_primary  select_product_btn id3"
-                                                    onclick="showCounter(3)">Select</button>
-
-                                                <div
-                                                    class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid3">
-                                                    <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text" value="1"
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mt-1 mb-4 accessories">
-                                        <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
-                                    </div>
-
-                                    <div class="week_days">
-                                        <form class="d-flex justify-content-between flex-wrap">
-                                            <div class="d-flex align-items-center">
-                                                <input type="checkbox" id="weekday-1" name="weekday-1" value="Monday"
-                                                    checked>
-                                                <label for="weekday-1">Monday</label>
-                                            </div>
                                             <div>
-                                                <input type="checkbox" id="weekday-2" name="weekday-2" value="Tuesday">
-                                                <label for="weekday-2">Tuesday</label>
-                                            </div>
-                                            <div>
-                                                <input type="checkbox" id="weekday-3" name="weekday-3"
-                                                    value="Wednesday">
-                                                <label for="weekday-3">Wednesday</label>
-                                            </div>
-                                            <div>
-                                                <input type="checkbox" id="weekday-4" name="weekday-4" value="Thursday">
-                                                <label for="weekday-4">Thursday</label>
-                                            </div>
-                                            <div>
-                                                <input type="checkbox" id="weekday-5" name="weekday-5" value="Friday">
-                                                <label for="weekday-5">Friday</label>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="vat">
-                                        <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
-                                    </div>
-
-                                    <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <a href="" class="btn_primary d-block" style="margin-right: 1rem;">
-                                                Weekly</a>
-                                            <a href="" class="btn_primary btn_sec d-block">Daily</a>
+                                            <input type="submit" id="order" class="btn_primary"  value="Save"/>
+                                        
                                         </div>
-                                        <div>
-                                            <a href="" class="btn_primary">Save</a>
-                                        </div>
-                                    </div>
+                                    </form>
+                                   
 
                                 </div>
                             </div>
@@ -425,20 +329,192 @@ get_header();
         </div>
     </main>
 
+    <section class="hideme alertmessage">
+        <div class="popup">
+            <div class="popup_wrapper">
+                <div
+                    class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
+                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
+
+                    <div
+                        class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
+                        <div class="content mt-5">
+                            <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
+                            <h1 class="finished">Finished!</h1>
+                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                       
+                         
+                        </div>
+                    </div>
+                    
+                </div>
+                <img src="<?php  bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </div>
+    </section>
+
 
     <?php get_footer();?>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-
-    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/script.js"></script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript">   
+     jQuery(document).ready(function($) 
+        {   
+            
+            $('#delivery_address').click(function(){            
+                $(".delivery_address").css("display", "block");
+            });
+            $('#agreement').click(function(){
+                $(".agreement").css("display", "block");
+            });
+
+            $('#emp_agreement').click(function(){
+                $(".emp_agreement").css("display", "block");
+            });
+
+
+            
+            $('#invoice').click(function(){
+                $(".invoice").css("display", "block");
+            });
+
+            $('._cross').click(function(){
+           
+                $(".hideme").css("display", "none");
+            });
+            
+         
+                    	
+            $("#weeklyfood").submit(function(e) { 
+                e.preventDefault();  
+                var weekid = jQuery('#weekid').val();
+                var uid = jQuery('#uid').val();
+                var weekdays = [];
+                $.each($("input[name='sport']:checked"), function(){            
+                    weekdays.push($(this).val());
+                });
+                
+                var datas = [];
+                        var newdata = [];
+                        $("#weeklyfood .product-quantity").each(function () {
+                        var productid =  $(this).data('id');
+                        var value = $(this).val() ;
+                            if(value >1) {
+                                datas.push( [productid, $(this).val() ]);   
+                                }                     
+                        newdata.push(datas);
+                        });
+                    // alert(newdata[0]);
+                        var menu_items = newdata[0];
+                  
+                        console.log(menu_items);
+                    //  alert(postid);          
+                                
+                var weekdays = weekdays;	             
+                var menu_items = menu_items;     
+            
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "weeklyfood",
+                            weekdays : weekdays,
+                            menu_items : menu_items,   
+                            weekid : weekid,
+                            uid : uid,                  
+                        
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                            $(".alertmessage").css("display", "flex");
+                        
+                            }      
+                    }
+                
+                });
+            }); 
+
+            $("#dailyfood0").submit(function(e) { 
+                
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+
+            $("#dailyfood1").submit(function(e) { 
+
+               
+                e.preventDefault(); 
+                submitTwoForms(this);
+                
+            }); 
+            $("#dailyfood2").submit(function(e) { 
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+            $("#dailyfood3").submit(function(e) { 
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+
+
+        });
+
+
+        function submitTwoForms() { 
+
+            var day = jQuery('#day').val();
+            var uid = jQuery('#uid').val();
+                var datas = [];
+                var newdata = [];
+                $(".dailyfood .product-quantity").each(function () {
+                    var productid =  $(this).data('id');
+                    var value = $(this).val() ;
+                    if(value >1) {
+                        datas.push( [productid, $(this).val() ]);   
+                        }                     
+                    newdata.push(datas);
+                });                
+                var menu_items = newdata[0];                
+                console.log(menu_items);   
+                $.ajax(
+                    {   
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "dailyfood",
+                            day : day,
+                            menu_items : menu_items,  
+                            uid : uid                
+                        
+                        },   
+                        success: function(data){  
+                            if(data.code==0) {
+                                alert(data.message);
+                            }  
+                            else {
+                           $(".alertmessage").css("display", "flex");  
+                            }      
+                         }
+            
+                     });
+        
+}
+            
+        
+    
+	</script>
+
 
