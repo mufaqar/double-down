@@ -78,7 +78,7 @@ function  page_title() {
 
     ?>
     
-    <div class='toggle'>
+    <div class='toggle mb-5'>
             <div class='tabs'>
                 <div class='tab active'><?php the_title()?></div>           
             </div>
