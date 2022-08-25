@@ -5,19 +5,12 @@ get_header();
 <?php include('navigation.php'); ?>
                     <!-- tabs -->
                     <div class="tab_wrapper">
-                        <div class='toggle'>
-                            <div class='tabs'>
-                                <div class='tab'>Lunch calendar</div>
-                                <div class='tab'>Settings</div>
-                                <div class='tab'>Fast levering</div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php page_title()?>
                     <div class="custom_container c2">
                         <div class="row">
                             <div class="catering_wrapper c2 mt-5 mb-5">
                                 <div class="catering_menu">
-                                    <a href="" class="">Lunch Calendar</a>
+                                    <a href="<?php echo home_url('profile'); ?>" class="">Lunch Calendar</a>
                                     <a href="" class="_active">Fixed Delivery</a>
                                 </div>
                                 <div class="calender_wrapper mt-5">
@@ -41,14 +34,9 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                                <label for="">Number of People</label>
+                                                            <label for="">Number of People</label>
                                                                 <div class="_select">
-                                                                    <select>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                    </select>
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -96,14 +84,9 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                                <label for="">Number of People</label>
+                                                            <label for="">Number of People</label>
                                                                 <div class="_select">
-                                                                    <select>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                    </select>
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -151,14 +134,9 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                                <label for="">Number of People</label>
+                                                            <label for="">Number of People</label>
                                                                 <div class="_select">
-                                                                    <select>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                    </select>
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -206,14 +184,9 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                                <label for="">Number of People</label>
+                                                            <label for="">Number of People</label>
                                                                 <div class="_select">
-                                                                    <select>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                    </select>
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -261,14 +234,9 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                                <label for="">Number of People</label>
+                                                            <label for="">Number of People</label>
                                                                 <div class="_select">
-                                                                    <select>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                        <option value="">Salad</option>
-                                                                    </select>
-                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -325,7 +293,8 @@ get_header();
     <?php get_footer();?>
 
 
-
+     <!-- Font Awsome -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script> 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- jQuery library -->
