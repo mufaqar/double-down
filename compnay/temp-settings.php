@@ -378,15 +378,15 @@ $uid = get_current_user_id();
             $("#update_agreement").submit(function(e) { 
                 e.preventDefault(); 
                 var compnay_agreement = jQuery('#compnay_agreement').val();
-                var starting_date = jQuery('#starting_date').val();            
-                var uid = jQuery('#uid').val();         
+                var starting_date = jQuery('#starting_date').val();                
+                var uid = jQuery('#uid').val();
                 $.ajax(
                     {
                         type:"POST",
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
                             action: "update_agreement",
-                            compnay_agreement : compnay_agreement,   
+                            compnay_agreement : compnay_agreement,  
                             starting_date : starting_date,                           
                             uid : uid
                         },   

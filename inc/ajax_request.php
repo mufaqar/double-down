@@ -236,7 +236,7 @@ function addmeeting() {
 
 
 
-// Deliver Ajax
+// update_deliver_address Ajax
 
 
 add_action('wp_ajax_update_deliver_address', 'update_deliver_address', 0);
@@ -259,32 +259,30 @@ function update_deliver_address() {
 		
 }
 
-// update_agreement
 
-add_action('wp_ajax_update_update_agreement', 'update_agreement', 0);
+
+add_action('wp_ajax_update_agreement', 'update_agreement', 0);
 add_action('wp_ajax_nopriv_update_agreement', 'update_agreement');
 
 function update_agreement() {		
 	  global $wpdb;		
 	  $uid = stripcslashes($_POST['uid']);	
-	  $starting_date = $_POST['starting_date'];	 
 	  $compnay_agreement = $_POST['compnay_agreement'];	 
-
-	 	//update_user_meta( $uid, 'starting_date', $start_date);
-	    $user_id =   update_user_meta( $uid, 'compnay_agreement', $compnay_agreement);
-			
-	  	if (!is_wp_error($user_id)) {		    
+	  $starting_date = $_POST['starting_date'];	
+	   
+	    $user_id = update_user_meta( $uid, 'starting_date', $address );
+	  	if (!is_wp_error($user_id)) {	
+			 update_user_meta( $uid, 'compnay_agreement', $compnay_agreement ); 	    
 			//sendmail($username,$password);
-			echo wp_send_json( array('code' => 200 , 'message'=>__('Data Updated')));
+			echo wp_send_json( array('code' => 200 , 'message'=>__('Agreement Updated')));
 	  	} else {	    		         
-			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please check Form')));
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please form Data')));
 	      	}
 	  	
 	die;  
 	
 		
 }
-
 
 
 

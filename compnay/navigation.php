@@ -58,7 +58,7 @@
 
                                     }
                                     ?></h6>
-                                <p>Agreement: Oranchy AS</p>
+                                <p>Agreement: <?php echo get_user_meta( $uid, 'compnay_agreement', true); 	?></p>
 
                                 <?php 
 

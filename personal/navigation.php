@@ -46,9 +46,27 @@
                             <img src="<?php bloginfo('template_directory'); ?>/reources/images/hamburger.png" alt="" id="hamburgerbtn" onclick="hamburger()">
                         </div>
                         <div class="proofile_info d-flex align-items-center">
-                            <div class="user">
-                                <h6>Hey, Jose!</h6>
-                                <p>Agreement: Oranchy AS</p>
+                        <div class="user">
+                                <h6><?php global $current_user; wp_get_current_user(); ?>
+                                    <?php if ( is_user_logged_in() ) { 
+                                    echo 'Hey, ' .  $current_user->display_name ; } 
+                                    else {
+
+                                        wp_redirect( home_url('login'));                                     
+                                        exit;
+
+
+                                    }
+                                    ?></h6>
+                                <p>Agreement: <?php echo get_user_meta( $uid, 'compnay_agreement', true); 	?></p>
+
+                                <?php 
+
+                                        $current_user = wp_get_current_user();
+                                //  print_r($current_user);
+
+                                        ?>
+
                             </div>
                             <img src="<?php bloginfo('template_directory'); ?>/reources//images/profile.webp" alt="">
                         </div>                        
