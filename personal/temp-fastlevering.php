@@ -1,4 +1,4 @@
-<?php /* Template Name: Fast Levering (P)  */ 
+<?php /* Template Name: Persoanl Levering (P)  */ 
 get_header();
 ?>
 

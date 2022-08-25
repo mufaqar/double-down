@@ -7,17 +7,10 @@ get_header();
                     <!-- tabs -->
 
                     <div class="tab_wrapper">
-                        <div class='toggle'>
-                            <div class='tabs'>
-                                <div class='tab active'>Lunch calendar</div>
-                                <div class='tab'>Settings</div>
-                                <div class='tab'>Fast levering</div>
-                            </div>
+                     <?php page_title()?>
                             <div class='panels'>
                                 <div class='panel launchClander'>
-
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center">
-
                                         <div class="d-flex align-items-center __btn">
                                             <button class="btn_primary d-flex align-items-center">
                                                 <i class="fa-solid fa-fork-knife"></i>
