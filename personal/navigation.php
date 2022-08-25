@@ -60,12 +60,7 @@
                                     ?></h6>
                                 <p>Agreement: <?php echo get_user_meta( $uid, 'compnay_agreement', true); 	?></p>
 
-                                <?php 
-
-                                        $current_user = wp_get_current_user();
-                                //  print_r($current_user);
-
-                                        ?>
+                               
 
                             </div>
                             <img src="<?php bloginfo('template_directory'); ?>/reources//images/profile.webp" alt="">
