@@ -2943,6 +2943,22 @@ input[type='submit'] {
 .day__food > div:nth-child(2) {
   border-right: 0 !important;
 }
+._aside{
+  margin-top: -5rem !important;
+}
+.lctab {
+  display: none ;
+}
+.fdtab{
+  display: none ;
+}
+.lctab._active{
+  display: block !important;
+}
+.fdtab._active{
+  display: block !important;
+}
+
 
 /* ###################################################################
 ######################################################################
