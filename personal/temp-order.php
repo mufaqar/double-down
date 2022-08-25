@@ -6,13 +6,7 @@ get_header();
                     <!-- tabs -->
 
                     <div class="tab_wrapper">
-                        <div class='toggle'>
-                            <div class='tabs'>
-                                <div class='tab'>Lunch calendar</div>
-                                <div class='tab'>Settings</div>
-                                <div class='tab'>Fast levering</div>
-                            </div>
-                        </div>
+                        <?php page_title()?>
                     </div>
 
                     <div class="custom_container c2 ">
@@ -172,7 +166,9 @@ get_header();
                     </section>
 
                     <section id="fdtab" class="fdtab">
+                    <div class="custom_container c2 ">
                         <h2>fd data</h2>
+</div>
                     </section>
                     
                 </div>

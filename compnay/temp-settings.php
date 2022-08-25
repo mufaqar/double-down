@@ -139,8 +139,6 @@ $uid = get_current_user_id();
     </section>
 
 
-
-
     <section class="hideme overlay delivery_address">
         <div class="popup">
         <form class="update_deliver_address" id="update_deliver_address" action="#" > 
