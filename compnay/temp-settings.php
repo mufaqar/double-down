@@ -1,5 +1,6 @@
 <?php /* Template Name: Settings (C)  */ 
 get_header('company');
+$uid = get_current_user_id();
 ?>
 <?php include('navigation.php'); ?>
 
@@ -67,8 +68,8 @@ get_header('company');
                 <div class="deatil_card d-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Delivery Address</h3>
-                        <p>Pilestredet 75C | 0354 | OSLO <br>
-                            The company pays NOK 69 in shipping. * price ex. 15% VAT</p>
+                        <p> <?php echo get_user_meta($uid, 'profile_address', true );  ?> <br> </p>
+                            <!-- The company pays NOK 69 in shipping. * price ex. 15% VAT</p> -->
                         <ul class="mt-2">
                             <li><span>Extra Info:</span> Pilestredet</li>
                         </ul>
@@ -148,7 +149,7 @@ get_header('company');
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Delivery Address</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="address" id="address" placeholder="Pilestredet 75C " >
+                        <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'profile_address', true );  ?>" >
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
                     </div>
@@ -358,22 +359,11 @@ get_header('company');
 
 
 <?php get_footer();?>
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-
-    <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
@@ -389,8 +379,6 @@ get_header('company');
             $('#emp_agreement').click(function(){
                 $(".emp_agreement").css("display", "block");
             });
-
-
             
             $('#invoice').click(function(){
                 $(".invoice").css("display", "block");
@@ -401,108 +389,18 @@ get_header('company');
                 $(".hideme").css("display", "none");
             });
             
-         
-                    	
-            $("#weeklyfood").submit(function(e) { 
-                e.preventDefault();  
-                var weekid = jQuery('#weekid').val();
-                var usertype = jQuery('#usertype').val();
-                var uid = jQuery('#uid').val();
-                var weekdays = [];
-                $.each($("input[name='sport']:checked"), function(){            
-                    weekdays.push($(this).val());
-                });
-                
-                var datas = [];
-                        var newdata = [];
-                        $("#weeklyfood .product-quantity").each(function () {
-                        var productid =  $(this).data('id');
-                        var value = $(this).val() ;
-                            if(value >1) {
-                                datas.push( [productid, $(this).val() ]);   
-                                }                     
-                        newdata.push(datas);
-                        });
-                    // alert(newdata[0]);
-                        var menu_items = newdata[0];
-                  
-                        console.log(menu_items);
-                    //  alert(postid);          
-                                
-                var weekdays = weekdays;	             
-                var menu_items = menu_items;     
-            
-                $.ajax(
-                    {
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "weeklyfood",
-                            weekdays : weekdays,
-                            menu_items : menu_items,   
-                            weekid : weekid,
-                            usertype : usertype,  
-                            uid : uid,                  
-                        
-                        },   
-                        success: function(data){                      
-                        
-                            if(data.code==0) {
-                                        alert(data.message);
-                            }  
-                            else {
-                            $(".alertmessage").css("display", "flex");
-                        
-                            }      
-                    }
-                
-                });
-            }); 
-
-            $("#dailyfood0").submit(function(e) { 
-                
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
-
-            $("#dailyfood1").submit(function(e) { 
-
-               
-                e.preventDefault(); 
-                submitTwoForms(this);
-                
-            }); 
-            $("#dailyfood2").submit(function(e) { 
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
-            $("#dailyfood3").submit(function(e) { 
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
-
             $("#update_deliver_address").submit(function(e) { 
                 e.preventDefault(); 
                 var address = jQuery('#address').val();
                 var uid = jQuery('#uid').val();
-
-                alert(uid);
-
-
-            
                 $.ajax(
                     {
                         type:"POST",
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
                             action: "update_deliver_address",
-                            weekdays : weekdays,
-                           
-                            uid : uid,                  
-                        
+                            address : address,                           
+                            uid : uid
                         },   
                         success: function(data){                      
                         
