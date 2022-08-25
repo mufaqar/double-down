@@ -1,4 +1,4 @@
-<?php /* Template Name: Lunch (C)  */ 
+<?php /* Template Name: Settings (C)  */ 
 get_header('company');
 ?>
 <?php include('navigation.php'); ?>
@@ -6,88 +6,103 @@ get_header('company');
 <!-- tabs -->
 
 <div class="tab_wrapper">
-<?php page_title()?>
+    <?php page_title()?>
+        
         <div class='panels'>
-            <div class='panel launchClander'>
-                <h2>Business lunch calendar</h2>
-                <p>Here you can easily choose between or cancel the various lunch options from day
-                    to day. If you want to change a fixed subscription, do so <a href="">her.</a>
-                </p>
 
-          <div class="calender_wrapper d-flex justify-content-between align-items-center">
-                    <div class="calender">
-                        <input type="date">
-                    </div>
+            <div class='panel launchClander setting_tab'>
+                <h2>Corporate agreement settings</h2>
+                <p>As a company administrator, you can get an overview of and make changes
+                    to
+                    the
+                    company agreement here. Using the menu above, you can also see the
+                    company's
+                    lunch calendar, or change the regular deliveries.</p>
+                <div class="deatil_card d-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h6>Total this Week | <span>NOK 0, -</span></h6>                 
+                        <h3>Details of the agreement</h3>
+                        <p>The company pays 20% or Nok of each luch</p>
+                        <p class="mt-1">Start date: Friday, May 20, 2022</p>
+                        <ul class="mt-2">
+                            <li><span>Location 1:</span> Pilestredet 75C | 0354 | OSLO</li>
+                            <li><span>Location 2:</span> Pilestredet 75C | 0354 | OSLO</li>
+                        </ul>
+                    </div>
+
+                    <div >
+                        <button id="agreement" class="btn_primary">Change</button>
                     </div>
                 </div>
-                <div class="accordion_wrapper">
-                    <div class="row">
-                        <div class="col-lg-12 mx-auto">
-                            <!-- Accordion -->
-                            <div id="accordionExample" class="accordion">
-                                <!-- Accordion item 1 -->
+                <!-- 2nd -->
+                <div class="deatil_card d-flex justify-content-between align-items-center">
+                    <div class="info">
+                        <h3>Employees in the agreement</h3>
+                        <p>1 employee : Sumit</p>
+                    </div>
+                    <div>
+                        <button id="emp_agreement" class="btn_primary">See or Overrid</button>
+                        
+                    </div>
 
-                                <?php
-
-
-                                    $week = [];
-                                    $saturday = strtotime('monday this week');
-                                    $i= 0;
-                                    foreach (range(0, 4) as $day) {
-                                        $week[] = date("Y-m-d", (($day * 86400) + $saturday));
-                                        $today_date =  $week[$i];
-                                        $i++;                                       
-                                        $timestamp = strtotime($today_date);
-                                        $today_day = date('l', $timestamp);
-                                       
-                                     // print_r($week);
-                                        ?>
-
-                                            <div class="card">
-                                                        <form class="dailyfood" id="dailyfood<?php echo $day ?>" action="#">
-                                                            <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
-                                                            <input type="hidden" value="<?php echo $today_date ?>" id="day" >
-                                                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                                                            
-                                                                            <div class="mb-0 d-flex align-items-center">
-                                                                                <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $day?>"
-                                                                                    aria-expanded="true" aria-controls="collapse<?php echo $day?>"
-                                                                                    class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                                                    <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
-                                                                                </button>
-                                                                                <h6 class="text-nowrap mb-0"><div class="message">No Booking </div> </h6>
-                                                                            </div>
-                                                                </div>
-                                                                <div id="collapse<?php echo $day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
-                                                                    class="collapse show accordion_content">
-                                                                    <div class="card-body p-md-5">
-                                                                        <?php get_template_part('partials/content', 'daylunch'); ?>
-                                                                    </div>
-                                                            </div>
-                                                        </form>
-                                                </div><!-- End -->
-                                        <?php
-                                    }
-
-                                
-                                    ?>
+                    
+  
 
 
 
 
-                              
-
-
-                            </div><!-- End -->
-                        </div>
+                </div>
+                <!-- 3rd  -->
+                <div class="deatil_card d-flex justify-content-between align-items-center">
+                    <div class="info">
+                        <h3>Meeting Food</h3>
+                        <p>Everyone deserves good food - even those you
+                            have invited to a meeting!</p>
+                    </div>
+                    <div >
+                        <a href="<?php echo home_url('meeting'); ?>" class="btn_primary">Order Meeting Food</a>
                     </div>
                 </div>
+
+                <!-- 4th  -->
+                <div class="deatil_card d-flex justify-content-between align-items-center">
+                    <div class="info">
+                        <h3>Delivery Address</h3>
+                        <p>Pilestredet 75C | 0354 | OSLO <br>
+                            The company pays NOK 69 in shipping. * price ex. 15% VAT</p>
+                        <ul class="mt-2">
+                            <li><span>Extra Info:</span> Pilestredet</li>
+                        </ul>
+                    </div>
+                    <div class="">
+                        <button id="delivery_address" class="btn_primary">Change</button>
+                    </div>
+                </div>
+
+                <!-- 5th  -->
+                <div class="deatil_card d-flex justify-content-between align-items-center">
+                    <div class="info">
+                        <h3>Daily Overview</h3>
+                        <p>Daily overview of orders</p>
+                    </div>
+                    <div class="">
+                    <button id="orders" class="btn_primary">See</button>
+                    </div>
+                </div>
+
+                <!-- 6th  -->
+                <div class="deatil_card d-flex justify-content-between align-items-center">
+                    <div class="info">
+                        <h3>Invoice</h3>
+                        <p>Overview</p>
+                    </div>
+                    <div class="">
+                    <button href="" id="invoice" class="btn_primary">See</button>
+                    </div>
+                </div>
+
             </div>
 
-           
-
-        </div>
+       
     </div>
 </div>
 

@@ -73,3 +73,14 @@ function my_column_register_sortable( $columns ) {
 }
 
 add_filter("manage_edit-orders_sortable_columns", "my_column_register_sortable" );
+
+function  page_title() {
+
+    ?>
+    
+    <div class='toggle'>
+            <div class='tabs'>
+                <div class='tab active'><?php the_title()?></div>           
+            </div>
+    </div><?php
+}
