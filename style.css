@@ -3229,7 +3229,7 @@ body.page-template-temp-landing {
   background: var(--green);
 }
 
-/* .myProfileNav {
+.myProfileNav {
   display: none;
 }
 .profile_pages .myProfileNav {
@@ -3238,13 +3238,6 @@ body.page-template-temp-landing {
 
 .company_pages .companyProfileNav {
   display: block !important;
-} */
-
-.activecompany {
-  display: block;
-}
-.inactiveprofile {
-  display: none;
 }
 
 /* **************************************
