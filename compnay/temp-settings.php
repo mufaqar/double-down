@@ -141,29 +141,29 @@ $uid = get_current_user_id();
 
     <section class="hideme overlay delivery_address">
         <div class="popup">
-        <form class="update_deliver_address" id="update_deliver_address" action="#" > 
-            <div class="popup_wrapper">
-                <h3 class="ad_productss">Delivery Address</h3>               
-                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Delivery Address</label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'profile_address', true );  ?>" >
-                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
+            <form class="update_deliver_address" id="update_deliver_address" action="#" > 
+                <div class="popup_wrapper">
+                    <h3 class="ad_productss">Delivery Address</h3>               
+                    <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                        <label>Delivery Address</label>
+                        <div class="_field d-flex justify-content-between align-items-center">
+                            <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'profile_address', true );  ?>" >
+                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
+                            <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
+                        </div>
                     </div>
+                    <div class="add_address d-flex align-items-center justify-content-end mt-3">
+                        <p><span>Add more address!</span></p>
+                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
+                    </div>
+                    <div class="mt-5">
+                    
+                        <input type="submit" class="btn_primary"  value="Save"/>
+                    </div>
+                    
+                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
                 </div>
-                <div class="add_address d-flex align-items-center justify-content-end mt-3">
-                    <p><span>Add more address!</span></p>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                </div>
-                <div class="mt-5">
-                   
-                    <input type="submit" class="btn_primary"  value="Save"/>
-                </div>
-                
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
-                            </form>
+            </form>
         </div>
     </section> 
 
@@ -239,70 +239,29 @@ $uid = get_current_user_id();
 
     <section class="hideme overlay agreement">
         <div class="popup">
-            <div class="popup_wrapper">
-                <h3>Employees in the Agreement</h3>
-                <h6>Total number of employees: 1</h6>
-                <hr>
-                <div>
-                    <div class="btn_toggle">
-                        <div class="btn_wrapper d-flex justify-content-center">
-                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | 01</button>
-                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
+        <form class="update_agreement" id="update_agreement" action="#" > 
+                <div class="popup_wrapper">
+                    <h3 class="ad_productss">Details of the agreement</h3>               
+                    <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                        <label>Agreement Name</label>
+                        <div class="_field d-flex justify-content-between align-items-center">
+                            <input type="text" name="compnay_agreement" id="compnay_agreement" placeholder="<?php echo get_user_meta($uid, 'compnay_agreement', true );  ?>" >
+                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
                         </div>
                     </div>
-
-                    <!-- active content  -->
-                    <div class="activeEmp_content ">
-                        <div>
-
+                    <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                        <label>Starting Date</label>
+                        <div class="_field d-flex justify-content-between align-items-center">
+                            <input type="date" name="starting_date" id="starting_date" placeholder="<?php echo get_user_meta($uid, 'starting_date', true );  ?>" >
                         </div>
+                    </div>                    
+                    <div class="mt-5">                    
+                        <input type="submit" class="btn_primary"  value="Save"/>
                     </div>
-
-                    <!-- inactive content  -->
-                    <div class="inactiveEmp_content active">
-                        <div>
-                            <section>
-                                <form>
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-5">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="emp" name="emp" value="Employee" checked>
-                                            <label for="emp" class="label"></label>
-                                            <p>Employee</p>
-                                        </div>
-                                        <p>No fixed delivery</p>
-                                    </div>
-
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="days" name="days" value="days" >
-                                            <label for="days" class="label"></label>
-                                            <p>Jose Olsen Barros</p>
-                                        </div>
-                                        <p>Number of delivery days</p>
-                                    </div>
-
-                                    <hr class="mt-4 mb-4">
-                                    <h3>+ Invite new employees</h3>
-
-                                    <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center w-100">
-                                            <input type="email" id="days" name="days" value="days" class="w-100">
-                                            <button class="d-flex align-items-center">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                                                <span>Add</span>
-                                            </button>
-                                        </div>
-                                        
-                                    </div>
-
-                                </form>
-                            </section>
-                        </div>
-                    </div>
+                    
+                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
                 </div>
-
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
+            </form>
         </div>
     </section>
 
@@ -398,6 +357,37 @@ $uid = get_current_user_id();
                         data: {
                             action: "update_deliver_address",
                             address : address,                           
+                            uid : uid
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                                alert(data.message);
+                        
+                            }      
+                    }
+                
+                });
+                
+            }); 
+
+
+            $("#update_agreement").submit(function(e) { 
+                e.preventDefault(); 
+                var compnay_agreement = jQuery('#compnay_agreement').val();
+                var starting_date = jQuery('#starting_date').val();            
+                var uid = jQuery('#uid').val();         
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "update_agreement",
+                            compnay_agreement : compnay_agreement,   
+                            starting_date : starting_date,                           
                             uid : uid
                         },   
                         success: function(data){                      
