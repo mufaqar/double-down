@@ -16,7 +16,7 @@
 								  wp_nav_menu ( array(
                                     'container'       => false,	
 									'theme_location'  => 'profile',	
-									'menu_class'      => 'myProfileNav'
+									'menu_class'      => 'myProfileNav inactiveprofile'
 								) );
 								?>
 
@@ -26,7 +26,7 @@
 								  wp_nav_menu ( array(
 									'theme_location'  => 'company',								
 									'container'       => false,									
-									'menu_class'      => 'companyProfileNav'
+									'menu_class'      => 'companyProfileNav activecompany'
 								) );
 								?>
 

@@ -2943,22 +2943,21 @@ input[type='submit'] {
 .day__food > div:nth-child(2) {
   border-right: 0 !important;
 }
-._aside{
+._aside {
   margin-top: -5rem !important;
 }
 .lctab {
-  display: none ;
+  display: none;
 }
-.fdtab{
-  display: none ;
+.fdtab {
+  display: none;
 }
-.lctab._active{
+.lctab._active {
   display: block !important;
 }
-.fdtab._active{
+.fdtab._active {
   display: block !important;
 }
-
 
 /* ###################################################################
 ######################################################################
@@ -3240,6 +3239,13 @@ body.page-template-temp-landing {
 .company_pages .companyProfileNav {
   display: block !important;
 } */
+
+.activecompany {
+  display: block;
+}
+.inactiveprofile {
+  display: none;
+}
 
 /* **************************************
 ***********   >1400px  ****************
