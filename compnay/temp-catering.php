@@ -1,16 +1,12 @@
-<?php /* Template Name: Catering (C)  */ 
-
-
-get_header('company');
-
-
-    $q_date  = $_GET['qdate']; 
+    <?php /* Template Name: Catering (C)  */ 
+        get_header('company');
+        $q_date  = $_GET['qdate']; 
 
 
 
 
 
-?>
+    ?>
  <?php include('navigation.php'); ?> 
  <div class="custom_container catering_wrapper mt-5 mb-5">
           <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
