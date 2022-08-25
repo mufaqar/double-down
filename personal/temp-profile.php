@@ -1,25 +1,21 @@
-<?php /* Template Name: Profile ( Personal )  */ 
-get_header();
-?>
+    <?php /* Template Name: Profile ( Personal )  */ 
+    get_header();
+    include('navigation.php'); ?>
 
-<?php include('navigation.php'); ?>
-
-                    <!-- tabs -->
-
-                    <div class="tab_wrapper">
+      <div class="tab_wrapper">
                      <?php page_title()?>
                             <div class='panels'>
                                 <div class='panel launchClander'>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center __btn">
-                                            <button class="btn_primary d-flex align-items-center">
+                                            <a href="<?php echo home_url('my-order'); ?>" class="btn_primary d-flex align-items-center">
                                                 <i class="fa-solid fa-fork-knife"></i>
                                                 <p style="margin-left: .5rem; color:white">My Lunch</p>
-                                            </button>
-                                            <button class="btn_primary btn_sec d-flex align-items-center">
+</a>
+                                            <a  href="<?php echo home_url('my-order'); ?>"  class="btn_primary btn_sec d-flex align-items-center">
                                                 <i class="fa-solid fa-newspaper"></i>
                                                 <p style="margin-left: .5rem; color:#5FB227">My Orders</p>
-                                            </button>
+</a>
                                         </div>
 
                                         <div class="info d-flex align-items-center">

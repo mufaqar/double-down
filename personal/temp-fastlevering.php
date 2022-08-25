@@ -48,7 +48,7 @@ get_header();
                                                                         <option value="">Salad</option>
                                                                         <option value="">Salad</option>
                                                                     </select>
-                                                                    <img src="../reources/images/down-arrow.png" alt="">
+                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -103,7 +103,7 @@ get_header();
                                                                         <option value="">Salad</option>
                                                                         <option value="">Salad</option>
                                                                     </select>
-                                                                    <img src="../reources/images/down-arrow.png" alt="">
+                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -158,7 +158,7 @@ get_header();
                                                                         <option value="">Salad</option>
                                                                         <option value="">Salad</option>
                                                                     </select>
-                                                                    <img src="../reources/images/down-arrow.png" alt="">
+                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -213,7 +213,7 @@ get_header();
                                                                         <option value="">Salad</option>
                                                                         <option value="">Salad</option>
                                                                     </select>
-                                                                    <img src="../reources/images/down-arrow.png" alt="">
+                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -268,7 +268,7 @@ get_header();
                                                                         <option value="">Salad</option>
                                                                         <option value="">Salad</option>
                                                                     </select>
-                                                                    <img src="../reources/images/down-arrow.png" alt="">
+                                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
