@@ -14,17 +14,16 @@ get_header();
                             <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                 <div class="catering_menu">
                                     <a class="_lcmenutab _active" onclick="lcClick()">Lunch Calendar</a>
-                                    <a class="_fdmenutab" onclick="fdClick()">Fixed Delivery</a>
+                                    <a class="_fdmenutab" onclick="fdClick()">Catering Orders</a>
+                                    <a class="_meetingtab" onclick="fdClick()">Meeting Orders</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <section id="lctab" class="lctab _active">
                         <div class="custom_container c2 ">
                             <div class="row">
-                                <div class="catering_wrapper mb-5 col-md-8">
-                                
+                                <div class="catering_wrapper mb-5 col-md-8">                                
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center ">
                                         <p>A Total of 0 Boxes,<br> Additions you pay: NOK 104</p>
                                         <div class="calender">
@@ -166,9 +165,15 @@ get_header();
                     </section>
 
                     <section id="fdtab" class="fdtab">
-                    <div class="custom_container c2 ">
-                        <h2>fd data</h2>
-</div>
+                            <div class="custom_container c2 ">
+                            <?php get_template_part( 'partials/order', 'catering'); ?>
+                            </div>
+                    </section>
+
+                    <section id="fdtab" class="fdtab">
+                            <div class="custom_container c2 ">
+                            <?php get_template_part( 'partials/order', 'catering'); ?>
+                            </div>
                     </section>
                     
                 </div>
