@@ -287,6 +287,60 @@ function update_agreement() {
 
 
 
+// Profile Devivery Address
+
+
+add_action('wp_ajax_profile_deliver_address', 'profile_deliver_address', 0);
+add_action('wp_ajax_nopriv_profile_deliver_address', 'profile_deliver_address');
+
+function profile_deliver_address() {		
+	  global $wpdb;		
+	  $uid = stripcslashes($_POST['uid']);	
+	  $profile_delivery_address = $_POST['profile_delivery_address'];	 
+	  $profile_delivery_phone = $_POST['profile_delivery_phone'];	 
+	  $profile_delivery_email = $_POST['profile_delivery_email'];	
+
+		$user_id = update_user_meta( $uid, 'profile_delivery_phone', $profile_delivery_phone );
+	  	if (!is_wp_error($user_id)) {		    
+			update_user_meta( $uid, 'profile_delivery_address', $profile_delivery_address );
+			update_user_meta( $uid, 'profile_delivery_email', $profile_delivery_email );
+			echo wp_send_json( array('code' => 200 , 'message'=>__('Address Updated')));
+	  	} else {	    		         
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please check address')));
+	      	}
+	  	
+	die;  
+	
+		
+}
+
+
+// Profile Devivery Address
+
+
+add_action('wp_ajax_profile_deliver_fast', 'profile_deliver_fast', 0);
+add_action('wp_ajax_nopriv_profile_deliver_fast', 'profile_deliver_fast');
+
+function profile_deliver_fast() {		
+	  global $wpdb;		
+	  $uid = stripcslashes($_POST['uid']);	
+	  $profile_delivery_days = $_POST['profile_delivery_days'];	 
+
+		$user_id = update_user_meta( $uid, 'profile_delivery_days', $profile_delivery_days );
+	  	if (!is_wp_error($user_id)) {		    
+			
+			echo wp_send_json( array('code' => 200 , 'message'=>__('Profile Delivery Days Updated')));
+	  	} else {	    		         
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please check address')));
+	      	}
+	  	
+	die;  
+	
+		
+}
+
+
+
 
 
 
