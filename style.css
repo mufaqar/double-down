@@ -3224,10 +3224,12 @@ body.page-template-temp-landing {
 
 .profile_pages .myprofile {
   background: var(--green);
+  color: #fff;
 }
 
 .company_pages .companyProfile {
   background: var(--green);
+  color: #fff;
 }
 
 .singleprofile {
