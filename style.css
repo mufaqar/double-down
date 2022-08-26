@@ -458,10 +458,6 @@ footer .footer_social img:hover {
   background: var(--green);
 }
 
-.companyProfileNav {
-  display: none;
-}
-
 .companyProfileNav li.active {
   background: var(--green);
 }
@@ -2946,18 +2942,14 @@ input[type='submit'] {
 ._aside {
   margin-top: -5rem !important;
 }
-.lctab {
-  display: none;
+.companyProfileNav{
+  display: none !important;
 }
-.fdtab {
-  display: none;
-}
-.lctab._active {
+.myProfileNav.inactiveprofile.activeNav, .companyProfileNav.activecompany.activeNav{
   display: block !important;
 }
-.fdtab._active {
-  display: block !important;
-}
+
+
 
 /* ###################################################################
 ######################################################################
@@ -3236,9 +3228,6 @@ body.page-template-temp-landing {
   display: block;
 }
 
-.company_pages .companyProfileNav {
-  display: block !important;
-}
 
 /* **************************************
 ***********   >1400px  ****************

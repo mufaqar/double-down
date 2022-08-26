@@ -5,10 +5,8 @@ function companyProfile() {
   var companyProfileNav = document.querySelector('.companyProfileNav');
   companyProfile.classList.add('active');
   myProfile.classList.remove('active');
-  companyProfileNav.style.display = 'block';
-  myProfileNav.style.display = 'none';
-
-  //    console.log('sgsdg', x)
+  companyProfileNav.classList.add('activeNav');
+  myProfileNav.classList.remove('activeNav');
 }
 
 function myProfile() {
@@ -18,9 +16,8 @@ function myProfile() {
   var myProfileNav = document.querySelector('.myProfileNav');
   companyProfile.classList.remove('active');
   myProfile.classList.add('active');
-  companyProfileNav.style.display = 'none';
-  myProfileNav.style.display = 'block';
-  //    console.log('sgsdg', x)
+  companyProfileNav.classList.remove('activeNav');
+  myProfileNav.classList.add('activeNav');
 }
 
 $(document).ready(function () {

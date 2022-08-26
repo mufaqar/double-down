@@ -12,15 +12,20 @@ get_header();
                     <div class="custom_container c2 ">
                         <div class="row">
                             <div class="catering_wrapper mt-5 mb-5 col-md-8">
-                                <div class="catering_menu">
-                                    <a class="_lcmenutab _active" onclick="lcClick()">Lunch Calendar</a>
-                                    <a class="_fdmenutab" onclick="fdClick()">Catering Orders</a>
-                                    <a class="_meetingtab" onclick="fdClick()">Meeting Orders</a>
+                                <div class="catering_menu buttons">
+                                    <a id="1" class="showSingle _active" target="1">Lunch Calendar</a>
+                                    <a id="2" class="showSingle" target="2">Catering Orders</a>
+                                    <a id="3" class="showSingle" target="3">Meeting Orders</a>
                                 </div>
                             </div>
                         </div>
+                        
+                            
+
+                            
+
                     </div>
-                    <section id="lctab" class="lctab _active">
+                    <section id="div1" class="targetDiv activediv">
                         <div class="custom_container c2 ">
                             <div class="row">
                                 <div class="catering_wrapper mb-5 col-md-8">                                
@@ -164,13 +169,13 @@ get_header();
                         </div>
                     </section>
 
-                    <section id="fdtab" class="fdtab">
+                    <section id="div2" class="targetDiv">
                             <div class="custom_container c2 ">
                             <?php get_template_part( 'partials/order', 'catering'); ?>
                             </div>
                     </section>
 
-                    <section id="fdtab" class="fdtab">
+                    <section id="div3" class="targetDiv">
                             <div class="custom_container c2 ">
                             <?php get_template_part( 'partials/order', 'catering'); ?>
                             </div>
@@ -201,32 +206,22 @@ get_header();
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/calender.js"></script>
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <script>
     // order menu toggle 
-function lcClick() {
-    var lcbtn = document.querySelector('._lcmenutab');
-    var fdbtn = document.querySelector('._fdmenutab');
-    var lctab = document.querySelector('#lctab');
-    var fbtab = document.querySelector('#fdtab');
-    lcbtn.classList.add('_active');
-    lctab.classList.add('_active');
-    fdbtn.classList.remove('_active');
-    fbtab.classList.remove('_active');
+
+
+jQuery(function() {
+    jQuery('#div2').hide();
+    jQuery('#div3').hide();
+  jQuery('.showSingle').click(function() {
+    $(".showSingle").removeClass("_active");  
+    $(this).addClass("_active");
+    jQuery('.targetDiv').hide();
+    jQuery('#div' + $(this).attr('target')).show();
     
-}
-
-function fdClick(){
-    var lcbtn = document.querySelector('._lcmenutab');
-    var fdbtn = document.querySelector('._fdmenutab');
-    var lctab = document.querySelector('#lctab');
-    var fbtab = document.querySelector('#fdtab');
-    lcbtn.classList.remove('_active');
-    lctab.classList.remove('_active');
-    fdbtn.classList.add('_active');
-    fbtab.classList.add('_active');
-    
-}
-
-
+  });
+});
 
 </script>

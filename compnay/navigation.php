@@ -26,7 +26,7 @@
 								  wp_nav_menu ( array(
 									'theme_location'  => 'company',								
 									'container'       => false,									
-									'menu_class'      => 'companyProfileNav activecompany'
+									'menu_class'      => 'companyProfileNav activecompany activeNav'
 								) );
 								?>
 
