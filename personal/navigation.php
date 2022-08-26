@@ -7,7 +7,8 @@
 
                     </div>
                     <div class="toggle_btn bg-light mt-4 mb-4 d-flex mx-3">
-                    <?php profile_user_nav();  ?>
+                    <button class="myprofile active" onclick="myProfile()">My <br> Profile</button>
+                    <button class="companyProfile" onclick="companyProfile()">Company<br> Profile</button>
                     </div>
                     <div>
                         
