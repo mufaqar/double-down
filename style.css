@@ -447,12 +447,20 @@ footer .footer_social img:hover {
   color: white !important;
 }
 
-.myProfileNav li,
+/* .myProfileNav li,
 .companyProfileNav li {
   padding: 10px !important;
   padding-left: 1.5rem !important;
   cursor: pointer;
+} */
+.myProfileNav li a,
+.companyProfileNav li a{
+  padding: 10px !important;
+  padding-left: 1.5rem !important;
+  cursor: pointer;
+  display: block;
 }
+
 
 .myProfileNav li.active {
   background: var(--green);
