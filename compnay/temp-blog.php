@@ -1,5 +1,5 @@
 <?php
- /*  Template Name:  Blog  */
+ /*  Template Name:  Blog  (C) */
 
 get_header('company'); ?>
   <?php include get_theme_file_path('/compnay/navigation.php'); ?>    
