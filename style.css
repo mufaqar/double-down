@@ -2943,13 +2943,14 @@ input[type='submit'] {
   margin-top: -5rem !important;
 }
 
-.myProfileNav, .companyProfileNav{
+.myProfileNav,
+.companyProfileNav {
   display: none;
 }
-.myProfileNav.activeNav{
+.myProfileNav.activeNav {
   display: block;
 }
-.companyProfileNav.activeNav{
+.companyProfileNav.activeNav {
   display: block;
 }
 /* ###################################################################
@@ -3223,7 +3224,7 @@ body.page-template-temp-landing {
 }
 
 /* .myProfileNav {
-  display: none;
+  display: none;cl
 }
 .profile_pages .myProfileNav {
   display: block;
