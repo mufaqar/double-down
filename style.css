@@ -2942,14 +2942,16 @@ input[type='submit'] {
 ._aside {
   margin-top: -5rem !important;
 }
-.companyProfileNav {
-  display: none !important;
-}
-.myProfileNav.inactiveprofile.activeNav,
-.companyProfileNav.activecompany.activeNav {
-  display: block !important;
-}
 
+.myProfileNav, .companyProfileNav{
+  display: none;
+}
+.myProfileNav.activeNav{
+  display: block;
+}
+.companyProfileNav.activeNav{
+  display: block;
+}
 /* ###################################################################
 ######################################################################
 
