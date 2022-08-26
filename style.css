@@ -1256,6 +1256,10 @@ section.landing_contents .links a {
 /*  */
 /* CATERING PAGE */
 /*  */
+.catering_wrapper{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 
 .catering_wrapper .catering_menu {
   background: #ffffff;
@@ -2869,7 +2873,7 @@ body {
 }
 
 .invoice_table ._table {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   background: #ffffff;
   /* border: 1px solid #D0D0D0; */
@@ -3207,12 +3211,17 @@ body.page-template-temp-landing {
   background: var(--green);
 }
 
-/* .myProfileNav {
-  display: none;cl
+.myProfileNav, .companyProfileNav{
+  display: none;
 }
-.profile_pages .myProfileNav {
+.myProfileNav.activeNav{
   display: block;
-} */
+}
+.companyProfileNav.activeNav{
+  display: block;
+}
+
+
 
 /* **************************************
 ***********   >1400px  ****************

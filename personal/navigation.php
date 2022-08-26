@@ -16,7 +16,7 @@
 								  wp_nav_menu ( array(
                                     'container'       => false,	
 									'theme_location'  => 'profile',	
-									'menu_class'      => 'myProfileNav'
+									'menu_class'      => 'myProfileNav activeNav'
 								) );
 								?>
 
