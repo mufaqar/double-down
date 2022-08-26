@@ -8,20 +8,14 @@ global $current_user;
 $logged_user = wp_get_current_user();
 $UIL =  $logged_user->user_login;
 $uid =  $logged_user->ID;
-
-
+$url = home_url('profile');
 if ( is_user_logged_in() ) {
-  
-    //echo "Redirect If user is login";
-
-//wp_redirect('http://www.nannyportfolio.com/account');
-//exit();
-
-
+    wp_redirect($url);
+    exit();
 
 } else {
 
-//echo "Not Login" asdasdf'
+//echo "Not Login" ;
 
 
 }
@@ -35,9 +29,6 @@ if ( is_user_logged_in() ) {
     <!-- login section  -->
 
     <section class="container login mt-5 mb-5" style="margin-bottom:5rem !important">
-
-
-
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-6 left">
                 <div class="login_image_wrapper">
@@ -54,8 +45,7 @@ if ( is_user_logged_in() ) {
                         <div class="overlay"></div>
                     </div>
                 </div>
-                <div class="custom_nav_btn">
-                    
+                <div class="custom_nav_btn">                    
                     <div class="previous_caro">
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/left arrow.png" alt="Left Arrow">
                     </div>
@@ -110,10 +100,11 @@ if ( is_user_logged_in() ) {
                 password : password
             },
             success: function(response){
-                window.location.href = "<?php echo home_url(); ?>";
+               // alert(response.message);
+               window.location.href = "<?php echo home_url('profile'); ?>";
             },
-            error: function(results) {
-                alert("Error");
+            error: function(response) {
+                alert(response.message);
             }
             });
         });
