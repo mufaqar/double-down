@@ -15,7 +15,7 @@ get_header();
                                 <div class="catering_menu">
                                     <a class="_lcmenutab _active" onclick="lcClick()">Lunch Calendar</a>
                                     <a class="_fdmenutab" onclick="fdClick()">Catering Orders</a>
-                                    <a class="_meetingtab" onclick="fdClick()">Meeting Orders</a>
+                                    <a class="_meetingtab" onclick="mfClick()">Meeting Orders</a>
                                 </div>
                             </div>
                         </div>
@@ -164,13 +164,19 @@ get_header();
                         </div>
                     </section>
 
-                    <section id="fdtab" class="fdtab">
+                    <section id="fdtab" class="tabdiv">
                             <div class="custom_container c2 ">
                             <?php get_template_part( 'partials/order', 'catering'); ?>
                             </div>
                     </section>
 
-                    <section id="fdtab" class="fdtab">
+                    <section id="fdtab" class="tabdiv">
+                            <div class="custom_container c2 ">
+                            <?php get_template_part( 'partials/order', 'catering'); ?>
+                            </div>
+                    </section>
+
+                    <section id="mftab" class="tabdiv">
                             <div class="custom_container c2 ">
                             <?php get_template_part( 'partials/order', 'catering'); ?>
                             </div>
@@ -202,6 +208,11 @@ get_header();
 
 
 <script>
+
+
+
+
+
     // order menu toggle 
 function lcClick() {
     var lcbtn = document.querySelector('._lcmenutab');
@@ -220,6 +231,19 @@ function fdClick(){
     var fdbtn = document.querySelector('._fdmenutab');
     var lctab = document.querySelector('#lctab');
     var fbtab = document.querySelector('#fdtab');
+    lcbtn.classList.remove('_active');
+    lctab.classList.remove('_active');
+    fdbtn.classList.add('_active');
+    fbtab.classList.add('_active');
+    
+}
+
+
+function mfClick(){
+    var lcbtn = document.querySelector('.mftab');
+    var fdbtn = document.querySelector('._fdmenutab');
+    var lctab = document.querySelector('#mftab');
+    var fbtab = document.querySelector('#mftab');
     lcbtn.classList.remove('_active');
     lctab.classList.remove('_active');
     fdbtn.classList.add('_active');
