@@ -83,7 +83,7 @@ $uid = get_current_user_id();
                     <p>Vegan</p>
                 </div>
                 <div class="">
-                    <a href="" class="btn_primary">Select</a>
+                    <button id="change_allergies" class="btn_primary">Select</button>
                 </div>
             </div>
 
@@ -227,6 +227,27 @@ $uid = get_current_user_id();
     </div>
 </section>
 
+<section class="hideme overlay show_allergies_popup">
+    <div class="popup">
+        <form class="profile_allergies_form" id="profile_allergies_form" action="#">
+            <div class="popup_wrapper">
+                <h3 class="ad_productss">Change Allergies & Other</h3>
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label> Allergies</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="profile_allergies_other" id="profile_allergies_other" placeholder="<?php echo get_user_meta($uid, 'profile_allergies_other', true);  ?>">
+                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <input type="submit" class="btn_primary" value="Save" />
+                </div>
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </form>
+    </div>
+</section>
+
 
 <section class="hideme overlay agreement">
     <div class="popup">
@@ -328,8 +349,8 @@ $uid = get_current_user_id();
             $(".show_payment_card_popup").css("display", "block");
         });
 
-        $('#invoice').click(function() {
-            $(".invoice").css("display", "block");
+        $('#change_allergies').click(function() {
+            $(".show_allergies_popup").css("display", "block");
         });
 
         $('._cross').click(function() {
@@ -409,6 +430,33 @@ $uid = get_current_user_id();
                 data: {
                     action: "profile_card_number",
                     profile_card_no: profile_card_no,
+                    uid: uid
+                },
+                success: function(data) {
+
+                    if (data.code == 0) {
+
+                        alert(data.message);
+                    } else {
+                        alert(data.message);
+
+                    }
+                }
+
+            });
+
+        });
+
+        $("#profile_allergies_form").submit(function(e) {
+            e.preventDefault();
+            var profile_allergies_other = jQuery('#profile_allergies_other').val();
+            var uid = jQuery('#uid').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: {
+                    action: "profile_allergies_other",
+                    profile_allergies_other: profile_allergies_other,
                     uid: uid
                 },
                 success: function(data) {

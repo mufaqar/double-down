@@ -339,3 +339,23 @@ function profile_card_number()
 	}
 	die;
 }
+
+
+add_action('wp_ajax_profile_allergies_other', 'profile_allergies_other', 0);
+add_action('wp_ajax_nopriv_profile_allergies_other', 'profile_allergies_other');
+
+function profile_allergies_other()
+{
+	global $wpdb;
+	$uid = stripcslashes($_POST['uid']);
+	$profile_allergies_other = $_POST['profile_allergies_other'];
+
+	$user_id = update_user_meta($uid, 'profile_allergies_other', $profile_allergies_other);
+	if (!is_wp_error($user_id)) {
+
+		echo wp_send_json(array('code' => 200, 'message' => __('Profile Allergies Updated')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
+	}
+	die;
+}
