@@ -2942,14 +2942,13 @@ input[type='submit'] {
 ._aside {
   margin-top: -5rem !important;
 }
-.companyProfileNav{
+.companyProfileNav {
   display: none !important;
 }
-.myProfileNav.inactiveprofile.activeNav, .companyProfileNav.activecompany.activeNav{
+.myProfileNav.inactiveprofile.activeNav,
+.companyProfileNav.activecompany.activeNav {
   display: block !important;
 }
-
-
 
 /* ###################################################################
 ######################################################################
@@ -3221,13 +3220,12 @@ body.page-template-temp-landing {
   background: var(--green);
 }
 
-.myProfileNav {
+/* .myProfileNav {
   display: none;
 }
 .profile_pages .myProfileNav {
   display: block;
-}
-
+} */
 
 /* **************************************
 ***********   >1400px  ****************
