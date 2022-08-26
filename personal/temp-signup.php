@@ -1,17 +1,10 @@
 <?php /* Template Name: Signup ( Profile ) */ 
-
-get_header('company');
-
-
-?>  
-
-
-<main class="business_agreement">
-    
+get_header();
+?>
+<main class="business_agreement">    
     <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
         <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/logo.png" class="logo" alt="logo" /></a>
-
-        <form class="addprofile" id="profileform" action="#" > 
+        <form class="addprofile" id="addprofile"> 
             <div class="first_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
             <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow" /></a>
                 <h2 class="mt-5">Your Information</h2>
@@ -51,11 +44,10 @@ get_header('company');
                             offers, compaigns, surveys etc. We promise not to bother you
                             prematurely
                         </p>
-
                         <div class="d-flex align-items-center mb-5">
                             <p class="">
-                                <input type="radio" id="test1" name="radio-group" checked>
-                                <label for="test1">Yes, Please</label>
+                                <input type="radio" id="yes" name="radio-group" checked>
+                                <label for="yes">Yes, Please</label>
                             </p>
                             <p style="margin-left: 2rem;">
                                 <input type="radio" id="test2" name="radio-group">
@@ -69,11 +61,9 @@ get_header('company');
                 </div>
             </div>
             </form>
-
             <!-- finish step  -->
             <div id="last_step">
-            <div class="finish_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center" >
-            
+            <div class="finish_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center" >            
                 <div class="content mt-5">
                     <div class="right">
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt="" />
@@ -95,17 +85,12 @@ get_header('company');
     
     </div>
 </main>
-
-
-
-
-
-    <?php get_footer('company');?>
-    
+    <?php get_footer();?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">   
      jQuery(document).ready(function($) {				
-        $("#profileform").submit(function(e) {        
-            e.preventDefault();
+        $("#addprofile").submit(function(e) {        
+            e.preventDefault();          
             var username = jQuery('#username').val();
             var name = jQuery('#name').val();
             var referral = jQuery('#referral').val();	
