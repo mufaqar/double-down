@@ -2,7 +2,7 @@
  /*  Template Name:  Blog (P) */
 
 get_header(''); ?>
-  <?php include get_theme_file_path('/navigation.php'); ?>    
+  <?php include get_theme_file_path('navigation.php'); ?>    
                
         <div class='blogs_wrapper mt-4'>
             <div class='blogs'>
