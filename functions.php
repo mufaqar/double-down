@@ -120,3 +120,10 @@ function buffer_start() { ob_start("callback"); }
 function buffer_end() { ob_end_flush(); }
 add_action('init', 'buffer_start');
 add_action('wp_footer', 'buffer_end');
+
+
+// Enqueue Font Awesome 5 in WordPress 
+function tme_load_font_awesome() {
+    wp_enqueue_script( 'font-awesome-free', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js' );
+}
+add_action( 'wp_enqueue_scripts', 'tme_load_font_awesome' );
