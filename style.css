@@ -3222,6 +3222,14 @@ body.page-template-temp-landing {
   display: block;
 }
 
+.profile_pages .myprofile {
+  background: var(--green);
+}
+
+.company_pages .companyProfile {
+  background: var(--green);
+}
+
 .singleprofile {
   width: 100% !important;
 }
