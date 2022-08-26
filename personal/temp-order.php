@@ -12,10 +12,17 @@ get_header();
                     <div class="custom_container c2 ">
                         <div class="row">
                             <div class="catering_wrapper mt-5 mb-5 col-md-8">
+<<<<<<< HEAD
                                 <div class="catering_menu buttons">
                                     <a id="1" class="showSingle _active" target="1">Lunch Calendar</a>
                                     <a id="2" class="showSingle" target="2">Catering Orders</a>
                                     <a id="3" class="showSingle" target="3">Meeting Orders</a>
+=======
+                                <div class="catering_menu">
+                                    <a class="_lcmenutab _active" onclick="lcClick()">Lunch Calendar</a>
+                                    <a class="_fdmenutab" onclick="fdClick()">Catering Orders</a>
+                                    <a class="_meetingtab" onclick="mfClick()">Meeting Orders</a>
+>>>>>>> 57d0730f85ee7e9399d3b5a1b319de5a1806bb49
                                 </div>
                             </div>
                         </div>
@@ -169,13 +176,27 @@ get_header();
                         </div>
                     </section>
 
+<<<<<<< HEAD
                     <section id="div2" class="targetDiv">
+=======
+                    <section id="fdtab" class="tabdiv">
+>>>>>>> 57d0730f85ee7e9399d3b5a1b319de5a1806bb49
                             <div class="custom_container c2 ">
                             <?php get_template_part( 'partials/order', 'catering'); ?>
                             </div>
                     </section>
 
+<<<<<<< HEAD
                     <section id="div3" class="targetDiv">
+=======
+                    <section id="fdtab" class="tabdiv">
+                            <div class="custom_container c2 ">
+                            <?php get_template_part( 'partials/order', 'catering'); ?>
+                            </div>
+                    </section>
+
+                    <section id="mftab" class="tabdiv">
+>>>>>>> 57d0730f85ee7e9399d3b5a1b319de5a1806bb49
                             <div class="custom_container c2 ">
                             <?php get_template_part( 'partials/order', 'catering'); ?>
                             </div>
@@ -209,9 +230,15 @@ get_header();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
+
+
+
+
+
     // order menu toggle 
 
 
+<<<<<<< HEAD
 jQuery(function() {
     jQuery('#div2').hide();
     jQuery('#div3').hide();
@@ -223,5 +250,20 @@ jQuery(function() {
     
   });
 });
+=======
+function mfClick(){
+    var lcbtn = document.querySelector('.mftab');
+    var fdbtn = document.querySelector('._fdmenutab');
+    var lctab = document.querySelector('#mftab');
+    var fbtab = document.querySelector('#mftab');
+    lcbtn.classList.remove('_active');
+    lctab.classList.remove('_active');
+    fdbtn.classList.add('_active');
+    fbtab.classList.add('_active');
+    
+}
+
+
+>>>>>>> 57d0730f85ee7e9399d3b5a1b319de5a1806bb49
 
 </script>
