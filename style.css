@@ -1256,7 +1256,7 @@ section.landing_contents .links a {
 /*  */
 /* CATERING PAGE */
 /*  */
-.catering_wrapper{
+.catering_wrapper {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
@@ -3211,17 +3211,20 @@ body.page-template-temp-landing {
   background: var(--green);
 }
 
-.myProfileNav, .companyProfileNav{
+.myProfileNav,
+.companyProfileNav {
   display: none;
 }
-.myProfileNav.activeNav{
+.myProfileNav.activeNav {
   display: block;
 }
-.companyProfileNav.activeNav{
+.companyProfileNav.activeNav {
   display: block;
 }
 
-
+.singleprofile {
+  width: 100% !important;
+}
 
 /* **************************************
 ***********   >1400px  ****************

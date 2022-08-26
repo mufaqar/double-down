@@ -84,3 +84,53 @@ function  page_title() {
             </div>
     </div><?php
 }
+
+
+
+function my_get_current_user_roles() {
+ 
+    if( is_user_logged_in() ) {
+         $user = wp_get_current_user();   
+      $roles = ( array ) $user->roles;
+      return array_values($roles);
+   
+    } else {
+   
+      return array();
+   
+    }
+   
+  }
+
+    function profile_user_nav() {   
+   
+    $user_role_arr =  my_get_current_user_roles();
+    $c_user_role = $user_role_arr[0];
+        if($c_user_role == 'personal') { ?>
+
+            <button class="singleprofile myprofile active" onclick="myProfile()">My Profile</button>
+            <?php
+
+
+        }
+        else {
+
+        ?>
+        <button class="myprofile active" onclick="myProfile()">My <br> Profile</button>
+        <button class="companyProfile" onclick="companyProfile()">Company<br> Profile</button>
+
+
+
+        <?php
+
+
+
+    }
+
+
+
+   
+
+   
+   
+  }
