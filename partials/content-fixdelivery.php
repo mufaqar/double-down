@@ -15,7 +15,7 @@
                         <form class="fixdelivery" id="fixdelivery<?php echo $day ?>" action="#">                        
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5><strong> <?php echo $today_day ?></strong></h5>                            
-                                <p>You pay: <span>NOK <div id="price_pay"></div></span> <br>VAT: <span>80</span></p>
+                                <p>You pay: <span>NOK <span id="price_pay"></span></span> <br>VAT: <span>80</span></p>
                             </div>
 
                             <div class="catering_form">
