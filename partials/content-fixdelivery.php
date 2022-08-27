@@ -15,7 +15,7 @@
                         <form class="fixdelivery" id="fixdelivery<?php echo $day ?>" action="#">                        
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5><strong> <?php echo $today_day ?></strong></h5>                            
-                                <p>You pay: <span>NOK 228.8</span> <br>VAT: <span>80</span></p>
+                                <p>You pay: <span>NOK <div id="price_pay"></div></span> <br>VAT: <span>80</span></p>
                             </div>
 
                             <div class="catering_form">
@@ -30,9 +30,8 @@
                                                         foreach( $menu_types as $menu_type )  {
                                                                     $type_slug = $menu_type->slug ;
                                                                     $type_name = $menu_type->name ; ?>  
-                                                                        <option value="<?php echo $type_slug ?>"><?php echo $type_name ?></option>
-                                                                        
-                                                                        <?php
+                                                                        <option value="<?php echo $type_slug ?>"><?php echo $type_name ?></option>                                                                        
+                                                                       <?php
                                                             }                                                    
                                                      ?>
                                                 </select>
