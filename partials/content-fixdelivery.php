@@ -24,12 +24,19 @@
                                         <div>
                                             <label for="">Lunch type</label>
                                             <div class="_select">
-                                                <select>
-                                                    <option value="">Salad</option>
-                                                    <option value="">Salad</option>
-                                                    <option value="">Salad</option>
+                                                <select id="lunch_type">                                                   
+                                                    <?php   
+                                                        $menu_types = get_terms( array('taxonomy' => 'menu_types','hide_empty' => false ) ); 
+                                                        foreach( $menu_types as $menu_type )  {
+                                                                    $type_slug = $menu_type->slug ;
+                                                                    $type_name = $menu_type->name ; ?>  
+                                                                        <option value="<?php echo $type_slug ?>"><?php echo $type_name ?></option>
+                                                                        
+                                                                        <?php
+                                                            }                                                    
+                                                     ?>
                                                 </select>
-                                                <img src="../reources/images/down-arrow.png" alt="">
+                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                             </div>
                                         </div>
                                         <div>
