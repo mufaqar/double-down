@@ -1,28 +1,7 @@
-<?php /* Template Name: Menu ( Personal )  */ 
-get_header();
-?>
-
-<?php include('navigation.php'); ?>
-                    <!-- tabs -->
-
-                    <div class="tab_wrapper">
-                        <div class='toggle'>
-                            <div class='tabs'>
-                                <div class='tab'>Lunch calendar</div>
-                                <div class='tab'>Settings</div>
-                                <div class='tab'>Fast levering</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="custom_container catering_wrapper mt-5 mb-5">
-                        <div class="catering_menu">
-                            <a href="">Bread Lunch</a>
-                            <a href="" class="_active">Salat</a>
-                            <a href="">Vegetarian</a>
-                        </div>
+<div class="custom_container catering_wrapper ">
+                       
                         <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                            <h2>This week's lunch menu</h2>
+                            <h2>This week's Salad menu</h2>
                             <div class="calender">
                                 <input type="date">
                             </div>
@@ -140,28 +119,3 @@ get_header();
                         </div>
 
                     </div>
-                   
-                    
-                </div>
-            </div>
-        </div>
-        
-    </main>
-
-
-    <?php get_footer();?>
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/script.js"></script>
-
