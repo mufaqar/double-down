@@ -1,7 +1,4 @@
-<?php /* Template Name: Persoanl Levering (P)  */ 
-get_header();
-?>
-
+<?php /* Template Name: Fix Delivery (P)  */  get_header();?>
 <?php include('navigation.php'); ?>
                     <!-- tabs -->
                     <div class="tab_wrapper">
@@ -22,7 +19,6 @@ get_header();
                                 </div>
                                 <section class="fixed_delivery mt-4">
                                     <div class="row">
-
                                         <div class="col-lg-6">
                                             <div class="fd_wrapper p-4">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -34,9 +30,14 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                            <label for="">Number of People</label>
+                                                                <label for="">Lunch type</label>
                                                                 <div class="_select">
-                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                                                    <select>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                    </select>
+                                                                    <img src="../reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -84,9 +85,14 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                            <label for="">Number of People</label>
+                                                                <label for="">Lunch type</label>
                                                                 <div class="_select">
-                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                                                    <select>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                    </select>
+                                                                    <img src="../reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -134,9 +140,14 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                            <label for="">Number of People</label>
+                                                                <label for="">Lunch type</label>
                                                                 <div class="_select">
-                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                                                    <select>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                    </select>
+                                                                    <img src="../reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -184,9 +195,14 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                            <label for="">Number of People</label>
+                                                                <label for="">Lunch type</label>
                                                                 <div class="_select">
-                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                                                    <select>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                    </select>
+                                                                    <img src="../reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -234,9 +250,14 @@ get_header();
                                                     <div class="_form mt-2">
                                                         <form>
                                                             <div>
-                                                            <label for="">Number of People</label>
+                                                                <label for="">Lunch type</label>
                                                                 <div class="_select">
-                                                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                                                    <select>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                        <option value="">Salad</option>
+                                                                    </select>
+                                                                    <img src="../reources/images/down-arrow.png" alt="">
                                                                 </div>
                                                             </div>
                                                             <div>
