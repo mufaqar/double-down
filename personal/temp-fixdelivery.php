@@ -54,3 +54,93 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/script.js"></script>
 
+    
+                 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript">   
+     jQuery(document).ready(function($) 
+        {   
+            $('._cross').click(function(){
+                $(".hideme").css("display", "none");
+            });
+                    	
+            $("#fixdelivery0").submit(function(e) { 
+
+                var day = jQuery('#day').val();
+                var uid = jQuery('#uid').val();
+                alert(day);
+
+               
+                var datas = [];
+                var newdata = [];
+                $(".dailyfood .product-quantity").each(function () {
+                    var productid =  $(this).data('id');
+                    var value = $(this).val() ;
+                    if(value >1) {
+                        datas.push( [productid, $(this).val() ]);   
+                        }                     
+                    newdata.push(datas);
+                });                
+                var menu_items = newdata[0];                
+                console.log(menu_items);   
+                $.ajax(
+                    {   
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "dailyfood",
+                            day : day,
+                            menu_items : menu_items,  
+                            uid : uid                
+                        
+                        },   
+                        success: function(data){  
+                            if(data.code==0) {
+                                alert(data.message);
+                            }  
+                            else {
+                           $(".alertmessage").css("display", "flex");  
+                            }      
+                         }
+            
+                     });
+               
+            }); 
+
+
+            $("#dailyfood1").submit(function(e) { 
+
+               
+                e.preventDefault(); 
+                submitTwoForms(this);
+                
+            }); 
+            $("#dailyfood2").submit(function(e) { 
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+            $("#dailyfood3").submit(function(e) { 
+                e.preventDefault(); 
+                submitTwoForms();
+                
+            }); 
+
+          
+            
+
+
+        });
+
+
+        function submitTwoForms() { 
+
+           
+        
+}
+            
+        
+    
+	</script>
+
+

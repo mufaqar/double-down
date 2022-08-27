@@ -9,15 +9,13 @@
                 $i++;                                       
                 $timestamp = strtotime($today_date);
                 $today_day = date('l', $timestamp); ?> 
-
                 <div class="col-lg-6">
                     <div class="fd_wrapper p-4">
-                        <form class="fixdelivery" id="fixdelivery<?php echo $day ?>" action="#">                        
+                        <form class="fixdelivery" id="fixdelivery<?php echo $day ?>">                        
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5><strong> <?php echo $today_day ?></strong></h5>                            
                                 <p>You pay: <span>NOK <span id="price_pay"></span></span> <br>VAT: <span>80</span></p>
                             </div>
-
                             <div class="catering_form">
                                 <div class="_form mt-2">
                                          <input type="hidden" value="<?php echo $today_date ?>" id="day" >
@@ -35,7 +33,7 @@
                                                             }                                                    
                                                      ?>
                                                 </select>
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                               <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                                             </div>
                                         </div>
                                         <div>
@@ -60,8 +58,12 @@
                                                 <input type="text" name="" id=""
                                                     class="d-block p-2 w-100"
                                                     placeholder="Cinnamon roll"></input>
-                                                <div class="add_roll"><i
-                                                        class="fa-solid fa-plus"></i></div>
+                                                <div class="add_roll "><i
+                                                        class="fa-solid fa-plus"></i>
+                                                    </div>
+                                                    <div class="ml-1">
+                                                        <input type="submit" id="order" class="btn_primary"  value="Save"/>
+                                                    </div>
                                             </div>
                                         </div>                               
                                 </div>
@@ -72,6 +74,10 @@
                 </div>
 
                  <?php  }    ?>
+
+
+
+
 
 
                                        
