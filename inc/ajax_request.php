@@ -177,22 +177,38 @@ function fixdelivery()
 {
 	global $wpdb;
 
-	$fmonday = $_POST['fmonday'];
+	$mon =  json_decode(stripslashes($_POST['mon']));
+	$tue =  json_decode(stripslashes($_POST['tue']));
+	$wed =  json_decode(stripslashes($_POST['wed']));
+	$thu =  json_decode(stripslashes($_POST['thu']));
+	$fri =  json_decode(stripslashes($_POST['fri']));
 
-	echo $fmonday;
-
-	echo "=========";
-
-
-
-	$obj = json_decode($fmonday);
-
-	print_r($obj);
+	print "<pre>";
+	print_r($mon);
+	print_r($tue);
+	print_r($wed);
+	print_r($thu);
+	print_r($fri);
 
 
+	
+
+	echo $fmon->day;
+	echo $fmon->type;
+   $product_items =  $decodedata->items;
+	foreach($product_items as $product_item)
+	{
+
+	//	echo $product_item;
 
 
-	die();
+	}
+
+	
+
+
+
+	die($fmon);
 
 
 

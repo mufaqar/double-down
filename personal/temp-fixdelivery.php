@@ -17,22 +17,7 @@
                                     <br>
                                     <hr>
 
-
-                                    <?php
-
-                                  
-                                                
-
-
-                                                            ?>
-
-
-
-
-
-
-
-
+                                   
 
                                 </div>
                                 <section class="fixed_delivery mt-4">
@@ -60,7 +45,7 @@
     <script type="text/javascript"> 
 
 
-var items = [];     
+        var items = [];     
     
     //console.log(foodlist);
     function openfooditems() {
@@ -69,54 +54,51 @@ var items = [];
         food_list.classList.add('_open')
     }
 
-    var flist = [];
+        var flist = [];
+        var mon  = [];
+        var tue  = [];
+        var wed  = [];
+        var thu  = [];
+        var fri  = [];
+    
+        function reply_click(clicked_id, day) {
+            var getAddBtn = document.querySelector('#add_food_'.concat(day));
+            var getType = document.querySelector('#lunch_type').value;  
+            var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
+            var getFoodId = document.getElementById(clicked_id).getAttribute('product-id')
+            var fooditem = document.getElementById(clicked_id)
+            const html = `<input type="text" name="abcd"  class="mt-3 d-block p-2 w-100" disabled product-id="${getFoodId}" value="${getFoodInnerHtml}" />`
+            getAddBtn.insertAdjacentHTML('beforebegin', html);
+            var finalfood = flist.push(getFoodId);
+        
 
-    var mon  = [];
-    var tue  = [];
-    var wed  = [];
-    var thu  = [];
-    var fri  = [];
-
-    //var mon , tue , wed , thu , fri = [];
-
-
-
-    function reply_click(clicked_id, day) {
-        var getAddBtn = document.querySelector('#add_food_'.concat(day));
-        var getType = document.querySelector('#lunch_type').value;  
-        var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
-        var getFoodId = document.getElementById(clicked_id).getAttribute('product-id')
-        var fooditem = document.getElementById(clicked_id)
-        const html = `<input type="text" name="abcd"  class="mt-3 d-block p-2 w-100" disabled product-id="${getFoodId}" value="${getFoodInnerHtml}" />`
-        getAddBtn.insertAdjacentHTML('beforebegin', html);
-        var finalfood = flist.push(getFoodId);
-
-        if(day == 'Monday')
-        {
-            mon.push({"day": day, "type": getType , items : flist });
+            if(day == 'Monday')
+            {
+                mon.push({"day": day, "type": getType , items : flist });
+            }
+            else if(day == 'Tuesday')
+            {
+                tue.push({"day": day, "type": getType , items : flist });
+                console.log(tue);
+                        
+            }
+            else if(day == 'Wedenday')
+            {
+                wed.push({"day": day, "type": getType , items : flist });
+            }
+            else if(day == 'Thursday')
+            {
+                thu.push({"day": day, "type": getType , items : flist });
+            }
+            else if(day == 'Friday')
+            {
+                fri.push({"day": day, "type": getType , items : flist });
+                console.log(fri); 
+            }    
+                
+            fooditem.remove();      
+            //console.log(foodlist);
         }
-        else if(day == 'Tuesday')
-        {
-            tue.push({"day": day, "type": getType , items : flist });
-                      
-        }
-        else if(day == 'Wedenday')
-        {
-            wed.push({"day": day, "type": getType , items : flist });
-        }
-        else if(day == 'Thursday')
-        {
-            thu.push({"day": day, "type": getType , items : flist });
-        }
-        else if(day == 'Friday')
-        {
-            fri.push({"day": day, "type": getType , items : flist });
-            console.log(fri); 
-        }       
-              
-        fooditem.remove();      
-        //console.log(foodlist);
-    }
 
                    
     
@@ -125,37 +107,39 @@ var items = [];
 
 
         jQuery(document).ready(function($) 
-            { 
-                
+            {                
                 
                 $('._cross').click(function(){
                     $(".hideme").css("display", "none");
                 });
-
                 
                 $("#delivery_food").submit(function(e) { 
                     e.preventDefault(); 
-                   // alert("Ajax Wroking");                
+                    gl_mon = mon.length;
+                    gl_tue = tue.length;
+                    gl_wed = wed.length;
+                    gl_thu = thu.length;
+                    gl_fri = fri.length;               
+                    var f_mon = JSON.stringify(mon[gl_mon-1]);  
+                    var f_tue = JSON.stringify(tue[gl_tue-1]);  
+                    var f_wed = JSON.stringify(wed[gl_wed-1]);  
+                    var f_thu = JSON.stringify(thu[gl_thu-1]);  
+                    var f_fri = JSON.stringify(fri[gl_fri-1]);
 
-                    mond = mon.length;
-                    var fmonday = JSON.stringify(mon[mond-1]); 
-
-
-                    const obj = {name: "John", age: 30, city: "New York"};
-                    const myJSON = JSON.stringify(obj);
-                    
-                    
-                
+                                      
                     $.ajax(
                         {   
                             type:"POST",
-                            url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                         
+                            url:"<?php echo admin_url('admin-ajax.php'); ?>",                                                  
                             data: {
                                 action: "fixdelivery",
-                                fmonday : myJSON                                        
-                            
-                            },   
+                                mon : f_mon,
+                                tue : f_tue,
+                                wed : f_wed, 
+                                thu : f_thu,  
+                                fri : f_fri
+                            }, 
+                            dataType: 'json',  
                             success: function(data){  
                                 if(data.code==0) {
                                    // alert(data.message);
