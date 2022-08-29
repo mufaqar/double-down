@@ -9,7 +9,7 @@
                 $i++;                                       
                 $timestamp = strtotime($today_date);
                 $today_day = date('l', $timestamp); ?> 
-                <div class="col-lg-6">
+                <div class="col-lg-6" id="<?php echo $today_day ?>">
                     <div class="fd_wrapper p-4">
                         <form class="fixdelivery" id="fixdelivery<?php echo $day ?>">                        
                             <div class="d-flex justify-content-between align-items-center">
@@ -29,7 +29,7 @@
                                                                     $type_slug = $menu_type->slug ;
                                                                     $type_name = $menu_type->name ; ?>  
                                                                         <option value="<?php echo $type_slug ?>"><?php echo $type_name ?></option>                                                                        
-                                                                       <?php
+                                                                    <?php
                                                             }                                                    
                                                      ?>
                                                 </select>
@@ -40,11 +40,10 @@
                                             <label class="mt-3" for="">Lunch Accessories</label>
                                         </div>
                                         
-                                        <div class="row mt-3 mb-3">
-                                               
-                                                <div class="add_roll" onclick="addfooditem()">
+                                        <div class="row mt-3 mb-3 add_foods_to_list">
+                                            
+                                                <div class="add_roll" onclick="openfooditems(<?php echo $today_day ?>)">
                                                     <i class="fa-solid fa-plus"></i>
-                                                    
                                                 </div>  
                                                 
                                                 <div class="food_list">
@@ -72,10 +71,12 @@
 
 
 <script>
-    // function addfooditem() {
-    //     var getBtn = document.querySelector('.add_roll');
-    //     getBtn.insertAdjacentHTML('beforebegin', '<strong>HI</strong>')
-    // }
+    function openfooditems(dayId) {
+        var getBtn = document.querySelector('.add_roll')
+        var food_list = document.querySelector('.food_list')
+        food_list.classList.add('_open')
+        alert(dayId)
+    }
     function reply_click(clicked_id){
         var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
         var getFoodId = document.getElementById(clicked_id).getAttribute('product-id')
