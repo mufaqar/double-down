@@ -69,7 +69,8 @@ register_nav_menus( array(
 		'main' => __( 'Main Menu', '' ),
         'landing' => __( 'Landing Menu', '' ),
 		'profile' => __( 'Profile Menu', '' ),
-        'company' => __( 'Company Menu', '' )
+        'company' => __( 'Company Menu', '' ),
+        'admin' => __( 'Admin Menu', '' )
 	) );
 }
 
