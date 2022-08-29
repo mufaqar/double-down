@@ -3245,18 +3245,23 @@ body.page-template-temp-landing {
   position: relative;
 }
 .food_list{
-  position: absolute;
+  /* position: absolute; */
   background: white;
   box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
   top:2.6rem;
   padding: 1rem;
   border-radius: 8px;
-  display: none;
+  /* display: none; */
 }
 .food_list._open{
   display: block;
 }
-
+.food_list .removefood{
+  display: none !important;
+}
+.add_foods_to_list textarea{
+  margin-bottom: 10px;
+}
 
 
 /* **************************************
