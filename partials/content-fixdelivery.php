@@ -71,11 +71,11 @@
 
 
 <script>
-    function openfooditems(dayId) {
+    function openfooditems() {
         var getBtn = document.querySelector('.add_roll')
         var food_list = document.querySelector('.food_list')
         food_list.classList.add('_open')
-        alert(dayId)
+        // alert(dayId)
     }
     function reply_click(clicked_id){
         var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
