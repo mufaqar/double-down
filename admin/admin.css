@@ -1,0 +1,135 @@
+/* Admin CSS */
+
+.tablediv > .dataTables_wrapper > div:nth-child(2) > div {
+  background: white;
+  padding: 0.5rem 1.5rem !important;
+  box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.tablediv {
+  margin-bottom: 3rem;
+}
+.orders_table td span.status {
+  background: rgba(5, 182, 81, 0.1);
+  border-radius: 31.8209px;
+  padding: 8px 1rem;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-accent-bg: white;
+}
+.tablediv .dataTables_length {
+  display: none;
+}
+.tablediv table {
+  border-collapse: separate;
+}
+.orders_table tbody tr td {
+  padding: 1rem 0;
+  font-size: 14px;
+}
+.tablediv .dataTables_info {
+  display: none !important;
+}
+.tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-5 {
+  width: 0px;
+}
+.tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-7 {
+  width: 100% !important;
+}
+.tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-7 > div > ul {
+  display: flex;
+  justify-content: end;
+  margin-top: 2rem;
+}
+.tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-7 > div > ul li a {
+  margin: 0 0.5rem;
+  background: #f0f0f0;
+  border-radius: 9.35908px;
+  border: none;
+  color: black;
+}
+.tablediv
+  > .dataTables_wrapper
+  > div:nth-child(3)
+  .col-md-7
+  > div
+  > ul
+  li:first-child
+  a,
+.tablediv
+  > .dataTables_wrapper
+  > div:nth-child(3)
+  .col-md-7
+  > div
+  > ul
+  li:last-child
+  a {
+  background: #f0f0f0;
+  border-radius: 9.35908px;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+.tablediv
+  > .dataTables_wrapper
+  > div:nth-child(3)
+  .col-md-7
+  > div
+  > ul
+  li:first-child:hover
+  a,
+.tablediv
+  > .dataTables_wrapper
+  > div:nth-child(3)
+  .col-md-7
+  > div
+  > ul
+  li:last-child:hover
+  a,
+.tablediv
+  > .dataTables_wrapper
+  > div:nth-child(3)
+  .col-md-7
+  > div
+  > ul
+  li:hover
+  a {
+  background: #5fb227;
+  color: white;
+}
+.tablediv
+  > .dataTables_wrapper
+  > div:nth-child(3)
+  .col-md-7
+  > div
+  > ul
+  li.active
+  a {
+  background: #5fb227;
+  color: white;
+}
+.tablediv .dataTables_wrapper > div:first-child > div:first-child {
+  width: 0;
+}
+.tablediv .dataTables_wrapper > div:first-child > div:last-child {
+  width: 100%;
+  padding: 0;
+}
+.tablediv
+  .dataTables_wrapper
+  > div:first-child
+  > div:last-child
+  .dataTables_filter {
+  display: flex;
+  justify-content: end;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.tablediv
+  .dataTables_wrapper
+  > div:first-child
+  > div:last-child
+  .dataTables_filter
+  input {
+  /* border: none; */
+  border-radius: 8px;
+}
