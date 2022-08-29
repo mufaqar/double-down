@@ -10,7 +10,7 @@ foreach (range(0, 4) as $day) {
     $today_day = date('l', $timestamp); ?>
     <div class="col-lg-6">
         <div class="fd_wrapper p-4">
-            <form class="fixdelivery" id="fixdelivery<?php echo $day ?>">
+          
                 <div class="d-flex justify-content-between align-items-center">
                     <h5><strong> <?php echo $today_day ?></strong></h5>
                     <p>You pay: <span>NOK <span id="price_pay"></span></span> <br>VAT: <span>80</span></p>
@@ -46,43 +46,41 @@ foreach (range(0, 4) as $day) {
                             </div>
 
                             <div class="food_list">
-                                
-                                <div id="food_1" product-id="234" onClick="reply_click(this.id, '<?php echo $today_day ?>')">1 - Food Data</div>
-                                <div id="food_2" product-id="124" onClick="reply_click(this.id, '<?php echo $today_day ?>')">2 - Food Data</div>
-                                <div id="food_3" product-id="324" onClick="reply_click(this.id, '<?php echo $today_day ?>')">3 - Food Data</div>
+
+
+                            <?php query_posts(array(
+                                    'post_type' => 'menu_items',
+                                    'posts_per_page' => -1,
+                                    'order' => 'desc'
+                                    
+                                )); 
+                                if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID();?>
+                                <div id="food_<?php echo $pid?>" product-id="<?php echo $pid?>" onClick="reply_click(this.id, '<?php echo $today_day ?>')"><?php the_title()?></div>
+                                <?php endwhile; wp_reset_query(); else : ?>
+                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                    <?php endif; ?> 
                                 
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </form>
+           
         </div>
     </div>
 
 
 <?php  }    ?>
 
-<div class="col-lg-6 mt-5"> <input type="submit" id="order" class="btn_primary" value="Save Fixed Delivery" /> </div>
+
 
 
 
 <script>
-    function openfooditems() {
-        var getBtn = document.querySelector('.add_roll')
-        var food_list = document.querySelector('.food_list')
-        food_list.classList.add('_open')
-    }
+//{day: "1", type: "Salad", foodlist:[1,2,3,4]} 
 
-    function reply_click(clicked_id, day) {
+  
 
-        var getAddBtn = document.querySelector('#add_food_'.concat(day))
-        var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
-        var getFoodId = document.getElementById(clicked_id).getAttribute('product-id')
-        var fooditem = document.getElementById(clicked_id)
-        const html = `<textarea product-id="${getFoodId}" data-set="${getFoodInnerHtml}" >${getFoodInnerHtml}</textarea>`
-        getAddBtn.insertAdjacentHTML('beforebegin', html)
-        
-    }
+
 
 </script>

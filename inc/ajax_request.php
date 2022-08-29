@@ -177,7 +177,25 @@ function fixdelivery()
 {
 	global $wpdb;
 
-	$day = $_POST['day'];
+	$fmonday = $_POST['fmonday'];
+
+	echo $fmonday;
+
+	echo "=========";
+
+
+
+	$obj = json_decode($fmonday);
+
+	print_r($obj);
+
+
+
+
+	die();
+
+
+
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$author_obj = get_user_by('id', $uid);
