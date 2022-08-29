@@ -38,33 +38,20 @@
                                         </div>
                                         <div>
                                             <label class="mt-3" for="">Lunch Accessories</label>
-                                            <textarea name="" id="" class="d-block p-2 w-100"
-                                                placeholder="2x Greek yogurt with granola and raspberry puree"></textarea>
                                         </div>
+                                        
                                         <div class="row mt-3 mb-3">
-                                            <div class="col-md-7">
-                                                <input type="text" name="" id=""
-                                                    class="d-block p-2 w-100"
-                                                    placeholder="Today's smoothie"></input>
-                                            </div>
-                                            <div class="col-md-5" style="padding-left: 0;">
-                                                <input type="text" name="" id=""
-                                                    class="d-block p-2 w-100"
-                                                    placeholder="Today's juice"></input>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3 mb-3">
-                                            <div class="d-flex align-items-center col-md-8">
-                                                <input type="text" name="" id=""
-                                                    class="d-block p-2 w-100"
-                                                    placeholder="Cinnamon roll"></input>
-                                                <div class="add_roll "><i
-                                                        class="fa-solid fa-plus"></i>
-                                                    </div>
-                                                    <div class="ml-1">
-                                                     
-                                                    </div>
-                                            </div>
+                                               
+                                                <div class="add_roll" onclick="addfooditem()">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                    
+                                                </div>  
+                                                
+                                                <div class="food_list">
+                                                    <div id="food_1" product-id="123" onClick="reply_click(this.id)">1 - One</div>
+                                                    <div id="food_2" product-id="143"  onClick="reply_click(this.id)">2 - Two </div>
+                                                    <div id="food_3" product-id="163"  onClick="reply_click(this.id)">3 - Three</div>
+                                                </div>
                                         </div>                               
                                 </div>
                             </div>
@@ -84,6 +71,19 @@
 
 
 
-
+<script>
+    // function addfooditem() {
+    //     var getBtn = document.querySelector('.add_roll');
+    //     getBtn.insertAdjacentHTML('beforebegin', '<strong>HI</strong>')
+    // }
+    function reply_click(clicked_id){
+        var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
+        var getFoodId = document.getElementById(clicked_id).getAttribute('product-id')
+        var getBtn = document.querySelector('.add_roll')
+        const html = `<div product-id="${getFoodId}" data-set="${getFoodInnerHtml}" >${getFoodInnerHtml}</div>`
+        console.log(html)
+        getBtn.insertAdjacentHTML('beforebegin', html)
+    }
+</script>
 
                                        

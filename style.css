@@ -3237,6 +3237,14 @@ body.page-template-temp-landing {
 .singleprofile {
   width: 100% !important;
 }
+.add_roll{
+  max-width: 35px;
+  max-height: 35px;
+}
+
+
+
+
 
 /* **************************************
 ***********   >1400px  ****************
