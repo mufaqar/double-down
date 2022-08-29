@@ -167,6 +167,61 @@ function dailyfood()
 
 
 
+
+
+
+add_action('wp_ajax_fixdelivery', 'fixdelivery', 0);
+add_action('wp_ajax_nopriv_fixdelivery', 'fixdelivery');
+
+function fixdelivery()
+{
+	global $wpdb;
+
+	$day = $_POST['day'];
+	$menu_items = $_POST['menu_items'];
+	$uid = $_POST['uid'];
+	$author_obj = get_user_by('id', $uid);
+	$author =  $author_obj->display_name;
+	echo wp_send_json(array('code' => 200, 'message' => __('Ajax Working ')));
+	die();
+
+	$post = array(
+		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
+		'post_status'   => 'publish',
+		'post_type'     => 'orders',
+		'post_author' => $uid
+	);
+	$user_id = wp_insert_post($post);
+	add_post_meta($user_id, 'order_day', $day, true);
+	add_post_meta($user_id, 'order_status', 'Pending', true);
+	add_post_meta($user_id, 'order_type', 'Day', true);
+	add_post_meta($user_id, 'user_type', 'Company', true);
+
+
+	$items = array();
+	foreach ($menu_items as $menu_item) {
+		$product_id = $menu_item[0];
+		$menu_item = $menu_item[1];
+		$price =  get_post_meta($product_id, 'menu_item_price', true);
+		$total_price_item = $price * $menu_item;
+		add_post_meta($user_id, 'productid_' . $product_id, $menu_item, true);
+		add_post_meta($user_id, 'menu_item_price_' . $product_id, $total_price_item, true);
+		$items[] = $total_price_item;
+	}
+
+	$total_price =  array_sum($items);
+	add_post_meta($user_id, 'total_price', $total_price, true);
+	if (!is_wp_error($user_id)) {
+		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
+	}
+
+	die;
+}
+
+
+
 // Meeting Ajax
 
 

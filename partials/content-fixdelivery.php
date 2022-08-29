@@ -62,7 +62,7 @@
                                                         class="fa-solid fa-plus"></i>
                                                     </div>
                                                     <div class="ml-1">
-                                                        <input type="submit" id="order" class="btn_primary"  value="Save"/>
+                                                     
                                                     </div>
                                             </div>
                                         </div>                               
@@ -73,7 +73,13 @@
                     </div>
                 </div>
 
+
                  <?php  }    ?>
+
+                 <div class="col-lg-6 mt-5">   <input type="submit" id="order" class="btn_primary"  value="Save Fixed Delivery"/> </div>
+
+               
+                       
 
 
 
