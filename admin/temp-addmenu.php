@@ -8,10 +8,10 @@ get_header('admin');
 <h2 class="text-center mt-5 mb-5">Add New Product</h2>
 <div class="add_menu container mx-auto">
 
-<form class="addfood" id="addfood" action="#" > 
+<form class="addfood" id="addfood" action="#" enctype="multipart/form-data">
         <div class="upload_file">
             <div class="upload_icon"><i class="fa-solid fa-camera"></i></div>
-            <input type="file" name="" id="">
+            <input type="file" name="file" id="file"  class="dropify" > 
         </div>
         <div class="mb-4 mt-3">
             <label class="form-label admin_label">Food Name</label>
@@ -130,32 +130,42 @@ get_header('admin');
        });
                  
         $("#addfood").submit(function(e) {                     
-            e.preventDefault();    
-            alert("asdfa");                 
+            e.preventDefault();                       
             var food_name = jQuery('#food_name').val();	             
             var lunch_type = jQuery('#lunch_type').val();	 
             var lunch_sub_type = jQuery('#lunch_sub_type').val();	 
             var food_price = jQuery('#food_price').val();	             
-            var uid = jQuery('#uid').val();	 
+            var uid = jQuery('#uid').val();	
+
+            file_data = jQuery('#file').prop('files')[0];
+
+            form_data = new FormData();
+            form_data.append('file', file_data);
+            form_data.append('action', 'addfood');
+            form_data.append('food_name', food_name);
+            form_data.append('lunch_type', lunch_type);	
+            form_data.append('lunch_sub_type', lunch_sub_type); 
+            form_data.append('food_price', food_price); 
+            form_data.append('uid', uid); 
+
+            alert(food_name);
+
             $.ajax(
                 {
-                    type:"POST",
+                    
+                    
                     url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                    data: {
-                        action: "addfood",
-                        food_name : food_name,
-                        lunch_type : lunch_type,                  
-                        lunch_sub_type : lunch_sub_type,
-                        food_price : food_price,
-                        uid : uid
-                    },   
+                    type: 'POST',
+                    contentType: false,
+                    processData: false,
+                    data: form_data,
                     success: function(data){                      
                      
                         if(data.code==0) {
                                     alert(data.message);
                         }  
                         else {
-                           $(".overlay").css("display", "flex");
+                          // $(".overlay").css("display", "flex");
                       
                         }      
             }
