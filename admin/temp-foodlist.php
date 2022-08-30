@@ -11,12 +11,12 @@ get_header('admin');
     <div class="toggle_btn">
         <div class="row ">
             <div class="catering_wrapper mt-5 mb-2  p-0 w-100">
-                <div class="catering_menu buttons">
+                <!-- <div class="catering_menu buttons">
                     <a id="1" class="showSingle _active" target="1">All Orders</a>
                     <a id="2" class="showSingle" target="2">Complete</a>
                     <a id="3" class="showSingle" target="3">Pending</a>
                     <a id="4" class="showSingle" target="4">Cancle</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@ get_header('admin');
                 $i = 0;
 
                 query_posts(array(
-                    'post_type' => 'orders',
+                    'post_type' => 'menu_items',
                     'posts_per_page' => -1,
                     'order' => 'desc',
 
@@ -52,11 +52,33 @@ get_header('admin');
                         <tr>
                             <td><?php echo $i ?></td>
                             <td><?php the_title() ?></td>
-                            <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
-                            <td><?php echo get_post_meta(get_the_ID(), 'user_type', true); ?></td>
-                            <td><?php echo get_post_meta(get_the_ID(), 'date', true); ?></td>
-                            <td>NOK <?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
-                            <td> <img class="p_image" src="http://demo.mufaqar.com/dev3/wp-content/uploads/2022/08/rest3.jpg" alt="product_image" /> </td>
+                            <td><?php $types_list = wp_get_post_terms( $post->ID, 'menu_types', array( 'fields' => 'all' ) );
+                            foreach($types_list as $type)
+                            {
+                                  echo $type->name;
+
+                                
+                            } ?></td>
+                            <td><?php $sub_types_list = wp_get_post_terms( $post->ID, 'menu_sub_types', array( 'fields' => 'all' ) );
+                            foreach($sub_types_list as $subtype)
+                            {
+                                  echo $subtype->name;
+
+                                
+                            } ?></td>
+                            <td><?php echo the_time(get_option('date_format'));?></td>
+                            <td>NOK <?php echo get_post_meta(get_the_ID(), 'menu_item_price', true); ?></td>
+                            <td> 
+
+                            <?php if ( has_post_thumbnail() ) {
+									the_post_thumbnail( array(50,50),array('class' => 'p_image') );
+								} else { ?>
+							<img   class="p_image" src="<?php bloginfo('template_directory'); ?>/reources/images/food1.png" alt="Featured Thumbnail" />
+							<?php } ?>
+                        
+                        
+                        
+                        </td>
                         </tr>
                     <?php endwhile;
                     wp_reset_query();
