@@ -16,9 +16,6 @@
                                         or change the type of lunch on certain days, do so <span>her.</span></p>
                                     <br>
                                     <hr>
-
-                                   
-
                                 </div>
                                 <section class="fixed_delivery mt-4">
                                      <form id="delivery_food" method="POST">   
