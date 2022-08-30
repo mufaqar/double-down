@@ -13,7 +13,7 @@ get_header('admin');
             <div class="catering_wrapper mt-5 mb-2 col-md-8 p-0">
                 <div class="catering_menu buttons">
                     <a id="1" class="showSingle _active" target="1">All Users</a>
-                    <a id="2" class="showSingle" target="2">All Companites</a>
+                    <a id="2" class="showSingle" target="2">All Companies</a>
                 </div>
             </div>
         </div>
@@ -66,6 +66,7 @@ get_header('admin');
         </table>
 
     </section>
+    
 </div>
 
 
