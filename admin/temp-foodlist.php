@@ -55,7 +55,7 @@ get_header('admin');
                             <td><?php $types_list = wp_get_post_terms( $post->ID, 'menu_types', array( 'fields' => 'all' ) );
                             foreach($types_list as $type)
                             {
-                                  echo $type->name;
+                                  echo $type->name . "<br/> ";
 
                                 
                             } ?></td>
