@@ -34,7 +34,7 @@ get_header('admin');
             $i = 0;
 
             query_posts(array(
-                'post_type' => 'orders',
+                'post_type' => 'catering',
                 'posts_per_page' => -1,
                 'order' => 'desc',
 
