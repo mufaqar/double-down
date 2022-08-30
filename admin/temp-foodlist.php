@@ -62,7 +62,7 @@ get_header('admin');
                             <td><?php $sub_types_list = wp_get_post_terms( $post->ID, 'menu_sub_types', array( 'fields' => 'all' ) );
                             foreach($sub_types_list as $subtype)
                             {
-                                  echo $subtype->name;
+                                  echo $subtype->name . "<br/> ";
 
                                 
                             } ?></td>
