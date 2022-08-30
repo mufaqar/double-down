@@ -50,7 +50,7 @@ get_header('company');
                                                                                         class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
                                                                                         <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
                                                                                     </button>
-                                                                                    <h6 class="text-nowrap mb-0"><div class="message">No Booking </div> </h6>
+                                                                                    <h6 class="text-nowrap mb-0"><div class="message">No1 Booking </div> </h6>
                                                                                 </div>
                                                                     </div>
                                                                     <div id="collapse<?php echo $day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
@@ -87,7 +87,6 @@ get_header('company');
 </div>
 </main>
 
-
 <section class="hideme alertmessage">
         <div class="popup">
             <div class="popup_wrapper">
@@ -101,7 +100,7 @@ get_header('company');
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
                             <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                      
-                         
+                            
                         </div>
                     </div>
                     
@@ -169,6 +168,7 @@ get_header('company');
                 var extraproducts = [];
                 var extraproducts_new = [];
                 $(".dailyfood .product-quantity").each(function () {
+
                     var productid =  $(this).data('id');
                     var value = $(this).val() ;
                     if(value >1) {
@@ -178,19 +178,20 @@ get_header('company');
                 }); 
                 
                 $(".day_0 .product-extra").each(function () {
-                    var productid =  $(this).data('id');                 
-                   
-                    extraproducts.push( productid);   
+                    var productid =  $(this).attr('data-id');                 
+                    var productDay =  $(this).attr('day');                 
+                //    var att =  productid.getAttribute('data-id');
+                      
                                          
                 
-                    console.log(extraproducts);
+                    console.log(productDay);
                 }); 
                 
-
                 
                 var menu_items = newdata[0];                
-                console.log(menu_items);   
+      
            
+                
                 $.ajax(
                     {   
                         type:"POST",
@@ -212,6 +213,7 @@ get_header('company');
                          }
             
                 });
+               
         
         }
             
