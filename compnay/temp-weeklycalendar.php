@@ -422,28 +422,12 @@ get_header('company');
      jQuery(document).ready(function($) 
         {   
             
-            $('#delivery_address').click(function(){            
-                $(".delivery_address").css("display", "block");
-            });
-            $('#agreement').click(function(){
-                $(".agreement").css("display", "block");
-            });
-
-            $('#emp_agreement').click(function(){
-                $(".emp_agreement").css("display", "block");
-            });
-
-
-            
-            $('#invoice').click(function(){
-                $(".invoice").css("display", "block");
-            });
+           
 
             $('._cross').click(function(){
            
                 $(".hideme").css("display", "none");
-            });
-            
+            });          
          
                     	
             $("#weeklyfood").submit(function(e) { 
@@ -473,7 +457,11 @@ get_header('company');
                     //  alert(postid);          
                                 
                 var weekdays = weekdays;	             
-                var menu_items = menu_items;     
+                var menu_items = menu_items;   
+
+                console.log(weekdays);
+                
+            
             
                 $.ajax(
                     {
@@ -502,65 +490,9 @@ get_header('company');
                 });
             }); 
 
-            $("#dailyfood0").submit(function(e) { 
-                
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
+           
 
-            $("#dailyfood1").submit(function(e) { 
-
-               
-                e.preventDefault(); 
-                submitTwoForms(this);
-                
-            }); 
-            $("#dailyfood2").submit(function(e) { 
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
-            $("#dailyfood3").submit(function(e) { 
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
-
-            $("#update_deliver_address").submit(function(e) { 
-                e.preventDefault(); 
-                var address = jQuery('#address').val();
-                var uid = jQuery('#uid').val();
-
-                alert(uid);
-
-
-            
-                $.ajax(
-                    {
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "update_deliver_address",
-                            weekdays : weekdays,
-                           
-                            uid : uid,                  
-                        
-                        },   
-                        success: function(data){                      
-                        
-                            if(data.code==0) {
-                                        alert(data.message);
-                            }  
-                            else {
-                                alert(data.message);
-                        
-                            }      
-                    }
-                
-                });
-                
-            }); 
+          
 
             
 
@@ -568,47 +500,6 @@ get_header('company');
         });
 
 
-        function submitTwoForms() { 
-
-            var day = jQuery('#day').val();
-            var uid = jQuery('#uid').val();
-                var datas = [];
-                var newdata = [];
-                $(".dailyfood .product-quantity").each(function () {
-                    var productid =  $(this).data('id');
-                    var value = $(this).val() ;
-                    if(value >1) {
-                        datas.push( [productid, $(this).val() ]);   
-                        }                     
-                    newdata.push(datas);
-                });                
-                var menu_items = newdata[0];                
-                console.log(menu_items);   
-                $.ajax(
-                    {   
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "dailyfood",
-                            day : day,
-                            menu_items : menu_items,  
-                            uid : uid                
-                        
-                        },   
-                        success: function(data){  
-                            if(data.code==0) {
-                                alert(data.message);
-                            }  
-                            else {
-                           $(".alertmessage").css("display", "flex");  
-                            }      
-                         }
-            
-                     });
-        
-}
-            
-        
     
 	</script>
 

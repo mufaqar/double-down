@@ -37,15 +37,16 @@ get_header('company');
                                             $i++;                                       
                                             $timestamp = strtotime($today_date);
                                             $today_day = date('l', $timestamp);
+                                            $this_day =  strtolower(date('D', $timestamp));
                                         
                                         // print_r($week);
                                             ?>     <div class="card">
-                                                            <form class="dailyfood" id="dailyfood<?php echo $day ?>" action="#">
+                                                            <form class="dailyfood" id="dailyfood_<?php echo $this_day ?>" action="#">
                                                                 <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
-                                                                <input type="hidden" value="<?php echo $today_date ?>" id="day" >
+                                                                <input type="hidden" value="<?php echo $today_date ?>" id="day_<?php echo $this_day ?>" >
                                                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                                                            
                                                                                 <div class="mb-0 d-flex align-items-center">
-                                                                                    <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $day?>"
+                                                                                    <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $this_day?>"
                                                                                         aria-expanded="true" aria-controls="collapse<?php echo $day?>"
                                                                                         class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
                                                                                         <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
@@ -53,7 +54,7 @@ get_header('company');
                                                                                     <h6 class="text-nowrap mb-0"><div class="message">No1 Booking </div> </h6>
                                                                                 </div>
                                                                     </div>
-                                                                    <div id="collapse<?php echo $day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
+                                                                    <div id="collapse<?php echo $this_day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
                                                                         class="collapse show accordion_content">
                                                                         <div class="card-body p-md-5">
                                                                             <?php get_template_part('partials/content', 'daylunch'); ?>
@@ -128,94 +129,91 @@ get_header('company');
                 $(".hideme").css("display", "none");
             });
             
-            $("#dailyfood0").submit(function(e) { 
-                
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
+           
 
-            $("#dailyfood1").submit(function(e) { 
+            <?php
+           
+            $mweek = [];
+            $saturday = strtotime('monday this week');
+            $i= 0;
+            foreach (range(0, 4) as $day) {
+                $mweek[] = date("Y-m-d", (($day * 86400) + $saturday));
+                $today_date =  $mweek[$i];
+                $i++;                                       
+                $timestamp = strtotime($today_date);
+                $today_day = date('l', $timestamp);
+                $this_day =  strtolower(date('D', $timestamp));
 
-               
-                e.preventDefault(); 
-                submitTwoForms(this);
-                
-            }); 
-            $("#dailyfood2").submit(function(e) { 
-                e.preventDefault(); 
-                submitTwoForms();                
-            }); 
-            $("#dailyfood3").submit(function(e) { 
-                e.preventDefault(); 
-                submitTwoForms();
-                
-            }); 
 
-          
+            ?>
+
+                             $("#dailyfood_<?php echo $this_day; ?>").submit(function(e) {                
+                                e.preventDefault();  
+                                alert("Day<?php echo $this_day?>");              
+                                var day = jQuery('#day_<?php echo $this_day; ?>').val();
+                                var uid = jQuery('#uid').val();
+                                var datas = [];
+                                var newdata = [];
+                                var extraproducts = [];           
+                                var fprod = [];
+                                $("#dailyfood_<?php echo $this_day; ?> .product-quantity").each(function () {
+                                    var productid =  $(this).data('id');
+                                    var value = $(this).val() ;
+                                    if(value >=1) {
+                                        datas.push( {"id" : productid , "value" : $(this).val() });   
+                                        }                     
+                                    newdata.push(datas);                  
+                                }); 
+                                
+                                $("#dailyfood_<?php echo $this_day; ?> .product-extra").each(function () {
+                                    var pro_id =  $(this).attr('data-id'); 
+                                    extraproducts.push({"id" : pro_id});   
+                                }); 
+
+                                fprod.push({"food_item": newdata[0],  "extra_food" : extraproducts , "day" : day , "uid" : uid });
+                                console.log(fprod);                
+                                $.ajax(
+                                    {   
+                                        type:"POST",
+                                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                                        data: {
+                                            action: "dailyfood",
+                                            day : day,
+                                            menu_items : fprod,  
+                                            uid : uid                
+                                        
+                                        },   
+                                        success: function(data){  
+                                            if(data.code==0) {
+                                                alert(data.message);
+                                            }  
+                                            else {
+                                        $(".alertmessage").css("display", "flex");  
+                                            }      
+                                        }
+                            
+                                });
+                                
+                            }); 
+
+            <?php
+
+                        }
+
+
+
+
+             ?>
+
+           
+           
+  
             
 
 
         });
 
-        function submitTwoForms() { 
-
-                var day = jQuery('#day').val();
-                var uid = jQuery('#uid').val();
-
-                var datas = [];
-                var newdata = [];
-                var extraproducts = [];
-                var extraproducts_new = [];
-                $(".dailyfood .product-quantity").each(function () {
-
-                    var productid =  $(this).data('id');
-                    var value = $(this).val() ;
-                    if(value >1) {
-                        datas.push( [productid, $(this).val() ]);   
-                        }                     
-                    newdata.push(datas);
-                }); 
-                
-                $(".day_0 .product-extra").each(function () {
-                    var productid =  $(this).attr('data-id');                 
-                    var productDay =  $(this).attr('day');                 
-                //    var att =  productid.getAttribute('data-id');
-                      
-                                         
-                
-                    console.log(productDay);
-                }); 
-                
-                
-                var menu_items = newdata[0];                
       
-           
-                
-                $.ajax(
-                    {   
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "dailyfood",
-                            day : day,
-                            menu_items : menu_items,  
-                            uid : uid                
-                        
-                        },   
-                        success: function(data){  
-                            if(data.code==0) {
-                                alert(data.message);
-                            }  
-                            else {
-                           $(".alertmessage").css("display", "flex");  
-                            }      
-                         }
-            
-                });
-               
-        
-        }
             
         
     

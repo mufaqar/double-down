@@ -44,7 +44,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/reources/images/food1.png" alt="">
             <h4 class="mt-2"><?php the_title()?></h4>
             <p>Nok <?php the_field('menu_item_price'); ?></p>
-            <input type="text" data-id="<?php echo $pid;?>" value="1" class="product-extra" day="day_<?php echo $today_date ?>"/>
+            <input type="hidden" data-id="<?php echo $pid;?>" value="1" class="product-extra" />
         </div>
         <?php endwhile; wp_reset_query(); else : ?>
         <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
