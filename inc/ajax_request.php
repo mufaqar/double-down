@@ -183,6 +183,8 @@ function fixdelivery()
 	$thu =  json_decode(stripslashes($_POST['thu']));
 	$fri =  json_decode(stripslashes($_POST['fri']));
 
+	
+
 	print "<pre>";
 	print_r($mon);
 	print_r($tue);

@@ -54,12 +54,23 @@
         food_list.classList.add('_open')
     }
 
-        var flist = [];
+      
         var mon  = [];
         var tue  = [];
         var wed  = [];
         var thu  = [];
         var fri  = [];
+
+
+
+        var fl_mon  = [];
+        var fl_tue  = [];
+        var fl_wed  = [];
+        var fl_thu  = [];
+        var fl_fri  = [];
+
+
+
     
         function reply_click(clicked_id, day) {
             var getAddBtn = document.querySelector('#add_food_'.concat(day));
@@ -69,36 +80,46 @@
             var fooditem = document.getElementById(clicked_id)
             const html = `<input type="text" name="abcd"  class="mt-3 d-block p-2 w-100" disabled product-id="${getFoodId}" value="${getFoodInnerHtml}" />`
             getAddBtn.insertAdjacentHTML('beforebegin', html);
-            var finalfood = flist.push(getFoodId);
+            
         
 
             if(day == 'Monday')
             {
-                mon.push({"day": day, "type": getType , items : flist });
+                fl_mon.push(getFoodId);
+                mon.push({"day": day, "type": getType , items : fl_mon });
+                console.log(mon);
             }
             else if(day == 'Tuesday')
             {
-                tue.push({"day": day, "type": getType , items : flist });
+                fl_tue.push(getFoodId);
+                tue.push({"day": day, "type": getType , items : fl_tue });
                 console.log(tue);
                         
             }
             else if(day == 'Wedenday')
             {
-                wed.push({"day": day, "type": getType , items : flist });
+                fl_wed.push(getFoodId);
+                wed.push({"day": day, "type": getType , items : fl_wed });
             }
             else if(day == 'Thursday')
             {
-                thu.push({"day": day, "type": getType , items : flist });
+                
+                fl_thu.push(getFoodId);
+                thu.push({"day": day, "type": getType , items : fl_thu });
             }
             else if(day == 'Friday')
             {
-                fri.push({"day": day, "type": getType , items : flist });
+                fl_fri.push(getFoodId);
+                fri.push({"day": day, "type": getType , items : fl_fri });
                 console.log(fri); 
             }    
                 
             fooditem.remove();      
             //console.log(foodlist);
         }
+
+
+      
 
                    
     
