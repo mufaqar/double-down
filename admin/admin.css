@@ -9,10 +9,23 @@
 .tablediv {
   margin-bottom: 3rem;
 }
-.orders_table td span.status {
+.orders_table td span.status.Complete {
   background: rgba(5, 182, 81, 0.1);
   border-radius: 31.8209px;
-  padding: 8px 1rem;
+  padding: 8px 1.35rem;
+  color: #05B651;
+}
+.orders_table td span.status.Pending {
+  background: rgba(255, 148, 26, 0.1);
+  border-radius: 31.8209px;
+  padding: 8px 1.7rem;
+  color: rgba(255, 148, 26, 1);
+}
+.orders_table td span.status.Cancel {
+  background: rgba(241, 49, 49, 0.1);
+  border-radius: 31.8209px;
+  padding: 8px 2rem;
+  color: rgba(241, 49, 49, 1);
 }
 .table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-accent-bg: white;
@@ -27,14 +40,16 @@
   padding: 1rem 0;
   font-size: 14px;
 }
-.tablediv .dataTables_info {
+/* .tablediv .dataTables_info {
   display: none !important;
-}
+} */
 .tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-5 {
-  width: 0px;
+  width: 20%;
+  margin-top: 2rem;
 }
 .tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-7 {
-  width: 100% !important;
+  width: 80% !important;
+  padding: 0;
 }
 .tablediv > .dataTables_wrapper > div:nth-child(3) .col-md-7 > div > ul {
   display: flex;
@@ -132,4 +147,18 @@
   input {
   /* border: none; */
   border-radius: 8px;
+}
+
+tbody tr:last-child{
+  border: transparent;
+}
+
+.admin_parrent{
+  position: relative;
+  margin-top: 3rem;
+}
+.admin_parrent .toggle_btn{
+  position: absolute;
+  top: -1.2rem;
+  width:60%;
 }
