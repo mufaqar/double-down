@@ -26,6 +26,7 @@ get_header('admin');
                         <th>Compnay</th>
                         <th>Phone Number</th>
                         <th>Email Address</th>
+                        <th>...</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,7 @@ get_header('admin');
                                 <td><?php echo get_user_meta($user->ID , 'compnay_name' , true);?></td>
                                 <td><?php echo get_user_meta($user->ID , 'profile_delivery_phone' , true);?></td>                             
                                 <td><?php echo $user->user_email ?></td>
+                                <th>...</th>
                     
                             </tr>
                         <?php } ?>  
