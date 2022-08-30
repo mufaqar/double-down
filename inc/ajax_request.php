@@ -183,43 +183,19 @@ function fixdelivery()
 	$thu =  json_decode(stripslashes($_POST['thu']));
 	$fri =  json_decode(stripslashes($_POST['fri']));
 
-	
-
-	print "<pre>";
-	print_r($mon);
-	print_r($tue);
-	print_r($wed);
-	print_r($thu);
-	print_r($fri);
-
-
-	
-
-	echo $fmon->day;
-	echo $fmon->type;
-   $product_items =  $decodedata->items;
-	foreach($product_items as $product_item)
-	{
-
-	//	echo $product_item;
-
-
-	}
-
+	$days_data = array();
+	$days_data[0] = $mon;
+	$days_data[1] = $tue;
+	$days_data[3] = $wed;
+	$days_data[4] = $thu;
+	$days_data[5] = $fri;
 	
 
 
-
-	die($fmon);
-
-
-
-	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$author_obj = get_user_by('id', $uid);
 	$author =  $author_obj->display_name;
-	echo wp_send_json(array('code' => 200, 'message' => __('Ajax Working ')));
-	die();
+	
 
 	$post = array(
 		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
@@ -228,25 +204,50 @@ function fixdelivery()
 		'post_author' => $uid
 	);
 	$user_id = wp_insert_post($post);
-	add_post_meta($user_id, 'order_day', $day, true);
+
+
+	add_post_meta($user_id, 'order_day', 'Fixed Delivery', true);	
 	add_post_meta($user_id, 'order_status', 'Pending', true);
-	add_post_meta($user_id, 'order_type', 'Day', true);
-	add_post_meta($user_id, 'user_type', 'Company', true);
+	add_post_meta($user_id, 'order_type', 'Weekly', true);
+	add_post_meta($user_id, 'user_type', 'Personal', true);
 
 
-	$items = array();
-	foreach ($menu_items as $menu_item) {
-		$product_id = $menu_item[0];
-		$menu_item = $menu_item[1];
-		$price =  get_post_meta($product_id, 'menu_item_price', true);
-		$total_price_item = $price * $menu_item;
-		add_post_meta($user_id, 'productid_' . $product_id, $menu_item, true);
-		add_post_meta($user_id, 'menu_item_price_' . $product_id, $total_price_item, true);
-		$items[] = $total_price_item;
+
+	$total_day_price = [];
+
+	foreach ($days_data as $myday){
+
+		//print_r($myday);
+
+		$dayitems = [];
+		
+
+		$day = $myday->day;
+		$type  = $myday->type;
+
+		$items = $myday->items;
+		foreach($items as $item)
+		{
+		
+			$price =  get_post_meta($item, 'menu_item_price', true);			
+		    $dayitems[] = $price;
+
+		}
+		 $day_price=  array_sum($dayitems);
+		 $total_day_price[] =  $day_price;
+		 add_post_meta($user_id, $day.'_ids', $day_price , true);	
+		
+
+
+
+		
 	}
 
-	$total_price =  array_sum($items);
-	add_post_meta($user_id, 'total_price', $total_price, true);
+	$total_price =  array_sum($total_day_price);
+	add_post_meta($user_id, 'total_price', $total_price ,true);	
+	
+
+
 	if (!is_wp_error($user_id)) {
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 	} else {

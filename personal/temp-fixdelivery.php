@@ -118,15 +118,6 @@
             //console.log(foodlist);
         }
 
-
-      
-
-                   
-    
-    
-
-
-
         jQuery(document).ready(function($) 
             {                
                 
@@ -145,9 +136,7 @@
                     var f_tue = JSON.stringify(tue[gl_tue-1]);  
                     var f_wed = JSON.stringify(wed[gl_wed-1]);  
                     var f_thu = JSON.stringify(thu[gl_thu-1]);  
-                    var f_fri = JSON.stringify(fri[gl_fri-1]);
-
-                                      
+                    var f_fri = JSON.stringify(fri[gl_fri-1]);                                      
                     $.ajax(
                         {   
                             type:"POST",
@@ -158,7 +147,8 @@
                                 tue : f_tue,
                                 wed : f_wed, 
                                 thu : f_thu,  
-                                fri : f_fri
+                                fri : f_fri,
+                                uid : '1'
                             }, 
                             dataType: 'json',  
                             success: function(data){  
@@ -166,7 +156,7 @@
                                    // alert(data.message);
                                 }  
                                 else {
-                                 //   alert(data.message);
+                                  alert(data.message);
                           
                                 }      
                             }
@@ -185,51 +175,7 @@
                 });
 
 
-                            
-                $("#fixdelivery0").submit(function(e) { 
-
-                    alert("asdfasdf")
-                    var day = jQuery('#day').val();
-                    var uid = jQuery('#uid').val();
-                    alert(day);                
-                    var datas = [];
-                    var newdata = [];
-                    $(".dailyfood .product-quantity").each(function () {
-                        var productid =  $(this).data('id');
-                        var value = $(this).val() ;
-                        if(value >1) {
-                            datas.push( [productid, $(this).val() ]);   
-                            }                     
-                        newdata.push(datas);
-                    });                
-                    var menu_items = newdata[0];                
-                    console.log(menu_items);   
-                    $.ajax(
-                        {   
-                            type:"POST",
-                            url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                            data: {
-                                action: "fixdelivery",
-                                day : day,
-                                menu_items : menu_items,  
-                                uid : uid                
-                            
-                            },   
-                            success: function(data){  
-                                if(data.code==0) {
-                                    alert(data.message);
-                                }  
-                                else {
-
-                                    alert(data.message);
-                          
-                                }      
-                            }
-                
-                        });
-                
-                }); 
-
+            
             });
         
         </script>
