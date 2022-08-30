@@ -270,6 +270,7 @@ function addmeeting()
 	$date = $_POST['date'];
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
+	$order = $_POST['order'];
 	$post = array(
 		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
@@ -297,7 +298,7 @@ function addmeeting()
 	add_post_meta($user_id, 'order_day', '1', true);
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Meeting', true);
-	add_post_meta($user_id, 'user_type', 'Company', true);
+	add_post_meta($user_id, 'user_type', $order, true);
 
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);

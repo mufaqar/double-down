@@ -77,6 +77,48 @@
                 </table>
 
             </section>
+
+
+            <section id="div2" class="targetDiv activediv tablediv">
+                <table id="all" class="table table-striped orders_table" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Order ID</th>
+                            <th>Order Type</th>
+                            <th>User Type</th>
+                            <th>Date</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        
+
+                        if (have_posts()) :  while (have_posts()) : the_post();
+                                $i++; ?>
+                                <tr>
+                                    <td><?php echo $i ?></td>
+                                    <td><?php the_title() ?></td>
+                                    <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
+                                    <td><?php echo get_post_meta(get_the_ID(), 'user_type', true); ?></td>
+                                    <td><?php echo get_post_meta(get_the_ID(), 'date', true); ?></td>
+                                    <td>NOK <?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
+                                    <td> <span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
+                                </tr>
+                            <?php endwhile;
+                            wp_reset_query();
+                        else : ?>
+                            <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
+                        <?php endif; ?>
+
+                    </tbody>
+
+                </table>
+
+            </section>
         </div>
 
 
