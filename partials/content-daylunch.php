@@ -32,18 +32,19 @@
     </div>
 
   
-    <div class="food_card_wrapper row">
+    <div class="food_card_wrapper row day_<?php echo $day ?>">
         <?php query_posts(array(
                     'post_type' => 'menu_items',
                     'posts_per_page' => 4,
                     'order' => 'desc',
                     'menu_types' => 'accessories'                                                                        
                 )); 
-                if (have_posts()) :  while (have_posts()) : the_post(); ?>
-        <div class="food_card col-lg-3 col-md-6 ">
-            <img src="<?php echo get_template_directory_uri(); ?>/reources/images//food1.png" alt="">
+                if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID();  ?>
+        <div class="food_card col-lg-3 col-md-6">
+            <img src="<?php echo get_template_directory_uri(); ?>/reources/images/food1.png" alt="">
             <h4 class="mt-2"><?php the_title()?></h4>
             <p>Nok <?php the_field('menu_item_price'); ?></p>
+            <input type="text" data-id="<?php echo $pid;?>" value="1" class="product-extra" />
         </div>
         <?php endwhile; wp_reset_query(); else : ?>
         <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>

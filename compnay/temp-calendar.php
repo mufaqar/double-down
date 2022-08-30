@@ -100,7 +100,7 @@ get_header('company');
                         <div class="content mt-5">
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
-                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                       
+                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                      
                          
                         </div>
                     </div>
@@ -163,8 +163,11 @@ get_header('company');
 
                 var day = jQuery('#day').val();
                 var uid = jQuery('#uid').val();
+
                 var datas = [];
                 var newdata = [];
+                var extraproducts = [];
+                var extraproducts_new = [];
                 $(".dailyfood .product-quantity").each(function () {
                     var productid =  $(this).data('id');
                     var value = $(this).val() ;
@@ -172,9 +175,22 @@ get_header('company');
                         datas.push( [productid, $(this).val() ]);   
                         }                     
                     newdata.push(datas);
-                });                
+                }); 
+                
+                $(".day_0 .product-extra").each(function () {
+                    var productid =  $(this).data('id');                 
+                   
+                    extraproducts.push( productid);   
+                                         
+                
+                    console.log(extraproducts);
+                }); 
+                
+
+                
                 var menu_items = newdata[0];                
                 console.log(menu_items);   
+           
                 $.ajax(
                     {   
                         type:"POST",
