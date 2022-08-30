@@ -1,6 +1,4 @@
-<?php /* Template Name: Admin-Menu-List  */
-
-
+<?php /* Template Name: Admin-AddMenu  */
 
 get_header('admin');
 
