@@ -58,7 +58,7 @@ $c_user_role = $user_role_arr[0];
 
                                     }
                                     ?></h6>
-                                <p>Agreement: <?php echo get_user_meta( $uid, 'compnay_agreement', true); 	?></p>
+                             
 
                                 <?php 
 
