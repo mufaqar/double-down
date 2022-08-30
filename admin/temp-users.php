@@ -70,11 +70,6 @@ get_header('admin');
 
 
 
-</div>
-</div>
-</div>
-</div>
 
-</main>
 
 <?php get_footer('admin') ?>

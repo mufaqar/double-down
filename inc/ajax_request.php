@@ -311,13 +311,13 @@ function addmeeting()
 
 
 
-// update_deliver_address Ajax
+// company_deliver_address Ajax
 
 
-add_action('wp_ajax_update_deliver_address', 'update_deliver_address', 0);
-add_action('wp_ajax_nopriv_update_deliver_address', 'update_deliver_address');
+add_action('wp_ajax_company_deliver_address', 'company_deliver_address', 0);
+add_action('wp_ajax_nopriv_company_deliver_address', 'company_deliver_address');
 
-function update_deliver_address()
+function company_deliver_address()
 {
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);

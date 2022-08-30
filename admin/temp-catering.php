@@ -70,13 +70,4 @@ get_header('admin');
 </section>
 </div>
 
-
-
-</div>
-</div>
-</div>
-</div>
-
-</main>
-
 <?php get_footer('admin') ?>
