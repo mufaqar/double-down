@@ -21,9 +21,9 @@ get_header('admin');
             <tr>
                 <th>#</th>
                 <th>Order ID</th>
-                <th>Product Name</th>
+                <th>No of People</th>
                 <th>Address</th>
-                <th>Date</th>
+                <th>Food Type</th>
                 <th>Price</th>
                 <th>Status</th>
             </tr>
@@ -46,10 +46,10 @@ get_header('admin');
                     <tr>
                         <td><?php echo $i ?></td>
                         <td><?php the_title() ?></td>
-                        <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
-                        <td><?php echo get_post_meta(get_the_ID(), 'user_type', true); ?></td>
-                        <td><?php echo get_post_meta(get_the_ID(), 'date', true); ?></td>
-                        <td>NOK <?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
+                        <td><?php the_field('people'); ?> </td>
+                        <td><?php the_field('address'); ?> /td>
+                        <?php echo get_the_terms($post->ID, 'food_type')[0]->name; ?>
+                        <p>NOK <?php the_field('person'); ?></p>
                         <td> <span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
                     </tr>
                 <?php endwhile;
