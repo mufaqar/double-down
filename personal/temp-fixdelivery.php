@@ -35,6 +35,28 @@
             </div>
         </div>
     </main>
+
+
+    <section class="hideme overlay">
+    <div class="popup">
+        <div class="popup_wrapper">
+            <div class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
+
+                <div class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
+                    <div class="content mt-5">
+                        <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
+                        <h1 class="finished">Finished!</h1>
+                        <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>
+                        <a href="<?php echo home_url(''); ?>" class="btn_primary mb-5">View Orders</a>
+                    </div>
+                </div>
+
+            </div>
+            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+        </div>
+    </div>
+</section>
     <?php get_footer();?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -156,7 +178,7 @@
                                    // alert(data.message);
                                 }  
                                 else {
-                                  alert(data.message);
+                                    $(".overlay").css("display", "flex");
                           
                                 }      
                             }

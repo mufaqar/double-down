@@ -13,112 +13,25 @@
                     <div class="catering_wrapper mt-5 mb-2  p-0 w-100">
                         <div class="catering_menu buttons">
                             <a id="1" class="showSingle _active" target="1">All Orders</a>
-                            <a id="2" class="showSingle" target="2">Complete</a>
-                            <a id="3" class="showSingle" target="3">Pending</a>
-                            <a id="4" class="showSingle" target="4">Cancle</a>
+                            <a id="1" class="showSingle" target="1">Complete</a>
+                            <a id="1" class="showSingle" target="1">Pending</a>
+                            <a id="1" class="showSingle" target="1">Cancle</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <?php 
-
-                $i = 0;
-
-                query_posts(array(
-                    'post_type' => 'orders',
-                    'posts_per_page' => -1,
-                    'order' => 'desc',
-
-
-                ));
-
-                ?>
+           
 
 
 
             <section id="div1" class="targetDiv activediv tablediv">
                 <table id="all" class="table table-striped orders_table" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Order ID</th>
-                            <th>Order Type</th>
-                            <th>User Type</th>
-                            <th>Date</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php
-                        
-
-                        if (have_posts()) :  while (have_posts()) : the_post();
-                                $i++; ?>
-                                <tr>
-                                    <td><?php echo $i ?></td>
-                                    <td><?php the_title() ?></td>
-                                    <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
-                                    <td><?php echo get_post_meta(get_the_ID(), 'user_type', true); ?></td>
-                                    <td><?php echo get_post_meta(get_the_ID(), 'date', true); ?></td>
-                                    <td>NOK <?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
-                                    <td> <span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
-                                </tr>
-                            <?php endwhile;
-                            wp_reset_query();
-                        else : ?>
-                            <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
-                        <?php endif; ?>
-
-                    </tbody>
-
+                <?php include('partials/content-order.php'); ?>
                 </table>
 
             </section>
 
-
-            <section id="div2" class="targetDiv activediv tablediv">
-                <table id="all" class="table table-striped orders_table" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Order ID</th>
-                            <th>Order Type</th>
-                            <th>User Type</th>
-                            <th>Date</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php
-                        
-
-                        if (have_posts()) :  while (have_posts()) : the_post();
-                                $i++; ?>
-                                <tr>
-                                    <td><?php echo $i ?></td>
-                                    <td><?php the_title() ?></td>
-                                    <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
-                                    <td><?php echo get_post_meta(get_the_ID(), 'user_type', true); ?></td>
-                                    <td><?php echo get_post_meta(get_the_ID(), 'date', true); ?></td>
-                                    <td>NOK <?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
-                                    <td> <span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
-                                </tr>
-                            <?php endwhile;
-                            wp_reset_query();
-                        else : ?>
-                            <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
-                        <?php endif; ?>
-
-                    </tbody>
-
-                </table>
-
-            </section>
         </div>
 
 
