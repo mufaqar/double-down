@@ -25,7 +25,7 @@ get_header('admin');
                 <th>Address</th>
                 <th>Food Type</th>
                 <th>Price</th>
-                <th>Status</th>
+                <th>Need allergens</th>
             </tr>
         </thead>
         <tbody>
@@ -50,7 +50,7 @@ get_header('admin');
                         <td><?php the_field('address'); ?> </td>
                         <td><?php echo get_the_terms($post->ID, 'food_type')[0]->name; ?></td>
                         <td>NOK <?php the_field('person'); ?></td>
-                        <td> <span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
+                        <td><?php echo get_the_terms($post->ID, 'allergens')[0]->name; ?></td>
                     </tr>
                 <?php endwhile;
                 wp_reset_query();
