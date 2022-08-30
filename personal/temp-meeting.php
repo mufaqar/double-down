@@ -1,10 +1,9 @@
-<?php /* Template Name: Meeting (C)  */
-
-
-
-get_header('company');
+<?php /* Template Name: Meeting (P)  */
+get_header();
 global $current_user;
 wp_get_current_user();
+
+$uid =  get_current_user_id() ;
 
 
 ?>
@@ -18,7 +17,7 @@ wp_get_current_user();
                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
             </div>
             <div class="_content mt-5 mb-5">
-                <h2>Select Product</h2>
+                <h2>Select Product </h2>
                 <div class="row">
                     <?php query_posts(array(
                         'post_type' => 'menu_items',
@@ -57,8 +56,7 @@ wp_get_current_user();
             <div class="row">
                 <div class="col-md-6">
                     <h6 class="mt-2"><strong>Delivery Address</strong></h6>
-                    <p>Oranchy AS , Pilestredet 75C
-                        , 0354 OSLO</p>
+                    <p><?php echo get_user_meta( $uid, 'profile_delivery_address', true ); ?></p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end align-items-end">
                     <button class="btn green_btn">Order Now</button>
@@ -134,7 +132,8 @@ wp_get_current_user();
                     menu_items: menu_items,
                     date: date,
                     uid: uid,
-                    order: "Company"
+                    order: "Personal"
+
                 },
                 success: function(data) {
 

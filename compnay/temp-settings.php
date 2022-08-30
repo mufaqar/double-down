@@ -25,8 +25,8 @@ $uid = get_current_user_id();
                         <p>The company pays 20% or Nok of each luch</p>
                         <p class="mt-1">Start date: Friday, May 20, 2022</p>
                         <ul class="mt-2">
-                            <li><span>Location 1:</span> Pilestredet 75C | 0354 | OSLO</li>
-                            <li><span>Location 2:</span> Pilestredet 75C | 0354 | OSLO</li>
+                            <li><span>Location:</span> Pilestredet 75C | 0354 | OSLO</li>
+                     
                         </ul>
                     </div>
 
@@ -350,12 +350,13 @@ $uid = get_current_user_id();
                 e.preventDefault(); 
                 var address = jQuery('#address').val();
                 var uid = jQuery('#uid').val();
+                alert("asdafd");
                 $.ajax(
                     {
                         type:"POST",
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
-                            action: "update_deliver_address",
+                            action: "company_deliver_address",
                             address : address,                           
                             uid : uid
                         },   
@@ -410,47 +411,7 @@ $uid = get_current_user_id();
 
         });
 
-
-        function submitTwoForms() { 
-
-            var day = jQuery('#day').val();
-            var uid = jQuery('#uid').val();
-                var datas = [];
-                var newdata = [];
-                $(".dailyfood .product-quantity").each(function () {
-                    var productid =  $(this).data('id');
-                    var value = $(this).val() ;
-                    if(value >1) {
-                        datas.push( [productid, $(this).val() ]);   
-                        }                     
-                    newdata.push(datas);
-                });                
-                var menu_items = newdata[0];                
-                console.log(menu_items);   
-                $.ajax(
-                    {   
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "dailyfood",
-                            day : day,
-                            menu_items : menu_items,  
-                            uid : uid                
-                        
-                        },   
-                        success: function(data){  
-                            if(data.code==0) {
-                                alert(data.message);
-                            }  
-                            else {
-                           $(".alertmessage").css("display", "flex");  
-                            }      
-                         }
-            
-                     });
-        
-}
-            
+  
         
     
 	</script>

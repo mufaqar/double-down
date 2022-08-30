@@ -1,10 +1,5 @@
 <?php /* Template Name: Admin-Catering  */ 
-
-
-
 get_header('admin');
-
-
 ?>
 <?php include('navigation.php'); ?>
 <div class="admin_parrent">
@@ -69,14 +64,5 @@ get_header('admin');
 
 </section>
 </div>
-
-
-
-</div>
-</div>
-</div>
-</div>
-
-</main>
 
 <?php get_footer('admin') ?>
