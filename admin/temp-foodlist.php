@@ -11,12 +11,10 @@ get_header('admin');
     <div class="toggle_btn">
         <div class="row ">
             <div class="catering_wrapper mt-5 mb-2  p-0 w-100">
-               <div class="catering_menu buttons">
-                    <a id="1" class="showSingle" target="1">All</a>
-                    <a id="2" class="showSingle" target="2">Complete</a>
-                    <a id="3" class="showSingle" target="3">Pending</a>
-                    <a id="4" class="showSingle" target="4">Cancle</a>
-                </div> 
+            <div class="catering_heading d-flex align-items-center">
+                                <h2> Food List</h2>
+                                <div><a href="<?php echo home_url('admin/add-food-list'); ?>"><i class="fa-solid fa-plus"></i></a></div>
+                            </div>
             </div>
         </div>
     </div>
