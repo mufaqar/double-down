@@ -1,4 +1,4 @@
-<?php /* Template Name: Fix Delivery (P)  */  get_header();?>
+<?php /* Template Name: Personal-FixDelivery  */  get_header();?>
 <?php include('navigation.php'); ?>
                     <!-- tabs -->
                     <div class="tab_wrapper">
