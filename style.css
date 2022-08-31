@@ -3256,13 +3256,15 @@ body.page-template-temp-landing {
   /* display: none; */
 }
 .food_list._open {
-  display: block;
 }
 .food_list .removefood {
   display: none !important;
 }
 .add_foods_to_list textarea {
   margin-bottom: 10px;
+}
+.activelist ._open {
+  display: block;
 }
 
 /* **************************************

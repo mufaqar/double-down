@@ -39,13 +39,13 @@ foreach (range(0, 4) as $day) {
                             <label class="mt-3" for="">Lunch Accessories</label>
                         </div>
 
-                        <div class="row mt-3 mb-3 add_foods_to_list">
+                        <div class="row mt-3 mb-3 add_foods_to_list ">
 
-                            <div id="add_food_<?php echo $today_day ?>" class="add_roll" onclick="openfooditems()">
+                            <div id="add_food_<?php echo $today_day ?>" class="add_roll mt-3">
                                 <i class="fa-solid fa-plus"></i>
                             </div>
 
-                            <div class="food_list">
+                            <div class="hideme food_list mt-3">
 
 
                             <?php query_posts(array(

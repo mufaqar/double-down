@@ -63,14 +63,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"> 
 
+$(document).ready(function () {     
+  
+ 
+    $(".add_roll").mouseover(function(){    
+    
+        //alert($(this).attr('id'));
+        $(this).parent().addClass("activelist");   
+        $(".food_list").addClass("_open");
+    });
+
+    $(".food_list").mouseleave(function(){     
+   
+        $(this).removeClass("_open");
+        $(this).addClass("_close");
+});
+
+    })
+
 
         var items = [];     
     
     //console.log(foodlist);
-    function openfooditems() {
+    function openfooditem() {  
+        
+        $(this).attr('data') 
         var getBtn = document.querySelector('.add_roll')
+        var getId = getBtn.getAttribute('id');
         var food_list = document.querySelector('.food_list')
         food_list.classList.add('_open')
+        console.log(getId);
     }
 
       

@@ -129,3 +129,8 @@ function tme_load_font_awesome() {
     wp_enqueue_script( 'font-awesome-free', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js' );
 }
 add_action( 'wp_enqueue_scripts', 'tme_load_font_awesome' );
+
+
+/* for javascript (only when using child theme) */
+//wp_enqueue_script('url-script', home_url() );
+//wp_localize_script('url-script', 'webpath', array('theme_path' => home_url()));
