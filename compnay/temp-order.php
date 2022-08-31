@@ -1,4 +1,4 @@
-<?php /* Template Name: Com-Order  */
+<?php /* Template Name: Company-Orders  */
 get_header();
 ?>
 <?php include('navigation.php'); ?>
