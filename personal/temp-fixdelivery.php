@@ -11,7 +11,7 @@
                                     <a href="" class="_active">Fixed Delivery</a>
                                 </div>
                                 <div class="calender_wrapper mt-5">
-                                    <h3>Fast levering</h3>
+                                    <h3>Fixed Delivery</h3>
                                     <p>Here you change your regular lunch delivery from us. If you only want to cancel
                                         or change the type of lunch on certain days, do so <span>her.</span></p>
                                     <br>
