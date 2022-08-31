@@ -22,9 +22,10 @@
 
             var table = $('#all').DataTable();
             $('.catering_menu').on( 'click', 'a', function () {
+                
             table
                 .columns( 6 )
-                .search(  $(this).text() )
+                .search(  $(this).attr('data') )
                 .draw();
             });
 
@@ -47,22 +48,7 @@
 
 
     </script>
-    <script> 
-        // order menu toggle 
-
-        jQuery(function () {
-            jQuery('#div2').hide();
-            jQuery('#div3').hide();
-            jQuery('#div4').hide();
-            jQuery('.showSingle').click(function () {
-                $(".showSingle").removeClass("_active");
-                $(this).addClass("_active");
-                jQuery('.targetDiv').hide();
-                jQuery('#div' + $(this).attr('target')).show();
-            });
-        });
-    </script>
-
+   
 
 
 
