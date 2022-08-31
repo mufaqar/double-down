@@ -146,15 +146,13 @@ get_header('admin');
             form_data.append('food_price', food_price); 
             form_data.append('uid', uid);         
             $.ajax(
-                {
-                    
-                    
+                {   
                     url:"<?php echo admin_url('admin-ajax.php'); ?>",
                     type: 'POST',
                     contentType: false,
                     processData: false,
                     data: form_data,
-                    success: function(data){                      
+                    success: function(data){                     
                      
                         if(data.code==0) {
                                     alert(data.message);
