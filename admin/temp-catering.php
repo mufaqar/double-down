@@ -9,7 +9,7 @@ get_header('admin');
         <thead>
             <tr>
                 <th>#</th>
-                <th>Order ID</th>
+                <th>Order Day</th>
                 <th>No of People</th>
                 <th>Address</th>
                 <th>Food Type</th>
