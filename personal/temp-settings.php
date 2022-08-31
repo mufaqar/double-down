@@ -1,5 +1,5 @@
 <?php /* Template Name: Settings (P)  */
-get_header('company');
+get_header();
 $uid = get_current_user_id();
 ?>
 <?php include('navigation.php'); ?>

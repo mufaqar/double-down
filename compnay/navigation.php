@@ -13,8 +13,7 @@ if($c_user_role == 'personal') { die(" Not Allowed");}
                        <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" class="logo" alt=""></a>
                     </div>
                     <div class="toggle_btn bg-light mt-4 mb-4 d-flex mx-3">
-                      <button class="myprofile" onclick="myProfile()">My <br> Profile</button>
-                      <button class="companyProfile active" onclick="companyProfile()">Company<br> Profile</button>
+                      <?php profile_user_nav(); ?> 
                     </div>
                     <div>
                         

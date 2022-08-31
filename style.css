@@ -432,12 +432,15 @@ footer .footer_social img:hover {
   transition: 0.1s ease-in-out;
 }
 
+/*
 .launch_calandar .sidebar .toggle_btn button.active {
   border-radius: 35px;
   background: var(--green);
   color: white;
   transition: 0.1s ease-in-out;
 }
+
+*/
 
 .myProfileNav li a,
 .companyProfileNav li a {
@@ -448,13 +451,12 @@ footer .footer_social img:hover {
 }
 
 .myProfileNav li a,
-.companyProfileNav li a{
+.companyProfileNav li a {
   padding: 10px !important;
   padding-left: 1.5rem !important;
   cursor: pointer;
   display: block;
 }
-
 
 .myProfileNav li.active {
   background: var(--green);
@@ -3224,45 +3226,44 @@ body.page-template-temp-landing {
   display: block;
 }
 
-/* .profile_pages .myprofile {
+.profile_pages .myprofile.active {
   background: var(--green);
   color: #fff;
 }
 
-.company_pages .companyProfile {
+.company_pages .companyProfile.active {
   background: var(--green);
   color: #fff;
-} */
+}
 
 .singleprofile {
   width: 100% !important;
 }
-.add_roll{
+.add_roll {
   max-width: 35px;
   max-height: 35px;
 }
-.add_foods_to_list{
+.add_foods_to_list {
   position: relative;
 }
-.food_list{
+.food_list {
   /* position: absolute; */
   background: white;
-  box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
-  top:2.6rem;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
+  top: 2.6rem;
   padding: 1rem;
   border-radius: 8px;
   /* display: none; */
 }
-.food_list._open{
+.food_list._open {
   display: block;
 }
-.food_list .removefood{
+.food_list .removefood {
   display: none !important;
 }
-.add_foods_to_list textarea{
+.add_foods_to_list textarea {
   margin-bottom: 10px;
 }
-
 
 /* **************************************
 ***********   >1400px  ****************

@@ -7,6 +7,7 @@ function companyProfile() {
   myProfile.classList.remove('active');
   companyProfileNav.classList.add('activeNav');
   myProfileNav.classList.remove('activeNav');
+  location.replace('http://localhost/clients/food/compnay-profile');
 }
 
 function myProfile() {
@@ -18,6 +19,7 @@ function myProfile() {
   myProfile.classList.add('active');
   companyProfileNav.classList.remove('activeNav');
   myProfileNav.classList.add('activeNav');
+  location.replace('http://localhost/clients/food/profile/my-orders/');
 }
 
 $(document).ready(function () {
