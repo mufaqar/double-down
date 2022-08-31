@@ -68,7 +68,7 @@ function weeklyfood()
 
 
 	$post = array(
-		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
+		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
 		'post_type'     => 'orders',
 		'post_author' => $uid
@@ -131,7 +131,7 @@ function dailyfood()
 	$author =  $author_obj->display_name;
 
 	$post = array(
-		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
+		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
 		'post_type'     => 'orders',
 		'post_author' => $uid
@@ -198,7 +198,7 @@ function fixdelivery()
 	
 
 	$post = array(
-		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
+		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
 		'post_type'     => 'orders',
 		'post_author' => $uid
@@ -273,7 +273,7 @@ function addmeeting()
 	$uid = $_POST['uid'];
 	$order = $_POST['order'];
 	$post = array(
-		'post_title'    => "Order -  1Y7OZ1HYSX-" . rand(10, 100),
+		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
 		'post_type'     => 'orders',
 		'post_author' => $uid
