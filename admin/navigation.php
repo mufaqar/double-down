@@ -1,10 +1,8 @@
 <?php 
-$user_role_arr =  my_get_current_user_roles();
-$c_user_role = $user_role_arr[0];
-
- if($c_user_role == 'Administrator') { die(" Not Allowed");}
-
-
+ if(!current_user_can('administrator') ) {
+    wp_redirect( home_url('login'));                                     
+    exit;
+   };
 ?>
             
             <main class="launch_calandar">
@@ -13,10 +11,8 @@ $c_user_role = $user_role_arr[0];
                 <div class="sidebar p-0 align-items-start pt-5">
                     <div class="d-flex justify-content-center">
                        <a href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources//images/logo.png" class="logo" alt=""></a>
-                    </div>
-                   
-                    <div class="mt-5">
-                        
+                    </div>                   
+                    <div class="mt-5">                        
                         <?php 	
 								  wp_nav_menu ( array(
                                     'container'       => false,	
@@ -24,9 +20,7 @@ $c_user_role = $user_role_arr[0];
                                     'menu_class'      => 'myProfileNav activeNav'
 									
 								) );
-								?>
-
-                       
+								?>       
                             
                         
 
@@ -38,7 +32,6 @@ $c_user_role = $user_role_arr[0];
             </div>
         </div>    
 
-
         <div class="content">
                 <div class="container_wrapper">
                     <div class="d-flex align-items-center justify-content-between mt-4">
@@ -47,26 +40,14 @@ $c_user_role = $user_role_arr[0];
                         </div>
                         <div class="proofile_info d-flex align-items-center">
                             <div class="user">
-                                <h6><?php global $current_user; wp_get_current_user(); ?>
-                                    <?php if ( is_user_logged_in() ) { 
+                                <h6><?php global $current_user; wp_get_current_user();
+                                 if ( is_user_logged_in() ) { 
                                     echo 'Hey, ' .  $current_user->display_name ; } 
                                     else {
-
                                         wp_redirect( home_url('login'));                                     
                                         exit;
-
-
                                     }
-                                    ?></h6>
-                             
-
-                                <?php 
-
-                                        $current_user = wp_get_current_user();
-                                //  print_r($current_user);
-
-                                        ?>
-
+                                    ?></h6>  
                             </div>
                             <img src="<?php bloginfo('template_directory'); ?>/reources//images/profile.webp" alt="">
                         </div>                        
