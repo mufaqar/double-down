@@ -144,8 +144,7 @@ get_header('admin');
             form_data.append('lunch_type', lunch_type);	
             form_data.append('lunch_sub_type', lunch_sub_type); 
             form_data.append('food_price', food_price); 
-            form_data.append('uid', uid); 
-            alert(food_price);
+            form_data.append('uid', uid);         
             $.ajax(
                 {
                     
