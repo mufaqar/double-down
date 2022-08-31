@@ -109,6 +109,7 @@ function companysignup() {
 			update_user_meta( $user_id, 'lunch_benfit_type', $lunch_benfit_type);
 			update_user_meta( $user_id, 'compnay_agreement', $oranch_as);
 			update_user_meta( $user_id, 'starting_date', $start_date);
+			update_user_meta( $user_id, 'profile_delivery_phone', $phone);
 
 			// User Inviated 
 			if($invite_user1 != '') {

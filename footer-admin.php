@@ -40,7 +40,17 @@
             });
         })
         $(document).ready(function () {
-            $('#pending').DataTable();
+           
+            var table = $('#payments').DataTable();
+            $('.catering_menu').on( 'click', 'a', function () {
+                $(".catering_menu a").removeClass("_active");
+                $(this).addClass("_active");  
+               
+            table
+                .columns( 5 )
+                .search(  $(this).attr('data') )
+                .draw();
+            });
         })
         $(document).ready(function () {
             $('#cancle').DataTable();

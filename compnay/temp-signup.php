@@ -191,7 +191,8 @@ get_header();
                     data: {
                         action: "companysignup",
                         username : username,
-                        name : name,                  
+                        name : name, 
+                        phone : phone,                 
                         compnay_name : compnay_name,
                         company_address : company_address,
                         oranch_as : oranch_as,
