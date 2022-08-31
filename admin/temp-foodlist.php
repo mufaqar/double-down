@@ -15,7 +15,7 @@ get_header('admin');
                     <a id="1" class="showSingle" target="1">All</a>  
                     <a id="2" class="showSingle" target="2">Complete</a>
                     <a id="3" class="showSingle" target="3">Pending</a>
-                    <a id="4" class="showSingle" target="4">Cancle</a>
+                    <a id="4" class="showSingle" target="4">Cancel</a>
                 </div> 
             </div>
         </div>
