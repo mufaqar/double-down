@@ -18,7 +18,20 @@
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#all').DataTable();
+           // $('#all').DataTable();
+
+            var table = $('#all').DataTable();
+            $('.catering_menu').on( 'click', 'a', function () {
+            table
+                .columns( 6 )
+                .search(  $(this).text() )
+                .draw();
+            });
+
+
+
+
+
         })
         $(document).ready(function () {
             $('#complete').DataTable();
@@ -29,6 +42,10 @@
         $(document).ready(function () {
             $('#cancle').DataTable();
         })
+
+       
+
+
     </script>
     <script> 
         // order menu toggle 
