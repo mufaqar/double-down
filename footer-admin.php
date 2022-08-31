@@ -18,7 +18,8 @@
             var table = $('#all').DataTable();
             $('.catering_menu').on( 'click', 'a', function () {
                 $(".catering_menu a").removeClass("_active");
-                $(this).addClass("_active");     
+                $(this).addClass("_active");  
+               
             table
                 .columns( 6 )
                 .search(  $(this).attr('data') )
@@ -27,7 +28,16 @@
 
         })
         $(document).ready(function () {
-            $('#complete').DataTable();
+            var table = $('#allusers').DataTable();
+            $('.catering_menu').on( 'click', 'a', function () {
+                $(".catering_menu a").removeClass("_active");
+                $(this).addClass("_active"); 
+               
+            table
+                .columns( 2 )
+                .search(  $(this).attr('data') )
+                .draw();
+            });
         })
         $(document).ready(function () {
             $('#pending').DataTable();
