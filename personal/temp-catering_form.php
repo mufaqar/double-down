@@ -6,7 +6,7 @@ get_header();
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
-        <h2>Catering Form Personal</h2>
+        <h2>Personal Catering Form </h2>
         <p>Here you change your regular lunch delivery from us. If you only want to cancel or change the type of lunch on certain days, do so <span>her.</span></p>
     </div>
     <hr>
