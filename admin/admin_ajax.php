@@ -17,14 +17,13 @@ function addfood()
 	$file_name = $_FILES["file"]["name"];
 	$file_url        = $_FILES["file"]["tmp_name"]; 
 
-
 	$post = array(
 		'post_title'    => $food_name,
 		'post_status'   => 'publish',
 		'post_type'     => 'menu_items',
 		'post_author' => $uid,
         'meta_input'   => array(
-			'food_price' => $food_price			
+		'menu_item_price' => $food_price			
 		),
 		'tax_input'    => array(
 			'menu_types' => array($lunch_type),

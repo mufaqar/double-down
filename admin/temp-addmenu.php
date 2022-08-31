@@ -79,7 +79,7 @@ get_header('admin');
         </div>
         <div class="mb-4 mt-3">
             <label class="form-label admin_label">NOK</label>
-            <input type="text" class="form-control admin_input" id="exampleFormControlInput1" placeholder="100 KR" id="food_price">
+            <input type="text" class="form-control admin_input"  placeholder="100 KR" value="" id="food_price">
         </div>
 
         <div class="adminbtn_div">
@@ -115,7 +115,7 @@ get_header('admin');
                     </div>
                     
                 </div>
-                <img src="<?php bloginfo('template_directory'); ?>/reources//images/red cross.png" alt="" class="_cross">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -145,9 +145,7 @@ get_header('admin');
             form_data.append('lunch_sub_type', lunch_sub_type); 
             form_data.append('food_price', food_price); 
             form_data.append('uid', uid); 
-
-            alert(food_name);
-
+            alert(food_price);
             $.ajax(
                 {
                     
@@ -163,8 +161,7 @@ get_header('admin');
                                     alert(data.message);
                         }  
                         else {
-                          // $(".overlay").css("display", "flex");
-                      
+                          $(".overlay").css("display", "flex");                      
                         }      
             }
             
