@@ -1,4 +1,4 @@
-<?php /* Template Name: Catering Form (C)  */ 
+<?php /* Template Name: Compnay-CateringForm  */ 
 get_header();
 
 ?> 

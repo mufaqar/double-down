@@ -1,4 +1,4 @@
-    <?php /* Template Name: Catering (C)  */
+    <?php /* Template Name: Company-CateringOrders  */
     get_header('company');
     $q_date  = $_GET['qdate'];
 
