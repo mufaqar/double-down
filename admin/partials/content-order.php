@@ -5,6 +5,7 @@
                             <th>Order Type</th>
                             <th>User Type</th>
                             <th>Date</th>
+                            <th>Address</th>
                             <th>Price</th>
                             <th>Status</th>
                         </tr>
