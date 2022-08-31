@@ -17,7 +17,6 @@ function addfood()
 	$file_name = $_FILES["file"]["name"];
 	$file_url        = $_FILES["file"]["tmp_name"]; 
 
-	die($food_name);
 
 	$post = array(
 		'post_title'    => $food_name,
@@ -82,35 +81,12 @@ function addfood()
 		  
 		  // And finally assign featured image to post
 		  set_post_thumbnail( $post_id, $attach_id );
+
+		  echo wp_send_json(array('code' => 200, 'message' => __('Food Created Sucessfully')));
 		  
 			  } else {	    	
-			 echo'<div class="alert alert-danger">Error Occured please fill up the form carefully.</div>';	      
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	add_post_meta($user_id, 'order_type', 'Meeting', true);
-	add_post_meta($user_id, 'user_type', $order, true);
-
-	if (!is_wp_error($user_id)) {
-		//sendmail($username,$password);
-		echo wp_send_json(array('code' => 200, 'message' => __('Food Created Sucessfully')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
-	}
+				echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));  
+			}	
 
 	die;
 }

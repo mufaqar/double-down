@@ -136,9 +136,7 @@ get_header('admin');
             var lunch_sub_type = jQuery('#lunch_sub_type').val();	 
             var food_price = jQuery('#food_price').val();	             
             var uid = jQuery('#uid').val();	
-
             file_data = jQuery('#file').prop('files')[0];
-
             form_data = new FormData();
             form_data.append('file', file_data);
             form_data.append('action', 'addfood');
