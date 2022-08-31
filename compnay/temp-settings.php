@@ -1,4 +1,4 @@
-<?php /* Template Name: Settings (C)  */ 
+<?php /* Template Name: Compnay-Settings  */ 
 get_header('company');
 $uid = get_current_user_id();
 ?>
