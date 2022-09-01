@@ -3272,6 +3272,10 @@ body.page-template-temp-landing {
   padding: 5px 10px;
   transition: 0.1s ease-in-out;
 }
+.launch_calandar .sidebar .toggle_btn a:hover{
+  background: var(--green);
+  color: white;
+}
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */
