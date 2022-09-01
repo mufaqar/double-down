@@ -3287,10 +3287,14 @@ body.page-template-temp-landing {
   background: rgba(255, 0, 0, 0.05);
   border: 2px solid rgba(255, 0, 0, 0.1);
 }
-/* .food_list{
-  display: flex;
-  flex-wrap: wrap;
-} */
+.top_wrapper{
+  position: relative;
+}
+.food_list{
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
 .food_list>div{
   padding: 1.5rem;
   margin: 5px;
