@@ -116,7 +116,7 @@ function my_get_current_user_roles() {
 
         ?>
         <a href="<?php echo get_site_url(); ?>/profile/personal-dashboard/" class="myprofile active" onclick="myProfile()">My <br> Profile</a>
-        <a href="<?php echo get_site_url(); ?>company-profile/compnay-dashboard/" class="companyProfile active" onclick="companyProfile()">Company<br> Profile</a>
+        <a href="<?php echo get_site_url(); ?>/company-profile/compnay-dashboard/" class="companyProfile active" onclick="companyProfile()">Company<br> Profile</a>
 
 
 
