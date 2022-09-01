@@ -36,7 +36,7 @@ foreach (range(0, 4) as $day) {
                             </div>
                         </div>
                         <div>
-                            <label class="mt-3" for="">Lunch Accessories </label>
+                            <label class="mt-3" for="">Lunch Accessories 3</label>
                         </div>
 
                         <div class="row mt-3 mb-3 add_foods_to_list ">

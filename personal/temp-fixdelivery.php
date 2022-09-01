@@ -61,22 +61,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- ✅ load jQuery ✅ -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
-
-
         $(".add_roll").mouseover(function() {
-
             //alert($(this).attr('id'));
             $(this).parent().addClass("activelist");
             $(".food_list").addClass("_open");
         });
 
         $(".food_list").mouseleave(function() {
-
             $(this).removeClass("_open");
             $(this).addClass("_close");
         });
@@ -88,7 +82,6 @@
 
     //console.log(foodlist);
     function openfooditem() {
-
         $(this).attr('data')
         var getBtn = document.querySelector('.add_roll')
         var getId = getBtn.getAttribute('id');
@@ -104,8 +97,6 @@
     var thu = [];
     var fri = [];
 
-
-
     var fl_mon = [];
     var fl_tue = [];
     var fl_wed = [];
@@ -113,7 +104,6 @@
     var fl_fri = [];
 
     var genratedId
-    var item
 
     function reply_click(clicked_id, day) {
         var getAddBtn = document.querySelector('#add_food_'.concat(day));
@@ -121,14 +111,12 @@
         var getFoodInnerHtml = document.getElementById(clicked_id).innerHTML
         var getFoodId = document.getElementById(clicked_id).getAttribute('product-id')
         var fooditem = document.getElementById(clicked_id)
-        const html = `<div onclick="handlelist()" genratedId="${day}_id_${getFoodId}"><input type="text" class="mt-3 listeditem d-block p-2 w-100" disabled product-id="${getFoodId}" value="${getFoodInnerHtml}" /></div>`
+        const html = `<div onclick="handlelist('${day}_id_${getFoodId}')" genratedId="${day}_id_${getFoodId}"><input type="text" class="mt-3 listeditem d-block p-2 w-100" disabled product-id="${getFoodId}" value="${getFoodInnerHtml}" /></div>`
         getAddBtn.insertAdjacentHTML('beforebegin', html);
-        item = document.querySelector(`[genrateId= ${day}_id_${getFoodId}]`);
+        // item = document.querySelector(`[genrateId= ${day}_id_${getFoodId}]`);
         $(`[genrateId= ${day}_id_${getFoodId}]`).addClass("hidefromlist");
-        genratedId = document.querySelector(`[genratedId= ${day}_id_${getFoodId}]`);
+        // genratedId = document.querySelector(`[genratedId= ${day}_id_${getFoodId}]`);
         
-
-   
 
         if (day == 'Monday') {
             fl_mon.push(getFoodId);
@@ -171,8 +159,6 @@
             });
             console.log(fri);
         }
-
-
     }
 
     jQuery(document).ready(function($) {
@@ -220,11 +206,14 @@
 
     });
 
-    function handlelist(_id){
-        
-        element.setAttribute("hidden", true);
-        
+    function handlelist(li_id){
+        var item = document.querySelector(`[genratedId= ${li_id}`);
+        item.classList.add("hidefromlist");
+        item.remove();
+        $(`[genrateId= ${li_id}]`).removeClass("hidefromlist");
+
     }
 
+   
     
 </script>
