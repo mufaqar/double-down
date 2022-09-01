@@ -1,13 +1,11 @@
-<?php /* Template Name: Lunch Menu ( P )  */ 
+<?php /* Template Name: Personal-LunchMenu  */ 
 get_header();
 ?>
 
 <?php include('navigation.php'); ?>
-                    
-
-<div class="tab_wrapper">
-    <?php page_title() ?>
-</div>
+    <div class="tab_wrapper">
+        <?php page_title() ?>
+    </div>
 
                 <div class="custom_container c2 ">
                         <div class="row ">
@@ -19,26 +17,18 @@ get_header();
                                 </div>
                             </div>
                         </div>
-                </div>
-
-               
-
-
+                </div> 
+                
 
                 <section id="div1" class="targetDiv activediv">
                     <?php get_template_part('partials/menu', 'lunch'); ?>
                 </section>
-
                 <section id="div2" class="targetDiv">
                     <?php get_template_part('partials/menu', 'salad'); ?>
                 </section>
-
-
                 <section id="div3" class="targetDiv">
                      <?php get_template_part('partials/menu', 'vegetarian'); ?>
-                </section>
-
-                   
+                </section>                  
                     
                 </div>
             </div>

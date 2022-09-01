@@ -41,6 +41,45 @@ function cptui_register_my_cpts_menu_items() {
 
 add_action( 'init', 'cptui_register_my_cpts_menu_items' );
 
+
+
+function cptui_register_cat_taxes_menu_food_type() {
+
+	/**
+	 * Taxonomy: Food Types.
+	 */
+
+	$labels = [
+		"name" => __( "Food Types", "twentytwentytwo" ),
+		"singular_name" => __( "Food Type", "twentytwentytwo" ),
+	];
+
+	
+	$args = [
+		"label" => __( "Food Types", "twentytwentytwo" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'menu_food_type', 'with_front' => true,  'hierarchical' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "menu_food_type",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"rest_namespace" => "wp/v2",
+		"show_in_quick_edit" => true,
+		"sort" => true,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "menu_food_type", [ "menu_items" ], $args );
+}
+add_action( 'init', 'cptui_register_cat_taxes_menu_food_type' );
+
 function cptui_register_my_taxes_menu_types() {
 
 	/**
