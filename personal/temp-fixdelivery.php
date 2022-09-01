@@ -66,8 +66,7 @@
 $(document).ready(function () {     
   
  
-    $(".add_roll").mouseover(function(){  
-            
+    $(".add_roll").mouseover(function(){              
         //alert($(this).attr('id'));
         $(this).parent().addClass("activelist");   
         $(".food_list").addClass("_open");
@@ -96,19 +95,16 @@ $(document).ready(function () {
     }
 
       
-        var mon  = [];
-        var tue  = [];
-        var wed  = [];
-        var thu  = [];
-        var fri  = [];
-
-
-
-        var fl_mon  = [];
-        var fl_tue  = [];
-        var fl_wed  = [];
-        var fl_thu  = [];
-        var fl_fri  = [];
+            var mon  = [];
+            var tue  = [];
+            var wed  = [];
+            var thu  = [];
+            var fri  = [];
+            var fl_mon  = [];
+            var fl_tue  = [];
+            var fl_wed  = [];
+            var fl_thu  = [];
+            var fl_fri  = [];
 
 
 
@@ -121,9 +117,6 @@ $(document).ready(function () {
             var fooditem = document.getElementById(clicked_id)
             const html = `<input type="text" name="abcd"  class="mt-3 d-block p-2 w-100" disabled product-id="${getFoodId}" value="${getFoodInnerHtml}" />`
             getAddBtn.insertAdjacentHTML('beforebegin', html);
-            
-        
-
             if(day == 'Monday')
             {
                 fl_mon.push(getFoodId);
