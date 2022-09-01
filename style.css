@@ -420,19 +420,7 @@ footer .footer_social img:hover {
   margin: 2.5rem 1rem !important;
 }
 
-.launch_calandar .sidebar .toggle_btn a {
-  width: 50%;
-  border-radius: 35px;
-  font-weight: 400;
-  text-align: center;
-  font-size: 12px;
-  color:#000;
-  line-height: 15px;
-  border: none;
-  outline: none;
-  padding: 5px 10px;
-  transition: 0.1s ease-in-out;
-}
+
 
 /* 
 .launch_calandar .sidebar .toggle_btn a.active {
@@ -3271,6 +3259,19 @@ body.page-template-temp-landing {
   display: block;
 }
 
+.launch_calandar .sidebar .toggle_btn a {
+  width: 50%;
+  border-radius: 35px;
+  font-weight: 400;
+  text-align: center;
+  font-size: 12px;
+  color:#000;
+  line-height: 15px;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  transition: 0.1s ease-in-out;
+}
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */
