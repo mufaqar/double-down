@@ -66,11 +66,11 @@
 $(document).ready(function () {     
   
  
-    $(".add_roll").mouseover(function(){    
+    $(".add_roll").click(function(){    
     
-        //alert($(this).attr('id'));
+      
         $(this).parent().addClass("activelist");   
-        $(".food_list").addClass("_open");
+        $(".food_list").toggle");
     });
 
     $(".food_list").mouseleave(function(){     
