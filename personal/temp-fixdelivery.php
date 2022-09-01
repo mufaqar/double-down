@@ -64,17 +64,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".add_roll").mouseover(function() {
-            //alert($(this).attr('id'));
+        $(".add_roll").click(function() {       
             $(this).parent().addClass("activelist");
-            $(".food_list").addClass("_open");
+            $(this).children().addClass("childlist");
+            $(this).siblings().children().toggle();
         });
-
-        $(".food_list").mouseleave(function() {
-            $(this).removeClass("_open");
-            $(this).addClass("_close");
-        });
-
     })
 
 
