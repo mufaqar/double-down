@@ -107,7 +107,7 @@ function my_get_current_user_roles() {
     $user_role_arr =  my_get_current_user_roles();
     $c_user_role = $user_role_arr[0];
         if($c_user_role == 'personal') { ?>
-            <button class="singleprofile myprofile active" onclick="myProfile()">My <br> Profile</button>
+            <a href="<?php echo get_site_url(); ?>/profile/personal-dashboard/" class="singleprofile myprofile active" onclick="myProfile()">My <br> Profile</a>
             <?php
 
 
@@ -115,8 +115,8 @@ function my_get_current_user_roles() {
         else {
 
         ?>
-        <button class="myprofile active" onclick="myProfile()">My <br> Profile</button>
-        <button class="companyProfile active" onclick="companyProfile()">Company<br> Profile</button>
+        <a href="<?php echo get_site_url(); ?>/profile/personal-dashboard/" class="myprofile active" onclick="myProfile()">My <br> Profile</a>
+        <a href="<?php echo get_site_url(); ?>/company-profile/compnay-dashboard/" class="companyProfile active" onclick="companyProfile()">Company<br> Profile</a>
 
 
 
