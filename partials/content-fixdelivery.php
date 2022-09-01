@@ -36,7 +36,7 @@ foreach (range(0, 4) as $day) {
                             </div>
                         </div>
                         <div>
-                            <label class="mt-3" for="">Lunch Accessories</label>
+                            <label class="mt-3" for="">Lunch Accessories </label>
                         </div>
 
                         <div class="row mt-3 mb-3 add_foods_to_list ">
@@ -55,7 +55,7 @@ foreach (range(0, 4) as $day) {
                                     
                                 )); 
                                 if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID();?>
-                                <div id="food_<?php echo $pid?>" product-id="<?php echo $pid?>" onClick="reply_click(this.id, '<?php echo $today_day ?>')"><?php the_title()?></div>
+                                <div id="food_<?php echo $pid?>" genrateid="<?php echo $today_day ?>_id_<?php echo $pid ?>" product-id="<?php echo $pid?>" onClick="reply_click(this.id, '<?php echo $today_day ?>')"><?php the_title()?></div>
                                 <?php endwhile; wp_reset_query(); else : ?>
                                     <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
                                     <?php endif; ?> 

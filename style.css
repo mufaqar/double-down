@@ -3276,6 +3276,9 @@ body.page-template-temp-landing {
   background: var(--green);
   color: white;
 }
+.hidefromlist{
+  display: none;
+}
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */
