@@ -1,5 +1,5 @@
-    <?php /* Template Name: Profile-Dashoard  */ 
-    get_header();
+    <?php /* Template Name: Company-Dashoard  */ 
+    get_header('company');
     include('navigation.php'); ?>
 
       <div class="tab_wrapper">

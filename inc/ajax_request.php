@@ -452,3 +452,51 @@ function profile_allergies_other()
 	}
 	die;
 }
+
+
+
+
+
+
+
+add_action('wp_ajax_get_type_products', 'get_type_products', 0);
+add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
+
+function get_type_products()
+{
+	global $wpdb;
+	
+	$lunch_type = $_GET['lunch_type'];
+	$lunch_day = $_GET['lunch_day'];	
+	 	query_posts(array(
+                                    'post_type' => 'menu_items',
+                                    'posts_per_page' => 5,
+                                    'menu_food_type' => $lunch_type
+                                ));
+                                if (have_posts()) :  while (have_posts()) : the_post();
+								 $i++;
+
+
+								       
+										//echo $days[$i];
+
+										$today_day = $lunch_day;							
+									
+                                        $pid = get_the_ID(); ?>
+       <div id="food_<?php echo $pid ?>" genrateid="<?php echo $today_day ?>_id_<?php echo $pid ?>" product-id="<?php echo $pid ?>" onClick="reply_click(this.id, '<?php echo $today_day ?>')"><?php the_title(); ?></div>
+                                    <?php endwhile;
+                                    wp_reset_query();
+                                else : ?>
+                                    <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
+                                <?php endif; 
+
+
+	
+
+
+	
+
+	
+
+	die;
+}

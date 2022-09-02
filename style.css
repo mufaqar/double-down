@@ -3282,6 +3282,7 @@ body.page-template-temp-landing {
 }
 .top_wrapper {
   position: relative;
+  z-index: 9999;
 }
 .food_list {
   position: absolute;
@@ -3295,6 +3296,10 @@ body.page-template-temp-landing {
   border-radius: 5px;
   cursor: pointer;
   background: #fff;
+}
+
+.selected_day label:before {
+  display: none;
 }
 
 /* **************************************
