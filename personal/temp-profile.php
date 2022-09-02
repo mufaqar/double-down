@@ -1,7 +1,6 @@
     <?php /* Template Name: Profile  */ 
     get_header();
     include('navigation.php'); ?>
-
       <div class="tab_wrapper">
                      <?php page_title()?>
                             <div class='panels'>
@@ -10,12 +9,10 @@
                                         <div class="d-flex align-items-center __btn">
                                             <a href="<?php echo home_url('/profile'); ?>" class="btn_primary d-flex align-items-center">
                                                 <i class="fa-solid fa-fork-knife"></i>
-                                                <p style="margin-left: .5rem; color:white">My Lunch</p>
-</a>
+                                                <p style="margin-left: .5rem; color:white">My Lunch</p></a>
                                             <a  href="<?php echo home_url('/profile/orders'); ?>"  class="btn_primary btn_sec d-flex align-items-center">
                                                 <i class="fa-solid fa-newspaper"></i>
-                                                <p style="margin-left: .5rem; color:#5FB227">My Orders</p>
-</a>
+                                                <p style="margin-left: .5rem; color:#5FB227">My Orders</p></a>
                                         </div>
 
                                         <div class="info d-flex align-items-center">
