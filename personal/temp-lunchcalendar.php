@@ -11,8 +11,8 @@ get_header();
                         <div class="row">
                             <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                 <div class="catering_menu">
-                                    <a href="" class="_active">Lunch Calendar</a>
-                                    <a href="">Fixed Delivery</a>
+                                    <a href="<?php echo home_url('profile/lunch-calendar'); ?>" class="_active">Lunch Calendar</a>
+                                    <a href="<?php echo home_url('profile/fixed-delivery'); ?>">Fixed Delivery</a>
                                 </div>
                                 <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                                     <p>A Total of 0 Boxes,<br> Additions you pay: NOK 104</p>
