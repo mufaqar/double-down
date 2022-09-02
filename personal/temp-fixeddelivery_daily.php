@@ -12,8 +12,8 @@ get_header('');
             <div class='panel launchClander Fixed_delivery'>            
                 <div class="catering_wrapper c2 mt-5 mb-5">
                     <div class="catering_menu">
-                    <a href="<?php echo home_url('profile/lunch-calendar'); ?>" >Lunch Calendar</a>
-                    <a href="<?php echo home_url('profile/fixed-delivery'); ?>" class="_active">Fixed Delivery</a>
+                    <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" >Lunch Calendar</a>
+                    <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="_active">Fixed Delivery</a>
                     </div>                
                 </div>
 
@@ -47,9 +47,6 @@ get_header('');
                                 </div>
                             </div>
                         </div>
-
-
-
 
                     <?php 
                         $ddate = "today";

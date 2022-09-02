@@ -13,8 +13,8 @@ get_header('');
             
                 <div class="catering_wrapper c2 mt-5 mb-5">
                     <div class="catering_menu">
-                        <a href="<?php echo home_url('profile'); ?>" class="">Lunch Calendar</a>
-                        <a href="" class="_active">Fixed Delivery</a>
+                        <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" class="">Lunch Calendar</a>
+                        <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="_active">Fixed Delivery</a>
                     </div>                
                 </div>
 
@@ -144,8 +144,8 @@ get_header('');
 
                          <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center">
-                                <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
-                                <a href="" class="btn_primary btn_sec d-block">Daily</a>
+                                <a href="<?php echo home_url('/profile/fixed-delivery-weekly'); ?>" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
+                                <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary btn_sec d-block">Daily</a>
                             </div>
                         <div>
                         <input type="submit" id="order" class="btn_primary"  value="Save"/>
