@@ -21,8 +21,17 @@ get_header();
                                     </div>
                                 </div>
                                 <div class="catering_card_wrapper">
+
+                                <?php query_posts(array(
+                                        'post_type' => 'menu_items',
+                                        'posts_per_page' => -1,
+                                        'order' => 'desc',
+                                        'menu_types' => 'lunch-boxes'                                                                     
+                                        )); 
+                                    if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
+                                     
                                     <div class="catering_card _pro_salat">
-                                        <h3>Bread Lunch</h3>
+                                        <h3><?php the_title()?></h3>
                                         <p class="mt-3">Red lentils with hot spices, salt-baked celery root, baked tomatoes, sugar peas, spinach, tahini dressing and pumpkin seeds.</p>
                                         <div class="row">
                                             <div class="col-md-9">
@@ -30,12 +39,7 @@ get_header();
                                                 <p>Sesame seeds, Celery</p>
                                                 <p>Nutritional content: 520 kcal, 31g carbohydrate, 31g fat, 21g protein</p>
                                             </div>
-                                            <div class="col-md-3 level d-flex justify-content-end">
-                                                <div class="d-flex justify-content-center align-items-center flex-column ">
-                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/level.png" alt="level">
-                                                    <h6 class="mt-2">0.4 <sub>kg CO e</sub></h6>
-                                                </div>
-                                            </div>
+                                           
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between _info mb-3">
 
@@ -53,7 +57,7 @@ get_header();
                                                </div>
                                            
 
-                                            <div><button href="" id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                            <div class="product_card"><button href="" id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
                                                 onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
                                                 <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
                                                     <i class="count-down"><img
@@ -66,100 +70,11 @@ get_header();
                                                             alt=""></i>
                                                 </div></div>
                                         </div>
-                                    </div>   
-
-                                    <div class="catering_card _pro_salat">
-                                        <h3>Bread Lunch</h3>
-                                        <p class="mt-3">Red lentils with hot spices, salt-baked celery root, baked tomatoes, sugar peas, spinach, tahini dressing and pumpkin seeds.</p>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <h6 class="mt-2">Contains:</h6>
-                                                <p>Sesame seeds, Celery</p>
-                                                <p>Nutritional content: 520 kcal, 31g carbohydrate, 31g fat, 21g protein</p>
-                                            </div>
-                                            <div class="col-md-3 level d-flex justify-content-end">
-                                                <div class="d-flex justify-content-center align-items-center flex-column ">
-                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/level.png" alt="level">
-                                                    <h6 class="mt-2">0.4 <sub>kg CO e</sub></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between _info mb-3">
-
-                                            <div class="d-flex">
-                                                <div>
-                                                    <strong class="title">Price:</strong> 
-                                                    <p><strong>Kr 72.8</strong></p>
-                                                </div>
-                                                <div style="margin-left: 3rem;">
-                                                    <strong class="title">VAT:</strong> 
-                                                    <p>80</p>
-                                                </div>
-
-
-                                               </div>
-                                           
-
-                                            <div><button href="" id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                                onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
-                                                <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                    <i class="count-down"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text"  data-id="<?php echo $pid;?>" value="1" 
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div></div>
-                                        </div>
-                                    </div>   
-                                    <div class="catering_card _pro_salat">
-                                        <h3>Bread Lunch</h3>
-                                        <p class="mt-3">Red lentils with hot spices, salt-baked celery root, baked tomatoes, sugar peas, spinach, tahini dressing and pumpkin seeds.</p>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <h6 class="mt-2">Contains:</h6>
-                                                <p>Sesame seeds, Celery</p>
-                                                <p>Nutritional content: 520 kcal, 31g carbohydrate, 31g fat, 21g protein</p>
-                                            </div>
-                                            <div class="col-md-3 level d-flex justify-content-end">
-                                                <div class="d-flex justify-content-center align-items-center flex-column ">
-                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/level.png" alt="level">
-                                                    <h6 class="mt-2">0.4 <sub>kg CO e</sub></h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between _info mb-3">
-
-                                            <div class="d-flex">
-                                                <div>
-                                                    <strong class="title">Price:</strong> 
-                                                    <p><strong>Kr 72.8</strong></p>
-                                                </div>
-                                                <div style="margin-left: 3rem;">
-                                                    <strong class="title">VAT:</strong> 
-                                                    <p>80</p>
-                                                </div>
-
-
-                                               </div>
-                                           
-
-                                            <div><button href="" id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                                onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
-                                                <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                    <i class="count-down"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
-                                                    <input type="text"  data-id="<?php echo $pid;?>" value="1" 
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
-                                                </div></div>
-                                        </div>
-                                    </div>   
+                                    </div>  
+                                    
+                                    <?php endwhile; wp_reset_query(); else : ?>
+                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                    <?php endif; ?>
 
                                     
 
