@@ -5,9 +5,7 @@ get_header();
 
 <div class="tab_wrapper">
 <?php page_title()?>
-               
-
-                    <div class="custom_container c2">
+                    <div class="custom_container">
                         <div class="row">
                             <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                 <div class="catering_menu">
@@ -32,21 +30,20 @@ get_header();
                                      
                                     <div class="catering_card _pro_salat">
                                         <h3><?php the_title()?></h3>
-                                        <p class="mt-3">Red lentils with hot spices, salt-baked celery root, baked tomatoes, sugar peas, spinach, tahini dressing and pumpkin seeds.</p>
+                                        <p class="mt-3"><?php the_content()?></p>
                                         <div class="row">
                                             <div class="col-md-9">
                                                 <h6 class="mt-2">Contains:</h6>
-                                                <p>Sesame seeds, Celery</p>
-                                                <p>Nutritional content: 520 kcal, 31g carbohydrate, 31g fat, 21g protein</p>
+                                                <p><?php echo get_post_meta( get_the_ID(), 'contains', true ); ?></p>
+                                                <p>Nutritional content: <?php echo get_post_meta( get_the_ID(), 'nutritional_content', true ); ?></p>
                                             </div>
                                            
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between _info mb-3">
-
                                             <div class="d-flex">
                                                 <div>
                                                     <strong class="title">Price:</strong> 
-                                                    <p><strong>Kr 72.8</strong></p>
+                                                    <p><strong>Nok <?php echo get_post_meta( get_the_ID(), 'menu_item_price', true ); ?></strong></p>
                                                 </div>
                                                 <div style="margin-left: 3rem;">
                                                     <strong class="title">VAT:</strong> 
