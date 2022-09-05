@@ -6,6 +6,7 @@ get_header();
 <div class="tab_wrapper">
 <?php page_title()?>
                     <div class="custom_container">
+                          <form class="weeklyfood" id="weeklyfood" action="#" >   
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                     <div class="catering_menu">
@@ -149,6 +150,7 @@ get_header();
                                 </div>
                         </div>
                     </div>
+                                            </form>
                     
                 </div>
             </div>
@@ -174,3 +176,97 @@ get_header();
 </body>
 
 </html>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript">   
+     jQuery(document).ready(function($) 
+        {   
+            
+           
+
+            $('._cross').click(function(){
+           
+                $(".hideme").css("display", "none");
+            });          
+         
+                    	
+            $("#weeklyfood").submit(function(e) { 
+                e.preventDefault();  
+                var weekid = jQuery('#weekid').val();
+                var usertype = jQuery('#usertype').val();
+                var uid = jQuery('#uid').val();
+                var weekdays = [];
+                $.each($("input[name='sport']:checked"), function(){            
+                    weekdays.push($(this).val());
+                });
+                
+                var datas = [];
+                        var newdata = [];
+                        $("#weeklyfood .product-quantity").each(function () {
+                        var productid =  $(this).data('id');
+                        var value = $(this).val() ;
+                            if(value >1) {
+                                datas.push( [productid, $(this).val() ]);   
+                                }                     
+                        newdata.push(datas);
+                        });
+                    // alert(newdata[0]);
+                        var menu_items = newdata[0];
+                  
+                        console.log(menu_items);
+                    //  alert(postid);          
+                                
+                var weekdays = weekdays;	             
+                var menu_items = menu_items;   
+
+                console.log(weekdays);
+                
+            
+            
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "weeklyfood",
+                            weekdays : weekdays,
+                            menu_items : menu_items,   
+                            weekid : weekid,
+                            usertype : usertype,  
+                            uid : uid,                  
+                        
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                            $(".alertmessage").css("display", "flex");
+                        
+                            }      
+                    }
+                
+                });
+            }); 
+
+           
+
+          
+
+            
+
+
+        });
+
+
+    
+	</script>
+
+
+
+
+
+
+

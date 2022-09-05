@@ -1,4 +1,4 @@
-<?php /* Template Name: Weekly Cal (C)  */ 
+<?php /* Template Name: Company-FixDelivery  */ 
 get_header('company');
 ?>
 <?php include('navigation.php'); ?>
