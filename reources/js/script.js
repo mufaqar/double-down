@@ -7,9 +7,6 @@ function companyProfile() {
   myProfile.classList.remove('active');
   companyProfileNav.classList.add('activeNav');
   myProfileNav.classList.remove('activeNav');
-  // var url = webpath;
-  // var page_url = url.theme_path + '/compnay-profile/lunch-calendar/';
-  // location.replace(page_url);
 }
 
 function myProfile() {
@@ -21,9 +18,6 @@ function myProfile() {
   myProfile.classList.add('active');
   companyProfileNav.classList.remove('activeNav');
   myProfileNav.classList.add('activeNav');
-  // var url = webpath;
-  // var page_url = url.theme_path + '/profile/my-orders';
-  // location.replace(page_url);
 }
 
 $(document).ready(function () {

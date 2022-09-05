@@ -33,7 +33,7 @@ get_header('');
                         <div class="product_wrapper row mb-4">
                                 <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >  
-                                <input type="hidden" value="Company" id="usertype" >      
+                                <input type="hidden" value="Personal" id="usertype" >      
 
                         
                             <?php query_posts(array(
