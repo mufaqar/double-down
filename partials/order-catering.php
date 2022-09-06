@@ -10,7 +10,6 @@
                             <input type="date" value="" name="qdate" onchange="this.form.submit()">
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
                             </form>
-
                             
                         </div> -->
                         </div>
@@ -23,7 +22,16 @@
                                     'post_type' => 'catering',
                                     'posts_per_page' => -1,
                                     'order' => 'desc',
-                                    'author' => $current_user->ID
+                                    'author' => $current_user->ID,
+                                    'meta_query' => array(
+                                                        
+                                        array(
+                                            'key'     => 'user_type',
+                                            'compare' => 'Personal',
+                                            'compare' => '=',
+                                        ),
+                                    )
+                                    
                                     
                                 )); } else {
 
@@ -33,7 +41,16 @@
                                         'order' => 'desc',
                                         'author' => $current_user->ID,
                                         'meta_key'         => 'date',
-                                        'meta_value'       => $q_date
+                                        'meta_value'       => $q_date,
+                                        'meta_query' => array(
+                                                        
+                                           
+                                                array(
+                                                    'key'     => 'user_type',
+                                                    'compare' => 'Personal',
+                                                    'compare' => '=',
+                                                ),
+                                        )
                                         
                                     )); 
 

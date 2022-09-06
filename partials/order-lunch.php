@@ -36,12 +36,21 @@
                                                     'posts_per_page' => -1,
                                                     'order' => 'desc',
                                                     'author' => $current_user->ID,
-                                                    'meta_query' => array(
-                                                        array(
-                                                            'key' => 'order_type',
-                                                            'value' => 'Meeting',
-                                                            'compare' => '=',
-                                                        )
+                                                    'meta_query' => array(                                                      
+                                                        
+                                                        'relation' => 'AND',
+                                                            array(
+                                                                'key'   => 'order_type',
+                                                                'value' => 'Meeting',
+                                                                'compare' => '='
+                                                            ),
+                                                            array(
+                                                                'key'     => 'user_type',
+                                                                'value' => 'Personal',
+                                                                'compare' => '=',
+                                                             
+
+                                                            ),
                                                     )
                                                     
                                                 ));              
