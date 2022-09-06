@@ -1,5 +1,5 @@
-<?php /* Template Name: Compnay-CateringForm  */ 
-get_header();?> 
+<?php /* Template Name: Compnay-Catering  */ 
+get_header('company');?> 
  <?php include('navigation.php');
  
  
@@ -7,7 +7,7 @@ get_header();?>
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
-        <h2>Catering Form</h2>
+        <h2>Catering Form Company</h2>
         <p>Here you change your regular lunch delivery from us. If you only want to cancel or change the type of lunch on certain days, do so <span>her.</span></p>
     </div>
     <hr>
@@ -24,7 +24,7 @@ get_header();?>
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Date</label>
                     <div class="_select">
-                        <input type="date" value="" placeholder="02-05-22" id="date" required>
+                        <input type="date" value="<?php echo date("Y-m-d"); ?>" placeholder="02-05-22" id="date" required>
                     </div>
                 </div>
 
