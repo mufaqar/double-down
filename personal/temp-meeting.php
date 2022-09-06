@@ -12,10 +12,12 @@ $uid =  get_current_user_id() ;
     <form class="addmeeting" id="addmeeting" action="#">
         <div class="_inner mt-4 p-5">
             <div class="date_filter d-flex justify-content-center flex-column align-items-center">
-                <label>Choose Date 11</label>
-                <input type="date" id="date" value="12/05/2000">
-                <?php echo date('d/m/Y', strtotime(date('d/m/Y'))); ?> 
+                <label>Choose Date</label>
+                <input type="date" id="date" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>-<?php echo date("d"); ?>">
+                <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
             </div>
+            
+
             <div class="_content mt-5 mb-5">
                 <h2>Select Product </h2>
                 <div class="row">

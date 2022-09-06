@@ -2,7 +2,7 @@
     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
         <h2>This week's lunch menu</h2>
         <div class="calender week_calender">
-            <input type="text" id="weekPicker2" value="<?php echo date("Y"); ?>-<?php echo date("W"); ?>">
+            <input type="text" id="weekPicker2" value="<?php echo date("Y"); ?>-<?php echo date("m"); ?>-<?php echo date("d"); ?>">
             <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
         </div>
     </div>
