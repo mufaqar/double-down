@@ -7,7 +7,7 @@
                                 <div class='panel launchClander'>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center __btn">
-                                            <a href="<?php echo home_url('/profile'); ?>" class="btn_primary d-flex align-items-center">
+                                            <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" class="btn_primary d-flex align-items-center">
                                                 <i class="fa-solid fa-fork-knife"></i>
                                                 <p style="margin-left: .5rem; color:white">My Lunch</p></a>
                                             <a  href="<?php echo home_url('/profile/orders'); ?>"  class="btn_primary btn_sec d-flex align-items-center">
