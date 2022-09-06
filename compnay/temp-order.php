@@ -23,7 +23,7 @@ get_header();
 
 <section id="div1" class="targetDiv activediv">
 <div class="custom_container c2 ">
-        <?php get_template_part('partials/order', 'lunch'); ?>
+        <?php get_template_part('partials/order', 'lunch_company'); ?>
 
         </div>
 </section>
@@ -31,14 +31,14 @@ get_header();
 
 <section id="div2" class="targetDiv">
         <div class="custom_container c2 ">
-        <?php get_template_part('partials/order', 'catering'); ?>
+        <?php get_template_part('partials/order', 'catering_company'); ?>
         </div>
 </section>
 
 
 <section id="div3" class="targetDiv">
     <div class="custom_container c2 ">
-        <?php get_template_part('partials/order', 'meetings'); ?>
+        <?php get_template_part('partials/order', 'meetings_company'); ?>
     </div>
 </section>
 

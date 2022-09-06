@@ -40,7 +40,7 @@
                                                             array(
                                                                 'key'   => 'order_type',
                                                                 'value' => 'Meeting',
-                                                                'compare' => '='
+                                                                'compare' => '!='
                                                             ),
                                                             array(
                                                                 'key'     => 'user_type',
