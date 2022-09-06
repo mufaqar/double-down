@@ -1,5 +1,5 @@
 <?php /* Template Name: Company-FD Daily  */ 
-get_header('');
+get_header('company');
 ?>
 <?php include('navigation.php'); ?>
 
@@ -138,8 +138,8 @@ get_header('');
 
                          <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center">
-                                <a href="<?php echo home_url('/profile/fixed-delivery-weekly'); ?>" class="btn_primary btn_sec d-block" style="margin-right: 1rem;"> Weekly</a>
-                                <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary  d-block">Daily</a>
+                                <a href="<?php echo home_url('/company-profile/fixed-delivery-weekly'); ?>" class="btn_primary btn_sec d-block" style="margin-right: 1rem;"> Weekly</a>
+                                <a href="<?php echo home_url('/company-profile/fixed-delivery'); ?>" class="btn_primary  d-block">Daily</a>
                             </div>
                         <div>
                         <input type="submit" id="order" class="btn_primary"  value="Save"/>
