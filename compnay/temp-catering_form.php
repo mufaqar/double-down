@@ -1,8 +1,9 @@
 <?php /* Template Name: Compnay-CateringForm  */ 
-get_header();
-
-?> 
- <?php include('navigation.php'); ?>
+get_header();?> 
+ <?php include('navigation.php');
+ 
+ 
+ ?>
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
