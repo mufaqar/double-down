@@ -203,3 +203,5 @@ function lastStep() {
   myProfile_reg.classList.add('_hide');
   myProfile_msg.classList.add('_show');
 }
+
+//convertToWeekPicker($('#weekPicker2'));

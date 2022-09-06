@@ -10,5 +10,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
 
+
+
+
+
+
+
+
 </body>
 </html>

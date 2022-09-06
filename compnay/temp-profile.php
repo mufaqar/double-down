@@ -1,7 +1,6 @@
     <?php /* Template Name: Company-Dashoard  */ 
     get_header('company');
     include('navigation.php'); ?>
-
       <div class="tab_wrapper">
                      <?php page_title()?>
                             <div class='panels'>
@@ -21,8 +20,9 @@
                                         <div class="info d-flex align-items-center">
                                             <h6>Pilestredet 75C | <span>Fixed 5 days a week</span></h6>
 
-                                            <div class="calender myProfile_cal">
-                                                <input type="date">
+                                            <div class="calender week_calender">
+                                                <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
+                                                <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                                             </div>
                                         </div>
                                     </div>
@@ -99,6 +99,16 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <!-- week calender  -->
+
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
+<script>
+    convertToWeekPicker($("#weekPicker2"));
+</script>
+
+
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
         {   

@@ -15,9 +15,10 @@ get_header('company');
                     </p>
 
                    <div class="calender_wrapper d-flex justify-content-between align-items-center">
-                        <div class="calender">
-                            <input type="date">
-                        </div>
+                   <div class="calender week_calender">
+                                                <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
+                                                <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                                            </div>
                         <div class="info">
                             <h6>Total this Week | <span>NOK 0, -</span></h6>                 
                         </div>
@@ -120,6 +121,14 @@ get_header('company');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- week calender  -->
+
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
+<script>
+    convertToWeekPicker($("#weekPicker2"));
+</script>
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
         {   
