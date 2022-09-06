@@ -219,7 +219,8 @@ get_header();
                         allergens : allergens ,
                         pro_cat : pro_cat,
                         pro_sub_cat : pro_sub_cat,
-                        person : person
+                        person : person,
+                        user_type : "Company"
                     },   
                     success: function(data){                      
                      
