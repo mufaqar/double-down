@@ -3301,6 +3301,24 @@ body.page-template-temp-landing {
 .selected_day label:before {
   display: none;
 }
+.week_calender {
+  position: relative;
+}
+.week_calender input{
+  border: none;
+ padding-left: 1rem;
+  outline: none;
+}
+.week_calender .wc-icon{
+  position: absolute;
+  right: 1rem;
+  top:.25rem;
+  color: var(--green);
+  font-size: 1.2rem;
+}
+
+
+
 
 /* **************************************
 ***********   >1400px  ****************
