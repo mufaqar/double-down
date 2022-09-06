@@ -1,4 +1,4 @@
-<?php /* Template Name: Personal-Lunch Calednar  */ 
+<?php /* Template Name: Personal-LunchCalednar  */ 
 get_header();
 ?>
 <?php include('navigation.php'); ?>
@@ -16,7 +16,7 @@ get_header();
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                                         <p>A Total of 0 Boxes,<br> Additions you pay: NOK 104</p>
                                         <div class="calender">
-                                            <input type="date">
+                                            <input type="date" value="<?php echo date("Y-m-d"); ?>" id="date">
                                         </div>
                                     </div>
                                     <div class="catering_card_wrapper">
@@ -158,7 +158,30 @@ get_header();
     </main>
 
 
+    
+<section class="hideme overlay alertmessage">
+    <div class="popup">
+        <div class="popup_wrapper">
+            <div class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
 
+                <div class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
+                    <div class="content mt-5">
+                        <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
+                        <h1 class="finished">Finished!</h1>
+                        <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>
+               
+                    </div>
+                </div>
+
+            </div>
+            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+        </div>
+    </div>
+</section>
+
+
+<?php get_footer()?>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -172,13 +195,14 @@ get_header();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
+  
 
 </body>
 
 </html>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
         {   
@@ -196,10 +220,8 @@ get_header();
                 var weekid = jQuery('#weekid').val();
                 var usertype = jQuery('#usertype').val();
                 var uid = jQuery('#uid').val();
-                var weekdays = [];
-                $.each($("input[name='sport']:checked"), function(){            
-                    weekdays.push($(this).val());
-                });
+                var date = jQuery('#date').val();
+               
                 
                 var datas = [];
                         var newdata = [];
@@ -217,10 +239,10 @@ get_header();
                         console.log(menu_items);
                     //  alert(postid);          
                                 
-                var weekdays = weekdays;	             
+                           
                 var menu_items = menu_items;   
 
-                console.log(weekdays);
+          
                 
             
             
@@ -229,8 +251,8 @@ get_header();
                         type:"POST",
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
-                            action: "weeklyfood",
-                            weekdays : weekdays,
+                            action: "dailyfood",
+                            date : date,
                             menu_items : menu_items,   
                             weekid : weekid,
                             usertype : usertype,  

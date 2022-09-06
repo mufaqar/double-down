@@ -176,9 +176,16 @@ function dailyfood()
 {
 	global $wpdb;
 
-	$day = $_POST['day'];
+	$day = $_POST['date'];
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
+	$weekid = $_POST['weekid'];
+	$usertype = $_POST['usertype'];
+
+	
+
+
+	
 	$author_obj = get_user_by('id', $uid);
 	$author =  $author_obj->display_name;
 
@@ -192,7 +199,7 @@ function dailyfood()
 	add_post_meta($user_id, 'order_day', $day, true);
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Day', true);
-	add_post_meta($user_id, 'user_type', 'Company', true);
+	add_post_meta($user_id, 'user_type', 'Personal', true);
 
 
 	$items = array();
