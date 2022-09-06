@@ -117,6 +117,58 @@ function weeklyfood()
 
 
 
+add_action('wp_ajax_weeklyfood_byday', 'weeklyfood_byday', 0);
+add_action('wp_ajax_nopriv_weeklyfood_byday', 'weeklyfood_byday');
+
+function weeklyfood_byday()
+{
+	global $wpdb;
+
+	$sel_day = $_POST['sel_day'];
+	$usertype = $_POST['usertype'];
+	$menu_items = $_POST['menu_items'];
+	$uid = $_POST['uid'];
+	$weekid = $_POST['weekid'];
+
+
+	$post = array(
+		'post_title'    => "OHYSX-" . rand(10, 100),
+		'post_status'   => 'publish',
+		'post_type'     => 'orders',
+		'post_author' => $uid
+	);
+	$user_id = wp_insert_post($post);
+
+	add_post_meta($user_id, 'week_id', $weekid, true);
+	add_post_meta($user_id, 'order_status', 'Pending', true);
+	add_post_meta($user_id, 'order_type', 'Fixed Day', true);
+	add_post_meta($user_id, 'user_type', $usertype, true);
+	add_post_meta($user_id, 'order_day', $sel_day, true);
+
+	
+
+	
+	foreach ($menu_items as $menu_item) {
+		$product_id = $menu_item[0];
+		$menu_item = $menu_item[1];
+		$price =  get_post_meta($product_id, 'menu_item_price', true);
+		$total_price = $price * $menu_item;
+		add_post_meta($user_id, 'total_price', $total_price, true);
+		add_post_meta($user_id, 'productid-' . $product_id, $menu_item, true);
+	}
+
+	if (!is_wp_error($user_id)) {
+		//sendmail($username,$password);
+		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
+	}
+
+	die;
+}
+
+
+
 add_action('wp_ajax_dailyfood', 'dailyfood', 0);
 add_action('wp_ajax_nopriv_dailyfood', 'dailyfood');
 

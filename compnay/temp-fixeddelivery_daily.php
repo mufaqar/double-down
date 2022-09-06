@@ -1,4 +1,4 @@
-<?php /* Template Name: Personal-FD Daily  */ 
+<?php /* Template Name: Company-FD Daily  */ 
 get_header('');
 ?>
 <?php include('navigation.php'); ?>
@@ -12,12 +12,12 @@ get_header('');
             <div class='panel launchClander Fixed_delivery'>            
                 <div class="catering_wrapper c2 mt-5 mb-5">
                     <div class="catering_menu">
-                    <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" >Lunch Calendar</a>
-                    <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="_active">Fixed Delivery</a>
+                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" >Lunch Calendar</a>
+                    <a href="<?php echo home_url('/company-profile/fixed-delivery'); ?>" class="_active">Fixed Delivery</a>
                     </div>                
                 </div>
                 <form class="weeklyfood_daily" id="weeklyfood_daily" action="#" >                
-                    <h2>Fixed delivery to Personal</h2>
+                    <h2>Fixed delivery to Company</h2>
                     <p>Here you can easily choose between or cancel the various lunch options from day
                         to day. If you want to change a fixed subscription, do so <a href="">her.</a>
                     </p>
@@ -57,7 +57,7 @@ get_header('');
                         <div class="product_wrapper row mb-4">
                                 <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >  
-                                <input type="hidden" value="Personal" id="usertype" >      
+                                <input type="hidden" value="Company" id="usertype" >      
 
                         
                             <?php query_posts(array(

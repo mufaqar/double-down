@@ -1,4 +1,4 @@
-<?php /* Template Name: Lunch (C)  */ 
+<?php /* Template Name: Comapny-LunchCaldendar  */ 
 get_header('company');
 ?>
 <?php include('navigation.php'); ?>
@@ -9,6 +9,13 @@ get_header('company');
         <?php page_title()?>
         <div class='panels'>
             <div class='panel launchClander'>
+
+            <div class="catering_wrapper c2 mt-5 mb-5">
+                    <div class="catering_menu">
+                        <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="_active">Lunch Calendar</a>
+                        <a href="<?php echo home_url('/company-profile/fixed-delivery'); ?>" class="">Fixed Delivery</a>
+                    </div>                
+                </div>
                     <h2>Business lunch calendar</h2>
                     <p>Here you can easily choose between or cancel the various lunch options from day
                         to day. If you want to change a fixed subscription, do so <a href="">her.</a>
