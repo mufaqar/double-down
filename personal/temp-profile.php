@@ -14,7 +14,6 @@
                                                 <i class="fa-solid fa-newspaper"></i>
                                                 <p style="margin-left: .5rem; color:#5FB227">My Orders</p></a>
                                         </div>
-
                                         <div class="info d-flex align-items-center">
                                             <h6>Pilestredet 75C | <span>Fixed 5 days a week</span></h6>
 
