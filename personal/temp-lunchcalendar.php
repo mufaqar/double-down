@@ -1,12 +1,15 @@
 <?php /* Template Name: Personal-LunchCalednar  */ 
 get_header();
+
+$query_date = $_GET['date']; 
+
 ?>
 <?php include('navigation.php'); ?>
 
 <div class="tab_wrapper">
-<?php page_title()?>
+<?php page_title() ;  echo $query_date;?>
                     <div class="custom_container">
-                          <form class="weeklyfood" id="weeklyfood" action="#" >   
+                          
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                     <div class="catering_menu">
@@ -15,17 +18,38 @@ get_header();
                                     </div>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                                         <p>A Total of  Boxes,<br> Additions you pay: NOK </p>
-                                        <div class="calender">
-                                            <input type="date" value="<?php echo date("Y-m-d"); ?>" id="date">
-                                        </div>
+                                       
+                                            <div class="calender">
+                                                <form action="" method="GET">
+                                                     <input type="date" name="date" value="<?php echo date("Y-m-d"); ?>" id="date">
+                                                </form>
+                                            </div>
+
+
+                                         
+                                       
                                     </div>
+                                    <form class="weeklyfood" id="weeklyfood" action="#" >   
                                     <div class="catering_card_wrapper">
-                                        <?php query_posts(array(
-                                                'post_type' => 'menu_items',
-                                                'posts_per_page' => -1,
-                                                'order' => 'desc',
-                                                'menu_types' => 'lunch-boxes'                                                                     
-                                                )); 
+                                        <?php 
+
+                                    if($query_date == '') {
+                                        
+                                        
+                                        
+                                        
+                                            }
+                                            else {
+
+                                                query_posts(array(
+                                                    'post_type' => 'menu_items',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',
+                                                    'menu_types' => 'lunch-boxes'                                                                     
+                                                    )); 
+
+
+                                            }
                                             if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
                                             
                                             <div class="catering_card _pro_salat">
@@ -96,10 +120,7 @@ get_header();
                                 <div class='panel launchClander Fixed_delivery'>
                                         <div class="d-flex justify-content-between mt-5 mb-4 accessories">
                                             <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
-                                            <!-- <a href="" class="btn_primary d-flex align-items-center">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
-                                                <p>Allergy Pass</p>
-                                            </a> -->
+                                            
                                         </div>
 
                                         <div class="product_wrapper row mb-4">
@@ -196,18 +217,29 @@ get_header();
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
   
-
+   
 </body>
 
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
- <script type="text/javascript">   
+ <script type="text/javascript">  
+
+
+
      jQuery(document).ready(function($) 
         {   
-            
-           
+
+            $('#date').change(function() {
+                alert("asdfasdf");
+
+                $(this).closest('form').submit();
+  
+});
+
+            $('.datepicker').datepicker()
+          
 
             $('._cross').click(function(){
            

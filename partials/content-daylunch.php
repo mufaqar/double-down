@@ -40,7 +40,7 @@
                                         'post_type' => 'menu_items',
                                         'posts_per_page' => -1,
                                         'order' => 'desc',
-                                        'menu_types' => 'accessories'                                                                     
+                                        'menu_types' => 'additionals'                                                                     
                                         )); 
                                         if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
 
