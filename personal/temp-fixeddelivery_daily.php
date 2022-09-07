@@ -75,14 +75,14 @@ get_header('');
                                                 <button  id="<?php echo $pid;?>" class="btn_primary  select_product_btn id<?php echo $pid;?>"
                                                 onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
                                                 <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                    <i class="count-down"><img
+                                                    <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
+                                                            alt="" ></i>
                                                     <input type="text"  data-id="<?php echo $pid;?>" value="1" 
                                                         class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up"><img
+                                                    <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
+                                                            alt="" ></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,13 +115,13 @@ get_header('');
                                             <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
                                             onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
                                                 <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                    <i class="count-down"><img
+                                                    <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
+                                                            alt="" ></i>
                                                     <input type="text" data-id="<?php echo $pid;?>" value="1" 
                                                         class="product-quantity form-control text-center incrDecrCounter" />
                                                         
-                                                    <i class="count-up"><img
+                                                    <i class="count-up"  onclick="handleCountInc(<?php echo $pid ?>)"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
                                                             alt=""></i>
                                                 </div>
