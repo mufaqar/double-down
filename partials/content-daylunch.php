@@ -1,13 +1,13 @@
     <div class="food_info day__food row">
         <?php query_posts(array(
             'post_type' => 'menu_items',
-            'posts_per_page' => 2,
+            'posts_per_page' => -1,
             'order' => 'desc',
             'menu_types' => 'lunch-boxes'
         ));
         if (have_posts()) :  while (have_posts()) : the_post();
                 $pid = get_the_ID(); ?>
-                <div class="col-md-6 first border-end">
+                <div class="col-md-6 first border-end mb-5">
                     <h3><?php the_title() ?> | <span> NOK <?php the_field('menu_item_price'); ?></span></h3>
                     <p>Here you can easily choose between or cancel
                         the various lunch options from day to day.
@@ -31,13 +31,8 @@
     </div>
 
 
-<<<<<<< HEAD
-    <div class="d-flex justify-content-between mt-5 mb-4 #extrafood_<?php echo $this_day; ?>">
-                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additions</h2>
-                            <a href="" class="btn_primary d-flex align-items-center">
-                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/positive.png" alt="">
-                                <p>Allergy Pass</p>
-                            </a>
+                        <div class="d-flex justify-content-between mt-5 mb-4 #extrafood_<?php echo $this_day; ?>">
+                             <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additions</h2>                                    
                         </div>
 
                         <div class="product_wrapper row mb-4">
@@ -78,34 +73,9 @@
                        
 
   
-    <div class="food_card_wrapper row day_<?php echo $day ?>" >
-=======
-    <div class="food_card_wrapper row day_<?php echo $day ?>">
->>>>>>> 69d683e7657498590bb561bc4f5569ef55ab39d0
-        <?php query_posts(array(
-            'post_type' => 'menu_items',
-            'posts_per_page' => 4,
-            'order' => 'desc',
-            'menu_types' => 'accessories'
-        ));
-        if (have_posts()) :  while (have_posts()) : the_post();
-                $pid = get_the_ID();  ?>
-                <div class="food_card col-lg-3 col-md-6">
-                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images/food1.png" alt="">
-                    <h4 class="mt-2"><?php the_title() ?></h4>
-                    <p>Nok <?php the_field('menu_item_price'); ?></p>
-                    <input type="hidden" data-id="<?php echo $pid; ?>" value="1" class="product-extra" />
-                </div>
-            <?php endwhile;
-            wp_reset_query();
-        else : ?>
-            <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
-        <?php endif; ?>
-
-    </div>
+ 
 
     <div class="accordion_btns d-flex justify-content-end mb-5 mr-3">
-        <a id="" class="btn_primary btn_sec">Choose Location</a>
-        <a class="btn_primary btn_sec" href="">Add allergy-friendly</a>
+      
         <input type="submit" class="btn_primary" value="Save" />
     </div>

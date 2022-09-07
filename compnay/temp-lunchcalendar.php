@@ -24,7 +24,7 @@ get_header('company');
                             <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
                             <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                         </div>
-=======
+
             </div>
             <h2>Business lunch calendar</h2>
             <p>Here you can easily choose between or cancel the various lunch options from day
@@ -71,7 +71,7 @@ get_header('company');
                                                     <div class="message">No Booking </div>
                                                 </h6>
                                             </div>
-<<<<<<< HEAD
+
                                         </div>
                                         <div id="collapse<?php echo $this_day ?>" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show accordion_content">
                                             <div class="card-body p-md-5">
@@ -79,8 +79,7 @@ get_header('company');
                                             </div>
                                         </div>
                                     </form>
-=======
->>>>>>> 69d683e7657498590bb561bc4f5569ef55ab39d0:compnay/temp-calendar.php
+
                         <div class="info">
                             <h6>Total this Week | <span>NOK 0, -</span></h6>                 
                         </div>
@@ -131,7 +130,6 @@ get_header('company');
                                         ?>                              
 
 
->>>>>>> 399c76945faadaa7149f932d99d6aa11532f46c6
                                 </div><!-- End -->
                             <?php
                             }
@@ -198,7 +196,7 @@ get_header('company');
             $(".hideme").css("display", "none");
         });
 
-<<<<<<< HEAD:compnay/temp-lunchcalendar.php
+
              $('._cross').click(function(){
            
                 $(".hideme").css("display", "none");
@@ -274,94 +272,11 @@ get_header('company');
                                 });
                                 
                             }); 
-=======
->>>>>>> 69d683e7657498590bb561bc4f5569ef55ab39d0:compnay/temp-calendar.php
-
-
-        <?php
-
-        $mweek = [];
-        $saturday = strtotime('monday this week');
-        $i = 0;
-        foreach (range(0, 4) as $day) {
-            $mweek[] = date("Y-m-d", (($day * 86400) + $saturday));
-            $today_date =  $mweek[$i];
-            $i++;
-            $timestamp = strtotime($today_date);
-            $today_day = date('l', $timestamp);
-            $this_day =  strtolower(date('D', $timestamp));
-
-
-        ?>
-
-            $("#dailyfood_<?php echo $this_day; ?>").submit(function(e) {
-                e.preventDefault();
-                alert("Day<?php echo $this_day ?>");
-                var day = jQuery('#day_<?php echo $this_day; ?>').val();
-                var uid = jQuery('#uid').val();
-                var datas = [];
-                var newdata = [];
-                var extraproducts = [];
-                var fprod = [];
-                $("#dailyfood_<?php echo $this_day; ?> .product-quantity").each(function() {
-                    var productid = $(this).data('id');
-                    var value = $(this).val();
-                    if (value >= 1) {
-                        datas.push({
-                            "id": productid,
-                            "value": $(this).val()
-                        });
-                    }
-                    newdata.push(datas);
-                });
-
-                $("#dailyfood_<?php echo $this_day; ?> .product-extra").each(function() {
-                    var pro_id = $(this).attr('data-id');
-                    extraproducts.push({
-                        "id": pro_id
-                    });
-                });
-
-                fprod.push({
-                    "food_item": newdata[0],
-                    "extra_food": extraproducts,
-                    "day": day,
-                    "uid": uid
-                });
-                console.log(fprod);
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo admin_url('admin-ajax.php'); ?>",
-                    data: {
-                        action: "dailyfood",
-                        day: day,
-                        menu_items: fprod,
-                        uid: uid
-
-                    },
-                    success: function(data) {
-                        if (data.code == 0) {
-                            alert(data.message);
-                        } else {
-                            $(".alertmessage").css("display", "flex");
-                        }
-                    }
-
-                });
-
-            });
-
-        <?php
-
-        }
 
 
 
 
-        ?>
-
-
-
+                                <?php  }  ?>
 
 
 
