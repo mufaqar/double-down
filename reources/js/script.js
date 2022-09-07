@@ -77,26 +77,57 @@ $(document).ready(function () {
 }.call(this));
 
 // product counter
-var count = 0;
-$('i.count-up').click(function () {
-  if (count == 0) {
-    count++;
-    $(this).prev().val(count);
-  } else if (count != 0) {
-    count = $(this).prev().val();
-    count++;
-    $(this).prev().val(count);
+// var count = 0;
+// $('i.count-up').click(function () {
+//   if (count == 0) {
+//     count++;
+//     $(this).prev().val(count);
+//   } else if (count != 0) {
+//     count = $(this).prev().val();
+//     count++;
+//     $(this).prev().val(count);
+//   }
+// });
+// $('i.count-down').click(function () {
+//   var count = $(this).next().val();
+//   if (count >= '1') {
+//     count--;
+//     $(this).next().val(count);
+//   } else {
+//     return false;
+//   }
+// });
+
+// increment value in product
+var countNumber = 0
+function handleCountInc(pid) {
+  const element = document.querySelector(`[data-id='${pid}']`);
+  countNumber = element.value;
+  if(countNumber >= 1){
+    countNumber++
+    element.value = countNumber;
+  }else{
+    countNumber++
+    element.value = countNumber;
   }
-});
-$('i.count-down').click(function () {
-  var count = $(this).next().val();
-  if (count >= '1') {
-    count--;
-    $(this).next().val(count);
-  } else {
-    return false;
+}
+// Decrement value in product
+function handleCountDec(pid) {
+  const element = document.querySelector(`[data-id='${pid}']`);
+  countNumber = element.value;
+  if(countNumber < 1){
+    countNumber = 0
+    element.value = countNumber;
+  }else{
+    countNumber--
+    element.value = countNumber;
   }
-});
+}
+
+
+
+
+
 
 function showCounter(data) {
   var btn = document.querySelector('.id'.concat(data));
