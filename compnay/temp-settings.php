@@ -97,7 +97,7 @@ $uid = get_current_user_id();
                         <p>Overview</p>
                     </div>
                     <div class="">
-                    <button href="" id="invoice" class="btn_primary">See</button>
+                    <button id="invoice" class="btn_primary">See</button>
                     </div>
                 </div>
 
