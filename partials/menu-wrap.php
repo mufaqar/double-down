@@ -14,7 +14,7 @@
                                 'post_type' => 'menu_items',
                                 'posts_per_page' => -1,
                                 'order' => 'desc',
-                                'menu_food_type' => 'wrap'
+                                'menu_food_type' => 'wrap-lunch'
                             )); 
                             if (have_posts()) :  while (have_posts()) : the_post();
                             $date = get_field('date'); ?>
