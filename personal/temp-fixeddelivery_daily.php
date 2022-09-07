@@ -92,11 +92,7 @@ get_header('');
                         </div>
 
                         <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Accessories</h2>
-                            <a href="" class="btn_primary d-flex align-items-center">
-                                <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
-                                <p>Allergy Pass</p>
-                            </a>
+                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span>Additionals</h2>                           
                         </div>
 
                         <div class="product_wrapper row mb-4">
@@ -104,7 +100,7 @@ get_header('');
                                         'post_type' => 'menu_items',
                                         'posts_per_page' => -1,
                                         'order' => 'desc',
-                                        'menu_types' => 'accessories'                                                                     
+                                        'menu_types' => 'additionals'                                                                     
                                         )); 
                                         if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
 
