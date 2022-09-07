@@ -102,7 +102,16 @@ wp_get_current_user();
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+    
+
+
+
+
+
     jQuery(document).ready(function($) {
+
+     
         $('._cross').click(function() {
 
             $(".hideme").css("display", "none");
