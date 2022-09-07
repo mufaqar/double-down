@@ -1,5 +1,5 @@
 <?php /* Template Name: Company-Orders  */
-get_header();
+get_header('company');
 ?>
 <?php include('navigation.php'); ?>
 
