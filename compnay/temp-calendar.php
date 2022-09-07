@@ -64,7 +64,7 @@ get_header('company');
                                                                     </div>
                                                                     <div id="collapse<?php echo $this_day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
                                                                         class="collapse show accordion_content">
-                                                                        <div class="card-body p-md-5">
+                                                                        <div class="card-body p-md-5 Fixed_delivery">
                                                                             <?php get_template_part('partials/content', 'daylunch'); ?>
                                                                         </div>
                                                                 </div>
