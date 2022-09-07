@@ -22,15 +22,14 @@ get_header('company');
 </div>
 
 <section id="div1" class="targetDiv activediv">
-<div class="custom_container c2 ">
-        <?php get_template_part('partials/order', 'lunch_company'); ?>
-
+        <div class="custom_container c2 ">
+            <?php get_template_part('partials/order', 'lunch_company'); ?>
         </div>
 </section>
 
 <section id="div2" class="targetDiv">
         <div class="custom_container c2 ">
-        <?php get_template_part('partials/order', 'catering_company'); ?>
+            <?php get_template_part('partials/order', 'catering_company'); ?>
         </div>
 </section>
 

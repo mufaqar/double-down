@@ -14,7 +14,7 @@ wp_get_current_user();
         <div class="_inner mt-4 p-5">
             <div class="date_filter d-flex justify-content-center flex-column align-items-center">
                 <label>Choose Date 2</label>
-                <input type="date" id="date" value="<?php echo date("Y/m/d") ?>">
+                <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
             </div>
             <div class="_content mt-5 mb-5">
@@ -102,7 +102,16 @@ wp_get_current_user();
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+    
+
+
+
+
+
     jQuery(document).ready(function($) {
+
+     
         $('._cross').click(function() {
 
             $(".hideme").css("display", "none");
