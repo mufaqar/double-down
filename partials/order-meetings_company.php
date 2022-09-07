@@ -1,5 +1,5 @@
 
-    <div class="custom_container catering_wrapper mt-5 mb-5">
+  <div class="custom_container catering_wrapper mt-5 mb-5">
                  <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                         <div class="catering_heading d-flex align-items-center">
                             <h2>Meetings Orders</h2>
