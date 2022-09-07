@@ -77,12 +77,12 @@ get_header('company');
                                                 <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
                                                     <i class="count-down"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
+                                                            alt="" onclick="handleCountDec(<?php echo $pid ?>)"></i>
                                                     <input type="text"  data-id="<?php echo $pid;?>" value="1" 
                                                         class="product-quantity form-control text-center incrDecrCounter" />
                                                     <i class="count-up"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
+                                                            alt="" onclick="handleCountInc(<?php echo $pid ?>)"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,13 +117,13 @@ get_header('company');
                                                 <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
                                                     <i class="count-down"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt=""></i>
+                                                            alt="" onclick="handleCountDec(<?php echo $pid ?>)"></i>
                                                     <input type="text" data-id="<?php echo $pid;?>" value="1" 
                                                         class="product-quantity form-control text-center incrDecrCounter" />
                                                         
                                                     <i class="count-up"><img
                                                             src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt=""></i>
+                                                            alt="" onclick="handleCountInc(<?php echo $pid ?>)"></i>
                                                 </div>
                                         </div>
                                     </div>
