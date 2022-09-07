@@ -1,7 +1,7 @@
 <div class="custom_container catering_wrapper ">
                        
                         <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                            <h2>This week's Vegetarian menu</h2>
+                            <h2>This week's Wrap lunch menu</h2>
                             <div class="calender week_calender">
                             <form action="#top" method="GET">
                             <input type="text" class="date" id="weekPicker3" value="<?php echo date("Y-W"); ?>">

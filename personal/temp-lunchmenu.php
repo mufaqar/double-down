@@ -27,7 +27,7 @@ get_header();
     <?php get_template_part('partials/menu', 'salad'); ?>
 </section>
 <section id="div3" class="targetDiv">
-    <?php get_template_part('partials/menu', 'vegetarian'); ?>
+    <?php get_template_part('partials/menu', 'wrap'); ?>
 </section>
 
 </div>
