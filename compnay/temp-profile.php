@@ -29,26 +29,62 @@
                                     <div class="accordion_wrapper">
 
                                         <div class="row">
-                                            <div class="col-lg-12 mx-auto mb-5">
+                                        <div class="col-lg-12 mx-auto mb-5">
+                                                    <?php 
+                                                    $current_week =  date("W"); 
+                                                    query_posts(array(
+                                                            'post_type' => 'orders',
+                                                            'posts_per_page' => -1,
+                                                            'order' => 'desc',
+                                                            'meta_query' => array(   
+                                                            'relation' => 'AND',
+                                                                        array(
+                                                                            'key'   => 'week_id',
+                                                                            'value' => $current_week,
+                                                                            'compare' => '='
+                                                                        ),
+                                                            
+                                                                        array(
+                                                                            'key'   => 'order_type',
+                                                                            'value' => 'Fixed Day',
+                                                                            'compare' => '='
+                                                                        ),
+                                                                        array(
+                                                                            'key'     => 'user_type',
+                                                                            'value' => 'Company',
+                                                                            'compare' => '=',
+                                                                        
 
-                                                <div class="_pro_card">
-                                                    <h3>Lunch Wednesday 25.05</h3>
-                                                    <p>Color party with beetroot hummus! We love hummus. Hummus is a
-                                                        puree made from chickpeas, a legume we should eat a lot of for
-                                                        both the body and the globe 🌱 Hummus is great both on the slice
-                                                        of bread and as an accompaniment to most things. You can easily
-                                                        make hummus yourself by mixing a box of chickpeas, a little
-                                                        garlic, 1 tablespoon tahini, a little cumin, dried peppers, a
-                                                        squeeze of lemon and a little olive oil....</p>
-                                                </div>
-                                                <div class="_pro_card">
-                                                    <h3>Wednesday | <span>May 25</span></h3>
-                                                    <p>Smoked chickpeas, beetroot hummus, coarse broccoli salsa, crudite salad and sunflower seeds.</p>
-                                                </div>
-                                                <div class="_pro_card">
-                                                    <h3>Thursday | <span>May 26</span></h3>
-                                                    <p>Vegan</p>
-                                                </div>
+                                                                
+                                                                        ),
+                                                                        )
+                                                                        
+                                                                ));  
+                                                    if (have_posts()) :  while (have_posts()) : the_post(); ?>
+
+                                                        
+                                                            <div class="_pro_card">
+                                                                <h3><?php   echo get_post_meta( get_the_ID(), 'order_day', true );?> | <span><?php   echo get_post_meta( get_the_ID(), 'order_date', true );?> </span></h3>
+                                                                <p> <?php   $products =  get_post_meta( get_the_ID(), 'product_items', true );
+
+                                                            // print_r($products);
+
+                                                                foreach($products as $product)
+                                                                {
+
+                                                                
+                                                                echo get_the_title( $product ) . " ";
+                                                                }
+                                                                
+                                                                
+                                                                ?></p>
+                                                            </div>
+
+                                                        <?php endwhile; wp_reset_query(); else : ?>
+                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                    <?php endif; ?> 
+	
+                                                
 
                                             </div>
                                         </div>
