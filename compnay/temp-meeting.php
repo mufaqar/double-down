@@ -23,8 +23,7 @@ wp_get_current_user();
                     <?php query_posts(array(
                         'post_type' => 'menu_items',
                         'posts_per_page' => -1,
-                        'order' => 'desc',
-                        'menu_types' => 'accessories'
+                        'order' => 'desc'
                     ));
                     if (have_posts()) :  while (have_posts()) : the_post();
                             $pid = get_the_ID(); ?>
