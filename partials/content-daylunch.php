@@ -32,7 +32,7 @@
     </div>
 
 
-    <div class="d-flex justify-content-between mt-5 mb-4 accessories">
+    <div class="d-flex justify-content-between mt-5 mb-4 #extrafood_<?php echo $this_day; ?>">
                             <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additions</h2>
                             <a href="" class="btn_primary d-flex align-items-center">
                                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/positive.png" alt="">

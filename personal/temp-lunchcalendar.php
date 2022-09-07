@@ -14,7 +14,7 @@ get_header();
                                         <a href="<?php echo home_url('profile/fixed-delivery'); ?>">Fixed Delivery</a>
                                     </div>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                                        <p>A Total of 0 Boxes,<br> Additions you pay: NOK 104</p>
+                                        <p>A Total of  Boxes,<br> Additions you pay: NOK </p>
                                         <div class="calender">
                                             <input type="date" value="<?php echo date("Y-m-d"); ?>" id="date">
                                         </div>
@@ -54,8 +54,8 @@ get_header();
                                                     </div>
                                                 
 
-                                                    <div class="product_card"><button href="" id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                                        onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
+                                                    <div class="product_card"><button id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                                        onmouseover="showCounter(<?php echo $pid ?>)">Select</button>
                                                         <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
                                                             <i class="count-down"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
@@ -244,7 +244,7 @@ get_header();
 
           
                 
-            
+                        
             
                 $.ajax(
                     {

@@ -3,8 +3,6 @@ get_header('company');
 ?>
 <?php include('navigation.php'); ?>
 
-<!-- tabs -->
-
 <div class="tab_wrapper">
         <?php page_title()?>
         <div class='panels'>
@@ -22,10 +20,10 @@ get_header('company');
                     </p>
 
                    <div class="calender_wrapper d-flex justify-content-between align-items-center">
-                   <div class="calender week_calender">
-                                                <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
-                                                <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                                            </div>
+                        <div class="calender week_calender">
+                            <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
+                            <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                        </div>
                         <div class="info">
                             <h6>Total this Week | <span>NOK 0, -</span></h6>                 
                         </div>
@@ -51,18 +49,19 @@ get_header('company');
                                             ?>     <div class="card">
                                                             <form class="dailyfood" id="dailyfood_<?php echo $this_day ?>" action="#">
                                                                 <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
-                                                                <input type="hidden" value="<?php echo $today_date ?>" id="day_<?php echo $this_day ?>" >
-                                                                <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                                                            
-                                                                                <div class="mb-0 d-flex align-items-center">
-                                                                                    <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $this_day?>"
-                                                                                        aria-expanded="true" aria-controls="collapse<?php echo $day?>"
-                                                                                        class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
-                                                                                        <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
-                                                                                    </button>
-                                                                                    <h6 class="text-nowrap mb-0"><div class="message">No1 Booking </div> </h6>
-                                                                                </div>
+                                                                        <input type="hidden" value="<?php echo $today_date ?>" id="date_<?php echo $this_day ?>" >
+                                                                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" > 
+                                                                        <input type="hidden" id="week_<?php echo $this_day ?>" value="<?php echo date("W"); ?>">
+                                                                        <div class="mb-0 d-flex align-items-center">
+                                                                            <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $this_day?>"
+                                                                                aria-expanded="true" aria-controls="collapse<?php echo $day?>"
+                                                                                class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
+                                                                                <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
+                                                                            </button>
+                                                                            <h6 class="text-nowrap mb-0"><div class="message">No1 Booking </div> </h6>
+                                                                        </div>
                                                                     </div>
-                                                                    <div id="collapse<?php echo $this_day?>" aria-labelledby="headingOne" data-parent="#accordionExample"
+                                                                    <div id="collapse<?php echo $this_day?>" aria-labelledby="heading<?php echo $this_day?>" data-parent="#accordionExample"
                                                                         class="collapse show accordion_content">
                                                                         <div class="card-body p-md-5 Fixed_delivery">
                                                                             <?php get_template_part('partials/content', 'daylunch'); ?>
@@ -72,12 +71,7 @@ get_header('company');
                                                     </div><!-- End -->
                                             <?php
                                         }                                
-                                        ?>
-
-
-
-
-                                
+                                        ?>                              
 
 
                                 </div><!-- End -->
@@ -166,7 +160,9 @@ get_header('company');
                              $("#dailyfood_<?php echo $this_day; ?>").submit(function(e) {                
                                 e.preventDefault();  
                                 alert("Day<?php echo $this_day?>");              
-                                var day = jQuery('#day_<?php echo $this_day; ?>').val();
+                                var date = jQuery('#date_<?php echo $this_day; ?>').val();
+                                var weekid = jQuery('#week_<?php echo $this_day; ?>').val();
+                                var usertype = jQuery('#usertype').val();
                                 var uid = jQuery('#uid').val();
                                 var datas = [];
                                 var newdata = [];
@@ -181,12 +177,12 @@ get_header('company');
                                     newdata.push(datas);                  
                                 }); 
                                 
-                                $("#dailyfood_<?php echo $this_day; ?> .product-extra").each(function () {
+                                $("#extrafood_<?php echo $this_day; ?> .product-extra").each(function () {
                                     var pro_id =  $(this).attr('data-id'); 
                                     extraproducts.push({"id" : pro_id});   
                                 }); 
 
-                                fprod.push({"food_item": newdata[0],  "extra_food" : extraproducts , "day" : day , "uid" : uid });
+                                fprod.push({"food_item": newdata[0],  "extra_food" : extraproducts , "date" : date , "uid" : uid ,"weekid" : weekid });
                                 console.log(fprod);                
                                 $.ajax(
                                     {   
@@ -194,9 +190,11 @@ get_header('company');
                                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                                         data: {
                                             action: "dailyfood",
-                                            day : day,
-                                            menu_items : fprod,  
-                                            uid : uid                
+                                            date : date,
+                                            menu_items : menu_items,   
+                                            weekid : weekid,
+                                            usertype : usertype,  
+                                            uid : uid,               
                                         
                                         },   
                                         success: function(data){  
