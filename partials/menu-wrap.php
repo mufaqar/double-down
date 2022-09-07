@@ -3,16 +3,18 @@
                         <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                             <h2>This week's Vegetarian menu</h2>
                             <div class="calender week_calender">
-                            <input type="text" id="weekPicker3" value="<?php echo date("Y-W"); ?>">
+                            <form action="#top" method="GET">
+                            <input type="text" class="date" id="weekPicker3" value="<?php echo date("Y-W"); ?>">
                             <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+</form>
                         </div>
                        </div>
                         <div class="catering_card_wrapper">
                             <?php query_posts(array(
                                 'post_type' => 'menu_items',
-                                'posts_per_page' => 5,
+                                'posts_per_page' => -1,
                                 'order' => 'desc',
-                                'menu_food_type' => 'vegetarian'
+                                'menu_food_type' => 'wrap'
                             )); 
                             if (have_posts()) :  while (have_posts()) : the_post(); ?>
                                 <div class="catering_card _pro_salat">
@@ -69,3 +71,7 @@
                         </div>
 
                     </div>
+
+
+
+                    

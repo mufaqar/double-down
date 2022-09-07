@@ -72,9 +72,12 @@ get_header();
 
 
 <script>
-    // order menu toggle 
-
+    
+    
     jQuery(function() {
+
+    
+
         jQuery('#div2').hide();
         jQuery('#div3').hide();
         jQuery('.showSingle').click(function() {
