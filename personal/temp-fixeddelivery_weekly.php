@@ -19,7 +19,7 @@ get_header('');
                 </div>
 
                 <form class="weeklyfood" id="weeklyfood" action="#" >                 
-                    <h2>Fixed delivery to company</h2>
+                    <h2>Fixed delivery to Personal</h2>
                     <p>Here you can easily choose between or cancel the various lunch options from day
                         to day. If you want to change a fixed subscription, do so <a href="">her.</a>
                     </p>
