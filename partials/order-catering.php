@@ -1,17 +1,17 @@
 
     <div class="custom_container catering_wrapper mt-5 mb-5">
-                 <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                        <div class="catering_heading d-flex align-items-center">
-                            <h2>Catering Orders</h2>
-                            <!-- <div><a href="<?php echo home_url('catering-form'); ?>"><i class="fa-solid fa-plus"></i></a></div> -->
-                        </div>
-                        <!-- <div class="calender">
-                            <form class="showresult" id="showresult" action="" > 
-                            <input type="date" value="" name="qdate" onchange="this.form.submit()">
-                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
-                            </form>
-                            
-                        </div> -->
+                        <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
+                                <div class="catering_heading d-flex align-items-center">
+                                    <h2>Catering Orders</h2>
+                                    <!-- <div><a href="<?php echo home_url('catering-form'); ?>"><i class="fa-solid fa-plus"></i></a></div> -->
+                                </div>
+                                    <!-- <div class="calender">
+                                        <form class="showresult" id="showresult" action="" > 
+                                        <input type="date" value="" name="qdate" onchange="this.form.submit()">
+                                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
+                                        </form>
+                                        
+                                    </div> -->
                         </div>
                         <div class="catering_card_wrapper">
                                 <?php 
@@ -95,7 +95,7 @@
 
                         </div>
     
-                  </div>
     </div>
+   
             
 
