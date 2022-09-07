@@ -131,6 +131,7 @@ function weeklyfood_byday()
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$weekid = $_POST['weekid'];
+	$tdate = $_POST['tdate'];
 
 
 	$post = array(
@@ -142,6 +143,7 @@ function weeklyfood_byday()
 	$user_id = wp_insert_post($post);
 
 	add_post_meta($user_id, 'week_id', $weekid, true);
+	add_post_meta($user_id, 'order_date', $tdate, true);
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Fixed Day', true);
 	add_post_meta($user_id, 'user_type', $usertype, true);
@@ -149,15 +151,17 @@ function weeklyfood_byday()
 
 	
 
-	
+	$product_items = array();
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
 		$menu_item = $menu_item[1];
 		$price =  get_post_meta($product_id, 'menu_item_price', true);
 		$total_price = $price * $menu_item;
-		add_post_meta($user_id, 'total_price', $total_price, true);
-		add_post_meta($user_id, 'productid-' . $product_id, $menu_item, true);
+		add_post_meta($user_id, 'total_price', $total_price, true);		
+		$product_items[] = $product_id;
 	}
+
+	add_post_meta($user_id, 'product_items', $product_items);
 
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);

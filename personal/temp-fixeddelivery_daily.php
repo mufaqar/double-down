@@ -57,7 +57,8 @@ get_header('');
                         <div class="product_wrapper row mb-4">
                                 <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >  
-                                <input type="hidden" value="Personal" id="usertype" >      
+                                <input type="hidden" value="Personal" id="usertype" >   
+                                <input type="hidden" value="<?php echo date("Y-m-d"); ?>" id="tdate" >      
 
                         
                             <?php query_posts(array(
@@ -235,6 +236,9 @@ get_header('');
                 var usertype = jQuery('#usertype').val();
                 var uid = jQuery('#uid').val();
                 var sel_day = jQuery('input[name="sel_day"]:checked').val();
+                var tdate = jQuery('#tdate').val();
+
+                
                 var datas = [];
                         var newdata = [];
                         $("#weeklyfood_daily .product-quantity").each(function () {
@@ -268,7 +272,8 @@ get_header('');
                             menu_items : menu_items,   
                             weekid : weekid,
                             usertype : usertype,  
-                            uid : uid,                  
+                            uid : uid,  
+                            tdate : tdate                
                         
                         },   
                         success: function(data){                      
