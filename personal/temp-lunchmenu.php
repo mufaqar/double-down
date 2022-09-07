@@ -1,7 +1,6 @@
 <?php /* Template Name: Personal-LunchMenu  */
 get_header();
 ?>
-
 <?php include('navigation.php'); ?>
 <div class="tab_wrapper">
     <?php page_title() ?>

@@ -9,10 +9,10 @@
                         </div>
                         <div class="catering_card_wrapper">
                             <?php query_posts(array(
-                                'post_type' => 'menu_items',
+                                'post_type' => 'menus',
                                 'posts_per_page' => -1,
                                 'order' => 'desc',
-                                'menu_food_type' => 'salad-lunch'
+                                'menus_type' => 'salad-lunch'
                             )); 
                             if (have_posts()) :  while (have_posts()) : the_post();
                             $date = get_field('date'); ?>
