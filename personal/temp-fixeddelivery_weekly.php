@@ -461,6 +461,19 @@ get_header('');
                                 }                     
                         newdata.push(datas);
                         });
+
+                        $("#weeklyfood .product-quantity").each(function () {
+                        var productid =  $(this).data('id');
+                        var value = $(this).val() ;
+                            if(value >1) {
+                                datas.push( [productid, $(this).val() ]);   
+                                }                     
+                        newdata.push(datas);
+                        });
+
+
+
+
                     // alert(newdata[0]);
                         var menu_items = newdata[0];
                   
@@ -468,7 +481,7 @@ get_header('');
                     //  alert(postid);          
                                 
                 var weekdays = weekdays;	             
-                var menu_items = menu_items;   
+              
 
                 console.log(weekdays);
                 
@@ -493,7 +506,7 @@ get_header('');
                                         alert(data.message);
                             }  
                             else {
-                            $(".alertmessage").css("display", "flex");
+                          //  $(".alertmessage").css("display", "flex");
                         
                             }      
                     }

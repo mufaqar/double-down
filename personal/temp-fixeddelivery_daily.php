@@ -186,17 +186,6 @@ get_header('');
 
 
 
-    
-
-  
-
-
-
-
-
-
-
-
 <?php get_footer();?>
 
 
@@ -218,9 +207,6 @@ get_header('');
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
         {   
-            
-           
-
             $('._cross').click(function(){
            
                 $(".hideme").css("display", "none");
@@ -228,9 +214,7 @@ get_header('');
          
                     	
             $("#weeklyfood_daily").submit(function(e) { 
-                e.preventDefault();  
-
-             
+                e.preventDefault();              
                
                 var weekid = jQuery('#weekid').val();
                 var usertype = jQuery('#usertype').val();
@@ -258,6 +242,8 @@ get_header('');
                         
                     var menu_items = menu_items;   
 
+
+
          
                 
             
@@ -282,7 +268,7 @@ get_header('');
                                         alert(data.message);
                             }  
                             else {
-                            $(".alertmessage").css("display", "flex");
+                           $(".alertmessage").css("display", "flex");
                         
                             }      
                     }

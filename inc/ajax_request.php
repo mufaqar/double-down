@@ -69,6 +69,21 @@ function weeklyfood()
 
 
 
+	print "<pre>";
+	//print_r($weekdays);
+	//print_r($menu_items);
+
+
+
+
+
+
+
+
+
+
+
+
 	$post = array(
 		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
@@ -76,13 +91,45 @@ function weeklyfood()
 		'post_author' => $uid
 	);
 	$user_id = wp_insert_post($post);
-	foreach ($weekdays as $weekday) {
-		$day = $weekday;
-		add_post_meta($user_id, $day, $day, true);
+
+
+
+	$food_items = [];
+	foreach ($menu_items as $menu_item) {
+		$product_id = $menu_item[0];
+		$menu_item = $menu_item[1];
+		//$price =  get_post_meta($product_id, 'menu_item_price', true);
+		//$total_price = ($price * $menu_item) * $t_day;
+		//add_post_meta($user_id, 'total_price', $total_price, true);
+		//add_post_meta($user_id, 'productid-' . $product_id, $menu_item, true);
+		$food_items[$product_id] = $menu_item;
+	
 	}
 
-	$t_day = count($weekdays);
-	add_post_meta($user_id, 'week_id', $weekid, true);
+	$days = [];
+	$newday = [];
+	foreach ($weekdays as  $weekday) {
+		$day = $weekday;
+		
+		$days[$day]= $food_items;
+	
+	
+	
+	
+	}
+
+
+
+
+	//print_r($days);
+
+	print "<pre>";
+	//rint_r($days);
+
+	add_post_meta($user_id, 'food_order', $days, true);
+
+	$t_day = count($days);
+	add_post_meta($user_id, 'order_week', $weekid, true);
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Weekly', true);
 
@@ -90,13 +137,6 @@ function weeklyfood()
 	add_post_meta($user_id, 'user_type', $usertype, true);
 
 
-
-
-
-
-
-
-	add_post_meta($user_id, 'total_days', $t_day, true);
 
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
@@ -133,35 +173,54 @@ function weeklyfood_byday()
 	$weekid = $_POST['weekid'];
 	$tdate = $_POST['tdate'];
 
+	$user_id = 550;
 
-	$post = array(
-		'post_title'    => "OHYSX-" . rand(10, 100),
-		'post_status'   => 'publish',
-		'post_type'     => 'orders',
-		'post_author' => $uid
-	);
-	$user_id = wp_insert_post($post);
-
-	add_post_meta($user_id, 'week_id', $weekid, true);
-	add_post_meta($user_id, 'order_date', $tdate, true);
-	add_post_meta($user_id, 'order_status', 'Pending', true);
-	add_post_meta($user_id, 'order_type', 'Fixed Day', true);
-	add_post_meta($user_id, 'user_type', $usertype, true);
-	add_post_meta($user_id, 'order_day', $sel_day, true);
+	update_post_meta($user_id, 'order_status', 'Testing');
 
 	
-
+		
+	
+	$daily_food = [];
 	$product_items = array();
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
-		$menu_item = $menu_item[1];
-		$price =  get_post_meta($product_id, 'menu_item_price', true);
-		$total_price = $price * $menu_item;
-		add_post_meta($user_id, 'total_price', $total_price, true);		
-		$product_items[] = $product_id;
+		$menu_item = $menu_item[1];		
+		$product_items[$product_id] = $menu_item;
+		$daily_food[$sel_day] = $product_items;
 	}
 
-	add_post_meta($user_id, 'product_items', $product_items);
+
+	$food_orderd_data = array();
+	$food_orderd_data = get_post_meta( $user_id, 'food_order' , true);
+
+
+
+
+	if(array_key_exists($sel_day, $food_orderd_data))
+	{
+
+		unset($food_orderd_data[$sel_day]);
+		$food_orderd_data[$sel_day] = array_shift($daily_food);		
+		update_post_meta($user_id, 'food_order', $food_orderd_data);
+		print_r($food_orderd_data);
+	
+	
+	}
+	else {
+
+		//add_post_meta($user_id, 'food_order', $daily_food,true);
+		//update_post_meta($user_id, 'food_order', $food_orderd_data);	
+
+		
+
+
+
+
+		
+	}
+
+
+
 
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);
