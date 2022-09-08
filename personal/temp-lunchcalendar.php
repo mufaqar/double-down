@@ -34,6 +34,12 @@ $query_date = $_GET['date'];
                                         <?php 
 
                                     if($query_date == '') {
+                                        query_posts(array(
+                                            'post_type' => 'menu_items',
+                                            'posts_per_page' => -1,
+                                            'order' => 'desc',
+                                            'menu_types' => 'lunch-boxes'                                                                     
+                                            )); 
                                         
                                         
                                         

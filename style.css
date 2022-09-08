@@ -3304,21 +3304,26 @@ body.page-template-temp-landing {
 .week_calender {
   position: relative;
 }
-.week_calender input{
+.week_calender input {
   border: none;
- padding-left: 1rem;
+  padding-left: 1rem;
   outline: none;
 }
-.week_calender .wc-icon{
+.week_calender .wc-icon {
   position: absolute;
   right: 1rem;
-  top:.25rem;
+  top: 0.25rem;
   color: var(--green);
   font-size: 1.2rem;
 }
 
+.current-page-ancestor a {
+  background: var(--green);
+}
 
-
+.first-menu-item a {
+  background: none !important;
+}
 
 /* **************************************
 ***********   >1400px  ****************
