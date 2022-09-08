@@ -17,7 +17,7 @@ get_header('company');
 
             <h2>Business lunch calendar</h2>
             <p>Here you can easily choose between or cancel the various lunch options from day
-                to day. If you want to change a fixed subscription, do so <a href="">her.</a>
+                to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
             </p>
 
             <div class="calender_wrapper d-flex justify-content-between align-items-center">
