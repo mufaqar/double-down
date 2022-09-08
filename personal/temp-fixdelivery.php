@@ -13,7 +13,7 @@
                 <div class="calender_wrapper mt-5">
                     <h3>Fixed Delivery</h3>
                     <p>Here you change your regular lunch delivery from us. If you only want to cancel
-                        or change the type of lunch on certain days, do so <span>her.</span></p>
+                        or change the type of lunch on certain days, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a></p>
                     <br>
                     <hr>
                 </div>

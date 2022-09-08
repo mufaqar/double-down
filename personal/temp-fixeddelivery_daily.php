@@ -23,7 +23,7 @@ get_header('');
                 <form class="weeklyfood_daily" id="weeklyfood_daily" action="#" >                
                     <h2>Fixed delivery to Personal</h2>
                     <p>Here you can easily choose between or cancel the various lunch options from day
-                        to day. If you want to change a fixed subscription, do so <a href="">her.</a>
+                        to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
                     </p>
 
                     <div class="selected_day mt-3">
