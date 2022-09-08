@@ -76,9 +76,7 @@ add_filter("manage_edit-orders_sortable_columns", "my_column_register_sortable" 
 
 function  page_title() {
 
-    ?>
-    
-    <div class='toggle mb-5'>
+    ?> <div class='toggle mb-5'>
             <div class='tabs'>
                 <div class='tab active'><?php the_title()?></div>           
             </div>

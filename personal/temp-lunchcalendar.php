@@ -7,7 +7,7 @@ $query_date = $_GET['date'];
 <?php include('navigation.php'); ?>
 
 <div class="tab_wrapper">
-<?php page_title() ;  echo $query_date;?>
+<?php page_title() ;  //echo $query_date;?>
                     <div class="custom_container">
                           
                             <div class="row">

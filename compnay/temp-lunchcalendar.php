@@ -13,7 +13,7 @@ get_header('company');
                     <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="_active">Lunch Calendar</a>
                     <a href="<?php echo home_url('/company-profile/fixed-delivery'); ?>" class="">Fixed Delivery</a>
                 </div>
-</div>
+        </div>
 
             <h2>Business lunch calendar</h2>
             <p>Here you can easily choose between or cancel the various lunch options from day
