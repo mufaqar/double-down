@@ -88,10 +88,6 @@ function weeklyfood()
 			$days[$day]= $food_items;			
 		}
 
-
-
-
-
 	// check if order already placed by week
 	$query_meta = array(
         'posts_per_page' => -1,
@@ -109,15 +105,13 @@ function weeklyfood()
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 		
 		// updated Existing Food order Weekly 
-		$updated_post_id = get_the_ID();
-		update_post_meta($updated_post_id, 'order_status', 'Updated');
+		$updated_post_id = get_the_ID();	
 		update_post_meta($updated_post_id, 'food_order', $days);
-		echo "Updated Query";	
-		print_r($days);	
+		echo "Updated Query";		
 
 	endwhile; wp_reset_query(); else : 
 
-			// Insert post as its not exisit 
+	  // Insert post as its not exisit 
 			$postdata = array(
 				'post_title'    => "OHYSX-" . rand(10, 100),
 				'post_status'   => 'publish',
@@ -192,7 +186,6 @@ function weeklyfood_byday()
 		
 		// updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();
-
 		
 		$food_orderd_data = array();
 		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
