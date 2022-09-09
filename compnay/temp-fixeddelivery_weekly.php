@@ -231,13 +231,14 @@ get_header('company');
             // alert(newdata[0]);
             var menu_items = newdata[0];
 
-            console.log(menu_items);
+           // console.log(menu_items);
             //  alert(postid);          
 
             var weekdays = weekdays;
             var menu_items = menu_items;
 
             console.log(weekdays);
+            alert(usertype);
 
 
 
