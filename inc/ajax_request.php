@@ -165,13 +165,7 @@ function weeklyfood_byday()
 	$weekid = $_POST['weekid'];
 	$tdate = $_POST['tdate'];
 
-	$user_id = 550;
 
-	update_post_meta($user_id, 'order_status', 'Testing');
-
-	
-		
-	
 	$daily_food = [];
 	$product_items = array();
 	foreach ($menu_items as $menu_item) {
@@ -180,36 +174,68 @@ function weeklyfood_byday()
 		$product_items[$product_id] = $menu_item;
 		$daily_food[$sel_day] = $product_items;
 	}
+	// check if order already placed by week
+	$query_meta = array(
+        'posts_per_page' => -1,
+        'post_type' => 'orders',
+        'meta_query' => array(
+            array(
+                'key' => 'order_week',
+                'value' => $weekid,
+                'compare' => '='
+            ),
+        )
+    );
 
-
-	$food_orderd_data = array();
-	$food_orderd_data = get_post_meta( $user_id, 'food_order' , true);
-
-
-
-
-	if(array_key_exists($sel_day, $food_orderd_data))
-	{
-
-		unset($food_orderd_data[$sel_day]);
-		$food_orderd_data[$sel_day] = array_shift($daily_food);		
-		update_post_meta($user_id, 'food_order', $food_orderd_data);
-		print_r($food_orderd_data);
-	
-	
-	}
-	else {
-
-		//add_post_meta($user_id, 'food_order', $daily_food,true);
-		//update_post_meta($user_id, 'food_order', $food_orderd_data);	
+    $postinweek = new WP_Query($query_meta);
+	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
+		
+		// updated Existing Food order Weekly 
+		$updated_post_id = get_the_ID();
 
 		
-
-
-
-
+		$food_orderd_data = array();
+		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
+		if(array_key_exists($sel_day, $food_orderd_data))
+		{
+			unset($food_orderd_data[$sel_day]);
+			$food_orderd_data[$sel_day] = array_shift($daily_food);		
+			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
+			print_r($food_orderd_data);
 		
-	}
+		
+		}
+		else {		
+
+			$food_orderd_data[$sel_day] = array_shift($daily_food);	
+			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
+			print_r($food_orderd_data);
+			
+			
+
+			}
+
+	endwhile; wp_reset_query(); else : 
+
+		// Insert post as its not exisit 
+
+		die("No post Found");
+		$postdata = array(
+			'post_title'    => "OHYSX-" . rand(10, 100),
+			'post_status'   => 'publish',
+			'post_type'     => 'orders',
+			'post_author' => $uid
+		);
+		$user_id = wp_insert_post($postdata);
+		add_post_meta($user_id, 'food_order', $days, true);
+		//$t_day = count($days);
+		add_post_meta($user_id, 'order_week', $weekid, true);
+		add_post_meta($user_id, 'order_status', 'Pending', true);
+		add_post_meta($user_id, 'order_type', 'Weekly', true);
+		add_post_meta($user_id, 'user_type', $usertype, true);
+		echo "New Post Added";
+
+endif;
 
 
 
