@@ -15,7 +15,7 @@
                                                 <p style="margin-left: .5rem; color:#5FB227">My Orders</p></a>
                                         </div>
                                         <div class="info d-flex align-items-center">
-                                            <h6>Pilestredet 75C | <span>Fixed 5 days a week</span></h6>
+                                            <h6>Pilestredet 75C | <span>Fixed 5 days a week </span></h6>
 
                                             <div class="calender week_calender">
                                                 <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
@@ -24,13 +24,11 @@
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">
-
                                         <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">
-                                                    <?php 
+                                              <?php 
                                                     $current_week =  date("W"); 
-
-                                                   
+                                                    $current_year =  date("Y");
                                                     $query_meta = array(
                                                         'posts_per_page' => -1,
                                                         'post_type' => 'orders',
@@ -54,43 +52,25 @@
 
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
-                                                    {
-
-                                                       // print_r($order_data);
-                                                      //  echo $key;
-
-                                                      //echo $order_data;
-
-
-                                                   
-                                                    ?>
+                                                      {  ?>
 
                                                         
                                                             <div class="_pro_card">
-                                                                <h3><?php echo  $key ?> | <span><?php echo "key Date "?> </span></h3>
-                                                                <p> <?php  
+                                                                <h3><?php echo  $key ?>  <span><?php //echo "key Date "?> </span></h3>
+                                                                <p> <?php   foreach($order_data as $product_id => $product_qty)
+                                                                            {      
+                                                                                
+                                                                                //echo $product_id . " : " . $product_qty . "<br/>";
 
-                                                            // print_r($products);
-
-                                                                foreach($order_data as $product_id => $product_qty)
-                                                                {      
-                                                                    
-                                                                    //echo $product_id . " : " . $product_qty . "<br/>";
-
-                                                                   echo  "Product  : " .get_the_title( $product_id) . "  <span>(" .$product_qty .") </span><br/>";
-                                                             
-                                                                }
-                                                                
-                                                                
-                                                                ?></p>
+                                                                            echo  "Product  : " .get_the_title( $product_id) . "  <span>(" .$product_qty .") </span><br/>";
+                                                                        
+                                                                            } ?>
+                                                                </p>
                                                             </div>
 
                                                         <?php   } endwhile; wp_reset_query(); else : ?>
                                                     <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
-                                                    <?php endif; ?> 
-	
-                                                
-
+                                                <?php endif; ?> 
                                             </div>
                                         </div>
                                     </div>
