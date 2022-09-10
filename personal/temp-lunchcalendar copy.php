@@ -222,121 +222,124 @@ $query_date = $_GET['date'];
 </section>
 
 
-
 <?php get_footer()?>
 
-  
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
-
-
-   
-    <script type="text/javascript">  
-
-
-
-jQuery(document).ready(function($) 
-   {   
-
-       $('#date').change(function() {             
-
-           $(this).closest('form').submit();
-
-       });
-
-        $('.date-pick').datepicker( {
-        onSelect: function(date) {
-            alert(date);
-        },
-        selectWeek: true,
-        inline: true,
-        startDate: '01/01/2000',
-        firstDay: 1
-    });
-
-     
-     
-
-       $('._cross').click(function(){
-      
-           $(".hideme").css("display", "none");
-       });          
-    
-                   
-       $("#weeklyfood").submit(function(e) { 
-           e.preventDefault();  
-           var weekid = jQuery('#weekid').val();
-           var usertype = jQuery('#usertype').val();
-           var uid = jQuery('#uid').val();
-           var date = jQuery('#date').val();
-          
-           
-           var datas = [];
-                   var newdata = [];
-                   $("#weeklyfood .product-quantity").each(function () {
-                   var productid =  $(this).data('id');
-                   var value = $(this).val() ;
-                       if(value >1) {
-                           datas.push( [productid, $(this).val() ]);   
-                           }                     
-                   newdata.push(datas);
-                   });
-               // alert(newdata[0]);
-                   var menu_items = newdata[0];
-             
-                   console.log(menu_items);
-               //  alert(postid);          
-                           
-                      
-           var menu_items = menu_items;   
-
-     
-           
-                   
-       
-           $.ajax(
-               {
-                   type:"POST",
-                   url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                   data: {
-                       action: "dailyfood",
-                       date : date,
-                       menu_items : menu_items,   
-                       weekid : weekid,
-                       usertype : usertype,  
-                       uid : uid,                  
-                   
-                   },   
-                   success: function(data){                      
-                   
-                       if(data.code==0) {
-                                   alert(data.message);
-                       }  
-                       else {
-                       $(".alertmessage").css("display", "flex");
-                   
-                       }      
-               }
-           
-           });
-       }); 
-
-      
-
-     
-
-       
-
-
-   });
-
-
-
-</script>
-
-
   
    
 </body>
 
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <script type="text/javascript">  
+
+
+
+     jQuery(document).ready(function($) 
+        {   
+
+            $('#date').change(function() {             
+
+                $(this).closest('form').submit();
+  
+            });
+
+            $('.datepicker').datepicker()
+          
+
+            $('._cross').click(function(){
+           
+                $(".hideme").css("display", "none");
+            });          
+         
+                    	
+            $("#weeklyfood").submit(function(e) { 
+                e.preventDefault();  
+                var weekid = jQuery('#weekid').val();
+                var usertype = jQuery('#usertype').val();
+                var uid = jQuery('#uid').val();
+                var date = jQuery('#date').val();
+               
+                
+                var datas = [];
+                        var newdata = [];
+                        $("#weeklyfood .product-quantity").each(function () {
+                        var productid =  $(this).data('id');
+                        var value = $(this).val() ;
+                            if(value >1) {
+                                datas.push( [productid, $(this).val() ]);   
+                                }                     
+                        newdata.push(datas);
+                        });
+                    // alert(newdata[0]);
+                        var menu_items = newdata[0];
+                  
+                        console.log(menu_items);
+                    //  alert(postid);          
+                                
+                           
+                var menu_items = menu_items;   
+
+          
+                
+                        
+            
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "dailyfood",
+                            date : date,
+                            menu_items : menu_items,   
+                            weekid : weekid,
+                            usertype : usertype,  
+                            uid : uid,                  
+                        
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                            $(".alertmessage").css("display", "flex");
+                        
+                            }      
+                    }
+                
+                });
+            }); 
+
+           
+
+          
+
+            
+
+
+        });
+
+
+    
+	</script>
+
+
+
+
+
+
+
