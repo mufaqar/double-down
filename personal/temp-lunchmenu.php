@@ -62,21 +62,49 @@ get_header();
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
 <script>
-    convertToWeekPicker($("#weekPicker1"));
+    convertToWeekPicker($("#date"));
     convertToWeekPicker($("#weekPicker2"));
     convertToWeekPicker($("#weekPicker3"));
 </script>
 
+<script>  
+
+jQuery(document).ready(function($) 
+        {   
+
+
+        var startDate,
+        endDate;
+        
+      $('#weekpicker').datepicker({
+        autoclose: true,
+        format :'mm/dd/yyyy',
+        forceParse :false
+    }).on("changeDate", function(e) {
+        alert("sasdfasfd");
+        //console.log(e.date);
+        var date = e.date;
+        startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
+        endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay()+6);
+        //$('#weekpicker').datepicker("setDate", startDate);
+        $('#weekpicker').datepicker('update', startDate);
+        $('#weekpicker').val((startDate.getMonth() + 1) + '/' + startDate.getDate() + '/' +  startDate.getFullYear() + ' - ' + (endDate.getMonth() + 1) + '/' + endDate.getDate() + '/' +  endDate.getFullYear());
+    });
+        
+
+
+            $('#date').on('dp.change', function (e) { 
+                alert("asdfasdf");
+                });
+
+
+           
 
 
 
-<script>
-    
-    
-    jQuery(function() {
 
-    
 
+        jQuery(function() {  
         jQuery('#div2').hide();
         jQuery('#div3').hide();
         jQuery('.showSingle').click(function() {
@@ -84,7 +112,9 @@ get_header();
             $(this).addClass("_active");
             jQuery('.targetDiv').hide();
             jQuery('#div' + $(this).attr('target')).show();
-
         });
     });
+
+});
+   
 </script>

@@ -33,26 +33,43 @@ $query_date = $_GET['date'];
                                     <div class="catering_card_wrapper">
                                         <?php 
 
-                                    if($query_date == '') {
+                                    if($query_date != '') {
+
+                                      
+                                        echo $query_date;
                                         query_posts(array(
                                             'post_type' => 'menu_items',
                                             'posts_per_page' => -1,
-                                            'order' => 'desc',
-                                            'menu_types' => 'lunch-boxes'                                                                     
-                                            )); 
-                                        
+                                            'order' => 'desc',                                                                                                       
+                                            'meta_query' => array(
+                                                array(
+                                                    'key' => 'date',
+                                                    'value' => $query_date,
+                                                    'compare' => 'LIKE'
+                                                ),
+                                            )
+                                        ));
                                         
                                         
                                         
                                             }
                                             else {
 
+                                                $current_date =   date("Y-m-d");                                                                                           
+
                                                 query_posts(array(
                                                     'post_type' => 'menu_items',
                                                     'posts_per_page' => -1,
                                                     'order' => 'desc',
-                                                    'menu_types' => 'lunch-boxes'                                                                     
-                                                    )); 
+                                                    'menu_types' => 'lunch-boxes' ,                                                                    
+                                                    'meta_query' => array(
+                                                        array(
+                                                            'key' => 'date',
+                                                            'value' => $current_date,
+                                                            'compare' => 'LIKE'
+                                                        ),
+                                                    )
+                                                ));
 
 
                                             }
@@ -237,12 +254,11 @@ $query_date = $_GET['date'];
      jQuery(document).ready(function($) 
         {   
 
-            $('#date').change(function() {
-                alert("asdfasdf");
+            $('#date').change(function() {             
 
                 $(this).closest('form').submit();
   
-});
+            });
 
             $('.datepicker').datepicker()
           
