@@ -25,7 +25,7 @@ function set_custom_edit_orders_columns($columns) {
    
     $columns['order_type'] = 'Order Type';
     $columns['user_type'] = 'User Type';
-    $columns['order_price'] = 'Order Price';
+    $columns['order_total'] = 'Order Price';
     $columns['order_status'] = 'Payment Status';
     return $columns;    
 }
@@ -56,9 +56,9 @@ function custom_orders_column( $column, $post_id ) {
           }
       break; 
       break;  
-        case 'order_price' :
-          if(get_field( "total_price", $post_id )) {
-              echo " NOK " .get_field( "total_price", $post_id );
+        case 'order_total' :
+          if(get_field( "order_total", $post_id )) {
+              echo " NOK " .get_field( "order_total", $post_id );
           } else {
               echo 0;
           }
