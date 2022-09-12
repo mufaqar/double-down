@@ -1,13 +1,25 @@
 <?php /* Template Name: Personal-LunchCalednar  */ 
 get_header();
 
-$query_date = $_GET['date']; 
+$query_date = $_REQUEST['date']; 
+$cal_date = $_REQUEST['send'];
+if($cal_date != '' )
+{
+
+   $query_date = $cal_date;
+
+}
+
+
+
 
 ?>
 <?php include('navigation.php'); ?>
 
 <div class="tab_wrapper">
-<?php page_title() ;  //echo $query_date;?>
+<?php page_title() ;
+
+?>
                     <div class="custom_container">
                           
                             <div class="row">
@@ -17,10 +29,63 @@ $query_date = $_GET['date'];
                                         <a href="<?php echo home_url('profile/fixed-delivery'); ?>">Fixed Delivery</a>
                                     </div>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                                        <p>A Total of  Boxes,<br> Additions you pay: NOK </p>
+                                   <?php        if($query_date != '') {
+                                                    $query_order = array(
+                                                        'post_type' => 'orders',
+                                                        'posts_per_page' => -1,
+                                                        'order' => 'desc',                                                                                                       
+                                                        'meta_query' => array(
+                                                            array(
+                                                                'key' => 'order_day',
+                                                                'value' => $query_date,
+                                                                'compare' => '='
+                                                            ),
+                                                        )
+                                                    );
+                                                    
+                                                    
+                                                    
+                                                        }
+                                                        else {
+
+                                                            $current_date =   date("Y-m-d");                                                                                           
+
+                                                            $query_order = array(
+                                                                'post_type' => 'orders',
+                                                                'posts_per_page' => -1,
+                                                                'order' => 'desc',
+                                                                                                                    
+                                                                'meta_query' => array(
+                                                                    array(
+                                                                        'key' => 'order_day',
+                                                                        'value' => $current_date,
+                                                                        'compare' => '='
+                                                                    ),
+                                                                )
+                                                            );
+
+
+                                                        }
+                                            $postData = new WP_Query($query_order);
+                                            if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
+
+                                           $post_id = get_the_ID();
+
+                                         // print "<pre>";
+                                         //   print_r($query_orders);
+                                            
+                                            
+                                            ?>
+                                        
+                                        <p>A Total of Boxes,<br> Additions you pay: <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?> NOK </p>
+
+                                        <?php endwhile; wp_reset_query(); else : ?>
+                                            <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
+                                            <?php endif; ?>
                                        
                                             <div class="calender">
-                                                <form action="" method="GET" id="dateform">
+                                                <form action="" method="POST" id="dateform">
+                                                <input type="hidden" id="send" name="send" />
                                                      <input type="date" name="date" value="<?php if($query_date == '') { echo date("Y-m-d"); } else echo $query_date; ?>" id="date">
                                                 </form>
                                             </div>
@@ -31,46 +96,51 @@ $query_date = $_GET['date'];
                                     </div>
                                     <form class="weeklyfood" id="weeklyfood" action="#" >   
                                     <div class="catering_card_wrapper">
-                                        <?php 
+                                    <?php 
 
-                                    if($query_date != '') {
-                                        query_posts(array(
-                                            'post_type' => 'menu_items',
-                                            'posts_per_page' => -1,
-                                            'order' => 'desc',                                                                                                       
-                                            'meta_query' => array(
-                                                array(
-                                                    'key' => 'date',
-                                                    'value' => $query_date,
-                                                    'compare' => 'LIKE'
-                                                ),
-                                            )
-                                        ));
-                                        
-                                        
-                                        
-                                            }
-                                            else {
-
-                                                $current_date =   date("Y-m-d");                                                                                           
-
-                                                query_posts(array(
+                                            if($query_date != '') {
+                                                $query_meta = array(
                                                     'post_type' => 'menu_items',
                                                     'posts_per_page' => -1,
-                                                    'order' => 'desc',
-                                                    'menu_types' => 'lunch-boxes' ,                                                                    
+                                                    'order' => 'desc',                                                                                                       
                                                     'meta_query' => array(
                                                         array(
                                                             'key' => 'date',
-                                                            'value' => $current_date,
+                                                            'value' => $query_date,
                                                             'compare' => 'LIKE'
                                                         ),
                                                     )
-                                                ));
+                                                );                                             
+                                                
+                                                
+                                                    }
+                                                    else {
+
+                                                        $current_date =   date("Y-m-d");                                                                                           
+
+                                                        $query_meta = array(
+                                                            'post_type' => 'menu_items',
+                                                            'posts_per_page' => -1,
+                                                            'order' => 'desc',
+                                                            'menu_types' => 'lunch-boxes' ,                                                                    
+                                                            'meta_query' => array(
+                                                                array(
+                                                                    'key' => 'date',
+                                                                    'value' => $current_date,
+                                                                    'compare' => 'LIKE'
+                                                                ),
+                                                            )
+                                                        );
 
 
-                                            }
-                                            if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
+                                                    }
+
+
+                                            $postinweek = new WP_Query($query_meta);
+		                                    if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
+                                        
+
+                                            $pid = get_the_ID(); ?>
                                             
                                             <div class="catering_card _pro_salat ">
                                                 <h3><?php the_title()?></h3>
@@ -124,15 +194,25 @@ $query_date = $_GET['date'];
                                     </div>        
                                 </div>
                                 <div class="col-md-4 mt-5">
-                                    <aside class="_aside">
-                                        <div class="app _calender">
-                                            <div class="app__main">                                            
-                                               
-                                            </div>
-                                        </div>
+                                <aside class="_aside">
+                    <div class="app _calender">
+                        <div class="app__main">
+                            <div class="calendar">
+                                <!-- <input type="text" class="form-control">
+                                <div id="calendar" class="datepicker-days"></div> -->
+                                <div id="date-datepicker">
+                                    <div>
+                                        <form action="" method="POST" id="myform">
+                                            <input type="hidden" name="date" value="" id="input_date">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                    
-                                    </aside>
+
+                </aside>
                                 </div>
                             </div>
 
@@ -222,12 +302,21 @@ $query_date = $_GET['date'];
 
 
 
+
+
 <?php get_footer()?>
 
   
-  
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
+
+
     <script type="text/javascript">  
 
 
@@ -240,6 +329,25 @@ jQuery(document).ready(function($)
            $(this).closest('form').submit();
 
        });
+
+      
+
+       $('#date-datepicker div').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            //highlight: '2022-09-14',
+            clearBtn: false
+        });
+        $("#date-datepicker div").on("changeDate", function(event) {
+            $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
+            console.log($('#date-datepicker div').datepicker('getFormattedDate'))
+            var date = $('#input_date').val();
+            document.getElementById("send").value = date;
+            $("#dateform").submit();
+           // alert(date)
+
+
+        });
      
 
        $('._cross').click(function(){
@@ -267,8 +375,7 @@ jQuery(document).ready(function($)
             });
             // alert(newdata[0]);
             var menu_items = newdata[0];             
-            console.log(menu_items);
-            alert(menu_items);          
+            console.log(menu_items);              
                         
                       
            var menu_items = menu_items;   
@@ -296,7 +403,7 @@ jQuery(document).ready(function($)
                                    alert(data.message);
                        }  
                        else {
-                      // $(".alertmessage").css("display", "flex");
+                      $(".alertmessage").css("display", "flex");
                    
                        }      
                }
