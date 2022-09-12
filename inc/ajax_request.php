@@ -256,15 +256,85 @@ function dailyfood()
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$weekid = $_POST['weekid'];
-	$usertype = $_POST['usertype'];
-
-	
-
-
-	
+	$usertype = $_POST['usertype'];	
 	$author_obj = get_user_by('id', $uid);
 	$author =  $author_obj->display_name;
 
+	
+	$tdate = new DateTime($day);
+	$week = $tdate->format("W");
+	
+
+
+
+	    $food_items = [];
+		foreach ($menu_items as $menu_item) {
+			$product_id = $menu_item[0];
+			$menu_item = $menu_item[1];
+			//$price =  get_post_meta($product_id, 'menu_item_price', true);
+			//$total_price = ($price * $menu_item) * $t_day;
+			//add_post_meta($user_id, 'total_price', $total_price, true);
+			//dd_post_meta($user_id, 'productid-' . $product_id, $menu_item, true);
+			$food_items[$product_id] = $menu_item;
+		
+		}
+
+		$days = [];
+		$days[$day] = $food_items;
+
+		print_r($days);
+
+
+		
+
+
+
+	// check if order already placed by week
+	$query_meta = array(
+        'posts_per_page' => -1,
+        'post_type' => 'orders',
+        'meta_query' => array(
+            array(
+                'key' => 'order_day',
+                'value' => $day,
+                'compare' => '='
+            ),
+        )
+    );
+
+    $postinweek = new WP_Query($query_meta);
+	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
+
+
+	// updated Existing Food order Weekly 
+	$updated_post_id = get_the_ID();	
+	update_post_meta($updated_post_id, 'food_order', $days);	
+
+		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
+		$price_arr = [];
+
+		foreach($orders_price[$day] as $index => $order_price)
+		{		
+		$price =  get_post_meta($index, 'menu_item_price', true);
+		$price_arr[] = $price*$order_price;
+		
+		}
+		$order_total = array_sum($price_arr);
+		update_post_meta($updated_post_id, 'order_total', $order_total);	
+		
+
+
+	if (!is_wp_error($user_id)) {
+		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
+	}
+
+endwhile; wp_reset_query(); else : 
+
+	// Insert post as its not exisit 
+
+	
 	$post = array(
 		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
@@ -276,28 +346,54 @@ function dailyfood()
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Day', true);
 	add_post_meta($user_id, 'user_type', 'Personal', true);
+	add_post_meta($user_id, 'order_week', $week, true);
+	add_post_meta($user_id, 'food_order', $days);
 
 
-	$items = array();
-	foreach ($menu_items as $menu_item) {
-		$product_id = $menu_item[0];
-		$menu_item = $menu_item[1];
-		$price =  get_post_meta($product_id, 'menu_item_price', true);
-		$total_price_item = $price * $menu_item;
-		add_post_meta($user_id, 'productid_' . $product_id, $menu_item, true);
-		add_post_meta($user_id, 'menu_item_price_' . $product_id, $total_price_item, true);
-		$items[] = $total_price_item;
-	}
+	    $orders_price = get_post_meta($user_id, 'food_order' , true);
+		$price_arr = [];
 
-	$total_price =  array_sum($items);
-	add_post_meta($user_id, 'total_price', $total_price, true);
+		foreach($orders_price[$day] as $index => $order_price)
+		{		
+		$price =  get_post_meta($index, 'menu_item_price', true);
+		$price_arr[] = $price*$order_price;
+		
+		}
+		$order_total = array_sum($price_arr);
+		add_post_meta($user_id, 'order_total', $order_total);	
+
+
+
+
+
+
+
+	die();
+
+
+
+
 	if (!is_wp_error($user_id)) {
+		//sendmail($username,$password);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
 	}
 
-	die;
+
+
+
+
+
+
+endif;
+
+
+
+
+
+
+die;
 }
 
 

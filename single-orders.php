@@ -10,50 +10,25 @@
 
 <?php 
 
+print "<pre>";
 
 
-$food_orders = get_post_meta(get_the_ID(), 'food_order' , true);
 
- print "<pre>";
-print_r($food_orders);
+$orders_price = get_post_meta(get_the_ID(), 'food_order' , true);
 
+print_r($orders_price);
+$price_arr = [];
 
- $a = array("Volvo"=>"XC90","BMW"=>"X5","Toyota"=>"Highlander");
-
-
-if(array_key_exists('Monday', $food_orders))
+foreach($orders_price['2022-09-12'] as $index => $order_price)
 {
 
-    unset($food_orders['Monday']);
-    $food_orders['Monday'] = $a;
-
-    //array_push($myArray, $food_orders);
-
-
+   
+   $price =  get_post_meta($index, 'menu_item_price', true);
+   $price_arr[] = $price;
+   
 }
 
-
-print "<pre>";
-//print_r($food_orders);
-
-
-
-
-
-
-	foreach($food_orders as $key => $forder)
-	{
-
-       // print "<pre>";
-		//print_r($key);
-
-        add_post_meta( get_the_ID(), 'foodorder'.$key, "This is my Value");
-
-
-	}
-
-
-
+echo array_sum($price_arr);
 
 
 

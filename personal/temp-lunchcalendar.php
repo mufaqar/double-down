@@ -20,8 +20,8 @@ $query_date = $_GET['date'];
                                         <p>A Total of  Boxes,<br> Additions you pay: NOK </p>
                                        
                                             <div class="calender">
-                                                <form action="" method="GET">
-                                                     <input type="date" name="date" value="<?php echo date("Y-m-d"); ?>" id="date">
+                                                <form action="" method="GET" id="dateform">
+                                                     <input type="date" name="date" value="<?php if($query_date == '') { echo date("Y-m-d"); } else echo $query_date; ?>" id="date">
                                                 </form>
                                             </div>
 
@@ -72,7 +72,7 @@ $query_date = $_GET['date'];
                                             }
                                             if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
                                             
-                                            <div class="catering_card _pro_salat">
+                                            <div class="catering_card _pro_salat ">
                                                 <h3><?php the_title()?></h3>
                                                 <p class="mt-3"><?php the_content()?></p>
                                                 <div class="row">
@@ -93,23 +93,25 @@ $query_date = $_GET['date'];
                                                             <strong class="title">VAT:</strong> 
                                                             <p>80</p>
                                                         </div>
+                                                    </div>                                               
 
-
+                                                    <div class="product_card ">
+                                                        
+                                                        <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
+                                                                        onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
+                                                                            <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
+                                                                                <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
+                                                                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                                                        alt="" ></i>
+                                                                                <input type="text" data-id="<?php echo $pid;?>" value="1" 
+                                                                                    class="product-quantity form-control text-center incrDecrCounter" />
+                                                                                    
+                                                                                <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img
+                                                                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                                                        alt="" ></i>
+                                                                            </div>
+                                                    
                                                     </div>
-                                                
-
-                                                    <div class="product_card"><button id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                                        onmouseover="showCounter(<?php echo $pid ?>)">Select</button>
-                                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                            <i class="count-down"><img
-                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                                    alt=""></i>
-                                                            <input type="text"  data-id="<?php echo $pid;?>" value="1" 
-                                                                class="product-quantity form-control text-center incrDecrCounter" />
-                                                            <i class="count-up"><img
-                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                                    alt=""></i>
-                                                        </div></div>
                                                 </div>
                                             </div>  
                                             
@@ -124,10 +126,8 @@ $query_date = $_GET['date'];
                                 <div class="col-md-4 mt-5">
                                     <aside class="_aside">
                                         <div class="app _calender">
-                                            <div class="app__main">
-                                                    <div class="calendar">
-                                                    <div id="calendar"></div>
-                                                </div>
+                                            <div class="app__main">                                            
+                                               
                                             </div>
                                         </div>
 
@@ -137,10 +137,9 @@ $query_date = $_GET['date'];
                             </div>
 
                             <div class='panels'>
-                                <div class='panel launchClander Fixed_delivery'>
+                                <div class='panel launchClander Fixed_delivery' id="weeklyfood">
                                         <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
-                                            
+                                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>                                            
                                         </div>
 
                                         <div class="product_wrapper row mb-4">
@@ -157,18 +156,18 @@ $query_date = $_GET['date'];
                                                             <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
                                                             <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
                                                             <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                                            onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
-                                                                <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                                    <i class="count-down"><img
-                                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                                            alt=""></i>
-                                                                    <input type="text" data-id="<?php echo $pid;?>" value="1" 
-                                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                                        
-                                                                    <i class="count-up"><img
-                                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                                            alt=""></i>
-                                                                </div>
+                                                                    onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
+                                                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
+                                                                            <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
+                                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                                                    alt="" ></i>
+                                                                            <input type="text" data-id="<?php echo $pid;?>" value="1" 
+                                                                                class="product-quantity form-control text-center incrDecrCounter" />
+                                                                                
+                                                                            <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img
+                                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                                                    alt="" ></i>
+                                                                        </div>
                                                         </div>
                                                     </div>
 
@@ -226,11 +225,9 @@ $query_date = $_GET['date'];
 <?php get_footer()?>
 
   
-    
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
+  
 
-
-   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">  
 
 
@@ -243,18 +240,6 @@ jQuery(document).ready(function($)
            $(this).closest('form').submit();
 
        });
-
-        $('.date-pick').datepicker( {
-        onSelect: function(date) {
-            alert(date);
-        },
-        selectWeek: true,
-        inline: true,
-        startDate: '01/01/2000',
-        firstDay: 1
-    });
-
-     
      
 
        $('._cross').click(function(){
@@ -264,29 +249,27 @@ jQuery(document).ready(function($)
     
                    
        $("#weeklyfood").submit(function(e) { 
-           e.preventDefault();  
-           var weekid = jQuery('#weekid').val();
-           var usertype = jQuery('#usertype').val();
-           var uid = jQuery('#uid').val();
-           var date = jQuery('#date').val();
+           e.preventDefault(); 
           
-           
-           var datas = [];
-                   var newdata = [];
-                   $("#weeklyfood .product-quantity").each(function () {
-                   var productid =  $(this).data('id');
-                   var value = $(this).val() ;
-                       if(value >1) {
-                           datas.push( [productid, $(this).val() ]);   
-                           }                     
-                   newdata.push(datas);
-                   });
-               // alert(newdata[0]);
-                   var menu_items = newdata[0];
-             
-                   console.log(menu_items);
-               //  alert(postid);          
-                           
+            var weekid = jQuery('#weekid').val();
+            var usertype = jQuery('#usertype').val();
+            var uid = jQuery('#uid').val();
+            var date = jQuery('#date').val();
+            var datas = [];
+                var newdata = [];
+            $("#weeklyfood .product-quantity").each(function () {
+            var productid =  $(this).data('id');
+            var value = $(this).val() ;
+                if(value >1) {
+                    datas.push( [productid, $(this).val() ]);   
+                    }                     
+            newdata.push(datas);
+            });
+            // alert(newdata[0]);
+            var menu_items = newdata[0];             
+            console.log(menu_items);
+            alert(menu_items);          
+                        
                       
            var menu_items = menu_items;   
 
@@ -313,7 +296,7 @@ jQuery(document).ready(function($)
                                    alert(data.message);
                        }  
                        else {
-                       $(".alertmessage").css("display", "flex");
+                      // $(".alertmessage").css("display", "flex");
                    
                        }      
                }
