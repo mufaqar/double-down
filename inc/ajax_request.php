@@ -103,6 +103,9 @@ function weeklyfood()
         )
     );
 
+	print_r($query_meta);
+	
+
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 		
@@ -124,7 +127,10 @@ function weeklyfood()
 		$order_total = array_sum($price_arr);
 		update_post_meta($updated_post_id, 'food_order', $days);
 		update_post_meta($updated_post_id, 'order_total', $order_total);
-		echo "Updated Query";		
+		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
+		die;
+	
+			
 
 	endwhile; wp_reset_query(); else : 
 
@@ -142,7 +148,8 @@ function weeklyfood()
 			add_post_meta($user_id, 'order_status', 'Pending', true);
 			add_post_meta($user_id, 'order_type', 'Weekly', true);
 			add_post_meta($user_id, 'user_type', $usertype, true);
-			echo "New Post Added";
+			echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
+			die;
 
 	endif;
 
@@ -150,14 +157,8 @@ function weeklyfood()
 
 	
 
-	if (!is_wp_error($user_id)) {
-		//sendmail($username,$password);
-		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
-	}
 
-	die;
+	
 }
 
 
@@ -189,12 +190,18 @@ function weeklyfood_byday()
 	$query_meta = array(
         'posts_per_page' => -1,
         'post_type' => 'orders',
-        'meta_query' => array(
+		'meta_query' => array(
+			'relation' => 'AND',
             array(
                 'key' => 'order_week',
                 'value' => $weekid,
                 'compare' => '='
             ),
+			array(
+				'key'     => 'user_type',
+				'value' => $usertype,
+				'compare' => '='
+			)
         )
     );
 
