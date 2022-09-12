@@ -249,8 +249,8 @@ get_header('company');
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                       // $(".alertmessage").css("display", "flex");
-                       akert("Weekly Order done compnay");
+                       $(".alertmessage").css("display", "flex");
+                     
 
                     }
                 }
