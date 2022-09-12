@@ -484,6 +484,7 @@ get_header('');
               
 
                 console.log(weekdays);
+              
                 
             
             
@@ -506,7 +507,7 @@ get_header('');
                                         alert(data.message);
                             }  
                             else {
-                          //  $(".alertmessage").css("display", "flex");
+                            $(".alertmessage").css("display", "flex");
                         
                             }      
                     }

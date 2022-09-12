@@ -200,8 +200,6 @@ get_header('company');
 <script type="text/javascript">
     jQuery(document).ready(function($) {
 
-
-
         $('._cross').click(function() {
 
             $(".hideme").css("display", "none");
@@ -210,6 +208,7 @@ get_header('company');
 
         $("#weeklyfood").submit(function(e) {
             e.preventDefault();
+           
             var weekid = jQuery('#weekid').val();
             var usertype = jQuery('#usertype').val();
             var uid = jQuery('#uid').val();
@@ -217,7 +216,6 @@ get_header('company');
             $.each($("input[name='sport']:checked"), function() {
                 weekdays.push($(this).val());
             });
-
             var datas = [];
             var newdata = [];
             $("#weeklyfood .product-quantity").each(function() {
@@ -228,20 +226,12 @@ get_header('company');
                 }
                 newdata.push(datas);
             });
-            // alert(newdata[0]);
-            var menu_items = newdata[0];
-
-           // console.log(menu_items);
-            //  alert(postid);          
-
+            var menu_items = newdata[0];  
             var weekdays = weekdays;
             var menu_items = menu_items;
 
             console.log(weekdays);
-            alert(usertype);
-
-
-
+          
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -259,7 +249,8 @@ get_header('company');
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                        $(".alertmessage").css("display", "flex");
+                       // $(".alertmessage").css("display", "flex");
+                       akert("Weekly Order done compnay");
 
                     }
                 }

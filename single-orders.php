@@ -15,20 +15,21 @@ print "<pre>";
 
 
 $orders_price = get_post_meta(get_the_ID(), 'food_order' , true);
-
-print_r($orders_price);
 $price_arr = [];
-
-foreach($orders_price['2022-09-12'] as $index => $order_price)
+foreach($orders_price as $index => $order_price)
 {
-
-   
-   $price =  get_post_meta($index, 'menu_item_price', true);
-   $price_arr[] = $price;
+    foreach($order_price as $key => $price )
+    {   
+        $price =  get_post_meta($key, 'menu_item_price', true);
+        $price_arr[] = $price;
+        
+    }    
    
 }
 
-echo array_sum($price_arr);
+print_r($price_arr);
+
+//echo array_sum($price_arr);
 
 
 

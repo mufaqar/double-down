@@ -33,9 +33,15 @@
                                                         'posts_per_page' => -1,
                                                         'post_type' => 'orders',
                                                         'meta_query' => array(
+                                                            'relation' => 'AND',
                                                             array(
                                                                 'key' => 'order_week',
                                                                 'value' => $current_week,
+                                                                'compare' => '='
+                                                            ),
+                                                            array(
+                                                                'key' => 'order_type',
+                                                                'value' => 'weekly',
                                                                 'compare' => '='
                                                             ),
                                                         )
@@ -161,7 +167,7 @@
                 e.preventDefault();  
                 var weekid = jQuery('#weekid').val();
                 var usertype = jQuery('#usertype').val();
-
+               
                 
                 var uid = jQuery('#uid').val();
                 var weekdays = [];
