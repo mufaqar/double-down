@@ -31,29 +31,31 @@
                                               <?php 
                                                     $current_week =  date("W"); 
                                                     $current_year =  date("Y");
+                                                    global $current_user;
+                                                    wp_get_current_user();
                                                     $query_meta = array(
-                                                        'posts_per_page' => -1,
-                                                        'post_type' => 'orders',
-                                                        'meta_query' => array(
-                                                            'relation' => 'AND',
-                                                            array(
-                                                                'key' => 'order_week',
-                                                                'value' => $current_week,
-                                                                'compare' => '='
-                                                            ),
-                                                            array(
-                                                                'key' => 'order_type',
-                                                                'value' => 'weekly',
-                                                                'compare' => '='
-                                                            ),
-                                                            array(
-                                                                'key'     => 'user_type',
-                                                                'value' => 'Personal',
-                                                                'compare' => '=',                                                           
+                                                            'post_type' => 'orders',
+                                                            'posts_per_page' => -1,
+                                                            'order' => 'desc',
+                                                            'author' => $current_user->ID,
+                                                            'meta_query' => array(                                                      
+                                                                
+                                                                'relation' => 'AND',
+                                                                    array(
+                                                                        'key'   => 'order_type',
+                                                                        'value' => 'Meeting',
+                                                                        'compare' => '!='
+                                                                    ),
+                                                                    array(
+                                                                        'key'     => 'user_type',
+                                                                        'value' => 'Personal',
+                                                                        'compare' => '=',
+                                                                    
 
+                                                                    ),
                                                             )
-                                                        )
-                                                    );
+                                                            
+                                                        ); 
                                                 
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();

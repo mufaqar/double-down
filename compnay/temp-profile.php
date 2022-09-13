@@ -31,56 +31,56 @@
                                         <div class="row">
                                         <div class="col-lg-12 mx-auto mb-5">
                                                     <?php 
-                                                    $current_week =  date("W"); 
-                                                    query_posts(array(
-                                                            'post_type' => 'orders',
-                                                            'posts_per_page' => -1,
-                                                            'order' => 'desc',
-                                                            'meta_query' => array(   
-                                                            'relation' => 'AND',
-                                                                        array(
-                                                                            'key'   => 'week_id',
-                                                                            'value' => $current_week,
-                                                                            'compare' => '='
-                                                                        ),
-                                                            
-                                                                        array(
-                                                                            'key'   => 'order_type',
-                                                                            'value' => 'Weekly',
-                                                                            'compare' => '='
-                                                                        ),
-                                                                        array(
-                                                                            'key'     => 'user_type',
-                                                                            'value' => 'Company',
-                                                                            'compare' => '=',
-                                                                        
+                                                     $current_week =  date("W"); 
+                                                     $current_year =  date("Y");
+                                                     global $current_user;
+                                                     wp_get_current_user();
+                                                     $query_meta = array(
+                                                             'post_type' => 'orders',
+                                                             'posts_per_page' => -1,
+                                                             'order' => 'desc',
+                                                             'author' => $current_user->ID,
+                                                             'meta_query' => array(                                                      
+                                                                 
+                                                                 'relation' => 'AND',
+                                                                     array(
+                                                                         'key'   => 'order_type',
+                                                                         'value' => 'Meeting',
+                                                                         'compare' => '!='
+                                                                     ),
+                                                                     array(
+                                                                         'key'     => 'user_type',
+                                                                         'value' => 'Personal',
+                                                                         'compare' => '=',
+                                                                     
+ 
+                                                                     ),
+                                                             )
+                                                             
+                                                         ); 
+                                                 
+                                                     $postinweek = new WP_Query($query_meta);
+                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
+                                                    $pid =  get_the_ID(); 
 
-                                                                
-                                                                        ),
-                                                                        )
-                                                                        
-                                                                ));  
-                                                    if (have_posts()) :  while (have_posts()) : the_post(); ?>
+                                                    foreach($food_orderd_data as $key => $order_data ) 
+                                                      {  ?>
 
                                                         
                                                             <div class="_pro_card">
-                                                                <h3><?php   echo get_post_meta( get_the_ID(), 'order_day', true );?> | <span><?php   echo get_post_meta( get_the_ID(), 'order_date', true );?> </span></h3>
-                                                                <p> <?php   $products =  get_post_meta( get_the_ID(), 'product_items', true );
+                                                                <h3><?php echo  $key ?>  <span><?php //echo "key Date "?> </span></h3>
+                                                                <p> <?php   foreach($order_data as $product_id => $product_qty)
+                                                                            {      
+                                                                                
+                                                                                //echo $product_id . " : " . $product_qty . "<br/>";
 
-                                                            // print_r($products);
-
-                                                                foreach($products as $product)
-                                                                {
-
-                                                                
-                                                                echo get_the_title( $product ) . " ";
-                                                                }
-                                                                
-                                                                
-                                                                ?></p>
+                                                                            echo  "Product  : " .get_the_title( $product_id) . "  <span>(" .$product_qty .") </span><br/>";
+                                                                        
+                                                                            } ?>
+                                                                </p>
                                                             </div>
 
-                                                        <?php endwhile; wp_reset_query(); else : ?>
+                                                        <?php   } endwhile; wp_reset_query(); else : ?>
                                                     <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
                                                     <?php endif; ?> 
 	
