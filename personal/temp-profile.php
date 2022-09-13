@@ -33,14 +33,14 @@
                                                     $current_year =  date("Y");
                                                     global $current_user;
                                                     wp_get_current_user();
+                                                   
                                                     $query_meta = array(
                                                             'post_type' => 'orders',
                                                             'posts_per_page' => -1,
                                                             'order' => 'desc',
                                                             'author' => $current_user->ID,
                                                             'meta_query' => array(                                                      
-                                                                
-                                                                'relation' => 'AND',
+                                                                   'relation' => 'AND',
                                                                     array(
                                                                         'key'   => 'order_type',
                                                                         'value' => 'Weekly',
@@ -54,10 +54,9 @@
                                                                     array(
                                                                         'key'     => 'order_week',
                                                                         'value' => $current_week,
-                                                                        'compare' => '=',                                                                  
-
+                                                                        'compare' => '='
                                                                     )
-                                                            )
+                                                                    ),
                                                             
                                                         ); 
                                                 
@@ -91,8 +90,8 @@
                                                         <?php   } endwhile; wp_reset_query(); else : ?>
 
                                                             <div class="_pro_card">
-                                                                <h3>Sorry No Food Added yet</h3>
-                                                                <p> We did't added menu for this day yet </p>
+                                                                <h3>No Food Menu</h3>
+                                                                <p>You have not added Food Items yet </p>
                                                             </div>
                                                   
                                                 <?php endif; ?> 
