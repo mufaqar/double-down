@@ -46,6 +46,13 @@
                                                                 'value' => 'weekly',
                                                                 'compare' => '='
                                                             ),
+                                                            array(
+                                                                'key'     => 'user_type',
+                                                                'value' => 'Personal',
+                                                                'compare' => '=',
+                                                             
+
+                                                            )
                                                         )
                                                     );
                                                 
