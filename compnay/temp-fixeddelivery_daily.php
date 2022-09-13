@@ -218,7 +218,6 @@ get_header('company');
 
         $("#weeklyfood_daily").submit(function(e) {
             e.preventDefault();
-
             var weekid = jQuery('#weekid').val();
             var usertype = jQuery('#usertype').val();
             var uid = jQuery('#uid').val();
@@ -237,11 +236,8 @@ get_header('company');
             // alert(newdata[0]);
             var menu_items = newdata[0];
 
-            console.log(menu_items);
-
-
-
-            var menu_items = menu_items;
+            console.log(weekid);
+            die("asdfasf");
 
 
 
@@ -265,7 +261,7 @@ get_header('company');
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                        $(".alertmessage").css("display", "flex");
+                      //  $(".alertmessage").css("display", "flex");
 
                     }
                 }

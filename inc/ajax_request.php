@@ -333,6 +333,10 @@ function dailyfood()
         )
     );
 
+	print "<pre>";
+	print_r($days);
+	die();
+
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
@@ -375,7 +379,7 @@ endwhile; wp_reset_query(); else :
 		add_post_meta($user_id, 'order_day', $day, true);
 		add_post_meta($user_id, 'order_status', 'Pending', true);
 		add_post_meta($user_id, 'order_type', 'Day', true);
-		add_post_meta($user_id, 'user_type', 'Personal', true);
+		add_post_meta($user_id, 'user_type', $usertype, true);
 		add_post_meta($user_id, 'order_week', $week, true);
 		add_post_meta($user_id, 'food_order', $days);
 
@@ -392,17 +396,20 @@ endwhile; wp_reset_query(); else :
 		$order_total = array_sum($price_arr);
 		add_post_meta($user_id, 'order_total', $order_total);	
 
-	die();
 
-
-
-
+		
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
 	}
+
+
+	die();
+
+
+
 
 
 

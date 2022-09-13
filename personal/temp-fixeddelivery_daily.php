@@ -236,10 +236,6 @@
                         var menu_items = newdata[0];
                   
                         console.log(menu_items);
-                      
-                                
-                        
-                    var menu_items = menu_items;   
 
 
 

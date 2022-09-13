@@ -44,13 +44,15 @@ get_header('company');
                                 $i++;
                                 $timestamp = strtotime($today_date);
                                 $today_day = date('l', $timestamp);
-                                $this_day =  strtolower(date('D', $timestamp));
+                                $this_day =  strtolower(date('D', $timestamp));                             
+                                $weeksid =  date("W"); 
 
                                 // print_r($week);
                             ?> <div class="card">
                                     <form class="dailyfood" id="dailyfood_<?php echo $this_day ?>" action="#">
                                         <div id="headingOne" class="card-header bg-white shadow-sm border-0 py-4">
                                             <input type="hidden" value="<?php echo $today_date ?>" id="day_<?php echo $this_day ?>">
+                                            <input type="hidden" value="<?php echo $weeksid ?>" id="weekid_<?php echo $this_day ?>">
                                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
                                             <div class="mb-0 d-flex align-items-center">
                                                 <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $this_day ?>" aria-expanded="true" aria-controls="collapse<?php echo $day ?>" class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
@@ -122,8 +124,6 @@ get_header('company');
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- week calender  -->
-
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
 <script>
@@ -132,11 +132,7 @@ get_header('company');
 <script type="text/javascript">
     jQuery(document).ready(function($) {
 
-        $('._cross').click(function() {
-
-            $(".hideme").css("display", "none");
-        });
-
+      
 
              $('._cross').click(function(){
            
@@ -163,31 +159,35 @@ get_header('company');
 
                              $("#dailyfood_<?php echo $this_day; ?>").submit(function(e) {                
                                 e.preventDefault();  
-                                alert("Day<?php echo $this_day?>");              
-                                var date = jQuery('#date_<?php echo $this_day; ?>').val();
-                                var weekid = jQuery('#week_<?php echo $this_day; ?>').val();
-                                var usertype = jQuery('#usertype').val();
+                                           
+                                var date = jQuery('#day_<?php echo $this_day; ?>').val();
+                                var weekid = jQuery('#weekid_<?php echo $this_day; ?>').val();                              
                                 var uid = jQuery('#uid').val();
-                                var datas = [];
-                                var newdata = [];
-                                var extraproducts = [];           
-                                var fprod = [];
-                                $("#dailyfood_<?php echo $this_day; ?> .product-quantity").each(function () {
-                                    var productid =  $(this).data('id');
-                                    var value = $(this).val() ;
-                                    if(value >=1) {
-                                        datas.push( {"id" : productid , "value" : $(this).val() });   
-                                        }                     
-                                    newdata.push(datas);                  
-                                }); 
                                 
-                                $("#extrafood_<?php echo $this_day; ?> .product-extra").each(function () {
-                                    var pro_id =  $(this).attr('data-id'); 
-                                    extraproducts.push({"id" : pro_id});   
-                                }); 
+                            
+                           
+                               
 
-                                fprod.push({"food_item": newdata[0],  "extra_food" : extraproducts , "date" : date , "uid" : uid ,"weekid" : weekid });
-                                console.log(fprod);                
+
+
+
+
+
+
+                                var datas = [];
+                                    var newdata = [];
+                                $("#dailyfood_<?php echo $this_day; ?> .product-quantity").each(function () {
+                                var productid =  $(this).data('id');
+                                var value = $(this).val() ;
+                                    if(value >1) {
+                                        datas.push( [productid, $(this).val() ]);   
+                                        }                     
+                                newdata.push(datas);
+                                });
+                                // alert(newdata[0]);
+                                var menu_items = newdata[0];
+
+                                console.log(menu_items);              
                                 $.ajax(
                                     {   
                                         type:"POST",
@@ -197,8 +197,8 @@ get_header('company');
                                             date : date,
                                             menu_items : menu_items,   
                                             weekid : weekid,
-                                            usertype : usertype,  
-                                            uid : uid,               
+                                            usertype : "Company",  
+                                            uid : uid           
                                         
                                         },   
                                         success: function(data){  
@@ -206,7 +206,8 @@ get_header('company');
                                                 alert(data.message);
                                             }  
                                             else {
-                                        $(".alertmessage").css("display", "flex");  
+                                                alert("Done");
+                                                //   $(".alertmessage").css("display", "flex");  
                                             }      
                                         }
                             
