@@ -59,7 +59,15 @@
                                                                 <tr>
                                                                         <td scope="row"><?php the_title()?></td>
                                                                         <td><?php  the_time('M j, Y') ?></td>
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?></td>
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
+
+                                                                        <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
+                                                                            ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )
+                                                                            <?php } ?>
+                                                                    
+                                                                    
+                                                                    
+                                                                    </td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
                                                                         <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>

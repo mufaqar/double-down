@@ -186,7 +186,11 @@ if($cal_date != '' )
                                             </div>  
                                             
                                             <?php endwhile; wp_reset_query(); else : ?>
-                                            <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <div class="_pro_card">
+                                                                <h3>Sorry No Food Added yet</h3>
+                                                                <p> We did't added menu for this day today </p>
+                                                            </div>
+                                                  
                                             <?php endif; ?>
 
                                         
