@@ -76,7 +76,7 @@ function cptui_register_cat_taxes_menu_food_type() {
 		"sort" => true,
 		"show_in_graphql" => false,
 	];
-	register_taxonomy( "menus_type", [ "menus" ], $args );
+	register_taxonomy( "menus_type", [ "menu_items" ], $args );
 }
 add_action( 'init', 'cptui_register_cat_taxes_menu_food_type' );
 
@@ -155,48 +155,6 @@ function cptui_register_my_taxes_menu_sub_types() {
 add_action( 'init', 'cptui_register_my_taxes_menu_sub_types' );
 
 
-
-function cptui_register_my_cpts_menus() {
-
-	/**
-	 * Post Type: Menus.
-	 */
-
-	$labels = [
-		"name" => __( "Menus", "twentytwentytwo" ),
-		"singular_name" => __( "Menu", "twentytwentytwo" ),
-	];
-
-	$args = [
-		"label" => __( "Menus", "twentytwentytwo" ),
-		"labels" => $labels,
-		"description" => "",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => true,
-		"rest_base" => "",
-		"rest_controller_class" => "WP_REST_Posts_Controller",
-		"rest_namespace" => "wp/v2",
-		"has_archive" => false,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"delete_with_user" => false,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => true,
-		"can_export" => false,
-		"rewrite" => [ "slug" => "menus", "with_front" => true ],
-		"query_var" => true,
-		"supports" => [ "title", "editor", "thumbnail", "page-attributes" ],
-		"show_in_graphql" => false,
-	];
-
-	register_post_type( "menus", $args );
-}
-
-add_action( 'init', 'cptui_register_my_cpts_menus' );
 
 
 
