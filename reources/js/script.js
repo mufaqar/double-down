@@ -99,15 +99,15 @@ $(document).ready(function () {
 // });
 
 // increment value in product
-var countNumber = 0
+var countNumber = 0;
 function handleCountInc(pid) {
   const element = document.querySelector(`[data-id='${pid}']`);
   countNumber = element.value;
-  if(countNumber >= 1){
-    countNumber++
+  if (countNumber >= 1) {
+    countNumber++;
     element.value = countNumber;
-  }else{
-    countNumber++
+  } else {
+    countNumber++;
     element.value = countNumber;
   }
 }
@@ -115,19 +115,14 @@ function handleCountInc(pid) {
 function handleCountDec(pid) {
   const element = document.querySelector(`[data-id='${pid}']`);
   countNumber = element.value;
-  if(countNumber < 1){
-    countNumber = 0
+  if (countNumber < 1) {
+    countNumber = 0;
     element.value = countNumber;
-  }else{
-    countNumber--
+  } else {
+    countNumber--;
     element.value = countNumber;
   }
 }
-
-
-
-
-
 
 function showCounter(data) {
   var btn = document.querySelector('.id'.concat(data));

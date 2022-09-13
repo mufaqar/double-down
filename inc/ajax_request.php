@@ -333,9 +333,7 @@ function dailyfood()
         )
     );
 
-	print "<pre>";
-	print_r($days);
-	die();
+	
 
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
