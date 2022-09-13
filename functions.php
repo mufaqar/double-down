@@ -2,6 +2,9 @@
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 140, 140, true );
 	add_image_size( 'single-post-thumbnail', 300, 9999 );
+    add_image_size( 'product-thumbnail', 260, 220, true );
+
+    
 
 	// Add RSS links to <head> section
 	//automatic_feed_links();

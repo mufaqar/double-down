@@ -46,24 +46,28 @@ get_header('');
                                         'menu_types' => 'lunch-boxes'                                                                     
                                         )); 
                                     if (have_posts()) :  while (have_posts()) : the_post(); $pid = get_the_ID(); ?>
-                                        <div class="col-md-6 col-lg-4 mt-4">
-                                            <div class="product_card p-4">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                                <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
-                                                <button  id="123" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                                onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
-                                                <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                    <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt="" ></i>
-                                                    <input type="text"  data-id="<?php echo $pid;?>" value="1" 
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                    <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt="" ></i>
+                                                 <div class="col-md-6 col-lg-4 mt-4">
+                                                    <div class="product_card p-4">
+                                                        <?php if ( has_post_thumbnail() ) {
+                                                                the_post_thumbnail('product-thumbnail');
+                                                            } else { ?>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
+                                                        <?php } ?>
+                                                        <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                                        <button  id="<?php echo get_the_ID()?>" class="btn_primary  select_product_btn id<?php echo get_the_ID();?>"
+                                                        onmouseover="showCounter(<?php echo get_the_ID();;?>)">Select</button>
+                                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo get_the_ID();?>">
+                                                            <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)"><img
+                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                                    alt="" ></i>
+                                                            <input type="text"  data-id="<?php echo $pid;?>" value="1" 
+                                                                class="product-quantity form-control text-center incrDecrCounter" />
+                                                            <i class="count-up" onclick="handleCountInc(<?php echo get_the_ID(); ?>)"><img
+                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                                    alt="" ></i>
+                                                        </div>
                                                 </div>
                                             </div>
-                                        </div>
                             <?php endwhile; wp_reset_query(); else : ?>
                             <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
                             <?php endif; ?>
@@ -71,10 +75,7 @@ get_header('');
 
                         <div class="d-flex justify-content-between mt-5 mb-4 accessories">
                             <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
-                            <a href="" class="btn_primary d-flex align-items-center">
-                                <img src="<?php bloginfo('template_directory'); ?>/reources/images//positive.png" alt="">
-                                <p>Allergy Pass</p>
-                            </a>
+                            
                         </div>
 
                         <div class="product_wrapper row mb-4">
@@ -86,25 +87,28 @@ get_header('');
                                         )); 
                                         if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
 
-                                    <div class="col-md-6 col-lg-4 mt-4">
-                                        <div class="product_card p-4">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-                                            <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
-                                            <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
-                                            onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
-                                                <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
-                                                    <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
-                                                            alt="" ></i>
-                                                    <input type="text" data-id="<?php echo $pid;?>" value="1" 
-                                                        class="product-quantity form-control text-center incrDecrCounter" />
-                                                        
-                                                    <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img
-                                                            src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
-                                                            alt="" ></i>
+                                            <div class="col-md-6 col-lg-4 mt-4">
+                                                    <div class="product_card p-4">
+                                                        <?php if ( has_post_thumbnail() ) {
+                                                                the_post_thumbnail('product-thumbnail');
+                                                            } else { ?>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
+                                                        <?php } ?>
+                                                        <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                                        <button  id="<?php echo get_the_ID()?>" class="btn_primary  select_product_btn id<?php echo get_the_ID();?>"
+                                                        onmouseover="showCounter(<?php echo get_the_ID();;?>)">Select</button>
+                                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo get_the_ID();?>">
+                                                            <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)"><img
+                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
+                                                                    alt="" ></i>
+                                                            <input type="text"  data-id="<?php echo $pid;?>" value="1" 
+                                                                class="product-quantity form-control text-center incrDecrCounter" />
+                                                            <i class="count-up" onclick="handleCountInc(<?php echo get_the_ID(); ?>)"><img
+                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
+                                                                    alt="" ></i>
+                                                        </div>
                                                 </div>
-                                        </div>
-                                    </div>
+                                            </div>
 
                             <?php endwhile; wp_reset_query(); else : ?>
                             <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
@@ -194,219 +198,8 @@ get_header('');
 
 
 
-    <section class="hideme overlay delivery_address">
-        <div class="popup">
-        <form class="update_deliver_address" id="update_deliver_address" action="#" > 
-            <div class="popup_wrapper">
-                <h3 class="ad_productss">Delivery Address</h3>               
-                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Delivery Address</label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="address" id="address" placeholder="Pilestredet 75C " >
-                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
-                    </div>
-                </div>
-                <div class="add_address d-flex align-items-center justify-content-end mt-3">
-                    <p><span>Add more address!</span></p>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                </div>
-                <div class="mt-5">
-                   
-                    <input type="submit" class="btn_primary"  value="Save"/>
-                </div>
-                
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
-                            </form>
-        </div>
-    </section> 
-
     
-    <section class="hideme overlay emp_agreement">
-        <div class="popup">
-            <div class="popup_wrapper">
-                <h3>Employees in the Agreement</h3>
-                <h6>Total number of employees: 1</h6>
-                <hr>
-                <div>
-                    <div class="btn_toggle">
-                        <div class="btn_wrapper d-flex justify-content-center">
-                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | 01</button>
-                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
-                        </div>
-                    </div>
-
-                    <!-- active content  -->
-                    <div class="activeEmp_content ">
-                        <div>
-
-                        </div>
-                    </div>
-
-                    <!-- inactive content  -->
-                    <div class="inactiveEmp_content active">
-                        <div>
-                            <section>
-                                <form>
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-5">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="emp" name="emp" value="Employee" checked>
-                                            <label for="emp" class="label"></label>
-                                            <p>Employee</p>
-                                        </div>
-                                        <p>No fixed delivery</p>
-                                    </div>
-
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="days" name="days" value="days" >
-                                            <label for="days" class="label"></label>
-                                            <p>Jose Olsen Barros</p>
-                                        </div>
-                                        <p>Number of delivery days</p>
-                                    </div>
-
-                                    <hr class="mt-4 mb-4">
-                                    <h3>+ Invite new employees</h3>
-
-                                    <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center w-100">
-                                            <input type="email" id="days" name="days" value="days" class="w-100">
-                                            <button class="d-flex align-items-center">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                                                <span>Add</span>
-                                            </button>
-                                        </div>
-                                        
-                                    </div>
-
-                                </form>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
-        </div>
-    </section>
-
-    <section class="hideme overlay agreement">
-        <div class="popup">
-            <div class="popup_wrapper">
-                <h3>Employees in the Agreement</h3>
-                <h6>Total number of employees: 1</h6>
-                <hr>
-                <div>
-                    <div class="btn_toggle">
-                        <div class="btn_wrapper d-flex justify-content-center">
-                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | 01</button>
-                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
-                        </div>
-                    </div>
-
-                    <!-- active content  -->
-                    <div class="activeEmp_content ">
-                        <div>
-
-                        </div>
-                    </div>
-
-                    <!-- inactive content  -->
-                    <div class="inactiveEmp_content active">
-                        <div>
-                            <section>
-                                <form>
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-5">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="emp" name="emp" value="Employee" checked>
-                                            <label for="emp" class="label"></label>
-                                            <p>Employee</p>
-                                        </div>
-                                        <p>No fixed delivery</p>
-                                    </div>
-
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="days" name="days" value="days" >
-                                            <label for="days" class="label"></label>
-                                            <p>Jose Olsen Barros</p>
-                                        </div>
-                                        <p>Number of delivery days</p>
-                                    </div>
-
-                                    <hr class="mt-4 mb-4">
-                                    <h3>+ Invite new employees</h3>
-
-                                    <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center w-100">
-                                            <input type="email" id="days" name="days" value="days" class="w-100">
-                                            <button class="d-flex align-items-center">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                                                <span>Add</span>
-                                            </button>
-                                        </div>
-                                        
-                                    </div>
-
-                                </form>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
-        </div>
-    </section>
-
-
- <section class="hideme overlay invoice">
-    <div class="popup">
-      <div class="popup_wrapper">
-        <h3 class="ad_productss">Invoice</h3>
-
-        <div class="invoice_table">
-          <table class="_table">
-            <thead>
-              <tr>
-                <th scope="col">Invoice Date</th>
-                <th scope="col">Total</th>
-                <th scope="col">Total</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">Sunday, May 29, 2022</td>
-                <td>80</td>
-                <td>459.2</td>
-                <td>Complete <i class="fa-solid fa-down-to-line"></i></td>
-              </tr>
-              <tr>
-                <td scope="row">Sunday, June 5, 2022</td>
-                <td>80</td>
-                <td>459.2</td>
-                <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
-              </tr>
-              <tr>
-                <td scope="row">Sunday, June 6, 2022</td>
-                <td>80</td>
-                <td>459.2</td>
-                <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-      </div>
-    </div>
-  </section>
-
-
-
+   
 
 
 
