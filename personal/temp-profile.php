@@ -43,16 +43,20 @@
                                                                 'relation' => 'AND',
                                                                     array(
                                                                         'key'   => 'order_type',
-                                                                        'value' => 'Meeting',
-                                                                        'compare' => '!='
+                                                                        'value' => 'Weekly',
+                                                                        'compare' => '='
                                                                     ),
                                                                     array(
                                                                         'key'     => 'user_type',
                                                                         'value' => 'Personal',
-                                                                        'compare' => '=',
-                                                                    
-
+                                                                        'compare' => '=',   
                                                                     ),
+                                                                    array(
+                                                                        'key'     => 'order_week',
+                                                                        'value' => $current_week,
+                                                                        'compare' => '=',                                                                  
+
+                                                                    )
                                                             )
                                                             
                                                         ); 
