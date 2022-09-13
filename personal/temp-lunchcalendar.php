@@ -188,7 +188,7 @@ if($cal_date != '' )
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <div class="_pro_card">
                                                                 <h3>Sorry No Food Added yet</h3>
-                                                                <p> We did't added menu for this day today </p>
+                                                                <p> We did't added menu for this day yet ! </p>
                                                             </div>
                                                   
                                             <?php endif; ?>
