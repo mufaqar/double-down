@@ -11,15 +11,15 @@
                        </div>
                         <div class="catering_card_wrapper">
                             <?php query_posts(array(
-                                'post_type' => 'menus',
+                                'post_type' => 'menu_items',
                                 'posts_per_page' => -1,
                                 'order' => 'desc',
                                 'menus_type' => 'wrap-lunch'
                             )); 
                             if (have_posts()) :  while (have_posts()) : the_post();
-                            $date = get_field('date'); ?>
+                          //  $date = get_field('date'); ?>
                                     <div class="catering_card _pro_salat">
-                                        <h3><?php the_title() ?> ( <?php $timestamp = strtotime($date); echo  date('D', $timestamp);  ?> | <span><?php echo $date ?> ) </h3>
+                                        <h3><?php the_title() ?> ( <?php //$timestamp = strtotime($date); echo  date('D', $timestamp);  ?> | <span><?php //echo $date ?> ) </h3>
                                         <p class="mt-3"><?php the_content() ?></p>
                                         <div class="row">
                                             <div class="col-md-12">
