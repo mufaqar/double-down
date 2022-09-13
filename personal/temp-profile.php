@@ -49,8 +49,7 @@
                                                             array(
                                                                 'key'     => 'user_type',
                                                                 'value' => 'Personal',
-                                                                'compare' => '=',
-                                                             
+                                                                'compare' => '=',                                                           
 
                                                             )
                                                         )

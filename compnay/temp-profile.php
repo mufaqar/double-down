@@ -46,7 +46,7 @@
                                                             
                                                                         array(
                                                                             'key'   => 'order_type',
-                                                                            'value' => 'Fixed Day',
+                                                                            'value' => 'Weekly',
                                                                             'compare' => '='
                                                                         ),
                                                                         array(
