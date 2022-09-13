@@ -61,7 +61,7 @@
                                                                         <td><?php  the_time('M j, Y') ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
-                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'total_price', true ); ?></td>
+                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
                                                                         </tr>

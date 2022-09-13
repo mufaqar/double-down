@@ -45,23 +45,30 @@
                                                                  'relation' => 'AND',
                                                                      array(
                                                                          'key'   => 'order_type',
-                                                                         'value' => 'Meeting',
-                                                                         'compare' => '!='
+                                                                         'value' => 'Weekly',
+                                                                         'compare' => '='
                                                                      ),
                                                                      array(
                                                                          'key'     => 'user_type',
-                                                                         'value' => 'Personal',
-                                                                         'compare' => '=',
-                                                                     
- 
+                                                                         'value' => 'Company',
+                                                                         'compare' => '=',   
                                                                      ),
+                                                                     array(
+                                                                         'key'     => 'order_week',
+                                                                         'value' => $current_week,
+                                                                         'compare' => '=',                                                                  
+ 
+                                                                     )
                                                              )
                                                              
                                                          ); 
                                                  
-                                                     $postinweek = new WP_Query($query_meta);
-                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-                                                    $pid =  get_the_ID(); 
+                                                         $postinweek = new WP_Query($query_meta);
+                                                         if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
+                                                        $pid =  get_the_ID();
+                                                         
+                                                         $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
+                                                         //print "<pre>";
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       {  ?>
