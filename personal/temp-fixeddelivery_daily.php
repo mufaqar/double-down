@@ -1,17 +1,11 @@
-<?php /* Template Name: Personal-FD Daily  */ 
-get_header('');
-?>
+<?php /* Template Name: Personal-FD Daily  */  get_header();?>
 <?php include('navigation.php'); ?>
-
 <div class="tab_wrapper">
             <div class='toggle mb-5'>
                         <div class='tabs'>
                             <div class='tab active'>Lunch Calendar</div>           
                         </div>
                 </div>
-
-
-        
         <div class='panels'>
             <div class='panel launchClander Fixed_delivery'>            
                 <div class="catering_wrapper c2 mt-5 mb-5">
