@@ -111,7 +111,8 @@ if($cal_date != '' )
                                                         array(
                                                             'key' => 'date',
                                                             'value' => $query_date,
-                                                            'compare' => 'LIKE'
+                                                            'compare' => 'LIKE',
+                                                            'type' => 'DATE'
                                                         ),
                                                     )
                                                 );                                             
@@ -131,7 +132,8 @@ if($cal_date != '' )
                                                                 array(
                                                                     'key' => 'date',
                                                                     'value' => $current_date,
-                                                                    'compare' => 'LIKE'
+                                                                    'compare' => 'LIKE',
+                                                                     'type' => 'DATE'
                                                                 ),
                                                             )
                                                         );
