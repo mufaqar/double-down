@@ -3325,6 +3325,17 @@ body.page-template-temp-landing {
   background: none !important;
 }
 
+._action {
+  background: var(--litegray);
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  display: none;
+}
+._action .btn_primary {
+  padding: 10px 16px !important;
+  font-size: 15px !important;
+}
+
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */

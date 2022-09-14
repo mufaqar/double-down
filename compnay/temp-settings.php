@@ -191,6 +191,14 @@ $uid = get_current_user_id();
 
                     <!-- inactive content  -->
                     <div class="inactiveEmp_content active">
+                    <div class="p-4 _action" id="_action">
+                        <h3 class="mt-3">Select Action</h3>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button id="" class="btn_primary">Cancel interval</button>
+                            <button id="" class="btn_primary">Order interval</button>
+                            <button id="" class="btn_primary">Stop delivery</button>
+                        </div>
+                    </div>
                         <div>
                             <section>
                                 <form>
@@ -250,9 +258,12 @@ $uid = get_current_user_id();
                         </div>
                     </div>
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Starting Date</label>
+                        <label>Compapny Pay </label>
                         <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="date" name="starting_date" id="starting_date" placeholder="<?php echo get_user_meta($uid, 'starting_date', true );  ?>" >
+                            <input type="text" name="starting_date" id="starting_date" placeholder="<?php echo get_user_meta($uid, 'starting_date', true );  ?>" >
+                        </div>
+                        <div class="_field d-flex justify-content-between align-items-center">
+                            <input type="text" name="starting_date" id="starting_date" placeholder="<?php echo get_user_meta($uid, 'starting_date', true );  ?>" >
                         </div>
                     </div>                    
                     <div class="mt-5">                    
@@ -405,6 +416,14 @@ $uid = get_current_user_id();
                 });
                 
             }); 
+
+
+            
+
+        $('#emp').click(function() {
+            $("#_action").toggle(this.checked);
+        });
+  
 
             
 
