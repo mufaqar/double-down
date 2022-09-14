@@ -65,6 +65,10 @@ get_header();
     convertToWeekPicker($("#date"));
     convertToWeekPicker($("#weekPicker2"));
     convertToWeekPicker($("#weekPicker3"));
+
+
+
+
 </script>
 
 <script>  

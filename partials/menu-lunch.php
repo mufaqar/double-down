@@ -9,11 +9,43 @@
         
     </div>
     <div class="catering_card_wrapper">
-        <?php query_posts(array(
+        <?php 
+
+      
+        echo date("Y-W");
+
+        echo "<hr/>";
+
+        $current_date =   date("Y-m-d");     
+        echo $current_date;
+
+        $Date = "2015-06-01"; #Your Own Date
+        $Date = date('Y-m-d'); #Or Current Date Fixed here
+        $FirstDay = date("Y-m-d", strtotime('sunday last week'));  
+        $LastDay = date("Y-m-d", strtotime('sunday this week'));  
+        if($Date > $FirstDay && $Date < $LastDay) {
+        echo "It is Between";
+        } else {
+            echo "No Not !!!";  
+        }  
+                
+        
+        
+        
+        query_posts(array(
             'post_type' => 'menu_items',
             'posts_per_page' => -1,
             'order' => 'desc',
-            'menus_type' => 'bread-lunch'
+            'menus_type' => 'bread-lunch',
+            'meta_query' => array(
+                array(
+                    'key' => 'date',
+                    'value' => $current_date,
+                    'compare' => 'LIKE'
+                ),
+            )
+           
+            
         ));
         if (have_posts()) :  while (have_posts()) : the_post();
         $date = get_field('date'); ?>
@@ -35,3 +67,5 @@
         <?php endif; ?>
     </div>
 </div>
+
+

@@ -16,12 +16,11 @@
                                         </div>
                                         <div class="info d-flex align-items-center">
                                             <h6>Pilestredet 75C | <span>Fixed 5 days a week </span></h6>
-
                                             <div class="calender week_calender">
-                                            <form action="" method="POST" id="dateform">
-                                                <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>" >
-                                                <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                                            </form>
+                                                <form action="" method="GET" id="weekform">
+                                                    <input type="text" id="weekPicker2" name="week" value="<?php echo date("Y-W"); ?>" >
+                                                    <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +150,19 @@
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
 <script>
-    convertToWeekPicker($("#weekPicker2"));
+    convertToWeekPicker($("#weekPicker2"));    
+    window.addEventListener('load', function() {
+            var element = document.getElementById('displayDate');
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            var observer = new MutationObserver(myFunction);
+            observer.observe(element, {
+                childList: true
+            });
+            function myFunction() {               
+                document.getElementById("weekform").submit();              
+                }
+            
+        });
 </script>
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
