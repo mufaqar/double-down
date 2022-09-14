@@ -122,7 +122,7 @@ $year=$week_arr[0];
 jQuery(document).ready(function($) 
         {   
 
-            jqueryFunction = function(  )
+            jqueryFunction = function()
                     {
                         var weekid = jQuery('#weekPicker1').val(); 
                         var catname = jQuery('#catname').val();                           
