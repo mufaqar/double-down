@@ -125,11 +125,7 @@ jQuery(document).ready(function($)
             jqueryFunction = function(  )
                     {
                         var weekid = jQuery('#weekPicker1').val(); 
-                        var catname = jQuery('#catname').val(); 
-
-                        
-                        alert(catname); 
-                          
+                        var catname = jQuery('#catname').val();                           
                         $.ajax({
                             type:"POST",
                             url: "<?php echo admin_url('admin-ajax.php'); ?>",
