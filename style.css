@@ -3142,6 +3142,36 @@ input[type='submit'] {
 
 /* Code By Mufaqar */
 
+#business_setting_type {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  max-width: 55px;
+  height: 50px;
+  float: right;
+  padding: 0px 20px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #5fb227;
+  -ms-word-break: normal;
+  word-break: normal;
+  border-radius: 5px;
+  border: none;
+}
+._field._pay {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  padding-right: 0px !important;
+}
+._field._pay input {
+  background: transparent;
+  outline: none !important;
+  border: none !important;
+}
+
 body.page-template-temp-landing {
   background: #fff;
 }

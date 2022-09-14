@@ -230,16 +230,13 @@ $uid = get_current_user_id();
                                                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
                                                 <span>Add</span>
                                             </button>
-                                        </div>
-                                        
+                                        </div>                                        
                                     </div>
-
                                 </form>
                             </section>
                         </div>
                     </div>
                 </div>
-
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
@@ -258,13 +255,14 @@ $uid = get_current_user_id();
                         </div>
                     </div>
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Compapny Pay </label>
-                        <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text" name="starting_date" id="starting_date" placeholder="<?php echo get_user_meta($uid, 'starting_date', true );  ?>" >
-                        </div>
-                        <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text" name="starting_date" id="starting_date" placeholder="<?php echo get_user_meta($uid, 'starting_date', true );  ?>" >
-                        </div>
+                    <label class="mt-4 ">Company Pay</label>
+                    <div class="_field _pay mb-4 form-group w-100 d-flex align-items-center">
+                        <input type="text" class="form-control" id="lunch_benefit" placeholder="Company Pay 20">
+                        <select name="business_setting_type" id="business_setting_type" class="">
+                            <option value="percentange">%</option>
+                            <option value="usd">$</option>
+                        </select>
+                    </div>
                     </div>                    
                     <div class="mt-5">                    
                         <input type="submit" class="btn_primary"  value="Save"/>
