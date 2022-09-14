@@ -89,8 +89,8 @@
                                                         <?php   } endwhile; wp_reset_query(); else : ?>
 
                                                             <div class="_pro_card">
-                                                                <h3>No Food Menu</h3>
-                                                                <p>You have not added Food Items yet </p>
+                                                                <h3>No Lunch Menu For this Week</h3>
+                                                                <p> Please choose your Menu </p>
                                                             </div>
                                                   
                                                 <?php endif; ?> 
