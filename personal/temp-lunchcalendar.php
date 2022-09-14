@@ -1,7 +1,9 @@
 <?php /* Template Name: Personal-LunchCalednar  */ 
 get_header();
 
-$query_date = $_REQUEST['date']; 
+$query_date = $_REQUEST['date'];
+
+
 $cal_date = $_REQUEST['send'];
 if($cal_date != '' )
 {
@@ -18,6 +20,8 @@ if($cal_date != '' )
 
 <div class="tab_wrapper">
 <?php page_title() ;
+
+
 
 ?>
                     <div class="custom_container">
@@ -94,7 +98,7 @@ if($cal_date != '' )
                                          
                                        
                                     </div>
-                                    <form class="weeklyfood" id="weeklyfood" action="#" >   
+                                    <form class="weeklyfood" id="weeklyfood" action="#">   
                                     <div class="catering_card_wrapper">
                                     <?php 
 
@@ -199,24 +203,24 @@ if($cal_date != '' )
                                 </div>
                                 <div class="col-md-4 mt-5">
                                 <aside class="_aside">
-                    <div class="app _calender">
-                        <div class="app__main">
-                            <div class="calendar">
-                                <!-- <input type="text" class="form-control">
-                                <div id="calendar" class="datepicker-days"></div> -->
-                                <div id="date-datepicker">
-                                    <div>
-                                        <form action="" method="POST" id="myform">
-                                            <input type="hidden" name="date" value="" id="input_date">
-                                        </form>
+                                    <div class="app _calender">
+                                        <div class="app__main">
+                                            <div class="calendar">
+                                                <!-- <input type="text" class="form-control">
+                                                <div id="calendar" class="datepicker-days"></div> -->
+                                                <div id="date-datepicker">
+                                                    <div>
+                                                        
+                                                            <input type="hidden" name="date" value="" id="input_date">
+                                                         
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
 
-                </aside>
+                                   </aside>
                                 </div>
                             </div>
 
@@ -310,8 +314,9 @@ if($cal_date != '' )
 
 <?php get_footer()?>
 
-  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
+
 
   <script>
   $( function() {
@@ -361,10 +366,9 @@ jQuery(document).ready(function($)
     
                    
        $("#weeklyfood").submit(function(e) { 
-           e.preventDefault(); 
+           e.preventDefault();        
           
-            var weekid = jQuery('#weekid').val();
-            var usertype = jQuery('#usertype').val();
+            var weekid = jQuery('#weekid').val();            
             var uid = jQuery('#uid').val();
             var date = jQuery('#date').val();
             var datas = [];
@@ -383,6 +387,7 @@ jQuery(document).ready(function($)
                         
                       
            var menu_items = menu_items;   
+        
 
      
            
@@ -397,7 +402,7 @@ jQuery(document).ready(function($)
                        date : date,
                        menu_items : menu_items,   
                        weekid : weekid,
-                       usertype : usertype,  
+                       usertype : "Personal",  
                        uid : uid,                  
                    
                    },   

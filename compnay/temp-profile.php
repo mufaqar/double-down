@@ -20,10 +20,10 @@
                                         <div class="info d-flex align-items-center">
                                             <h6>Pilestredet 75C | <span>Fixed 5 days a week</span></h6>
 
-                                            <div class="calender week_calender">
+                                            <!-- <div class="calender week_calender">
                                                 <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
                                                 <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">

@@ -333,14 +333,16 @@ function dailyfood()
         )
     );
 
+	print_r($days);
+
 	
 
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
 	// updated Existing Food order Weekly 
-	$updated_post_id = get_the_ID();	
-	update_post_meta($updated_post_id, 'food_order', $days);	
+		$updated_post_id = get_the_ID();	
+		update_post_meta($updated_post_id, 'food_order', $days);	
 
 		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 		$price_arr = [];
@@ -352,7 +354,8 @@ function dailyfood()
 		
 		}
 		$order_total = array_sum($price_arr);
-		update_post_meta($updated_post_id, 'order_total', $order_total);	
+		update_post_meta($updated_post_id, 'order_total', $order_total);
+		echo "Updated Query Run";	
 		
 
 
