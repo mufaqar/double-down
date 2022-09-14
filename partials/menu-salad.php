@@ -3,9 +3,11 @@
                         <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                             <h2>This week's Salad menu</h2>
                             <div class="calender week_calender">
-                                <input type="text" id="weekPicker1" value="<?php echo date("Y-W"); ?>">
-                                <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                            </div>
+                                <form action="" method="GET" id="weekform3">
+                                    <input type="text" id="weekPicker3" name="week" value="<?php echo date("Y-W"); ?>" >
+                                    <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                                </form>
+                            </div> 
                         </div>
                         <div class="catering_card_wrapper">
                             <?php query_posts(array(
@@ -34,3 +36,22 @@
                             <?php endif; ?>
                         </div>
                     </div>
+
+
+                    <script>
+
+window.addEventListener('load', function() {
+            var element = document.getElementById('displayDate');
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            var observer = new MutationObserver(myFunction);
+            observer.observe(element, {
+                childList: true
+            });
+            function myFunction() {               
+                document.getElementById("weekform3").submit();      
+                          
+                }
+            
+        });
+
+                    </script>

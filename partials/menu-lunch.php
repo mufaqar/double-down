@@ -2,11 +2,11 @@
     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
         <h2>This week's lunch menu</h2>
         <div class="calender week_calender">
-            <input type="text" id="weekpicker" value="<?php echo date("Y-W"); ?>">
-            <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-        </div>
-
-        
+            <form action="" method="GET" id="weekform">
+                <input type="text" id="weekPicker1" name="week" value="<?php echo date("Y-W"); ?>" >
+                <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+            </form>
+        </div>        
     </div>
     <div class="catering_card_wrapper">
         <?php 
@@ -67,5 +67,7 @@
         <?php endif; ?>
     </div>
 </div>
+
+
 
 
