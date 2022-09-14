@@ -131,3 +131,14 @@ function my_get_current_user_roles() {
    
    
   }
+
+
+
+  function getStartAndEndDate($week, $year) {
+    $dateTime = new DateTime();
+    $dateTime->setISODate($year, $week);
+    $result['start_date'] = $dateTime->format('Y-m-d');
+    $dateTime->modify('+4 days');
+    $result['end_date'] = $dateTime->format('Y-m-d');
+    return $result;
+    }

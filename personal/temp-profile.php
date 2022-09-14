@@ -151,18 +151,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
 <script>
     convertToWeekPicker($("#weekPicker2"));    
-    window.addEventListener('load', function() {
-            var element = document.getElementById('displayDate');
-            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-            var observer = new MutationObserver(myFunction);
-            observer.observe(element, {
-                childList: true
-            });
-            function myFunction() {               
-                document.getElementById("weekform").submit();              
-                }
-            
-        });
+   
 </script>
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
