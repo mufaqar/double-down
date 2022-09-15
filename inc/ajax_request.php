@@ -545,24 +545,43 @@ function addmeeting()
 	$price =  get_post_meta($product_id, 'menu_item_price', true);
 	add_post_meta($user_id, 'date', $date, true);
 
-	$items = array();
+	
+	$food_items = [];
 	foreach ($menu_items as $menu_item) {
-
 		$product_id = $menu_item[0];
-		$menu_item = $menu_item[1];
-		$price =  get_post_meta($product_id, 'menu_item_price', true);
-		$total_price_item = $price * $menu_item;
-		add_post_meta($user_id, 'productid_' . $product_id, $menu_item, true);
-		add_post_meta($user_id, 'menu_item_price_' . $product_id, $total_price_item, true);
-		$items[] = $total_price_item;
+		$menu_item = $menu_item[1];		
+		$food_items[$product_id] = $menu_item;
 	}
 
-	$total_price =  array_sum($items);
-	add_post_meta($user_id, 'total_price', $total_price, true);
-	add_post_meta($user_id, 'order_day', '1', true);
+	
+
+
+	add_post_meta($user_id, 'food_order', $food_items, true);	
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Meeting', true);
 	add_post_meta($user_id, 'user_type', $order, true);
+
+
+	$orders_price = get_post_meta($user_id, 'food_order' , true);
+	$price_arr = [];
+	foreach($orders_price as $index => $order_price)
+	{
+		
+			$price =  get_post_meta($index, 'menu_item_price', true);
+		
+			$price_arr[] = $price * $order_price;
+			
+		
+	
+	}
+
+	
+	$order_total = array_sum($price_arr);
+	add_post_meta($user_id, 'order_total', $order_total,true);	
+
+
+
+
 
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);

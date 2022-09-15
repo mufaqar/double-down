@@ -56,8 +56,8 @@
                                                 if (have_posts()) :  while (have_posts()) : the_post(); ?>
                                                                 <tr>
                                                                         <td scope="row"><?php the_title()?></td>
-                                                                        <td><?php  the_time('M j, Y') ?></td>
-                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'total_price', true ); ?></td>
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'date', true ); ?></td>
+                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
                                                                         </tr>

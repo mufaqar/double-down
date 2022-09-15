@@ -15,15 +15,16 @@ print "<pre>";
 
 
 $orders_price = get_post_meta(get_the_ID(), 'food_order' , true);
+
+
 $price_arr = [];
 foreach($orders_price as $index => $order_price)
 {
-    foreach($order_price as $key => $price )
-    {   
-        $price =  get_post_meta($key, 'menu_item_price', true);
+    
+        $price =  get_post_meta($index, 'menu_item_price', true);
         $price_arr[] = $price;
         
-    }    
+      
    
 }
 
