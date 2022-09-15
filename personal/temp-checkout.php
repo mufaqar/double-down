@@ -1,26 +1,16 @@
-<?php
-/*
- * Template Name: Iframe
- */
 
-get_header('landing');
+<?php /* Template Name: Checkout  (P)  */
+get_header('');
 
-
-?>
+?><?php include('navigation.php'); ?>
 
 
-<!DOCTYPE html>
-<html>
- <head><title>Checkout</title></head>
- <body>
   <h1>Checkout</h1>
-   <div id="checkout-container-div">
-     <!-- checkout iframe will be embedded here -->
+   <div id="checkout-container-div">   
    </div>
    <script src="https://test.checkout.dibspayment.eu/v1/checkout.js?v=1"></script>
-   <script src="script.js">
+   <script>
 
-    
 document.addEventListener('DOMContentLoaded', function () {
   const urlParams = new URLSearchParams(window.location.search);
   const paymentId = urlParams.get('paymentId');
@@ -32,13 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     const checkout = new Dibs.Checkout(checkoutOptions);
     checkout.on('payment-completed', function (response) {
-      window.location = 'completed.html';
+     // window.location = 'completed.html';
     });
   } else {
     console.log("Expected a paymentId");   // No paymentId provided, 
-    window.location = 'cart.html';         // go back to cart.html
+    //window.location = 'cart.html';         // go back to cart.html
   }
 });
+
+
    </script>
- </body>
-</html>
+ 

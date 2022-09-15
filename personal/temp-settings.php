@@ -7,9 +7,32 @@ $uid = get_current_user_id();
 <!-- tabs -->
 
 <div class="tab_wrapper">
-    <?php page_title() ?>
+    <?php page_title() ;
+
+
+
+    
+    
+    
+    ?>
 
     <div class='panels'>
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class='panel launchClander setting_tab'>
             <div class="deatil_card d-flex justify-content-between align-items-center">
@@ -105,7 +128,7 @@ $uid = get_current_user_id();
                     <p>Overview</p>
                 </div>
                 <div class="">
-                    <a href="" class="btn_primary">Select</a>
+                <button id="show_invoice" class="btn_primary">Select</button>
                 </div>
             </div>
 
@@ -284,36 +307,69 @@ $uid = get_current_user_id();
             <h3 class="ad_productss">Invoice</h3>
 
             <div class="invoice_table">
-                <table class="_table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Invoice Date</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">Sunday, May 29, 2022</td>
-                            <td>80</td>
-                            <td>459.2</td>
-                            <td>Complete <i class="fa-solid fa-down-to-line"></i></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Sunday, June 5, 2022</td>
-                            <td>80</td>
-                            <td>459.2</td>
-                            <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
-                        </tr>
-                        <tr>
-                            <td scope="row">Sunday, June 6, 2022</td>
-                            <td>80</td>
-                            <td>459.2</td>
-                            <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class="_table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Order Type</th>                                     
+                                        <th scope="col">Total Price</th>                                    
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                
+                                        <?php 
+                                            global $current_user;
+                                            wp_get_current_user();
+                                            query_posts(array(
+                                                    'post_type' => 'orders',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',
+                                                    'author' => $current_user->ID,
+                                                    'meta_query' => array(                                                      
+                                                        
+                                                        'relation' => 'AND',
+                                                            array(
+                                                                'key'   => 'order_type',
+                                                                'value' => 'Meeting',
+                                                                'compare' => '!='
+                                                            ),
+                                                            array(
+                                                                'key'     => 'user_type',
+                                                                'value' => 'Personal',
+                                                                'compare' => '=',
+                                                             
+
+                                                            ),
+                                                    )
+                                                    
+                                                ));              
+                                        
+                                                if (have_posts()) :  while (have_posts()) : the_post(); ?>
+                                                                <tr>
+                                                                        <td scope="row"><?php the_title()?></td>
+                                                                        <td><?php  the_time('m-d') ?></td>
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
+                                                                        <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
+                                                                            ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )
+                                                                            <?php } ?>
+                                                                    </td>
+                                                                    
+                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
+                                                                
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?></td>
+                                                                        <td>   <button id="checkout-button">Proceed to Checkout</button></td>
+                                                                        </tr>
+                                            <?php endwhile; wp_reset_query(); else : ?>
+                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <?php endif; ?>  
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>          
             </div>
 
             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
@@ -323,6 +379,30 @@ $uid = get_current_user_id();
 
 
 
+<script type="text/javascript">
+    var button = document.getElementById('checkout-button');
+    button.addEventListener('click', function () {
+      var request = new XMLHttpRequest();
+
+      // create-payment.php is implemented in Step 2
+      request.open('GET', '<?php echo get_template_directory_uri() ?>/create-payment.php', true); 
+      request.onload = function () {
+        const data = JSON.parse(this.response);        // If parse error, check output 
+        if (!data.paymentId) {                         // from create-payment.php
+          console.error('Error: Check output from create-payment.php');
+          return;
+        }
+        console.log(this.response);
+
+        console.log(data);
+
+        // checkout.html is implemented in Step 3
+        window.location = '<?php echo home_url(); ?>/checkout/?paymentId=' + data.paymentId;
+      }
+      request.onerror = function () { console.error('connection error'); }
+      request.send();
+    });
+   </script>
 
 
 
@@ -351,6 +431,10 @@ $uid = get_current_user_id();
 
         $('#change_allergies').click(function() {
             $(".show_allergies_popup").css("display", "block");
+        });
+
+        $('#show_invoice').click(function() {
+            $(".invoice").css("display", "block");
         });
 
         $('._cross').click(function() {

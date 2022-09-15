@@ -44,34 +44,41 @@ $uid =  get_current_user_id() ;
 
   */
 
+
+                        //$payload = file_get_contents(get_template_directory_uri().'/personal/payload.json');
+
+                        //echo $payload ."<hr/>";
+
+
+
                         $order_data = array();
                         $order_data = array( 
-                            'checkout'  => array(        
-                                                
-                                                
-                                                "integrationType"=> "EmbeddedCheckout",
-                                                "url"=> "http://localhost/clients/food/test",
-                                                'termsUrl' => "http://localhost/clients/food/payment", 
+                            'checkout'  => array(  
+                                                "integrationType"=> "HostedPaymentPage",
+                                                "returnUrl"=> "http://localhost/clients/food/test",
+                                                'termsUrl' => "http://localhost/clients/food/terms", 
                                             ), 
                         
-                        'order'          => array( array(
-                                                "reference"   => "ref42",
-                                                "name"   => "Demo product",
-                                                "quantity"   => 2,
-                                                "unit"   => "hours",
-                                                "unitPrice"   => 80000,
-                                                "grossTotalAmount"   => 160000,
-                                                "netTotalAmount"   => 160000
-                                            ),
-                                        ),
+                        'order' => array(  
+                                            'amount'         => 20000,
+                                            'currency'       => "USD",
+                                            'reference'      => "Daily Food Order",
+                                            'items'          => array(array(       
+                                                "reference"=> "ref42",
+                                                "name"=> "Daily Food Order Product 03",
+                                                "quantity"=> 2,
+                                                "unit"=> "hours",
+                                                "unitPrice"=> 10000,
+                                                "grossTotalAmount"=> 20000,
+                                                "netTotalAmount"=> 20000,
+                                            ),)
                        
-                        'amount'         => 160000,
-                        'currency'       => "USD",
-                        'reference'      => "Demo Order",
-                       
-                        );       
+                        ));       
                         
-                       // echo json_encode($order_data);
+                        echo json_encode($order_data);
+
+
+                    
 
                       
 
@@ -83,8 +90,10 @@ $uid =  get_current_user_id() ;
 
                 function redirect_to_checkout($json) {
 
-                    // echo($json);  // Don't print anything before call to header()
+                  
                         $a = json_decode($json, true);
+
+                     
                         if (json_last_error() != JSON_ERROR_NONE) {
                                 echo(json_last_error_msg());
                                 var_dump($json);
@@ -95,21 +104,21 @@ $uid =  get_current_user_id() ;
                                 var_dump($json);
                                 exit("Could not find the key 'hostedPaymentPageUrl'");
                         }
-                        $lang = 'sv-SE';
-                        $redirectURL = $redirectURL . '&language=' . $lang;
+                     
+                        $redirectURL = $redirectURL ;
                         header("Location: " . $redirectURL);
                         exit();
                         
                 }
 
-                $payload = file_get_contents(get_template_directory_uri().'/personal/payload.json');
+                //$payload = file_get_contents(get_template_directory_uri().'/personal/payload.json');
 
               
-                assert(json_decode($payload) && json_last_error() == JSON_ERROR_NONE);
+                //assert(json_decode($payload) && json_last_error() == JSON_ERROR_NONE);
 
                 $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($order_data));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                         
@@ -117,9 +126,7 @@ $uid =  get_current_user_id() ;
                         'Accept: application/json',
                         'Authorization: test-secret-key-90d47cae99df4ffa8ccf386d9d104441'));                                                
                 $result = curl_exec($ch);
-                $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-               
+                $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);              
 
                 redirect_to_checkout($result);
 
