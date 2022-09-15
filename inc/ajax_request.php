@@ -608,11 +608,14 @@ function update_agreement()
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
 	$compnay_agreement = $_POST['compnay_agreement'];
-	$starting_date = $_POST['starting_date'];
+	$lunch_benefit = $_POST['lunch_benefit'];
+	$benefit_type = $_POST['benefit_type'];
 
-	$user_id = update_user_meta($uid, 'starting_date', $address);
+	$user_id = update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
+	echo "Updated";
 	if (!is_wp_error($user_id)) {
-		update_user_meta($uid, 'compnay_agreement', $compnay_agreement);
+		update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
+		update_user_meta($uid, 'lunch_benfit_type', $benefit_type);
 		//sendmail($username,$password);
 		echo wp_send_json(array('code' => 200, 'message' => __('Agreement Updated')));
 	} else {

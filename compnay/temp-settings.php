@@ -22,7 +22,7 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Details of the agreement</h3>
-                        <p>The company pays 20% or Nok of each luch</p>
+                        <p>The company pays <?php echo get_user_meta($uid, 'lunch_benefit', true );  ?><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok of each luch</p>
                         <p class="mt-1">Start date: Friday, May 20, 2022</p>
                         <ul class="mt-2">
                             <li><span>Location:</span> Pilestredet 75C | 0354 | OSLO</li>
@@ -257,10 +257,10 @@ $uid = get_current_user_id();
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label class="mt-4 ">Company Pay</label>
                     <div class="_field _pay mb-4 form-group w-100 d-flex align-items-center">
-                        <input type="text" class="form-control" id="lunch_benefit" placeholder="Company Pay 20">
-                        <select name="business_setting_type" id="business_setting_type" class="">
-                            <option value="percentange">%</option>
-                            <option value="usd">$</option>
+                        <input type="text" class="form-control" id="lunch_benefit"  placeholder="<?php echo get_user_meta($uid, 'lunch_benefit', true );  ?>">
+                        <select name="business_setting_type" id="business_setting_type" >
+                            <option value="%">%</option>
+                            <option value="$">$</option>
                         </select>
                     </div>
                     </div>                    
@@ -388,7 +388,9 @@ $uid = get_current_user_id();
             $("#update_agreement").submit(function(e) { 
                 e.preventDefault(); 
                 var compnay_agreement = jQuery('#compnay_agreement').val();
-                var starting_date = jQuery('#starting_date').val();                
+                var lunch_benefit = jQuery('#lunch_benefit').val();  
+                var benefit_type = jQuery('#business_setting_type').val();  
+                
                 var uid = jQuery('#uid').val();
                 $.ajax(
                     {
@@ -397,7 +399,8 @@ $uid = get_current_user_id();
                         data: {
                             action: "update_agreement",
                             compnay_agreement : compnay_agreement,  
-                            starting_date : starting_date,                           
+                            lunch_benefit : lunch_benefit,  
+                            benefit_type : benefit_type,                           
                             uid : uid
                         },   
                         success: function(data){                      
