@@ -360,7 +360,7 @@ $uid = get_current_user_id();
                                                                         <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                                                                 
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?></td>
-                                                                        <td>   <button id="checkout-button">Proceed to Checkout</button></td>
+                                                                        <td><button id="checkout-button" class="btn_primary">Checkout</button></td>
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                     <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
