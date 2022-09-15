@@ -37,8 +37,24 @@ $uid = get_current_user_id();
                 <!-- 2nd -->
                 <div class="deatil_card d-flex justify-content-between align-items-center">
                     <div class="info">
+                    <?php
+                        $available_employee = get_users(
+                            array(
+                                'role' => 'personal',
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'employee',
+                                        'value' => $uid,
+                                        'compare' => '=='
+                                    )
+                                )
+                            )
+                        );
+                        //print "<pre>";
+                        //print_r($available_drivers);
+                        ?>
                         <h3>Employees in the agreement</h3>
-                        <p>1 employee : Sumit</p>
+                        <p><?php echo  count($available_employee); ?> Employee : Submit</p>
                     </div>
                     <div>
                         <button id="emp_agreement" class="btn_primary">See or Overrid</button>
@@ -172,12 +188,12 @@ $uid = get_current_user_id();
         <div class="popup">
             <div class="popup_wrapper">
                 <h3>Employees in the Agreement</h3>
-                <h6>Total number of employees: 1</h6>
+                <h6>Total number of employees: <?php echo  count($available_employee); ?> </h6>
                 <hr>
                 <div>
                     <div class="btn_toggle">
                         <div class="btn_wrapper d-flex justify-content-center">
-                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | 01</button>
+                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | <?php echo  count($available_employee); ?></button>
                             <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
                         </div>
                     </div>
@@ -202,37 +218,52 @@ $uid = get_current_user_id();
                         <div>
                             <section>
                                 <form>
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-5">
+
+                                <?php foreach($available_employee as $emp)
+                                {
+
+                                  //  print "<pre>";
+                                    //print_r($emp);
+                                    
+                                    ?>
+                                    <div class="__inner d-flex align-items-center justify-content-between mt-2">
                                         <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="emp" name="emp" value="Employee" checked>
+                                            <input type="checkbox" id="emp" name="emp" value="Employee">
                                             <label for="emp" class="label"></label>
-                                            <p>Employee</p>
+                                            <p><?php echo $emp->user_login ?></p>
                                         </div>
-                                        <p>No fixed delivery</p>
+                                        <!-- <p>No fixed delivery</p> -->
                                     </div>
 
-                                    <div class="__inner d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="days" name="days" value="days" >
-                                            <label for="days" class="label"></label>
-                                            <p>Jose Olsen Barros</p>
-                                        </div>
-                                        <p>Number of delivery days</p>
-                                    </div>
+                                    <?php
 
+
+                                }
+                                ?>
+
+
+
+                                    
+
+                                    
+                                    </form>
+                                    <form class="add_employes" id="add_employes" action="#">
                                     <hr class="mt-4 mb-4">
                                     <h3>+ Invite new employees</h3>
-
                                     <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
-                                        <div class="d-flex align-items-center w-100">
-                                            <input type="email" id="days" name="days" value="days" class="w-100">
-                                            <button class="d-flex align-items-center">
-                                                <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                                                <span>Add</span>
-                                            </button>
-                                        </div>                                        
+                                       
+                                            <div class="d-flex align-items-center w-100">
+                                                <input type="email" id="email" name="email" value="" class="w-100">
+                                                <input type="hidden" id="uid" name="uid" value="<?php echo $uid?>" class="w-100">
+                                                <button class="d-flex align-items-center">
+                                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
+                                                    <span>Add</span>
+                                                </button>
+                                            </div>  
+                                                                            
                                     </div>
-                                </form>
+                                    </form> 
+                                
                             </section>
                         </div>
                     </div>
@@ -354,12 +385,46 @@ $uid = get_current_user_id();
            
                 $(".hideme").css("display", "none");
             });
+
+
+            
+            $("#add_employes").submit(function(e) { 
+                e.preventDefault(); 
+                var email = jQuery('#email').val();
+                var uid = jQuery('#uid').val();
+              
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "add_employes",
+                            email : email,                           
+                            uid : uid
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                                alert("Ajax Working");
+                               // alert(data.message);
+                        
+                            }      
+                    }
+                
+                });
+
+
+            });
+
             
             $("#update_deliver_address").submit(function(e) { 
                 e.preventDefault(); 
                 var address = jQuery('#address').val();
                 var uid = jQuery('#uid').val();
-                alert("asdafd");
+               
                 $.ajax(
                     {
                         type:"POST",
@@ -409,7 +474,7 @@ $uid = get_current_user_id();
                                         alert(data.message);
                             }  
                             else {
-                                alert(data.message);
+                               alert(data.message);
                         
                             }      
                     }

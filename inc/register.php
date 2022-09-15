@@ -208,4 +208,55 @@ function resetpassword() {
 
 
 
+add_action('wp_ajax_add_employes', 'add_employes', 0);
+add_action('wp_ajax_nopriv_add_employes', 'add_employes');
+function add_employes() {	
+
+
+
+	
+		global $wpdb;		
+		$uid = $_POST['uid'];
+		$invite_user1 = $_POST['email'];
+		$password = generateRandomString();	
+
+
+		
+		$user_data = array(
+			'user_login' => $invite_user1,
+			'user_email' => $invite_user1,
+			'user_pass' => $password,	
+			'role' => 'personal'
+			);
+	    $user_id = wp_insert_user($user_data);
+		
+	  	if (!is_wp_error($user_id)) {
+
+			update_user_meta( $user_id, 'employee', $uid);
+			sendmail($invite_user1,$password);
+			//update_user_meta( $uid, 'employer', $user_id);
+			echo wp_send_json( array('code' => 0 , 'message'=>__('New user Created for this Compnay')));
+			
+			//echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
+
+	  	} else {
+	    		         
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up the sign up form carefully.')));
+	      	
+	  	}
+	die;
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

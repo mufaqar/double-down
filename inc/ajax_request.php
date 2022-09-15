@@ -566,13 +566,8 @@ function addmeeting()
 	$price_arr = [];
 	foreach($orders_price as $index => $order_price)
 	{
-		
-			$price =  get_post_meta($index, 'menu_item_price', true);
-		
+			$price =  get_post_meta($index, 'menu_item_price', true);		
 			$price_arr[] = $price * $order_price;
-			
-		
-	
 	}
 
 	
@@ -803,3 +798,10 @@ function get_type_products()
 
 	die;
 }
+
+
+
+
+
+
+

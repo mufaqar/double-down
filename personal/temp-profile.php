@@ -22,8 +22,7 @@
                                                     <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                                                 </form>
                                             </div> -->
-
-                                            <a href="create-payment.php">Proceed to Checkout</a>
+                                       
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">
