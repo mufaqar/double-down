@@ -68,7 +68,7 @@ $uid =  get_current_user_id() ;
                                         ),
                        
                         'amount'         => 160000,
-                        'currency'       => "SEK",
+                        'currency'       => "USD",
                         'reference'      => "Demo Order",
                        
                         );       
