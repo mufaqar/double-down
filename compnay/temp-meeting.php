@@ -35,12 +35,13 @@ wp_get_current_user();
                                         from day to day. If you want to change a fixed subscription, do so
                                         <span>her.</span>
                                     </p>
-                                    <button href="" class="btn_primary  id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
-                                    <div class="d-none product_counter mt-4 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
-                                        <i class="count-down"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/minus-thin.png" alt=""></i>
+                                    <button class="btn_primary  id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
+                                    <div class="d-none product_counter mt-4 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">                                   
+                                        <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/minus-thin.png"  alt="" ></i>
                                         <input type="text" data-id="<?php echo $pid; ?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
-
-                                        <i class="count-up"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus-thin.png" alt=""></i>
+                                        <i class="count-up" onclick="handleCountInc(<?php echo get_the_ID(); ?>)">
+                                        <img  src="<?php echo get_template_directory_uri(); ?>/reources/images/plus-thin.png" alt="" ></i>
                                     </div>
                                 </div>
                             </div>
