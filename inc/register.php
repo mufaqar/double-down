@@ -233,6 +233,7 @@ function add_employes() {
 	  	if (!is_wp_error($user_id)) {
 
 			update_user_meta( $user_id, 'employee', $uid);
+			update_user_meta( $user_id, 'status', 'active');
 			sendmail($invite_user1,$password);
 			//update_user_meta( $uid, 'employer', $user_id);
 			echo wp_send_json( array('code' => 0 , 'message'=>__('New user Created for this Compnay')));
