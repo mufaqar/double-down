@@ -1,29 +1,20 @@
 {
     "checkout": {
       "integrationType": "EmbeddedCheckout",
-      "url": "http://localhost/clients/food/checkout",
-      "termsUrl": "http://localhost/clients/food/terms"
+      "url": "http://demo.mufaqar.com/dev3/checkout",
+      "termsUrl": "http://demo.mufaqar.com/dev3/checkout"
     },
     "order": {
       "items": [
         {
           "reference": "ref42",
-          "name": "Demo product",
+          "name": "Food Demo Product 01",
           "quantity": 2,
           "unit": "hours",
           "unitPrice": 80000,
           "grossTotalAmount": 160000,
           "netTotalAmount": 160000
-        },
-          {
-          "reference": "discount",
-          "name": "Demo discount",
-          "quantity": 1,
-          "unit": "pcs",
-          "unitPrice": -20000,
-          "grossTotalAmount": -20000,
-          "netTotalAmount": -20000
-          }
+        }          
       ],
       "amount": 140000,
       "currency": "SEK",
