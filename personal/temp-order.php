@@ -11,7 +11,7 @@ get_header();
 
 <div class="custom_container c2 ">
     <div class="row ">
-        <div class="catering_wrapper mt-5 mb-5 col-md-8">
+        <div class="catering_wrapper mt-5 mb-5 col-md-8 w-100">
             <div class="catering_menu buttons">
                 <a id="1" class="showSingle _active" target="1">Lunch Orders</a>
                 <a id="2" class="showSingle" target="2">Catering Orders</a>

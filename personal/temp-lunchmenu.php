@@ -16,7 +16,7 @@ $year=$week_arr[0];
         <?php page_title() ?>
     </div>
 
-    <div class="custom_container c2 ">
+    <div>
         <div class="row ">
             <div class="catering_wrapper mt-5 mb-5 col-md-8">
                 <div class="catering_menu buttons">
