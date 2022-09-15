@@ -2,9 +2,50 @@
 get_header('company');
 $uid = get_current_user_id();
 ?>
-<?php include('navigation.php'); ?>
+<?php include('navigation.php'); 
+                        $available_in_active_employee = get_users(
+                            array(
+                                'role' => 'personal',
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'employee',
+                                        'value' => $uid,
+                                        'compare' => '=='
+                                    ),
+                                     array(
+                                        'key' => 'status',
+                                        'value' => 'inactive',
+                                        'compare' => '=='
+                                    )
+                                )
+                            )
+                        );
 
-<!-- tabs -->
+                        $available_active_employee = get_users(
+                            array(
+                                'role' => 'personal',
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'employee',
+                                        'value' => $uid,
+                                        'compare' => '=='
+                                    ),
+                                    array(
+                                        'key' => 'status',
+                                        'value' => 'active',
+                                        'compare' => '=='
+                                    )
+                                )
+                            )
+                        );
+
+                      
+
+
+
+                        //print "<pre>";
+                        //print_r($available_drivers);
+                        ?>
 
 <div class="tab_wrapper">
     <?php page_title()?>
@@ -36,25 +77,9 @@ $uid = get_current_user_id();
                 </div>
                 <!-- 2nd -->
                 <div class="deatil_card d-flex justify-content-between align-items-center">
-                    <div class="info">
-                    <?php
-                        $available_employee = get_users(
-                            array(
-                                'role' => 'personal',
-                                'meta_query' => array(
-                                    array(
-                                        'key' => 'employee',
-                                        'value' => $uid,
-                                        'compare' => '=='
-                                    )
-                                )
-                            )
-                        );
-                        //print "<pre>";
-                        //print_r($available_drivers);
-                        ?>
+                    <div class="info">                    
                         <h3>Employees in the agreement</h3>
-                        <p><?php echo  count($available_employee); ?> Employee : Submit</p>
+                        <p><?php echo  count($available_active_employee); ?> Employee : Submit</p>
                     </div>
                     <div>
                         <button id="emp_agreement" class="btn_primary">See or Overrid</button>
@@ -188,19 +213,55 @@ $uid = get_current_user_id();
         <div class="popup">
             <div class="popup_wrapper">
                 <h3>Employees in the Agreement</h3>
-                <h6>Total number of employees: <?php echo  count($available_employee); ?> </h6>
+                <h6>Total number of employees: <?php echo  count($available_active_employee); ?> </h6>
                 <hr>
                 <div>
                     <div class="btn_toggle">
                         <div class="btn_wrapper d-flex justify-content-center">
-                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | <?php echo  count($available_employee); ?></button>
-                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | 0</button>
+                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | <?php echo  count($available_active_employee); ?></button>
+                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | <?php echo  count($available_in_active_employee); ?></button>
                         </div>
                     </div>
 
                     <!-- active content  -->
                     <div class="activeEmp_content ">
                         <div>
+
+                        <div>
+                            <section>
+                               <form>
+                                <?php foreach($available_active_employee as $emp)
+                                {
+
+                                //  print "<pre>";
+                                    //print_r($emp);
+                                    
+                                    ?>
+                                    <div class="__inner d-flex align-items-center justify-content-between mt-2">
+                                        <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="emp" name="emp" value="Employee">
+                                            <label for="emp" class="label"></label>
+                                            <p><?php echo $emp->user_login ?></p>
+                                        </div>
+                                        <!-- <p>No fixed delivery</p> -->
+                                    </div>
+
+                                    <?php
+
+
+                                }
+                                ?>
+
+
+
+                                    
+
+                                    
+                                    </form>
+                                
+                            </section>
+                        </div>
+                            
 
                         </div>
                     </div>
@@ -219,7 +280,7 @@ $uid = get_current_user_id();
                             <section>
                                 <form>
 
-                                <?php foreach($available_employee as $emp)
+                                <?php foreach($available_in_active_employee as $emp)
                                 {
 
                                   //  print "<pre>";
