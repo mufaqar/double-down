@@ -16,8 +16,8 @@
           "netTotalAmount": 160000
         }          
       ],
-      "amount": 140000,
-      "currency": "SEK",
-      "reference": "Demo Order"
+      "amount": 160000,
+      "currency": "USD",
+      "reference": "Demo Order Ref"
     }
   }
