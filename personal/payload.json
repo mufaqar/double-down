@@ -1,0 +1,23 @@
+{
+    "checkout": {
+      "integrationType": "HostedPaymentPage",
+      "returnUrl": "http://localhost/clients/food/test",
+      "termsUrl": "http://localhost/clients/food/terms"
+    },
+    "order": {
+      "items": [
+        {
+          "reference": "ref42",
+          "name": "Demo product",
+          "quantity": 2,
+          "unit": "hours",
+          "unitPrice": 80000,
+          "grossTotalAmount": 160000,
+          "netTotalAmount": 160000
+        }
+      ],
+      "amount": 160000,
+      "currency": "SEK",
+      "reference": "Demo Order"
+    }
+  }

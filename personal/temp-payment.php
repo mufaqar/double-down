@@ -49,9 +49,11 @@ $uid =  get_current_user_id() ;
                         $order_data = array();
                         $order_data = array( 
                             'checkout'  => array(        
-                                                'integrationType'  => "HostedPaymentPage",
-                                                'returnUrl'        => "http://localhost/clients/food/payment",
-                                                'termsUrl'         => "http://localhost/clients/food/payment", 
+                                                
+                                                
+                                                "integrationType"=> "EmbeddedCheckout",
+                                                "url"=> "http://localhost/clients/food/test",
+                                                'termsUrl' => "http://localhost/clients/food/payment", 
                                             ), 
                         
                         'order'          => array( array(
@@ -69,9 +71,9 @@ $uid =  get_current_user_id() ;
                         'currency'       => "SEK",
                         'reference'      => "Demo Order",
                        
-                        );
-
+                        );       
                         
+                       // echo json_encode($order_data);
 
                       
 
@@ -82,18 +84,34 @@ $uid =  get_current_user_id() ;
 
 
                 function redirect_to_checkout($json) {
-                        // Will be implemented in the next step
-                        // For now just echo the response:
-                        echo "Curl Working";
-                        echo($json); 
+
+                    // echo($json);  // Don't print anything before call to header()
+                        $a = json_decode($json, true);
+                        if (json_last_error() != JSON_ERROR_NONE) {
+                                echo(json_last_error_msg());
+                                var_dump($json);
+                                exit("Unable to parse json response");
+                        }
+                        $redirectURL = $a['hostedPaymentPageUrl'];
+                        if (empty($redirectURL)) {
+                                var_dump($json);
+                                exit("Could not find the key 'hostedPaymentPageUrl'");
+                        }
+                        $lang = 'sv-SE';
+                        $redirectURL = $redirectURL . '&language=' . $lang;
+                        header("Location: " . $redirectURL);
+                        exit();
+                        
                 }
 
-                //$payload = file_get_contents('payload.json');
-                //assert(json_decode($payload) && json_last_error() == JSON_ERROR_NONE);
+                $payload = file_get_contents(get_template_directory_uri().'/personal/payload.json');
+
+              
+                assert(json_decode($payload) && json_last_error() == JSON_ERROR_NONE);
 
                 $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-                curl_setopt($ch, CURLOPT_POSTFIELDS,  json_encode($order_data));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                         
@@ -103,7 +121,7 @@ $uid =  get_current_user_id() ;
                 $result = curl_exec($ch);
                 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-                //print_r($result);
+               
 
                 redirect_to_checkout($result);
 
