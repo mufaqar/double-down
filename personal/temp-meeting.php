@@ -87,7 +87,7 @@ $uid =  get_current_user_id() ;
                         <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                         <h1 class="finished">Finished!</h1>
                         <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>
-                        <a href="<?php echo home_url(''); ?>" class="btn_primary mb-5">View Orders</a>
+                        <a href="<?php echo home_url('/profile/orders'); ?>" class="btn_primary mb-5">View Orders</a>
                     </div>
                 </div>
 
