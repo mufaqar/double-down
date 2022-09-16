@@ -26,9 +26,9 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Delivery Address</h3>
-                    <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?><br><br>
+                    <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?><br>
                         <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?>
-                        |<strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
+                        | <strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
                     </p>
                 </div>
                 <div class="">
@@ -91,7 +91,7 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>How can we contact you?</h3>
-                    <p>By using <?php echo get_user_meta($uid, 'profile_contact',true);?> </p>
+                    <p><strong><span>Contact : </span></strong><?php echo get_user_meta($uid, 'profile_contact',true);?> </p>
                 </div>
                 <div class="">                 
                     <button id="show_contact" class="btn_primary">Select</button>
@@ -377,9 +377,10 @@ $user_info = get_userdata($uid);
                                     </tbody>
                                 </table>
                             </div>          
-            </div>
+          
 
             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
         </div>
     </div>
 </section>
