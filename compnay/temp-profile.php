@@ -19,7 +19,7 @@
                                             </a>
                                         </div>
                                         <div class="info d-flex align-items-center">
-                                            <h6><?php echo get_user_meta($uid ,'compnay_delivery_address',true);?> | <span>Fixed <?php echo get_user_meta($uid ,'company_days',true);?> days a week</span></h6>
+                                            <h6><?php echo get_user_meta($uid ,'compnay_delivery_address',true);?> | <span>Fixed <?php echo get_user_meta($uid ,'Company_days',true);?> days a week</span></h6>
                                             <!-- <div class="calender week_calender">
                                                 <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
                                                 <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
