@@ -43,6 +43,7 @@ function custom_orders_column( $column, $post_id ) {
         case 'order_type' :
             if(get_field( "order_type", $post_id )) {
                 echo get_field( "order_type", $post_id );
+                echo get_field( "order_day", $post_id );
             } else {
                 echo 0;
             }

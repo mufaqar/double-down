@@ -37,13 +37,11 @@ if($cal_date != '' )
                                                         }
                                                         else {
 
-                                                            $current_date =   date("Y-m-d");                                                                                           
-
+                                                            $current_date =   date("Y-m-d");   
                                                             $query_order = array(
                                                                 'post_type' => 'orders',
                                                                 'posts_per_page' => -1,
-                                                                'order' => 'desc',
-                                                                                                                    
+                                                                'order' => 'desc',                                                                                                                    
                                                                 'meta_query' => array(
                                                                     array(
                                                                         'key' => 'order_day',
@@ -107,8 +105,7 @@ if($cal_date != '' )
                                                     }
                                                     else {
 
-                                                        $current_date =   date("Y-m-d");                                                                                           
-
+                                                        $current_date =   date("Y-m-d");  
                                                         $query_meta = array(
                                                             'post_type' => 'menu_items',
                                                             'posts_per_page' => -1,
