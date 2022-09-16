@@ -112,7 +112,9 @@ function weeklyfood()
 		if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 		
 			// updated Existing Food order Weekly 
-			$updated_post_id = get_the_ID();	
+			$updated_post_id = get_the_ID();
+
+				
 			update_post_meta($updated_post_id, 'food_order', $days);
 			$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 			$price_arr = [];
@@ -129,6 +131,7 @@ function weeklyfood()
 			$order_total = array_sum($price_arr);
 			update_post_meta($updated_post_id, 'food_order', $days);
 			update_post_meta($updated_post_id, 'order_total', $order_total);
+			update_post_meta($updated_post_id, 'order_uid', $uid);
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
 			die;
 		
@@ -151,6 +154,7 @@ function weeklyfood()
 					add_post_meta($user_id, 'order_status', 'Pending', true);
 					add_post_meta($user_id, 'order_type', 'Weekly', true);
 					add_post_meta($user_id, 'user_type', $usertype, true);
+					add_post_meta($user_id, 'order_uid', $uid);
 
 					$orders_price = get_post_meta($user_id, 'food_order' , true);
 					$price_arr = [];

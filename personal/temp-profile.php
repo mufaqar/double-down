@@ -37,8 +37,7 @@
                                                     $query_meta = array(
                                                             'post_type' => 'orders',
                                                             'posts_per_page' => -1,
-                                                            'order' => 'desc',
-                                                            'author' => $current_user->ID,
+                                                            'order' => 'desc',                                                         
                                                             'meta_query' => array(                                                      
                                                                    'relation' => 'AND',
                                                                     array(
@@ -54,6 +53,11 @@
                                                                     array(
                                                                         'key'     => 'order_week',
                                                                         'value' => $current_week,
+                                                                        'compare' => '='
+                                                                    ),
+                                                                    array(
+                                                                        'key'     => 'order_uid',
+                                                                        'value' => $current_user->ID,
                                                                         'compare' => '='
                                                                     )
                                                                     ),
