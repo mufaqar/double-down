@@ -654,16 +654,12 @@ function profile_deliver_address()
 	$uid = stripcslashes($_POST['uid']);
 	$profile_delivery_address = $_POST['profile_delivery_address'];
 	$profile_delivery_phone = $_POST['profile_delivery_phone'];
-	$profile_delivery_email = $_POST['profile_delivery_email'];
-
-	$user_id = update_user_meta($uid, 'profile_delivery_phone', $profile_delivery_phone);
-	if (!is_wp_error($user_id)) {
-		update_user_meta($uid, 'profile_delivery_address', $profile_delivery_address);
-		update_user_meta($uid, 'profile_delivery_email', $profile_delivery_email);
-		echo wp_send_json(array('code' => 200, 'message' => __('Address Updated')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
-	}
+	$profile_delivery_email = $_POST['profile_delivery_email'];	
+	update_user_meta($uid, 'profile_delivery_phone', $profile_delivery_phone);
+	update_user_meta($uid, 'profile_delivery_address', $profile_delivery_address);
+	update_user_meta($uid, 'profile_delivery_email', $profile_delivery_email);
+	echo wp_send_json(array('code' => 200, 'message' => __('Profile Dellivery Details Updated')));
+	
 
 	die;
 }

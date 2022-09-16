@@ -1,39 +1,19 @@
 <?php /* Template Name: Settings (P)  */
 get_header();
 $uid = get_current_user_id();
+
+$user_info = get_userdata($uid);
+
+print_r($user_info);
 ?>
 <?php include('navigation.php'); ?>
 
 <!-- tabs -->
 
 <div class="tab_wrapper">
-    <?php page_title() ;
-
-
-
-    
-    
-    
-    ?>
+    <?php page_title() ;   ?>
 
     <div class='panels'>
-
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class='panel launchClander setting_tab'>
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
@@ -42,17 +22,16 @@ $uid = get_current_user_id();
                 </div>
 
                 <div class="">
-                    <button id="showfast_leaving" class="btn_primary">Change</button>
+                    <!-- <button id="showfast_leaving" class="btn_primary">Change</button> -->
                 </div>
             </div>
             <!-- 2nd -->
             <div class="deatil_card d-flex justify-content-between align-items-center">
-
                 <div class="info">
                     <h3>Delivery Address</h3>
-                    <p>Pilestredet 75C | 0354 | OSLO<br>
-                        You pay NOK 0, - in shipping. * price ex. 15% VAT<br>
-                        <strong><span>Phone:</span></strong> 9297418517 | <strong><span>Email:</span></strong> abc@email.com
+                    <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?><br><br>
+                        <strong><span>Phone:</span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?> | 
+                        <strong><span>Email:</span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
                     </p>
                 </div>
                 <div class="">
@@ -64,10 +43,10 @@ $uid = get_current_user_id();
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Corporate Agreement</h3>
-                    <p>Oranchy AS Sponge 20%</p>
+                    <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?></p>
                     <p>
                         <strong><span>Admin 1: </span></strong>
-                        <span class="underline">admin@oranchy.com</span>
+                        <span class="underline"><?php echo get_user_meta($uid, 'profile_delivery_email',true);?></span>
                     </p>
                 </div>
 
@@ -77,9 +56,9 @@ $uid = get_current_user_id();
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Profile</h3>
-                    <p>Oranchy AS<br>
-                        admin@email.com <br>
-                        <span>94974967</span>
+                    <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?><br>
+                    <?php echo $user_info->user_email ?> <br>
+                        <span><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?> </span>
                     </p>
 
                 </div>
@@ -89,7 +68,7 @@ $uid = get_current_user_id();
             </div>
 
             <!-- 5th  -->
-            <div class="deatil_card d-flex justify-content-between align-items-center">
+            <!-- <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Payment</h3>
                     <p>**** **** **** 2124</p>
@@ -97,7 +76,7 @@ $uid = get_current_user_id();
                 <div class="">
                     <button id="change_payment_card_no" class="btn_primary">Change</button>
                 </div>
-            </div>
+            </div> -->
 
             <!-- 6th  -->
             <div class="deatil_card d-flex justify-content-between align-items-center">
