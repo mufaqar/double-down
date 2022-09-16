@@ -82,8 +82,7 @@ function companysignup() {
 		$email = ($_POST['username']);
 		$phone = stripcslashes($_POST['phone']);
 		$compnay_name = $_POST['compnay_name'];	
-		$company_address = $_POST['company_address'];	
-		$compnay_agreement = $_POST['compnay_agreement'];	
+		$compnay_delivery_address = $_POST['compnay_delivery_address'];		
 		$lunch_benefit = $_POST['lunch_benefit'];
 		$lunch_benfit_type = $_POST['lunch_benfit_type'];
 		$start_date = $_POST['start_date'];		
@@ -104,10 +103,9 @@ function companysignup() {
 	  	if (!is_wp_error($user_id)) {
 
 			//update_user_meta( $user_id, 'country', 'Pakistan');
-			update_user_meta( $user_id, 'address', $company_address);
+			update_user_meta( $user_id, 'compnay_delivery_address', $compnay_delivery_address);
 			update_user_meta( $user_id, 'lunch_benefit', $lunch_benefit);
 			update_user_meta( $user_id, 'lunch_benfit_type', $lunch_benfit_type);
-			update_user_meta( $user_id, 'compnay_agreement', $compnay_agreement);
 			update_user_meta( $user_id, 'starting_date', $start_date);
 			update_user_meta( $user_id, 'profile_delivery_phone', $phone);
 

@@ -27,11 +27,11 @@ reddirectProfile();
                     </div>
 
                     <div class="form-group w-100 mt-3 mb-5">
-                        <label for="company_address">Delivery adress</label>
-                        <textarea class="form-control" id="company_address" rows="3"
+                        <label for="compnay_delivery_address">Delivery adress</label>
+                        <textarea class="form-control" id="compnay_delivery_address" rows="3"
                             placeholder="Enter Delivery adress"></textarea>
-                        <input type="text" class="form-control" id="compnay_agreement" 
-                            placeholder="Agreement Title" required>
+                        <!-- <input type="text" class="form-control" id="compnay_agreement" 
+                            placeholder="Agreement Title" > -->
                     </div>
 
                     <a type="next" class="btn_primary d-block next" onclick="stepOne()">Continue</a>
@@ -175,8 +175,8 @@ reddirectProfile();
             var name = jQuery('#name').val();          
             var phone = jQuery('#phone').val();	             
             var compnay_name = jQuery('#compnay_name').val();	 
-            var company_address = jQuery('#company_address').val();	 
-            var compnay_agreement = jQuery('#compnay_agreement').val();	            
+            var compnay_delivery_address = jQuery('#compnay_delivery_address').val();	 
+            //var compnay_agreement = jQuery('#compnay_agreement').val();	            
             var start_date = jQuery('#start_date').val();      
             var lunch_benefit = jQuery('#lunch_benefit').val();	 
             var lunch_benfit_type = jQuery('#lunch_benfit_type').val();	 
@@ -191,11 +191,8 @@ reddirectProfile();
                     data: {
                         action: "companysignup",
                         username : username,
-                        name : name, 
-                        phone : phone,                 
-                        compnay_name : compnay_name,
-                        company_address : company_address,
-                        compnay_agreement : compnay_agreement,
+                        compnay_name : compnay_name,                  
+                        compnay_delivery_address : compnay_delivery_address,
                         lunch_benfit_type : lunch_benfit_type,
                         lunch_benefit : lunch_benefit,
                         invite_user1 : invite_user1,

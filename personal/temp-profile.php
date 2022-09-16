@@ -17,7 +17,7 @@
                                                 <p style="margin-left: .5rem; color:#5FB227">My Orders</p></a>
                                         </div>
                                         <div class="info d-flex align-items-center">
-                                            <h6><?php echo get_user_meta($uid ,'profile_delivery_address',true);?> | <span>Fixed 5 days a week </span></h6>
+                                            <h6><?php echo get_user_meta($uid ,'compnay_delivery_address',true);?> | <span>Fixed 5 days a week </span></h6>
                                             <!-- <div class="calender week_calender">
                                                 <form action="" method="GET" id="weekform">
                                                     <input type="text" id="weekPicker2" name="week" value="<?php echo date("Y-W"); ?>" >
