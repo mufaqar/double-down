@@ -57,7 +57,7 @@ wp_get_current_user();
             <div class="row">
                 <div class="col-md-6">
                     <h6 class="mt-2"><strong>Delivery Address</strong></h6>
-                    <p><?php echo get_user_meta( $uid, 'compnay_delivery_address', true ); ?>/p>
+                    <p><?php echo get_user_meta( $uid, 'compnay_delivery_address', true ); ?></p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end align-items-end">
                     <button class="btn green_btn">Order Now</button>
