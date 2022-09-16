@@ -191,6 +191,8 @@ reddirectProfile();
                     data: {
                         action: "companysignup",
                         username : username,
+                        name : name,
+                        phone : phone,
                         compnay_name : compnay_name,                  
                         compnay_delivery_address : compnay_delivery_address,
                         lunch_benfit_type : lunch_benfit_type,

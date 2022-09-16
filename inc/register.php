@@ -80,6 +80,7 @@ function companysignup() {
 		global $wpdb;		
 		$username = ($_POST['username']);
 		$email = ($_POST['username']);
+		$name = $_POST['name'];
 		$phone = stripcslashes($_POST['phone']);
 		$compnay_name = $_POST['compnay_name'];	
 		$compnay_delivery_address = $_POST['compnay_delivery_address'];		
@@ -91,11 +92,12 @@ function companysignup() {
 		$invite_user3 = $_POST['invite_user3'];	
 		$password = generateRandomString();	
 
+
 		$user_data = array(
 			'user_login' => $username,
 			'user_email' => $email,
 			'user_pass' => $password,	
-			'display_name' => $compnay_name,
+			'display_name' => $name,
 			'role' => 'company'
 			);
 	    $user_id = wp_insert_user($user_data);
@@ -108,6 +110,7 @@ function companysignup() {
 			update_user_meta( $user_id, 'lunch_benfit_type', $lunch_benfit_type);
 			update_user_meta( $user_id, 'starting_date', $start_date);
 			update_user_meta( $user_id, 'profile_delivery_phone', $phone);
+			update_user_meta( $user_id, 'compnay_name', $compnay_name);
 
 			// User Inviated 
 			if($invite_user1 != '') {

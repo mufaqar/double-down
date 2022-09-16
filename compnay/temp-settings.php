@@ -340,7 +340,7 @@ $uid = get_current_user_id();
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                         <label>Agreement Name</label>
                         <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text" name="compnay_agreement" id="compnay_agreement" value="<?php echo get_user_meta($uid, 'compnay_agreement', true );  ?>" >
+                            <input type="text" name="compnay_agreement" id="compnay_agreement" value="<?php echo get_user_meta($uid, 'compnay_name', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
                         </div>
                     </div>
