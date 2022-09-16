@@ -66,9 +66,6 @@ $uid = get_current_user_id();
                         <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok </span> of each luch</p>
                         <ul class="mt-2">
                         <li><span>Agreement Name:</span> <?php echo get_user_meta($uid, 'compnay_agreement', true );  ?> </li>
-
-                            <li><span>Location:</span> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> </li>
-                     
                         </ul>
                     </div>
 
