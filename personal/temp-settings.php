@@ -30,8 +30,8 @@ $user_info = get_userdata($uid);
                 <div class="info">
                     <h3>Delivery Address</h3>
                     <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?><br><br>
-                        <strong><span>Phone:</span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?> | 
-                        <strong><span>Email:</span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
+                        <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?>
+                        |<strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
                     </p>
                 </div>
                 <div class="">
@@ -45,7 +45,7 @@ $user_info = get_userdata($uid);
                     <h3>Corporate Agreement</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?></p>
                     <p>
-                        <strong><span>Admin 1: </span></strong>
+                        <strong><span>Email : </span></strong>
                         <span class="underline"><?php echo get_user_meta($uid, 'profile_delivery_email',true);?></span>
                     </p>
                 </div>
