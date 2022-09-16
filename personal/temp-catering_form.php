@@ -3,6 +3,7 @@ get_header();
 
 ?> 
  <?php include('navigation.php'); ?>
+ <?php global $current_user; wp_get_current_user();  $uid = $current_user->ID;?>
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
@@ -17,6 +18,7 @@ get_header();
                     <label for="">Number of People</label>
                     <div class="_select">
                         <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                        <input type="hidden" value="<?php echo $uid ?>"  id="uid" >
                     </div>
                 </div>
 
@@ -202,7 +204,8 @@ get_header();
             var pro_cat = jQuery('#pro_cat').val();	 
             var pro_sub_cat = jQuery('#pro_sub_cat').val();	
             var person = jQuery('#person').val();           
-            var allergens = jQuery('#allergens').val();  
+            var allergens = jQuery('#allergens').val(); 
+            var uid = jQuery('#uid').val();  
            
             $.ajax(
                 {
@@ -220,7 +223,8 @@ get_header();
                         pro_cat : pro_cat,
                         pro_sub_cat : pro_sub_cat,
                         person : person,
-                        user_type : "Personal"
+                        user_type : "Personal",
+                        uid : uid
                     },   
                     success: function(data){                      
                      

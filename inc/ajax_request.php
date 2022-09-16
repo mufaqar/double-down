@@ -19,6 +19,7 @@ function addcatering()
 	$pro_sub_cat = $_POST['pro_sub_cat'];
 	$allergens = $_POST['allergens'];
 	$user_type = $_POST['user_type'];
+	$uid = $_POST['uid'];
 
 	$post = array(
 		'post_title'    => $date,
@@ -31,7 +32,8 @@ function addcatering()
 			'address' => $address,
 			'person' => $person,
 			'date' => $date,
-			'user_type' => $user_type
+			'user_type' => $user_type,
+			'order_uid' => $uid,
 		),
 		'tax_input'    => array(
 			'food_type' => array($food_type),
