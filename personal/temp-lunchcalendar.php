@@ -373,11 +373,6 @@ jQuery(document).ready(function($)
                         
                       
            var menu_items = menu_items;   
-           alert(uid);
-        
-
-     
-           
                    
        
            $.ajax(

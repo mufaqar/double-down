@@ -323,7 +323,7 @@ function dailyfood()
 		$food_items[$product_id] = $menu_item;
 	
 	}
-	echo $uid."---";
+
 
 	$days = [];
 	$days[$day] = $food_items;
