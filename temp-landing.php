@@ -136,7 +136,7 @@ get_header('landing');
         
     </div>
     <div class="mt-3 mb-5 d-flex justify-content-end startNow">
-        <a href="" class="btn_primary">Start Now</a>
+        <a href="<?php echo home_url('/signup'); ?>" class="btn_primary">Start Now</a>
     </div>
 </div>
 </div>
@@ -155,8 +155,8 @@ get_header('landing');
     <p class="contact_text">Feel free to contact us by chat or reach us at:</p>
     <span>729 09 005 / hei@doubledowndish.no</span>
     <div class="links">
-        <a href="">Terms </a>|
-        <a href="">Privacy</a>
+        <a href="<?php echo home_url('/terms'); ?>">Terms </a>|
+        <a href="<?php echo home_url('/privacy'); ?>">Privacy</a>
     </div>
     <a class="measures_text">Measures against the coronavirus</a>
     <div class="divider"></div>
