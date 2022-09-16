@@ -103,7 +103,7 @@ get_header('landing');
             'post_type' => 'menu_items',
             'posts_per_page' => -1,
 			'order' => 'desc',
-            'menus_type' => 'bread-lunch'
+            'menus_type' => array('bread-lunch','salad-lunch','wrap-lunch')
 			
         )); 
 		if (have_posts()) :  while (have_posts()) : the_post(); ?>
