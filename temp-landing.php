@@ -92,43 +92,38 @@ get_header('landing');
 <p>Really big company? Get in touch and we will find a solution!</p>
 <div class="row d-flex align-items-center _slider mt-4">
     <div class="col-lg-2 categories_links">
-        <a href="">Salatlus</a>
+        <a href="">	Salad Lunch</a>
         <a href="">Bread Lunch</a>
-        <a href="">Vegetarian</a>
-        <a href="">Accessories</a>
+        <a href="">Wrap Lunch</a>
     </div>
     <div class="col-lg-10 _slider_items">
         <div class="autoplay">
+
+        <?php query_posts(array(
+            'post_type' => 'menu_items',
+            'posts_per_page' => -1,
+			'order' => 'desc',
+            'menu_items' => 'bread-lunch'
+			
+        )); 
+		if (have_posts()) :  while (have_posts()) : the_post(); ?>
+
+
+
             <div class="item_wrapper">
                 <div>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
-                    <h5>Salatlunsj</h5>
+                    
+                    <?php if ( has_post_thumbnail() ) {
+									the_post_thumbnail('product-thumbnail-home');
+								} else { ?>
+						<img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
+							<?php } ?>
+                    <h5><?php the_title()?></h5>
                 </div>
             </div>
-            <div class="item_wrapper">
-                <div>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
-                    <h5>Salatlunsj</h5>
-                </div>
-            </div>
-            <div class="item_wrapper">
-                <div>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
-                    <h5>Salatlunsj</h5>
-                </div>
-            </div>
-            <div class="item_wrapper">
-                <div>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
-                    <h5>Salatlunsj</h5>
-                </div>
-            </div>
-            <div class="item_wrapper">
-                <div>
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
-                    <h5>Salatlunsj</h5>
-                </div>
-            </div>
+            <?php endwhile; wp_reset_query(); else : ?>
+			<h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+	        <?php endif; ?> 
         </div>
         <div class="nav_btn d-flex align-items-center">
             <div class="previous_arrow">
