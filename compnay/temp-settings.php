@@ -190,7 +190,7 @@ $uid = get_current_user_id();
                         <div class="_field d-flex justify-content-between align-items-center">
                             <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
-                            <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
+                            <!-- <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt=""> -->
                         </div>
                     </div>
                     <!-- <div class="add_address d-flex align-items-center justify-content-end mt-3">
