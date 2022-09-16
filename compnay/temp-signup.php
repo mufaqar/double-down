@@ -1,8 +1,9 @@
-<?php /* Template Name: Signup  */ 
-
-
+<?php /* Template Name: Company-Signup  */ 
 
 get_header();
+
+reddirectProfile();
+
 
 
 ?>  <main class="business_agreement">

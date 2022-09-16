@@ -1,5 +1,6 @@
-<?php /* Template Name: Signup ( Profile ) */ 
+<?php /* Template Name: Profile-Signup */ 
 get_header();
+reddirectProfile();
 ?>
 <main class="business_agreement">    
     <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
