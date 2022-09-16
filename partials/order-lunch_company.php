@@ -34,8 +34,7 @@
                                             query_posts(array(
                                                     'post_type' => 'orders',
                                                     'posts_per_page' => -1,
-                                                    'order' => 'desc',
-                                                    'author' => $current_user->ID,
+                                                    'order' => 'desc',                                               
                                                     'meta_query' => array(                                                      
                                                         
                                                         'relation' => 'AND',
@@ -48,9 +47,12 @@
                                                                 'key'     => 'user_type',
                                                                 'value' => 'Company',
                                                                 'compare' => '=',
-                                                             
-
                                                             ),
+                                                            array(
+                                                                'key'     => 'order_uid',
+                                                                'value' => $current_user->ID,
+                                                                'compare' => '='
+                                                            )
                                                     )
                                                     
                                                 ));              
