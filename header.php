@@ -48,3 +48,8 @@
 </head>
 
 <body <?php body_class("profile_pages"); ?>>
+<?php  if (is_user_logged_in()) {
+        $current_user = wp_get_current_user();
+        $uid = $current_user->ID;     
+    }   
+	?>

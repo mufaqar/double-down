@@ -37,9 +37,10 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>
     <?php wp_head(); ?>
-
-
-
 </head>
-
 <body <?php body_class("company_pages"); ?>>
+<?php  if (is_user_logged_in()) {
+        $current_user = wp_get_current_user();
+        $uid = $current_user->ID;     
+    }   
+	?>

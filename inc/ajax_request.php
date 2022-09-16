@@ -70,9 +70,10 @@ function weeklyfood()
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$weekid = $_POST['weekid'];
+	$total_days = count($weekdays);
 
+	update_user_meta( $uid, $usertype.'_days', $total_days);
 
-		
 		$food_items = [];
 		foreach ($menu_items as $menu_item) {
 			$product_id = $menu_item[0];
