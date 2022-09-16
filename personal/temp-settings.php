@@ -492,7 +492,7 @@ $user_info = get_userdata($uid);
 
                 </div>
 
-                <img src="../reources//images/red cross.png" alt="" class="_cross">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
