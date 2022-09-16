@@ -690,19 +690,19 @@ function profile_deliver_fast()
 // Profile Payment Card Number Address
 
 
-add_action('wp_ajax_profile_card_number', 'profile_card_number', 0);
-add_action('wp_ajax_nopriv_profile_card_number', 'profile_card_number');
+add_action('wp_ajax_profile_contact', 'profile_contact', 0);
+add_action('wp_ajax_nopriv_profile_contact', 'profile_contact');
 
-function profile_card_number()
+function profile_contact()
 {
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
-	$profile_card_no = $_POST['profile_card_no'];
-
-	$user_id = update_user_meta($uid, 'profile_card_no', $profile_card_no);
+	$profile_contact = $_POST['profile_contact'];
+	
+	$user_id = update_user_meta($uid, 'profile_contact', $profile_contact);
 	if (!is_wp_error($user_id)) {
 
-		echo wp_send_json(array('code' => 200, 'message' => __('Profile Card Number Updated')));
+		echo wp_send_json(array('code' => 200, 'message' => __('Profile Contact Updated')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
 	}

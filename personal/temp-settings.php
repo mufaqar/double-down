@@ -91,7 +91,7 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>How can we contact you?</h3>
-                    <p>How can we contact you?</p>
+                    <p>By using <?php echo get_user_meta($uid, 'profile_contact',true);?> </p>
                 </div>
                 <div class="">                 
                     <button id="show_contact" class="btn_primary">Select</button>
@@ -265,17 +265,13 @@ $user_info = get_userdata($uid);
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Contact Info </label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_contact" id="profile_contact" placeholder="<?php echo get_user_meta($uid, 'profile_contact', true);  ?>">
+                        <input type="text" name="contact_detail" id="contact_detail" placeholder="<?php echo get_user_meta($uid, 'profile_contact', true);  ?>">
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
-
                     </div>
                 </div>
-
-
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
                 </div>
-
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </form>
@@ -518,16 +514,17 @@ $user_info = get_userdata($uid);
 
         });
 
-        $("#profile_card_form").submit(function(e) {
+        $("#profile_contact").submit(function(e) {
             e.preventDefault();
-            var profile_card_no = jQuery('#profile_card_no').val();
+            var profile_contact = jQuery('#contact_detail').val();
             var uid = jQuery('#uid').val();
+            alert(profile_contact);
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
                 data: {
-                    action: "profile_card_number",
-                    profile_card_no: profile_card_no,
+                    action: "profile_contact",
+                    profile_contact: profile_contact,
                     uid: uid
                 },
                 success: function(data) {
@@ -607,41 +604,5 @@ $user_info = get_userdata($uid);
     });
 
 
-    function submitTwoForms() {
-
-        var day = jQuery('#day').val();
-        var uid = jQuery('#uid').val();
-        var datas = [];
-        var newdata = [];
-        $(".dailyfood .product-quantity").each(function() {
-            var productid = $(this).data('id');
-            var value = $(this).val();
-            if (value > 1) {
-                datas.push([productid, $(this).val()]);
-            }
-            newdata.push(datas);
-        });
-        var menu_items = newdata[0];
-        console.log(menu_items);
-        $.ajax({
-            type: "POST",
-            url: "<?php echo admin_url('admin-ajax.php'); ?>",
-            data: {
-                action: "dailyfood",
-                day: day,
-                menu_items: menu_items,
-                uid: uid
-
-            },
-            success: function(data) {
-                if (data.code == 0) {
-                    alert(data.message);
-                } else {
-                    $(".alertmessage").css("display", "flex");
-                }
-            }
-
-        });
-
-    }
+  
 </script>
