@@ -247,7 +247,11 @@ function weeklyfood_byday()
 			unset($food_orderd_data[$sel_day]);
 			$food_orderd_data[$sel_day] = array_shift($daily_food);		
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
-			print_r($food_orderd_data);
+
+			$total_days = count($food_orderd_data);
+			update_user_meta( $uid, $usertype.'_days', $total_days);
+			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
+			
 		
 		
 		}
@@ -255,7 +259,11 @@ function weeklyfood_byday()
 
 			$food_orderd_data[$sel_day] = array_shift($daily_food);	
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
-			print_r($food_orderd_data);
+			$total_days = count($food_orderd_data);
+			update_user_meta( $uid, $usertype.'_days', $total_days);
+			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
+			
+			
 			
 			
 
@@ -263,9 +271,7 @@ function weeklyfood_byday()
 
 	endwhile; wp_reset_query(); else : 
 
-		// Insert post as its not exisit 
-
-		die("No post Found");
+		
 		$postdata = array(
 			'post_title'    => "OHYSX-" . rand(10, 100),
 			'post_status'   => 'publish',
