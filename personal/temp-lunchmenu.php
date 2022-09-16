@@ -138,8 +138,7 @@ jQuery(document).ready(function($)
                             success: function(data) {
                                 if (data.code == 0) {
                                     alert(data.message);
-                                } else {  
-                                    
+                                } else {                                      
                                    // alert("Ajax Working");
                                   $(".foodlist").html(data);
                                   $(".oldfoodlist").hide();
@@ -149,12 +148,6 @@ jQuery(document).ready(function($)
 
                         });
                     }
-
-            
-
-
-
-
        
 
 

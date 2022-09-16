@@ -391,8 +391,9 @@ jQuery(document).ready(function($)
                                    alert(data.message);
                        }  
                        else {
-                      $(".alertmessage").css("display", "flex");
-                   
+                            $(".alertmessage").css("display", "flex");
+                            $('.alertmessage').delay(1500).fadeOut();
+                            location.reload();                   
                        }      
                }
            
