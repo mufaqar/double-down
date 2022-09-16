@@ -2,7 +2,6 @@
 get_header();
 global $current_user;
 wp_get_current_user();
-
 $uid =  get_current_user_id() ;
 
 

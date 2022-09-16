@@ -1,10 +1,8 @@
 <?php /* Template Name: Meeting (C)  */
-
-
-
 get_header('company');
 global $current_user;
 wp_get_current_user();
+$uid =  get_current_user_id() ;
 
 
 ?>
