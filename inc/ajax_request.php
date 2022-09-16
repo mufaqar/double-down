@@ -601,10 +601,10 @@ function company_deliver_address()
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
 	$address = $_POST['address'];
-	$user_id = update_user_meta($uid, 'profile_address', $address);
+	$user_id = update_user_meta($uid, 'compnay_delivery_address', $address);
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);
-		echo wp_send_json(array('code' => 200, 'message' => __('Address Updated')));
+		echo wp_send_json(array('code' => 200, 'message' => __('Compnay Delivery Address Updated')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
 	}

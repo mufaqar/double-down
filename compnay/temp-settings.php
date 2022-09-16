@@ -64,9 +64,9 @@ $uid = get_current_user_id();
                     <div class="info">
                         <h3>Details of the agreement</h3>
                         <p>The company pays <?php echo get_user_meta($uid, 'lunch_benefit', true );  ?><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok of each luch</p>
-                        <p class="mt-1">Start date: Friday, May 20, 2022</p>
+                      
                         <ul class="mt-2">
-                            <li><span>Location:</span> Pilestredet 75C | 0354 | OSLO</li>
+                            <li><span>Location:</span> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> </li>
                      
                         </ul>
                     </div>
@@ -109,11 +109,11 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Delivery Address</h3>
-                        <p> <?php echo get_user_meta($uid, 'profile_address', true );  ?> <br> </p>
+                        <p> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> <br> </p>
                             <!-- The company pays NOK 69 in shipping. * price ex. 15% VAT</p> -->
-                        <ul class="mt-2">
+                        <!-- <ul class="mt-2">
                             <li><span>Extra Info:</span> Pilestredet</li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="">
                         <button id="delivery_address" class="btn_primary">Change</button>
@@ -184,19 +184,19 @@ $uid = get_current_user_id();
         <div class="popup">
             <form class="update_deliver_address" id="update_deliver_address" action="#" > 
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Delivery Address</h3>               
+                    <h3 class="ad_productss">Compnay Delivery Address</h3>               
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                         <label>Delivery Address</label>
                         <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'profile_address', true );  ?>" >
+                            <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
                             <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
                         </div>
                     </div>
-                    <div class="add_address d-flex align-items-center justify-content-end mt-3">
+                    <!-- <div class="add_address d-flex align-items-center justify-content-end mt-3">
                         <p><span>Add more address!</span></p>
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                    </div>
+                    </div> -->
                     <div class="mt-5">
                     
                         <input type="submit" class="btn_primary"  value="Save"/>
