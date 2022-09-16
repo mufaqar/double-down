@@ -208,8 +208,6 @@ get_header('company');
 <script type="text/javascript">
     jQuery(document).ready(function($) {
 
-
-
         $('._cross').click(function() {
 
             $(".hideme").css("display", "none");
@@ -235,13 +233,8 @@ get_header('company');
             });
             // alert(newdata[0]);
             var menu_items = newdata[0];
-
             console.log(weekid);
-            die("asdfasf");
-
-
-
-
+           
 
             $.ajax({
                 type: "POST",
@@ -261,7 +254,7 @@ get_header('company');
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                      //  $(".alertmessage").css("display", "flex");
+                      $(".alertmessage").css("display", "flex");
 
                     }
                 }

@@ -215,6 +215,12 @@ function weeklyfood_byday()
 		$product_items[$product_id] = $menu_item;
 		$daily_food[$sel_day] = $product_items;
 	}
+
+
+
+
+
+
 	// check if order already placed by week
 	$query_meta = array(
         'posts_per_page' => -1,
@@ -237,15 +243,22 @@ function weeklyfood_byday()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 		
+		
 		// updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();
+		
 		
 		$food_orderd_data = array();
 		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
 		if(array_key_exists($sel_day, $food_orderd_data))
 		{
 			unset($food_orderd_data[$sel_day]);
-			$food_orderd_data[$sel_day] = array_shift($daily_food);		
+			$food_orderd_data[$sel_day] = array_shift($daily_food);
+			
+		
+			
+			
+
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 
 			$total_days = count($food_orderd_data);
@@ -255,9 +268,19 @@ function weeklyfood_byday()
 		
 		
 		}
-		else {		
+		else {	
+			
+			
 
 			$food_orderd_data[$sel_day] = array_shift($daily_food);	
+
+			
+
+
+
+
+
+
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
