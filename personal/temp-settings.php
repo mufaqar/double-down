@@ -15,7 +15,7 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Fast Levering</h3>
-                    <p>5 Days</p>
+                    <p><?php echo get_user_meta($uid,'Personal_days',true);?> Days</p>
                 </div>
 
                 <div class="">
