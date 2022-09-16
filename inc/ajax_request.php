@@ -626,7 +626,7 @@ function update_agreement()
 	$benefit_type = $_POST['benefit_type'];
 
 	$user_id = update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
-	echo "Updated";
+
 	if (!is_wp_error($user_id)) {
 		update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
 		update_user_meta($uid, 'lunch_benfit_type', $benefit_type);

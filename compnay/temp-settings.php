@@ -342,14 +342,14 @@ $uid = get_current_user_id();
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                         <label>Agreement Name</label>
                         <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text" name="compnay_agreement" id="compnay_agreement" placeholder="<?php echo get_user_meta($uid, 'compnay_agreement', true );  ?>" >
+                            <input type="text" name="compnay_agreement" id="compnay_agreement" value="<?php echo get_user_meta($uid, 'compnay_agreement', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
                         </div>
                     </div>
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label class="mt-4 ">Company Pay</label>
                     <div class="_field _pay mb-4 form-group w-100 d-flex align-items-center">
-                        <input type="text" class="form-control" id="lunch_benefit"  placeholder="<?php echo get_user_meta($uid, 'lunch_benefit', true );  ?>">
+                        <input type="text" class="form-control" id="lunch_benefit"  value="<?php echo get_user_meta($uid, 'lunch_benefit', true );  ?>">
                         <select name="business_setting_type" id="business_setting_type" >
                             <option value="%">%</option>
                             <option value="$">$</option>
@@ -469,7 +469,7 @@ $uid = get_current_user_id();
                                         alert(data.message);
                             }  
                             else {
-                                alert("Ajax Working");
+                               // alert("Ajax Working");
                                // alert(data.message);
                         
                             }      
