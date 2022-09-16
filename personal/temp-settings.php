@@ -370,7 +370,7 @@ $user_info = get_userdata($uid);
                                                                         <td><button id="checkout-button" class="btn_primary">Checkout</button></td>
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
-                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
                                                 <?php endif; ?>  
                                         
                                         
