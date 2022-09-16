@@ -19,16 +19,13 @@ function remove_admin_bar() {
 
 add_filter( 'manage_orders_posts_columns', 'set_custom_edit_orders_columns' );    
 add_action( 'manage_orders_posts_custom_column' , 'custom_orders_column', 10, 2 );
-
 function set_custom_edit_orders_columns($columns) {    
-    unset( $columns['author'] );
-   
+    unset( $columns['author'] );   
     $columns['order_type'] = 'Order Type';
     $columns['user_type'] = 'User Type';
     $columns['order_uid'] = 'Order By';
     $columns['order_total'] = 'Order Price';
-    $columns['order_status'] = 'Payment Status';
-  
+    $columns['order_status'] = 'Payment Status';  
     return $columns;    
 }
 
@@ -83,6 +80,98 @@ function my_column_register_sortable( $columns ) {
 }
 
 add_filter("manage_edit-orders_sortable_columns", "my_column_register_sortable" );
+
+
+
+
+
+
+
+add_filter( 'manage_catering_posts_columns', 'set_custom_edit_catering_columns' );    
+add_action( 'manage_catering_posts_custom_column' , 'custom_catering_column', 10, 2 );
+function set_custom_edit_catering_columns($columns) {    
+    unset( $columns['author'] );   
+ 
+    $columns['user_type'] = 'User Type';
+    $columns['order_uid'] = 'Order By';
+    $columns['order_people'] = 'People';
+
+    return $columns;    
+}
+
+function custom_catering_column( $column, $post_id ) {   
+    global $post;
+    switch ( $column ) {
+        case 'order_status' :
+            if(get_field( "order_status", $post_id )) {
+                echo get_field( "order_status", $post_id );
+            } else {
+                echo 0;
+            }
+        break;
+
+        case 'order_type' :
+            if(get_field( "order_type", $post_id )) {
+                echo get_field( "order_type", $post_id );
+            } else {
+                echo 0;
+            }
+        break;  
+        case 'user_type' :
+          if(get_field( "user_type", $post_id )) {
+              echo get_field( "user_type", $post_id );
+          } else {
+              echo 0;
+          }
+      break; 
+      break;  
+        case 'order_people' :
+          if(get_field( "people", $post_id )) {
+              echo get_field( "people", $post_id );
+          } else {
+              echo 0;
+          }
+      break; 
+      break;  
+        case 'order_uid' :
+          if(get_field( "order_uid", $post_id )) {
+              echo get_field( "order_uid", $post_id );
+          } else {
+              echo 0;
+          }
+      break;    
+    }   
+}
+
+function catering_column_register_sortable( $columns ) {
+     $columns['order_status'] = 'order_status';
+    $columns['order_type'] = 'order_type';
+    return $columns;
+}
+
+add_filter("manage_edit-catering_sortable_columns", "catering_column_register_sortable" );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function  page_title() {
 
