@@ -82,8 +82,8 @@ get_header('landing');
     </div>
 </div>
 <div class="d-flex justify-content-center mb-5 mt-5 links">
-    <a href="<?php echo home_url('create-business-agreement'); ?>" class="btn_primary">Start Now</a>
-    <a href="<?php echo home_url('sign-up'); ?>" class="btn_primary btn_sec">Order without a company agreement?</a>
+    <a href="<?php echo home_url('/create-business-agreement'); ?>" class="btn_primary">Start Now</a>
+    <a href="<?php echo home_url('/sign-up'); ?>" class="btn_primary btn_sec">Order without a company agreement?</a>
 </div>
 </section>
 
@@ -136,7 +136,7 @@ get_header('landing');
         
     </div>
     <div class="mt-3 mb-5 d-flex justify-content-end startNow">
-        <a href="<?php echo home_url('/signup'); ?>" class="btn_primary">Start Now</a>
+        <a href="<?php echo home_url('/create-business-agreement'); ?>" class="btn_primary">Start Now</a>
     </div>
 </div>
 </div>
