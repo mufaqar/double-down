@@ -18,7 +18,7 @@
                                         </div>
 
                                         <div class="info d-flex align-items-center">
-                                            <h6>profile_delivery_address | <span>Fixed 5 days a week</span></h6>
+                                            <h6><?php echo get_user_meta($uid ,'compnay_delivery_address',true);?> | <span>Fixed 5 days a week</span></h6>
 
                                             <!-- <div class="calender week_calender">
                                                 <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
