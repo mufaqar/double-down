@@ -56,18 +56,11 @@ if($c_user_role == 'personal') { die(" Not Allowed");}
                                     <?php if ( is_user_logged_in() ) { 
                                     echo 'Hey, ' .  $current_user->display_name ; } 
                                     else {
-
                                         wp_redirect( home_url('login'));                                     
                                         exit;
-
-
                                     }
                                     ?></h6>
                                 <p>Agreement: <?php echo get_user_meta($current_user->ID, 'compnay_agreement', true); 	?></p>
-
-                               
-                                        ?>
-
                             </div>
                             <img src="<?php bloginfo('template_directory'); ?>/reources//images/profile.webp" alt="">
                         </div>                        
