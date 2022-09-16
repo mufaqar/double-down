@@ -318,11 +318,11 @@ $user_info = get_userdata($uid);
                                     <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">Date</th>
-                                                                 
-                                        <th scope="col">Total Price</th>                                    
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Date</th>                                                                 
+                                        <th scope="col">Type</th>                                    
+                                        <th scope="col">Price</th>
                                         <th scope="col">Action</th>
+                                        <th scope="col">Details</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -334,15 +334,11 @@ $user_info = get_userdata($uid);
                                                     'post_type' => 'orders',
                                                     'posts_per_page' => -1,
                                                     'order' => 'desc',
-                                                    'author' => $current_user->ID,
+                                                
                                                     'meta_query' => array(                                                      
                                                         
                                                         'relation' => 'AND',
-                                                            array(
-                                                                'key'   => 'order_type',
-                                                                'value' => 'Meeting',
-                                                                'compare' => '!='
-                                                            ),
+                                                           
                                                             array(
                                                                 'key'     => 'user_type',
                                                                 'value' => 'Personal',
@@ -350,6 +346,11 @@ $user_info = get_userdata($uid);
                                                              
 
                                                             ),
+                                                            array(
+                                                                'key'     => 'order_uid',
+                                                                'value' => $current_user->ID,
+                                                                'compare' => '='
+                                                            )
                                                     )
                                                     
                                                 ));              
@@ -364,9 +365,9 @@ $user_info = get_userdata($uid);
                                                                             <?php } ?>
                                                                     </td>
                                                                     
-                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                                                                 
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?></td>
+                                                                        <td><button id="show_invoice_detail" class="btn_primary">Detail</button></td>
                                                                         <td><button id="checkout-button" class="btn_primary">Checkout</button></td>
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
@@ -384,6 +385,117 @@ $user_info = get_userdata($uid);
         </div>
     </div>
 </section>
+
+<section class="hideme overlay invoice_detail_popup">
+        <div class="popup">
+            <div class="popup_wrapper">
+                <h3 class="ad_productss">Invoice Detail</h3>                
+                <div class="invoice_table">
+                  <table class="invoice_slip_table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Cloud</th>
+                        <th scope="col">Distribution</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row"><strong>Name: </strong>Jose Olsen Barros</td>
+                        <td scope="row"><strong>Lunch: </strong>NOK 459.2</td>
+                        
+                      </tr>
+                      <tr>
+                        <td scope="row"><strong>Name: </strong>admin@oranchy.com</td>
+                        <td scope="row"><strong>Shipping: </strong>NOK 0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <h5 class="mt-4">Summary</h5>
+                  <table class="invoice_slip_table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Description</th>
+                        <th scope="col">Number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                        <td scope="row"><strong>Salad</td>
+                        <td scope="row">2 <sub>stk</sub></td>
+                      </tr>
+                      <tr>
+                        <td scope="row"><strong>Vegan</td>
+                        <td scope="row">2 <sub>stk</sub></td>
+                      </tr>
+                      <tr>
+                        <td scope="row"><strong>extraBread</td>
+                        <td scope="row">2 <sub>stk</sub></td>
+                      </tr>
+                      <tr>
+                        <td scope="row"><strong>Drink</td>
+                        <td scope="row">2 <sub>stk</sub></td>
+                      </tr>
+                      <tr>
+                        <td scope="row"><strong>Smoothie</td>
+                        <td scope="row">2 <sub>stk</sub></td>
+                      </tr>
+                      <tr>
+                        <td scope="row"><strong>greek_yoghurt_raspberry</td>
+                        <td scope="row">2 <sub>stk</sub></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+                  <h5 class="mt-4">Invoice Lines</h5>
+                  <table class="invoice_slip_table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">Monday, May 23, 2022</td>
+                        <td scope="row">Salad x 1</td>
+                        <td scope="row">kr 72.8,-	</td>
+                        <td scope="row">kr 0,-</td>
+                        <td scope="row">Complete</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Tuesday, May 24, 2022</td>
+                        <td scope="row">Salad x 1</td>
+                        <td scope="row">kr 72.8,-	</td>
+                        <td scope="row">kr 0,-</td>
+                        <td scope="row">Pending</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Tuesday, May 24, 2022</td>
+                        <td scope="row">Salad x 1</td>
+                        <td scope="row">kr 72.8,-	</td>
+                        <td scope="row">kr 0,-</td>
+                        <td scope="row">Pending</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+
+                  <div class="mt-4 d-flex justify-content-end">
+                    <p>* All prices incl. 15% VAT</p>
+                  </div>
+
+                </div>
+
+                <img src="../reources//images/red cross.png" alt="" class="_cross">
+            </div>
+        </div>
+    </section>
 
 
 
@@ -447,6 +559,14 @@ $user_info = get_userdata($uid);
         $('#show_invoice').click(function() {
             $(".invoice").css("display", "block");
         });
+
+        $('#show_invoice_detail').click(function() {
+            $(".invoice").hide();
+            $(".invoice_detail_popup").css("display", "block");
+        });
+
+
+
 
         $('._cross').click(function() {
 

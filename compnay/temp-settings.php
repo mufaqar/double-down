@@ -366,47 +366,81 @@ $uid = get_current_user_id();
 
 
  <section class="hideme overlay invoice">
-    <div class="popup">
-      <div class="popup_wrapper">
-        <h3 class="ad_productss">Invoice</h3>
+ <div class="popup">
+        <div class="popup_wrapper">
+            <h3 class="ad_productss">Invoice</h3>
 
-        <div class="invoice_table">
-          <table class="_table">
-            <thead>
-              <tr>
-                <th scope="col">Invoice Date</th>
-                <th scope="col">Total</th>
-                <th scope="col">Total</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">Sunday, May 29, 2022</td>
-                <td>80</td>
-                <td>459.2</td>
-                <td>Complete <i class="fa-solid fa-down-to-line"></i></td>
-              </tr>
-              <tr>
-                <td scope="row">Sunday, June 5, 2022</td>
-                <td>80</td>
-                <td>459.2</td>
-                <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
-              </tr>
-              <tr>
-                <td scope="row">Sunday, June 6, 2022</td>
-                <td>80</td>
-                <td>459.2</td>
-                <td>Pending <i class="fa-solid fa-down-to-line"></i></td>
-              </tr>
-            </tbody>
-          </table>
+            <div class="invoice_table">
+            <table class="_table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Date</th>
+                                                                 
+                                        <th scope="col">Total Price</th>                                    
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                
+                                        <?php 
+                                            global $current_user;
+                                            wp_get_current_user();
+                                            query_posts(array(
+                                                    'post_type' => 'orders',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',                                                   
+                                                    'meta_query' => array(                                                     
+                                                        
+                                                        'relation' => 'AND',
+                                                          
+                                                        
+                                                            array(
+                                                                'key'     => 'user_type',
+                                                                'value' => 'Company',
+                                                                'compare' => '=',
+                                                            ),
+                                                            array(
+                                                                'key'     => 'order_uid',
+                                                                'value' => $current_user->ID,
+                                                                'compare' => '='
+                                                            )
+                                                    )
+                                                    
+                                                ));              
+                                        
+                                                if (have_posts()) :  while (have_posts()) : the_post(); ?>
+                                                                <tr>
+                                                                        <td scope="row"><?php the_title()?></td>
+                                                                        <td><?php  the_time('m-d') ?></td>
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
+                                                                        <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
+                                                                            ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )
+                                                                            <?php } ?>
+                                                                    </td>
+                                                                    
+                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
+                                                                
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?></td>
+                                                                        <td><button id="checkout-button" class="btn_primary">Checkout</button></td>
+                                                                        </tr>
+                                            <?php endwhile; wp_reset_query(); else : ?>
+                                                <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
+                                                <?php endif; ?>  
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>          
+          
+
+            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
         </div>
-
-        <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-      </div>
     </div>
-  </section>
+</section>
+
 
 
 
