@@ -152,21 +152,21 @@ $user_info = get_userdata($uid);
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Delivery Address</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_address" id="profile_delivery_address" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?>">
+                        <input type="text" name="profile_delivery_address" id="profile_delivery_address" value="<?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?>">
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt="">
+                        <!-- <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt=""> -->
                     </div>
                 </div>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Phone </label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_phone', true);  ?>">
+                        <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" value="<?php echo get_user_meta($uid, 'profile_delivery_phone', true);  ?>">
                     </div>
                 </div>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Email Addres</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_email" id="profile_delivery_email" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_email', true);  ?>">
+                        <input type="text" name="profile_delivery_email" id="profile_delivery_email" value="<?php echo get_user_meta($uid, 'profile_delivery_email', true);  ?>">
                     </div>
                 </div>
 

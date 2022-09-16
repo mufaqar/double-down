@@ -63,13 +63,9 @@ if($c_user_role == 'personal') { die(" Not Allowed");}
 
                                     }
                                     ?></h6>
-                                <p>Agreement: <?php echo get_user_meta( $uid, 'compnay_agreement', true); 	?></p>
+                                <p>Agreement: <?php echo get_user_meta($current_user->ID, 'compnay_agreement', true); 	?></p>
 
-                                <?php 
-
-                                        $current_user = wp_get_current_user();
-                                //  print_r($current_user);
-
+                               
                                         ?>
 
                             </div>
