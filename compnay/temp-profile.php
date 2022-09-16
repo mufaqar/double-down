@@ -1,5 +1,7 @@
 <?php /* Template Name: Company-Dashoard  */ 
     get_header('company');
+    $uid = get_current_user_id();
+    $user_info = get_userdata($uid);
     include('navigation.php'); ?>
       <div class="tab_wrapper">
                      <?php page_title()?>
