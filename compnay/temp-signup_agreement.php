@@ -50,8 +50,8 @@ reddirectProfile();
                         <input type="text" class="form-control" id="lunch_benefit" 
                             placeholder="Company Pay 20">
                         <select name="lunch_benfit_type" id="lunch_benfit_type" class="">
-                            <option value="percentange">%</option>
-                            <option value="usd">$</option>
+                            <option value="%">%</option>
+                            <option value="$">$</option>
                         </select>
                         <p class="text-nowrap">of the lunch to each employee?</p>
                     </div>
@@ -176,9 +176,8 @@ reddirectProfile();
             var phone = jQuery('#phone').val();	             
             var compnay_name = jQuery('#compnay_name').val();	 
             var company_address = jQuery('#company_address').val();	 
-            var start_date = jQuery('#start_date').val();	 
-            
-            var oranch_as = jQuery('#oranch_as').val();	 
+            var compnay_agreement = jQuery('#compnay_agreement').val();	            
+            var start_date = jQuery('#start_date').val();      
             var lunch_benefit = jQuery('#lunch_benefit').val();	 
             var lunch_benfit_type = jQuery('#lunch_benfit_type').val();	 
             var invite_user1 = jQuery('#invite_user1').val();	 
@@ -196,7 +195,7 @@ reddirectProfile();
                         phone : phone,                 
                         compnay_name : compnay_name,
                         company_address : company_address,
-                        oranch_as : oranch_as,
+                        compnay_agreement : compnay_agreement,
                         lunch_benfit_type : lunch_benfit_type,
                         lunch_benefit : lunch_benefit,
                         invite_user1 : invite_user1,

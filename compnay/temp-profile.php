@@ -1,4 +1,4 @@
-    <?php /* Template Name: Company-Dashoard  */ 
+<?php /* Template Name: Company-Dashoard  */ 
     get_header('company');
     include('navigation.php'); ?>
       <div class="tab_wrapper">
@@ -18,7 +18,7 @@
                                         </div>
 
                                         <div class="info d-flex align-items-center">
-                                            <h6>Pilestredet 75C | <span>Fixed 5 days a week</span></h6>
+                                            <h6>profile_delivery_address | <span>Fixed 5 days a week</span></h6>
 
                                             <!-- <div class="calender week_calender">
                                                 <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">

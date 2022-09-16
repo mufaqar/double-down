@@ -1,5 +1,7 @@
     <?php /* Template Name: Profile  */ 
     get_header();
+    $uid = get_current_user_id();
+    $user_info = get_userdata($uid);
     include('navigation.php'); ?>
       <div class="tab_wrapper">
                      <?php page_title()?>
@@ -15,7 +17,7 @@
                                                 <p style="margin-left: .5rem; color:#5FB227">My Orders</p></a>
                                         </div>
                                         <div class="info d-flex align-items-center">
-                                            <h6>Pilestredet 75C | <span>Fixed 5 days a week </span></h6>
+                                            <h6><?php echo get_user_meta($uid ,'profile_delivery_address',true);?> | <span>Fixed 5 days a week </span></h6>
                                             <!-- <div class="calender week_calender">
                                                 <form action="" method="GET" id="weekform">
                                                     <input type="text" id="weekPicker2" name="week" value="<?php echo date("Y-W"); ?>" >
@@ -31,8 +33,6 @@
                                               <?php 
                                                     $current_week =  date("W"); 
                                                     $current_year =  date("Y");
-                                                    global $current_user;
-                                                    wp_get_current_user();
                                                    
                                                     $query_meta = array(
                                                             'post_type' => 'orders',
