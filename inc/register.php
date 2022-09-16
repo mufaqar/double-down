@@ -48,12 +48,12 @@ function usersignup() {
 		'user_email' => $email,
 		'user_pass' => $password,	
 		'display_name' => $name,
-		'role' => 'personal'
+		'role' => 'company'
 		);
 	    $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {		    
 			sendmail($username,$password);
-			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
+			echo wp_send_json( array('code' => 200 , 'message'=>__('We have Created an account for you.')));
 
 	  	} else {
 	    	if (isset($user_id->errors['empty_user_login'])) {

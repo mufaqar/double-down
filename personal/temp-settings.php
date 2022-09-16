@@ -317,9 +317,9 @@ $user_info = get_userdata($uid);
             <table class="_table">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Order ID</th>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Order Type</th>                                     
+                                                                 
                                         <th scope="col">Total Price</th>                                    
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
