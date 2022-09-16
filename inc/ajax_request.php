@@ -547,24 +547,18 @@ function addmeeting()
 	);
 	$user_id = wp_insert_post($post);
 	$price =  get_post_meta($product_id, 'menu_item_price', true);
-	add_post_meta($user_id, 'date', $date, true);
-
-	
+	add_post_meta($user_id, 'date', $date, true);	
+	add_post_meta($user_id, 'order_uid', $uid, true);	
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
 		$menu_item = $menu_item[1];		
 		$food_items[$product_id] = $menu_item;
 	}
-
-	
-
-
 	add_post_meta($user_id, 'food_order', $food_items, true);	
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Meeting', true);
 	add_post_meta($user_id, 'user_type', $order, true);
-
 
 	$orders_price = get_post_meta($user_id, 'food_order' , true);
 	$price_arr = [];
