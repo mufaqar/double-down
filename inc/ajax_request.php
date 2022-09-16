@@ -323,6 +323,7 @@ function dailyfood()
 		$food_items[$product_id] = $menu_item;
 	
 	}
+	echo $uid."---";
 
 	$days = [];
 	$days[$day] = $food_items;
@@ -337,39 +338,30 @@ function dailyfood()
                 'compare' => '='
             ),
         )
-    );
-
-	print_r($days);
-
-	
+    );	
 
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
 	// updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();	
-		update_post_meta($updated_post_id, 'food_order', $days);	
-
+		update_post_meta($updated_post_id, 'food_order', $days);
+		update_post_meta($updated_post_id, 'order_uid', $uid);	
 		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 		$price_arr = [];
-
 		foreach($orders_price[$day] as $index => $order_price)
 		{		
-		$price =  get_post_meta($index, 'menu_item_price', true);
-		$price_arr[] = $price*$order_price;
-		
+			$price =  get_post_meta($index, 'menu_item_price', true);
+			$price_arr[] = $price*$order_price;		
 		}
 		$order_total = array_sum($price_arr);
 		update_post_meta($updated_post_id, 'order_total', $order_total);
-		echo "Updated Query Run";	
+		echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
+		die();
 		
 
 
-	if (!is_wp_error($user_id)) {
-		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
-	}
+	
 
 endwhile; wp_reset_query(); else : 
 
@@ -389,7 +381,7 @@ endwhile; wp_reset_query(); else :
 		add_post_meta($user_id, 'user_type', $usertype, true);
 		add_post_meta($user_id, 'order_week', $week, true);
 		add_post_meta($user_id, 'food_order', $days);
-
+		add_post_meta($user_id, 'order_uid', $uid);
 
 	    $orders_price = get_post_meta($user_id, 'food_order' , true);
 		$price_arr = [];
@@ -402,35 +394,10 @@ endwhile; wp_reset_query(); else :
 		}
 		$order_total = array_sum($price_arr);
 		add_post_meta($user_id, 'order_total', $order_total);	
-
-
-		
-	if (!is_wp_error($user_id)) {
-		//sendmail($username,$password);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
-	}
-
-
-	die();
-
-
-
-
-
-
-
-
-
+		die();
 
 endif;
-
-
-
-
-
-
 die;
 }
 

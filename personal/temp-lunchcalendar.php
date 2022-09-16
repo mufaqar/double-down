@@ -1,31 +1,16 @@
 <?php /* Template Name: Personal-LunchCalednar  */ 
 get_header();
-
 $query_date = $_REQUEST['date'];
-
-
 $cal_date = $_REQUEST['send'];
 if($cal_date != '' )
 {
-
    $query_date = $cal_date;
-
 }
-
-
-
-
-?>
-<?php include('navigation.php'); ?>
+?><?php include('navigation.php'); ?>
 
 <div class="tab_wrapper">
-<?php page_title() ;
-
-
-
-?>
-                    <div class="custom_container">
-                          
+<?php page_title() ; ?>
+                    <div class="custom_container">                          
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                     <div class="catering_menu">
@@ -99,6 +84,7 @@ if($cal_date != '' )
                                        
                                     </div>
                                     <form class="weeklyfood" id="weeklyfood" action="#">   
+                                      <input type="hidden" id="uid" name="uid" value="<?php echo get_current_user_id() ?>" />
                                     <div class="catering_card_wrapper">
                                     <?php 
 
@@ -169,10 +155,8 @@ if($cal_date != '' )
                                                             <strong class="title">VAT:</strong> 
                                                             <p>80</p>
                                                         </div>
-                                                    </div>                                               
-
-                                                    <div class="product_card ">
-                                                        
+                                                    </div>     
+                                                    <div class="product_card ">                                                        
                                                         <button href="" class="btn_primary  select_product_btn id<?php echo $pid;?>"
                                                                         onmouseover="showCounter(<?php echo $pid;?>)">Select</button>
                                                                             <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid;?>">
@@ -389,6 +373,7 @@ jQuery(document).ready(function($)
                         
                       
            var menu_items = menu_items;   
+           alert(uid);
         
 
      
