@@ -519,7 +519,7 @@ $user_info = get_userdata($uid);
             e.preventDefault();
             var profile_contact = jQuery('#contact_detail').val();
             var uid = jQuery('#uid').val();
-            alert(profile_contact);
+        
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
