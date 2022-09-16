@@ -1,13 +1,10 @@
 <?php /* Template Name: Settings (P)  */
 get_header();
 $uid = get_current_user_id();
-
 $user_info = get_userdata($uid);
-
 //print_r($user_info);
 ?>
 <?php include('navigation.php'); ?>
-
 <!-- tabs -->
 
 <div class="tab_wrapper">
@@ -63,7 +60,8 @@ $user_info = get_userdata($uid);
 
                 </div>
                 <div class="">
-                    <a href="" class="btn_primary">Change</a>
+                   
+                    <button id="show_profile" class="btn_primary">See or Overrid</button>
                 </div>
             </div>
 
@@ -95,8 +93,10 @@ $user_info = get_userdata($uid);
                     <h3>How can we contact you?</h3>
                     <p>How can we contact you?</p>
                 </div>
-                <div class="">
-                    <a href="" class="btn_primary">Select</a>
+                <div class="">                 
+                    <button id="show_contact" class="btn_primary">Select</button>
+
+                    
                 </div>
             </div>
 
@@ -122,8 +122,6 @@ $user_info = get_userdata($uid);
 </div>
 </div>
 </main>
-
-
 <section class="hideme alertmessage">
     <div class="popup">
         <div class="popup_wrapper">
@@ -208,21 +206,28 @@ $user_info = get_userdata($uid);
     </div>
 </section>
 
-<section class="hideme overlay show_payment_card_popup">
-    <div class="popup">
-        <form class="profile_card_form" id="profile_card_form" action="#">
+<section class="hideme overlay show_profile_popup">
+<div class="popup">
+        <form class="profile_details" id="profile_details" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Payment</h3>
+                <h3 class="ad_productss">Profile Details</h3>                
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Card Number</label>
+                    <label>Phone </label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_card_no" id="profile_card_no" placeholder="<?php echo get_user_meta($uid, 'profile_card_no', true);  ?>">
-                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
+                        <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_phone', true);  ?>">
                     </div>
                 </div>
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>Email Addres</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="profile_delivery_email" id="profile_delivery_email" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_email', true);  ?>">
+                    </div>
+                </div>
+
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
                 </div>
+
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </form>
@@ -244,6 +249,33 @@ $user_info = get_userdata($uid);
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
                 </div>
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<section class="hideme overlay show_contact_popup">
+    <div class="popup">
+        <form class="profile_contact" id="profile_contact" action="#">
+            <div class="popup_wrapper">
+                <h3 class="ad_productss">Contact Info</h3>
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>Contact Info </label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="profile_contact" id="profile_contact" placeholder="<?php echo get_user_meta($uid, 'profile_contact', true);  ?>">
+                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
+
+                    </div>
+                </div>
+
+
+                <div class="mt-5">
+                    <input type="submit" class="btn_primary" value="Save" />
+                </div>
+
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </form>
@@ -404,8 +436,11 @@ $user_info = get_userdata($uid);
             $(".fast_leaving_popup").css("display", "block");
         });
 
-        $('#change_payment_card_no').click(function() {
-            $(".show_payment_card_popup").css("display", "block");
+        $('#show_profile').click(function() {
+            $(".show_profile_popup").css("display", "block");
+        });
+        $('#show_contact').click(function() {
+            $(".show_contact_popup").css("display", "block");
         });
 
         $('#change_allergies').click(function() {
