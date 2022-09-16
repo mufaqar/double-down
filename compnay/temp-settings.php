@@ -63,9 +63,10 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Details of the agreement</h3>
-                        <p>The company pays <?php echo get_user_meta($uid, 'lunch_benefit', true );  ?><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok of each luch</p>
-                      
+                        <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok </span> of each luch</p>
                         <ul class="mt-2">
+                        <li><span>Agreement Name:</span> <?php echo get_user_meta($uid, 'compnay_agreement', true );  ?> </li>
+
                             <li><span>Location:</span> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> </li>
                      
                         </ul>
@@ -515,7 +516,8 @@ $uid = get_current_user_id();
                 e.preventDefault(); 
                 var compnay_agreement = jQuery('#compnay_agreement').val();
                 var lunch_benefit = jQuery('#lunch_benefit').val();  
-                var benefit_type = jQuery('#business_setting_type').val();  
+                var benefit_type = jQuery('#business_setting_type').val();
+           
                 
                 var uid = jQuery('#uid').val();
                 $.ajax(
