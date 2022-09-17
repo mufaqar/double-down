@@ -95,10 +95,10 @@ get_header('landing');
         <a href="">	Salad Lunch</a>
         <a href="">Bread Lunch</a>
         <a href="">Wrap Lunch</a>
+      
     </div>
     <div class="col-lg-10 _slider_items">
         <div class="autoplay">
-
         
 
 
