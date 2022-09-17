@@ -3397,6 +3397,16 @@ body.page-template-temp-landing {
   font-size: 15px !important;
 }
 
+#css-dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 300px;
+  height: 42px;
+  margin: 100px auto 0 auto;
+}
+
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */

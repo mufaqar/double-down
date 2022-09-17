@@ -715,9 +715,10 @@ function profile_allergies_other()
 {
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
-	$profile_allergies_other = $_POST['profile_allergies_other'];
+	$choices_alergies = $_POST['choices_alergies'];
+	echo $choices_alergies;
 
-	$user_id = update_user_meta($uid, 'profile_allergies_other', $profile_allergies_other);
+	$user_id = update_user_meta($uid, 'profile_alergies', $choices_alergies);
 	if (!is_wp_error($user_id)) {
 
 		echo wp_send_json(array('code' => 200, 'message' => __('Profile Allergies Updated')));

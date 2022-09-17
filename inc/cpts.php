@@ -157,6 +157,47 @@ add_action( 'init', 'cptui_register_my_taxes_menu_sub_types' );
 
 
 
+function cptui_register_my_taxes_allergies() {
+
+	/**
+	 * Taxonomy: Allergies .
+	 */
+
+	$labels = [
+		"name" => __( "Allergies ", "twentytwentytwo" ),
+		"singular_name" => __( "Allergies ", "twentytwentytwo" ),
+	];
+
+	
+	$args = [
+		"label" => __( "Allergies ", "twentytwentytwo" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => false,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'allergies', 'with_front' => true, ],
+		"show_admin_column" => false,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "allergies",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"rest_namespace" => "wp/v2",
+		"show_in_quick_edit" => false,
+		"sort" => false,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "allergies", [ "menu_items" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes_allergies' );
+
+
+
+
+
 
 
 

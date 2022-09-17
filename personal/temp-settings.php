@@ -80,7 +80,19 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Allergies and Others</h3>
-                    <p>Vegan</p>
+
+                    
+                    <?php $user_allergies =  get_user_meta($uid, 'profile_alergies',true);
+                    foreach($user_allergies as $key => $user_alery)
+                    {
+
+                        echo "<p>".$user_alery. "</p>";
+                    }
+                    
+                    
+                    
+                    ?> 
+                  
                 </div>
                 <div class="">
                     <button id="change_allergies" class="btn_primary">Select</button>
@@ -240,11 +252,34 @@ $user_info = get_userdata($uid);
             <div class="popup_wrapper">
                 <h3 class="ad_productss">Change Allergies & Other</h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label> Allergies</label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_allergies_other" id="profile_allergies_other" placeholder="<?php echo get_user_meta($uid, 'profile_allergies_other', true);  ?>">
-                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
-                    </div>
+
+                <section class="w-100">
+                    
+                
+               <select id="choices-alergies" placeholder="Select Allergies" multiple>
+
+               <?php   
+                            $allergies_tax = get_terms( array('taxonomy' => 'allergies','hide_empty' => false ) ); 
+                            foreach( $allergies_tax as $allergy )  { 
+                                $type_slug = $allergy->slug ;
+                                $type_name = $allergy->name ; ?>
+                                        <option value="<?php echo $type_slug; ?>"><?php echo $type_name; ?> </option>
+                                            <?php
+                                }                                                    
+                            ?>
+                        </select>
+                    
+                        <section>
+               
+               
+
+
+
+
+
+
+
+                    
                 </div>
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
@@ -529,6 +564,13 @@ $user_info = get_userdata($uid);
 
 
 <?php get_footer(); ?>
+
+<link rel="stylesheet" href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569006288/BBBootstrap/choices.min.css?version=7.0.0">
+<script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569006273/BBBootstrap/choices.min.js?version=7.0.0"></script>
+
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -536,7 +578,26 @@ $user_info = get_userdata($uid);
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function($) {
+
+
+
+
+
+
+    jQuery(document).ready(function($) {        
+    var multipleCancelButton = new Choices('#choices-alergies', {
+    removeItemButton: true,
+    maxItemCount:10,
+    searchResultLimit:5,
+    renderChoiceLimit:5
+    });
+
+
+   
+
+
+
+
 
         $('#show_address').click(function() {
             $(".delivery_address_popup").css("display", "block");
@@ -569,7 +630,6 @@ $user_info = get_userdata($uid);
 
 
         $('._cross').click(function() {
-
             $(".hideme").css("display", "none");
         });
 
@@ -665,14 +725,15 @@ $user_info = get_userdata($uid);
 
         $("#profile_allergies_form").submit(function(e) {
             e.preventDefault();
-            var profile_allergies_other = jQuery('#profile_allergies_other').val();
+            var choices_alergies = jQuery('#choices-alergies').val();
+    
             var uid = jQuery('#uid').val();
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
                 data: {
                     action: "profile_allergies_other",
-                    profile_allergies_other: profile_allergies_other,
+                    choices_alergies: choices_alergies,
                     uid: uid
                 },
                 success: function(data) {
