@@ -9,7 +9,7 @@ get_header('landing');
  <div class="container ml-auto">
     <div class="d-flex justify-content-between align-content-center align-items-center row">
         <div class="col-md-6 hero_content">
-            <h1>Lunch <span>Boxes</span> For <br> Service</h1>
+            <h1>Lunch boxes for <br> service</h1>
             <p class="mb-4">Smart job lunch with full flexibility and cost control...</p>
             <a href="<?php echo home_url('sign-up'); ?>" class="btn_primary">Read More</a>
         </div>
