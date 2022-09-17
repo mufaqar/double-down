@@ -2,7 +2,7 @@
 global $current_user;
 wp_get_current_user();
 $user_info = get_userdata( $current_user->ID);
-print_r($user_info);
+//print_r($user_info);
 
 
 query_posts(array(
