@@ -1,7 +1,10 @@
 <?php 
-
 global $current_user;
 wp_get_current_user();
+$user_info = get_userdata( $current_user->ID);
+print_r($user_info);
+
+
 query_posts(array(
         'post_type' => 'orders',
         'posts_per_page' => 1,
@@ -43,12 +46,12 @@ query_posts(array(
                     <?php if (have_posts()) :  while (have_posts()) : the_post(); ?>
                     <tbody>
                       <tr>
-                        <td scope="row"><strong>Name: </strong><?php echo $current_user->ID ?></td>
+                        <td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
                         <td scope="row"><strong>Lunch: </strong>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                         
                       </tr>
                       <tr>
-                        <td scope="row"><strong>Name: </strong><?php echo $current_user->ID ?></td>
+                        <td scope="row"><strong>Email: </strong><?php echo $current_user->user_login ?></td>
                         <td scope="row"><strong>Shipping: </strong>NOK 0</td>
                       </tr>
                     </tbody>
@@ -76,15 +79,19 @@ query_posts(array(
                           
                            
                             <tr>
-                        <td scope="row"><strong><?php echo $index[0] ?></td>
+                            <td scope="row"><strong><?php echo $index ?></td>
+                            <td>
                             <?php   foreach($food as $key => $ky_item) { 
 
+                                $produc
+
                                 ?>
-                                <td scope="row"><?php echo $ky_item?> <sub></sub></td>
+                                   <p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
                                 <?php
 
 
                              }  ?>
+                             </td>
 
 
                         
