@@ -484,7 +484,7 @@ $user_info = get_userdata($uid);
                     </tbody>
                   </table>
 
-                  <h5 class="mt-4">Invoice Lines</h5>
+                  <!-- <h5 class="mt-4">Invoice Lines</h5>
                   <table class="invoice_slip_table">
                     <thead>
                       <tr>
@@ -519,7 +519,7 @@ $user_info = get_userdata($uid);
                       </tr>
                      
                     </tbody>
-                  </table>
+                  </table> -->
 
                   <div class="mt-4 d-flex justify-content-end">
                     <p>* All prices incl. 15% VAT</p>

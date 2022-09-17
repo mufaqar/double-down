@@ -99,31 +99,30 @@ get_header('landing');
     <div class="col-lg-10 _slider_items">
         <div class="autoplay">
 
-        <?php query_posts(array(
-            'post_type' => 'menu_items',
-            'posts_per_page' => -1,
-			'order' => 'desc',
-            'menus_type' => array('bread-lunch','salad-lunch','wrap-lunch')
-			
-        )); 
-		if (have_posts()) :  while (have_posts()) : the_post(); ?>
-
+        
 
 
             <div class="item_wrapper">
-                <div>
-                    
-                    <?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail('product-thumbnail-home');
-								} else { ?>
-						<img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">
-							<?php } ?>
-                    <h5><?php the_title()?></h5>
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                    <h5>Salad lunch</h5>
                 </div>
             </div>
-            <?php endwhile; wp_reset_query(); else : ?>
-			<h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
-	        <?php endif; ?> 
+            <div class="item_wrapper">
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                    <h5>Bread lunch,</h5>
+                </div>
+            </div>
+            <div class="item_wrapper">
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                    <h5>Wrap lunch</h5>
+                </div>
+            </div>
+            <div class="item_wrapper">
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                    <h5>Additional</h5>
+                </div>
+            </div>
+          
         </div>
         <div class="nav_btn d-flex align-items-center">
             <div class="previous_arrow">
