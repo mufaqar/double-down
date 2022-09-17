@@ -771,7 +771,7 @@ $user_info = get_userdata($uid);
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                        alert(data.message);
+                        //alert(data.message);
 
                     }
                 }
