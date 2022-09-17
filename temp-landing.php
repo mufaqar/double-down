@@ -103,22 +103,22 @@ get_header('landing');
 
 
             <div class="item_wrapper">
-                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/salad.jpg" alt="">						
                     <h5>Salad lunch</h5>
                 </div>
             </div>
             <div class="item_wrapper">
-                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/bread.jpg" alt="">						
                     <h5>Bread lunch,</h5>
                 </div>
             </div>
             <div class="item_wrapper">
-                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/wrap.jpg" alt="">						
                     <h5>Wrap lunch</h5>
                 </div>
             </div>
             <div class="item_wrapper">
-                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/cs1.png" alt="">						
+                <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/additional.jpg" alt="">						
                     <h5>Additional</h5>
                 </div>
             </div>
