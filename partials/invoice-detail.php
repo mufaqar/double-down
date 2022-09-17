@@ -4,7 +4,7 @@ global $current_user;
 wp_get_current_user();
 query_posts(array(
         'post_type' => 'orders',
-        'posts_per_page' => -1,
+        'posts_per_page' => 1,
         'order' => 'desc',                                                 
         'meta_query' => array(                                                      
             
@@ -40,55 +40,78 @@ query_posts(array(
                         <th scope="col">Distribution</th>
                       </tr>
                     </thead>
+                    <?php if (have_posts()) :  while (have_posts()) : the_post(); ?>
                     <tbody>
                       <tr>
-                        <td scope="row"><strong>Name: </strong>Jose Olsen Barros</td>
-                        <td scope="row"><strong>Lunch: </strong>NOK 459.2</td>
+                        <td scope="row"><strong>Name: </strong><?php echo $current_user->ID ?></td>
+                        <td scope="row"><strong>Lunch: </strong>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                         
                       </tr>
                       <tr>
-                        <td scope="row"><strong>Name: </strong>admin@oranchy.com</td>
+                        <td scope="row"><strong>Name: </strong><?php echo $current_user->ID ?></td>
                         <td scope="row"><strong>Shipping: </strong>NOK 0</td>
                       </tr>
                     </tbody>
                   </table>
 
+           
+
                   <h5 class="mt-4">Summary</h5>
                   <table class="invoice_slip_table">
                     <thead>
-                      <tr>
-                        <th scope="col">Description</th>
-                        <th scope="col">Number</th>
-                      </tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Number</th>
                     </thead>
                     <tbody>
+                    <?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );
+
+                   // print "<pre>";
+                    //print_r($food_items);
+                    
+                    foreach($food_items as $index => $food) { 
+                        
+                   
+                        ?>
+
+                          
+                           
+                            <tr>
+                        <td scope="row"><strong><?php echo $index[0] ?></td>
+                            <?php   foreach($food as $key => $ky_item) { 
+
+                                ?>
+                                <td scope="row"><?php echo $ky_item?> <sub></sub></td>
+                                <?php
+
+
+                             }  ?>
+
+
+                        
+                      </tr>
+                       
+
+
+
+                     <?php }
+
+                    ?>
+                    
+                 
                       
-                      <tr>
-                        <td scope="row"><strong>Salad</td>
-                        <td scope="row">2 <sub>stk</sub></td>
-                      </tr>
-                      <tr>
-                        <td scope="row"><strong>Vegan</td>
-                        <td scope="row">2 <sub>stk</sub></td>
-                      </tr>
-                      <tr>
-                        <td scope="row"><strong>extraBread</td>
-                        <td scope="row">2 <sub>stk</sub></td>
-                      </tr>
-                      <tr>
-                        <td scope="row"><strong>Drink</td>
-                        <td scope="row">2 <sub>stk</sub></td>
-                      </tr>
-                      <tr>
-                        <td scope="row"><strong>Smoothie</td>
-                        <td scope="row">2 <sub>stk</sub></td>
-                      </tr>
-                      <tr>
-                        <td scope="row"><strong>greek_yoghurt_raspberry</td>
-                        <td scope="row">2 <sub>stk</sub></td>
-                      </tr>
+                    
+                    <tbody>
+                  
+                      
+                     
+
+                   
+                     
 
                     </tbody>
+                    <?php endwhile; wp_reset_query(); else : ?>
+                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <?php endif; ?>  
                   </table>
 
                   <!-- <h5 class="mt-4">Invoice Lines</h5>
