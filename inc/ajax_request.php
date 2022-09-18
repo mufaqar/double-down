@@ -232,6 +232,11 @@ function weeklyfood_byday()
 				'key'     => 'user_type',
 				'value' => $usertype,
 				'compare' => '='
+			),
+			array(
+				'key'     => 'order_uid',
+				'value' => $uid,
+				'compare' => '='
 			)
         )
     );
@@ -241,48 +246,35 @@ function weeklyfood_byday()
 		
 		
 		// updated Existing Food order Weekly 
-		$updated_post_id = get_the_ID();
-		
+		$updated_post_id = get_the_ID();	
 		
 		$food_orderd_data = array();
 		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
 		if(array_key_exists($sel_day, $food_orderd_data))
 		{
-			unset($food_orderd_data[$sel_day]);
-			$food_orderd_data[$sel_day] = array_shift($daily_food);
-			
+
 		
-			
-			
-
+			unset($food_orderd_data[$sel_day]);
+			$food_orderd_data[$sel_day] = array_shift($daily_food);	
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
-
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
+			die();
 			
 		
 		
 		}
 		else {	
 			
-			
+			// If Day not adde yet
 
-			$food_orderd_data[$sel_day] = array_shift($daily_food);	
-
-			
-
-
-
-
-
-
+			$food_orderd_data[$sel_day] = array_shift($daily_food);
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
-			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
-			
-			
+			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));			
+			die();
 			
 			
 
@@ -294,12 +286,11 @@ function weeklyfood_byday()
 		$postdata = array(
 			'post_title'    => "OHYSX-" . rand(10, 100),
 			'post_status'   => 'publish',
-			'post_type'     => 'orders',
-			'post_author' => $uid
+			'post_type'     => 'orders'
 		);
 		$user_id = wp_insert_post($postdata);
 		add_post_meta($user_id, 'food_order', $days, true);
-		//$t_day = count($days);
+		add_post_meta($user_id, 'order_uid', $uid, true);
 		add_post_meta($user_id, 'order_week', $weekid, true);
 		add_post_meta($user_id, 'order_status', 'Pending', true);
 		add_post_meta($user_id, 'order_type', 'Weekly', true);
