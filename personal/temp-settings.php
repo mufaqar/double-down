@@ -468,13 +468,6 @@ $user_info = get_userdata($uid);
     renderChoiceLimit:5
     });
 
-
-   
-
-
-
-
-
         $('#show_address').click(function() {
             $(".delivery_address_popup").css("display", "block");
         });
