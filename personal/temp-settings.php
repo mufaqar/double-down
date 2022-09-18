@@ -2,7 +2,6 @@
 get_header();
 $uid = get_current_user_id();
 $user_info = get_userdata($uid);
-//print_r($user_info);
 ?>
 <?php include('navigation.php'); ?>
 <!-- tabs -->
