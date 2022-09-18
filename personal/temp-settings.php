@@ -452,10 +452,6 @@ $user_info = get_userdata($uid);
 
 <link rel="stylesheet" href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569006288/BBBootstrap/choices.min.css?version=7.0.0">
 <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569006273/BBBootstrap/choices.min.js?version=7.0.0"></script>
-
-
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -463,11 +459,6 @@ $user_info = get_userdata($uid);
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-
-
-
-
 
     jQuery(document).ready(function($) {        
     var multipleCancelButton = new Choices('#choices-alergies', {
