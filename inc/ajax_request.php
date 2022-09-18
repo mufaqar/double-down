@@ -739,8 +739,8 @@ function profile_allergies_other()
 add_action('wp_ajax_get_type_products', 'get_type_products', 0);
 add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 
-function get_type_products()
-{
+	function get_type_products()
+	{
 							global $wpdb;	
 							$query_week = $_POST['weekid'];
 							$catname = $_POST['catname'];							
@@ -788,8 +788,8 @@ function get_type_products()
 
 	
 
-	die;
-}
+		die;
+	}
 
 
 
