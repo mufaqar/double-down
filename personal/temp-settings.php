@@ -431,8 +431,6 @@ $user_info = get_userdata($uid);
     var button = document.getElementById('checkout-button');
     button.addEventListener('click', function () {
       var request = new XMLHttpRequest();
-
-      // create-payment.php is implemented in Step 2
       request.open('GET', '<?php echo get_template_directory_uri() ?>/create-payment.php', true); 
       request.onload = function () {
         const data = JSON.parse(this.response);        // If parse error, check output 
