@@ -784,3 +784,75 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 
 
 
+	
+add_action('wp_ajax_get_invoice_detail', 'get_invoice_detail', 0);
+add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
+
+	function get_invoice_detail()
+	{
+							global $wpdb;	
+							$orderid = $_POST['orderid'];
+							$uid = $_POST['uid'];							
+							
+							$args = array('p' => $orderid, 'post_type' => 'orders'); ?>
+							<table class="invoice_slip_table">
+								<thead>
+								<tr>
+									<th scope="col">Cloud</th>
+									<th scope="col">Distribution</th>
+								</tr>
+								</thead>
+								<?php if (have_posts()) :  while (have_posts()) : the_post(); ?>
+								<tbody>
+								<tr>
+									<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
+									<td scope="row"><strong>Lunch: </strong>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
+									
+								</tr>
+								<tr>
+									<td scope="row"><strong>Email: </strong><?php echo $current_user->user_login ?></td>
+									<td scope="row"><strong>Shipping: </strong>NOK 0</td>
+								</tr>
+								</tbody>
+							</table>
+                  			  
+							 
+							 
+							<?php $loop = new WP_Query($args); while ( $loop->have_posts() ) : $loop->the_post();  global $post; ?>
+
+
+							<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
+									foreach($food_items as $index => $food) {  ?>
+											<tr>
+													<td scope="row"><strong><?php echo $index ?></td>
+													<td>
+													<?php   foreach($food as $key => $ky_item) { 	?>
+															<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
+														<?php 	}  ?>
+													</td>
+											</tr>
+
+									<?php }  endwhile; ?>
+
+									  
+									<tbody>
+						</table>
+
+                  
+                      
+                     
+
+				 
+						   
+	
+
+					<?php	die;
+	}
+
+
+
+
+
+
+
+

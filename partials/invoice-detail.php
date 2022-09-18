@@ -5,35 +5,11 @@ $user_info = get_userdata( $current_user->ID);
 //print_r($user_info);
 
 
-query_posts(array(
-        'post_type' => 'orders',
-        'posts_per_page' => 1,
-        'order' => 'desc',                                                 
-        'meta_query' => array(                                                      
-            
-            'relation' => 'AND',
-                array(
-                    'key'   => 'order_type',
-                    'value' => 'Meeting',
-                    'compare' => '!='
-                ),
-                array(
-                    'key'     => 'user_type',
-                    'value' => 'Personal',
-                    'compare' => '=',
-                ),
-                array(
-                    'key'     => 'order_uid',
-                    'value' => $current_user->ID,
-                    'compare' => '='
-                )
-        )
-        
-    )); 
+
 
     ?>
 
-<div class="popup_wrapper">
+        <div class="popup_wrapper">
                 <h3 class="ad_productss">Invoice Detail</h3>                
                 <div class="invoice_table">
                   <table class="invoice_slip_table">

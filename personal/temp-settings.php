@@ -117,6 +117,16 @@ $user_info = get_userdata($uid);
                 <div class="info">
                     <h3>Invoice</h3>
                     <p>Overview</p>
+
+                    
+
+
+
+
+
+
+
+
                 </div>
                 <div class="">
                 <button id="show_invoice" class="btn_primary">Select</button>
@@ -400,7 +410,7 @@ $user_info = get_userdata($uid);
                                                                             <?php } ?>
                                                                     </td>                                                                    
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
-                                                                        <td><button id="show_invoice_detail" class="btn_primary">Detail</button></td>
+                                                                        <td><button id="show_invoice_detail" data-id="<?php echo get_the_ID() ?>" class="btn_primary">Detail</button></td>
                                                                         <td><button id="checkout-button" class="btn_primary">Checkout</button></td> 
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
@@ -418,7 +428,7 @@ $user_info = get_userdata($uid);
 </section>
 
     <section class="hideme overlay invoice_detail_popup">
-        <div class="popup">
+        <div class="popup loadinvoice">
             <?php get_template_part( 'partials/invoice', 'detail' ); ?>
         </div>
     </section>
@@ -493,6 +503,37 @@ $user_info = get_userdata($uid);
         $('#show_invoice_detail').click(function() {
             $(".invoice").hide();
             $(".invoice_detail_popup").css("display", "block");
+
+            var orderid = $(this).attr('data-id')
+            var uid = jQuery('#uid').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: {
+                    action: "get_invoice_detail",
+                    orderid: orderid,
+                    uid: uid
+                },
+                success: function(data) {
+
+                    if (data.code == 0) {
+
+                       // alert(data.message);
+                    } else {
+                      //  alert(data.message);
+
+                    }
+                }
+
+            });
+
+
+
+
+
+
+
+
         });
 
 
