@@ -1,4 +1,4 @@
-    <?php /* Template Name: Profile  */ 
+    <?php /* Template Name: Perosnal-Profile  */ 
     get_header();   
     include('navigation.php'); ?>
       <div class="tab_wrapper">
@@ -16,9 +16,6 @@
                                         </div>
                                         <div class="info d-flex align-items-center">
                                             <h6><?php 
-
-                                            
-                                            
                                             echo get_user_meta($uid ,'compnay_delivery_address',true);?> | <span> Fixed <?php echo get_user_meta($uid,'Personal_days',true);?>  days a week </span></h6>
                                             <!-- <div class="calender week_calender">
                                                 <form action="" method="GET" id="weekform">
@@ -34,8 +31,7 @@
                                             <div class="col-lg-12 mx-auto mb-5">
                                               <?php 
                                                     $current_week =  date("W"); 
-                                                    $current_year =  date("Y");
-                                                   
+                                                    $current_year =  date("Y");                                                   
                                                     $query_meta = array(
                                                             'post_type' => 'orders',
                                                             'posts_per_page' => -1,
@@ -65,6 +61,8 @@
                                                                     ),
                                                             
                                                         ); 
+
+                                                    //    print_r($query_meta);
                                                 
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();

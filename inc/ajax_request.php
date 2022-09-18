@@ -104,6 +104,11 @@ function weeklyfood()
 						'key'     => 'user_type',
 						'value' => $usertype,
 						'compare' => '='
+					),
+					array(
+						'key'     => 'order_uid',
+						'value' => $uid,
+						'compare' => '='
 					)
 				)
 			);
@@ -112,12 +117,8 @@ function weeklyfood()
 	
 
 		$postinweek = new WP_Query($query_meta);
-		if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-		
-			// updated Existing Food order Weekly 
-			$updated_post_id = get_the_ID();
-
-				
+		if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();		
+			$updated_post_id = get_the_ID();				
 			update_post_meta($updated_post_id, 'food_order', $days);
 			$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 			$price_arr = [];
@@ -126,10 +127,8 @@ function weeklyfood()
 				foreach($order_price as $key => $price )
 				{   
 					$get_price =  get_post_meta($key, 'menu_item_price', true);
-					$price_arr[] = $get_price*$price;
-					
-				}    
-			
+					$price_arr[] = $get_price*$price;					
+				}    			
 			}
 			$order_total = array_sum($price_arr);
 			update_post_meta($updated_post_id, 'food_order', $days);
@@ -148,8 +147,7 @@ function weeklyfood()
 					$postdata = array(
 						'post_title'    => "OHYSX-" . rand(10, 100),
 						'post_status'   => 'publish',
-						'post_type'     => 'orders',
-						'post_author' => $uid
+						'post_type'     => 'orders'
 					);
 					$user_id = wp_insert_post($postdata);
 					add_post_meta($user_id, 'food_order', $days, true);				
