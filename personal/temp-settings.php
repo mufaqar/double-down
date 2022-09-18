@@ -419,12 +419,11 @@ $user_info = get_userdata($uid);
     </div>
 </section>
 
-<section class="hideme overlay invoice_detail_popup">
+    <section class="hideme overlay invoice_detail_popup">
         <div class="popup">
             <?php get_template_part( 'partials/invoice', 'detail' ); ?>
         </div>
     </section>
-
 
 
 <script type="text/javascript">
