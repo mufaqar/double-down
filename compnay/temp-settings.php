@@ -65,7 +65,7 @@ $uid = get_current_user_id();
                         <h3>Details of the agreement</h3>
                         <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok </span> of each luch</p>
                         <ul class="mt-2">
-                        <li><span>Agreement Name:</span> <?php echo get_user_meta($uid, 'compnay_agreement', true );  ?> </li>
+                        <li><span>Company Name:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
                         </ul>
                     </div>
 
@@ -338,7 +338,7 @@ $uid = get_current_user_id();
                 <div class="popup_wrapper">
                     <h3 class="ad_productss">Details of the agreement</h3>               
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Agreement Name</label>
+                        <label>Company Name</label>
                         <div class="_field d-flex justify-content-between align-items-center">
                             <input type="text" name="compnay_agreement" id="compnay_agreement" value="<?php echo get_user_meta($uid, 'compnay_name', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
@@ -375,8 +375,7 @@ $uid = get_current_user_id();
                                     <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">Date</th>
-                                                                 
+                                        <th scope="col">Date</th>                                                                 
                                         <th scope="col">Total Price</th>                                    
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
