@@ -391,7 +391,7 @@ $user_info = get_userdata($uid);
                                                                     </td>                                                                    
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
                                                                         <td><button id="show_invoice_detail" data-id="<?php echo get_the_ID() ?>" class="btn_primary">Detail</button></td>
-                                                                        <td><button id="checkout-button" class="btn_primary">Checkout</button></td> 
+                                                                        <!-- <td><button id="checkout-button" class="btn_primary">Checkout</button></td>  -->
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
