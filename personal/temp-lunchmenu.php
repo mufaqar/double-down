@@ -31,7 +31,7 @@ $year=$week_arr[0];
 
     <div class="custom_container catering_wrapper ">                       
                        <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                            <h2>This week's <span id="type">Bread Lunch</span> menu</h2>
+                            <h2>This week's <span id="type">bread lunch</span> menu</h2>
                             <div class="calender week_calender">
                                     <form action="" method="GET" id="weekform">
                                         <input type="hidden" name="catname" id="catname" value="bread-lunch" />
