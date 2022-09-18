@@ -118,15 +118,6 @@ $user_info = get_userdata($uid);
                     <h3>Invoice</h3>
                     <p>Overview</p>
 
-                    
-
-
-
-
-
-
-
-
                 </div>
                 <div class="">
                 <button id="show_invoice" class="btn_primary">Select</button>
@@ -428,8 +419,8 @@ $user_info = get_userdata($uid);
 </section>
 
     <section class="hideme overlay invoice_detail_popup">
-        <div class="popup loadinvoice">
-            <?php get_template_part( 'partials/invoice', 'detail' ); ?>
+        <div class="popup ajax_invoice">
+            <?php //get_template_part( 'partials/invoice', 'detail' ); ?>
         </div>
     </section>
 
@@ -520,7 +511,7 @@ $user_info = get_userdata($uid);
 
                        // alert(data.message);
                     } else {
-                      //  alert(data.message);
+                        $(".ajax_invoice").html(data);   
 
                     }
                 }
