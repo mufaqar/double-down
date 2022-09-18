@@ -1,5 +1,5 @@
 <?php /* Template Name: Company-LunchMenu  */
-get_header('compnay');
+get_header();
 
 $no_week =  date("Y-W");
 $query_week = $_REQUEST['week'];
@@ -16,13 +16,13 @@ $year=$week_arr[0];
         <?php page_title() ?>
     </div>
 
-    <div class="custom_container c2 ">
+    <div>
         <div class="row ">
             <div class="catering_wrapper mt-5 mb-5 col-md-8">
                 <div class="catering_menu buttons">
-                    <a id="1" class="showSingle _active" target="1" data="bread-lunch"> Bread Lunch</a>
-                    <a id="2" class="showSingle" target="2" data="salad-lunch">Salad Lunch</a>
-                    <a id="3" class="showSingle" target="3" data="wrap-lunch">Wrap Lunch</a>
+                    <a id="1" class="showSingle _active" target="1" data="bread-lunch" data-title="bread lunch"> Bread Lunch</a>
+                    <a id="2" class="showSingle" target="2" data="salad-lunch" data-title="salad lunch">Salad Lunch</a>
+                    <a id="3" class="showSingle" target="3" data="wrap-lunch" data-title="wrap lunch">Wrap Lunch</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@ $year=$week_arr[0];
 
     <div class="custom_container catering_wrapper ">                       
                        <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                            <h2>This week's <span id="type">Bread Lunch</span> menu</h2>
+                            <h2>This week's <span id="type">bread lunch</span> menu</h2>
                             <div class="calender week_calender">
                                     <form action="" method="GET" id="weekform">
                                         <input type="hidden" name="catname" id="catname" value="bread-lunch" />
@@ -42,21 +42,13 @@ $year=$week_arr[0];
                        </div>
     
     <section id="div1" class="targetDiv activediv">
-
-    <?php  get_template_part( 'partials/menu', 'lunch' );  ?>
-          
-    </section>
-                
+    <?php  get_template_part( 'partials/menu', 'lunch' );  ?>          
+    </section>                
     <section id="div2" class="targetDiv">
-
-    <?php  get_template_part( 'partials/menu', 'salad' );  ?>
-
-
-    
+    <?php  get_template_part( 'partials/menu', 'salad' );  ?>    
     </section>
     <section id="div3" class="targetDiv">
-        <?php  get_template_part( 'partials/menu', 'wrap' );  ?>
-    
+        <?php  get_template_part( 'partials/menu', 'wrap' );  ?>    
     </section>
 
     </div>
@@ -104,8 +96,7 @@ $year=$week_arr[0];
             observer.observe(element, {
                 childList: true
             });
-            function myFunction() {   
-                       
+            function myFunction() { 
                // document.getElementById("weekform").submit();   
                jqueryFunction();        
                 }
@@ -122,10 +113,11 @@ $year=$week_arr[0];
 jQuery(document).ready(function($) 
         {   
 
-            jqueryFunction = function(  )
+            jqueryFunction = function()
                     {
                         var weekid = jQuery('#weekPicker1').val(); 
-                        var catname = jQuery('#catname').val();                           
+                        var catname = jQuery('#catname').val();     
+                       // alert(catname);                      
                         $.ajax({
                             type:"POST",
                             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -133,28 +125,19 @@ jQuery(document).ready(function($)
                                 action: "get_type_products",
                                 weekid : weekid,
                                 catname : catname
-
                             },           
                             success: function(data) {
                                 if (data.code == 0) {
                                     alert(data.message);
-                                } else {  
-                                    
-                                   // alert("Ajax Working");
-                                  $(".foodlist").html(data);
-                                  $(".oldfoodlist").hide();
+                                } else { 
+                                  $(".ajaxload").html(data);
+                                  $(".foodlist").hide();
                                     
                                 }
                             }
 
                         });
                     }
-
-            
-
-
-
-
        
 
 
@@ -162,13 +145,34 @@ jQuery(document).ready(function($)
         jQuery('#div2').hide();
         jQuery('#div3').hide();
         jQuery('.showSingle').click(function() {
+            var cat_name = $(this).attr('data');          
+            var weekid = jQuery('#weekPicker1').val();  
             $(".showSingle").removeClass("_active");
             $(this).addClass("_active");
-          //  $('#weekform').append('<input type="text" name="catname" id="catname" value='+$(this).attr('target')+' />');
             $("#catname").val($(this).attr('data') );
-            $("span#type").html($(this).attr('data'));            
+            $("span#type").html($(this).attr('data-title'));            
             jQuery('.targetDiv').hide();
             jQuery('#div' + $(this).attr('target')).show();
+            jQuery('#div' + $(this).attr('target')).addClass('_showdata');                             
+             $.ajax({
+                            type:"POST",
+                            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                            data: {
+                                action: "get_type_products",
+                                weekid : weekid,
+                                catname : cat_name
+                            },           
+                            success: function(data) {
+                                if (data.code == 0) {
+                                    alert(data.message);
+                                } else {   
+                                  $(".ajaxload").html(data);                            
+                                    
+                                }
+                            }
+
+                        });
+            
         });
     });
 
