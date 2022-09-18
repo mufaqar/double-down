@@ -270,16 +270,6 @@ $user_info = get_userdata($uid);
                         </select>
                     
                         <section>
-               
-               
-
-
-
-
-
-
-
-                    
                 </div>
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
@@ -418,9 +408,7 @@ $user_info = get_userdata($uid);
 </section>
 
     <section class="hideme overlay invoice_detail_popup">
-        <div class="popup ajax_invoice">
-            <?php //get_template_part( 'partials/invoice', 'detail' ); ?>
-        </div>
+        <div class="popup ajax_invoice"> </div>
     </section>
 
 
@@ -528,10 +516,9 @@ $user_info = get_userdata($uid);
 
 
 
-
-        $('._cross').click(function() {
-            $(".hideme").css("display", "none");
-        });
+        $('._cross').click(function(){           
+           $(".hideme").css("display", "none");         
+       });
 
         $("#profile_deliver_address").submit(function(e) {
             e.preventDefault();
@@ -564,9 +551,6 @@ $user_info = get_userdata($uid);
             });
 
         });
-
-
-
         $("#profile_deliver_fast").submit(function(e) {
             e.preventDefault();
             var profile_delivery_days = jQuery('#profile_delivery_days').val();

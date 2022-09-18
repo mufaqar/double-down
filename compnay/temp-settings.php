@@ -365,8 +365,8 @@ $uid = get_current_user_id();
     </section>
 
 
- <section class="hideme overlay invoice">
- <div class="popup">
+    <section class="hideme overlay invoice">
+    <div class="popup">
         <div class="popup_wrapper">
             <h3 class="ad_productss">Invoice</h3>
 
@@ -376,9 +376,9 @@ $uid = get_current_user_id();
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Date</th>                                                                 
-                                        <th scope="col">Total Price</th>                                    
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Type</th>                                    
+                                        <th scope="col">Price</th>                                     
+                                        <th scope="col">Details</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -389,16 +389,18 @@ $uid = get_current_user_id();
                                             query_posts(array(
                                                     'post_type' => 'orders',
                                                     'posts_per_page' => -1,
-                                                    'order' => 'desc',                                                   
-                                                    'meta_query' => array(                                                     
+                                                    'order' => 'desc',
+                                                
+                                                    'meta_query' => array(                                                      
                                                         
                                                         'relation' => 'AND',
-                                                          
-                                                        
+                                                           
                                                             array(
                                                                 'key'     => 'user_type',
-                                                                'value' => 'Company',
+                                                                'value' => 'Personal',
                                                                 'compare' => '=',
+                                                             
+
                                                             ),
                                                             array(
                                                                 'key'     => 'order_uid',
@@ -417,12 +419,10 @@ $uid = get_current_user_id();
                                                                         <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
                                                                             ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )
                                                                             <?php } ?>
-                                                                    </td>
-                                                                    
-                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
-                                                                
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?></td>
-                                                                        <td><button id="checkout-button" class="btn_primary">Checkout</button></td>
+                                                                    </td>                                                                    
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
+                                                                        <td><button id="show_invoice_detail" data-id="<?php echo get_the_ID() ?>" class="btn_primary">Detail</button></td>
+                                                                     
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
@@ -431,14 +431,16 @@ $uid = get_current_user_id();
                                         
                                     </tbody>
                                 </table>
-                            </div>          
-          
-
+                            </div>   
             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </div>
 </section>
+
+    <section class="hideme overlay invoice_detail_popup">
+        <div class="popup ajax_invoice"> </div>
+    </section>
 
 
 
@@ -476,6 +478,7 @@ $uid = get_current_user_id();
             $('._cross').click(function(){
            
                 $(".hideme").css("display", "none");
+              
             });
 
 
@@ -575,6 +578,43 @@ $uid = get_current_user_id();
                 });
                 
             }); 
+
+            $('#show_invoice_detail').click(function() {
+            $(".invoice").hide();
+            $(".invoice_detail_popup").css("display", "block");
+
+            var orderid = $(this).attr('data-id')
+            var uid = jQuery('#uid').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: {
+                    action: "get_invoice_detail",
+                    orderid: orderid,
+                    uid: uid
+                },
+                success: function(data) {
+
+                    if (data.code == 0) {
+
+                       // alert(data.message);
+                    } else {
+                        $(".ajax_invoice").html(data);   
+
+                    }
+                }
+
+            });
+
+
+
+
+
+
+
+
+        });
+
 
 
             
