@@ -42,21 +42,13 @@ $year=$week_arr[0];
                        </div>
     
     <section id="div1" class="targetDiv activediv">
-
-    <?php  get_template_part( 'partials/menu', 'lunch' );  ?>
-          
-    </section>
-                
+    <?php  get_template_part( 'partials/menu', 'lunch' );  ?>          
+    </section>                
     <section id="div2" class="targetDiv">
-
-    <?php  get_template_part( 'partials/menu', 'salad' );  ?>
-
-
-    
+    <?php  get_template_part( 'partials/menu', 'salad' );  ?>    
     </section>
     <section id="div3" class="targetDiv">
-        <?php  get_template_part( 'partials/menu', 'wrap' );  ?>
-    
+        <?php  get_template_part( 'partials/menu', 'wrap' );  ?>    
     </section>
 
     </div>
