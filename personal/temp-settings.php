@@ -410,9 +410,7 @@ $user_info = get_userdata($uid);
                                         
                                     </tbody>
                                 </table>
-                            </div>          
-          
-
+                            </div>   
             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
