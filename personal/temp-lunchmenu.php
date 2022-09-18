@@ -20,9 +20,9 @@ $year=$week_arr[0];
         <div class="row ">
             <div class="catering_wrapper mt-5 mb-5 col-md-8">
                 <div class="catering_menu buttons">
-                    <a id="1" class="showSingle _active" target="1" data="bread-lunch"> Bread Lunch</a>
-                    <a id="2" class="showSingle" target="2" data="salad-lunch">Salad Lunch</a>
-                    <a id="3" class="showSingle" target="3" data="wrap-lunch">Wrap Lunch</a>
+                    <a id="1" class="showSingle _active" target="1" data="bread-lunch" data-title="bread lunch"> Bread Lunch</a>
+                    <a id="2" class="showSingle" target="2" data="salad-lunch" data-title="salad lunch">Salad Lunch</a>
+                    <a id="3" class="showSingle" target="3" data="wrap-lunch" data-title="wrap lunch">Wrap Lunch</a>
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@ jQuery(document).ready(function($)
             $(this).addClass("_active");
           //  $('#weekform').append('<input type="text" name="catname" id="catname" value='+$(this).attr('target')+' />');
             $("#catname").val($(this).attr('data') );
-            $("span#type").html($(this).attr('data'));            
+            $("span#type").html($(this).attr('data-title'));            
             jQuery('.targetDiv').hide();
             jQuery('#div' + $(this).attr('target')).show();
         });
