@@ -139,9 +139,7 @@ function weeklyfood()
 		
 			
 
-		endwhile; wp_reset_query(); else : 
-
-		
+		endwhile; wp_reset_query(); else : 		
 
 			// Insert post as its not exisit 
 					$postdata = array(
