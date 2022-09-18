@@ -439,10 +439,7 @@ $user_info = get_userdata($uid);
           return;
         }
         console.log(this.response);
-
         console.log(data);
-
-        // checkout.html is implemented in Step 3
         window.location = '<?php echo home_url(); ?>/checkout/?paymentId=' + data.paymentId;
       }
       request.onerror = function () { console.error('connection error'); }
