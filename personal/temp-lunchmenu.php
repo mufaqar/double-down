@@ -96,8 +96,7 @@ $year=$week_arr[0];
             observer.observe(element, {
                 childList: true
             });
-            function myFunction() {   
-                       
+            function myFunction() { 
                // document.getElementById("weekform").submit();   
                jqueryFunction();        
                 }
@@ -117,7 +116,8 @@ jQuery(document).ready(function($)
             jqueryFunction = function()
                     {
                         var weekid = jQuery('#weekPicker1').val(); 
-                        var catname = jQuery('#catname').val();                           
+                        var catname = jQuery('#catname').val();     
+                       // alert(catname);                      
                         $.ajax({
                             type:"POST",
                             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -125,15 +125,13 @@ jQuery(document).ready(function($)
                                 action: "get_type_products",
                                 weekid : weekid,
                                 catname : catname
-
                             },           
                             success: function(data) {
                                 if (data.code == 0) {
                                     alert(data.message);
-                                } else {                                      
-                                   // alert("Ajax Working");
-                                  $(".foodlist").html(data);
-                                  $(".oldfoodlist").hide();
+                                } else { 
+                                  $(".ajaxload").html(data);
+                                  $(".foodlist").hide();
                                     
                                 }
                             }
@@ -147,13 +145,34 @@ jQuery(document).ready(function($)
         jQuery('#div2').hide();
         jQuery('#div3').hide();
         jQuery('.showSingle').click(function() {
+            var cat_name = $(this).attr('data');          
+            var weekid = jQuery('#weekPicker1').val();  
             $(".showSingle").removeClass("_active");
             $(this).addClass("_active");
-          //  $('#weekform').append('<input type="text" name="catname" id="catname" value='+$(this).attr('target')+' />');
             $("#catname").val($(this).attr('data') );
             $("span#type").html($(this).attr('data-title'));            
             jQuery('.targetDiv').hide();
             jQuery('#div' + $(this).attr('target')).show();
+            jQuery('#div' + $(this).attr('target')).addClass('_showdata');                             
+             $.ajax({
+                            type:"POST",
+                            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                            data: {
+                                action: "get_type_products",
+                                weekid : weekid,
+                                catname : cat_name
+                            },           
+                            success: function(data) {
+                                if (data.code == 0) {
+                                    alert(data.message);
+                                } else {   
+                                  $(".ajaxload").html(data);                            
+                                    
+                                }
+                            }
+
+                        });
+            
         });
     });
 

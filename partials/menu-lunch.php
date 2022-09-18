@@ -12,8 +12,8 @@ $year=$week_arr[0];
    
 
 <div class="catering_card_wrapper">
-            <div class="foodlist"></div>
-            <div class="oldfoodlist">
+            <div class="ajaxload"></div>
+            <div class="foodlist">       
                 <?php 
                         $dates = getStartAndEndDate($week,$year);
                         $FirstDay = $dates['start_date'] ;

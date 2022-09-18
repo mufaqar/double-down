@@ -766,6 +766,8 @@ function get_type_products()
 									),
 								)
 							) ); 
+
+							echo "Ajax Load Data -" . $catname;
 							
 							
 
