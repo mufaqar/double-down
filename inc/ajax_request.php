@@ -767,8 +767,7 @@ function get_type_products()
 								)
 							) ); 
 
-							echo "Ajax Load Data -" . $catname;
-							
+							//echo "Ajax Load Data -" . $catname;			
 							
 
                                 if (have_posts()) :  while (have_posts()) : the_post();
