@@ -749,9 +749,7 @@ function get_type_products()
 							$year = $week_arr[0];	
 							$dates = getStartAndEndDate($week,$year);
 							$FirstDay = $dates['start_date'] ;
-							$LastDay =  $dates['end_date'];   					
-						  
-					
+							$LastDay =  $dates['end_date'];  
 							query_posts(array(
 								'post_type' => 'menu_items',
 								'posts_per_page' => -1,
@@ -766,10 +764,7 @@ function get_type_products()
 									),
 								)
 							) ); 
-
-							//echo "Ajax Load Data -" . $catname;			
-							
-
+							//echo "Ajax Load Data -" . $catname;
                                 if (have_posts()) :  while (have_posts()) : the_post();
 								$date = get_field('date'); ?>
 								<div class="catering_card _pro_salat">
@@ -784,12 +779,11 @@ function get_type_products()
 									</div>
 								</div>
 								<?php endwhile;
-                                    wp_reset_query();
-                                else : ?>
+                                    wp_reset_query(); else : ?>
                                    <div class="catering_card _pro_salat">
-                            <h3> Sorry, No <span class="text-uppercase"><?php echo $catname ?></span> Menu Added for this Week</h3>
-                            <p class="mt-3"> We are workign on it We will add it soon</p>                            
-                        </div>
+										<h3> Sorry, no <span><?php echo $catname ?></span> menu added for this (<?php echo $week?>)week</h3>
+										<p class="mt-3"> We are workign on it, we will add it soon</p>                            
+									</div>
                                 <?php endif; 
 
 	
