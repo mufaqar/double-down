@@ -397,7 +397,7 @@ $uid = get_current_user_id();
                                                            
                                                             array(
                                                                 'key'     => 'user_type',
-                                                                'value' => 'Personal',
+                                                                'value' => 'Company',
                                                                 'compare' => '=',
                                                              
 
@@ -438,10 +438,21 @@ $uid = get_current_user_id();
     </div>
 </section>
 
-    <section class="hideme overlay invoice_detail_popup">
-        <div class="popup ajax_invoice"> </div>
-    </section>
+<section class="hideme  overlay invoice_detail_popup">
 
+                                                
+<div class="popup">
+    <div class="popup_wrapper">
+        <h3 class="ad_productss">Invoice Details</h3>                 
+             <div class="w-100 ajax_invoice"> </div>  
+             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
+    </div>             
+
+                
+            
+
+              
+</section>
 
 
 
