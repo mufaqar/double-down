@@ -225,9 +225,6 @@ get_header('');
  <script type="text/javascript">   
      jQuery(document).ready(function($) 
         {   
-            
-           
-
             $('._cross').click(function(){
            
                 $(".hideme").css("display", "none");

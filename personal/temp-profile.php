@@ -66,13 +66,9 @@
                                                 
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-                                                   $pid =  get_the_ID();
+                                                      $pid =  get_the_ID();
                                                     
                                                     $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
-                                                    //print "<pre>";
-
-                                                   
-
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       {  ?>
