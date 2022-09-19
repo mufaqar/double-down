@@ -52,6 +52,13 @@ $uid = get_current_user_id();
         
         <div class='panels'>
 
+      
+
+
+
+        
+
+
             <div class='panel launchClander setting_tab'>
                 <h2>Corporate agreement settings</h2>
                 <p>As a company administrator, you can get an overview of and make changes
@@ -206,6 +213,9 @@ $uid = get_current_user_id();
                 <h3>Employees in the Agreement</h3>
                 <h6>Total number of employees: <?php echo  count($available_active_employee); ?> </h6>
                 <hr>
+                <div class="hideme alert alert-success showalert" role="alert">
+                        <div class="response"></div>
+                    </div>
                 <div>
                     <div class="btn_toggle">
                         <div class="btn_wrapper d-flex justify-content-center">
@@ -216,11 +226,7 @@ $uid = get_current_user_id();
 
                     <!-- active content  -->
                     <div class="activeEmp_content emp_content ">
-                   
-                   
-
-                        <div>
-                            
+                        <div>                            
                             <section>
                             <form class="deactivate_employes" id="deactivate_employes" action="#">
                             <div class="p-4 _action" id="_action">                   
@@ -228,11 +234,6 @@ $uid = get_current_user_id();
                                     <button id="todoactive" class="btn_primary">Deactivate</button>
                                 </div>
                             </div>
-
-
-
-
-
 
                                 <?php foreach($available_active_employee as $emp)
                                 {
@@ -250,11 +251,7 @@ $uid = get_current_user_id();
                                         <!-- <p>No fixed delivery</p> -->
                                     </div>
 
-                                    <?php
-
-
-                                }
-                                ?>
+                                    <?php    }     ?>
 
 
 
@@ -271,8 +268,7 @@ $uid = get_current_user_id();
                     </div>
 
                     <!-- inactive content  -->
-                    <div class="inactiveEmp_content emp_content active">                   
-                    
+                    <div class="inactiveEmp_content emp_content active">  
                         <div>
                             <section>
                             <form class="activate_employes" id="activate_employes" action="#">
@@ -464,7 +460,6 @@ $uid = get_current_user_id();
 
 
 
-
 <?php get_footer();?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -545,18 +540,24 @@ $uid = get_current_user_id();
                         type:"POST",
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
-                            action: "activate_employees",
+                            action: "de_activate_employees",
                             active_emp : active_emp,                           
                             uid : uid
                         },   
                         success: function(data){                      
                         
                             if(data.code==0) {
-                                        alert(data.message);
+                               $(".res").html(data);                                 
+                               $(".showalert").show();                             
+                                 
                             }  
                             else {
-                               // alert("Ajax Working");
-                               // alert(data.message);
+
+                                alert("Else");
+                                
+                               
+                               
+                               
                         
                             }      
                     }
@@ -581,16 +582,13 @@ $uid = get_current_user_id();
                             active_emp : active_emp,                           
                             uid : uid
                         },   
-                        success: function(data){                      
-                        
+                        success: function(data){  
                             if(data.code==0) {
-                                        alert(data.message);
+                                alert(data.message);
+                                $(".response").html(data.message);                                 
+                               $(".showalert").show();   
                             }  
-                            else {
-                               // alert("Ajax Working");
-                               // alert(data.message);
-                        
-                            }      
+                               
                     }
                 
                 });
@@ -612,15 +610,11 @@ $uid = get_current_user_id();
                             address : address,                           
                             uid : uid
                         },   
-                        success: function(data){                      
-                        
-                            if(data.code==0) {
-                                        alert(data.message);
-                            }  
-                            else {
-                                alert(data.message);
-                        
-                            }      
+                        success: function(data){  
+                            if(data.code==0) {                              
+                              $(".response").html(data.message);                                 
+                             $(".showalert").show();   
+                          }       
                     }
                 
                 });

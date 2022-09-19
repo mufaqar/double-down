@@ -251,9 +251,9 @@ function add_employes() {
 
 
 
-add_action('wp_ajax_activate_employees', 'activate_employees', 0);
-add_action('wp_ajax_nopriv_activate_employees', 'activate_employees');
-function activate_employees() {	
+add_action('wp_ajax_de_activate_employees', 'de_activate_employees', 0);
+add_action('wp_ajax_nopriv_de_activate_employees', 'de_activate_employees');
+function de_activate_employees() {	
 	
 		global $wpdb;		
 		$uid = $_POST['uid'];
@@ -263,7 +263,27 @@ function activate_employees() {
 			update_user_meta( $active_emp, 'status', 'inactive');
 		}
 
-		echo wp_send_json( array('code' => 0 , 'message'=>__('Emp Status Updated')));
+		echo wp_send_json( array('code' => 0 , 'message'=>__('Selected Employees Updated with Deactive Status')));
+	  
+		die;
+		
+}
+
+
+
+add_action('wp_ajax_activate_employees', 'activate_employees', 0);
+add_action('wp_ajax_nopriv_activate_employees', 'activate_employees');
+function activate_employees() {	
+	
+		global $wpdb;		
+		$uid = $_POST['uid'];
+		$active_emp = $_POST['active_emp'];
+		foreach($active_emp as $active_emp)
+		{
+			update_user_meta( $active_emp, 'status', 'active');
+		}
+
+		echo wp_send_json( array('code' => 0 , 'message'=>__('Selected Employees Updated with Active Status')));
 	  
 		die;
 		
