@@ -806,8 +806,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 										<th scope="col">Cloud</th>
 										<th scope="col">Distribution</th>
 									</tr>
-									</thead>
-							
+									</thead>							
 									<tbody>
 									<tr>
 										<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
@@ -821,7 +820,6 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									</tbody>
 								</table>
 								<?php $loop = new WP_Query($args); while ( $loop->have_posts() ) : $loop->the_post();  global $post; ?>
-
 								<h5 class="mt-4">Summary</h5>
 								<table class="invoice_slip_table">
 									<thead>

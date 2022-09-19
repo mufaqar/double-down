@@ -42,9 +42,9 @@ function custom_orders_column( $column, $post_id ) {
 
         case 'order_type' :
             if(get_field( "order_type", $post_id )) {
-                echo get_field( "order_type", $post_id );
- 
+                echo get_field( "order_type", $post_id ); 
                 if((get_post_meta($post_id, "order_day", true))) {  echo " (" .get_post_meta($post_id, "order_day", true) .  ") ";}
+                if((get_post_meta($post_id, "order_week", true))) {  echo " (" .get_post_meta($post_id, "order_week", true) .  ") ";}
 
 
 
