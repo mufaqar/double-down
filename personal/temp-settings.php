@@ -333,7 +333,7 @@ $user_info = get_userdata($uid);
 </section>
 
 
-<section class="hideme1 overlay invoice">
+<section class="hideme overlay invoice">
     <div class="popup">
         <div class="popup_wrapper">
             <h3 class="ad_productss">Invoice</h3>
