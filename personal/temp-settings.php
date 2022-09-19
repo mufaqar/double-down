@@ -333,11 +333,10 @@ $user_info = get_userdata($uid);
 </section>
 
 
-<section class="hideme overlay invoice">
+<section class="hideme1 overlay invoice">
     <div class="popup">
         <div class="popup_wrapper">
             <h3 class="ad_productss">Invoice</h3>
-
             <div class="invoice_table">
             <table class="_table">
                                     <thead>
@@ -390,7 +389,7 @@ $user_info = get_userdata($uid);
                                                                             <?php } ?>
                                                                     </td>                                                                    
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
-                                                                        <td><button id="show_invoice_detail" data-id="<?php echo get_the_ID() ?>" class="btn_primary">Detail</button></td>
+                                                                        <td><button data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
                                                                         <!-- <td><button id="checkout-button" class="btn_primary">Checkout</button></td>  -->
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
@@ -401,14 +400,26 @@ $user_info = get_userdata($uid);
                                     </tbody>
                                 </table>
                             </div>   
-            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+                             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
             </div>
         </div>
     </div>
 </section>
 
-    <section class="hideme overlay invoice_detail_popup">
-        <div class="popup ajax_invoice"> </div>
+    <section class="hideme  overlay invoice_detail_popup">
+
+                                                
+    <div class="popup">
+        <div class="popup_wrapper">
+            <h3 class="ad_productss">Invoice Details</h3>                 
+                 <div class="w-100 ajax_invoice"> </div>  
+                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
+        </div>             
+
+                	
+                
+
+                  
     </section>
 
 
@@ -448,6 +459,8 @@ $user_info = get_userdata($uid);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 
+   
+
     jQuery(document).ready(function($) {        
     var multipleCancelButton = new Choices('#choices-alergies', {
     removeItemButton: true,
@@ -478,12 +491,12 @@ $user_info = get_userdata($uid);
             $(".invoice").css("display", "block");
         });
 
-        $('#show_invoice_detail').click(function() {
+        $('.show_invoice_detail').click(function() {
             $(".invoice").hide();
             $(".invoice_detail_popup").css("display", "block");
 
             var orderid = $(this).attr('data-id')
-            var uid = jQuery('#uid').val();
+            var uid = jQuery('#uid').val();        
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -514,9 +527,13 @@ $user_info = get_userdata($uid);
 
         });
 
+        $('.hidepop').click(function(){  
+                
+           $(".invoice_detail_popup").css("display", "none");         
+       });
 
-
-        $('._cross').click(function(){           
+        $('._cross').click(function(){ 
+          
            $(".hideme").css("display", "none");         
        });
 

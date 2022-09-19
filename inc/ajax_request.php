@@ -792,18 +792,14 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 	{
 							global $wpdb;	
 							$orderid = $_POST['orderid'];
-							$orderid = 668;
+							//$orderid = 668;
 							$uid = $_POST['uid'];	
-							
-							$user_info = get_userdata( $uid);						
-							
+							$user_info = get_userdata( $uid);
 							$args = array('p' => $orderid, 'post_type' => 'orders'); ?>
 
-				<div class="popup_wrapper">
-						<h3 class="ad_productss">Invoice Detail</h3>                
-						<div class="invoice_table">
-
-
+				
+						            
+						   <div class="invoice_table">
 								<table class="invoice_slip_table">
 									<thead>
 									<tr>
@@ -824,8 +820,6 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									</tr>
 									</tbody>
 								</table>
-														
-								
 								<?php $loop = new WP_Query($args); while ( $loop->have_posts() ) : $loop->the_post();  global $post; ?>
 
 								<h5 class="mt-4">Summary</h5>
@@ -851,15 +845,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 										
 									<tbody>
 								</table>
-								<div class="mt-4 d-flex justify-content-end">
-									<p>* All prices incl. 15% VAT</p>
-								</div>
-
-               		</div>
-                	<img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-                 </div>
-
-                  
+							</div>
+							
                       
                      
 
