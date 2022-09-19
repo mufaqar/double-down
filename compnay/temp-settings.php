@@ -421,7 +421,7 @@ $uid = get_current_user_id();
                                                                             <?php } ?>
                                                                     </td>                                                                    
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
-                                                                        <td><button id="show_invoice_detail" data-id="<?php echo get_the_ID() ?>" class="btn_primary">Detail</button></td>
+                                                                        <td><button  data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
                                                                      
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
@@ -590,7 +590,7 @@ $uid = get_current_user_id();
                 
             }); 
 
-            $('#show_invoice_detail').click(function() {
+            $('.show_invoice_detail').click(function() {
             $(".invoice").hide();
             $(".invoice_detail_popup").css("display", "block");
 
