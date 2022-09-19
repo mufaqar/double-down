@@ -163,27 +163,16 @@ function weeklyfood()
 						foreach($order_price as $key => $price )
 						{   
 							$get_price =  get_post_meta($key, 'menu_item_price', true);
-							$price_arr[] = $get_price*$price;
-							
+							$price_arr[] = $get_price*$price;							
 						}    
 					
 					}
 					$order_total = array_sum($price_arr);
 					add_post_meta($user_id, 'order_total', $order_total,true);
-
-
-
-
 					echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
 					die;
 
 		endif;
-
-
-
-	
-
-
 	
 }
 
