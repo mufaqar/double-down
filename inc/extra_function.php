@@ -53,8 +53,9 @@ function custom_orders_column( $column, $post_id ) {
             }
         break;  
         case 'user_type' :
-          if(get_field( "user_type", $post_id )) {
-              echo get_field( "user_type", $post_id );
+          if(get_field( "user_type", $post_id )) {            
+             echo   get_field( "user_type", $post_id );
+             
           } else {
               echo 0;
           }
@@ -69,8 +70,10 @@ function custom_orders_column( $column, $post_id ) {
       break; 
       break;  
         case 'order_uid' :
-          if(get_field( "order_uid", $post_id )) {
-              echo get_field( "order_uid", $post_id );
+          if(get_field( "order_uid", $post_id )) {           
+              $uid =  get_field( "order_uid", $post_id );
+              $the_user = get_user_by( 'id', $uid ); // 54 is a user ID
+              echo $the_user->user_email;
           } else {
               echo 0;
           }
