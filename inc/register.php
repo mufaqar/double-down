@@ -212,9 +212,6 @@ function resetpassword() {
 add_action('wp_ajax_add_employes', 'add_employes', 0);
 add_action('wp_ajax_nopriv_add_employes', 'add_employes');
 function add_employes() {	
-
-
-
 	
 		global $wpdb;		
 		$uid = $_POST['uid'];
@@ -250,6 +247,27 @@ function add_employes() {
 		
 }
 
+
+
+
+
+add_action('wp_ajax_activate_employees', 'activate_employees', 0);
+add_action('wp_ajax_nopriv_activate_employees', 'activate_employees');
+function activate_employees() {	
+	
+		global $wpdb;		
+		$uid = $_POST['uid'];
+		$active_emp = $_POST['active_emp'];
+		foreach($active_emp as $active_emp)
+		{
+			update_user_meta( $active_emp, 'status', 'inactive');
+		}
+
+		echo wp_send_json( array('code' => 0 , 'message'=>__('Emp Status Updated')));
+	  
+		die;
+		
+}
 
 
 

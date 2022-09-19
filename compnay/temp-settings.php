@@ -80,15 +80,8 @@ $uid = get_current_user_id();
                         <p><?php echo  count($available_active_employee); ?> Employee : Submit</p>
                     </div>
                     <div>
-                        <button id="emp_agreement" class="btn_primary">See or Overrid</button>
-                        
+                        <button id="emp_agreement" class="btn_primary">See or Overrid</button>                        
                     </div>
-
-                    
-  
-
-
-
 
                 </div>
                 <!-- 3rd  -->
@@ -222,12 +215,25 @@ $uid = get_current_user_id();
                     </div>
 
                     <!-- active content  -->
-                    <div class="activeEmp_content ">
-                        <div>
+                    <div class="activeEmp_content emp_content ">
+                   
+                   
 
                         <div>
+                            
                             <section>
-                               <form>
+                            <form class="deactivate_employes" id="deactivate_employes" action="#">
+                            <div class="p-4 _action" id="_action">                   
+                                <div class="d-flex justify-content-between mt-3">
+                                    <button id="todoactive" class="btn_primary">Deactivate</button>
+                                </div>
+                            </div>
+
+
+
+
+
+
                                 <?php foreach($available_active_employee as $emp)
                                 {
 
@@ -237,8 +243,8 @@ $uid = get_current_user_id();
                                     ?>
                                     <div class="__inner d-flex align-items-center justify-content-between mt-2">
                                         <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="emp" name="emp" value="Employee">
-                                            <label for="emp" class="label"></label>
+                                            <input type="checkbox" id="emp_<?php echo $emp->ID ?>" name="emp_active" value="<?php echo $emp->ID ?>">
+                                            <label for="emp_<?php echo $emp->ID ?>" class="label"></label>
                                             <p><?php echo $emp->user_login ?></p>
                                         </div>
                                         <!-- <p>No fixed delivery</p> -->
@@ -261,22 +267,21 @@ $uid = get_current_user_id();
                         </div>
                             
 
-                        </div>
+                      
                     </div>
 
                     <!-- inactive content  -->
-                    <div class="inactiveEmp_content active">
-                    <div class="p-4 _action" id="_action">
-                        <h3 class="mt-3">Select Action</h3>
-                        <div class="d-flex justify-content-between mt-3">
-                            <button id="" class="btn_primary">Cancel interval</button>
-                            <button id="" class="btn_primary">Order interval</button>
-                            <button id="" class="btn_primary">Stop delivery</button>
-                        </div>
-                    </div>
+                    <div class="inactiveEmp_content emp_content active">                   
+                    
                         <div>
                             <section>
-                                <form>
+                            <form class="activate_employes" id="activate_employes" action="#">
+                            <div class="p-4 _action" id="_action_inactive">                     
+                                <div class="d-flex justify-content-between mt-3">
+                                    <button id="todoactive" class="btn_primary">Activate</button>
+                                </div>
+                            </div>
+                           
 
                                 <?php foreach($available_in_active_employee as $emp)
                                 {
@@ -287,8 +292,8 @@ $uid = get_current_user_id();
                                     ?>
                                     <div class="__inner d-flex align-items-center justify-content-between mt-2">
                                         <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="emp" name="emp" value="Employee">
-                                            <label for="emp" class="label"></label>
+                                            <input type="checkbox" id="emp_<?php echo $emp->ID ?>" name="emp_deactive" value="<?php echo $emp->ID ?>">
+                                            <label for="emp_<?php echo $emp->ID ?>" class="label"></label>
                                             <p><?php echo $emp->user_login ?></p>
                                         </div>
                                         <!-- <p>No fixed delivery</p> -->
@@ -525,6 +530,73 @@ $uid = get_current_user_id();
 
             });
 
+           
+            $("#deactivate_employes").submit(function(e) { 
+                e.preventDefault(); 
+                var uid = jQuery('#uid').val();
+                var active_emp = [];
+                $.each($("input[name='emp_active']:checked"), function(){
+                    active_emp.push($(this).val());
+                });
+                //var email = jQuery('#email').val();
+               // var uid = jQuery('#uid').val();
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "activate_employees",
+                            active_emp : active_emp,                           
+                            uid : uid
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                               // alert("Ajax Working");
+                               // alert(data.message);
+                        
+                            }      
+                    }
+                
+                });
+            });
+           
+           
+            $("#activate_employes").submit(function(e) { 
+                e.preventDefault(); 
+                var uid = jQuery('#uid').val();
+                var active_emp = [];
+                $.each($("input[name='emp_deactive']:checked"), function(){
+                    active_emp.push($(this).val());
+                });
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: {
+                            action: "activate_employees",
+                            active_emp : active_emp,                           
+                            uid : uid
+                        },   
+                        success: function(data){                      
+                        
+                            if(data.code==0) {
+                                        alert(data.message);
+                            }  
+                            else {
+                               // alert("Ajax Working");
+                               // alert(data.message);
+                        
+                            }      
+                    }
+                
+                });
+            });
+            
+
             
             $("#update_deliver_address").submit(function(e) { 
                 e.preventDefault(); 
@@ -630,8 +702,13 @@ $uid = get_current_user_id();
 
             
 
-        $('#emp').click(function() {
+        $('.activeEmp_content input[type="checkbox"]').on('change', function() {
             $("#_action").toggle(this.checked);
+        });
+  
+
+        $('.inactiveEmp_content input[type="checkbox"]').on('change', function() {
+            $("#_action_inactive").toggle(this.checked);
         });
   
 
