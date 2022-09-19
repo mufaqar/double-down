@@ -4,6 +4,8 @@ get_header();
 
 reddirectProfile();
 
+$date  = date('Y-m-d', strtotime(' +1 day'));
+
 
 
 ?>  <main class="business_agreement">
@@ -60,8 +62,8 @@ reddirectProfile();
                         earlier than the specific date</p>
 
                     <div class="form-group w-100 mt-3 mb-5">
-                        <input type="date" class="form-control" id="starting_date" aria-describedby="emailHelp"
-                            placeholder="20.05.2022">
+                        <input type="text" class="form-control" id="starting_date" value="<?php echo $date ?>" aria-describedby="emailHelp"
+                            placeholder="<?php echo $date ?>" disabled>
                         <p class="invite">Invite more people from work to the company agreement</p>
                         <h6>It’s easy to add more employees Later too</h6>
                     </div>
