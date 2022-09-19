@@ -90,7 +90,7 @@ function weeklyfood()
 		
 
 			// check if order already placed by week
-			$query_meta = array(
+		$query_meta = array(
 				'posts_per_page' => -1,
 				'post_type' => 'orders',
 				'meta_query' => array(
@@ -134,6 +134,7 @@ function weeklyfood()
 			update_post_meta($updated_post_id, 'food_order', $days);
 			update_post_meta($updated_post_id, 'order_total', $order_total);
 			update_post_meta($updated_post_id, 'order_uid', $uid);
+			update_post_meta($updated_post_id, 'user_type', $usertype);
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
 			die;
 		
