@@ -14,6 +14,9 @@ function addfood()
 	$lunch_sub_type = $_POST['lunch_sub_type'];
 	$food_price = $_POST['food_price'];
     $uid = $_POST['uid'];
+	$food_date = $_POST['food_date'];
+
+	
 	$file_name = $_FILES["file"]["name"];
 	$file_url        = $_FILES["file"]["tmp_name"]; 
 
@@ -23,7 +26,9 @@ function addfood()
 		'post_type'     => 'menu_items',
 		'post_author' => $uid,
         'meta_input'   => array(
-		'menu_item_price' => $food_price			
+		'menu_item_price' => $food_price,
+		'date' => $food_date,
+
 		),
 		'tax_input'    => array(
 			'menu_types' => array($lunch_type),

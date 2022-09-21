@@ -18,6 +18,14 @@ get_header('admin');
             <input type="text" class="form-control admin_input" id="food_name" placeholder="Bread Lunch">
             <input type="hidden" id="uid" value="1">
         </div>
+
+        <div class="mb-4 mt-3">
+            <label class="form-label admin_label">Available Date</label>
+            <input type="date" class="form-control admin_input" id="food_date" placeholder="<?php echo date("Y-m-d"); ?>" value="<?php echo date("Y-m-d"); ?>">
+            <input type="hidden" id="uid" value="1">
+        </div>
+
+
         <div class="mb-4 mt-3">
             <label class="form-label admin_label">Product Category</label>
             <div class="_ad_sel_wrapper">
@@ -136,6 +144,7 @@ get_header('admin');
             var lunch_sub_type = jQuery('#lunch_sub_type').val();	 
             var food_price = jQuery('#food_price').val();	             
             var uid = jQuery('#uid').val();	
+            var food_date = jQuery('#food_date').val();	            
             file_data = jQuery('#file').prop('files')[0];
             form_data = new FormData();
             form_data.append('file', file_data);
@@ -144,7 +153,10 @@ get_header('admin');
             form_data.append('lunch_type', lunch_type);	
             form_data.append('lunch_sub_type', lunch_sub_type); 
             form_data.append('food_price', food_price); 
-            form_data.append('uid', uid);         
+            form_data.append('uid', uid);  
+            form_data.append('food_date', food_date);             
+           
+                
             $.ajax(
                 {   
                     url:"<?php echo admin_url('admin-ajax.php'); ?>",
