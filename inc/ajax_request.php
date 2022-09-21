@@ -749,8 +749,13 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 									<p class="mt-3"><?php the_content() ?></p>
 									<div class="row">
 										<div class="col-md-12">
-											<h6 class="mt-2">Contains:</h6>
-											<p><?php echo get_post_meta(get_the_ID(), 'contains', true); ?></p>
+										<h6 class="mt-2">Allergenes:</h6>
+                                    <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' ); 
+                                    
+                                    foreach($allergense as $allergy) {
+                                        echo "<p>".$allergy->name ."</p> " ;
+
+                                    } ?>
 											<p>Nutritional content: <?php echo get_post_meta(get_the_ID(), 'nutritional_content', true); ?></p>
 										</div>                        
 									</div>
