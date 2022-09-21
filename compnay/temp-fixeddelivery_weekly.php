@@ -48,7 +48,11 @@ get_header('company');
                             $pid = get_the_ID(); ?>
                             <div class="col-md-6 col-lg-4 mt-4">
                                 <div class="product_card p-4">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
+                                <?php if ( has_post_thumbnail() ) {
+                                                                the_post_thumbnail('product-thumbnail');
+                                                            } else { ?>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
+                                                        <?php } ?>
                                     <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
                                     <button id="123" class="btn_primary  select_product_btn id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
                                     <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
@@ -82,7 +86,11 @@ get_header('company');
 
                             <div class="col-md-6 col-lg-4 mt-4">
                                 <div class="product_card p-4">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
+                                <?php if ( has_post_thumbnail() ) {
+                                                                the_post_thumbnail('product-thumbnail');
+                                                            } else { ?>
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
+                                                        <?php } ?>
                                     <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
                                     <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
                                     <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
