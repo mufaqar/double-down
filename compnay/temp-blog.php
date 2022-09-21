@@ -16,11 +16,11 @@ get_header('company'); ?>
                         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>                              
                                     <div class="blog_wrapper col-md-6 col-lg-4 col-xl-3" id="post-<?php the_ID(); ?>">
                                             <div class="blog p-2 bg-body">                       
-                                            <?php if ( has_post_thumbnail() ) {
+                                            <a href="<?php the_permalink() ?>">   <?php if ( has_post_thumbnail() ) {
                                                 the_post_thumbnail('full', array('class' => 'feature_img w-100'));
                                             } else { ?>
                                                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/blog_img.png" alt="Featured Thumbnail" class="feature_img w-100" />
-                                                <?php } ?>
+                                                <?php } ?></a>
                                                 <h3 class="heading mt-2"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
                                                 <p class="short_info"> <?php  echo strip_shortcodes(wp_trim_words( get_the_content(), 40 )); ?></p>
                                                 <h6 class="author mt-2">Written by <?php echo get_the_author(); ?> </h6>

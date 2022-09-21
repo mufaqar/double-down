@@ -820,6 +820,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									<thead>
 									<th scope="col">Description</th>
 									<th scope="col">Number</th>
+									<th scope="col">Price</th>
 									</thead>
 									<tbody>
 										<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
@@ -829,8 +830,16 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 																<td>
 																<?php   foreach($food as $key => $ky_item) { 	?>
 																		<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
+																
 																	<?php 	}  ?>
-																</td>
+																	</td>
+																	<td>
+																<?php   foreach($food as $key => $ky_item) { 	?>
+																		<p>  <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
+																
+																	<?php 	}  ?>
+																	</td>
+																
 														</tr>
 
 												<?php }  endwhile; ?>
