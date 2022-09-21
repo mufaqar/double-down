@@ -39,7 +39,7 @@
 .orders_table tbody tr td {
   padding: 1rem 0;
   font-size: 14px;
-  font-family: "DM Sans", sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
   font-weight: 700;
   color: #061624;
 }
@@ -163,7 +163,7 @@ tbody tr:last-child {
 .admin_parrent .toggle_btn {
   position: absolute;
   top: -1.2rem;
-  width: 60%;
+  width: 70%;
 }
 ._user_profile {
   width: 34px;
@@ -269,7 +269,7 @@ body.admin_pages {
   font-size: 25px;
   font-weight: 700;
 }
-.admin_arrow_down.plus{
+.admin_arrow_down.plus {
   color: #5fb227;
 }
 .admin_save_btn {
@@ -278,33 +278,31 @@ body.admin_pages {
   line-height: 15px;
   color: #ffffff;
   background: #5fb227;
-  border-radius: 9px ;
+  border-radius: 9px;
   padding: 0.9rem 2.2rem;
   margin-top: 1rem;
 }
-.adminbtn_div{
+.adminbtn_div {
   display: flex;
   justify-content: end;
 }
-._options{
+._options {
   margin-top: 1rem;
 }
-._options>div{
-  background: #5FB227;
-border-radius: 5px;
-color: white;
-padding: .4rem 1rem;
-display: inline;
-margin: 7px;
-
+._options > div {
+  background: #5fb227;
+  border-radius: 5px;
+  color: white;
+  padding: 0.4rem 1rem;
+  display: inline;
+  margin: 7px;
 }
-._options>div span{
+._options > div span {
   margin-right: 1rem;
 }
-._options>div:first-child{
+._options > div:first-child {
   margin-left: 0;
 }
-
 
 @media (max-width: 768px) {
   .admin_parrent .toggle_btn {
