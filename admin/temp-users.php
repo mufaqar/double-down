@@ -52,7 +52,7 @@ get_header('admin');
                     $i++;  ?>
                     <tr>
                         <td class="pt-4"><?php echo $i ?></td>
-                        <td class="d-flex align-items-center"><img class="_user_profile" src="http://demo.mufaqar.com/dev3/wp-content/uploads/2022/08/Ellipse-103.png" alt="profile" />
+                        <td class="d-flex align-items-center"><img class="_user_profile" src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="profile" />
                         <?php echo $user->display_name ; if($comapnay_name != '') { echo " [". $comapnay_name ." ]" ;}  ?></td>
                         <td><?php echo ucfirst($user_roles[0]); ?></td>
                         <td><?php echo get_user_meta($user->ID, 'profile_delivery_phone', true);
