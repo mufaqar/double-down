@@ -756,7 +756,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
                                         echo "<p>".$allergy->name ."</p> " ;
 
                                     } ?>
-											<p>Nutritional content: <?php echo get_post_meta(get_the_ID(), 'nutritional_content', true); ?></p>
+											
 										</div>                        
 									</div>
 								</div>

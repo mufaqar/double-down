@@ -48,8 +48,7 @@ $year=$week_arr[0];
                                     foreach($allergense as $allergy) {
                                         echo "<p>".$allergy->name ."</p> " ;
 
-                                    } ?>
-                                    <p>Nutritional content: <?php echo get_post_meta(get_the_ID(), 'nutritional_content', true); ?></p>
+                                    } ?>                               
                                 </div>                        
                             </div>
                         </div>
