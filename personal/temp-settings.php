@@ -25,9 +25,7 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Delivery Address</h3>
-                    <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?><br>
-                        <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?>
-                        | <strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
+                    <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?>
                     </p>
                 </div>
                 <div class="">
@@ -53,9 +51,9 @@ $user_info = get_userdata($uid);
                 <div class="info">
                     <h3>Profile</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?><br>
-                    <?php echo $user_info->user_email ?> <br>
-                        <span><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?> </span>
-                    </p>
+                    <br>
+                        <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?>
+                        | <strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
 
                 </div>
                 <div class="">
@@ -78,7 +76,7 @@ $user_info = get_userdata($uid);
             <!-- 6th  -->
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Allergies and Others</h3>
+                    <h3>Allergies and others</h3>
 
                     
                     <?php $user_allergies =  get_user_meta($uid, 'profile_alergies',true);
@@ -169,7 +167,7 @@ $user_info = get_userdata($uid);
                         <!-- <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt=""> -->
                     </div>
                 </div>
-                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                <!-- <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Phone </label>
                     <div class="_field d-flex justify-content-between align-items-center">
                         <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" value="<?php echo get_user_meta($uid, 'profile_delivery_phone', true);  ?>">
@@ -180,7 +178,7 @@ $user_info = get_userdata($uid);
                     <div class="_field d-flex justify-content-between align-items-center">
                         <input type="text" name="profile_delivery_email" id="profile_delivery_email" value="<?php echo get_user_meta($uid, 'profile_delivery_email', true);  ?>">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
@@ -250,13 +248,13 @@ $user_info = get_userdata($uid);
     <div class="popup">
         <form class="profile_allergies_form" id="profile_allergies_form" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Change Allergies & Other</h3>
+                <h3 class="ad_productss">Change allergies & other</h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
 
                 <section class="w-100">
                     
                 
-               <select id="choices-alergies" placeholder="Select Allergies" multiple>
+               <select id="choices-alergies" placeholder="Select allergies" multiple>
 
                <?php   
                             $allergies_tax = get_terms( array('taxonomy' => 'allergies','hide_empty' => false ) ); 
