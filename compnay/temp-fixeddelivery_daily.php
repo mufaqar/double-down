@@ -74,7 +74,7 @@ get_header('company');
                             <div class="col-md-6 col-lg-4 mt-4">
                                 <div class="product_card p-4">
                                 <?php if ( has_post_thumbnail() ) {
-                                                                the_post_thumbnail('product-thumbnail');
+                                                               the_post_thumbnail('product-thumbnail' , array( 'class'  => 'pro_img' ));
                                                             } else { ?>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
                                                         <?php } ?>
@@ -112,7 +112,7 @@ get_header('company');
                             <div class="col-md-6 col-lg-4 mt-4">
                                 <div class="product_card p-4">
                                 <?php if ( has_post_thumbnail() ) {
-                                                                the_post_thumbnail('product-thumbnail');
+                                                               the_post_thumbnail('product-thumbnail' , array( 'class'  => 'pro_img' ));
                                                             } else { ?>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
                                                         <?php } ?>
