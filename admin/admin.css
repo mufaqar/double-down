@@ -304,7 +304,7 @@ body.admin_pages {
   margin-left: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1240px) {
   .admin_parrent .toggle_btn {
     position: relative;
     margin-bottom: 0.7rem;
