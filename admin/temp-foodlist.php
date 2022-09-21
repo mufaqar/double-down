@@ -65,7 +65,7 @@ get_header('admin');
 
                                 
                             } ?></td>
-                            <td><?php echo the_time(get_option('date_format'));?></td>
+                            <td><?php $date = get_field('date'); echo date("d-m-Y", strtotime($date));?></td>
                             <td>NOK <?php echo get_post_meta(get_the_ID(), 'menu_item_price', true); ?></td>
                             <td> 
 
