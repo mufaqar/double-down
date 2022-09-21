@@ -21,7 +21,8 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                 to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
             </p>
 
-            <?php     $this_week =  date("W"); 
+                             <?php                                              
+                                                    $this_week =  date("W"); 
                                                     $query_order = array(
                                                         'post_type' => 'orders',
                                                         'posts_per_page' => -1,
@@ -34,7 +35,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                                             ),
                                                             array(
                                                                 'key' => 'order_type',
-                                                                'value' => 'Weekly',
+                                                                'value' => 'Day',
                                                                 'compare' => '='
                                                             ),
                                                             array(
@@ -65,7 +66,12 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                 <div class="info">
                  <?php $postData = new WP_Query($query_order);
                                              if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
-                                                 $post_id = get_the_ID();  ?>                                            
+                                                 $post_id = get_the_ID();
+
+                                                 echo $post_id;
+                                                 
+                                                 
+                                                 ?>                                            
                                                  <h6>Total this Week | <span>NOK <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?></span></h6>
 
 <?php endwhile; wp_reset_query(); else : ?>

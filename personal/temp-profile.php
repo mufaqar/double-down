@@ -90,7 +90,7 @@
                                                         <?php   } endwhile; wp_reset_query(); else : ?>
 
                                                             <div class="_pro_card">
-                                                                <h3>No Lunch Menu For this Week</h3>
+                                                                <h3>No lunch menu for this week</h3>
                                                                 <p> Please choose your Menu </p>
                                                             </div>
                                                   
