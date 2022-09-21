@@ -161,6 +161,46 @@ add_filter("manage_edit-catering_sortable_columns", "catering_column_register_so
 
 
 
+/// Food Order WP admin 
+
+
+add_filter( 'manage_menu_items_posts_columns', 'set_custom_edit_menu_items_columns' );    
+add_action( 'manage_menu_items_posts_custom_column' , 'custom_menu_items_column', 10, 2 );
+function set_custom_edit_menu_items_columns($columns) {    
+    unset( $columns['author'] );   
+ 
+    $columns['order_date'] = 'Lunch Date';
+
+
+    return $columns;    
+}
+
+function custom_menu_items_column( $column, $post_id ) {   
+    global $post;
+    switch ( $column ) {
+        case 'order_date' :
+            if(get_field( "date", $post_id )) {
+                echo get_field( "date", $post_id );
+            } else {
+                echo 0;
+            }
+        break;
+
+       
+       
+    }   
+}
+
+function menu_items_column_register_sortable( $columns ) {
+     $columns['order_date'] = 'order_date';
+    return $columns;
+}
+
+add_filter("manage_edit-menu_items_sortable_columns", "menu_items_column_register_sortable" );
+
+
+
+
 
 
 
