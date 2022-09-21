@@ -1,5 +1,6 @@
 <?php /* Template Name: Comapny-LunchCaldendar  */
 get_header('company');
+global $current_user; wp_get_current_user();  $uid = $current_user->ID;
 ?>
 <?php include('navigation.php'); ?>
 
@@ -20,13 +21,57 @@ get_header('company');
                 to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
             </p>
 
+            <?php     $this_week =  date("W"); 
+                                                    $query_order = array(
+                                                        'post_type' => 'orders',
+                                                        'posts_per_page' => -1,
+                                                        'order' => 'desc',                                                                                                       
+                                                        'meta_query' => array(
+                                                            array(
+                                                                'key' => 'order_week',
+                                                                'value' => $this_week,
+                                                                'compare' => '='
+                                                            ),
+                                                            array(
+                                                                'key' => 'order_type',
+                                                                'value' => 'Weekly',
+                                                                'compare' => '='
+                                                            ),
+                                                            array(
+                                                                'key' => 'order_uid',
+                                                                'value' => $uid,
+                                                                'compare' => '='
+                                                            ),
+                                                            array(
+                                                                'key' => 'user_type',
+                                                                'value' => 'Company',
+                                                                'compare' => '='
+                                                            ),
+
+                                                            
+                                                        )
+                                                    );
+                                                    ?>
+
+
+
+
+
             <div class="calender_wrapper d-flex justify-content-between align-items-center">
                 <div class="calender week_calender">
                     <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
                     <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                 </div>
                 <div class="info">
-                    <h6>Total this Week | <span>NOK 0, -</span></h6>
+                 <?php $postData = new WP_Query($query_order);
+                                             if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
+                                                 $post_id = get_the_ID();  ?>                                            
+                                                 <h6>Total this Week | <span>NOK <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?></span></h6>
+
+<?php endwhile; wp_reset_query(); else : ?>
+    <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
+    <?php endif; ?>
+                    
                 </div>
             </div>
             <div class="accordion_wrapper">
@@ -59,9 +104,9 @@ get_header('company');
                                                 <button type="button" data-toggle="collapse" data-target="#collapse<?php echo $this_day ?>" aria-expanded="true" aria-controls="collapse<?php echo $day ?>" class="btn text-dark font-weight-bold text-uppercase collapsible-link shadow-none">
                                                     <?php echo $today_day ?> | <span><?php echo $today_date ?></span>
                                                 </button>
-                                                <h6 class="text-nowrap mb-0">
+                                                <!-- <h6 class="text-nowrap mb-0">
                                                     <div class="message">No Booking </div>
-                                                </h6>
+                                                </h6> -->
                                             </div>
                                         </div>
                                         <div id="collapse<?php echo $this_day ?>" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show accordion_content">
