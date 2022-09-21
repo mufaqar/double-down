@@ -19,20 +19,21 @@ $uid =  get_current_user_id() ;
                 <h2>Select Product</h2>
                 <div class="row">
                     <?php query_posts(array(
-                        'post_type' => 'menu_items',
+                        'post_type' => 'meeting_food',
                         'posts_per_page' => -1,
                         'order' => 'desc'
                     ));
                     if (have_posts()) :  while (have_posts()) : the_post();
                             $pid = get_the_ID(); ?>
                             <div class="col-md-6">
-                                <div class="order_product">
-                                    <img src="<?php bloginfo('template_directory'); ?>/reources//images/order-pic-1.png" alt="" class="w-100">
+                                <div class="order_product">                                    
+                                    <?php if ( has_post_thumbnail() ) {
+                                                               the_post_thumbnail('meeting-thumbnail' , array( 'class'  => 'w-100 meeting_img' ));
+                                                            } else { ?>
+                                                    <img src="<?php bloginfo('template_directory'); ?>/reources//images/order-pic-1.png" alt="" class="w-100">
+                                                        <?php } ?>
                                     <h3><?php the_title(); ?><span> | NOK <?php the_field('menu_item_price'); ?> </span></h3>
-                                    <p>Here you can easily choose between or cancel the various lunch options
-                                        from day to day. If you want to change a fixed subscription, do so
-                                        <span>her.</span>
-                                    </p>
+                                    <p><?php the_content()?>  </p>
                                     <button class="btn_primary  id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
                                     <div class="d-none product_counter mt-4 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">                                   
                                         <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)">
