@@ -139,7 +139,7 @@ get_header('company');
                 </div>
 
                 <div class="vat">
-                    <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
+                  
                 </div>
 
                 <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
