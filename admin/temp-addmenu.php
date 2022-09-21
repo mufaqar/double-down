@@ -39,7 +39,7 @@ get_header('admin');
             </div>
         </div>
         <div class="mb-4 mt-3">
-            <label class="form-label admin_label">Contains</label>
+            <label class="form-label admin_label">Allergens</label>
             <div class="_ad_sel_wrapper">
 
                 <div class="admin_arrow_down plus"><i class="fa-solid fa-plus"></i></div>
@@ -47,7 +47,7 @@ get_header('admin');
                     <select id="lunch_sub_type" class="form-select admin_inputselect" >
                        
                         <?php
-                                    $menu_sub_types = get_terms(array('taxonomy' => 'menu_sub_types', 'hide_empty' => false));
+                                    $menu_sub_types = get_terms(array('taxonomy' => 'allergies', 'hide_empty' => false));
                                     foreach ($menu_sub_types as $menu_sub_type) {
                                         $type_sub_slug = $menu_sub_type->term_id;
                                         $type_sub_name = $menu_sub_type->name; ?>

@@ -27,14 +27,10 @@ function addfood()
 		),
 		'tax_input'    => array(
 			'menu_types' => array($lunch_type),
-			'menu_sub_types' => array($lunch_sub_type)
+			'allergies' => array($lunch_sub_type)
 		),
 	);
 	$post_id = wp_insert_post($post);
-
-
-
-
 
 	    $image_url        = $file_url; // Define the image URL here
 		$image_name       = $file_name;
