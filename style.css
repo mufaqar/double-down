@@ -2945,6 +2945,9 @@ input[type='submit'] {
   .w-500 {
     width: 100% !important;
   }
+  ._aside {
+    display: none;
+  }
 
   .custom_nav_btn {
     bottom: 2rem;

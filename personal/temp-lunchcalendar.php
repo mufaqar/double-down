@@ -188,12 +188,9 @@ if($cal_date != '' )
                                 <aside class="_aside">
                                     <div class="app _calender">
                                         <div class="app__main">
-                                            <div class="calendar">
-                                                <!-- <input type="text" class="form-control">
-                                                <div id="calendar" class="datepicker-days"></div> -->
+                                            <div class="calendar">                                               
                                                 <div id="date-datepicker">
-                                                    <div>
-                                                        
+                                                    <div>                                                        
                                                             <input type="hidden" name="date" value="" id="input_date">
                                                          
                                                     </div>
