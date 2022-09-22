@@ -1,4 +1,4 @@
-<?php /* Template Name: LunchMenu-Non Login  */
+<?php /* Template Name: Lunch View  */
 get_header();
 
 
