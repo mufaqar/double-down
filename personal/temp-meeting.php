@@ -13,6 +13,7 @@ $uid =  get_current_user_id() ;
             <div class="date_filter d-flex justify-content-center flex-column align-items-center">
                 <label>Choose Date</label>
                 <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
+                <input type="time" value="" placeholder="02-05-22" id="time">
                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
             </div>
             
