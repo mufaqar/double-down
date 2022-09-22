@@ -1409,11 +1409,11 @@ section.landing_contents .links a {
 }
 
 .order_wrapper ._inner .date_filter label {
-  display: block;
+  display: inline-block;
   font-weight: 600;
   font-size: 18px;
   line-height: 23px;
-  margin-left: -17rem;
+
   margin-bottom: 0.5rem;
 }
 

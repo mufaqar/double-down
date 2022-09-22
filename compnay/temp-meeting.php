@@ -11,8 +11,18 @@ $uid =  get_current_user_id() ;
     <form class="addmeeting" id="addmeeting" action="#">
         <div class="_inner mt-4 p-5">
             <div class="date_filter d-flex justify-content-center flex-column align-items-center">
-                <label>Choose Date 2</label>
-                <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
+            <div class="row">
+                    <div class="col">
+                    <label>Choose Date</label>
+                         <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
+
+                    </div>
+                    <div class="col"> <label>Choose Time</label>
+                    <input type="time"  value="" placeholder="02-05-22" id="time">
+
+                    </div>
+                </div>
+                
                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
             </div>
             <div class="_content mt-5 mb-5">
@@ -119,6 +129,7 @@ $uid =  get_current_user_id() ;
             e.preventDefault();
             var date = jQuery('#date').val();
             var uid = jQuery('#uid').val();
+            var time = jQuery('#time').val();   
             var datas = [];
             var newdata = [];
             $("#addmeeting .product-quantity").each(function() {
@@ -141,6 +152,7 @@ $uid =  get_current_user_id() ;
                     menu_items: menu_items,
                     date: date,
                     uid: uid,
+                    time : time,
                     order: "Company"
                 },
                 success: function(data) {

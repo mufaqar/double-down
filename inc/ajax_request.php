@@ -512,6 +512,7 @@ function addmeeting()
 {
 	global $wpdb;
 	$date = $_POST['date'];
+	$time = $_POST['time'];
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$order = $_POST['order'];
@@ -525,6 +526,7 @@ function addmeeting()
 	$price =  get_post_meta($product_id, 'menu_item_price', true);
 	add_post_meta($user_id, 'date', $date, true);	
 	add_post_meta($user_id, 'order_uid', $uid, true);	
+	add_post_meta($user_id, 'order_time', $time, true);	
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
