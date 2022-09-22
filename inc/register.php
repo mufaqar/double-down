@@ -263,7 +263,7 @@ function de_activate_employees() {
 			update_user_meta( $active_emp, 'status', 'inactive');
 		}
 
-		echo wp_send_json( array('code' => 0 , 'message'=>__('Selected Employees Updated with Deactive Status')));
+		echo wp_send_json( array('code' => 0 , 'message'=>__('Selected employees updated with deactive status')));
 	  
 		die;
 		
@@ -283,7 +283,7 @@ function activate_employees() {
 			update_user_meta( $active_emp, 'status', 'active');
 		}
 
-		echo wp_send_json( array('code' => 0 , 'message'=>__('Selected Employees Updated with Active Status')));
+		echo wp_send_json( array('code' => 0 , 'message'=>__('Selected employees updated with active status')));
 	  
 		die;
 		
