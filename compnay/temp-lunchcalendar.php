@@ -118,11 +118,22 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                         <div id="collapse<?php echo $this_day ?>" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show accordion_content">
                                             <div class="card-body p-md-5 Fixed_delivery">
                                             <div class="food_info day__food row">
-                    <?php query_posts(array(
+                    <?php 
+                     $current_date =   date("Y-m-d"); 
+                    query_posts(array(
                         'post_type' => 'menu_items',
                         'posts_per_page' => -1,
                         'order' => 'desc',
-                        'menu_types' => 'lunch-boxes'
+                        'menu_types' => 'lunch-boxes',
+                        'meta_query' => array(
+                            array(
+                                'key' => 'date',
+                                'value' => $today_date,
+                                'compare' => 'LIKE',
+                                 'type' => 'DATE'
+                            ),
+                        )
+
                     ));
                     if (have_posts()) :  while (have_posts()) : the_post(); $new_id = get_the_ID().$i; ?>
                             <div class="col-md-6 first border-end mb-5">
