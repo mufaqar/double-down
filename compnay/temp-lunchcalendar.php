@@ -119,7 +119,8 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                             <div class="card-body p-md-5 Fixed_delivery">
                                             <div class="food_info day__food row">
                     <?php 
-                     $current_date =   date("Y-m-d"); 
+                   
+                    //echo $today_date;
                     query_posts(array(
                         'post_type' => 'menu_items',
                         'posts_per_page' => -1,
