@@ -837,7 +837,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 																	</td>
 																	<td>
 																<?php   foreach($food as $key => $ky_item) { 	?>
-																		<p>  <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
+																		<p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
 																
 																	<?php 	}  ?>
 																	</td>
