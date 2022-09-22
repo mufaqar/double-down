@@ -154,28 +154,7 @@ $uid = get_current_user_id();
 </main>
 
 
-<section class="hideme alertmessage">
-        <div class="popup">
-            <div class="popup_wrapper">
-                <div
-                    class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
 
-                    <div
-                        class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
-                        <div class="content mt-5">
-                            <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
-                            <h1 class="finished">Finished!</h1>
-                            <h2 class="mb-5 mt-5">Your Order has beed submitted!</h2>                       
-                         
-                        </div>
-                    </div>
-                    
-                </div>
-                <img src="<?php  bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
-        </div>
-    </section>
 
 
     <section class="hideme overlay delivery_address">
@@ -439,20 +418,35 @@ $uid = get_current_user_id();
     </div>
 </section>
 
-<section class="hideme  overlay invoice_detail_popup">
-
-                                                
+<section class="hideme  overlay invoice_detail_popup">                                               
 <div class="popup">
     <div class="popup_wrapper">
         <h3 class="ad_productss">Invoice Details</h3>                 
              <div class="w-100 ajax_invoice"> </div>  
              <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
-    </div>             
+    </div>                
+</section>
 
-                
-            
 
-              
+
+<section class="hideme alertmessage">
+    <div class="popup">
+        <div class="popup_wrapper">
+            <div class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
+                <div class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
+                    <div class="content mt-5">
+                        <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
+                        <h1 class="finished">Finished!</h1>
+                        <h2 class="mb-5 mt-5"><div class="res">Load Ajax Data</div></h2>
+
+                    </div>
+                </div>
+
+            </div>
+            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+        </div>
+    </div>
 </section>
 
 
@@ -511,7 +505,11 @@ $uid = get_current_user_id();
                         success: function(data){                      
                         
                             if(data.code==0) {
-                                        alert(data.message);
+                                     //   alert(data.message);
+
+                               $(".emp_agreement").hide();      
+                               $(".res").html(data.message);                                 
+                               $(".alertmessage").show();  
                             }  
                             else {
                                // alert("Ajax Working");
@@ -547,19 +545,14 @@ $uid = get_current_user_id();
                         success: function(data){                      
                         
                             if(data.code==0) {
-                               $(".res").html(data);                                 
-                               $(".showalert").show();                             
+
+                                
+                                $(".emp_agreement").hide();      
+                                $(".res").html(data.message);                                  
+                               $(".alertmessage").show();                             
                                  
                             }  
-                            else {
-
-                                alert("Else");
                                 
-                               
-                               
-                               
-                        
-                            }      
                     }
                 
                 });
@@ -584,9 +577,9 @@ $uid = get_current_user_id();
                         },   
                         success: function(data){  
                             if(data.code==0) {
-                                alert(data.message);
-                                $(".response").html(data.message);                                 
-                               $(".showalert").show();   
+                                $(".emp_agreement").hide();      
+                                $(".res").html(data.message);                                  
+                               $(".alertmessage").show();   
                             }  
                                
                     }
