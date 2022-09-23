@@ -142,7 +142,7 @@ if($cal_date != '' )
                                                     </div>
                                                 
                                                 </div>
-                                                <div class="d-flex align-items-center justify-content-between _info mt-4 mb-3">
+                                                <div class="d-flex align-items-center justify-content-between _info  mb-3">
                                                     <div class="d-flex">
                                                         <div>
                                                             <strong class="title">Price:</strong> 
