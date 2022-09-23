@@ -634,7 +634,7 @@ function profile_deliver_address()
 	update_user_meta($uid, 'profile_delivery_phone', $profile_delivery_phone);
 	update_user_meta($uid, 'profile_delivery_address', $profile_delivery_address);
 	update_user_meta($uid, 'profile_delivery_email', $profile_delivery_email);
-	echo wp_send_json(array('code' => 200, 'message' => __('Profile Dellivery Details Updated')));
+	echo wp_send_json(array('code' => 200, 'message' => __('Profile address updated')));
 	
 
 	die;
