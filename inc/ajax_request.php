@@ -580,7 +580,7 @@ function company_deliver_address()
 	$user_id = update_user_meta($uid, 'compnay_delivery_address', $address);
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);
-		echo wp_send_json(array('code' => 200, 'message' => __('Compnay Delivery Address Updated')));
+		echo wp_send_json(array('code' => 200, 'message' => __('Compnay address updated')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
 	}

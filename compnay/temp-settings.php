@@ -691,10 +691,15 @@ $uid = get_current_user_id();
                             if(data.code==0) {  
                            
                                   
-                             $(".delivery_address").hide();                           
+                              
+                          }  
+                          else {
+                            $(".delivery_address").hide();                           
                              $(".res").html(data.message);                                  
-                             $(".alertmessage").show();   
-                          }       
+                             $(".alertmessage").show(); 
+
+
+                          }     
                     }
                 
                 });
