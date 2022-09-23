@@ -67,7 +67,7 @@ $uid = get_current_user_id();
                     company agreement here. Using the menu above, you can also see the
                     company's
                     lunch calendar, or change the regular deliveries.</p>
-                <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Details of the agreement</h3>
                         <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok </span> of each luch</p>
@@ -76,18 +76,18 @@ $uid = get_current_user_id();
                         </ul>
                     </div>
 
-                    <div >
-                        <button id="agreement" class="btn_primary">Change</button>
+                    <div class="pt-4 pt-md-0">
+                        <button id="agreement" class="btn_primary">Update agreement</button>
                     </div>
                 </div>
                 <!-- 2nd -->
-                <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">                    
                         <h3>Employees in the agreement</h3>
                         <p><?php echo  count($available_active_employee); ?> Employee : Submit</p>
                     </div>
-                    <div>
-                        <button id="emp_agreement" class="btn_primary">Update</button>                        
+                    <div class="pt-4 pt-md-0">
+                        <button id="emp_agreement" class="btn_primary">Update Employees</button>                        
                     </div>
 
                 </div>
@@ -98,13 +98,13 @@ $uid = get_current_user_id();
                         <p>Everyone deserves good food - even those you
                             have invited to a meeting!</p>
                     </div>
-                    <div >
+                    <div class="pt-4 pt-md-0">
                         <a href="<?php echo home_url('meeting'); ?>" class="btn_primary">Order Meeting Food</a>
                     </div>
                 </div>
 
                 <!-- 4th  -->
-                <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Delivery Address</h3>
                         <p> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> <br> </p>
@@ -113,30 +113,30 @@ $uid = get_current_user_id();
                             <li><span>Extra Info:</span> Pilestredet</li>
                         </ul> -->
                     </div>
-                    <div class="">
-                        <button id="delivery_address" class="btn_primary">Update</button>
+                    <div class="pt-4 pt-md-0">
+                        <button id="delivery_address" class="btn_primary">Update address</button>
                     </div>
                 </div>
 
                 <!-- 5th  -->
-                <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Daily Overview</h3>
                         <p>Daily overview of orders</p>
                     </div>
-                    <div class="">
-                    <button id="daily_orders" class="btn_primary">See</button>
+                    <div class="pt-4 pt-md-0">
+                    <button id="daily_orders" class="btn_primary">See overview</button>
                     </div>
                 </div>
 
                 <!-- 6th  -->
-                <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Invoice</h3>
                         <p>Overview</p>
                     </div>
-                    <div class="">
-                    <button id="invoice" class="btn_primary">See</button>
+                    <div class="pt-4 pt-md-0">
+                    <button id="invoice" class="btn_primary">See invoice</button>
                     </div>
                 </div>
 

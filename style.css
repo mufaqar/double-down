@@ -3175,6 +3175,10 @@ input[type='submit'] {
     display: inline-grid;
     width: 100%;
   }
+
+  .setting_tab .deatil_card .info {
+    width: 100%;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
