@@ -21,7 +21,7 @@
                     </p>
 
                     <div class="selected_day mt-3">
-                            <div class="d-flex justify-content-md-between flex-wrap">
+                            <div class="d-md-flex justify-content-md-between flex-wrap">
                                 <div class="d-flex align-items-center">
                                     <input type="radio" id="weekday-1" name="sel_day" value="Monday" checked>
                                     <label for="weekday-1"  id="weekday-1" name="sport" value="Monday" >Monday</label>
