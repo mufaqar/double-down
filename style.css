@@ -3131,8 +3131,8 @@ input[type='submit'] {
     top: 150%;
   }
   ._pro_salat ._info {
-    margin-top: -5rem;
-    margin-bottom: 2.6rem !important;
+    /* margin-top: -5rem;
+    margin-bottom: 2.6rem !important; */
   }
 }
 
