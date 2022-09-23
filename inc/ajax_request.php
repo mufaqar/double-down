@@ -7,7 +7,6 @@ add_action('wp_ajax_nopriv_addcatering', 'addcatering');
 function addcatering()
 {
 	global $wpdb;
-
 	$people = stripcslashes($_POST['people']);
 	$date = $_POST['date'];
 	$time = $_POST['time'];
