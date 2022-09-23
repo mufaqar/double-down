@@ -92,7 +92,7 @@ $uid = get_current_user_id();
 
                 </div>
                 <!-- 3rd  -->
-                <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Meeting Food</h3>
                         <p>Everyone deserves good food - even those you
