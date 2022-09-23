@@ -58,13 +58,30 @@ if($cal_date != '' )
 
                                            $post_id = get_the_ID();
 
-                                         // print "<pre>";
-                                         //   print_r($query_orders);
-                                            
-                                            
-                                            ?>
+                                       
+
+                                         $food_order =  get_post_meta(get_the_ID(), 'food_order', true);
+                                         $luchbox =  array();
+                                         $add = array();
+
+                                         foreach($food_order as $order)    {                                                
+                                                    foreach($order as $pro_id => $pro_qty) {                                                                                   
+                                                            if (has_term('lunch-boxes', 'menu_types' , $pro_id )) {                                            
+                                                                $luchbox[] = $pro_qty;
+                                                            }
+                                                            if (has_term('additionals', 'menu_types' , $pro_id )) {                                              
+                                                                $add[] = $pro_qty;
+                                                            }
+                                                        }
+
+                                            } 
+
+                                          $total_boxes =  array_sum($luchbox);
+                                          $total_add =  array_sum($add);
+
+                                  ?>
                                         
-                                        <p>A Total of Boxes,<br> Additions you pay: <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?> NOK </p>
+                                        <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?> you pay: <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?> NOK </p>
 
                                         <?php endwhile; wp_reset_query(); else : ?>
                                             <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
