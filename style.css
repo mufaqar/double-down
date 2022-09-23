@@ -1,7 +1,7 @@
 /*
 Theme Name: Double Down Dish
 Text Domain: Double Down Dish
-Version: 3.0.2
+Version: 3.0.3
 Description: Custom Theme for Double Down Dish.
 Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images
 Author: Mufaqar 
@@ -3178,6 +3178,10 @@ input[type='submit'] {
 
   .setting_tab .deatil_card .info {
     width: 100%;
+  }
+  .order_confirm h2 {
+    font-size: 18px;
+    line-height: 24px;
   }
 }
 
