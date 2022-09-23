@@ -114,7 +114,7 @@ get_header('company');
                 </div>
 
                 <div class="week_days">
-                    <div class="d-flex justify-content-between flex-wrap">
+                    <div class="d-flex justify-content-md-between flex-wrap">
                         <div class="d-flex align-items-center">
                             <input type="checkbox" id="weekday-1" name="sport" value="Monday" checked>
                             <label for="weekday-1">Monday</label>
