@@ -16,20 +16,17 @@ $user_info = get_userdata($uid);
                     <h3>Fast Levering</h3>
                     <p><?php echo get_user_meta($uid,'Personal_days',true);?> Days</p>
                 </div>
-
-                <div class="">
-                    <!-- <button id="showfast_leaving" class="btn_primary">Change</button> -->
-                </div>
+               
             </div>
             <!-- 2nd -->
-            <div class="deatil_card d-flex justify-content-between align-items-center">
+            <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Delivery Address</h3>
                     <p><?php echo get_user_meta($uid, 'profile_delivery_address', true);  ?>
                     </p>
                 </div>
-                <div class="">
-                    <button id="show_address" class="btn_primary">Update</button>
+                <div class="pt-4 pt-md-0">
+                    <button id="show_address" class="btn_primary">Update address</button>
                 </div>
 
             </div>
@@ -47,7 +44,7 @@ $user_info = get_userdata($uid);
             </div>
 
             <!-- 4th  -->
-            <div class="deatil_card d-flex justify-content-between align-items-center">
+            <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Profile</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?><br>
@@ -56,9 +53,9 @@ $user_info = get_userdata($uid);
                         | <strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
 
                 </div>
-                <div class="">
+                <div class="pt-4 pt-md-0">
                    
-                    <button id="show_profile" class="btn_primary">Update</button>
+                    <button id="show_profile" class="btn_primary">Update profile</button>
                 </div>
             </div>
 
@@ -74,7 +71,7 @@ $user_info = get_userdata($uid);
             </div> -->
 
             <!-- 6th  -->
-            <div class="deatil_card d-flex justify-content-between align-items-center">
+            <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Allergies and others</h3>
 
@@ -91,33 +88,33 @@ $user_info = get_userdata($uid);
                     ?> 
                   
                 </div>
-                <div class="">
-                    <button id="change_allergies" class="btn_primary">Select</button>
+                <div class="pt-4 pt-md-0">
+                    <button id="change_allergies" class="btn_primary">Select allergies</button>
                 </div>
             </div>
 
             <!-- 7th  -->
-            <div class="deatil_card d-flex justify-content-between align-items-center">
+            <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>How can we contact you?</h3>
                     <p><strong><span>Contact : </span></strong><?php echo get_user_meta($uid, 'profile_contact',true);?> </p>
                 </div>
-                <div class="">                 
-                    <button id="show_contact" class="btn_primary">Select</button>
+                <div class="pt-4 pt-md-0">              
+                    <button id="show_contact" class="btn_primary">See Info</button>
 
                     
                 </div>
             </div>
 
             <!-- 8th  -->
-            <div class="deatil_card d-flex justify-content-between align-items-center mb-5">
+            <div class="deatil_card d-md-flex justify-content-between align-items-center mb-5">
                 <div class="info">
                     <h3>Invoice</h3>
                     <p>Overview</p>
 
                 </div>
-                <div class="">
-                <button id="show_invoice" class="btn_primary">Select</button>
+                <div class="pt-4 pt-md-0">
+                <button id="show_invoice" class="btn_primary">See invoice</button>
                 </div>
             </div>
 
