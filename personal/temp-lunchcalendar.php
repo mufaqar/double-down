@@ -192,7 +192,7 @@ if($cal_date != '' )
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <div class="_pro_card">
                                                                 <h3>Sorry no food added yet</h3>
-                                                                <p> We did't added menu for this day yet ! </p>
+                                                                <p> We did't added menu for this day yet! </p>
                                                             </div>
                                                   
                                             <?php endif; ?>
@@ -303,7 +303,14 @@ if($cal_date != '' )
 </section>
 
 
+<style>
 
+.event a {
+    background-color: #42B373 !important;
+    background-image :none !important;
+    color: #ffffff !important;
+}
+</style>
 
 
 <?php get_footer()?>
@@ -313,9 +320,9 @@ if($cal_date != '' )
 
 
   <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+
+
+
   </script>
 
 
@@ -334,19 +341,21 @@ jQuery(document).ready(function($)
        });
 
       
-
+       var disabledDates = ["2022-09-15","2022-09-16","2022-09-17"];
        $('#date-datepicker div').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
-            //highlight: '2022-09-14',
-            clearBtn: false
+            highlight: '2022-09-22',
+            clearBtn: false,
+            startDate: '1d'
+            
         });
         $("#date-datepicker div").on("changeDate", function(event) {
             $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
-            $("#dateform").submit();
+           $("#dateform").submit();
            // alert(date)
 
 
