@@ -90,7 +90,7 @@ if($cal_date != '' )
                                             <div class="calender">
                                                 <form action="" method="POST" id="dateform">
                                                 <input type="hidden" id="send" name="send" />
-                                                     <input type="date" name="date" value="<?php if($query_date == '') { echo date("Y-m-d"); } else echo $query_date; ?>" id="date">
+                                                     <input type="date"  min="<?php echo date("Y-m-d");  ?>"  name="date" value="<?php if($query_date == '') { echo date("Y-m-d"); } else echo $query_date; ?>" id="date">
                                                 </form>
                                             </div>
 
@@ -319,11 +319,7 @@ if($cal_date != '' )
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/reources/js/calender.js"></script>
 
 
-  <script>
 
-
-
-  </script>
 
 
 
@@ -333,6 +329,8 @@ if($cal_date != '' )
 
 jQuery(document).ready(function($) 
    {   
+
+   
 
        $('#date').change(function() {             
 
