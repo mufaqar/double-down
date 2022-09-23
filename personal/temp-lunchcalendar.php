@@ -148,7 +148,7 @@ if($cal_date != '' )
 
                                             $pid = get_the_ID(); ?>
                                             
-                                            <div class="catering_card _pro_salat ">
+                                            <div class="catering_card _pro_salat">
                                                 <h3><?php the_title()?></h3>
                                                 <p class="mt-3"><?php the_content()?></p>
                                                 <div class="row">
@@ -191,7 +191,7 @@ if($cal_date != '' )
                                             
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <div class="_pro_card">
-                                                                <h3>Sorry No Food Added yet</h3>
+                                                                <h3>Sorry no food added yet</h3>
                                                                 <p> We did't added menu for this day yet ! </p>
                                                             </div>
                                                   
@@ -203,23 +203,20 @@ if($cal_date != '' )
                                 </div>
                                 <div class="col-md-4 mt-5">
                                 <aside class="_aside">
-                                    <div class="app _calender">
-                                        <div class="app__main">
-                                            <div class="calendar">                                               
-                                                <div id="date-datepicker">
-                                                    <div>                                                        
-                                                            <input type="hidden" name="date" value="" id="input_date">
-                                                         
+                                            <div class="app _calender">
+                                                <div class="app__main">
+                                                    <div class="calendar">                                               
+                                                        <div id="date-datepicker">
+                                                            <div>                                                        
+                                                                <input type="hidden" name="date" value="" id="input_date">                                                         
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-
-                                   </aside>
-                                </div>
+                                </aside>
                             </div>
+                        </div>
 
                             <div class='panels'>
                                 <div class='panel launchClander Fixed_delivery' id="weeklyfood">
