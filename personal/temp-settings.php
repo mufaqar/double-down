@@ -29,7 +29,7 @@ $user_info = get_userdata($uid);
                     </p>
                 </div>
                 <div class="">
-                    <button id="show_address" class="btn_primary">See or Overrid</button>
+                    <button id="show_address" class="btn_primary">Update</button>
                 </div>
 
             </div>
@@ -58,7 +58,7 @@ $user_info = get_userdata($uid);
                 </div>
                 <div class="">
                    
-                    <button id="show_profile" class="btn_primary">See or Overrid</button>
+                    <button id="show_profile" class="btn_primary">Update</button>
                 </div>
             </div>
 

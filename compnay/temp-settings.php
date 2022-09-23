@@ -87,7 +87,7 @@ $uid = get_current_user_id();
                         <p><?php echo  count($available_active_employee); ?> Employee : Submit</p>
                     </div>
                     <div>
-                        <button id="emp_agreement" class="btn_primary">See or Overrid</button>                        
+                        <button id="emp_agreement" class="btn_primary">Update</button>                        
                     </div>
 
                 </div>
@@ -114,7 +114,7 @@ $uid = get_current_user_id();
                         </ul> -->
                     </div>
                     <div class="">
-                        <button id="delivery_address" class="btn_primary">Change</button>
+                        <button id="delivery_address" class="btn_primary">Update</button>
                     </div>
                 </div>
 
