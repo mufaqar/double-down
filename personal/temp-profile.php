@@ -91,7 +91,7 @@
 
                                                             <div class="_pro_card">
                                                                 <h3>No lunch menu for this week</h3>
-                                                                <p> Please choose your Menu </p>
+                                                                <p> Please choose your menu </p>
                                                             </div>
                                                   
                                                 <?php endif; ?> 
