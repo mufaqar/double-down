@@ -346,195 +346,186 @@ $uid = get_current_user_id();
 
 
     <section class="hideme overlay invoice">
-    <div class="popup">
-        <div class="popup_wrapper">
-            <h3 class="ad_productss">Invoice</h3>
+        <div class="popup">
+            <div class="popup_wrapper">
+                <h3 class="ad_productss">Invoice</h3>
 
-            <div class="invoice_table">
-            <table class="_table">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Date</th>                                                                 
-                                        <th scope="col">Type</th>                                    
-                                        <th scope="col">Price</th>                                     
-                                        <th scope="col">Details</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                
-                                        <?php 
-                                            global $current_user;
-                                            wp_get_current_user();
-                                            query_posts(array(
-                                                    'post_type' => 'orders',
-                                                    'posts_per_page' => -1,
-                                                    'order' => 'desc',
-                                                
-                                                    'meta_query' => array(                                                      
-                                                        
-                                                        'relation' => 'AND',
-                                                           
-                                                            array(
-                                                                'key'     => 'user_type',
-                                                                'value' => 'Company',
-                                                                'compare' => '=',
-                                                             
-
-                                                            ),
-                                                            array(
-                                                                'key'     => 'order_uid',
-                                                                'value' => $current_user->ID,
-                                                                'compare' => '='
-                                                            )
-                                                    )
-                                                    
-                                                ));              
-                                        
-                                                if (have_posts()) :  while (have_posts()) : the_post(); ?>
-                                                                <tr>
-                                                                        <td scope="row"><?php the_title()?></td>
-                                                                        <td><?php  the_time('m-d') ?></td>
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
-                                                                        <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
-                                                                            ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )
-                                                                            <?php } ?>
-                                                                    </td>                                                                    
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
-                                                                        <td><button  data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
-                                                                     
-                                                                        </tr>
-                                            <?php endwhile; wp_reset_query(); else : ?>
-                                                <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
-                                                <?php endif; ?>  
-                                        
-                                        
-                                    </tbody>
-                                </table>
-                            </div>   
-            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="hideme  overlay invoice_detail_popup">                                               
-<div class="popup">
-    <div class="popup_wrapper">
-        <h3 class="ad_productss">Invoice Details</h3>                 
-             <div class="w-100 ajax_invoice"> </div>  
-             <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
-    </div>                
-</section>
-
-
-<section class="hideme  overlay daily_orders_popup">                                               
-<div class="popup">
-    <div class="popup_wrapper">
-        <h3 class="ad_productss">Daily overview of orders</h3> 
-    <div class="custom_container catering_wrapper mt-5 mb-5">
-                       <div class="calender_wrapper d-flex justify-content-between align-items-center">                        
-                            <div class="catering_card_wrapper">
-                                <div class="invoice_table">
-                                    <table class="_table">
+                <div class="invoice_table">
+                <table class="_table">
                                         <thead>
                                         <tr>
-                                            <th scope="col">Order ID</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Order Type</th>
-                                            <th scope="col">Week Id</th>
-                                            <th scope="col">Total Price</th>
-                                            <th scope="col">User Type</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Date</th>                                                                 
+                                            <th scope="col">Type</th>                                    
+                                            <th scope="col">Price</th>                                     
+                                            <th scope="col">Details</th>
                                         </tr>
                                         </thead>
-                                        <tbody>                                    
+                                        <tbody>
+                                    
                                             <?php 
                                                 global $current_user;
                                                 wp_get_current_user();
                                                 query_posts(array(
                                                         'post_type' => 'orders',
                                                         'posts_per_page' => -1,
-                                                        'order' => 'desc',                                               
-                                                        'meta_query' => array(  
+                                                        'order' => 'desc',
+                                                    
+                                                        'meta_query' => array(                                                      
+                                                            
                                                             'relation' => 'AND',
-                                                                array(
-                                                                    'key'   => 'order_type',
-                                                                    'value' => 'Meeting',
-                                                                    'compare' => '!='
-                                                                ),
+                                                            
                                                                 array(
                                                                     'key'     => 'user_type',
-                                                                    'value' => 'Personal',
+                                                                    'value' => 'Company',
                                                                     'compare' => '=',
+                                                                
+
                                                                 ),
-                                                               
+                                                                array(
+                                                                    'key'     => 'order_uid',
+                                                                    'value' => $current_user->ID,
+                                                                    'compare' => '='
+                                                                )
                                                         )
                                                         
                                                     ));              
                                             
                                                     if (have_posts()) :  while (have_posts()) : the_post(); ?>
-                                                                
                                                                     <tr>
                                                                             <td scope="row"><?php the_title()?></td>
-                                                                            <td><?php  the_time('M j, Y') ?></td>
-                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?></td>
-                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
-                                                                            <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
-                                                                            <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>
-                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
+                                                                            <td><?php  the_time('m-d') ?></td>
+                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
+                                                                            <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
+                                                                                ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )
+                                                                                <?php } ?>
+                                                                        </td>                                                                    
+                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
+                                                                            <td><button  data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
+                                                                        
                                                                             </tr>
                                                 <?php endwhile; wp_reset_query(); else : ?>
-                                                        <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                    <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
                                                     <?php endif; ?>  
                                             
                                             
                                         </tbody>
                                     </table>
-                                </div>                
-
-                            </div>
-                
-                        </div>
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
-                        
-
-
-            
-    </div>                
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="hideme alertmessage">
-    <div class="popup">
-        <div class="popup_wrapper">
-            <div class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
-                <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
-                <div class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
-                    <div class="content mt-5">
-                        <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
-                        <h1 class="finished">Finished!</h1>
-                        <h2 class="mb-5 mt-5"><div class="res">Load Ajax Data</div></h2>
-
-                    </div>
+                                </div>   
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
                 </div>
-
             </div>
-            <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="hideme  overlay invoice_detail_popup">                                               
+            <div class="popup">
+                <div class="popup_wrapper">
+                    <h3 class="ad_productss">Invoice Details</h3>                 
+                        <div class="w-100 ajax_invoice"> </div>  
+                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
+                </div>                
+    </section>
+
+
+    <section class="hideme  overlay daily_orders_popup">                                               
+            <div class="popup">
+                <div class="popup_wrapper">
+                    <h3 class="ad_productss">Daily overview of orders</h3> 
+                <div class="custom_container catering_wrapper mt-5 mb-5">
+                                <div class="calender_wrapper d-flex justify-content-between align-items-center">                        
+                                        <div class="catering_card_wrapper">
+                                            <div class="invoice_table">
+                                                <table class="_table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">Order ID</th>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Order Type</th>
+                                                        <th scope="col">Week Id</th>
+                                                        <th scope="col">Total Price</th>
+                                                        <th scope="col">User Type</th>
+                                                        <th scope="col">Status</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>                                    
+                                                        <?php 
+                                                            global $current_user;
+                                                            wp_get_current_user();
+                                                            query_posts(array(
+                                                                    'post_type' => 'orders',
+                                                                    'posts_per_page' => -1,
+                                                                    'order' => 'desc',                                               
+                                                                    'meta_query' => array(  
+                                                                        'relation' => 'AND',
+                                                                            array(
+                                                                                'key'   => 'order_type',
+                                                                                'value' => 'Meeting',
+                                                                                'compare' => '!='
+                                                                            ),
+                                                                            array(
+                                                                                'key'     => 'user_type',
+                                                                                'value' => 'Personal',
+                                                                                'compare' => '=',
+                                                                            ),
+                                                                        
+                                                                    )
+                                                                    
+                                                                ));              
+                                                        
+                                                                if (have_posts()) :  while (have_posts()) : the_post(); ?>
+                                                                            
+                                                                                <tr>
+                                                                                        <td scope="row"><?php the_title()?></td>
+                                                                                        <td><?php  the_time('M j, Y') ?></td>
+                                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?></td>
+                                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
+                                                                                        <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
+                                                                                        <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>
+                                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
+                                                                                        </tr>
+                                                            <?php endwhile; wp_reset_query(); else : ?>
+                                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                                <?php endif; ?>  
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>                
+
+                                        </div>
+                            
+                                    </div>
+                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
+                                    
+
+
+                        
+            </div>                
+    </section>
+
+
+
+
+    <section class="hideme alertmessage">
+        <div class="popup">
+            <div class="popup_wrapper">
+                <div class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
+                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
+                    <div class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
+                        <div class="content mt-5">
+                            <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
+                            <h1 class="finished">Finished!</h1>
+                            <h2 class="mb-5 mt-5"><div class="res">Load Ajax Data</div></h2>
+
+                        </div>
+                    </div>
+
+                </div>
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </div>
+    </section>
 
 
 
@@ -697,9 +688,12 @@ $uid = get_current_user_id();
                             uid : uid
                         },   
                         success: function(data){  
-                            if(data.code==0) {                              
-                              $(".response").html(data.message);                                 
-                             $(".showalert").show();   
+                            if(data.code==0) {  
+                           
+                                  
+                             $(".delivery_address").hide();                           
+                             $(".res").html(data.message);                                  
+                             $(".alertmessage").show();   
                           }       
                     }
                 
@@ -730,10 +724,13 @@ $uid = get_current_user_id();
                         success: function(data){                      
                         
                             if(data.code==0) {
-                                        alert(data.message);
+                                      
                             }  
                             else {
-                               alert(data.message);
+                               
+                               $(".agreement").hide();                           
+                             $(".res").html(data.message);                                  
+                             $(".alertmessage").show();  
                         
                             }      
                     }

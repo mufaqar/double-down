@@ -600,7 +600,6 @@ function update_agreement()
 	$compnay_agreement = $_POST['compnay_agreement'];
 	$lunch_benefit = $_POST['lunch_benefit'];
 	$benefit_type = $_POST['benefit_type'];
-
 	$user_id = update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
 
 	if (!is_wp_error($user_id)) {
@@ -608,7 +607,7 @@ function update_agreement()
 		update_user_meta($uid, 'lunch_benfit_type', $benefit_type);
 		update_user_meta($uid, 'compnay_name', $compnay_agreement);
 		//sendmail($username,$password);
-		echo wp_send_json(array('code' => 200, 'message' => __('Agreement detail Updated')));
+		echo wp_send_json(array('code' => 200, 'message' => __('Agreement detail updated')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please form Data')));
 	}
