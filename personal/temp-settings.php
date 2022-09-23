@@ -195,7 +195,7 @@ $user_info = get_userdata($uid);
 <div class="popup">
         <form class="profile_details" id="profile_details" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Profile Details</h3>                
+                <h3 class="ad_productss">Profile details</h3>                
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Phone </label>
                     <div class="_field d-flex justify-content-between align-items-center">
@@ -259,13 +259,32 @@ $user_info = get_userdata($uid);
     <div class="popup">
         <form class="profile_contact" id="profile_contact" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Contact Info</h3>
+                <h3 class="ad_productss"> How can we contact you?</h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Contact Info </label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="contact_detail" id="contact_detail" placeholder="<?php echo get_user_meta($uid, 'profile_contact', true);  ?>">
+                       <div class="week_days">
+                            <div class="d-flex justify-content-between flex-wrap">
+                                <div class="d-flex align-items-left">
+                                    <input type="checkbox" id="via_lunch" name="contact" value="lunch" checked>
+                                    <label for="via_lunch">I would like to receive relevant information about products and services from the via_Lunch Collective. This can, for example, be general information about the lunch menu and nutritional content, news and changes, offers, campaigns, surveys, etc. We promise not to bother you prematurely!
+                                        </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="weekday-2" name="contact" value="Tuesday" checked>
+                                    <label for="weekday-2">Regardless of any marketing reservation, you will receive order confirmation and delivery information by e-mail and/or SMS.</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="via_email" name="contact" value="Email" checked>
+                                    <label for="via_email">Weekly email with your orders for the following week. If you have an active customer relationship, 
+                                        but have not placed orders, you will get an overview of the menu and a reminder to order.Text when no one is there to receive your lunch.</label>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                      
+                     
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
-                    </div>
+                   
                 </div>
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
@@ -583,6 +602,7 @@ $user_info = get_userdata($uid);
                         alert(data.message);
                     } else {
                         alert(data.message);
+                        
 
                     }
                 }
@@ -608,9 +628,13 @@ $user_info = get_userdata($uid);
 
                     if (data.code == 0) {
 
-                        alert(data.message);
+                     
                     } else {
-                        alert(data.message);
+                       
+
+                               $(".show_contact_popup").hide();      
+                               $(".res").html(data.message);                                 
+                               $(".alertmessage").show();  
 
                     }
                 }
@@ -638,7 +662,9 @@ $user_info = get_userdata($uid);
 
                         alert(data.message);
                     } else {
-                        alert(data.message);
+                               $(".show_allergies_popup").hide();      
+                               $(".res").html(data.message);                                 
+                               $(".alertmessage").show();  
 
                     }
                 }

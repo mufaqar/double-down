@@ -3130,10 +3130,11 @@ input[type='submit'] {
   .main img.mobile {
     top: 150%;
   }
-  ._pro_salat ._info {
-    /* margin-top: -5rem;
-    margin-bottom: 2.6rem !important; */
-  }
+}
+
+.profile_contact .week_days div > label {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 @media (max-width: 1020px) {
