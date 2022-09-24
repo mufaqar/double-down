@@ -358,7 +358,7 @@ jQuery(document).ready(function($)
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
-          // $("#dateform").submit();
+           $("#dateform").submit();
            // alert(date)
 
 
