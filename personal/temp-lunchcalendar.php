@@ -338,14 +338,19 @@ jQuery(document).ready(function($)
 
        });
 
-      
-       var disabledDates = ["2022-09-15","2022-09-16","2022-09-17"];
+    //    var eventDates = {};
+    //     eventDates[ new Date( '03/04/2019' )] = new Date( '03/04/2019' ).toString();
+    //     eventDates[ new Date( '03/28/2019' )] = new Date( '03/28/2014' ).toString();
+    //     eventDates[ new Date( '12/20/2014' )] = new Date( '12/20/2014' ).toString();
+    //     eventDates[ new Date( '12/25/2014' )] = new Date( '12/25/2014' ).toString();
+        
        $('#date-datepicker div').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
-            highlight: '2022-09-22',
+            highlight: true,
             clearBtn: false,
-            startDate: '1d'
+            startDate: '1d',
+          
             
         });
         $("#date-datepicker div").on("changeDate", function(event) {
@@ -353,7 +358,7 @@ jQuery(document).ready(function($)
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
-           $("#dateform").submit();
+          // $("#dateform").submit();
            // alert(date)
 
 

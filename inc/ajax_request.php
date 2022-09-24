@@ -248,9 +248,28 @@ function weeklyfood_byday()
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
+
+			$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
+
+			$price_arr = [];
+			foreach($orders_price as $index => $order_price)
+			{
+				foreach($order_price as $pro_id => $pro_qty)
+					{					
+						$price =  get_post_meta($pro_id, 'menu_item_price', true);
+						$price_arr[] = $price*$pro_qty;			
+						
+					}
+			
+			}
+			$order_total = array_sum($price_arr);
+			update_post_meta($updated_post_id, 'order_total', $order_total);
+
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 			die();
+
 			
+				
 		
 		
 		}
@@ -262,6 +281,22 @@ function weeklyfood_byday()
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
+			
+			$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
+
+			$price_arr = [];
+			foreach($orders_price as $index => $order_price)
+			{
+				foreach($order_price as $pro_id => $pro_qty)
+					{					
+						$price =  get_post_meta($pro_id, 'menu_item_price', true);
+						$price_arr[] = $price*$pro_qty;			
+						
+					}
+			
+			}
+			$order_total = array_sum($price_arr);
+			update_post_meta($updated_post_id, 'order_total', $order_total);
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));			
 			die();
 			
