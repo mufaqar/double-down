@@ -22,7 +22,11 @@
 
                     <?php
 
-                       // $current_date =   date("Y-m-d");   
+                       $current_week =   date("W");
+                    
+                       global $current_user;
+                        wp_get_current_user(); 
+
                         $query_order = array(
                             'post_type' => 'orders',
                             'posts_per_page' => -1,
@@ -41,12 +45,12 @@
                                                             ),
                                                             array(
                                                                 'key'     => 'order_uid',
-                                                                'value' => '1',
+                                                                'value' => $current_user->ID,
                                                                 'compare' => '='
                                                             ),
                                                             array(
                                                                 'key'     => 'order_week',
-                                                                'value' => '38',
+                                                                'value' => $current_week,
                                                                 'compare' => '='
                                                             )
                             )
