@@ -62,6 +62,8 @@ get_header('company');
                     <input type="hidden" value="Company" id="usertype">
                     <input type="hidden" value="<?php echo date("Y-m-d"); ?>" id="tdate">
 
+                    <?php get_template_part( 'partials/lunchbox', 'fixeditems' ); ?>
+
 
                     <?php query_posts(array(
                         'post_type' => 'menu_items',

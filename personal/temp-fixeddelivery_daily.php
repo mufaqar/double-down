@@ -192,6 +192,7 @@
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >  
                                 <input type="hidden" value="Personal" id="usertype" >   
                                 <input type="hidden" value="<?php echo date("Y-m-d"); ?>" id="tdate" >  
+                                <?php get_template_part( 'partials/lunchbox', 'fixeditems' ); ?>
                             <?php query_posts(array(
                                         'post_type' => 'menu_items',
                                         'posts_per_page' => -1,
