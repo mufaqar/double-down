@@ -46,10 +46,15 @@
                     ));
 
                     if (have_posts()) :  while (have_posts()) : the_post();
-                            $i++; ?>
+                            $i++;
+
+                            
+                            $order_uid = get_post_meta(get_the_ID(), 'order_uid', true)
+                            
+                            ?>
                             <tr>
                                <td><?php echo $i?></td>
-                                <td class="d-flex align-items-center"><img class="_user_profile" src="http://demo.mufaqar.com/dev3/wp-content/uploads/2022/08/Ellipse-103.png" alt="profile" /><?php the_title() ?></td>
+                                <td class="d-flex align-items-center"><img class="_user_profile" src="<?php echo esc_url( get_avatar_url( $order_uid ) ); ?>" alt="profile" /><?php the_title() ?></td>
                                 <td><div class="account_detils"><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></div></td>
                                 <td><?php echo get_post_meta(get_the_ID(), 'user_type', true); ?></td>
                              

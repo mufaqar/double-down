@@ -30,6 +30,43 @@
                                         <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">
                                               <?php 
+
+
+                                        // #default array
+                                        // $daysOfWeek = array('Monday','Tuesday','Wednesday','Thursday','Friday');
+                                        // #your array
+                                        // $days = array('Tuesday','Thursday','Friday','Monday');
+                                        // #create a new array with key association property
+                                        // $daysAux = array();
+                                        // foreach($days as $k=>$v) {
+                                        //     $key = array_search($v, $daysOfWeek);
+                                        //     if($key !== FALSE) {
+                                        //         $daysAux[$key] = $v;
+                                               
+                                        //     }
+                                        // }
+                                        // # array before sort
+                                        // echo '<pre/>';
+                                        // ksort($daysAux);
+                                        // $days = $daysAux;
+                                        // #final result
+                                        // echo '<pre/>';print_r($days);exit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                                     $current_week =  date("W"); 
                                                     $current_year =  date("Y");                                                   
                                                     $query_meta = array(
@@ -70,24 +107,51 @@
                                                     
                                                     $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
 
+                                                  
+
+                                                    
+                                                    arsort($food_orderd_data);
+
+                                                 //$daysAux = array();
+                                               
+
                                                     foreach($food_orderd_data as $key => $order_data ) 
-                                                      {  ?>
+                                                      { 
+
+
+                                                       
+                                                      
+
+                                                       
+                                                        
+                                                        
+                                                        
+                                                        ?>
 
                                                         
                                                             <div class="_pro_card">
                                                                 <h3><?php echo  $key ?>  <span><?php //echo "key Date "?> </span></h3>
                                                                 <p> <?php   foreach($order_data as $product_id => $product_qty)
-                                                                            {      
+                                                                            { 
+                                                                                
+                                                                              
                                                                                 
                                                                                 //echo $product_id . " : " . $product_qty . "<br/>";
 
                                                                             echo  "Product  : " .get_the_title( $product_id) . "  <span>(" .$product_qty .") </span><br/>";
                                                                         
-                                                                            } ?>
+                                                                            } 
+
+                                                                          
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            ?>
                                                                 </p>
                                                             </div>
 
-                                                        <?php   } endwhile; wp_reset_query(); else : ?>
+                                                        <?php   }  endwhile; wp_reset_query(); else : ?>
 
                                                             <div class="_pro_card">
                                                                 <h3>No lunch menu for this week</h3>
