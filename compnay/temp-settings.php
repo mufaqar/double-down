@@ -70,7 +70,7 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Details of the agreement</h3>
-                        <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php echo get_user_meta($uid, 'lunch_benfit_type', true );  ?> Nok </span> of each luch</p>
+                        <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> of each luch</p>
                         <ul class="mt-2">
                         <li><span>Company Name:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
                         </ul>
