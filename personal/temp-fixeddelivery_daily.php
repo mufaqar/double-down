@@ -22,8 +22,7 @@
 
                     <?php
 
-                       $current_week =   date("W");
-                    
+                       $current_week =   date("W");                    
                        global $current_user;
                         wp_get_current_user(); 
 
