@@ -76,8 +76,7 @@
                                                // print_r($available_active_employee);
                                                $total_emp =   count($available_active_employee);
                                                $order_total =  get_post_meta( get_the_ID(), 'order_total', true );
-                                               $company_days =  get_user_meta($uid ,'Company_days',true);
-                                             
+                                               $company_days =  get_user_meta($uid ,'Company_days',true);                                            
 
                                                $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
                                                $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
