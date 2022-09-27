@@ -1,16 +1,9 @@
 
     <div class="custom_container catering_wrapper mt-5 mb-5">
-                 <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
-                        <div class="catering_heading d-flex align-items-center">
-                            <h2>Lunch  Orders</h2>
-                            <!-- <div><a href="<?php echo home_url('catering-form'); ?>"><i class="fa-solid fa-plus"></i></a></div> -->
-                        </div>
-                        <!-- <div class="calender">
-                            <form class="showresult" id="showresult" action="" > 
-                            <input type="date" value="" name="qdate" onchange="this.form.submit()">
-                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
-                            </form>                            
-                        </div> -->
+                         <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
+                                <div class="catering_heading d-flex align-items-center">
+                                    <h2>Lunch  Orders</h2>                                
+                                </div>                       
                         </div>
                         <div class="catering_card_wrapper">
                             <div class="invoice_table">
@@ -22,7 +15,7 @@
                                         <th scope="col">Order Type</th>
                                         <th scope="col">Week Id</th>
                                         <th scope="col">Total Price</th>
-                                        <th scope="col">User Type</th>
+                                        <th scope="col">Emplyees</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                     </thead>
@@ -31,6 +24,7 @@
                                         <?php 
                                             global $current_user;
                                             wp_get_current_user();
+                                           $uid =  $current_user->ID;
                                             query_posts(array(
                                                     'post_type' => 'orders',
                                                     'posts_per_page' => -1,
@@ -57,7 +51,33 @@
                                                     
                                                 ));              
                                         
-                                                if (have_posts()) :  while (have_posts()) : the_post(); ?>
+                                                if (have_posts()) :  while (have_posts()) : the_post(); 
+
+                                                $available_active_employee = get_users(
+                                                    array(
+                                                        'role' => 'personal',
+                                                        'meta_query' => array(
+                                                            array(
+                                                                'key' => 'employee',
+                                                                'value' => $uid,
+                                                                'compare' => '=='
+                                                            ),
+                                                            array(
+                                                                'key' => 'status',
+                                                                'value' => 'active',
+                                                                'compare' => '=='
+                                                            )
+                                                        )
+                                                    )
+                                                );
+
+                                                //print_r($available_active_employee);
+                        
+                                                
+                                                
+                                                
+                                                
+                                                ?>
                                                                
                                                                 <tr>
                                                                         <td scope="row"><?php the_title()?></td>
@@ -79,7 +99,7 @@
 
                         </div>
                 
-                            </div>
-                </div>
+   </div>
+
                         
 
