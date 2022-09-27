@@ -10,13 +10,15 @@
                                 <table class="_table">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Order ID</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Order Type</th>
+                                        <th scope="col">Order ID</th>                                    
+                                        <th scope="col">Type</th>
                                         <th scope="col">Week Id</th>
-                                        <th scope="col">Total Price</th>
+                                        <th scope="col">Item Price</th>
                                         <th scope="col">Emplyees</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Benifit</th>
+                                        <th scope="col">Days</th>
+                                        <th scope="col">Compnay Pay</th>
+                                        <th scope="col">Total</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,8 +73,29 @@
                                                     )
                                                 );
 
-                                                //print_r($available_active_employee);
-                        
+                                               // print_r($available_active_employee);
+                                               $total_emp =   count($available_active_employee);
+                                               $order_total =  get_post_meta( get_the_ID(), 'order_total', true );
+                                               $company_days =  get_user_meta($uid ,'Company_days',true);
+                                             
+
+                                               $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
+                                               $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
+                                               $fixed_total = $order_total-$lunch_benefit;
+                                               $order_total_price =  $order_total * $company_days  * $total_emp ;
+                                                $fix_remaing =  $fixed_total * $company_days  * $total_emp ;
+                                                if($lunch_benfit_type == '%')
+                                                {
+                                                    $company_pay = $lunch_benefit /100 * $order_total_price;
+                                                }
+                                                else{
+                                                    $company_pay = $order_total_price - $fix_remaing;
+                                                }
+
+                                          
+
+                                               
+                                               
                                                 
                                                 
                                                 
@@ -81,12 +104,16 @@
                                                                
                                                                 <tr>
                                                                         <td scope="row"><?php the_title()?></td>
-                                                                        <td><?php  the_time('M j, Y') ?></td>
+                                                                  
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
                                                                         <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
+                                                                        
+                                                                        <td><?php echo $total_emp; ?></td>
+                                                                        <td><?php echo $lunch_benefit. "" . $lunch_benfit_type; ?></td>
+                                                                        <td><?php echo $company_days; ?></td>
+                                                                        <td>NOK <?php echo $company_pay; ?></td>
+                                                                        <td>NOK <?php echo $order_total_price ?> </td>
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                     <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
