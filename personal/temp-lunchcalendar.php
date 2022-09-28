@@ -24,9 +24,15 @@ if($cal_date != '' )
                                                         'posts_per_page' => -1,
                                                         'order' => 'desc',                                                                                                       
                                                         'meta_query' => array(
+                                                            'relation' => 'AND',
                                                             array(
                                                                 'key' => 'order_day',
-                                                                'value' => $query_date,
+                                                                'value' => $day,
+                                                                'compare' => '='
+                                                            ),
+                                                            array(
+                                                                'key'     => 'user_type',
+                                                                'value' => 'Personal',
                                                                 'compare' => '='
                                                             ),
                                                         )
@@ -43,9 +49,15 @@ if($cal_date != '' )
                                                                 'posts_per_page' => -1,
                                                                 'order' => 'desc',                                                                                                                    
                                                                 'meta_query' => array(
+                                                                    'relation' => 'AND',
                                                                     array(
                                                                         'key' => 'order_day',
                                                                         'value' => $current_date,
+                                                                        'compare' => '='
+                                                                    ),
+                                                                    array(
+                                                                        'key'     => 'user_type',
+                                                                        'value' => 'Personal',
                                                                         'compare' => '='
                                                                     ),
                                                                 )
