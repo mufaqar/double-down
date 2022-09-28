@@ -27,7 +27,7 @@ if($cal_date != '' )
                                                             'relation' => 'AND',
                                                             array(
                                                                 'key' => 'order_day',
-                                                                'value' => $day,
+                                                                'value' => $query_date,
                                                                 'compare' => '='
                                                             ),
                                                             array(
