@@ -65,16 +65,25 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                 </div>
                 <div class="info">
                  <?php $postData = new WP_Query($query_order);
+
+                                                $total_week_price = array();
                                              if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
                                                  $post_id = get_the_ID();
 
-                                                 echo $post_id;
+                                                 //echo $post_id;
+                                                 //echo get_post_meta(get_the_ID(), 'order_day', true);
+
+                                                 $total_week_price[] = get_post_meta(get_the_ID(), 'order_total', true);
+
+                                                 
                                                  
                                                  
                                                  ?>                                            
-                                                 <h6>Total this Week | <span>NOK <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?></span></h6>
+                                              
 
-<?php endwhile; wp_reset_query(); else : ?>
+<?php endwhile;   ?>
+<h6>Total this Week | <span>NOK <?php  echo array_sum($total_week_price); ?></span></h6>
+<?php wp_reset_query(); else : ?>
     <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
     <?php endif; ?>
                     
