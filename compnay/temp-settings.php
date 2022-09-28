@@ -37,9 +37,7 @@ $uid = get_current_user_id();
                                     )
                                 )
                             )
-                        );
-
-                      
+                        );                 
 
 
 
@@ -51,14 +49,6 @@ $uid = get_current_user_id();
     <?php page_title()?>
         
         <div class='panels'>
-
-      
-
-
-
-        
-
-
             <div class='panel launchClander setting_tab'>
                 <h2>Corporate agreement settings</h2>
                 <p>As a company administrator, you can get an overview of and make changes
@@ -175,7 +165,6 @@ $uid = get_current_user_id();
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
                     </div> -->
                     <div class="mt-5">
-                    
                         <input type="submit" class="btn_primary"  value="Save"/>
                     </div>
                     
@@ -517,20 +506,13 @@ $uid = get_current_user_id();
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
                             <h2 class="mb-5 mt-5"><div class="res">Load Ajax Data</div></h2>
-
                         </div>
                     </div>
-
                 </div>
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
-
-
-
-
-
 
 <?php get_footer();?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -559,19 +541,13 @@ $uid = get_current_user_id();
             });
             $('#daily_orders').click(function(){
                 $(".daily_orders_popup").css("display", "block");
-            });
-
-
-            
+            });           
 
             $('._cross').click(function(){
            
                 $(".hideme").css("display", "none");
               
-            });
-
-
-            
+            });            
             $("#add_employes").submit(function(e) { 
                 e.preventDefault(); 
                 var email = jQuery('#email').val();
@@ -705,15 +681,11 @@ $uid = get_current_user_id();
                 });
                 
             }); 
-
-
             $("#update_agreement").submit(function(e) { 
                 e.preventDefault(); 
                 var compnay_agreement = jQuery('#compnay_agreement').val();
                 var lunch_benefit = jQuery('#lunch_benefit').val();  
                 var benefit_type = jQuery('#business_setting_type').val();
-           
-                
                 var uid = jQuery('#uid').val();
                 $.ajax(
                     {
@@ -754,7 +726,7 @@ $uid = get_current_user_id();
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
                 data: {
-                    action: "get_invoice_detail",
+                    action: "get_invoice_detail_company",
                     orderid: orderid,
                     uid: uid
                 },
