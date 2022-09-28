@@ -397,11 +397,17 @@ function dailyfood()
         'posts_per_page' => -1,
         'post_type' => 'orders',
         'meta_query' => array(
+			'relation' => 'AND',
             array(
                 'key' => 'order_day',
                 'value' => $day,
                 'compare' => '='
             ),
+			array(
+				'key'     => 'user_type',
+				'value' => $usertype,
+				'compare' => '='
+			),
         )
     );	
 

@@ -328,14 +328,10 @@ if($cal_date != '' )
 
 
 jQuery(document).ready(function($) 
-   {   
+   {      
 
-   
-
-       $('#date').change(function() {             
-
+       $('#date').change(function() {   
            $(this).closest('form').submit();
-
        });
 
     //    var eventDates = {};

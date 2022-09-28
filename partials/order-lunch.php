@@ -30,7 +30,7 @@
                                                     'post_type' => 'orders',
                                                     'posts_per_page' => -1,
                                                     'order' => 'desc',                                                 
-                                                    'meta_query' => array(                                                      
+                                                    'meta_query' => array(   
                                                         
                                                         'relation' => 'AND',
                                                             array(
@@ -40,12 +40,12 @@
                                                             ),
                                                             array(
                                                                 'key'     => 'user_type',
-                                                                'value' => 'Personal',
+                                                                'value'   => 'Personal',
                                                                 'compare' => '=',
                                                             ),
                                                             array(
                                                                 'key'     => 'order_uid',
-                                                                'value' => $current_user->ID,
+                                                                'value'   => $current_user->ID,
                                                                 'compare' => '='
                                                             )
                                                     )
