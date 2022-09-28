@@ -2,6 +2,7 @@
 get_header();
 $uid = get_current_user_id();
 $user_info = get_userdata($uid);
+//print_r($user_info);
 ?>
 <?php include('navigation.php'); ?>
 <!-- tabs -->
@@ -50,7 +51,7 @@ $user_info = get_userdata($uid);
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?><br>
                     <br>
                         <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?>
-                        | <strong><span>Email: </span></strong> <?php echo get_user_meta($uid, 'profile_delivery_email',true);?>
+                        | <strong><span>Email: </span></strong> <?php echo $user_info->user_email  ?>
 
                 </div>
                 <div class="pt-4 pt-md-0">
@@ -142,19 +143,6 @@ $user_info = get_userdata($uid);
                         <!-- <img src="<?php bloginfo('template_directory'); ?>/reources/images/pin.png" alt=""> -->
                     </div>
                 </div>
-                <!-- <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Phone </label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" value="<?php echo get_user_meta($uid, 'profile_delivery_phone', true);  ?>">
-                    </div>
-                </div>
-                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Email Addres</label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_email" id="profile_delivery_email" value="<?php echo get_user_meta($uid, 'profile_delivery_email', true);  ?>">
-                    </div>
-                </div> -->
-
                 <div class="mt-5">
                     <input type="submit" class="btn_primary" value="Save" />
                 </div>
@@ -205,7 +193,7 @@ $user_info = get_userdata($uid);
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Email Addres</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_email" id="profile_delivery_email" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_email', true);  ?>">
+                        <input type="text" name="profile_email" id="profile_email" placeholder="<?php echo $user_info->user_email  ?>" value="<?php echo $user_info->user_email  ?>" disabled>
                     </div>
                 </div>
 
@@ -548,6 +536,39 @@ $user_info = get_userdata($uid);
            $(".hideme").css("display", "none");         
        });
 
+       $("#profile_details").submit(function(e) {
+            e.preventDefault();
+           
+            var profile_delivery_phone = jQuery('#profile_delivery_phone').val();
+        
+            var uid = jQuery('#uid').val();
+
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: {
+                    action: "profile_details",
+                    profile_delivery_phone: profile_delivery_phone,                 
+                    uid: uid
+                },
+                success: function(data) {
+
+                    if (data.code == 0) {
+
+                        alert(data.message);
+                    } else {
+                        
+                               $(".show_profile_popup").hide();      
+                               $(".res").html(data.message);                                 
+                               $(".alertmessage").show();  
+
+                    }
+                }
+
+            });
+
+        });
+
         $("#profile_deliver_address").submit(function(e) {
             e.preventDefault();
             var profile_delivery_address = jQuery('#profile_delivery_address').val();
@@ -560,9 +581,7 @@ $user_info = get_userdata($uid);
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
                 data: {
                     action: "profile_deliver_address",
-                    profile_delivery_address: profile_delivery_address,
-                    profile_delivery_phone: profile_delivery_phone,
-                    profile_delivery_email: profile_delivery_email,
+                    profile_delivery_address: profile_delivery_address,                 
                     uid: uid
                 },
                 success: function(data) {

@@ -663,14 +663,25 @@ function profile_deliver_address()
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
 	$profile_delivery_address = $_POST['profile_delivery_address'];
-	$profile_delivery_phone = $_POST['profile_delivery_phone'];
-	$profile_delivery_email = $_POST['profile_delivery_email'];	
-	update_user_meta($uid, 'profile_delivery_phone', $profile_delivery_phone);
 	update_user_meta($uid, 'profile_delivery_address', $profile_delivery_address);
-	update_user_meta($uid, 'profile_delivery_email', $profile_delivery_email);
 	echo wp_send_json(array('code' => 200, 'message' => __('Profile address updated')));
-	
+	die;
+}
 
+
+// Profile Devivery Address
+
+
+add_action('wp_ajax_profile_details', 'profile_details', 0);
+add_action('wp_ajax_nopriv_profile_details', 'profile_details');
+
+function profile_details()
+{
+	global $wpdb;
+	$uid = stripcslashes($_POST['uid']);
+	$profile_delivery_phone = $_POST['profile_delivery_phone'];
+	update_user_meta($uid, 'profile_delivery_phone', $profile_delivery_phone);
+	echo wp_send_json(array('code' => 200, 'message' => __('Profile details updated')));
 	die;
 }
 
