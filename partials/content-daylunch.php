@@ -16,7 +16,7 @@
                                     <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
                                     <div class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo get_the_ID() ?>">
                                         <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/minus-thin.png" alt="" onclick="handleCountDec(<?php echo get_the_ID() ?>)"></i>
-                                        <input type="text" data-id="<?php echo get_the_ID(); ?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
+                                        <input type="text" data-id="<?php echo get_the_ID(); ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
                                         <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="" onclick="handleCountInc(<?php echo get_the_ID() ?>)"></i>
                                     </div>
                                 </div>

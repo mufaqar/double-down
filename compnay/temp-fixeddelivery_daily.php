@@ -225,7 +225,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                                     <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
                                     <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
                                         <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png" alt=""></i>
-                                        <input type="text" data-id="<?php echo $pid; ?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
+                                        <input type="text" data-id="<?php echo $pid; ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
                                         <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png" alt=""></i>
                                     </div>
                                 </div>
@@ -339,7 +339,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
             $("#weeklyfood_daily .product-quantity").each(function() {
                 var productid = $(this).data('id');
                 var value = $(this).val();
-                if (value > 1) {
+                if (value > 0) {
                     datas.push([productid, $(this).val()]);
                 }
                 newdata.push(datas);

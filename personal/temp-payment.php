@@ -196,7 +196,7 @@ $uid =  get_current_user_id() ;
             $("#addmeeting .product-quantity").each(function() {
                 var productid = $(this).data('id');
                 var value = $(this).val();
-                if (value > 1) {
+                if (value > 0) {
                     datas.push([productid, $(this).val()]);
                 }
                 newdata.push(datas);

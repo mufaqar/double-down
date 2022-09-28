@@ -48,7 +48,7 @@ $uid =  get_current_user_id() ;
                                     <div class="d-none product_counter mt-4 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">                                   
                                         <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)">
                                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/minus-thin.png"  alt="" ></i>
-                                        <input type="text" data-id="<?php echo $pid; ?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
+                                        <input type="text" data-id="<?php echo $pid; ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
                                         <i class="count-up" onclick="handleCountInc(<?php echo get_the_ID(); ?>)">
                                         <img  src="<?php echo get_template_directory_uri(); ?>/reources/images/plus-thin.png" alt="" ></i>
                                     </div>
@@ -135,7 +135,7 @@ $uid =  get_current_user_id() ;
             $("#addmeeting .product-quantity").each(function() {
                 var productid = $(this).data('id');
                 var value = $(this).val();
-                if (value > 1) {
+                if (value > 0) {
                     datas.push([productid, $(this).val()]);
                 }
                 newdata.push(datas);

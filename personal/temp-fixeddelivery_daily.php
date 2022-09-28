@@ -223,7 +223,7 @@
                                                             <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                                     alt="" ></i>
-                                                            <input type="text"  data-id="<?php echo $pid;?>" value="1" 
+                                                            <input type="text"  data-id="<?php echo $pid;?>" value="0" 
                                                                 class="product-quantity form-control text-center incrDecrCounter" />
                                                             <i class="count-up" onclick="handleCountInc(<?php echo get_the_ID(); ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
@@ -332,7 +332,7 @@
                         $("#weeklyfood_daily .product-quantity").each(function () {
                         var productid =  $(this).data('id');
                         var value = $(this).val() ;
-                            if(value >1) {
+                            if(value >0) {
                                 datas.push( [productid, $(this).val() ]);   
                                 }                     
                         newdata.push(datas);

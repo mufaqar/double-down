@@ -147,7 +147,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                     <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
                                     <div class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo $new_id; ?>">
                                         <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/minus-thin.png" alt="" onclick="handleCountDec(<?php echo $new_id ?>)"></i>
-                                        <input type="text" data-id="<?php echo $new_id ?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
+                                        <input type="text" data-id="<?php echo $new_id ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
                                         <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="" onclick="handleCountInc(<?php echo $new_id ?>)"></i>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                                             <i class="count-down" onclick="handleCountDec(<?php echo $add_id; ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                                     alt="" ></i>
-                                                            <input type="text"  data-id="<?php echo $add_id;?>" value="1" 
+                                                            <input type="text"  data-id="<?php echo $add_id;?>" value="0" 
                                                                 class="product-quantity form-control text-center incrDecrCounter" />
                                                             <i class="count-up" onclick="handleCountInc(<?php echo $add_id; ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"

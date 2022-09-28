@@ -63,7 +63,7 @@ get_header('company');
                                     <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
                                     <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
                                         <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png" alt="" ></i>
-                                        <input type="text" data-id="<?php echo $pid; ?>" value="1" class="product-quantity form-control text-center incrDecrCounter" />
+                                        <input type="text" data-id="<?php echo $pid; ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
                                         <i class="count-up" onclick="handleCountInc(<?php echo $pid ?>)"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png" alt="" ></i>
                                     </div>
                                 </div>
@@ -82,38 +82,38 @@ get_header('company');
                     </div>
                     <?php
 
-$current_week =   date("W");                    
-global $current_user;
- wp_get_current_user(); 
+                        $current_week =   date("W");                    
+                        global $current_user;
+                        wp_get_current_user(); 
 
-            $query_order = array(
-                'post_type' => 'orders',
-                'posts_per_page' => -1,
-                'order' => 'desc',                                                                                                                    
-                'meta_query' => array(
-                    'relation' => 'AND',
-                                                array(
-                                                    'key'   => 'order_type',
-                                                    'value' => 'Weekly',
-                                                    'compare' => '='
-                                                ),
-                                                array(
-                                                    'key'     => 'user_type',
-                                                    'value' => 'Company',
-                                                    'compare' => '=',
-                                                ),
-                                                array(
-                                                    'key'     => 'order_uid',
-                                                    'value' => $current_user->ID,
-                                                    'compare' => '='
-                                                ),
-                                                array(
-                                                    'key'     => 'order_week',
-                                                    'value' => $current_week,
-                                                    'compare' => '='
-                                                )
-                )
-            );
+                                    $query_order = array(
+                                        'post_type' => 'orders',
+                                        'posts_per_page' => -1,
+                                        'order' => 'desc',                                                                                                                    
+                                        'meta_query' => array(
+                                            'relation' => 'AND',
+                                                                        array(
+                                                                            'key'   => 'order_type',
+                                                                            'value' => 'Weekly',
+                                                                            'compare' => '='
+                                                                        ),
+                                                                        array(
+                                                                            'key'     => 'user_type',
+                                                                            'value' => 'Company',
+                                                                            'compare' => '=',
+                                                                        ),
+                                                                        array(
+                                                                            'key'     => 'order_uid',
+                                                                            'value' => $current_user->ID,
+                                                                            'compare' => '='
+                                                                        ),
+                                                                        array(
+                                                                            'key'     => 'order_week',
+                                                                            'value' => $current_week,
+                                                                            'compare' => '='
+                                                                        )
+                                        )
+                                    );
 
 
 
@@ -314,7 +314,7 @@ global $current_user;
             $("#weeklyfood .product-quantity").each(function() {
                 var productid = $(this).data('id');
                 var value = $(this).val();
-                if (value > 1) {
+                if (value > 0) {
                     datas.push([productid, $(this).val()]);
                 }
                 newdata.push(datas);

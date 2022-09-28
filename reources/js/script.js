@@ -103,7 +103,7 @@ var countNumber = 0;
 function handleCountInc(pid) {
   const element = document.querySelector(`[data-id='${pid}']`);
   countNumber = element.value;
-  if (countNumber >= 1) {
+  if (countNumber >= 0) {
     countNumber++;
     element.value = countNumber;
   } else {
@@ -115,7 +115,7 @@ function handleCountInc(pid) {
 function handleCountDec(pid) {
   const element = document.querySelector(`[data-id='${pid}']`);
   countNumber = element.value;
-  if (countNumber < 1) {
+  if (countNumber == 0) {
     countNumber = 0;
     element.value = countNumber;
   } else {
