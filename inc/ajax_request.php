@@ -390,6 +390,7 @@ function dailyfood()
 	}
 
 
+
 	$days = [];
 	$days[$day] = $food_items;
 	// check if order already placed by week
@@ -414,17 +415,33 @@ function dailyfood()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
-	// updated Existing Food order Weekly 
+		//die("Updated Order");
+
+	
+
+	    // updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();	
 		update_post_meta($updated_post_id, 'food_order', $days);
 		update_post_meta($updated_post_id, 'order_uid', $uid);	
-		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
+		$orders_price_data = get_post_meta($updated_post_id, 'food_order' , true);
+
+
+		
+
 		$price_arr = [];
-		foreach($orders_price[$day] as $index => $order_price)
-		{		
-			$price =  get_post_meta($index, 'menu_item_price', true);
-			$price_arr[] = $price*$order_price;		
+		foreach($orders_price_data[$day] as $key=> $order_price)
+		{	
+
+			$product_id =  $key;
+			$product_qty =  $order_price;
+			$price_item =  get_post_meta($product_id, 'menu_item_price', true);			
+			$price_arr[] = $price_item*$product_qty;				
+				
 		}
+
+		
+
+
 		$order_total = array_sum($price_arr);
 		update_post_meta($updated_post_id, 'order_total', $order_total);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));

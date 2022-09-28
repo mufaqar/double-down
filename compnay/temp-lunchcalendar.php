@@ -136,7 +136,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                         )
 
                     ));
-                    if (have_posts()) :  while (have_posts()) : the_post(); $new_id = get_the_ID().$i; ?>
+                    if (have_posts()) :  while (have_posts()) : the_post(); $new_id = get_the_ID().$i;   $data_id = get_the_ID(); ?>
                             <div class="col-md-6 first border-end mb-5">
                                 <h3><?php the_title() ?> | <span> NOK <?php the_field('menu_item_price'); ?></span></h3>
                                 <p class="mt-3"><?php the_content() ?></p>
@@ -149,7 +149,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                     <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
                                     <div class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo $new_id; ?>">
                                         <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/minus-thin.png" alt="" onclick="handleCountDec(<?php echo $new_id ?>)"></i>
-                                        <input type="text" data-id="<?php echo $new_id ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
+                                        <input type="text" data-id="<?php echo $new_id ?>" data-pro="<?php echo $data_id;?>"  value="0" class="product-quantity form-control text-center incrDecrCounter" />
                                         <i class="count-up"><img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="" onclick="handleCountInc(<?php echo $new_id ?>)"></i>
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                         'menu_types' => 'additionals'
                     ));
                  
-                    if (have_posts()) :  while (have_posts()) : the_post(); $k++;  $add_id = get_the_ID().$k;?>
+                    if (have_posts()) :  while (have_posts()) : the_post(); $k++;  $add_id = get_the_ID().$k; $data_id = get_the_ID();?>
                             <div class="col-md-6 col-lg-4 mt-4">
                                 <div class="product_card p-4">
                               
@@ -183,7 +183,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                                             <i class="count-down" onclick="handleCountDec(<?php echo $add_id; ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
                                                                     alt="" ></i>
-                                                            <input type="text"  data-id="<?php echo $add_id;?>" value="0" 
+                                                            <input type="text"  data-id="<?php echo $add_id;?>"  data-pro="<?php echo $data_id;?>"  value="0" 
                                                                 class="product-quantity form-control text-center incrDecrCounter" />
                                                             <i class="count-up" onclick="handleCountInc(<?php echo $add_id; ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/plus.png"
@@ -297,25 +297,14 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
             ?>
 
                              $("#dailyfood_<?php echo $this_day; ?>").submit(function(e) {                
-                                e.preventDefault();  
-                                           
+                                e.preventDefault();                                            
                                 var date = jQuery('#day_<?php echo $this_day; ?>').val();
                                 var weekid = jQuery('#weekid_<?php echo $this_day; ?>').val();                              
-                                var uid = jQuery('#uid').val();                            
-                            
-                           
-                               
-
-
-
-
-
-
-
+                                var uid = jQuery('#uid').val();  
                                 var datas = [];
                                     var newdata = [];
                                 $("#dailyfood_<?php echo $this_day; ?> .product-quantity").each(function () {
-                                var productid =  $(this).data('id');
+                                var productid =  $(this).data('pro');
                                 var value = $(this).val() ;
                                     if(value >1) {
                                         datas.push( [productid, $(this).val() ]);   
@@ -324,10 +313,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                 });
                                 // alert(newdata[0]);
                                 var menu_items = newdata[0];
-
                                 console.log(menu_items);  
-                             
-                                
                                 $.ajax(
                                     {   
                                         type:"POST",
@@ -345,9 +331,9 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                             if(data.code==0) {
                                                 alert(data.message);
                                             }  
-                                            else {
-                                              
-                                               $(".alertmessage").css("display", "flex");  
+                                            else {                                              
+                                             $(".alertmessage").css("display", "flex");  
+                                             location.reload();  
                                             }      
                                         }
                             
