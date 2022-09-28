@@ -51,11 +51,10 @@ $user_info = get_userdata($uid);
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?><br>
                     <br>
                         <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone',true);?>
-                        | <strong><span>Email: </span></strong> <?php echo $user_info->user_email  ?>
+                        |<strong><span>Email: </span></strong> <?php echo $user_info->user_email  ?>
 
                 </div>
-                <div class="pt-4 pt-md-0">
-                   
+                <div class="pt-4 pt-md-0">                   
                     <button id="show_profile" class="btn_primary">Update profile</button>
                 </div>
             </div>
