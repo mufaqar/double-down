@@ -355,7 +355,7 @@
                             weekid : weekid,
                             usertype : usertype,  
                             uid : uid,  
-                            tdate : tdate                
+                            tdate : tdate              
                         
                         },   
                         success: function(data){                      
@@ -364,7 +364,7 @@
                                         alert(data.message);
                             }  
                             else {
-                           $(".alertmessage").css("display", "flex");
+                              $(".alertmessage").css("display", "flex");
                         
                             }      
                     }
