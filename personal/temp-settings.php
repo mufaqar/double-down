@@ -38,7 +38,7 @@ $user_info = get_userdata($uid);
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?></p>
                     <p>
                         <strong><span>Email : </span></strong>
-                        <span class="underline"><?php echo get_user_meta($uid, 'profile_delivery_email',true);?></span>
+                        <span class="underline"><?php echo $user_info->user_email  ?></span>
                     </p>
                 </div>
 
