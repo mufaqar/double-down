@@ -200,10 +200,6 @@ function weeklyfood_byday()
 		$daily_food[$sel_day] = $product_items;
 	}
 
-	
-
-
-
 
 	// check if order already placed by week
 	$query_meta = array(
@@ -235,55 +231,32 @@ function weeklyfood_byday()
     );
 
     $postinweek = new WP_Query($query_meta);
-	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-		
-
-		
+	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();			
 		
 		// updated Existing Food order Weekly 
-		$updated_post_id = get_the_ID();	
-	
-
-		
-		
+		$updated_post_id = get_the_ID();			
 		$food_orderd_data = array();
-		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
-
-
-	
-	
-
-		
+		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);		
 		//print_r($food_orderd_data);
 		if (array_key_exists($sel_day,$food_orderd_data))
 		{
 
 			// Order Exisit and Days Exist
-
-			
-
-		
-
 		
 			unset($food_orderd_data[$sel_day]);
 			$food_orderd_data[$sel_day] = array_shift($daily_food);	
 
-		
-
-
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
-
 			$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
-
 			$price_arr = [];
 			foreach($orders_price as $index => $order_price)
 			{
 				foreach($order_price as $pro_id => $pro_qty)
 					{					
 						$price =  get_post_meta($pro_id, 'menu_item_price', true);
-						$price_arr[] = $price*$pro_qty;			
+						$price_arr[] = $price*$pro_qty;		
 						
 					}
 			
@@ -291,10 +264,7 @@ function weeklyfood_byday()
 			$order_total = array_sum($price_arr);
 			update_post_meta($updated_post_id, 'order_total', $order_total);
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully {Days Updated}')));
-			die();
-
-			
-				
+			die();		
 		
 		
 		}
@@ -302,22 +272,19 @@ function weeklyfood_byday()
 
 				// Order Exisit and Days Not Found
 			
-			
 
 			$food_orderd_data[$sel_day] = array_shift($daily_food);
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
-			update_user_meta( $uid, $usertype.'_days', $total_days);
-			
+			update_user_meta( $uid, $usertype.'_days', $total_days);			
 			$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
-
 			$price_arr = [];
 			foreach($orders_price as $index => $order_price)
 			{
 				foreach($order_price as $pro_id => $pro_qty)
 					{					
 						$price =  get_post_meta($pro_id, 'menu_item_price', true);
-						$price_arr[] = $price*$pro_qty;			
+						$price_arr[] = $price*$pro_qty;		
 						
 					}
 			
@@ -331,9 +298,7 @@ function weeklyfood_byday()
 
 			}
 
-	endwhile; wp_reset_query(); else : 
-
-		
+	endwhile; wp_reset_query(); else : 	
 
 		
 		$postdata = array(
@@ -347,9 +312,7 @@ function weeklyfood_byday()
 		add_post_meta($user_id, 'order_week', $weekid, true);
 		add_post_meta($user_id, 'order_status', 'Pending', true);
 		add_post_meta($user_id, 'order_type', 'Weekly', true);
-		add_post_meta($user_id, 'user_type', $usertype, true);
-
-		
+		add_post_meta($user_id, 'user_type', $usertype, true);	
 
 		
 		if (!is_wp_error($user_id)) {
@@ -368,10 +331,6 @@ function weeklyfood_byday()
 			}
 			$order_total = array_sum($price_arr);
 			update_post_meta($user_id, 'order_total', $order_total);
-
-
-
-
 			//sendmail($username,$password);
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 		} else {
@@ -379,13 +338,7 @@ function weeklyfood_byday()
 		}
 		
 
-
-
 		endif;
-
-
-
-
 
 	die;
 }
@@ -440,8 +393,6 @@ function dailyfood()
 
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-
-		
 
 
 
