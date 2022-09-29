@@ -71,13 +71,19 @@
                                                         $pid =  get_the_ID();
                                                          
                                                          $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
-                                                         //print "<pre>";
+                                                         print "<pre>";
+
+                                                         print_r($food_orderd_data);
+
+                                                         
                                                          function weekdaySort($a, $b){
                                                             $weekdays = array("Monday","Tuesday","Wednesday","Thusday","Friday");
                                                             return array_search($a, $weekdays) - array_search($b, $weekdays);
                                                         } 
                                                         
                                                         uksort($food_orderd_data, "weekdaySort");
+
+                                                        print_r($food_orderd_data);
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       {  ?>
