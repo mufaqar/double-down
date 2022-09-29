@@ -71,15 +71,15 @@
                                                         $pid =  get_the_ID();
                                                          
                                                          $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
-                                                         print "<pre>";
+                                                        // print "<pre>";
 
-                                                         print_r($food_orderd_data);
+                                                        // print_r($food_orderd_data);
 
                                                        
                                                         
                                                         uksort($food_orderd_data, "weekdaySort");
 
-                                                        print_r($food_orderd_data);
+                                                    
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       {  ?>

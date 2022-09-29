@@ -94,8 +94,6 @@
                                                       $pid =  get_the_ID();                                                    
                                                     $food_orderd_data = get_post_meta( $pid, 'food_order' , true); 
                                                     
-                                                   
-                                                    
                                                     uksort($food_orderd_data, "weekdaySort");
                                                
                                               
