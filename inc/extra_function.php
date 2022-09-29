@@ -315,5 +315,9 @@ function my_get_current_user_roles() {
     }
 
 
-
+  
+    function weekdaySort($a, $b){
+        $weekdays = array("Monday","Tuesday","Wednesday","Thursday","Friday");
+        return array_search($a, $weekdays) - array_search($b, $weekdays);
+    } 
   

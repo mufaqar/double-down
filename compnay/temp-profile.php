@@ -75,11 +75,7 @@
 
                                                          print_r($food_orderd_data);
 
-                                                         
-                                                         function weekdaySort($a, $b){
-                                                            $weekdays = array("Monday","Tuesday","Wednesday","Thusday","Friday");
-                                                            return array_search($a, $weekdays) - array_search($b, $weekdays);
-                                                        } 
+                                                       
                                                         
                                                         uksort($food_orderd_data, "weekdaySort");
 

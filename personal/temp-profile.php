@@ -94,10 +94,7 @@
                                                       $pid =  get_the_ID();                                                    
                                                     $food_orderd_data = get_post_meta( $pid, 'food_order' , true); 
                                                     
-                                                    function weekdaySort($a, $b){
-                                                        $weekdays = array("Monday","Tuesday","Wednesday","Thusday","Friday");
-                                                        return array_search($a, $weekdays) - array_search($b, $weekdays);
-                                                    } 
+                                                   
                                                     
                                                     uksort($food_orderd_data, "weekdaySort");
                                                
