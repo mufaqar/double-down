@@ -101,18 +101,11 @@
                                                     
                                                     uksort($food_orderd_data, "weekdaySort");
                                                
-                                                // usort($newkey, function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
-                                            
-                                           
-                                           // print_r($newkey);
+                                              
                                                
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
-                                                      { 
-
-
-                                                       // usort($key, function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
-                                                                             ?>
+                                                      {   ?>
 
                                                         
                                                             <div class="_pro_card">
@@ -137,11 +130,7 @@
                                                                 </p>
                                                             </div>
 
-                                                        <?php   }
-                                                    
-                                                   // usort($food_orderd_data[$key], function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
-                                                    
-                                                    endwhile; wp_reset_query(); else : ?>
+                                                        <?php   } endwhile; wp_reset_query(); else : ?>
 
                                                             <div class="_pro_card">
                                                                 <h3>No lunch menu for this week</h3>
