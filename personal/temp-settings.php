@@ -34,7 +34,7 @@ $user_info = get_userdata($uid);
             <!-- 3rd  -->
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Corporate Agreement</h3>
+                    <h3>Compnay contact email</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement',true);?></p>
                     <p>
                         <strong><span>Email : </span></strong>
