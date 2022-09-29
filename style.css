@@ -3137,6 +3137,30 @@ input[type='submit'] {
   line-height: 24px;
 }
 
+.selected_day > div > div {
+  padding: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.selected_day > div > div [type='radio']:checked + label:after {
+  width: 14px;
+  height: 14px;
+  border-radius: 0 !important;
+}
+.table > :not(caption) > * > * {
+  text-align: center;
+}
+.invoice_table {
+  height: 400px;
+  overflow-y: scroll;
+}
+.popup > div > div {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.invoice_table {
+  border-radius: 12px;
+}
+
 @media (max-width: 1020px) {
   .launch_calandar .sidebar {
     display: none;
