@@ -70,7 +70,6 @@ function weeklyfood()
 	$uid = $_POST['uid'];
 	$weekid = $_POST['weekid'];
 	$total_days = count($weekdays);
-
 	update_user_meta( $uid, $usertype.'_days', $total_days);
 
 		$food_items = [];
@@ -233,18 +232,40 @@ function weeklyfood_byday()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 		
+
+		
 		
 		// updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();	
+	
+
+		
 		
 		$food_orderd_data = array();
 		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
-		if(array_key_exists($sel_day, $food_orderd_data))
+
+
+	
+	
+
+		
+		//print_r($food_orderd_data);
+		if (array_key_exists($sel_day,$food_orderd_data))
 		{
+
+			// Order Exisit and Days Exist
+
+			
+
+		
 
 		
 			unset($food_orderd_data[$sel_day]);
 			$food_orderd_data[$sel_day] = array_shift($daily_food);	
+
+		
+
+
 			update_post_meta($updated_post_id, 'food_order', $food_orderd_data);
 			$total_days = count($food_orderd_data);
 			update_user_meta( $uid, $usertype.'_days', $total_days);
@@ -264,7 +285,7 @@ function weeklyfood_byday()
 			}
 			$order_total = array_sum($price_arr);
 			update_post_meta($updated_post_id, 'order_total', $order_total);
-			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
+			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully {Days Updated}')));
 			die();
 
 			
@@ -273,9 +294,9 @@ function weeklyfood_byday()
 		
 		}
 		else {	
-			
-			// Order Exisit But Day not 
 
+				// Order Exisit and Days Not Found
+			
 			
 
 			$food_orderd_data[$sel_day] = array_shift($daily_food);
@@ -298,7 +319,7 @@ function weeklyfood_byday()
 			}
 			$order_total = array_sum($price_arr);
 			update_post_meta($updated_post_id, 'order_total', $order_total);
-			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));			
+			echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully { Days Added }')));			
 			die();
 			
 			
@@ -415,33 +436,25 @@ function dailyfood()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
-		//die("Updated Order");
+		
 
-	
+
 
 	    // updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();	
 		update_post_meta($updated_post_id, 'food_order', $days);
 		update_post_meta($updated_post_id, 'order_uid', $uid);	
 		$orders_price_data = get_post_meta($updated_post_id, 'food_order' , true);
-
-
 		
-
 		$price_arr = [];
 		foreach($orders_price_data[$day] as $key=> $order_price)
 		{	
-
 			$product_id =  $key;
 			$product_qty =  $order_price;
 			$price_item =  get_post_meta($product_id, 'menu_item_price', true);			
 			$price_arr[] = $price_item*$product_qty;				
 				
 		}
-
-		
-
-
 		$order_total = array_sum($price_arr);
 		update_post_meta($updated_post_id, 'order_total', $order_total);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));

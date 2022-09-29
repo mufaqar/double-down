@@ -5,43 +5,40 @@
             <div class='blogs'>
             
                 <div class="row">
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); 
 
 
-<?php 
+
 
 print "<pre>";
 
 
 
-$orders_price = get_post_meta(get_the_ID(), 'food_order' , true);
-//print_r($orders_price);
 
+$updated_post_id = get_the_ID();
 
-$price_arr = [];
-foreach($orders_price as $index => $order_price)
-{
-    
-    //print_r($order_price);
-      
+$sel_day = "Tuesday";
+	
+		
+		$food_orderd_data = array();
+		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
 
-        foreach($order_price as $pro_id => $pro_qty)
-        {
-            
-            $price =  get_post_meta($pro_id, 'menu_item_price', true);
-            $price_arr[] = $price;
-            
-            
+		
+		print_r($food_orderd_data);
+		if(array_key_exists($sel_day, $food_orderd_data))
+		{
+
+            echo "yes ";
+
         }
-        
-        
-      
-   
-}
+        else
+        {
+
+            echo "No";
 
 
 
-echo array_sum($price_arr);
+        }
 
 
 
