@@ -346,7 +346,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
             });
             // alert(newdata[0]);
             var menu_items = newdata[0];
-            console.log(weekid);
+            console.log(menu_items);
            
 
             $.ajax({
