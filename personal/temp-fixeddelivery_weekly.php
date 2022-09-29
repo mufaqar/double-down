@@ -326,21 +326,21 @@ global $current_user;
                     weekdays.push($(this).val());
                 });
                 
-                        var datas = [];
-                        var newdata = [];
-                        $("#weeklyfood .product-quantity").each(function () {
-                        var productid =  $(this).data('id');
-                        var value = $(this).val() ;
-                            if(value >0) {
-                                datas.push( [productid, $(this).val() ]);   
-                                }                     
-                        newdata.push(datas);
-                        });
-                    // alert(newdata[0]);
-                        var menu_items = newdata[0];
-                  
-                        console.log(menu_items);
-                    //  alert(postid);          
+                var datas = [];
+                var newdata = [];
+                $("#weeklyfood .product-quantity").each(function () {
+                var productid =  $(this).data('id');
+                var value = $(this).val() ;
+                    if(value >0) {
+                        datas.push( [productid, $(this).val() ]);   
+                        }                     
+                newdata.push(datas);
+                });
+            // alert(newdata[0]);
+                var menu_items = newdata[0];
+            
+                console.log(menu_items);
+            //  alert(postid);          
                                 
                 var weekdays = weekdays;	             
               
