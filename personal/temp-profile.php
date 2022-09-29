@@ -85,20 +85,11 @@
                                                         ); 
 
                                                     //    print_r($query_meta);
-
-                                                   
-                                               
-                                                
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
                                                       $pid =  get_the_ID();                                                    
-                                                    $food_orderd_data = get_post_meta( $pid, 'food_order' , true); 
-                                                    
+                                                    $food_orderd_data = get_post_meta( $pid, 'food_order' , true);                                                     
                                                     uksort($food_orderd_data, "weekdaySort");
-                                               
-                                              
-                                               
-
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       {   ?>
 
