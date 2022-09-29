@@ -217,6 +217,11 @@ function weeklyfood_byday()
                 'compare' => '='
             ),
 			array(
+                'key' => 'order_type',
+                'value' => 'Weekly',
+                'compare' => '='
+            ),
+			array(
 				'key'     => 'user_type',
 				'value' => $usertype,
 				'compare' => '='
