@@ -318,10 +318,8 @@
          
                     	
             $("#weeklyfood_daily").submit(function(e) { 
-                e.preventDefault();              
-               
+                e.preventDefault();    
                 var weekid = jQuery('#weekid').val();
-                var usertype = jQuery('#usertype').val();
                 var uid = jQuery('#uid').val();
                 var sel_day = jQuery('input[name="sel_day"]:checked').val();
                 var tdate = jQuery('#tdate').val();
@@ -353,7 +351,7 @@
                             sel_day : sel_day,
                             menu_items : menu_items,   
                             weekid : weekid,
-                            usertype : usertype,  
+                            usertype : "Personal",  
                             uid : uid,  
                             tdate : tdate              
                         
