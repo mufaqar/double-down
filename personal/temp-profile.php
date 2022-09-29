@@ -127,6 +127,14 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <h2>Lunch Calendar Orders  </h2>
+
+                                    <?php get_template_part( 'partials/profile', 'calorders' ); ?>
+
+
+
+                                   
                                 </div>
                                
                             </div>
