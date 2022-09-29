@@ -93,6 +93,12 @@
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
                                                       $pid =  get_the_ID();                                                    
                                                     $food_orderd_data = get_post_meta( $pid, 'food_order' , true); 
+                                                    
+                                                    function weekdaySort($a, $b){
+                                                        $weekdays = array("Monday","Tuesday","Wednesday","Thusday","Friday");
+                                                        return array_search($a, $weekdays) - array_search($b, $weekdays);
+                                                    } 
+                                                    
                                                     uksort($food_orderd_data, "weekdaySort");
                                                
                                                 // usort($newkey, function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
