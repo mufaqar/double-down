@@ -340,10 +340,12 @@ global $current_user;
                 var menu_items = newdata[0];
             
                 console.log(menu_items);
-            //  alert(postid);          
+            //  alert(postid);   
+            
+            
+       
                                 
-                var weekdays = weekdays;	             
-              
+                var weekdays = weekdays;
 
                 console.log(weekdays);
               
@@ -369,8 +371,8 @@ global $current_user;
                                         alert(data.message);
                             }  
                             else {
-                            $(".alertmessage").css("display", "flex");
-                            $('.alertmessage').delay(1500).fadeOut();
+                           $(".alertmessage").css("display", "flex");
+                           $('.alertmessage').delay(1500).fadeOut();
                             location.reload();       
                             
                         

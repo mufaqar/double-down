@@ -52,21 +52,6 @@
                                         // #final result
                                         // echo '<pre/>';print_r($days);exit;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                                     $current_week =  date("W"); 
                                                     $current_year =  date("Y");                                                   
                                                     $query_meta = array(
@@ -103,15 +88,10 @@
                                                 
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-                                                      $pid =  get_the_ID();
-                                                    
-                                                    $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
-
-                                                  
-
+                                                      $pid =  get_the_ID();                                                    
+                                                    $food_orderd_data = get_post_meta( $pid, 'food_order' , true);  
                                                     
                                                     arsort($food_orderd_data);
-
                                                  //$daysAux = array();
                                                
 
