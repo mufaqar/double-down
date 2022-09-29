@@ -72,6 +72,7 @@
                                                          
                                                          $food_orderd_data = get_post_meta( $pid, 'food_order' , true);
                                                          //print "<pre>";
+                                                         uksort($food_orderd_data, "weekdaySort");
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       {  ?>

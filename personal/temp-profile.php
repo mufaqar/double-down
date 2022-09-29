@@ -85,28 +85,28 @@
                                                         ); 
 
                                                     //    print_r($query_meta);
+
+                                                   
+                                               
                                                 
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
                                                       $pid =  get_the_ID();                                                    
-                                                    $food_orderd_data = get_post_meta( $pid, 'food_order' , true);  
-                                                    
-                                                    arsort($food_orderd_data);
-                                                 //$daysAux = array();
+                                                    $food_orderd_data = get_post_meta( $pid, 'food_order' , true); 
+                                                    uksort($food_orderd_data, "weekdaySort");
+                                               
+                                                // usort($newkey, function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
+                                            
+                                           
+                                           // print_r($newkey);
                                                
 
                                                     foreach($food_orderd_data as $key => $order_data ) 
                                                       { 
 
 
-                                                       
-                                                      
-
-                                                       
-                                                        
-                                                        
-                                                        
-                                                        ?>
+                                                       // usort($key, function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
+                                                                             ?>
 
                                                         
                                                             <div class="_pro_card">
@@ -131,7 +131,11 @@
                                                                 </p>
                                                             </div>
 
-                                                        <?php   }  endwhile; wp_reset_query(); else : ?>
+                                                        <?php   }
+                                                    
+                                                   // usort($food_orderd_data[$key], function($a, $b) { return strcmp(date('N H:i', strtotime($a)), date('N H:i', strtotime($b))); });
+                                                    
+                                                    endwhile; wp_reset_query(); else : ?>
 
                                                             <div class="_pro_card">
                                                                 <h3>No lunch menu for this week</h3>
