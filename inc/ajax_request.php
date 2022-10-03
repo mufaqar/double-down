@@ -1047,8 +1047,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 										<td scope="row"><strong>Total : </strong>NOK <?php echo $order_total_price ?> </td>
 									</tr>
 									<tr>
-										<td scope="row"><strong>Order Week: </strong>NOK <?php echo $order_week; ?></td>
-										<td scope="row"><strong>Total : </strong>NOK <?php echo $order_total_price ?> </td>
+										<td scope="row"><strong>Order Week: </strong><?php echo $order_week; ?></td>
+									
 									</tr>
 									</tbody>
 								</table>
