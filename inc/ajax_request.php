@@ -997,7 +997,9 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 						   // print_r($available_active_employee);
 						   $total_emp =   count($available_active_employee);
 						   $order_total =  get_post_meta( $orderid, 'order_total', true );
-						   $company_days =  get_user_meta($uid ,'Company_days',true);                                            
+						   $company_days =  get_user_meta($uid ,'Company_days',true);    
+						   
+						   $order_week  =  get_user_meta($uid ,'order_week',true);   
 
 						   $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
 						   $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
@@ -1042,6 +1044,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 									</tr>
 									<tr>
 										<td scope="row"><strong>Compnay Pay: </strong>NOK <?php echo $company_pay; ?></td>
+										<td scope="row"><strong>Total : </strong>NOK <?php echo $order_total_price ?> </td>
+									</tr>
+									<tr>
+										<td scope="row"><strong>Order Week: </strong>NOK <?php echo $order_week; ?></td>
 										<td scope="row"><strong>Total : </strong>NOK <?php echo $order_total_price ?> </td>
 									</tr>
 									</tbody>
