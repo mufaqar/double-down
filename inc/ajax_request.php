@@ -893,7 +893,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 							//$orderid = 668;
 							$uid = $_POST['uid'];	
 							$user_info = get_userdata( $uid);
-							$args = array('p' => $orderid, 'post_type' => 'orders'); ?>
+							$args = array('p' => $orderid, 'post_type' => 'orders');
+							
+							$order_week  =   get_post_meta( $orderid, 'order_week', true );
+							?>
 
 				
 						            
@@ -914,6 +917,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									<tr>
 										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
 										<td scope="row"><strong>Shipping: </strong>NOK 0</td>
+									</tr>
+									<tr>
+										<td scope="row"><strong>Week: </strong><?php echo $order_week ?></td>
+									
 									</tr>
 									</tbody>
 								</table>
@@ -999,7 +1006,9 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 						   $order_total =  get_post_meta( $orderid, 'order_total', true );
 						   $company_days =  get_user_meta($uid ,'Company_days',true);    
 						   
-						   $order_week  =  get_user_meta($uid ,'order_week',true);   
+						   $order_week  =   get_post_meta( $orderid, 'order_week', true );
+
+						   
 
 						   $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
 						   $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               

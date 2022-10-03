@@ -158,7 +158,11 @@ if($cal_date != '' )
 		                                    if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
                                         
 
-                                            $pid = get_the_ID(); ?>
+                                            $pid = get_the_ID();
+                                            $menu_price  = get_post_meta( get_the_ID(), 'menu_item_price', true );
+                                            $vat = $menu_price/100*15;                                          
+                                            
+                                            ?>
                                             
                                             <div class="catering_card _pro_salat">
                                                 <h3><?php the_title()?></h3>
@@ -175,11 +179,11 @@ if($cal_date != '' )
                                                     <div class="d-flex">
                                                         <div>
                                                             <strong class="title">Price:</strong> 
-                                                            <p><strong>Nok <?php echo get_post_meta( get_the_ID(), 'menu_item_price', true ); ?></strong></p>
+                                                            <p><strong>Nok <?php echo $menu_price ?></strong></p>
                                                         </div>
                                                         <div style="margin-left: 3rem;">
                                                             <strong class="title">VAT:</strong> 
-                                                            <p>80</p>
+                                                            <p><?php echo $vat;?></p>
                                                         </div>
                                                     </div>     
                                                     <div class="product_card ">                                                        
