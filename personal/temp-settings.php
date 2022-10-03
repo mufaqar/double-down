@@ -321,7 +321,7 @@ $user_info = get_userdata($uid);
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Date</th>                                                                 
+                                            <th scope="col">Week</th>                                                                 
                                             <th scope="col">Type</th>                                    
                                             <th scope="col">Price</th>
                                             <th scope="col">Action</th>
@@ -361,7 +361,7 @@ $user_info = get_userdata($uid);
                                                     if (have_posts()) :  while (have_posts()) : the_post(); ?>
                                                                     <tr>
                                                                             <td scope="row"><?php the_title()?></td>
-                                                                            <td><?php  the_time('m-d') ?></td>
+                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?>
                                                                             <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
                                                                             <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
                                                                                 ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )

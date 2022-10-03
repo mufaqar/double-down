@@ -13,9 +13,9 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">Order ID</th>
-                                        <th scope="col">Date</th>
+                                        <th scope="col">Week</th>
                                         <th scope="col">Order Type</th>
-                                        <th scope="col">Week Id</th>
+                                       
                                         <th scope="col">Total Price</th>
                                         <th scope="col">User Type</th>
                                         <th scope="col">Status</th>
@@ -55,7 +55,7 @@
                                                 if (have_posts()) :  while (have_posts()) : the_post(); ?>
                                                                 <tr>
                                                                         <td scope="row"><?php the_title()?></td>
-                                                                        <td><?php  the_time('M j, Y') ?></td>
+                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
 
                                                                         <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
@@ -65,7 +65,7 @@
                                                                     
                                                                     
                                                                     </td>
-                                                                        <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?></td>
+                                                                     
                                                                         <td>NOK <?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'user_type', true ); ?></td>
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
