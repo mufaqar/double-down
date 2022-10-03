@@ -896,6 +896,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 							$args = array('p' => $orderid, 'post_type' => 'orders');
 							
 							$order_week  =   get_post_meta( $orderid, 'order_week', true );
+
+							$order_total = get_post_meta( $orderid, 'order_total', true );
 							?>
 
 				
@@ -911,7 +913,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									<tbody>
 									<tr>
 										<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
-										<td scope="row"><strong>Lunch: </strong>NOK <?php echo get_post_meta( $orderid, 'order_total', true ); ?></td>
+										<td scope="row"><strong>Lunch: </strong>NOK <?php echo number_format($order_total,2)?></td>
 										
 									</tr>
 									<tr>
@@ -1004,11 +1006,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 						   // print_r($available_active_employee);
 						   $total_emp =   count($available_active_employee);
 						   $order_total =  get_post_meta( $orderid, 'order_total', true );
-						   $company_days =  get_user_meta($uid ,'Company_days',true);    
-						   
-						   $order_week  =   get_post_meta( $orderid, 'order_week', true );
-
-						   
+						   $company_days =  get_user_meta($uid ,'Company_days',true);   						   
+						   $order_week  =   get_post_meta( $orderid, 'order_week', true );				   
 
 						   $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
 						   $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
@@ -1022,6 +1021,9 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 							else{
 								$company_pay = $order_total_price - $fix_remaing;
 							}
+
+
+							$order_total = get_post_meta( $orderid, 'order_total', true ); 
 
 
 							
@@ -1040,7 +1042,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 									<tbody>
 									<tr>
 										<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
-										<td scope="row"><strong>Lunch Item: </strong>NOK <?php echo get_post_meta( $orderid, 'order_total', true ); ?></td>
+										<td scope="row"><strong>Lunch Item: </strong>NOK <?php echo  number_format($order_total,2); ?></td>
 										
 									</tr>
 									<tr>
@@ -1052,8 +1054,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 										<td scope="row"><strong>Benifit: </strong> <?php echo $lunch_benefit. "" . $lunch_benfit_type; ?></td>
 									</tr>
 									<tr>
-										<td scope="row"><strong>Compnay Pay: </strong>NOK <?php echo $company_pay; ?></td>
-										<td scope="row"><strong>Total : </strong>NOK <?php echo $order_total_price ?> </td>
+										<td scope="row"><strong>Compnay Pay: </strong>NOK <?php echo number_format($company_pay,2); ?></td>
+										<td scope="row"><strong>Total : </strong>NOK <?php echo number_format($order_total_price,2); ?> </td>
 									</tr>
 									<tr>
 										<td scope="row"><strong>Order Week: </strong><?php echo $order_week; ?></td>
