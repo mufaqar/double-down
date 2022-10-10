@@ -45,16 +45,11 @@
                         ));
 
                         if (have_posts()) :  while (have_posts()) : the_post();
-
-                        $order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
-                        $user_info = get_userdata($order_uid);
-                 
-                        $food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
-                        $address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );	
-                        $company_name =  get_user_meta( $order_uid, 'compnay_name', true );	
-                        
-                       
-                      
+                                $order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
+                                $user_info = get_userdata($order_uid);                 
+                                $food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
+                                $address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );	
+                                $company_name =  get_user_meta( $order_uid, 'compnay_name', true );
                                 $i++; ?>
                                 <tr>
                                     <td><?php echo $i ?></td>
@@ -67,7 +62,7 @@
                                     <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
                                   
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
-                                    <td> </td>   
+                                    <td> View </td>   
                                
                                 </tr>
                             <?php endwhile;
