@@ -22,7 +22,7 @@
             </div>
             <section id="div1" class="targetDiv activediv tablediv">
                 <table id="all" class="table table-striped orders_table" style="width:100%">
-                <?php include('partials/content-order.php'); ?>
+                <?php include('partials/content-order_handling.php'); ?>
                 </table>
 
             </section>
