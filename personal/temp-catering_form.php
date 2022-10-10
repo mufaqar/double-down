@@ -187,8 +187,7 @@ get_header();
             var date = jQuery('#date').val();	 
             var time = jQuery('#time').val();	 
             var address = jQuery('#address').val();	             
-            var food_type = jQuery('#food_type').val();	 
-        
+            var food_type = jQuery('#food_type').val();	         
             var pro_cat = jQuery('#pro_cat').val();	 
             var pro_sub_cat = jQuery('#pro_sub_cat').val();	
             var person = jQuery('#person').val();           
@@ -209,7 +208,7 @@ get_header();
                         time : time,
                         address : address,
                         food_type : food_type,                  
-                        allergens : allergens ,
+                        allergens : allergens,
                         pro_cat : pro_cat,
                         pro_sub_cat : pro_sub_cat,
                         person : person,
