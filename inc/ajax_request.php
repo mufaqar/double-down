@@ -70,7 +70,7 @@ function addcatering_email()
 	$address = $_POST['address'];
 	$person = $_POST['person'];
 	$food_type = $_POST['food_type'];
-	$food_cat = $_POST['food_cat'];
+	$reason = $_POST['reason'];
 	$pro_cat = $_POST['pro_cat'];
 	$pro_sub_cat = $_POST['pro_sub_cat'];
 	$allergens = $_POST['allergens'];
@@ -90,6 +90,8 @@ function addcatering_email()
 			'date' => $date,
 			'user_type' => $user_type,
 			'order_uid' => $uid,
+			'reason' => $reason,
+			
 		),
 		'tax_input'    => array(
 			'food_type' => array($food_type),
@@ -102,12 +104,10 @@ function addcatering_email()
 	);
 
 
-	$admin = 'mufaqar@gmail.com,';	
+	$admin = 'bestilling@doubledowndish.no';	
 	$to = 'hei@doubledowndish.no';
 	$cc = $email;
-
-
-	$subject = "doubledowndish | Catering Inquiry";
+	$subject = "Double Downdish | Catering Inquiry";
 	$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
 	$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
 	$body  .= "<p><strong> Number of People  </strong>:  ".$people."  </p>";
@@ -115,9 +115,9 @@ function addcatering_email()
 	$body  .= "<p><strong> Time  </strong>:  ".$time."  </p>";
 	$body  .= "<p><strong> Address  </strong>:  ".$address."  </p>";
 	$body  .= "<p><strong> Food Type  </strong>:  ".$food_type."  </p>";
-	$body  .= "<p><strong> Food Categories  </strong>:  ".$food_cat."  </p>";
+	$body  .= "<p><strong> Reason  </strong>:  ".$reason."  </p>";
 	$body  .= "<p><strong> Product Category  </strong>:  ".$pro_cat."  </p>";
-	$body  .= "<p><strong> Product Sub Categories  </strong>:  ".$pro_sub_cat."  </p>";
+	$body  .= "<p><strong> Heating Options </strong>:  ".$pro_sub_cat."  </p>";
 	$body  .= "<p><strong> Allergens  </strong>:  ".$allergens."  </p>";
 	$body  .= "<p><strong> Budget Per Person  </strong>:  ".$person."  </p>";	
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
