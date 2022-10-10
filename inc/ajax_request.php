@@ -101,7 +101,7 @@ function addcatering_email()
 	);
 
 
-	$admin = 'mufaqar@gmail.com';	
+	$admin = 'mufaqar@gmail.com,';	
 	$to = 'hei@doubledowndish.no';
 	$cc = $email;
 
