@@ -111,16 +111,8 @@ $year=$week_arr[0];
                         <input type="text" value="" placeholder="Please enter Number" id="people" required>
                   
                     </div>
-                </div>
+                </div>          
             
-            
-            <div class="col-md-6 mb-3">
-                    <label for="">Number of People</label>
-                    <div class="_select">
-                        <input type="text" value="" placeholder="Please enter Number" id="people" required>
-                        <input type="hidden" value="<?php echo $uid ?>"  id="uid" >
-                    </div>
-                </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Date</label>
