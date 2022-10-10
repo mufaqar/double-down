@@ -108,8 +108,8 @@ function addcatering_email()
 
 	$subject = "doubledowndish | Catering Inquiry";
 	$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
-	$body  = "<p><strong> Email </strong>:  ".$email."  </p>";
-	$body  = "<p><strong> Number of People  </strong>:  ".$people."  </p>";
+	$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
+	$body  .= "<p><strong> Number of People  </strong>:  ".$people."  </p>";
 	$body  .= "<p><strong> Date  </strong>:  ".$date."  </p>";
 	$body  .= "<p><strong> Time  </strong>:  ".$time."  </p>";
 	$body  .= "<p><strong> Address  </strong>:  ".$address."  </p>";
