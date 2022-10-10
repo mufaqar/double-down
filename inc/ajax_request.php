@@ -55,6 +55,85 @@ function addcatering()
 }
 
 
+add_action('wp_ajax_addcatering_email', 'addcatering_email', 0);
+add_action('wp_ajax_nopriv_addcatering_email', 'addcatering_email');
+
+function addcatering_email()
+{
+	global $wpdb;
+	$people = stripcslashes($_POST['people']);
+	$date = $_POST['date'];
+	$time = $_POST['time'];
+	$address = $_POST['address'];
+	$person = $_POST['person'];
+	$food_type = $_POST['food_type'];
+	$food_cat = $_POST['food_cat'];
+	$pro_cat = $_POST['pro_cat'];
+	$pro_sub_cat = $_POST['pro_sub_cat'];
+	$allergens = $_POST['allergens'];
+	$user_type = $_POST['user_type'];
+	$uid = $_POST['uid'];
+
+	$post = array(
+		'post_title'    => $date,
+		'post_status'   => 'publish',
+		'post_content'   => $food_type . $food_cat . $pro_cat . $pro_sub_cat . $allergens,
+		'post_type'     => 'catering',
+		'meta_input'   => array(
+			'people' => $people,
+			'time' => $time,
+			'address' => $address,
+			'person' => $person,
+			'date' => $date,
+			'user_type' => $user_type,
+			'order_uid' => $uid,
+		),
+		'tax_input'    => array(
+			'food_type' => array($food_type),
+			'food_categories' => array($food_cat),
+			'product_category' => array($pro_cat),
+			'product_sub_category' => array($pro_sub_cat),
+			'allergens' => array($allergens)
+		),
+
+	);
+
+
+	$admin = 'mufaqar@gmail.com';	
+	$to = 'hei@doubledowndish.no';
+	$cc = 'hei@doubledowndish.no';
+
+
+	$subject = "doubledowndish | Catering Inquiry";
+	$body  = "<p><strong> $people  </strong>:  ".$people."  </p>";
+	$headers = array('Content-Type: text/html; charset=UTF-8');	
+	$headers  = "From: " . $to . "\r\n";
+	$headers .= "Reply-To: " . $cc . "\r\n";
+	$headers .= "CC: ".$cc."\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+	mail( $admin, $subject, $body, $headers );
+	echo wp_send_json(array('code' => 200, 'message' => __('Email Sent  Sucessfully ')));
+
+
+
+
+	//$user_id = wp_insert_post($post);
+	if (!is_wp_error($user_id)) {
+		//sendmail($username,$password);
+		echo wp_send_json(array('code' => 200, 'message' => __('Email Sent  Sucessfully ')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
+	}
+
+	die;
+}
+
+
+
+
+
+
 add_action('wp_ajax_weeklyfood', 'weeklyfood', 0);
 add_action('wp_ajax_nopriv_weeklyfood', 'weeklyfood');
 
