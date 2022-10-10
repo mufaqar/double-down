@@ -29,8 +29,9 @@
                             <th>Company Name</th>
                             <th>Address</th>                          
                             <th>Price</th>
-                            <th>PDF</th>
+                           
                             <th>Status</th>
+                            <th>PDF</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +67,7 @@
                                     <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
                                   
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
-                                    <td> PDF</td>   
+                                    <td> </td>   
                                
                                 </tr>
                             <?php endwhile;
