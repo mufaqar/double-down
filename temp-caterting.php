@@ -306,6 +306,8 @@ $year=$week_arr[0];
                     url:"<?php echo admin_url('admin-ajax.php'); ?>",
                     data: {
                         action: "addcatering_email",
+                        name : name,
+                        email : email,
                         people : people,
                         date : date,                  
                         time : time,
