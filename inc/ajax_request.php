@@ -126,7 +126,7 @@ function addcatering_email()
 	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	mail( $admin, $subject, $body, $headers );
-	echo wp_send_json(array('code' => 200, 'message' => __('Email Sent  Sucessfully ')));
+	echo wp_send_json(array('code' => 200, 'message' => __('Email Sent Sucessfully ')));
 	die;
 }
 
