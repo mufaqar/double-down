@@ -317,42 +317,7 @@ function cptui_register_my_taxes_allergens() {
 	register_taxonomy( "allergens", [ "catering" ], $args );
 }
 add_action( 'init', 'cptui_register_my_taxes_allergens' );
-function cptui_register_my_taxes_food_categories() {
 
-	/**
-	 * Taxonomy: Food Categories.
-	 */
-
-	$labels = [
-		"name" => __( "Food Categories", "twentytwentytwo" ),
-		"singular_name" => __( "Food Category", "twentytwentytwo" ),
-	];
-
-	
-	$args = [
-		"label" => __( "Food Categories", "twentytwentytwo" ),
-		"labels" => $labels,
-		"public" => true,
-		"publicly_queryable" => true,
-		"hierarchical" => true,
-		"show_ui" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"query_var" => true,
-		"rewrite" => [ 'slug' => 'food_categories', 'with_front' => true, ],
-		"show_admin_column" => true,
-		"show_in_rest" => true,
-		"show_tagcloud" => false,
-		"rest_base" => "food_categories",
-		"rest_controller_class" => "WP_REST_Terms_Controller",
-		"rest_namespace" => "wp/v2",
-		"show_in_quick_edit" => true,
-		"sort" => true,
-		"show_in_graphql" => false,
-	];
-	register_taxonomy( "food_categories", [ "catering" ], $args );
-}
-add_action( 'init', 'cptui_register_my_taxes_food_categories' );
 function cptui_register_my_taxes_product_category() {
 
 	/**
@@ -397,13 +362,13 @@ function cptui_register_my_taxes_product_sub_category() {
 	 */
 
 	$labels = [
-		"name" => __( "Product Sub Categories", "twentytwentytwo" ),
-		"singular_name" => __( "Product Sub Category", "twentytwentytwo" ),
+		"name" => __( "Heating Options", "twentytwentytwo" ),
+		"singular_name" => __( "Heating Option", "twentytwentytwo" ),
 	];
 
 	
 	$args = [
-		"label" => __( "Product Sub Categories", "twentytwentytwo" ),
+		"label" => __( "Heating Options", "twentytwentytwo" ),
 		"labels" => $labels,
 		"public" => true,
 		"publicly_queryable" => true,

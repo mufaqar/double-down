@@ -13,12 +13,12 @@ function addcatering()
 	$address = $_POST['address'];
 	$person = $_POST['person'];
 	$food_type = $_POST['food_type'];
-	$food_cat = $_POST['food_cat'];
 	$pro_cat = $_POST['pro_cat'];
 	$pro_sub_cat = $_POST['pro_sub_cat'];
 	$allergens = $_POST['allergens'];
 	$user_type = $_POST['user_type'];
 	$uid = $_POST['uid'];
+	$reason = $_POST['reason'];
 
 	$post = array(
 		'post_title'    => $date,
@@ -33,10 +33,11 @@ function addcatering()
 			'date' => $date,
 			'user_type' => $user_type,
 			'order_uid' => $uid,
+			'reason' => $reason,
 		),
 		'tax_input'    => array(
 			'food_type' => array($food_type),
-			'food_categories' => array($food_cat),
+	
 			'product_category' => array($pro_cat),
 			'product_sub_category' => array($pro_sub_cat),
 			'allergens' => array($allergens)

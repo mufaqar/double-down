@@ -20,7 +20,7 @@ get_header('company');?>
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                    <label for="">Date</label>
+                    <label for="">Date of delivery</label>
                     <div class="_select">
                         <input type="date" value="<?php echo date("Y-m-d"); ?>" placeholder="02-05-22" id="date" required>
                     </div>
@@ -28,17 +28,23 @@ get_header('company');?>
 
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                    <label for="">Time</label>
+                    <label for="">Time of delivery</label>
                     <div class="_select">
-                        <input type="time" value="" placeholder="02-05-22" id="time">
-                        <!-- <img src="./reources//images/date.png" alt=""> -->
+                        <input type="time" value="" placeholder="02-05-22" id="time">                    
                     </div>
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                    <label for="">Address</label>
+                    <label for="">Delivery address</label>
                     <div class="_select">
                         <input type="text" value="" placeholder="Add your address" id="address" required>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="">Reason</label>
+                    <div class="_select">
+                    <input type="text" value="" placeholder="Please enter Reason" id="reason" required>
                     </div>
                 </div>
 
@@ -46,31 +52,12 @@ get_header('company');?>
                     <label for="">Food Type</label>
                     <div class="_select">
                         <select id="food_type">
-                            
-                            <?php   
-                            $types_tax = get_terms( array('taxonomy' => 'food_type','hide_empty' => false ) ); 
-                            foreach( $types_tax as $type )  {
-                                        $type_slug = $type->term_id ;
-                                        $type_name = $type->name ; ?>                            
-                                        <option value="<?php echo $type_slug; ?>" > <?php echo $type_name; ?> </option>
-                                            <?php
-                                }                                                    
-                            ?>
-                        </select>
-                        <img src="./reources/images/down-arrow.png" alt="">
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="">Food Categories</label>
-                    <div class="_select">
-                        <select id="food_cat">
                         <?php   
-                            $food_categories = get_terms( array('taxonomy' => 'food_categories','hide_empty' => false ) ); 
-                            foreach( $food_categories as $food_cat )  {
-                                        $food_cat_slug = $food_cat->term_id ;
-                                        $food_cat_name = $food_cat->name ; ?>                            
-                                        <option value="<?php echo $food_cat_slug; ?>" > <?php echo $food_cat_name; ?> </option>
+                            $food_types = get_terms( array('taxonomy' => 'food_type','hide_empty' => false ) ); 
+                            foreach( $food_types as $food_type )  {
+                                        $food_type_slug = $food_type->term_id ;
+                                        $food_type_name = $food_type->name ; ?>                            
+                                        <option value="<?php echo $food_type_slug; ?>" > <?php echo $food_type_name; ?> </option>
                                             <?php
                                 }                                                    
                             ?>
@@ -191,13 +178,14 @@ get_header('company');?>
        });
                  
         $("#addcatering").submit(function(e) {                     
-            e.preventDefault();                     
+            e.preventDefault();  
+                  
             var people = jQuery('#people').val();	             
             var date = jQuery('#date').val();	 
             var time = jQuery('#time').val();	 
             var address = jQuery('#address').val();	             
             var food_type = jQuery('#food_type').val();	 
-            var food_cat = jQuery('#food_cat').val();	 
+            var reason = jQuery('#reason').val();
             var pro_cat = jQuery('#pro_cat').val();	 
             var pro_sub_cat = jQuery('#pro_sub_cat').val();	
             var person = jQuery('#person').val();           
@@ -221,6 +209,7 @@ get_header('company');?>
                         pro_cat : pro_cat,
                         pro_sub_cat : pro_sub_cat,
                         person : person,
+                        reason : reason,    
                         user_type : "Company",
                         uid : uid
                     },   
