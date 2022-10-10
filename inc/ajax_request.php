@@ -61,7 +61,9 @@ add_action('wp_ajax_nopriv_addcatering_email', 'addcatering_email');
 function addcatering_email()
 {
 	global $wpdb;
-	$people = stripcslashes($_POST['people']);
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$people = $_POST['people'];
 	$date = $_POST['date'];
 	$time = $_POST['time'];
 	$address = $_POST['address'];
@@ -101,11 +103,22 @@ function addcatering_email()
 
 	$admin = 'mufaqar@gmail.com';	
 	$to = 'hei@doubledowndish.no';
-	$cc = 'hei@doubledowndish.no';
+	$cc = $email;
 
 
 	$subject = "doubledowndish | Catering Inquiry";
-	$body  = "<p><strong> $people  </strong>:  ".$people."  </p>";
+	$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
+	$body  = "<p><strong> Email </strong>:  ".$email."  </p>";
+	$body  = "<p><strong> Number of People  </strong>:  ".$people."  </p>";
+	$body  .= "<p><strong> Date  </strong>:  ".$date."  </p>";
+	$body  .= "<p><strong> Time  </strong>:  ".$time."  </p>";
+	$body  .= "<p><strong> Address  </strong>:  ".$address."  </p>";
+	$body  .= "<p><strong> Food Type  </strong>:  ".$food_type."  </p>";
+	$body  .= "<p><strong> Food Categories  </strong>:  ".$food_cat."  </p>";
+	$body  .= "<p><strong> Product Category  </strong>:  ".$pro_cat."  </p>";
+	$body  .= "<p><strong> Product Sub Categories  </strong>:  ".$pro_sub_cat."  </p>";
+	$body  .= "<p><strong> Allergens  </strong>:  ".$allergens."  </p>";
+	$body  .= "<p><strong> Budget Per Person  </strong>:  ".$person."  </p>";	
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
 	$headers  = "From: " . $to . "\r\n";
 	$headers .= "Reply-To: " . $cc . "\r\n";
@@ -114,18 +127,6 @@ function addcatering_email()
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	mail( $admin, $subject, $body, $headers );
 	echo wp_send_json(array('code' => 200, 'message' => __('Email Sent  Sucessfully ')));
-
-
-
-
-	//$user_id = wp_insert_post($post);
-	if (!is_wp_error($user_id)) {
-		//sendmail($username,$password);
-		echo wp_send_json(array('code' => 200, 'message' => __('Email Sent  Sucessfully ')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
-	}
-
 	die;
 }
 
