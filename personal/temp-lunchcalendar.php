@@ -171,9 +171,15 @@ if($cal_date != '' )
                                                 <p class="allergens">
                                                     <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' );                                     
                                                     foreach($allergense as $allergy) {
-                                                        echo "<span>".$allergy->name ." , </span>";
+                                                        echo "<span>".$allergy->name .", </span>";
                                                         
-                                                    } ?> 
+                                                    } 
+
+                                                  echo  get_the_term_list( $post->ID, 'menu_sub_types', 'Allergenes: ', ', ' );
+                                                    
+                                                    
+                                                    
+                                                    ?> 
                                                     </p>
                                                 <div class="d-flex align-items-center justify-content-between _info  mb-3">
                                                     <div class="d-flex">
