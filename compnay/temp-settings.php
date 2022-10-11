@@ -87,7 +87,19 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">                    
                         <h3>Shipping Methods</h3>
-                        <p><?php echo  get_user_meta($uid, 'compnay_shipping_method', true );?></p>
+                        <p><?php $method =  get_user_meta($uid, 'compnay_shipping_method', true );
+
+                        if($method == 'method_one')
+                        { echo "Method 1"; echo " [Company Pay ". get_option('shipping_price') . "]";  }
+                        elseif($method == 'method_two')
+                        { echo "Method 2"; echo " [Divided on all Employees]";  }
+                        else {
+                            { echo "Method 3"; echo " [Pickup]";  }
+
+                        }
+                        
+                        
+                        ?></p>
                     </div>
                     <div class="pt-4 pt-md-0">
                         <button id="shipping_method" class="btn_primary">Update Method</button>                        
