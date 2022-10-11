@@ -150,10 +150,13 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                 <h3><?php the_title() ?> | <span> NOK <?php the_field('menu_item_price'); ?></span></h3>
                                 <p class="mt-3"><?php the_content() ?></p>
                                 <h6 class="mt-2">Allergenes:</h6>
+                                <p>
                                     <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' );                                     
                                     foreach($allergense as $allergy) {
-                                        echo "<p>".$allergy->name ."</p>";
+                                        $allergens[] = $allergy->name;
+                                                         echo implode( ', ', $allergens );    
                                     } ?> 
+                                    </p>
                                 <div class="order_wrapper mt-3">                                 
                                     <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
                                     <div class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo $new_id; ?>">

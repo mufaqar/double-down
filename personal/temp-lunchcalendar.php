@@ -170,12 +170,12 @@ if($cal_date != '' )
                                                 <h6 class="mt-2">Allergenes:</h6>
                                                 <p class="allergens">
                                                     <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' );                                     
-                                                    foreach($allergense as $allergy) {
-                                                        echo "<span>".$allergy->name .", </span>";
-                                                        
+                                                    foreach($allergense as $allergy) {                                                    
+                                                        $allergens[] = $allergy->name;
+                                                         echo implode( ', ', $allergens );                                                        
                                                     } 
 
-                                                  echo  get_the_term_list( $post->ID, 'menu_sub_types', 'Allergenes: ', ', ' );
+                                                  
                                                     
                                                     
                                                     
