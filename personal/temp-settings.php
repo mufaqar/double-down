@@ -97,7 +97,7 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>How can we contact you?</h3>
-                    <p><strong><span>Contact : </span></strong><?php echo get_user_meta($uid, 'profile_contact',true);?> </p>
+                  
                 </div>
                 <div class="pt-4 pt-md-0">              
                     <button id="show_contact" class="btn_primary">See Info</button>
