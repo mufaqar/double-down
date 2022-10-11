@@ -313,12 +313,29 @@ function my_get_current_user_roles() {
         }
 
 
-    }
-
-
-  
+    }  
     function weekdaySort($a, $b){
         $weekdays = array("Monday","Tuesday","Wednesday","Thursday","Friday");
         return array_search($a, $weekdays) - array_search($b, $weekdays);
     } 
+
+
+    
+    function show_Allergens(){
+        ?>
+
+        <h6 class="mt-2">Allergenes:</h6>
+                                                <p class="allergens">
+                                                    <?php 
+                                                    echo strip_tags (
+                                                        get_the_term_list( get_the_ID(), 'menu_sub_types',"",", " )
+                                                    );
+                                                    
+                                                    ?> 
+                                                    </p>
+
+                                                    <?php
+      
+    } 
+  
   
