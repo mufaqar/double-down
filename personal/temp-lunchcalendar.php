@@ -93,7 +93,7 @@ if($cal_date != '' )
 
                                   ?>
                                         
-                                        <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?> you pay: <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?> NOK </p>
+                                        <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?> NOK </p>
 
                                         <?php endwhile; wp_reset_query(); else : ?>
                                             <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
@@ -167,14 +167,11 @@ if($cal_date != '' )
                                             <div class="catering_card _pro_salat">
                                                 <h3><?php the_title()?></h3>
                                                 <p class="mt-3"><?php the_content()?></p>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <h6 class="mt-2">Contains:</h6>
-                                                        <p><?php echo get_post_meta( get_the_ID(), 'contains', true ); ?></p>
-                                                        <p>Nutritional content: <?php echo get_post_meta( get_the_ID(), 'nutritional_content', true ); ?></p>
-                                                    </div>
-                                                
-                                                </div>
+                                                <h6 class="mt-2">Allergenes:</h6>
+                                                    <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' );                                     
+                                                    foreach($allergense as $allergy) {
+                                                        echo "<p>".$allergy->name ."</p>";
+                                                    } ?> 
                                                 <div class="d-flex align-items-center justify-content-between _info  mb-3">
                                                     <div class="d-flex">
                                                         <div>
