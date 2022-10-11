@@ -14,8 +14,8 @@ $user_info = get_userdata($uid);
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Shipping & VAT details</h3>
-                    <p><?php echo get_option('shipping_price');  ?>  </p>
-                    <p><?php echo get_option('vat_price');  ?>  </p>
+                    <p>Shipping Price : <?php echo get_option('shipping_price');  ?>  </p>
+                    <p>VAT Price : <?php echo get_option('vat_price');  ?>  </p>
                 </div>
                 <div class="pt-4 pt-md-0">
                     <button id="show_shipping" class="btn_primary">Update Shipping</button>
