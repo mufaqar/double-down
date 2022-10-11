@@ -144,10 +144,10 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Invoice</h3>
-                        <p>Overview</p>
+                      
                     </div>
                     <div class="pt-4 pt-md-0">
-                    <button id="invoice" class="btn_primary">See invoice</button>
+                    <button id="invoice" class="btn_primary">Payment details</button>
                     </div>
                 </div>
 

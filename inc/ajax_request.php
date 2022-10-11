@@ -1084,9 +1084,33 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 							else{
 								$company_pay = $order_total_price - $fix_remaing;
 							}
-
-
 							$order_total = get_post_meta( $orderid, 'order_total', true ); 
+
+							$compnay_name =  get_user_meta($uid ,'compnay_name',true);   
+
+
+
+							$args = array(
+								'post_type' => 'orders',
+								'posts_per_page' => -1,
+								'order' => 'desc',
+							
+								'meta_query' => array(   
+									'relation' => 'AND',                                                            
+										array(
+											'key'      => 'user_type',
+											'value'    => 'Company',
+											'compare'  => '='
+										),
+										array(
+											'key'     => 'order_uid',
+											'value'   =>  $uid,
+											'compare' => '='
+										)
+								)    
+							);   
+
+							
 
 
 							
@@ -1104,62 +1128,54 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 									</thead>							
 									<tbody>
 									<tr>
-										<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
-										<td scope="row"><strong>Lunch Item: </strong>NOK <?php echo  number_format($order_total,2); ?></td>
+										<td scope="row"><strong>Company Name: </strong><?php echo $compnay_name ?></td>
+										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
 										
 									</tr>
 									<tr>
-										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
-										<td scope="row"><strong>Employees: </strong><?php echo $total_emp; ?></td>
+										<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo $user_info->user_login ?></td>
+										<td scope="row"><strong>Total Meeting Food: </strong><?php echo $total_emp; ?></td>
 									</tr>
 									<tr>
-										<td scope="row"><strong>Week Days: </strong><?php echo $company_days?></td>
-										<td scope="row"><strong>Benifit: </strong> <?php echo $lunch_benefit. "" . $lunch_benfit_type; ?></td>
+										<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo "123456"?></td>
+										<td scope="row"><strong>Total Employee Lunch: </strong> <?php echo "123456"?></td>
 									</tr>
 									<tr>
-										<td scope="row"><strong>Compnay Pay: </strong>NOK <?php echo number_format($company_pay,2); ?></td>
-										<td scope="row"><strong>Total : </strong>NOK <?php echo number_format($order_total_price,2); ?> </td>
+										
+										<td scope="row"><strong>Total Shipping: </strong>NOK <?php echo "123456" ?></td>
+										<td scope="row"><strong>Total VAT : </strong>NOK <?php echo "123456" ?> </td>
 									</tr>
 									<tr>
-										<td scope="row"><strong>Order Week: </strong><?php echo $order_week; ?></td>
+									
+										<td scope="row"><strong>Total Grand: </strong></td>
+										<td scope="row"><?php echo $order_week; ?></td>
 									
 									</tr>
 									</tbody>
 								</table>
-								<?php $loop = new WP_Query($args); while ( $loop->have_posts() ) : $loop->the_post();  global $post; ?>
 								<h5 class="mt-4">Summary</h5>
-								<table class="invoice_slip_table">
-									<thead>
-									<th scope="col">Description</th>
-									<th scope="col">Number</th>
-									<th scope="col">Price</th>
-									</thead>
-									<tbody>
-										<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
-												foreach($food_items as $index => $food) {  ?>
-														<tr>
-																<td scope="row"><strong><?php echo $index ?></td>
-																<td>
-																<?php   foreach($food as $key => $ky_item) { 	?>
-																		<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
-																
-																	<?php 	}  ?>
-																	</td>
-																	<td>
-																<?php   foreach($food as $key => $ky_item) { 	?>
-																		<p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
-																
-																	<?php 	}  ?>
-																	</td>
-																
-														</tr>
-
-												<?php }  endwhile; ?>
-
-										
-									<tbody>
-								</table>
+                                    <table class="invoice_slip_table">
+                                                <thead>
+                                                    <th scope="col">Description</th>
+                                                    <th scope="col">Number</th>
+                                                    <th scope="col">Price</th>
+                                                </thead>
+                                                <tbody>
+                                                    <?php                                        
+                                                        $query = new WP_Query( $args );
+                                                        if ( $query->have_posts() ) {
+                                                            while ( $query->have_posts() ) {   $query->the_post(); ?> 
+                                                                    <tr>
+                                                                            <td scope="row"><strong><?php the_title() ?></td>
+                                                                            <td> Products</td>
+                                                                            <td>Price</td>																
+                                                                        </tr>
+                
+                                                    <?php   }   }   ?>                                            
+                                                <tbody>
+                                    </table>
 							</div>
+							
 							
                       
                      
