@@ -81,6 +81,19 @@ $uid = get_current_user_id();
                     </div>
 
                 </div>
+
+
+                <!-- 2 A -->
+                <div class="deatil_card d-md-flex justify-content-between align-items-center">
+                    <div class="info">                    
+                        <h3>Shipping Methods</h3>
+                        <p><?php echo  get_user_meta($uid, 'compnay_shipping_method', true );?></p>
+                    </div>
+                    <div class="pt-4 pt-md-0">
+                        <button id="shipping_method" class="btn_primary">Update Method</button>                        
+                    </div>
+
+                </div>
                 <!-- 3rd  -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
@@ -98,11 +111,7 @@ $uid = get_current_user_id();
                     <div class="info">
                         <h3>Delivery Address</h3>
                         <p> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> <br> </p>
-                            <!-- The company pays NOK 69 in shipping. * price ex. 15% VAT</p> -->
-                        <!-- <ul class="mt-2">
-                            <li><span>Extra Info:</span> Pilestredet</li>
-                        </ul> -->
-                    </div>
+                     </div>
                     <div class="pt-4 pt-md-0">
                         <button id="delivery_address" class="btn_primary">Update address</button>
                     </div>
@@ -298,6 +307,32 @@ $uid = get_current_user_id();
                 </div>
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
+        </div>
+    </section>
+
+
+    <section class="hideme overlay shipping_method_popup">
+        <div class="popup">
+        <form class="update_shipping_method" id="update_shipping_method" action="#" > 
+            <div class="popup_wrapper">
+                <h3>Shipping Methods</h3>
+                <div>
+                       <div class="btn_wrapper d-inline-flex justify-content-center">
+                              <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
+                              <input type="radio" id="method_one" name="shipping_methods" value="method_one">
+                              <label for="method_one">Method 1 (Compnay Pay $<?php echo get_option('shipping_price');  ?>)</label><br>
+                              <input type="radio" id="method_two" name="shipping_methods" value="method_two">
+                              <label for="method_two">Method 2 (Divided on Employees)</label><br>
+                              <input type="radio" id="method_three" name="shipping_methods" value="method_three">
+                              <label for="method_three">Method 3 (Pickup)</label>
+                        </div>  
+                        <div class="mt-5">                    
+                        <input type="submit" class="btn_primary"  value="Save"/>
+                    </div>
+                </div>
+                <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+            </form>
         </div>
     </section>
 
@@ -535,6 +570,13 @@ $uid = get_current_user_id();
             $('#emp_agreement').click(function(){
                 $(".emp_agreement").css("display", "block");
             });
+
+            $('#shipping_method').click(function(){
+                $(".shipping_method_popup").css("display", "block");
+            });
+
+
+            
             
             $('#invoice').click(function(){
                 $(".invoice").css("display", "block");
@@ -717,53 +759,61 @@ $uid = get_current_user_id();
             }); 
 
             $('.show_invoice_detail').click(function() {
-            $(".invoice").hide();
-            $(".invoice_detail_popup").css("display", "block");
+                $(".invoice").hide();
+                $(".invoice_detail_popup").css("display", "block");
 
-            var orderid = $(this).attr('data-id')
-            var uid = jQuery('#uid').val();
-            $.ajax({
-                type: "POST",
-                url: "<?php echo admin_url('admin-ajax.php'); ?>",
-                data: {
-                    action: "get_invoice_detail_company",
-                    orderid: orderid,
-                    uid: uid
-                },
-                success: function(data) {
+                var orderid = $(this).attr('data-id')
+                var uid = jQuery('#uid').val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                    data: {
+                        action: "get_invoice_detail_company",
+                        orderid: orderid,
+                        uid: uid
+                    },
+                    success: function(data) {
 
-                    if (data.code == 0) {
+                        if (data.code == 0) {
 
-                       // alert(data.message);
-                    } else {
-                        $(".ajax_invoice").html(data);   
+                        // alert(data.message);
+                        } else {
+                            $(".ajax_invoice").html(data);   
 
+                        }
                     }
-                }
 
+                });
+            });         
+            $("#update_shipping_method").submit(function(e) { 
+                e.preventDefault();            
+                var shipping_methods =  $('input[name="shipping_methods"]:checked').val();
+                var uid = jQuery('#uid').val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                    data: {
+                        action: "company_shipping_method",
+                        shipping_methods: shipping_methods,
+                        uid: uid
+                    },
+                    success: function(data) {                        
+                            $(".shipping_method_popup").hide();                           
+                             $(".res").html(data.message);                                  
+                             $(".alertmessage").show();                          
+                    }
+
+                });
+            });            
+
+            $('.activeEmp_content input[type="checkbox"]').on('change', function() {
+                $("#_action").toggle(this.checked);
             });
+    
 
-
-
-
-
-
-
-
-        });
-
-
-
-            
-
-        $('.activeEmp_content input[type="checkbox"]').on('change', function() {
-            $("#_action").toggle(this.checked);
-        });
-  
-
-        $('.inactiveEmp_content input[type="checkbox"]').on('change', function() {
-            $("#_action_inactive").toggle(this.checked);
-        });
+            $('.inactiveEmp_content input[type="checkbox"]').on('change', function() {
+                $("#_action_inactive").toggle(this.checked);
+            });
   
 
             

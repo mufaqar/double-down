@@ -761,6 +761,27 @@ function company_deliver_address()
 }
 
 
+add_action('wp_ajax_company_shipping_method', 'company_shipping_method', 0);
+add_action('wp_ajax_nopriv_company_shipping_method', 'company_shipping_method');
+
+function company_shipping_method()
+{
+	global $wpdb;
+	$uid = $_POST['uid'];
+	$shipping_methods = $_POST['shipping_methods'];
+	$user_id = update_user_meta($uid, 'compnay_shipping_method', $shipping_methods);
+	if (!is_wp_error($user_id)) {
+		echo wp_send_json(array('code' => 200, 'message' => __('Compnay Shipping Method updated')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
+	}
+
+	die;
+}
+
+
+
+
 
 add_action('wp_ajax_update_agreement', 'update_agreement', 0);
 add_action('wp_ajax_nopriv_update_agreement', 'update_agreement');
