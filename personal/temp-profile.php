@@ -27,30 +27,10 @@
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">
+                                        <h2>Lunch Orders</h2>
                                         <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">
                                               <?php 
-
-
-                                        // #default array
-                                        // $daysOfWeek = array('Monday','Tuesday','Wednesday','Thursday','Friday');
-                                        // #your array
-                                        // $days = array('Tuesday','Thursday','Friday','Monday');
-                                        // #create a new array with key association property
-                                        // $daysAux = array();
-                                        // foreach($days as $k=>$v) {
-                                        //     $key = array_search($v, $daysOfWeek);
-                                        //     if($key !== FALSE) {
-                                        //         $daysAux[$key] = $v;
-                                               
-                                        //     }
-                                        // }
-                                        // # array before sort
-                                        // echo '<pre/>';
-                                        // ksort($daysAux);
-                                        // $days = $daysAux;
-                                        // #final result
-                                        // echo '<pre/>';print_r($days);exit;
 
                                                     $current_week =  date("W"); 
                                                     $current_year =  date("Y");                                                   
