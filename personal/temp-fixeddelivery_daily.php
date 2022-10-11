@@ -81,7 +81,7 @@
                             $price_Monday =  get_post_meta($key_Monday, 'menu_item_price', true);                     
                             $food_Monday_arr[] = $price_Monday*$qty_Monday;	
                         }
-                        $total_Monday = array_sum($food_Monday_arr);
+                        $total_Monday = array_sum($food_Monday_arr) . "NOk";
 
                     }
 
@@ -92,7 +92,7 @@
                             $price_Tuesday =  get_post_meta($key_Tuesday, 'menu_item_price', true);                     
                             $food_Tuesday_arr[] = $price_Tuesday*$qty_Tuesday;	
                         }
-                        $total_Tuesday = array_sum($food_Tuesday_arr);
+                        $total_Tuesday = array_sum($food_Tuesday_arr) . "NOk";
 
                     }
 
@@ -103,7 +103,7 @@
                             $price_Wednesday =  get_post_meta($key_Wednesday, 'menu_item_price', true);                     
                             $food_Wednesday_arr[] = $price_Wednesday*$qty_Wednesday;	
                         }
-                        $total_Wednesday = array_sum($food_Wednesday_arr);
+                        $total_Wednesday = array_sum($food_Wednesday_arr) . "NOk";
 
                     }
 
@@ -115,7 +115,7 @@
                             $price_Thursday =  get_post_meta($key_Thursday, 'menu_item_price', true);                     
                             $food_Thursday_arr[] = $price_Thursday*$qty_Thursday;	
                         }
-                        $total_Thursday = array_sum($food_Thursday_arr);
+                        $total_Thursday = array_sum($food_Thursday_arr) . "NOk";
                     }
                         if (is_array($food_Friday) || is_object($food_Friday))
                         {
@@ -124,7 +124,7 @@
                             $price_Friday =  get_post_meta($key_Friday, 'menu_item_price', true);                     
                             $food_Friday_arr[] = $price_Friday*$qty_Friday;	
                         }
-                        $total_Friday = array_sum($food_Friday_arr);
+                        $total_Friday = array_sum($food_Friday_arr) . "NOk";
 
                     }
 
