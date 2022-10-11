@@ -156,28 +156,19 @@ if($cal_date != '' )
 
                                             $postinweek = new WP_Query($query_meta);
 		                                    if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-                                        
-
                                             $pid = get_the_ID();
                                             $menu_price  = get_post_meta( get_the_ID(), 'menu_item_price', true );
-                                            $vat = $menu_price/100*15;                                          
-                                            
-                                            ?>
+                                            $vat = $menu_price/100*15;     ?>
                                             
                                             <div class="catering_card _pro_salat">
                                                 <h3><?php the_title()?></h3>
                                                 <p class="mt-3"><?php the_content()?></p>
                                                 <h6 class="mt-2">Allergenes:</h6>
                                                 <p class="allergens">
-                                                    <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' );                                     
-                                                    foreach($allergense as $allergy) {                                                    
-                                                        $allergens[] = $allergy->name;
-                                                         echo implode( ', ', $allergens );                                                        
-                                                    } 
-
-                                                  
-                                                    
-                                                    
+                                                    <?php 
+                                                    echo strip_tags (
+                                                        get_the_term_list( get_the_ID(), 'menu_sub_types',"",", " )
+                                                    );
                                                     
                                                     ?> 
                                                     </p>

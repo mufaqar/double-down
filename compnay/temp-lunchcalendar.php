@@ -151,11 +151,9 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                 <p class="mt-3"><?php the_content() ?></p>
                                 <h6 class="mt-2">Allergenes:</h6>
                                 <p>
-                                    <?php $allergense =  get_the_terms( $post->ID, 'menu_sub_types' );                                     
-                                    foreach($allergense as $allergy) {
-                                        $allergens[] = $allergy->name;
-                                                         echo implode( ', ', $allergens );    
-                                    } ?> 
+                                    <?php echo strip_tags (
+                                                        get_the_term_list( get_the_ID(), 'menu_sub_types',"",", " )
+                                                    ); ?> 
                                     </p>
                                 <div class="order_wrapper mt-3">                                 
                                     <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
