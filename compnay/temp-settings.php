@@ -147,7 +147,7 @@ $uid = get_current_user_id();
                       
                     </div>
                     <div class="pt-4 pt-md-0">
-                    <button id="invoice" class="btn_primary">Payment details</button>
+                    <button id="show_invoice_detail" data-id="<?php echo $uid ?>" class="btn_primary">Payment details</button>
                     </div>
                 </div>
 
@@ -437,7 +437,7 @@ $uid = get_current_user_id();
                                                                                 <?php } ?>
                                                                         </td>                                                                    
                                                                             <td><?php echo get_post_meta( get_the_ID(), 'order_total', true ); ?></td>                                                            
-                                                                            <td><button  data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
+                                                                            <td><button  data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail_123 btn_primary">Detail</button></td>
                                                                         
                                                                             </tr>
                                                 <?php endwhile; wp_reset_query(); else : ?>
@@ -700,9 +700,7 @@ $uid = get_current_user_id();
                 
                 });
             });
-            
-
-            
+                        
             $("#update_deliver_address").submit(function(e) { 
                 e.preventDefault(); 
                 var address = jQuery('#address').val();
@@ -770,10 +768,8 @@ $uid = get_current_user_id();
                 
             }); 
 
-            $('.show_invoice_detail').click(function() {
-                $(".invoice").hide();
+            $('#show_invoice_detail').click(function() {
                 $(".invoice_detail_popup").css("display", "block");
-
                 var orderid = $(this).attr('data-id')
                 var uid = jQuery('#uid').val();
                 $.ajax({

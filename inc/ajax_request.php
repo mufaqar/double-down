@@ -660,6 +660,9 @@ function addmeeting()
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$order = $_POST['order'];
+	$weekid = $_POST['weekid'];
+
+	
 	$post = array(
 		'post_title'    => "OHYSX-" . rand(10, 100),
 		'post_status'   => 'publish',
@@ -671,23 +674,41 @@ function addmeeting()
 	add_post_meta($user_id, 'date', $date, true);	
 	add_post_meta($user_id, 'order_uid', $uid, true);	
 	add_post_meta($user_id, 'order_time', $time, true);	
+	add_post_meta($user_id, 'weekid', $weekid, true);	
+
+	
+	
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
 		$menu_item = $menu_item[1];		
 		$food_items[$product_id] = $menu_item;
 	}
-	add_post_meta($user_id, 'food_order', $food_items, true);	
+
+	$food_items_arr = array();
+
+	$food_items_arr[$date] = $food_items;
+
+	add_post_meta($user_id, 'food_order', $food_items_arr);	
+
+
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Meeting', true);
 	add_post_meta($user_id, 'user_type', $order, true);
-
 	$orders_price = get_post_meta($user_id, 'food_order' , true);
 	$price_arr = [];
 	foreach($orders_price as $index => $order_price)
 	{
-			$price =  get_post_meta($index, 'menu_item_price', true);		
-			$price_arr[] = $price * $order_price;
+		foreach($order_price as $key => $o_price)
+		{
+
+			$price =  get_post_meta($key, 'menu_item_price', true);		
+			$price_arr[] = $price * $o_price;
+
+		}
+
+
+			
 	}
 
 	
@@ -1109,8 +1130,35 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 										)
 								)    
 							);   
-
 							
+							
+							$order_price_arr = array();
+							$order_type_arr = array();
+							$query = new WP_Query( $args );
+							if ( $query->have_posts() ) {
+								while ( $query->have_posts() ) {   $query->the_post();															
+									$order_total = get_post_meta( get_the_ID(), 'order_total', true );
+									$order_type = get_post_meta( get_the_ID(), 'order_type', true );
+									$order_price_arr[] = $order_total;
+									$order_type_arr[] = $order_type;
+									}  									
+								}  														
+								$total_order_price = array_sum($order_price_arr);
+								$total_company_lunch = count($order_price_arr);            
+								$total_order_type = array_count_values($order_type_arr);       
+								$meeting_orders =  $total_order_type['Meeting'];
+								$weekly_orders =  $total_order_type['Weekly'];
+								$daily_orders = $total_order_type['Day'];  
+								
+								$shipping_price = get_option('shipping_price');
+
+								$total_order_price = $total_order_price + total_order_price
+
+								
+								
+								
+
+														
 
 
 							
@@ -1121,58 +1169,100 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 						   <div class="invoice_table">
 								<table class="invoice_slip_table">
 									<thead>
-									<tr>
-										<th scope="col">Cloud</th>
-										<th scope="col">Distribution</th>
-									</tr>
+										<tr>
+											<th scope="col">Cloud</th>
+											<th scope="col">Distribution</th>
+										</tr>
 									</thead>							
 									<tbody>
-									<tr>
-										<td scope="row"><strong>Company Name: </strong><?php echo $compnay_name ?></td>
-										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
-										
-									</tr>
-									<tr>
-										<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo $user_info->user_login ?></td>
-										<td scope="row"><strong>Total Meeting Food: </strong><?php echo $total_emp; ?></td>
-									</tr>
-									<tr>
-										<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo "123456"?></td>
-										<td scope="row"><strong>Total Employee Lunch: </strong> <?php echo "123456"?></td>
-									</tr>
-									<tr>
-										
-										<td scope="row"><strong>Total Shipping: </strong>NOK <?php echo "123456" ?></td>
-										<td scope="row"><strong>Total VAT : </strong>NOK <?php echo "123456" ?> </td>
-									</tr>
-									<tr>
+										<tr>
+											<td scope="row"><strong>Company : </strong><?php echo $compnay_name ?></td>
+											<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
+											
+										</tr>
+										<tr>
+											<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo $daily_orders ?></td>
+											<td scope="row"><strong>Total Lunch Fixed: </strong> <?php echo $weekly_orders?></td>
+											
+										</tr>
+										<tr>									
+										    	<td scope="row"><strong>Total Meeting Food: </strong><?php echo $meeting_orders; ?></td>
+                      						    <td scope="row"><strong>Total Employee: </strong><?php echo $total_emp; ?></td>
+										</tr>
+										<tr>										
+											<td scope="row"><strong>Total Shipping: </strong>NOK <?php echo get_option('shipping_price'); ?></td>
+											<td scope="row"><strong>Total VAT : </strong>NOK <?php echo get_option('vat_price'); ?> </td>
+										</tr>									
+										<tr>									
+											<td scope="row"><strong>Total Grand: </strong></td>
+											<td scope="row">NOK <?php echo $total_order_price  ?></td>								
+										</tr>
 									
-										<td scope="row"><strong>Total Grand: </strong></td>
-										<td scope="row"><?php echo $order_week; ?></td>
-									
-									</tr>
 									</tbody>
 								</table>
 								<h5 class="mt-4">Summary</h5>
                                     <table class="invoice_slip_table">
                                                 <thead>
                                                     <th scope="col">Description</th>
-                                                    <th scope="col">Number</th>
+                                                    <th scope="col">Products</th>
                                                     <th scope="col">Price</th>
                                                 </thead>
                                                 <tbody>
-                                                    <?php                                        
+                                                    <?php 
+													
+													
+														$order_price_arr = array();
                                                         $query = new WP_Query( $args );
                                                         if ( $query->have_posts() ) {
-                                                            while ( $query->have_posts() ) {   $query->the_post(); ?> 
+                                                            while ( $query->have_posts() ) {   $query->the_post();															
+																$order_total = get_post_meta( get_the_ID(), 'order_total', true );
+																$order_type = get_post_meta( get_the_ID(), 'order_type', true );
+
+																
+																$order_price_arr[] = $order_total;
+
+															?> 
                                                                     <tr>
-                                                                            <td scope="row"><strong><?php the_title() ?></td>
-                                                                            <td> Products</td>
-                                                                            <td>Price</td>																
+                                                                            <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type?></td>
+                                                                            <td> 
+																				<table>
+																					<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
+																							foreach($food_items as $index => $food) {  ?>
+																																	<tr>
+																																			<td scope="row"><strong><?php echo $index ?></td>
+																																			<td>
+																																			<?php   foreach($food as $key => $ky_item) { 	?>
+																																					<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
+																																			
+																																				<?php 	}  ?>
+																																				</td>
+																																				<td>
+																																			<?php   foreach($food as $key => $ky_item) { 	?>
+																																					<p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
+																																			
+																																				<?php 	}  ?>
+																																				</td>
+																																			
+																																	</tr>
+
+																									<?php }  ?>
+
+																				</table>
+
+												              </td>
+                                                                            <td><?php echo $order_total ?></td>																
                                                                         </tr>
                 
-                                                    <?php   }   }   ?>                                            
+                                                    <?php   }   }  
+
+													$total_order_price = array_sum($order_price_arr);
+													
+													
+													
+													
+													?>                                            
                                                 <tbody>
+
                                     </table>
 							</div>
 							

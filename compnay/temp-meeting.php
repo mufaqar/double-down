@@ -15,15 +15,14 @@ $uid =  get_current_user_id() ;
                     <div class="col">
                     <label>Choose Date</label>
                          <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
-
                     </div>
                     <div class="col"> <label>Choose Time</label>
                     <input type="time"  value="" placeholder="02-05-22" id="time">
-
                     </div>
                 </div>
                 
                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
+                <input type="hidden" value="<?php echo date("W"); ?>" id="weekid" >
             </div>
             <div class="_content mt-5 mb-5">
                 <h2>Select Product</h2>
@@ -129,7 +128,10 @@ $uid =  get_current_user_id() ;
             e.preventDefault();
             var date = jQuery('#date').val();
             var uid = jQuery('#uid').val();
-            var time = jQuery('#time').val();   
+            var time = jQuery('#time').val();  
+            var weekid = jQuery('#weekid').val();   
+
+            
             var datas = [];
             var newdata = [];
             $("#addmeeting .product-quantity").each(function() {
@@ -153,6 +155,7 @@ $uid =  get_current_user_id() ;
                     date: date,
                     uid: uid,
                     time : time,
+                    weekid : weekid,
                     order: "Company"
                 },
                 success: function(data) {
