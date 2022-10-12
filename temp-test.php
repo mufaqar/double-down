@@ -86,7 +86,9 @@ get_header();
                 $total_order_type = array_count_values($order_type_arr);       
                 $meeting_orders =  $total_order_type['Meeting'];
                 $weekly_orders =  $total_order_type['Weekly'];
-                $daily_orders = $total_order_type['Day'];        
+                $daily_orders = $total_order_type['Day'];   
+                
+               
 
                                     
 

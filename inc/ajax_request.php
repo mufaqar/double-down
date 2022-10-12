@@ -1152,7 +1152,13 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 								
 								$shipping_price = get_option('shipping_price');
 
-								$total_order_price = $total_order_price + total_order_price
+							
+
+								$total_order_price = $total_order_price + shipping_price*total_company_lunch;
+
+								$vat_price = $total_order_price * 15/100;
+
+								$total_order_price  =  $total_order_price + $vat_price
 
 								
 								
