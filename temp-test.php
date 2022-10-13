@@ -11,18 +11,7 @@ get_header();
 // print_r($weeks);
 
 
-$weeks = get_weeks('01-09-2022');
-
-
-
-
-
-
-
-
-
-
-
+        $weeks = get_weeks('01-09-2022');
         $orderid = 750;				
         $uid = 1;	
         $user_info = get_userdata( $uid);
@@ -56,6 +45,18 @@ $weeks = get_weeks('01-09-2022');
        $fixed_total = $order_total-$lunch_benefit;
        $order_total_price =  $order_total * $company_days  * $total_emp ;
 
+       $method =  get_user_meta($uid, 'compnay_shipping_method', true );
+       $shipping_cost = get_option('shipping_price');
+
+       if($method == 'method_one')
+            {  $shipping_cost = get_option('shipping_price'); }
+        elseif($method == 'method_two')
+        { $shipping_cost = get_option('shipping_price'); }
+        else {
+            { $shipping_cost = 0; }
+
+        }
+
 
 
        $fix_remaing =  $fixed_total * $company_days  * $total_emp ;
@@ -71,7 +72,10 @@ $weeks = get_weeks('01-09-2022');
         $compnay_name =  get_user_meta($uid ,'compnay_name',true);   
 
 
-        $shipping_cost = get_option('shipping_price');
+        
+
+ 
+
         $vat_cost = get_option('vat_price');
 
 
@@ -151,6 +155,19 @@ $weeks = get_weeks('01-09-2022');
                     <tr>									
                         <td scope="row"><strong>Total Meeting Food: </strong><?php echo $meeting_orders; ?></td>
                         <td scope="row"><strong>Total Employee: </strong><?php echo $total_emp; ?></td>                       
+                    </tr>
+                    <tr>									
+                        <td scope="row"><strong>Shipping Method: </strong></td>
+                        <td scope="row">
+                            <?php  if($method == 'method_one')
+                                    { echo "Method 1"; echo " [Company Pay ". get_option('shipping_price') . "]";  }
+                                    elseif($method == 'method_two')
+                                    { echo "Method 2"; echo " [Divided on all Employees]";  }
+                                    else {
+                                        { echo "Method 3"; echo " [Pickup]";  }
+
+                                    }?>
+                        </td>                       
                     </tr>
                 </tbody>
             </table>
@@ -238,6 +255,8 @@ $weeks = get_weeks('01-09-2022');
                                         $shipping_days =  count($shipping_days_arr);
                                         $total_order_price = array_sum($order_price_arr);
                                         $final_order_price = array_sum($total_price_arr);
+
+                                       
 
 
                                         $final_shipping = $shipping_days*$shipping_cost;

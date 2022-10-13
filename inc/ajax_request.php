@@ -1081,6 +1081,19 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 							$fixed_total = $order_total-$lunch_benefit;
 							$order_total_price =  $order_total * $company_days  * $total_emp ;
 
+							$method =  get_user_meta($uid, 'compnay_shipping_method', true );
+							$shipping_cost = get_option('shipping_price');
+							$vat_cost = get_option('vat_price');
+
+							if($method == 'method_one')
+								{  $shipping_cost = get_option('shipping_price'); }
+							elseif($method == 'method_two')
+							{ $shipping_cost = get_option('shipping_price'); }
+							else {
+								{ $shipping_cost = 0; }
+							}
+
+
 
 
 							$fix_remaing =  $fixed_total * $company_days  * $total_emp ;
@@ -1096,8 +1109,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 								$compnay_name =  get_user_meta($uid ,'compnay_name',true);   
 
 
-								$shipping_cost = get_option('shipping_price');
-								$vat_cost = get_option('vat_price');
+							
+								
 
 
 
@@ -1178,6 +1191,18 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 												<td scope="row"><strong>Total Meeting Food: </strong><?php echo $meeting_orders; ?></td>
 												<td scope="row"><strong>Total Employee: </strong><?php echo $total_emp; ?></td>                       
 											</tr>
+											<tr>									
+												<td scope="row"><strong>Shipping Method: </strong></td>
+												<td scope="row">
+													<?php  if($method == 'method_one')
+															{ echo "Method 1"; echo " [Company Pay ". get_option('shipping_price') . "]";  }
+															elseif($method == 'method_two')
+															{ echo "Method 2"; echo " [Divided on all Employees]";  }
+															else {
+																{ echo "Method 3"; echo " [Pickup]";  }
+															}?>
+												</td>                       
+										</tr>
 										</tbody>
 									</table>
 								<h5 class="mt-4">Summary</h5>
