@@ -11,7 +11,7 @@ get_header();
 // print_r($weeks);
 
 
-$weeks = get_weeks('01-10-2022');
+$weeks = get_weeks('01-09-2022');
 
 
 
@@ -170,7 +170,9 @@ $weeks = get_weeks('01-10-2022');
                                 <th scope="col">Price</th>
                             </thead>
                             <tbody>
-                                <?php                                 
+                                <?php   
+                                
+                                $shipping_days_arr = array();
                                 
                                     $order_price_arr = array();
                                     $query = new WP_Query( $args );
@@ -190,6 +192,7 @@ $weeks = get_weeks('01-10-2022');
                                                                         foreach($food_items as $index => $food) { 
                                                                             
                                                                             $food_days =  count($food_items);
+                                                                            $shipping_days_arr[] = $food_days;
                                                                             
                                                                             ?>
                                                                                                                 <tr>
@@ -230,17 +233,29 @@ $weeks = get_weeks('01-10-2022');
                                                             </table>
 
                                                          </td>
-                                                        <td><?php echo $order_total * $food_days ?></td>																
+                                                        <td><?php
+                                                        
+                                                        
+                                                        
+                                                      
+                                                        
+                                                        
+                                                        
+                                                        echo $order_total * $food_days ?></td>																
                                                     </tr>
 
                                 <?php   }   }  
+
+                                  $shipping_days =  count($shipping_days_arr);
 
                                 $total_order_price = array_sum($order_price_arr);
                                 
                                 
                                 
                                 
-                                ?>                                            
+                                ?>  
+                                
+                                <tr><td>Shipping Days <?php echo  $shipping_days ?><td><td><?php echo  $shipping_days ?><td></tr>
                             <tbody>
 
                 </table>

@@ -1208,7 +1208,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
                                                 <tbody>
                                                     <?php 
 													
-													
+														$shipping_days_arr = array();
 														$order_price_arr = array();
                                                         $query = new WP_Query( $args );
                                                         if ( $query->have_posts() ) {
@@ -1226,6 +1226,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 																					<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
 																							foreach($food_items as $index => $food) { 
 																								$food_days =  count($food_items);
+
+																								$shipping_days_arr[] = $food_days;
 																								
 																								?>
 																																	<tr>
@@ -1262,7 +1264,11 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 																				</table>
 
 												              </td>
-															  <td><?php echo $order_total * $food_days ?></td>															
+															  <td><?php
+															  
+															  print_r($shipping_days_arr);
+															 
+															 echo $order_total * $food_days ?></td>															
                                                                         </tr>
                 
                                                     <?php   }   }  
