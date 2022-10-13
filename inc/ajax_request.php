@@ -1224,7 +1224,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
                                                                             <td> 
 																				<table>
 																					<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
-																							foreach($food_items as $index => $food) {  ?>
+																							foreach($food_items as $index => $food) { 
+																								$food_days =  count($food_items);
+																								
+																								?>
 																																	<tr>
 																																			<td scope="row"><strong><?php echo $index ?></td>
 																																			<td>
@@ -1243,11 +1246,23 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 																																	</tr>
 
 																									<?php }  ?>
+																									<tr>
+                                                                                                                        <td scope="row"><strong>Total</td>
+                                                                                                                        <td>Days : <?php echo $food_days ?>  </td>
+                                                                                                                        
+                                                                                                                            <td colspan="2">
+                                                                                                                           <?php echo $order_total ?>
+                                                                                                                            </td>
+
+                                                                                                                          
+                                                                                                                        
+                                                                                                                </tr>
+
 
 																				</table>
 
 												              </td>
-                                                                            <td><?php echo $order_total ?></td>																
+															  <td><?php echo $order_total * $food_days ?></td>															
                                                                         </tr>
                 
                                                     <?php   }   }  

@@ -11,7 +11,7 @@ get_header();
 // print_r($weeks);
 
 
-$weeks = get_weeks('01-09-2022');
+$weeks = get_weeks('01-10-2022');
 
 
 
@@ -50,13 +50,15 @@ $weeks = get_weeks('01-09-2022');
        $total_emp =   count($available_active_employee);
        $order_total =  get_post_meta( $orderid, 'order_total', true );
        $company_days =  get_user_meta($uid ,'Company_days',true);   						   
-       $order_week  =   get_post_meta( $orderid, 'order_week', true );				   
-
+       $order_week  =   get_post_meta( $orderid, 'order_week', true );	
        $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
        $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
        $fixed_total = $order_total-$lunch_benefit;
        $order_total_price =  $order_total * $company_days  * $total_emp ;
-        $fix_remaing =  $fixed_total * $company_days  * $total_emp ;
+
+
+       echo "T Price".$order_total_price;
+       $fix_remaing =  $fixed_total * $company_days  * $total_emp ;
         if($lunch_benfit_type == '%')
         {
             $company_pay = $lunch_benefit /100 * $order_total_price;
@@ -154,8 +156,8 @@ $weeks = get_weeks('01-09-2022');
                         <td scope="row"><strong>Total VAT : </strong>NOK <?php echo "123456" ?> </td>
                     </tr>									
                     <tr>									
-                        <td scope="row"><strong>Total Grand: </strong></td>
-                        <td scope="row"><?php echo $total_order_price  ?></td>								
+                       
+                        <td scope="row"><strong>Total Grand: </strong><?php echo $total_order_price  ?></td>								
                     </tr>
                 
                 </tbody>
@@ -181,11 +183,15 @@ $weeks = get_weeks('01-09-2022');
 
                                         ?> 
                                                 <tr>
-                                                        <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type; echo $weekid;?></td>
+                                                <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type?><br/> [ <?php echo $weekid?>]</td>
                                                         <td> 
                                                             <table>
                                                                 <?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
-                                                                        foreach($food_items as $index => $food) {  ?>
+                                                                        foreach($food_items as $index => $food) { 
+                                                                            
+                                                                            $food_days =  count($food_items);
+                                                                            
+                                                                            ?>
                                                                                                                 <tr>
                                                                                                                         <td scope="row"><strong><?php echo $index ?></td>
                                                                                                                         <td>
@@ -194,19 +200,37 @@ $weeks = get_weeks('01-09-2022');
                                                                                                                             <?php 	}  ?>
                                                                                                                             </td>
                                                                                                                             <td>
-                                                                                                                        <?php   foreach($food as $key => $ky_item) { 	?>
-                                                                                                                                <p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>                                                                                                                        
-                                                                                                                            <?php 	}  ?>
+                                                                                                                                <?php   foreach($food as $key => $ky_item) { 
+                                                                                                                                    ?>
+                                                                                                                                        <p> NOK <?php $price = get_post_meta( $key, 'menu_item_price', true ); 
+                                                                                                                                        echo $price*$ky_item;    ?> </p>                                                                                                                                          
+                                                                                                                                                                                                                                                    
+                                                                                                                                    <?php 	}  ?>
                                                                                                                             </td>
+
+                                                                                                                          
                                                                                                                         
                                                                                                                 </tr>
+                                                                                                               
 
                                                                                 <?php }  ?>
 
+                                                                                <tr>
+                                                                                                                        <td scope="row"><strong>Total</td>
+                                                                                                                        <td>Days : <?php echo $food_days ?>  </td>
+                                                                                                                        
+                                                                                                                            <td colspan="2">
+                                                                                                                           <?php echo $order_total ?>
+                                                                                                                            </td>
+
+                                                                                                                          
+                                                                                                                        
+                                                                                                                </tr>
+
                                                             </table>
 
-                                          </td>
-                                                        <td><?php echo $order_total ?></td>																
+                                                         </td>
+                                                        <td><?php echo $order_total * $food_days ?></td>																
                                                     </tr>
 
                                 <?php   }   }  
