@@ -337,5 +337,38 @@ function my_get_current_user_roles() {
                                                     <?php
       
     } 
+
+
+
+
+    
+    function get_weeks($date) {
+            $textdt=$date;
+            $dt= strtotime( $textdt);
+            $currdt=$dt;
+            $nextmonth=strtotime($textdt."+1 month");            
+            $month_weeks_arr = array();
+            $i=0;
+            do 
+            {
+                $weekday= date("w",$currdt);
+                $nextday=7-$weekday;
+                $endday=abs($weekday-7);
+                $startarr[$i]=$currdt;
+                $endarr[$i]=strtotime(date("Y-m-d",$currdt)."+$endday day");
+                $currdt=strtotime(date("Y-m-d",$endarr[$i])."+1 day");
+                $start_date =  date("Y-m-d",$startarr[$i]);
+                //echo "Week ".($i+1) ." WeekID ".  date("W" ,strtotime($start_date))."-> start date = ". date("Y-m-d",$startarr[$i])." end date = ". date("Y-m-d",$endarr[$i])."<br>";
+                $month_weeks_arr[] = date("W" ,strtotime($start_date));
+                $i++;
+                                
+            }while($endarr[$i-1]<$nextmonth);
+            
+            return $month_weeks_arr;
+            
+        
+        
+        
+        }
   
   

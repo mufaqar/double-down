@@ -674,9 +674,7 @@ function addmeeting()
 	add_post_meta($user_id, 'date', $date, true);	
 	add_post_meta($user_id, 'order_uid', $uid, true);	
 	add_post_meta($user_id, 'order_time', $time, true);	
-	add_post_meta($user_id, 'weekid', $weekid, true);	
-
-	
+	add_post_meta($user_id, 'order_week', $weekid, true);		
 	
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
@@ -686,12 +684,8 @@ function addmeeting()
 	}
 
 	$food_items_arr = array();
-
 	$food_items_arr[$date] = $food_items;
-
 	add_post_meta($user_id, 'food_order', $food_items_arr);	
-
-
 	add_post_meta($user_id, 'order_status', 'Pending', true);
 	add_post_meta($user_id, 'order_type', 'Meeting', true);
 	add_post_meta($user_id, 'user_type', $order, true);
@@ -701,23 +695,13 @@ function addmeeting()
 	{
 		foreach($order_price as $key => $o_price)
 		{
-
 			$price =  get_post_meta($key, 'menu_item_price', true);		
 			$price_arr[] = $price * $o_price;
-
-		}
-
-
-			
+		}			
 	}
-
 	
 	$order_total = array_sum($price_arr);
 	add_post_meta($user_id, 'order_total', $order_total,true);	
-
-
-
-
 
 	if (!is_wp_error($user_id)) {
 		//sendmail($username,$password);
@@ -1107,7 +1091,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 							}
 							$order_total = get_post_meta( $orderid, 'order_total', true ); 
 
-							$compnay_name =  get_user_meta($uid ,'compnay_name',true);   
+							$compnay_name =  get_user_meta($uid ,'compnay_name',true); 
+							$weeks = get_weeks('01-09-2022');  
 
 
 
@@ -1127,6 +1112,11 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 											'key'     => 'order_uid',
 											'value'   =>  $uid,
 											'compare' => '='
+										),
+										array(
+											'key'     => 'order_week',
+											'value' => $weeks,
+											'compare' => 'IN'
 										)
 								)    
 							);   
@@ -1139,6 +1129,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 								while ( $query->have_posts() ) {   $query->the_post();															
 									$order_total = get_post_meta( get_the_ID(), 'order_total', true );
 									$order_type = get_post_meta( get_the_ID(), 'order_type', true );
+							
 									$order_price_arr[] = $order_total;
 									$order_type_arr[] = $order_type;
 									}  									
@@ -1151,6 +1142,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 								$daily_orders = $total_order_type['Day'];  
 								
 								$shipping_price = get_option('shipping_price');
+								  
 
 							
 
@@ -1223,13 +1215,12 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
                                                             while ( $query->have_posts() ) {   $query->the_post();															
 																$order_total = get_post_meta( get_the_ID(), 'order_total', true );
 																$order_type = get_post_meta( get_the_ID(), 'order_type', true );
-
-																
+																$weekid = get_post_meta( get_the_ID(), 'order_week', true ); 																
 																$order_price_arr[] = $order_total;
 
 															?> 
                                                                     <tr>
-                                                                            <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type?></td>
+                                                                            <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type?><br/> [ <?php echo $weekid?>]</td>
                                                                             <td> 
 																				<table>
 																					<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						

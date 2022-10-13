@@ -2,6 +2,27 @@
 get_header();
 
 
+
+
+// print "<pre>";
+
+// $weeks = get_weeks('01-10-2022');
+
+// print_r($weeks);
+
+
+$weeks = get_weeks('01-09-2022');
+
+
+
+
+
+
+
+
+
+
+
         $orderid = 750;				
         $uid = 1;	
         $user_info = get_userdata( $uid);
@@ -65,6 +86,11 @@ get_header();
                         'key'     => 'order_uid',
                         'value'   =>  $uid,
                         'compare' => '='
+                    ),
+                    array(
+                        'key'     => 'order_week',
+                        'value' => $weeks,
+                        'compare' => 'IN'
                     )
             )    
         );   
@@ -95,10 +121,11 @@ get_header();
 
         
         ?>
-
+<div class="content">
+                <div class="container_wrapper">
 
                 
-       <div class="invoice_table">
+       <div class="invoice_table" style="height:auto;">
             <table class="invoice_slip_table">
                 <thead>
                     <tr>
@@ -141,8 +168,7 @@ get_header();
                                 <th scope="col">Price</th>
                             </thead>
                             <tbody>
-                                <?php 
-                                
+                                <?php                                 
                                 
                                     $order_price_arr = array();
                                     $query = new WP_Query( $args );
@@ -150,13 +176,12 @@ get_header();
                                         while ( $query->have_posts() ) {   $query->the_post();															
                                             $order_total = get_post_meta( get_the_ID(), 'order_total', true );
                                             $order_type = get_post_meta( get_the_ID(), 'order_type', true );
-
-                                            
+                                            $weekid = get_post_meta( get_the_ID(), 'order_week', true );                                            
                                             $order_price_arr[] = $order_total;
 
                                         ?> 
                                                 <tr>
-                                                        <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type?></td>
+                                                        <td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type; echo $weekid;?></td>
                                                         <td> 
                                                             <table>
                                                                 <?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
@@ -165,14 +190,12 @@ get_header();
                                                                                                                         <td scope="row"><strong><?php echo $index ?></td>
                                                                                                                         <td>
                                                                                                                         <?php   foreach($food as $key => $ky_item) { 	?>
-                                                                                                                                <p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
-                                                                                                                        
+                                                                                                                                <p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>                                                                                                                        
                                                                                                                             <?php 	}  ?>
                                                                                                                             </td>
                                                                                                                             <td>
                                                                                                                         <?php   foreach($food as $key => $ky_item) { 	?>
-                                                                                                                                <p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
-                                                                                                                        
+                                                                                                                                <p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>                                                                                                                        
                                                                                                                             <?php 	}  ?>
                                                                                                                             </td>
                                                                                                                         
