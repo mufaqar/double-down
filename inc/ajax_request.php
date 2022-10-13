@@ -1238,7 +1238,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 																																				</td>
 																																				<td>
 																																			<?php   foreach($food as $key => $ky_item) { 	?>
-																																					<p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
+																																					<p><?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
 																																			
 																																				<?php 	}  ?>
 																																				</td>
@@ -1251,7 +1251,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
                                                                                                                         <td>Days : <?php echo $food_days ?>  </td>
                                                                                                                         
                                                                                                                             <td colspan="2">
-                                                                                                                           <?php echo $order_total ?>
+																															NOK <?php echo $order_total ?>
                                                                                                                             </td>
 
                                                                                                                           
