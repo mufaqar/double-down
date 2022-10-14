@@ -776,7 +776,7 @@ $uid = get_current_user_id();
                     type: "POST",
                     url: "<?php echo admin_url('admin-ajax.php'); ?>",
                     data: {
-                        action: "get_invoice_detail_company",
+                        action: "get_invoice_detail_personal_company",
                         orderid: orderid,
                         uid: uid
                     },

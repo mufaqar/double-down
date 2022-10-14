@@ -949,21 +949,23 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 
 
 	
-add_action('wp_ajax_get_invoice_detail', 'get_invoice_detail', 0);
-add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
+add_action('wp_ajax_get_invoice_detail_personal', 'get_invoice_detail_personal', 0);
+add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_personal');
 
-	function get_invoice_detail()
+	function get_invoice_detail_personal()
 	{
 							global $wpdb;	
 							$orderid = $_POST['orderid'];
-							//$orderid = 668;
 							$uid = $_POST['uid'];	
 							$user_info = get_userdata( $uid);
-							$args = array('p' => $orderid, 'post_type' => 'orders');
-							
+							$args = array('p' => $orderid, 'post_type' => 'orders');							
 							$order_week  =   get_post_meta( $orderid, 'order_week', true );
-
 							$order_total = get_post_meta( $orderid, 'order_total', true );
+
+							$shipping_price = get_option('shipping_price');
+							$vat_price = get_option('vat_price');
+
+						
 							?>
 
 				
@@ -984,7 +986,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									</tr>
 									<tr>
 										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
-										<td scope="row"><strong>Shipping: </strong>NOK 0</td>
+										<td scope="row"><strong>Shipping: </strong>NOK <?php echo $shipping_price?></td>
 									</tr>
 									<tr>
 										<td scope="row"><strong>Week: </strong><?php echo $order_week ?></td>
@@ -998,29 +1000,71 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 									<thead>
 									<th scope="col">Description</th>
 									<th scope="col">Number</th>
-									<th scope="col">Price</th>
+									<th scope="col">Price (VAT INC)</th>
 									</thead>
 									<tbody>
-										<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
-												foreach($food_items as $index => $food) {  ?>
+										<?php   
+												$shipping_days_arr = array();
+												$food_item_day_arry = array();
+
+												$food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
+												foreach($food_items as $index => $food) {
+													$shipping_days_arr[] = $index;
+													?>
 														<tr>
 																<td scope="row"><strong><?php echo $index ?></td>
 																<td>
-																<?php   foreach($food as $key => $ky_item) { 	?>
-																		<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>
+																<?php   
+																
+																$food_item_arr = array();
+															
+																foreach($food as $key => $ky_item) { 
+																		$menu_item_price =  get_post_meta( $key, 'menu_item_price', true );
+																		$menu_item_price_vat = $menu_item_price*$vat_price/100;
+																		$menu_item_price_with_vat = $menu_item_price+$menu_item_price_vat;																			
+																		$food_item_arr[] = $menu_item_price_with_vat;																	
+																	?>
+																		<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> 
+																		 NOK <?php echo $menu_item_price ?> </p>
+																		
 																
 																	<?php 	}  ?>
 																	</td>
 																	<td>
-																<?php   foreach($food as $key => $ky_item) { 	?>
-																		<p> NOK <?php echo get_post_meta( $key, 'menu_item_price', true ); ?> </p>
 																
-																	<?php 	}  ?>
+																	<p> NOK <?php  $total_day_price  = array_sum($food_item_arr);
+																	
+																	$food_item_day_arry[] = $total_day_price;
+																	echo $total_day_price?> </p>
+																
+																
 																	</td>
 																
 														</tr>
 
-												<?php }  endwhile; ?>
+												<?php }  endwhile; 
+												$shipping_days =  count($shipping_days_arr);
+
+												$shipping_cost =  $shipping_days* $shipping_price;
+
+												$days_order_price =  array_sum($food_item_day_arry); 
+												$grand_total =  $days_order_price+$shipping_cost; 
+												 
+												 ?>
+
+												<tr>
+
+												<td scope="row"><strong>Shipping Price</td>
+												<td scope="row"><strong>Delivery Days [<?php echo $shipping_days ?>]</td>
+												<td scope="row"><strong>NOK <?php echo $shipping_cost ?></td>
+												</tr>
+
+												<tr>
+
+												<td scope="row"><strong>Grand Total</td>
+												<td scope="row"><strong><?php ?></td>
+												<td scope="row"><strong>NOK <?php echo $grand_total ?></td>
+												</tr>
 
 										
 									<tbody>
@@ -1040,10 +1084,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail', 'get_invoice_detail');
 
 
 		
-add_action('wp_ajax_get_invoice_detail_company', 'get_invoice_detail_company', 0);
-add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_company');
+add_action('wp_ajax_get_invoice_detail_personal_company', 'get_invoice_detail_personal_company', 0);
+add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_detail_personal_company');
 
-	function get_invoice_detail_company()
+	function get_invoice_detail_personal_company()
 	{
 							global $wpdb;
 							$weeks = get_weeks('01-09-2022');	
