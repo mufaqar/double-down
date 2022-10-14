@@ -6,38 +6,20 @@ $query_date = $_REQUEST['date'];
 $today_date = date("Y-m-d");
 
 if($query_date != '' && $cal_date == '')
-{
-  
-   $today_date = $query_date;
-
-
-   
+{ 
+   $today_date = $query_date;   
 }
 elseif($cal_date != '' && $query_date != '')
-{
-
-  
+{  
     $today_date = $cal_date;
 }
-else {
-
-
-  
+else {  
     $today_date = $today_date;
-
-
-
 }
-
-
-
-
 $date = new DateTime($today_date);
 $weeksid = $date->format("W-m-y");
-echo $weeksid;
 
-
-?><?php //include('navigation.php'); ?>
+?><?php include('navigation.php'); ?>
 
 <div class="tab_wrapper">
 <?php page_title() ; ?>
