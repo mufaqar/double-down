@@ -359,7 +359,7 @@ $user_info = get_userdata($uid);
                                                     if (have_posts()) :  while (have_posts()) : the_post(); ?>
                                                                     <tr>
                                                                             <td scope="row"><?php the_title()?></td>
-                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?>
+                                                                            <td><?php echo get_post_meta( get_the_ID(), 'order_week', true ); ?>   </td>
                                                                             <td><?php echo get_post_meta( get_the_ID(), 'order_type', true ); ?>
                                                                             <?php  if((get_post_meta(get_the_ID(), "order_day", true))) { ?>
                                                                                 ( <?php echo get_post_meta( get_the_ID(), 'order_day', true ); ?> )

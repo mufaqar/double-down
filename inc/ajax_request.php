@@ -981,8 +981,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_per
 									<tbody>
 									<tr>
 										<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
-										<td scope="row"><strong>Week: </strong><?php echo $order_week ?></td>
-										
+										<td scope="row"><strong>Week: </strong><?php echo $order_week ?></td>										
 									</tr>
 									<tr>
 										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>
