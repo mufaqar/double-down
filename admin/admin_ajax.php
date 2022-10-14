@@ -90,16 +90,6 @@ function addfood()
 
 	die;
 }
-
-
-
-
-
-
-
-
-
-
 		
 add_action('wp_ajax_get_orders_by_user', 'get_orders_by_user', 0);
 add_action('wp_ajax_nopriv_get_orders_by_user', 'get_orders_by_user');
