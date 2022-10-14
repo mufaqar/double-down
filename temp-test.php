@@ -12,6 +12,10 @@ get_header();
 
 
         $weeks = get_weeks('01-09-2022');
+
+        print_r($weeks);
+
+
         $orderid = 750;				
         $uid = 1;	
         $user_info = get_userdata( $uid);
