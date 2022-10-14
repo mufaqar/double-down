@@ -1292,7 +1292,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 												$final_shipping = $shipping_days*$shipping_cost;
 												$vat_final = $final_order_price*$vat_cost/100;
 												$ship_vat_total = $final_shipping+$vat_final;
-												$invoice_price = $ship_vat_total+$ship_vat_total; ?>  
+												$invoice_price = $ship_vat_total+$final_order_price; ?>  
 
 										<tr>										
 											<td scope="row"><strong>Shipping & VAT : </strong> </td>
