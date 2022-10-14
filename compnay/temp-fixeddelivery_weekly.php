@@ -82,7 +82,7 @@ get_header('company');
                     </div>
                     <?php
 
-                        $current_week =   date("W");                    
+                        $current_week =   date("W-m-y");                    
                         global $current_user;
                         wp_get_current_user(); 
 
