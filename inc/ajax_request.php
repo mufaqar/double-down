@@ -1292,7 +1292,12 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 												$final_shipping = $shipping_days*$shipping_cost;
 												$vat_final = $final_order_price*$vat_cost/100;
 												$ship_vat_total = $final_shipping+$vat_final;
-												$invoice_price = $ship_vat_total+$final_order_price; ?>  
+												$invoice_price = $ship_vat_total+$final_order_price;
+
+												$invoice_price_with_emp = $invoice_price*$total_emp;
+												
+												
+												?>  
 
 										<tr>										
 											<td scope="row"><strong>Shipping & VAT : </strong> </td>
@@ -1303,7 +1308,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_company', 'get_invoice_detail_comp
 										<tr>
 											<td scope="row"><strong>Total Grand : </strong></td>
 											<td></td>                            
-											<td scope="row"> NOK <?php echo  $invoice_price ?></td>
+											<td scope="row"> NOK <?php echo  $invoice_price_with_emp ?></td>
 										
 										</tr>
 									<tbody>
