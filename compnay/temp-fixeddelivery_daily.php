@@ -26,7 +26,7 @@ get_header('company');
 
                 <?php
 
-$current_week =   date("W");                    
+$current_week =   date("W-m-y");                    
 global $current_user;
  wp_get_current_user(); 
 
@@ -189,7 +189,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                 <?php
                 $ddate = "today";
                 $date = new DateTime($ddate);
-                $weeksid = $date->format("W");
+                $weeksid = $date->format("W-m-y");
 
                 ?>
                 <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>

@@ -22,7 +22,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
             </p>
 
                              <?php                                              
-                                                    $this_week =  date("W"); 
+                                                    $this_week =  date("W-m-y"); 
                                                     $query_order = array(
                                                         'post_type' => 'orders',
                                                         'posts_per_page' => -1,
@@ -106,7 +106,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                 $timestamp = strtotime($today_date);
                                 $today_day = date('l', $timestamp);
                                 $this_day =  strtolower(date('D', $timestamp));                             
-                                $weeksid =  date("W"); 
+                                $weeksid =  date("W-m-y"); 
 
                                 // print_r($week);
                             ?> <div class="card">
@@ -324,6 +324,7 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                 // alert(newdata[0]);
                                 var menu_items = newdata[0];
                                 console.log(menu_items);  
+                               
                                 $.ajax(
                                     {   
                                         type:"POST",

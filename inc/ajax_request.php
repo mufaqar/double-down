@@ -448,12 +448,10 @@ function dailyfood()
 	$day = $_POST['date'];
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
-	$weekid = $_POST['weekid'];
+	$week = $_POST['weekid'];
 	$usertype = $_POST['usertype'];	
 	$author_obj = get_user_by('id', $uid);
 	$author =  $author_obj->display_name;	
-	$tdate = new DateTime($day);
-	$week = $tdate->format("W");
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];

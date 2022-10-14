@@ -1,12 +1,43 @@
 <?php /* Template Name: Personal-LunchCalednar  */ 
 get_header();
-$query_date = $_REQUEST['date'];
+
 $cal_date = $_REQUEST['send'];
-if($cal_date != '' )
+$query_date = $_REQUEST['date'];
+$today_date = date("Y-m-d");
+
+if($query_date != '' && $cal_date == '')
 {
-   $query_date = $cal_date;
+  
+   $today_date = $query_date;
+
+
+   
 }
-?><?php include('navigation.php'); ?>
+elseif($cal_date != '' && $query_date != '')
+{
+
+  
+    $today_date = $cal_date;
+}
+else {
+
+
+  
+    $today_date = $today_date;
+
+
+
+}
+
+
+
+
+$date = new DateTime($today_date);
+$weeksid = $date->format("W-m-y");
+echo $weeksid;
+
+
+?><?php //include('navigation.php'); ?>
 
 <div class="tab_wrapper">
 <?php page_title() ; ?>
@@ -91,6 +122,9 @@ if($cal_date != '' )
                                           $total_boxes =  array_sum($luchbox);
                                           $total_add =  array_sum($add);
 
+
+                                       
+
                                   ?>
                                         
                                         <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php  echo get_post_meta(get_the_ID(), 'order_total', true);?> NOK </p>
@@ -112,8 +146,11 @@ if($cal_date != '' )
                                     </div>
                                     <form class="weeklyfood" id="weeklyfood" action="#">   
                                       <input type="hidden" id="uid" name="uid" value="<?php echo get_current_user_id() ?>" />
+                                      <input type="hidden" value="<?php echo $weeksid ?>" id="weekid">
                                     <div class="catering_card_wrapper">
                                     <?php 
+
+
 
                                             if($query_date != '') {
                                                 $query_meta = array(
@@ -159,6 +196,7 @@ if($cal_date != '' )
                                             $pid = get_the_ID();
                                             $menu_price  = get_post_meta( get_the_ID(), 'menu_item_price', true );
                                             $vat = $menu_price/100*15;     ?>
+                                           
                                             
                                             <div class="catering_card _pro_salat">
                                                 <h3><?php the_title()?></h3>

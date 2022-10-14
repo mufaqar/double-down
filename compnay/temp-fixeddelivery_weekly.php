@@ -26,7 +26,7 @@ get_header('company');
                 <?php
                 $ddate = "today";
                 $date = new DateTime($ddate);
-                $weeksid = $date->format("W");
+                $weeksid = $date->format("W-m-y");
 
                 ?>
                 <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
