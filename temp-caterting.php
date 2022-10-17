@@ -1,19 +1,19 @@
 <?php /* Template Name: Catering-Email  */
 get_header('landing');
-$no_week =  date("Y-W");
+$no_week = date("Y-W");
 $query_week = $_REQUEST['week'];
-if($query_week == '') {
+if ($query_week == '') {
     $query_week = $no_week;
 }
 $week_arr = explode("-", $query_week, 2);
-$week=$week_arr[1];
-$year=$week_arr[0];
+$week = $week_arr[1];
+$year = $week_arr[0];
 ?>
-              
-  <main class="launch_calandar">
-      
 
-      
+  <main class="launch_calandar">
+
+
+
       <div class="container_wrapper">
 
             <div class="custom_container catering_form mt-5 mb-5">
@@ -23,14 +23,14 @@ $year=$week_arr[0];
                 </div>
                 <hr>
                 <div class="_form mt-5 p-4 pt-5 pb-5">
-                <form class="addcatering" id="addcatering" action="#" > 
+                <form class="addcatering" id="addcatering" action="#" >
                         <div class="row">
-                            
+
                         <div class="col-md-6 mb-3">
                                 <label for="">Your name</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="Please enter Name" id="name" required>
-                                
+
                                 </div>
                             </div>
 
@@ -38,7 +38,7 @@ $year=$week_arr[0];
                                 <label for="">Your Email</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="Please enter Email" id="email" required>
-                                
+
                                 </div>
                             </div>
 
@@ -47,10 +47,10 @@ $year=$week_arr[0];
                                 <label for="">Number of People</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="Please enter Number" id="people" required>
-                            
+
                                 </div>
-                            </div>          
-                        
+                            </div>
+
 
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
                                 <label for="">Date of delivery</label>
@@ -85,36 +85,36 @@ $year=$week_arr[0];
                                 <label for="">Food Type</label>
                                 <div class="_select">
                                     <select id="food_type">
-                                        
-                                        <?php   
-                                        $types_tax = get_terms( array('taxonomy' => 'food_type','hide_empty' => false ) ); 
-                                        foreach( $types_tax as $type )  {
-                                                    $type_slug = $type->term_id ;
-                                                    $type_name = $type->name ; ?>                            
+
+                                        <?php
+$types_tax = get_terms(array('taxonomy' => 'food_type', 'hide_empty' => false));
+foreach ($types_tax as $type) {
+    $type_slug = $type->term_id;
+    $type_name = $type->name;?>
                                                     <option value="<?php echo $type_slug; ?>" > <?php echo $type_name; ?> </option>
                                                         <?php
-                                            }                                                    
-                                        ?>
+}
+?>
                                     </select>
-                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                    <img src="<?php bloginfo('template_directory');?>/reources/images/down-arrow.png" alt="">
                                 </div>
-                            </div>                
+                            </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Product Category</label>
                                 <div class="_select">
                                     <select id="pro_cat">
-                                <?php   
-                                        $product_tax = get_terms( array('taxonomy' => 'product_category','hide_empty' => false ) ); 
-                                        foreach( $product_tax as $product_cat )  {
-                                                    $product_cat_slug = $product_cat->term_id ;
-                                                    $product_cat_name = $product_cat->name ; ?>                            
+                                <?php
+$product_tax = get_terms(array('taxonomy' => 'product_category', 'hide_empty' => false));
+foreach ($product_tax as $product_cat) {
+    $product_cat_slug = $product_cat->term_id;
+    $product_cat_name = $product_cat->name;?>
                                                     <option value="<?php echo $product_cat_slug; ?>" > <?php echo $product_cat_name; ?> </option>
                                                         <?php
-                                            }                                                    
-                                        ?>
+}
+?>
                                     </select>
-                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                    <img src="<?php bloginfo('template_directory');?>/reources/images/down-arrow.png" alt="">
                                 </div>
                             </div>
 
@@ -123,36 +123,36 @@ $year=$week_arr[0];
                             <label for="">Heating Options</label>
                                 <div class="_select">
                                     <select id="pro_sub_cat">
-                                    <?php   
-                                        $product_sub_tax = get_terms( array('taxonomy' => 'product_sub_category','hide_empty' => false ) ); 
-                                        foreach( $product_sub_tax as $product_sub_cat )  {
-                                                    $product_sub_cat_slug = $product_sub_cat->term_id ;
-                                                    $product_sub_cat_name = $product_sub_cat->name ; ?>                            
+                                    <?php
+$product_sub_tax = get_terms(array('taxonomy' => 'product_sub_category', 'hide_empty' => false));
+foreach ($product_sub_tax as $product_sub_cat) {
+    $product_sub_cat_slug = $product_sub_cat->term_id;
+    $product_sub_cat_name = $product_sub_cat->name;?>
                                                     <option value="<?php echo $product_sub_cat_slug; ?>" > <?php echo $product_sub_cat_name; ?> </option>
                                                         <?php
-                                            }                                                    
-                                        ?>
+}
+?>
                                     </select>
-                                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                                    <img src="<?php bloginfo('template_directory');?>/reources/images/down-arrow.png" alt="">
                                 </div>
-                                
+
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Allergens</label>
                                 <div class="_select">
                                     <select id="allergens" multiple >
-                                    <?php   
-                                        $allergens_tax = get_terms( array('taxonomy' => 'allergens','hide_empty' => false ) ); 
-                                        foreach( $allergens_tax as $allergens_cat )  {                                
-                                                    $allergens_cat_slug = $allergens_cat->term_id ;
-                                                    $allergens_cat_name = $allergens_cat->name ; ?>                            
-                                                    <option value="<?php echo $allergens_cat_slug; ?>" > <?php echo $allergens_cat_name; ?> </option>
-                                                        <?php
-                                            }                                                    
-                                        ?>
+                                    <?php
+                                            $allergens_tax = get_terms(array('taxonomy' => 'allergens', 'hide_empty' => false));
+                                            foreach ($allergens_tax as $allergens_cat) {
+                                                $allergens_cat_slug = $allergens_cat->term_id;
+                                                $allergens_cat_name = $allergens_cat->name;?>
+                                                                                                <option value="<?php echo $allergens_cat_slug; ?>" > <?php echo $allergens_cat_name; ?> </option>
+                                                                                                    <?php
+                                            }
+                                            ?>
                                     </select>
-                                
+
                                 </div>
                             </div>
 
@@ -169,7 +169,7 @@ $year=$week_arr[0];
                     </form>
                 </div>
             </div>
-        </div> 
+        </div>
      </div>
 
 </main>
@@ -180,19 +180,19 @@ $year=$week_arr[0];
             <div class="popup_wrapper">
                 <div
                     class="order_confirm d-flex position-relative justify-content-center flex-column align-items-center p-4">
-                    <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo">
+                    <img src="<?php bloginfo('template_directory');?>/reources/images/logo.png" class="logo" alt="logo">
 
                     <div
                         class="step_wrapper d-flex justify-content-center flex-column align-items-center text-center">
                         <div class="content mt-5">
-                            <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
+                            <div class="right"><img src="<?php bloginfo('template_directory');?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
                             <h2 class="mb-5 mt-5">Catering order's Email has beed submitted!</h2>
                         </div>
                     </div>
-                    
+
                 </div>
-                <img src="<?php bloginfo('template_directory'); ?>/reources//images/red cross.png" alt="" class="_cross">
+                <img src="<?php bloginfo('template_directory');?>/reources//images/red cross.png" alt="" class="_cross">
             </div>
         </div>
     </section>
@@ -201,31 +201,31 @@ $year=$week_arr[0];
     <?php get_footer();?>
 
      <!-- Font Awsome -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script type="text/javascript">   
-     jQuery(document).ready(function($) {	
+ <script type="text/javascript">
+     jQuery(document).ready(function($) {
         $('._cross').click(function(){
-           
+
            $(".hideme").css("display", "none");
        });
-                 
-        $("#addcatering").submit(function(e) {                     
-            e.preventDefault();                     
-            var name = jQuery('#name').val();	 
-            var email = jQuery('#email').val();	 
-            var people = jQuery('#people').val();	             
-            var date = jQuery('#date').val();	 
-            var time = jQuery('#time').val();	 
-            var address = jQuery('#address').val();	             
-            var food_type = jQuery('#food_type').val();	 
-            var reason = jQuery('#reason').val();	 
-            var pro_cat = jQuery('#pro_cat').val();	 
-            var pro_sub_cat = jQuery('#pro_sub_cat').val();	
-            var person = jQuery('#person').val();           
-            var allergens = jQuery('#allergens').val(); 
-            var uid = jQuery('#uid').val();  
-           
+
+        $("#addcatering").submit(function(e) {
+            e.preventDefault();
+            var name = jQuery('#name').val();
+            var email = jQuery('#email').val();
+            var people = jQuery('#people').val();
+            var date = jQuery('#date').val();
+            var time = jQuery('#time').val();
+            var address = jQuery('#address').val();
+            var food_type = jQuery('#food_type').val();
+            var reason = jQuery('#reason').val();
+            var pro_cat = jQuery('#pro_cat').val();
+            var pro_sub_cat = jQuery('#pro_sub_cat').val();
+            var person = jQuery('#person').val();
+            var allergens = jQuery('#allergens').val();
+            var uid = jQuery('#uid').val();
+
             $.ajax(
                 {
                     type:"POST",
@@ -235,7 +235,7 @@ $year=$week_arr[0];
                         name : name,
                         email : email,
                         people : people,
-                        date : date,                  
+                        date : date,
                         time : time,
                         address : address,
                         food_type : food_type,
@@ -245,22 +245,22 @@ $year=$week_arr[0];
                         pro_sub_cat : pro_sub_cat,
                         person : person
 
-                    },   
-                    success: function(data){                      
-                     
+                    },
+                    success: function(data){
+
                         if(data.code==0) {
                                     alert(data.message);
-                        }  
+                        }
                         else {
                            $(".overlay").css("display", "flex");
-                      
-                        }      
+
+                        }
             }
-            
+
              });
-         }); 
-            
-        
+         });
+
+
      });
 	</script>
 
