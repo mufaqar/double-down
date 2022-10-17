@@ -109,7 +109,7 @@ $user_info = get_userdata($uid);
             <!-- 8th  -->
             <div class="deatil_card d-md-flex justify-content-between align-items-center mb-5">
                 <div class="info">
-                    <h3>Invoice</h3>
+                    <h3>Billing and Order details</h3>
                 </div>
                 <div class="pt-4 pt-md-0">
                 <button id="show_invoice" class="btn_primary">Payment details</button>
