@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">
-                                        <h2>Lunch Orders (Fixed Delivery )</h2>
+                                        <h2>Fixed Lunch Orders</h2>
                                         <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">
                                               <?php 

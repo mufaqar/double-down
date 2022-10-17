@@ -372,8 +372,6 @@ $user_info = get_userdata($uid);
                                                 <?php endwhile; wp_reset_query(); else : ?>
                                                     <tr>  <td colspan="6"><?php _e('No Invoice  Found','lbt_translate'); ?></td></tr>
                                                     <?php endif; ?>  
-                                            
-                                            
                                         </tbody>
                                     </table>
                                 </div>   
@@ -425,8 +423,8 @@ $user_info = get_userdata($uid);
       var request = new XMLHttpRequest();
       request.open('GET', '<?php echo get_template_directory_uri() ?>/create-payment.php', true); 
       request.onload = function () {
-        const data = JSON.parse(this.response);        // If parse error, check output 
-        if (!data.paymentId) {                         // from create-payment.php
+        const data = JSON.parse(this.response);             
+        if (!data.paymentId) {     
           console.error('Error: Check output from create-payment.php');
           return;
         }

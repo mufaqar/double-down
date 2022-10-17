@@ -1,8 +1,11 @@
 <?php
 
+
+
+
+
 $payload = file_get_contents('payload.json');
 assert(json_decode($payload) && json_last_error() == JSON_ERROR_NONE);
-
 $ch = curl_init('https://test.api.dibspayment.eu/v1/payments');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);

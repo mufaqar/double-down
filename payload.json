@@ -1,8 +1,8 @@
 {
     "checkout": {
       "integrationType": "EmbeddedCheckout",
-      "url": "http://demo.mufaqar.com/dev3/checkout",
-      "termsUrl": "http://demo.mufaqar.com/dev3/checkout"
+      "url": "http://localhost/clients/food/checkout",
+      "termsUrl": "http://localhost/clients/food/checkout"
     },
     "order": {
       "items": [
