@@ -99,7 +99,11 @@
                                                             </div>
 
                                                         <?php   } endwhile; wp_reset_query(); else : ?>
-                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                            <div class="_pro_card">
+                                                                <h3>No lunch menu for this week</h3>
+                                                                <p> Please choose your menu </p>
+                                                            </div>
+                                                  
                                                     <?php endif; ?> 
 	
                                                 
