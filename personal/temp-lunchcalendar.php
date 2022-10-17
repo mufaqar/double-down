@@ -240,6 +240,8 @@ $weeksid = $date->format("W-m-y");
                                                 </div>
                                             </div>
                                 </aside>
+
+                              
                             </div>
                         </div>
 
@@ -294,6 +296,8 @@ $weeksid = $date->format("W-m-y");
                                             </div>
                                         <div>
                                         <input type="submit" id="order" class="btn_primary"  value="Save"/>
+
+                                        <div id="cal" > </div> 
                                 </div>
                         </div>
                     </div>
@@ -303,6 +307,8 @@ $weeksid = $date->format("W-m-y");
             </div>
         </div>
     </main>
+
+    
 
 
     
@@ -346,9 +352,7 @@ $weeksid = $date->format("W-m-y");
 
 
 
-
-
-    <script type="text/javascript">  
+<script type="text/javascript">  
 
 
 
@@ -359,18 +363,23 @@ jQuery(document).ready(function($)
            $(this).closest('form').submit();
        });
 
-    //    var eventDates = {};
-    //     eventDates[ new Date( '03/04/2019' )] = new Date( '03/04/2019' ).toString();
-    //     eventDates[ new Date( '03/28/2019' )] = new Date( '03/28/2014' ).toString();
-    //     eventDates[ new Date( '12/20/2014' )] = new Date( '12/20/2014' ).toString();
-    //     eventDates[ new Date( '12/25/2014' )] = new Date( '12/25/2014' ).toString();
+
+           
         
        $('#date-datepicker div').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
-            highlight: true,
+            todayHighlight: false,
             clearBtn: false,
             startDate: '1d',
+            weekStart : 1,
+            beforeShowDay: function(date) {
+            var hilightedDays = [10,18,20,26];
+            if (~hilightedDays.indexOf(date.getDate())) {
+                return {classes: 'highlight', tooltip: 'Have Order'};
+            }
+    }
+
           
             
         });
@@ -380,7 +389,7 @@ jQuery(document).ready(function($)
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
            $("#dateform").submit();
-           // alert(date)
+         
 
 
         });
@@ -458,6 +467,12 @@ jQuery(document).ready(function($)
 
 
 </script>
+
+<style>
+    
+ 
+
+</style>
 
 
   

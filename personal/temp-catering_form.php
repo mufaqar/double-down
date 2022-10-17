@@ -112,7 +112,7 @@ get_header();
                 <div class="col-md-6 mb-3">
                     <label for="">Allergens</label>
                     <div class="_select">
-                        <select id="allergens">
+                        <select id="allergens" multiple>
                         <?php   
                             $allergens_tax = get_terms( array('taxonomy' => 'allergens','hide_empty' => false ) ); 
                             foreach( $allergens_tax as $allergens_cat )  {                                
@@ -123,7 +123,7 @@ get_header();
                                 }                                                    
                             ?>
                          </select>
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
+                      
                     </div>
                 </div>
 

@@ -3463,6 +3463,12 @@ body.page-template-temp-landing {
   color: #565656;
 }
 
+.highlight {
+  background-color: var(--green);
+  color: #fff !important;
+  border-radius: 50px;
+}
+
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */
