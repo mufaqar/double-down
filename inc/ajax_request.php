@@ -1057,20 +1057,12 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_per
 													$shipping_days =  count($shipping_days_arr);
 													$tatal_vat = array_sum($food_total_vat_arr);
 													$shipping_cost =  $shipping_days* $shipping_price;
-													$days_order_price =  array_sum($food_item_day_arry); 
-													
+													$days_order_price =  array_sum($food_item_day_arry); 													
 													$total_menus_days_price =  array_sum($food_price_day_total_arr); 
-
 													$shipping_vat  = $shipping_cost*25/100; 
-
 													$total_shipping  = $shipping_vat+$shipping_cost;
 													$total_shipping_vat  = $shipping_vat+$shipping_cost+$tatal_vat;
-
 													$grand_total =  $total_shipping_vat+$total_menus_days_price; 
-
-													
-
-
 												 
 												 ?>
 												<tr>
