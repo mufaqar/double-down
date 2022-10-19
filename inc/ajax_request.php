@@ -1373,7 +1373,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																																																																		
 																																					
 
-																																					echo "NOK". $total_ben;	
+																																					echo "NOK ". $total_ben;	
 																																					$food_benfit_days_arr[] = $total_ben;
 																																					?>																																	
 																																			</p>                                                                                                                                          
