@@ -1365,10 +1365,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																																					
 																																					if($lunch_benfit_type == '%')
 																																					{
-																																						echo  $food_benfit_arr_sum*$lunch_benefit /100 ;
+																																						//echo  $food_benfit_arr_sum*$lunch_benefit /100 ;
 																																					}
 																																					else{
-																																						echo $food_benfit_arr_sum - $lunch_benefit;
+																																					//	echo $food_benfit_arr_sum - $lunch_benefit;
 																																					}
 																																																																		
 																																					
