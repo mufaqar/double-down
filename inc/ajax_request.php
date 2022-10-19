@@ -1147,6 +1147,11 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 							$fixed_total = $order_total-$lunch_benefit;
 							$order_total_price =  $order_total * $company_days  * $total_emp ;
 
+						
+
+
+
+
 							$method =  get_user_meta($uid, 'compnay_shipping_method', true );
 							$shipping_cost = get_option('shipping_price');
 							$vat_cost = get_option('vat_price');
@@ -1161,15 +1166,6 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 
 
 
-
-							$fix_remaing =  $fixed_total * $company_days  * $total_emp ;
-								if($lunch_benfit_type == '%')
-								{
-									$company_pay = $lunch_benefit /100 * $order_total_price;
-								}
-								else{
-									$company_pay = $order_total_price - $fix_remaing;
-								}
 								$order_total = get_post_meta( $orderid, 'order_total', true ); 
 
 								$compnay_name =  get_user_meta($uid ,'compnay_name',true);   
@@ -1222,7 +1218,9 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 								$total_order_type = array_count_values($order_type_arr);       
 								$meeting_orders =  $total_order_type['Meeting'];
 								$weekly_orders =  $total_order_type['Weekly'];
-								$daily_orders = $total_order_type['Day'];   
+								$daily_orders = $total_order_type['Day']; 
+								
+								
 
 							
 							?>
@@ -1244,7 +1242,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 											</tr>
 											<tr>									
 												<td scope="row"><strong>Compnay Benfit: </strong></td>
-												<td scope="row"><strong><?php echo "123564"; ?></td>                       
+												<td scope="row"><strong> <?php echo  $lunch_benfit_type. $lunch_benefit; ?></td>                       
 											</tr>
 											<tr>
 												<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo $daily_orders ?></td>
@@ -1311,6 +1309,8 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																			$food_price_days_arr = array();
 																			$food_vat_days_arr = array();
 
+																			$food_benfit_days_arr = array();
+
 																			
 																					foreach($food_items as $index => $food) {
 																						$food_days =  count($food_items);
@@ -1360,8 +1360,21 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																																			<p>
 																																				<?php   
 																																					$food_benfit_arr_sum =  array_sum($food_benfit_arr);
-																																					$total_ben = $food_benfit_arr_sum*10/100; 																																					
+																																					$total_ben = $food_benfit_arr_sum*10/100; 	
+
+																																					
+																																					if($lunch_benfit_type == '%')
+																																					{
+																																						echo  $food_benfit_arr_sum*$lunch_benefit /100 ;
+																																					}
+																																					else{
+																																						echo $food_benfit_arr_sum - $lunch_benefit;
+																																					}
+																																																																		
+																																					
+
 																																					echo "NOK". $total_ben;	
+																																					$food_benfit_days_arr[] = $total_ben;
 																																					?>																																	
 																																			</p>                                                                                                                                          
 																																																																
@@ -1374,24 +1387,34 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																							<?php } 
 																							
 																												$total_price_day = array_sum($food_price_days_arr);
-																												$total_vat_day = array_sum($food_vat_days_arr);	?>
+																												$total_vat_day = array_sum($food_vat_days_arr);	
+																												$total_benfit_day = array_sum($food_benfit_days_arr);	
+
+																												
+																												
+																												
+																												?>
 
 																													<tr>
 																													<td scope="row"><strong>Total</td>
 																													<td>Days : <?php echo $food_days ?>  </td>
 																													<td>VAT : <?php echo $total_vat_day ?>  </td>																																	
 																													<td>NOK	<?php echo $total_price_day ?> 	</td>
+																													<td>NOK	<?php echo $total_benfit_day ?> 	</td>
 																													</tr>
 
 																		</table>
 
 																	</td>
-																	<td>
-																		<?php   $total_price_f =  ($total_price_day + $total_vat_day)  * $food_days; 
-																				echo $total_price_f;
-																	
-																	$total_price_arr[] = $total_price_f;
+																	<td>NOK 
+																		<?php   $total_price_f =  ($total_price_day + $total_vat_day)  * $food_days;
+																				$total_price_f  = $total_price_f-$total_benfit_day;
+																				echo $total_price_f;																	
+																				$total_price_arr[] = $total_price_f;
+
+																				
 																	?>
+																	
 																</td>																
 														</tr>
 
