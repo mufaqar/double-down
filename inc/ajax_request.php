@@ -1020,7 +1020,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_per
 																$food_item_price_arr = array();
 																foreach($food as $key => $ky_item) { 
 																		$menu_item_price =  get_post_meta( $key, 'menu_item_price', true );
-																		$food_item_price_arr[] = $menu_item_price;
+																		$food_item_price_arr[] = $menu_item_price*$ky_item;
 																		
 																	?>	<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> 
 																		 NOK <?php echo $menu_item_price ?> </p>																	
@@ -1030,7 +1030,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_per
 																	<td>
 																		<?php foreach($food as $key => $ky_item) { 
 																			$menu_item_price =  get_post_meta( $key, 'menu_item_price', true );
-																			$menu_item_price_vat = $menu_item_price*$vat_price/100;
+																			$menu_item_price_vat = $menu_item_price*$vat_price/100 *$ky_item;
 																			$food_total_vat_arr[] =  $menu_item_price_vat;
 
 																			$food_item_day_price =  array_sum($food_item_price_arr);
@@ -1224,13 +1224,6 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 								$weekly_orders =  $total_order_type['Weekly'];
 								$daily_orders = $total_order_type['Day'];   
 
-								
-								
-								
-
-														
-
-
 							
 							?>
 
@@ -1249,6 +1242,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 												<td scope="row"><strong>Company : </strong><?php echo $compnay_name ?></td>
 												<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>                        
 											</tr>
+											<tr>									
+												<td scope="row"><strong>Compnay Benfit: </strong></td>
+												<td scope="row"><strong><?php echo "123564"; ?></td>                       
+											</tr>
 											<tr>
 												<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo $daily_orders ?></td>
 												<td scope="row"><strong>Total Lunch Fixed: </strong> <?php echo $weekly_orders?></td>                        
@@ -1257,6 +1254,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 												<td scope="row"><strong>Total Meeting Food: </strong><?php echo $meeting_orders; ?></td>
 												<td scope="row"><strong>Total Employee: </strong><?php echo $total_emp; ?></td>                       
 											</tr>
+											
 											<tr>									
 												<td scope="row"><strong>Shipping Method: </strong></td>
 												<td scope="row">
@@ -1287,7 +1285,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 											$query = new WP_Query( $args );
 											if ( $query->have_posts() ) {
 												while ( $query->have_posts() ) {   $query->the_post();															
-													$order_total = get_post_meta( get_the_ID(), 'order_total', true );
+													
 													$order_type = get_post_meta( get_the_ID(), 'order_type', true );
 													$weekid = get_post_meta( get_the_ID(), 'order_week', true );                                            
 													$order_price_arr[] = $order_total;
@@ -1297,53 +1295,100 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																<td scope="row"><strong><?php the_title() ?> <br/> <?php echo $order_type?><br/> [ <?php echo $weekid?>]</td>
 																	<td> 
 																		<table>
-																			<?php   $food_items =  get_post_meta( get_the_ID(), 'food_order', true );						
-																					foreach($food_items as $index => $food) { 
-																						
+
+																		<thead>
+																			<th scope="col">Day</th>
+																			<th scope="col">Products</th>
+																			<th scope="col">VAT</th>
+																			<th scope="col">Price</th>
+																			<th scope="col">Benifit</th>
+																		</thead>
+
+
+
+																			<?php   
+																			$food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
+																			$food_price_days_arr = array();
+																			$food_vat_days_arr = array();
+
+																			
+																					foreach($food_items as $index => $food) {
 																						$food_days =  count($food_items);
 																						$shipping_days_arr[] = $food_days;
+
+																						
 																						
 																						?>
 																															<tr>
 																																	<td scope="row"><strong><?php echo $index ?></td>
 																																	<td>
+																																		
 																																	<?php   foreach($food as $key => $ky_item) { 	?>
-																																			<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> </p>                                                                                                                        
+																																			<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> NOK <?php $price = get_post_meta( $key, 'menu_item_price', true ); 
+																																					echo $price   ?> </p>                                                                                                                        
 																																		<?php 	}  ?>
-																																		</td>
+																																		</td>																																		
 																																		<td>
 																																			<?php   foreach($food as $key => $ky_item) { 
 																																				?>
 																																					<p> NOK <?php $price = get_post_meta( $key, 'menu_item_price', true ); 
-																																					echo $price*$ky_item;    ?> </p>                                                                                                                                          
+																																					$item_vat =  $price*15/100;
+																																					$item_total_vat = $item_vat*$ky_item; 
+																																					echo $item_total_vat;																																					
+																																					$food_vat_days_arr[] =  $item_total_vat; 																																					?> </p>                                                                                                                                          
 																																																																
 																																				<?php 	}  ?>
 																																		</td>
+																																		
+																																		<td>
+																																			<?php   
+																																				$food_benfit_arr = array();
+																																				foreach($food as $key => $ky_item) { 
+																																				?>
+																																					<p> NOK <?php $price = get_post_meta( $key, 'menu_item_price', true ); 
+																																					echo $price*$ky_item ;																																					
+																																					$food_price_days_arr[] =  $price*$ky_item ;
 
+																																					$food_benfit_arr[] = $price*$ky_item
+																																					
+																																					?> </p>                                                                                                                                          
+																																																																
+																																				<?php 	}  ?>
+																																		</td>
+																																		<td>
+
+																																			<p>
+																																				<?php   
+																																					$food_benfit_arr_sum =  array_sum($food_benfit_arr);
+																																					$total_ben = $food_benfit_arr_sum*10/100; 																																					
+																																					echo "NOK". $total_ben;	
+																																					?>																																	
+																																			</p>                                                                                                                                          
+																																																																
+																																			
+																																		</td>
 																																	
-																																	
-																															</tr>
+																															 </tr>
 																														
 
-																							<?php }  ?>
+																							<?php } 
+																							
+																												$total_price_day = array_sum($food_price_days_arr);
+																												$total_vat_day = array_sum($food_vat_days_arr);	?>
 
-																							<tr>
-																																	<td scope="row"><strong>Total</td>
-																																	<td>Days : <?php echo $food_days ?>  </td>
-																																	
-																																		<td colspan="2">
-																																	<?php echo $order_total ?>
-																																		</td>
-
-																																	
-																																	
-																															</tr>
+																													<tr>
+																													<td scope="row"><strong>Total</td>
+																													<td>Days : <?php echo $food_days ?>  </td>
+																													<td>VAT : <?php echo $total_vat_day ?>  </td>																																	
+																													<td>NOK	<?php echo $total_price_day ?> 	</td>
+																													</tr>
 
 																		</table>
 
 																	</td>
-																	<td><?php   $total_price_f =  $order_total * $food_days; 
-																	echo $total_price_f;
+																	<td>
+																		<?php   $total_price_f =  ($total_price_day + $total_vat_day)  * $food_days; 
+																				echo $total_price_f;
 																	
 																	$total_price_arr[] = $total_price_f;
 																	?>
@@ -1358,8 +1403,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 
 
 												$final_shipping = $shipping_days*$shipping_cost;
-												$vat_final = $final_order_price*$vat_cost/100;
-												$ship_vat_total = $final_shipping+$vat_final;
+
+												$shipping_vat = $final_shipping*25/100;
+												$ship_vat_total = $final_shipping+$shipping_vat;
+
 												$invoice_price = $ship_vat_total+$final_order_price;
 
 												$invoice_price_with_emp = $invoice_price*$total_emp;
@@ -1369,7 +1416,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 
 										<tr>										
 											<td scope="row"><strong>Shipping & VAT : </strong> </td>
-											<td><strong>Shipping: </strong><?php echo $final_shipping; ?> <strong>VAT:<strong> <?php echo $vat_final ?> </td>
+											<td><strong>Shipping: </strong> NOK <?php echo $final_shipping; ?> <strong>VAT</strong> NOK <?php echo $shipping_vat ?> </td>
 											<td><strong></strong>NOK <?php echo $ship_vat_total; ?> </td>
 											
 										</tr>
