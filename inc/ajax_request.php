@@ -1242,7 +1242,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 											</tr>
 											<tr>									
 												<td scope="row"><strong>Compnay Benfit: </strong></td>
-												<td scope="row"><strong> <?php echo  $lunch_benfit_type. $lunch_benefit; ?></td>                       
+												<td scope="row"><strong> <?php echo  $lunch_benfit_type. " " . $lunch_benefit; ?></td>                       
 											</tr>
 											<tr>
 												<td scope="row"><strong>Total Compnay Lunch: </strong><?php echo $daily_orders ?></td>
