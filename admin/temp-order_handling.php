@@ -63,7 +63,7 @@
                             <?php echo $user->display_name ;   ?></td>
                             <td><?php echo ucfirst($user_roles[0]); if($comapnay_name != '') { echo " [". $comapnay_name ." ]" ;} ?></td>
                              <td><?php echo $user->user_email ?></td>
-                             <th><button  class="btn_primary show_user_orders"  data-id="<?php echo $user->ID ?>" data-type="<?php echo $user_roles[0]; ?>"   >View Orders [<?php echo $user_orders ?>]</button></th>
+                             <th><button  class="btn_primary show_user_orders"  data-id="<?php echo $user->ID ?>" data-type="<?php echo $user_roles[0]; ?>"   >View Orders </button></th>
                           
     
                         </tr>

@@ -160,7 +160,7 @@ add_action('wp_ajax_nopriv_get_orders_by_user', 'get_orders_by_user');
 
 							$args = array(
 								'post_type' => 'orders',
-								'posts_per_page' => -1,
+								'posts_per_page' => 2,
 								'order' => 'desc',
 							
 								'meta_query' => array(   
@@ -249,7 +249,7 @@ add_action('wp_ajax_nopriv_get_orders_by_user', 'get_orders_by_user');
 										</tr>
 										</tbody>
 									</table>
-								<h5 class="mt-4">Summary for 01-09-2022 to 30-09-2022 </h5>
+								<h5 class="mt-4">Summary</h5>
 								<table class="invoice_slip_table">
 									<thead>
 										<th scope="col">Description</th>
