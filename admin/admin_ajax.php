@@ -444,35 +444,27 @@ add_action('wp_ajax_nopriv_get_download_pdf', 'get_download_pdf');
 
 
 		foreach($food_items as $index => $food) {
-
-		$item_price_arr = array();
-
-		$i = 1 ;
-
-		foreach($food as $key => $ky_item) {
-
-		$price = get_post_meta( $key, 'menu_item_price', true ); 
-		$item_vat =  $price*15/100;
-		$item_total = ($price+$item_vat)*$ky_item;	
-		$item_price_arr[] = $item_total;
-		$pdf->Cell(10 ,6,$i,1,0);
-		$pdf->Cell(80 ,6, get_the_title($key),1,0);
-		$pdf->Cell(23 ,6,$ky_item,1,0,'R');
-		$pdf->Cell(30 ,6,$price,1,0,'R');
-		$pdf->Cell(20 ,6,$item_vat,1,0,'R');
-		$pdf->Cell(25 ,6,$item_total,1,1,'R');
-		$i++; 
-
-		}
+				$item_price_arr = array();
+				$i = 1 ;
+				foreach($food as $key => $ky_item) {
+					$price = get_post_meta( $key, 'menu_item_price', true ); 
+					$item_vat =  $price*15/100;
+					$item_total = ($price+$item_vat)*$ky_item;	
+					$item_price_arr[] = $item_total;
+					$pdf->Cell(10 ,6,$i,1,0);
+					$pdf->Cell(80 ,6, get_the_title($key),1,0);
+					$pdf->Cell(23 ,6,$ky_item,1,0,'R');
+					$pdf->Cell(30 ,6,$price,1,0,'R');
+					$pdf->Cell(20 ,6,$item_vat,1,0,'R');
+					$pdf->Cell(25 ,6,$item_total,1,1,'R');
+					$i++; 
+				}
 		}
 
 		$total = array_sum($item_price_arr);
-
-
 		$pdf->Cell(118 ,6,'',0,0);
 		$pdf->Cell(25 ,6,'Total',0,0);
 		$pdf->Cell(45 ,6,$total,1,1,'R');
-
 		ob_clean();
 		$pdf->Output($orderid.".pdf",'D'); 
 
