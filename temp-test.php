@@ -47,7 +47,7 @@ $pdf->Cell(25 ,5,'Order Id:',0,0);
 $pdf->Cell(34 ,5,$orderid,0,1);
 
 
-$pdf->SetFont('Arial','B',15);
+$pdf->SetFont('Arial','B',20);
 $pdf->Cell(130 ,5,'Food Summary',0,0);
 $pdf->Cell(59 ,5,'',0,0);
 $pdf->SetFont('Arial','B',10);
