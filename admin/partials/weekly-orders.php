@@ -39,7 +39,7 @@ else
 }
 
 
-echo $query_week;
+
 
 ?>
                 
