@@ -11,7 +11,7 @@ $order_uid = get_post_meta($orderid, 'order_uid', true);
 $user_info = get_userdata($order_uid); 
 $compnay_name = get_user_meta($order_uid, 'compnay_name', true);               
 $food_items =  get_post_meta( $orderid, 'food_order', true );	
-$compnay_delivery_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );	
+
 $compnay_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );	
 ob_start();
 
@@ -29,11 +29,16 @@ $pdf->Cell(59 ,5,$order_week,0,1);
 
 
 
+
+
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(130 ,5,$compnay_name,0,0);
 $pdf->Cell(25 ,5,'Customer ID:',0,0);
 $pdf->Cell(34 ,5,$order_uid,0,1);
 
+
+$pdf->SetFont('Arial','',10);
+$pdf->Cell(130 ,5,$compnay_address,0,0);
 
 
 
