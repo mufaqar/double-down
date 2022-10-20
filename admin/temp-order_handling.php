@@ -132,9 +132,7 @@
                         action: "get_download_pdf",
                         order_id: order_id
                     },
-                    success: function(data) {
-
-                        alert("asdf");
+                    success: function(data) {                      
                     }
 
                 });
