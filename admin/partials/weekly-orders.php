@@ -11,9 +11,7 @@
                         </tr>
                     </thead>
                     <tbody>
-
                     <?php 
-
                         $weeks= date("W-m-y"); 
                         $i = 0;
                         query_posts(array(
