@@ -1,3 +1,48 @@
+                
+                <?php
+
+$query_week =  $_REQUEST['week'];
+
+ 
+
+
+$data = $query_week;    
+$whatIWant = substr($data, strpos($data, "-") + 1);    
+$q_week = $whatIWant;
+
+$query_week = $q_week."-10-22";
+
+
+
+$weeks= date("W-m-y"); 
+
+
+
+if($query_week == "")
+{
+
+
+    $query_week = $weeks;
+
+
+
+
+}
+else
+{
+
+    $query_week = $query_week;
+
+
+
+
+}
+
+
+echo $query_week;
+
+?>
+                
                 <thead>
                         <tr>
                             <th>Sr #</th>
@@ -21,7 +66,7 @@
                             'meta_query' => array(   
                                     array(
                                         'key'     => 'order_week',
-                                        'value' => $weeks,
+                                        'value' => $query_week,
                                         'compare' => 'IN'
                                     )
                             )   

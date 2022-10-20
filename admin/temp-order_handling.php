@@ -4,6 +4,45 @@
 
     get_header('admin');
 
+    $query_week =  $_REQUEST['week'];
+
+ 
+
+
+    $data = $query_week;    
+    $whatIWant = substr($data, strpos($data, "-") + 1);    
+    $q_week = $whatIWant;
+
+    $query_week = $q_week."-10-22";
+
+
+
+    $weeks= date("W-m-y"); 
+
+   
+
+    if($query_week == "")
+    {
+
+
+        $query_week = $weeks;
+
+
+
+
+    }
+    else
+    {
+
+        $query_week = $query_week;
+
+
+
+
+    }
+
+  
+
 
 
     ?>
@@ -14,11 +53,10 @@
     <div class="admin_parrent">
        
         <div class="calender_wrapper d-md-flex justify-content-between align-items-center mt-5">
-                            <h2>This week's Orders</h2>
+                            <h2>This week's Orders   <?php  echo $query_week; ?></h2>
                             <div class="calender week_calender">
-                                    <form action="" method="GET" id="weekform">
-                                        <input type="hidden" name="catname" id="catname" value="bread-lunch" />
-                                        <input type="text" id="weekPicker1" name="week" value="<?php echo date("Y-W"); ?>" >
+                                    <form action="" method="GET" id="weekform">                                      
+                                        <input type="text" id="weekPicker1" name="week" value="" >
                                         <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                                     </form>
                             </div> 
@@ -78,31 +116,10 @@
                 </div>                
     </section>
 
-
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
-<script>
-    convertToWeekPicker($("#weekPicker1"));
-    convertToWeekPicker($("#weekPicker2"));
-    convertToWeekPicker($("#weekPicker3"));
-    window.addEventListener('load', function() {
-            var element = document.getElementById('displayDate');
-            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-            var observer = new MutationObserver(myFunction);
-            observer.observe(element, {
-                childList: true
-            });
-            function myFunction() { 
-               // document.getElementById("weekform").submit();   
-               jqueryFunction();        
-                }
-            
-        });
-
-</script>
+ 
     
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     
 
     
@@ -111,7 +128,27 @@
   
     
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
+<script>
+    convertToWeekPicker($("#weekPicker1"));
+   
+    window.addEventListener('load', function() {
+            var element = document.getElementById('displayDate');
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            var observer = new MutationObserver(myFunction);
+            observer.observe(element, {
+                childList: true
+            });
+            function myFunction() { 
+                document.getElementById("weekform").submit();   
+               jqueryFunction();        
+                }
+            
+        });
 
+</script>
 
 
 <script type="text/javascript">
