@@ -1075,15 +1075,10 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_per
 												<td scope="row"><strong>Shipping</td>
 												<td scope="row"><strong>Delivery Days [<?php echo $shipping_days ?>]</td>												
 												
-												<td scope="row"></td>
+												<td scope="row">NOK <?php echo $shipping_vat?></td>
 												<td scope="row"><strong>NOK <?php echo $shipping_cost ?></td>
 												</tr>
-												<tr>
-												<td scope="row"><strong>VAT</td>
-												<td scope="row"></td>												
-												<td scope="row"></td>
-												<td scope="row"><strong>NOK <?php echo $shipping_vat?></td>
-												</tr>
+												
 												
 												<td scope="row"><strong>Grand Total</td>
 												<td scope="row"><strong></td>
@@ -1439,16 +1434,11 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 
 										<tr>										
 											<td scope="row"><strong>Shipping </strong> </td>
-											<td>  </td>
+											<td> <?php echo $shipping_vat ?> </td>
 											<td><strong></strong>NOK <?php echo $final_shipping; ?></td>
 											
 										</tr>
-										<tr>										
-											<td scope="row"><strong>VAT : </strong> </td>
-											<td></td>
-											<td><strong></strong>NOK <?php echo $shipping_vat ?></td>
-											
-										</tr>
+										
 									
 											<td scope="row"><strong>Total Grand : </strong></td>
 											<td></td>                            
