@@ -28,6 +28,8 @@
                         ));
 
                         if (have_posts()) :  while (have_posts()) : the_post();
+
+                        $pid = get_the_ID();
                             $order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
                             $user_info = get_userdata($order_uid);                    
                             $food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
@@ -43,7 +45,7 @@
                                     <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
                                                               
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
-                                    <td>PDF </td>
+                                    <td><button data-id="<?php echo $pid;?>" class="download_pdf btn_primary"> PDF</button> </td>
                                 </tr>
                             <?php endwhile;
                             wp_reset_query();

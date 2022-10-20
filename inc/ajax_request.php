@@ -1321,8 +1321,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 																						?>
 																															<tr>
 																																	<td scope="row"><strong><?php echo $index ?></td>
-																																	<td>
-																																		
+																																	<td>																																		
 																																	<?php   foreach($food as $key => $ky_item) { 	?>
 																																			<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> NOK <?php $price = get_post_meta( $key, 'menu_item_price', true ); 
 																																					echo $price   ?> </p>                                                                                                                        

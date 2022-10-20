@@ -88,8 +88,8 @@
 
 <!-- week calender  -->
 
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
+<!-- <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!-- <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
 <script>
     convertToWeekPicker($("#weekPicker1"));
     convertToWeekPicker($("#weekPicker2"));
@@ -108,57 +108,33 @@
             
         });
 
-</script>
+</script> --> -->
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
 
 <script type="text/javascript">
 
    
 
-    jQuery(document).ready(function($) {        
-    
-   
+    jQuery(document).ready(function($) {   
 
-        $('#show_shipping').click(function() {
-            $(".shipping_popup").css("display", "block");
-        });
+       $('.download_pdf').click(function() {
       
-
-        $('.hidepop').click(function(){  
-                
-           $(".invoice_detail_popup").css("display", "none");         
-       });
-
-        $('._cross').click(function(){ 
-          
-           $(".hideme").css("display", "none");         
-       });
-
-
-       $('.show_user_orders').click(function() {
-                $(".invoice_detail_popup").css("display", "block");
-                var user_type = $(this).attr('data-type');
-                var uid = $(this).attr('data-id');
-
-           
+                var order_id = $(this).attr('data-id');
+               
+              
                 $.ajax({
                     type: "POST",
                     url: "<?php echo admin_url('admin-ajax.php'); ?>",
                     data: {
-                        action: "get_orders_by_user",
-                        user_type: user_type,
-                        uid: uid
+                        action: "get_download_pdf",
+                        order_id: order_id
                     },
                     success: function(data) {
 
-                        if (data.code == 0) {
-
-                        // alert(data.message);
-                        } else {
-                            $(".ajax_invoice").html(data);   
-
-                        }
+                        alert("asdf");
                     }
 
                 });
