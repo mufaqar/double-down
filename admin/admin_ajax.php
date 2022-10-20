@@ -422,7 +422,7 @@ add_action('wp_ajax_nopriv_get_download_pdf', 'get_download_pdf');
 
 
 		$pdf->SetFont('Arial','B',15);
-		$pdf->Cell(130 ,5,'Bill To',0,0);
+		$pdf->Cell(130 ,5,'Food Summary',0,0);
 		$pdf->Cell(59 ,5,'',0,0);
 		$pdf->SetFont('Arial','B',10);
 		$pdf->Cell(189 ,10,'',0,1);

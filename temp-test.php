@@ -118,7 +118,8 @@ $pdf->Cell(25 ,6,'Total',0,0);
 $pdf->Cell(45 ,6,$total,1,1,'R');
 
 ob_clean();
-$pdf->Output($orderid.".pdf",'D'); 
+$pdf->Output();
+//$pdf->Output($orderid.".pdf",'D'); 
 
 
 
