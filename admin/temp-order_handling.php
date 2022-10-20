@@ -4,43 +4,7 @@
 
     get_header('admin');
 
-    $query_week =  $_REQUEST['week'];
-
- 
-
-
-    $data = $query_week;    
-    $whatIWant = substr($data, strpos($data, "-") + 1);    
-    $q_week = $whatIWant;
-
-    $query_week = $q_week."-10-22";
-
-
-
-    $weeks= date("W-m-y"); 
-
    
-
-    if($query_week == "")
-    {
-
-
-        $query_week = $weeks;
-
-
-
-
-    }
-    else
-    {
-
-        $query_week = $query_week;
-
-
-
-
-    }
-
   
 
 
@@ -116,22 +80,15 @@
                 </div>                
     </section>
 
- 
-    
-
+   
 
     
 
     
     <?php get_footer('admin') ?>
-
-  
-    
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
-<script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
+    <script>
     convertToWeekPicker($("#weekPicker1"));
    
     window.addEventListener('load', function() {
@@ -149,7 +106,10 @@
         });
 
 </script>
+  
+   
 
+<!-- 
 
 <script type="text/javascript">
 
@@ -188,4 +148,4 @@
 
 
   
-</script>
+</script> -->

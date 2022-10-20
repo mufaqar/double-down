@@ -1,45 +1,18 @@
-                
-                <?php
+ <?php
 
 $query_week =  $_REQUEST['week'];
-
- 
-
-
 $data = $query_week;    
 $whatIWant = substr($data, strpos($data, "-") + 1);    
 $q_week = $whatIWant;
-
 $query_week = $q_week."-10-22";
-
-
-
 $weeks= date("W-m-y"); 
-
-
-
 if($query_week == "")
-{
-
-
-    $query_week = $weeks;
-
-
-
-
+{    $query_week = $weeks;
 }
 else
 {
-
     $query_week = $query_week;
-
-
-
-
 }
-
-
-
 
 ?>
                 
