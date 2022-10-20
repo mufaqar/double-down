@@ -1075,15 +1075,9 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal', 'get_invoice_detail_per
 												<td scope="row"><strong>Shipping Price</td>
 												<td scope="row"><strong>Delivery Days [<?php echo $shipping_days ?>]</td>												
 												<td scope="row"><strong>NOK <?php echo $shipping_cost ?></td>
-												<td scope="row"><strong></td>
+												<td scope="row"><strong>VAT NOK <?php echo $shipping_vat?></td>
 												</tr>
-												<tr>
-												<td scope="row"><strong>Shipping Total</td>																						
-												<td scope="row"><strong>VAT </td>
-												<td scope="row"><strong>NOK <?php echo $shipping_vat?> </td>
-												<td scope="row"><strong></td>		
-												</tr>
-												<tr>
+												
 												<td scope="row"><strong>Grand Total</td>
 												<td scope="row"><strong></td>
 												<td scope="row"><strong>NOK <?php echo $total_shipping_vat?></td>
@@ -1437,12 +1431,18 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 												?>  
 
 										<tr>										
-											<td scope="row"><strong>Shipping & VAT : </strong> </td>
-											<td><strong>Shipping: </strong> NOK <?php echo $final_shipping; ?> <strong>VAT</strong> NOK <?php echo $shipping_vat ?> </td>
-											<td><strong></strong>NOK <?php echo $ship_vat_total; ?> </td>
+											<td scope="row"><strong>Shipping </strong> </td>
+											<td></td>
+											<td><strong></strong>NOK <?php echo $final_shipping; ?></td>
 											
 										</tr>
-										<tr>
+										<tr>										
+											<td scope="row"><strong>VAT : </strong> </td>
+											<td></td>
+											<td><strong></strong>NOK <?php echo $shipping_vat ?></td>
+											
+										</tr>
+									
 											<td scope="row"><strong>Total Grand : </strong></td>
 											<td></td>                            
 											<td scope="row"> NOK <?php echo  $invoice_price_with_emp ?></td>
