@@ -23,6 +23,8 @@ add_action( 'manage_orders_posts_custom_column' , 'custom_orders_column', 10, 2 
 function set_custom_edit_orders_columns($columns) {    
     unset( $columns['author'] );   
     $columns['order_type'] = 'Order Type';
+    $columns['order_day'] = 'Order Day';
+    $columns['order_week'] = 'Order Week';
     $columns['user_type'] = 'User Type';
     $columns['order_uid'] = 'Order By';
     $columns['order_total'] = 'Order Price';
@@ -44,15 +46,37 @@ function custom_orders_column( $column, $post_id ) {
         case 'order_type' :
             if(get_field( "order_type", $post_id )) {
                 echo get_field( "order_type", $post_id ); 
-                if((get_post_meta($post_id, "order_day", true))) {  echo " (" .get_post_meta($post_id, "order_day", true) .  ") ";}
-                if((get_post_meta($post_id, "order_week", true))) {  echo " (" .get_post_meta($post_id, "order_week", true) .  ") ";}
+              
+
+
+            } else {
+                echo 0;
+            }
+        break;
+        
+        case 'order_day' :
+            if(get_field( "order_day", $post_id )) {
+                echo get_field( "order_day", $post_id ); 
+              
 
 
 
             } else {
                 echo 0;
             }
-        break;  
+        break;
+
+        case 'order_week' :
+            if(get_field( "order_week", $post_id )) {
+                echo get_field( "order_week", $post_id ); 
+              
+
+
+
+            } else {
+                echo 0;
+            }
+        break;
         case 'user_type' :
           if(get_field( "user_type", $post_id )) {            
              echo   get_field( "user_type", $post_id );

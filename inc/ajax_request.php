@@ -122,38 +122,37 @@ function weeklyfood()
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$weekid = $_POST['weekid'];
+	$order_type = $_POST['order_type'];
 	$total_days = count($weekdays);
+	
 	update_user_meta( $uid, $usertype.'_days', $total_days);
 
-		$food_items = [];
-				foreach ($menu_items as $menu_item) {
-					$product_id = $menu_item[0];
-					$menu_item = $menu_item[1];
-					$food_items[$product_id] = $menu_item;
-				
-				}
-		$days = [];	
-		foreach ($weekdays as  $weekday) {
-			$day = $weekday;		
-			$days[$day]= $food_items;			
+		$food_items = array();
+		foreach ($menu_items as $menu_item) {
+			$product_id = $menu_item[0];
+			$menu_item = $menu_item[1];
+			$food_items[$product_id] = $menu_item;
+			$day_food[$product_id] = $menu_item;
 		}
-	//	print_r($days);
-		
+				
+		foreach ($weekdays as $key => $weekday) {		
+			$day_food = $food_items;
+			$sel_day = array();
+			$sel_day[$weekday] = $food_items;
+
+			
+	
+			
 
 			// check if order already placed by week
-		$query_meta = array(
+			$query_meta = array(
 				'posts_per_page' => -1,
 				'post_type' => 'orders',
 				'meta_query' => array(
 					'relation' => 'AND',
 					array(
-						'key' => 'order_week',
-						'value' => $weekid,
-						'compare' => '='
-					),
-					array(
-						'key' => 'order_type',
-						'value' => 'Weekly',
+						'key' => 'order_day',
+						'value' => $weekday,
 						'compare' => '='
 					),
 					array(
@@ -161,110 +160,184 @@ function weeklyfood()
 						'value' => $usertype,
 						'compare' => '='
 					),
-					array(
-						'key'     => 'order_uid',
-						'value' => $uid,
-						'compare' => '='
-					)
 				)
-			);
+			);	
+
+			$postinweek = new WP_Query($query_meta);
+			if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
+
+				// Updted order
+			$updated_post_id = get_the_ID();
+			update_post_meta($updated_post_id, 'food_order', $sel_day);
+			endwhile; wp_reset_query(); else : 
+
+				// insert order
+
+				$postdata = array(
+					'post_title'    => "OHYSX-" . rand(10, 100),
+					'post_status'   => 'publish',
+					'post_type'     => 'orders'
+				);
+				$post_id = wp_insert_post($postdata);
+				add_post_meta($post_id, 'food_order', $sel_day, true);	
+				add_post_meta($post_id, 'order_day', $weekday, true);			
+				add_post_meta($post_id, 'order_week', $weekid, true);
+				add_post_meta($post_id, 'order_status', 'Pending', true);
+				add_post_meta($post_id, 'order_type', $order_type, true);
+				add_post_meta($post_id, 'user_type', $usertype, true);
+				add_post_meta($post_id, 'order_uid', $uid);			
+				//echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
+
+				
+				
+
+			endif;
+
+
+
+
+
+
+		}
+
+
+		
+
+
+		
+
+
+
+	//	print_r($days);
+		
+
+		// // check if order already placed by week
+		// $query_meta = array(
+		// 		'posts_per_page' => -1,
+		// 		'post_type' => 'orders',
+		// 		'meta_query' => array(
+		// 			'relation' => 'AND',
+		// 			array(
+		// 				'key' => 'order_week',
+		// 				'value' => $weekid,
+		// 				'compare' => '='
+		// 			),
+		// 			array(
+		// 				'key' => 'order_type',
+		// 				'value' => 'Weekly',
+		// 				'compare' => '='
+		// 			),
+		// 			array(
+		// 				'key'     => 'user_type',
+		// 				'value' => $usertype,
+		// 				'compare' => '='
+		// 			),
+		// 			array(
+		// 				'key'     => 'order_uid',
+		// 				'value' => $uid,
+		// 				'compare' => '='
+		// 			)
+		// 		)
+		// 	);
 
 
 	
 
-		$postinweek = new WP_Query($query_meta);
-		if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();		
-			$updated_post_id = get_the_ID();	
+		// $postinweek = new WP_Query($query_meta);
+		// if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();		
+		// 	$updated_post_id = get_the_ID();	
 			
 
-			// If Menus are empty and days selected 
-			if($menu_items == '')
-			{
+		// 	// If Menus are empty and days selected 
+		// 	if($menu_items == '')
+		// 	{
 
 			
-				$orders_price = get_post_meta($updated_post_id, 'food_order' , true);			
-				$a1=$orders_price;
-			//	unset($orders_price['Wednesday']);				
-				$a2=$days;
+		// 		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);			
+		// 		$a1=$orders_price;
+		// 	//	unset($orders_price['Wednesday']);				
+		// 		$a2=$days;
 
-				$result=array_diff_assoc($a1,$a2);
+		// 		$result=array_diff_assoc($a1,$a2);
 
-				//print_r($result);
-				foreach ($result as $key => $value) {
-					//echo $key;
-					unset($orders_price[$key]);	
-				}
+		// 		//print_r($result);
+		// 		foreach ($result as $key => $value) {
+		// 			//echo $key;
+		// 			unset($orders_price[$key]);	
+		// 		}
 
-				update_post_meta($updated_post_id, 'food_order', $orders_price);
-				echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated {Day not seletc with 0 menu}')));
-				die;
+		// 		update_post_meta($updated_post_id, 'food_order', $orders_price);
+		// 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated {Day not seletc with 0 menu}')));
+		// 		die;
 		
 
-			}
-			else{
+		// 	}
+		// 	else{
 				
-				update_post_meta($updated_post_id, 'food_order', $days);
-				$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
-				$price_arr = [];
-				foreach($orders_price as $index => $order_price)
-				{
-					foreach($order_price as $key => $price )
-					{   
-						$get_price =  get_post_meta($key, 'menu_item_price', true);
-						$price_arr[] = $get_price*$price;					
-					}    			
-				}
-				$order_total = array_sum($price_arr);
-				update_post_meta($updated_post_id, 'food_order', $days);
-				update_post_meta($updated_post_id, 'order_total', $order_total);
-				update_post_meta($updated_post_id, 'order_uid', $uid);
-				update_post_meta($updated_post_id, 'user_type', $usertype);
-				echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
-				die;
+		// 		update_post_meta($updated_post_id, 'food_order', $days);
+		// 		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
+		// 		$price_arr = [];
+		// 		foreach($orders_price as $index => $order_price)
+		// 		{
+		// 			foreach($order_price as $key => $price )
+		// 			{   
+		// 				$get_price =  get_post_meta($key, 'menu_item_price', true);
+		// 				$price_arr[] = $get_price*$price;					
+		// 			}    			
+		// 		}
+		// 		$order_total = array_sum($price_arr);
+		// 		update_post_meta($updated_post_id, 'food_order', $days);
+		// 		update_post_meta($updated_post_id, 'order_total', $order_total);
+		// 		update_post_meta($updated_post_id, 'order_uid', $uid);
+		// 		update_post_meta($updated_post_id, 'user_type', $usertype);
+		// 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Updated')));
+		// 		die;
 			
 
 
-			}
+		// 	}
 			
+
+
 
 
 
 		
 			
 
-		endwhile; wp_reset_query(); else : 		
+		// endwhile; wp_reset_query(); else : 		
 
-			// Insert post as its not exisit 
-					$postdata = array(
-						'post_title'    => "OHYSX-" . rand(10, 100),
-						'post_status'   => 'publish',
-						'post_type'     => 'orders'
-					);
-					$user_id = wp_insert_post($postdata);
-					add_post_meta($user_id, 'food_order', $days, true);				
-					add_post_meta($user_id, 'order_week', $weekid, true);
-					add_post_meta($user_id, 'order_status', 'Pending', true);
-					add_post_meta($user_id, 'order_type', 'Weekly', true);
-					add_post_meta($user_id, 'user_type', $usertype, true);
-					add_post_meta($user_id, 'order_uid', $uid);
+		// 	// Insert post as its not exisit 
+		// 			$postdata = array(
+		// 				'post_title'    => "OHYSX-" . rand(10, 100),
+		// 				'post_status'   => 'publish',
+		// 				'post_type'     => 'orders'
+		// 			);
+		// 			$user_id = wp_insert_post($postdata);
+		// 			add_post_meta($user_id, 'food_order', $days, true);				
+		// 			add_post_meta($user_id, 'order_week', $weekid, true);
+		// 			add_post_meta($user_id, 'order_status', 'Pending', true);
+		// 			add_post_meta($user_id, 'order_type', 'Weekly', true);
+		// 			add_post_meta($user_id, 'user_type', $usertype, true);
+		// 			add_post_meta($user_id, 'order_uid', $uid);
 
-					$orders_price = get_post_meta($user_id, 'food_order' , true);
-					$price_arr = [];
-					foreach($orders_price as $index => $order_price)
-					{
-						foreach($order_price as $key => $price )
-						{   
-							$get_price =  get_post_meta($key, 'menu_item_price', true);
-							$price_arr[] = $get_price*$price;							
-						}    
+		// 			$orders_price = get_post_meta($user_id, 'food_order' , true);
+		// 			$price_arr = [];
+		// 			foreach($orders_price as $index => $order_price)
+		// 			{
+		// 				foreach($order_price as $key => $price )
+		// 				{   
+		// 					$get_price =  get_post_meta($key, 'menu_item_price', true);
+		// 					$price_arr[] = $get_price*$price;							
+		// 				}    
 					
-					}
-					$order_total = array_sum($price_arr);
-					add_post_meta($user_id, 'order_total', $order_total,true);
-					echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
-					die;
+		// 			}
+		// 			$order_total = array_sum($price_arr);
+		// 			add_post_meta($user_id, 'order_total', $order_total,true);
+		// 			echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
+		// 			die;
 
-		endif;
+		//endif;
 	
 }
 
@@ -445,13 +518,15 @@ add_action('wp_ajax_nopriv_dailyfood', 'dailyfood');
 function dailyfood()
 {
 	global $wpdb;
-	$day = $_POST['date'];
+	$day = $_POST['day'];
 	$menu_items = $_POST['menu_items'];
 	$uid = $_POST['uid'];
 	$week = $_POST['weekid'];
 	$usertype = $_POST['usertype'];	
 	$author_obj = get_user_by('id', $uid);
-	$author =  $author_obj->display_name;	
+	$author =  $author_obj->display_name;
+	$order_type = $_POST['order_type'];		
+
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
@@ -459,9 +534,6 @@ function dailyfood()
 		$food_items[$product_id] = $menu_item;
 	
 	}
-
-
-
 	$days = [];
 	$days[$day] = $food_items;
 	// check if order already placed by week
@@ -485,26 +557,10 @@ function dailyfood()
 
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-
-
-
 	    // updated Existing Food order Weekly 
 		$updated_post_id = get_the_ID();	
 		update_post_meta($updated_post_id, 'food_order', $days);
-		update_post_meta($updated_post_id, 'order_uid', $uid);	
-		$orders_price_data = get_post_meta($updated_post_id, 'food_order' , true);
-		
-		$price_arr = [];
-		foreach($orders_price_data[$day] as $key=> $order_price)
-		{	
-			$product_id =  $key;
-			$product_qty =  $order_price;
-			$price_item =  get_post_meta($product_id, 'menu_item_price', true);			
-			$price_arr[] = $price_item*$product_qty;				
-				
-		}
-		$order_total = array_sum($price_arr);
-		update_post_meta($updated_post_id, 'order_total', $order_total);
+	
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 		die();
 		
@@ -521,28 +577,17 @@ endwhile; wp_reset_query(); else :
 			'post_title'    => "OHYSX-" . rand(10, 100),
 			'post_status'   => 'publish',
 			'post_type'     => 'orders',
-			'post_author' => $uid
+			'post_author'   => $uid
 		);
 		$user_id = wp_insert_post($post);
 		add_post_meta($user_id, 'order_day', $day, true);
 		add_post_meta($user_id, 'order_status', 'Pending', true);
-		add_post_meta($user_id, 'order_type', 'Day', true);
+		add_post_meta($user_id, 'order_type', $order_type, true);
 		add_post_meta($user_id, 'user_type', $usertype, true);
 		add_post_meta($user_id, 'order_week', $week, true);
 		add_post_meta($user_id, 'food_order', $days);
 		add_post_meta($user_id, 'order_uid', $uid);
-
-	    $orders_price = get_post_meta($user_id, 'food_order' , true);
-		$price_arr = [];
-
-		foreach($orders_price[$day] as $index => $order_price)
-		{		
-		$price =  get_post_meta($index, 'menu_item_price', true);
-		$price_arr[] = $price*$order_price;
-		
-		}
-		$order_total = array_sum($price_arr);
-		add_post_meta($user_id, 'order_total', $order_total);	
+	  	
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 		die();
 
@@ -1434,7 +1479,7 @@ add_action('wp_ajax_nopriv_get_invoice_detail_personal_company', 'get_invoice_de
 
 										<tr>										
 											<td scope="row"><strong>Shipping </strong> </td>
-											<td> <?php echo $shipping_vat ?> </td>
+											<td>VAT NOK <?php echo $shipping_vat ?> </td>
 											<td><strong></strong>NOK <?php echo $final_shipping; ?></td>
 											
 										</tr>

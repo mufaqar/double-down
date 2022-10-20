@@ -207,26 +207,25 @@ global $current_user;
 
                         <div class="week_days">
                             <div class="d-flex justify-content-between flex-wrap">
-                                <div class="d-flex align-items-center">
-                                    <input type="checkbox" id="weekday-1" name="sport" value="Monday"  <?php if($total_Monday != '' ){ echo "checked";} ?>>
-                                    <label for="weekday-1">Monday  </label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="weekday-2" name="sport" value="Tuesday" <?php if($total_Tuesday != '' ){ echo "checked";} ?>>
-                                    <label for="weekday-2">Tuesday </label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="weekday-3" name="sport" value="Wednesday" <?php if($total_Wednesday != '' ){ echo "checked";} ?>>
-                                    <label for="weekday-3">Wednesday</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="weekday-4" name="sport" value="Thursday" <?php if($total_Thursday != '' ){ echo "checked";} ?>>
-                                    <label for="weekday-4">Thursday</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="weekday-5" name="sport" value="Friday" <?php if($total_Friday != '' ){ echo "checked";} ?>>
-                                    <label for="weekday-5">Friday</label>
-                                </div>
+                                <?php
+                                 $dt = new DateTime();                     
+                                 for ($d = 1; $d <= 5; $d++) {
+                                     $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
+                                     $the_day = $dt->format('l') ;
+                                     $the_date = $dt->format('m-d-Y');
+                                     ?> 
+                                      <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>">
+                                            <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> </label>
+                                        </div>
+
+                                     <?php
+                                 }
+
+                                 ?>
+
+
+
                             </div>
                         </div>
 
@@ -324,8 +323,7 @@ global $current_user;
                 var weekdays = [];
                 $.each($("input[name='sport']:checked"), function(){            
                     weekdays.push($(this).val());
-                });
-                
+                });                
                 var datas = [];
                 var newdata = [];
                 $("#weeklyfood .product-quantity").each(function () {
@@ -339,12 +337,7 @@ global $current_user;
             // alert(newdata[0]);
                 var menu_items = newdata[0];
             
-                console.log(menu_items);
-            //  alert(postid);   
-            
-            
-       
-                                
+                console.log(menu_items);  
                 var weekdays = weekdays;
 
                 console.log(weekdays);
@@ -362,6 +355,7 @@ global $current_user;
                             menu_items : menu_items,   
                             weekid : weekid,
                             usertype : usertype,  
+                            order_type : "Fixed Delivery",  
                             uid : uid,                  
                         
                         },   
@@ -371,9 +365,9 @@ global $current_user;
                                         alert(data.message);
                             }  
                             else {
-                           $(".alertmessage").css("display", "flex");
-                           $('.alertmessage').delay(1500).fadeOut();
-                            location.reload();       
+                          $(".alertmessage").css("display", "flex");
+                          $('.alertmessage').delay(1500).fadeOut();
+                           location.reload();       
                             
                         
                             }      

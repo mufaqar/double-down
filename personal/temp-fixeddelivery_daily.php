@@ -22,6 +22,15 @@
 
                     <?php
 
+                        $dt = new DateTime();
+                     
+                        for ($d = 1; $d <= 5; $d++) {
+                            $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
+                            $the_day = $dt->format('D') ;
+                            $the_date = $dt->format('m-d-Y');
+                        }
+                     
+
                        $current_week =   date("W-m-y");                    
                        global $current_user;
                         wp_get_current_user(); 
@@ -157,26 +166,25 @@
 
                     <div class="selected_day mt-3">
                             <div class="d-md-flex justify-content-md-between flex-wrap">
-                                <div class="d-flex align-items-center">
-                                    <input type="radio" id="weekday-1" name="sel_day" value="Monday" checked>
-                                    <label for="weekday-1"  id="weekday-1" name="sport" value="Monday" >Monday <?php echo $total_Monday ?></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="weekday-2" name="sel_day" value="Tuesday">
-                                    <label for="weekday-2">Tuesday <?php echo $total_Tuesday ?></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="weekday-3" name="sel_day" value="Wednesday">
-                                    <label for="weekday-3">Wednesday <?php echo $total_Wednesday ?></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="weekday-4" name="sel_day" value="Thursday">
-                                    <label for="weekday-4">Thursday <?php echo $total_Thursday ?></label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="weekday-5" name="sel_day" value="Friday">
-                                    <label for="weekday-5">Friday <?php echo $total_Friday ?></label>
-                                </div>
+                                <?php
+                                 $dt = new DateTime();                     
+                                 for ($d = 1; $d <= 5; $d++) {
+                                     $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
+                                     $the_day = $dt->format('l') ;
+                                     $the_date = $dt->format('m-d-Y');
+                                     ?>
+                                      <div>
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($d == 1) { echo "checked";} ?>>
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php //echo $total_Friday ?></label>
+                                     </div>
+
+                                     <?php
+                                 }
+
+                                 ?>
+
+
+
                             </div>
                         </div>
 
@@ -323,7 +331,6 @@
                 var uid = jQuery('#uid').val();
                 var sel_day = jQuery('input[name="sel_day"]:checked').val();
                 var tdate = jQuery('#tdate').val();
-
                 
                 var datas = [];
                         var newdata = [];
@@ -336,10 +343,8 @@
                         newdata.push(datas);
                         });
                     // alert(newdata[0]);
-                        var menu_items = newdata[0];
-                  
-                        console.log(menu_items);      
-                
+                        var menu_items = newdata[0];                  
+                        console.log(menu_items);                   
             
             
                 $.ajax(
@@ -347,11 +352,12 @@
                         type:"POST",
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
-                            action: "weeklyfood_byday",
-                            sel_day : sel_day,
+                            action: "dailyfood",
+                            day : sel_day,
                             menu_items : menu_items,   
                             weekid : weekid,
                             usertype : "Personal",  
+                            order_type : "Fixed Delivery",  
                             uid : uid,  
                             tdate : tdate              
                         
