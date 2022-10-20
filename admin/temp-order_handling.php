@@ -7,8 +7,23 @@
 
 
     ?>
+    	
+	
+</head>
     <?php include('navigation.php'); ?>
     <div class="admin_parrent">
+       
+        <div class="calender_wrapper d-md-flex justify-content-between align-items-center mt-5">
+                            <h2>This week's Orders</h2>
+                            <div class="calender week_calender">
+                                    <form action="" method="GET" id="weekform">
+                                        <input type="hidden" name="catname" id="catname" value="bread-lunch" />
+                                        <input type="text" id="weekPicker1" name="week" value="<?php echo date("Y-W"); ?>" >
+                                        <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                                    </form>
+                            </div> 
+        </div>
+<!-- 
         <div class="toggle_btn">
             <div class="row ">
                 <div class="catering_wrapper mt-5 mb-2 col-md-8 p-0">
@@ -19,62 +34,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+       
         <section id="div1" class="targetDiv activediv tablediv">
-            <table id="allusers" class="table table-striped orders_table" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Sr #</th>
-                        <th>Name</th>
-                        <th>Type</th>                     
-                        <th>Email Address</th>
-                        <th>Orders</th>
-                       
-                    </tr>
-                </thead>
-                <tbody>    
-                    <?php
-                    $i = 0;
-    
-                    $members = get_users(
-                        array(    
-                            'role' => 'Company',                  
-                            'orderby' => 'ID',
-                            'order'   => 'ASC',
-                            'query_id' => 'authors_with_posts',
-                        
-                        )
-                    );
-                    $users = get_users($members);               
-    
-                    foreach ($users as $user) {
-                         $user_roles = $user->roles;    
-                         $comapnay_name = get_user_meta($user->ID, 'compnay_name', true);                       
-                        $i++; 
-                        $user_orders = count_user_posts($user->ID ,"orders");
+                <table id="all" class="table table-striped orders_table" style="width:100%">
+                <?php include('partials/weekly-orders.php'); ?>
+                </table>
 
-                        if(count_user_posts($user->ID,'orders') >= 1)
-                        {
-                        
-                        ?>
-                        <tr>
-                            <td class="pt-4"><?php echo $i ?></td>
-                            <td class="d-flex align-items-center"><img class="_user_profile" src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" alt="profile" />
-                            <?php echo $user->display_name ;   ?></td>
-                            <td><?php echo ucfirst($user_roles[0]); if($comapnay_name != '') { echo " [". $comapnay_name ." ]" ;} ?></td>
-                             <td><?php echo $user->user_email ?></td>
-                             <th><button  class="btn_primary show_user_orders"  data-id="<?php echo $user->ID ?>" data-type="<?php echo $user_roles[0]; ?>"   >View Orders </button></th>
-                          
-    
-                        </tr>
-                    <?php  }  } ?>
-    
-                </tbody>
-    
-            </table>
-    
-        </section>
-        
+            </section>
+
     </div>
     
     
@@ -114,6 +82,33 @@
     
     
     <?php get_footer('admin') ?>
+
+  
+    
+
+<!-- week calender  -->
+
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
+<script>
+    convertToWeekPicker($("#weekPicker1"));
+    convertToWeekPicker($("#weekPicker2"));
+    convertToWeekPicker($("#weekPicker3"));
+    window.addEventListener('load', function() {
+            var element = document.getElementById('displayDate');
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            var observer = new MutationObserver(myFunction);
+            observer.observe(element, {
+                childList: true
+            });
+            function myFunction() { 
+               // document.getElementById("weekform").submit();   
+               jqueryFunction();        
+                }
+            
+        });
+
+</script>
 
     
 

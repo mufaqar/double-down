@@ -38,7 +38,7 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/reources/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/reources/css/slick-crousel.css" />	
 	<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/reources/images/logo.png">
-
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/admin/admin.css" />	
 	
 </head>
