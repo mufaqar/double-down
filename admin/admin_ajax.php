@@ -466,7 +466,7 @@ add_action('wp_ajax_nopriv_get_download_pdf', 'get_download_pdf');
 		$pdf->Cell(25 ,6,'Total',0,0);
 		$pdf->Cell(45 ,6,$total,1,1,'R');
 		ob_clean();
-		$pdf->Output($orderid.".pdf",'F'); 
+		$pdf->Output($orderid.".pdf",'D'); 
 		echo wp_send_json(array('code' => 200, 'message' => __('File Saved Sucessfully')));  
 
 		die();
