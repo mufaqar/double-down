@@ -385,7 +385,7 @@ add_action('wp_ajax_nopriv_get_download_pdf', 'get_download_pdf');
 						   
 	
 		global $wpdb;	
-		$orderid = 798;
+		$orderid = $_POST['order_id'];		
 		$order_uid = get_post_meta($orderid, 'order_uid', true);
 		$user_info = get_userdata($order_uid); 
 		$compnay_name = get_user_meta($order_uid, 'compnay_name', true);               
