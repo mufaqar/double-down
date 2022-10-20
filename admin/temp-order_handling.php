@@ -121,6 +121,8 @@
     jQuery(document).ready(function($) {   
 
        $('.download_pdf').click(function() {
+
+        
       
                 var order_id = $(this).attr('data-id');
                
@@ -132,7 +134,8 @@
                         action: "get_download_pdf",
                         order_id: order_id
                     },
-                    success: function(data) {                      
+                    success: function(data) {                         
+                     alert(data.message);
                     }
 
                 });

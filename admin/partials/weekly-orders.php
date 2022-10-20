@@ -45,7 +45,8 @@
                                     <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
                                                               
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
-                                    <td><button data-id="<?php echo $pid;?>" class="download_pdf btn_primary"> PDF</button> </td>
+                                    <!-- <td><button data-id="<?php echo $pid;?>" class="download_pdf btn_primary"> PDF</button> </td> -->
+                                    <td><a target="_blank" data-id="<?php echo $pid;?>" href="<?php echo home_url('download-invoice'); ?>/?order_id=<?php echo $pid;?>" class="download_pdf btn_primary"> PDF</a> </td>
                                 </tr>
                             <?php endwhile;
                             wp_reset_query();
