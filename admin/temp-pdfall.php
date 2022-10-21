@@ -1,41 +1,35 @@
 <?php /* Template Name: PDF-All */
 //get_header();
 
+		global $wpdb;	
+		$orderid = $_REQUEST['order_id'];	
+		$order_uid = get_post_meta($orderid, 'order_uid', true);
+		$user_info = get_userdata($order_uid); 
+		$compnay_name = get_user_meta($order_uid, 'compnay_name', true);               
+		$food_items =  get_post_meta( $orderid, 'food_order', true );
+		$today = date("Y-m-d", strtotime('today'));
+		ob_start();
+		require( get_stylesheet_directory() . '/fpdf/fpdf.php');
+		$pdf = new FPDF('P','mm','A4');
+		
+		$pdf->AddPage();	
+		$pdf->SetFont('Arial','B',20);
+		$pdf->Cell(71 ,5,'Order Details',0,0);
+		$pdf->Cell(59 ,5,'',0,0);
+
+		$pdf->Cell(59 ,5,$order_week,0,1);
+		$pdf->SetFont('Arial','B',12);
+		$pdf->Cell(130 ,5,'',0,0);
+		$pdf->Cell(25 ,5,'Date:',0,0);
+		$pdf->Cell(34 ,5,$today,0,1);
+		$pdf->Ln();
 
 
-global $wpdb;	
-$orderid = $_REQUEST['order_id'];	
-$order_uid = get_post_meta($orderid, 'order_uid', true);
-$user_info = get_userdata($order_uid); 
-$compnay_name = get_user_meta($order_uid, 'compnay_name', true);               
-$food_items =  get_post_meta( $orderid, 'food_order', true );	
-
-$today = date("Y-m-d", strtotime('today'));
-
-ob_start();
-
-require( get_stylesheet_directory() . '/fpdf/fpdf.php');
-$pdf = new FPDF('P','mm','A4');
-$pdf->AddPage();	
-$pdf->SetFont('Arial','B',20);
-$pdf->Cell(71 ,5,'Order Details',0,0);
-$pdf->Cell(59 ,5,'',0,0);
-$pdf->Cell(59 ,5,$order_week,0,1);
-
-
-
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(130 ,5,'',0,0);
-$pdf->Cell(25 ,5,'Date:',0,0);
-$pdf->Cell(34 ,5,$today,0,1);
-$pdf->Ln();
-
-
-$pdf->SetFont('Arial','B',16);
-$pdf->Cell(130 ,5,'Food  Summary',0,0);
-$pdf->Cell(59 ,5,'',0,0);
-$pdf->SetFont('Arial','B',10);
-$pdf->Cell(189 ,10,'',0,1);
+		$pdf->SetFont('Arial','B',16);
+		$pdf->Cell(130 ,5,'Food  Summary',0,0);
+		$pdf->Cell(59 ,5,'',0,0);
+		$pdf->SetFont('Arial','B',10);
+		$pdf->Cell(189 ,10,'',0,1);
 
 
 
@@ -149,16 +143,16 @@ $pdf->Cell(189 ,10,'',0,1);
 
 
 
-// $total = array_sum($item_price_arr);
-// $pdf->Cell(118 ,6,'',0,0);
-// $pdf->Cell(25 ,6,'Total',0,0);
-// $pdf->Cell(45 ,6,$total,1,1,'R');
-ob_clean();
-//$pdf->Output($orderid.".pdf",'I');
-$pdf->Output();
-  
+		// $total = array_sum($item_price_arr);
+		// $pdf->Cell(118 ,6,'',0,0);
+		// $pdf->Cell(25 ,6,'Total',0,0);
+		// $pdf->Cell(45 ,6,$total,1,1,'R');
+		ob_clean();
+		//$pdf->Output($orderid.".pdf",'I');
+		$pdf->Output();
+		
        
 
-get_footer(); ?>
+	get_footer(); ?>
 
 
