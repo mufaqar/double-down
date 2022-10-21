@@ -16,6 +16,8 @@ else
 
 $tomorrow = date("Y-m-d", strtotime('today'));
 
+echo $tomorrow;
+
 ?>
                 
                 <thead>
@@ -40,30 +42,25 @@ $tomorrow = date("Y-m-d", strtotime('today'));
                             'order' => 'desc',
                             'meta_query' => array(   
                                     array(
-                                        'key'     => 'order_day',
+                                        'key'   => 'order_day',
                                         'value' => $tomorrow,
                                         'compare' => 'IN'
                                     )
                             )   
                         ));
-
                         if (have_posts()) :  while (have_posts()) : the_post();
-
-                        $pid = get_the_ID();
-                            $order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
-                            $user_info = get_userdata($order_uid);                    
-                            $food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
-                            $compnay_delivery_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );		                      
-                      
-                                $i++; ?>
+                                $pid = get_the_ID();
+                                $order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
+                                $user_info = get_userdata($order_uid);                    
+                                $food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
+                                $compnay_delivery_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );	$i++; ?>
                                 <tr>
                                     <td><?php echo $i ?></td>
                                     <td><?php the_title() ?><br/><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>                                   
                                     <td><?php echo $user_info->user_login ?></td> 
                                     <td><?php echo $compnay_delivery_address ?></td>  
                                     <td><?php echo get_post_meta(get_the_ID(), 'order_day', true); ?></td>
-                                    <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
-                                                              
+                                    <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>                                                              
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
                                     <!-- <td><button data-id="<?php echo $pid;?>" class="download_pdf btn_primary"> PDF</button> </td> -->
                                     <td><a target="_blank" data-id="<?php echo $pid;?>" href="<?php echo home_url('download-invoice'); ?>/?order_id=<?php echo $pid;?>" class="download_pdf btn_primary"> PDF</a> </td>
