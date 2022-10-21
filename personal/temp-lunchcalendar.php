@@ -360,9 +360,9 @@ jQuery(document).ready(function($)
             startDate: '1d',
             weekStart : 1,
             beforeShowDay: function(date) {
-                var hilightedDays = [10,18,20,26];
+                var hilightedDays = [21,24,20,26];
                 if (~hilightedDays.indexOf(date.getDate())) {
-                //  return {classes: 'highlight', tooltip: 'Order'};
+                  // return {classes: 'highlight', tooltip: 'Order'};
                 }
              }
         });
