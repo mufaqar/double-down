@@ -552,6 +552,11 @@ function dailyfood()
 				'value' => $usertype,
 				'compare' => '='
 			),
+			array(
+				'key'     => 'order_type',
+				'value' => $order_type,
+				'compare' => '='
+			),
         )
     );	
 
