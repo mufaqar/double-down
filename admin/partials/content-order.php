@@ -31,8 +31,8 @@
                                 $i++; ?>
                                 <tr>
                                     <td><?php echo $i ?></td>
-                                    <td><?php the_title() ?></td>
-                                    <td><?php echo get_post_meta( get_the_ID(), 'order_day', true );	;?></td>    
+                                    <td><?php the_title() ?><br/><?php echo get_post_meta( get_the_ID(), 'order_type', true );?></td>
+                                    <td><?php echo get_post_meta( get_the_ID(), 'order_day', true );?></td>    
                                     <td><?php echo $user_info->user_login ?></td>  
                                     <td>
                                         <ul>
