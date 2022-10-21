@@ -60,7 +60,7 @@ $pdf->Cell(25 ,6,'Total',1,1,'C');/*end of line*/
 /*Heading Of the table end*/
 $pdf->SetFont('Arial','',10);
 
-$tomorrow = date("Y-m-d", strtotime('today'));
+$today = date("Y-m-d", strtotime('today'));
 
 
 
@@ -71,7 +71,7 @@ $tomorrow = date("Y-m-d", strtotime('today'));
 		'meta_query' => array(
 				array(
 					'key' => 'order_day',
-					'value' => $tomorrow,
+					'value' => $today,
 					'compare' => '=',
 				)       
 			),

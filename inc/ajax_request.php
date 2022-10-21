@@ -139,8 +139,6 @@ function weeklyfood()
 			$day_food = $food_items;
 			$sel_day = array();
 			$sel_day[$weekday] = $food_items;
-
-			
 	
 			
 
@@ -158,6 +156,11 @@ function weeklyfood()
 					array(
 						'key'     => 'user_type',
 						'value' => $usertype,
+						'compare' => '='
+					),
+					array(
+						'key'     => 'order_uid',
+						'value' => $uid,
 						'compare' => '='
 					),
 				)
@@ -357,6 +360,8 @@ function weeklyfood_byday()
 	$weekid = $_POST['weekid'];
 	$tdate = $_POST['tdate'];
 
+	echo $uid;
+
 
 	$daily_food = [];
 	$product_items = array();
@@ -555,6 +560,11 @@ function dailyfood()
 			array(
 				'key'     => 'order_type',
 				'value' => $order_type,
+				'compare' => '='
+			),
+			array(
+				'key'     => 'order_uid',
+				'value' => $uid,
 				'compare' => '='
 			),
         )

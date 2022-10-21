@@ -2,47 +2,44 @@
 get_header('landing');
 
 
-$order_days = get_dates_of_month('10',22);
+	$order_days = get_dates_of_month('10',22);
+	$today = date("Y-m-d", strtotime('today'));
+	$i = 0;
 
 
+	query_posts(array(
+		'post_type' => 'orders',
+		'posts_per_page' => -1,
+		'order' => 'desc',
+		'meta_query' => array(   
+				array(
+					'key'     => 'order_day',			
+					'value' => $today,
+					'compare' => 'IN'
+				)
+		)   
+	));
 
+	if (have_posts()) :  while (have_posts()) : the_post();
 
-$i = 0;
+	$pid = get_the_ID();
+		$order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
+		$user_info = get_userdata($order_uid);                    
+		$food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
+		$compnay_delivery_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );		                      
 
-
-query_posts(array(
-	'post_type' => 'orders',
-	'posts_per_page' => -1,
-	'order' => 'desc',
-	'meta_query' => array(   
-			array(
-				'key'     => 'order_day',			
-				'value' => array('2022-10-21'),
-				'compare' => 'IN'
-			)
-	)   
-));
-
-if (have_posts()) :  while (have_posts()) : the_post();
-
-$pid = get_the_ID();
-	$order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
-	$user_info = get_userdata($order_uid);                    
-	$food_items =  get_post_meta( get_the_ID(), 'food_order', true );	
-	$compnay_delivery_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );		                      
-
-		$i++; ?>
-		
-		
-			<h2><?php the_title() ?></h2>                                   
+			$i++; ?>
 			
 			
-	<?php endwhile;
-	wp_reset_query();
-else : ?>
-	<h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
-<?php endif; 
+				<h2><?php the_title() ?></h2>                                   
+				
+				
+		<?php endwhile;
+		wp_reset_query();
+	else : ?>
+		<h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
+	<?php endif; 
 
-get_footer(); ?>
+	get_footer(); ?>
 
 

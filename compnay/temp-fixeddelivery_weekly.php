@@ -36,12 +36,9 @@ get_header('company');
                     <input type="hidden" value="Company" id="usertype">
                     <?php get_template_part( 'partials/lunchbox', 'fixeditems' ); ?>                
                 </div>
-
                 <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                    <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
-                    
+                    <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>                    
                 </div>
-
                 <div class="product_wrapper row mb-4">
                     <?php query_posts(array(
                         'post_type' => 'menu_items',
@@ -74,14 +71,11 @@ get_header('company');
                     else : ?>
                         <h2><?php _e('Nothing Found', 'lbt_translate'); ?></h2>
                     <?php endif; ?>
-
                 </div>
-
                 <div class="d-flex justify-content-between mt-1 mb-4 accessories">
                     <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
                     </div>
                     <?php
-
                         $current_week =   date("W-m-y");                    
                         global $current_user;
                         wp_get_current_user(); 
@@ -328,9 +322,9 @@ get_header('company');
                     action: "weeklyfood",
                     weekdays: weekdays,
                     menu_items: menu_items,
-                    weekid: weekid,
+                    weekid:weekid,
                     usertype: usertype,
-                    order_type : "Fixed Delivery",  
+                    order_type: "Fixed Delivery",  
                     uid: uid,
 
                 },
