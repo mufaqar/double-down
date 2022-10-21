@@ -7,7 +7,7 @@
                 <table id="all" class="table table-striped orders_table" style="width:100%">
                 <?php include('partials/daily-orders.php'); ?>
                 </table>
-            <a target="_blank" data-id="<?php echo $pid;?>" href="<?php echo home_url('pdf-all'); ?>/?order_id=<?php echo $pid;?>" class="download_pdf btn_primary">Download All Food</a> 
+            <a target="_blank" data-id="<?php echo $pid;?>" href="<?php echo home_url('pdf-all'); ?>/?order_id=<?php echo $pid;?>" class="download_pdf btn_primary">Download PDF All Food</a> 
             </section>
     </div>
     
