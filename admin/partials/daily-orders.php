@@ -16,7 +16,9 @@ else
 
 $tomorrow = date("Y-m-d", strtotime('today'));
 
-$order_days = get_dates_of_month('10',22);
+
+echo "Order for " . $tomorrow;
+
 
 ?>
                 
@@ -43,7 +45,7 @@ $order_days = get_dates_of_month('10',22);
                             'meta_query' => array(   
                                     array(
                                         'key'     => 'order_day',			
-                                        'value' => $order_days,
+                                        'value' => $tomorrow,
                                         'compare' => 'IN'
                                     )
                             )   
