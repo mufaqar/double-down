@@ -17,7 +17,7 @@ else
 $today = date("Y-m-d", strtotime('today'));
 
 
-echo "Order for " . $today;
+echo "<h2>Order for " . $today . "</h2>";
 
 
 ?>
