@@ -14,10 +14,10 @@ else
     $query_week = $query_week;
 }
 
-$tomorrow = date("Y-m-d", strtotime('today'));
+$today = date("Y-m-d", strtotime('today'));
 
 
-echo "Order for " . $tomorrow;
+echo "Order for " . $today;
 
 
 ?>
@@ -45,7 +45,7 @@ echo "Order for " . $tomorrow;
                             'meta_query' => array(   
                                     array(
                                         'key'     => 'order_day',			
-                                        'value' => $tomorrow,
+                                        'value' => $today,
                                         'compare' => 'IN'
                                     )
                             )   
