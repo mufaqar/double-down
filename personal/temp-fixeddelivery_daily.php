@@ -22,7 +22,7 @@
 
                 
 
-                    <div class="selected_day mt-3">
+                        <div class="selected_day mt-3">
                             <div class="d-md-flex justify-content-md-between flex-wrap">
                                 <?php
                                  $dt = new DateTime();                     
@@ -59,15 +59,20 @@
                                                 'value' => 'Fixed Delivery',
                                                 'compare' => '=',
                                             ),
+                                            array(
+                                                'key' => 'order_uid',
+                                                'value' => $uid,
+                                                'compare' => '=',
+                                            ),
                                         )
                                     );
 
                                     $postData = new WP_Query($query_order);
                                     if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
                                          $post_id = get_the_ID();
-                                         
+                                         $day_price = get_post_meta($post_id, 'order_total' , true);
                                     ?>
-                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php //echo $post_id; ?> NOK </label>
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
                                      </div>
                                     <?php   endwhile; wp_reset_query(); else :  endif;   } ?>
                                 </div>

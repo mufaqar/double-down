@@ -50,11 +50,6 @@ global $current_user;
                                          'key'     => 'order_uid',
                                          'value' => $current_user->ID,
                                          'compare' => '='
-                                     ),
-                                     array(
-                                         'key'     => 'order_week',
-                                         'value' => $current_week,
-                                         'compare' => '='
                                      )
      )
  );
@@ -171,13 +166,55 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
                                      ?>
-                                      <div class="d-flex align-items-center">
+                                      <div>
                                         <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?>>
-                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php //echo $total_Friday ?></label>
+                                        <?php
+
+                                    $today =   $the_date; 
+                                    
+                                    
+                                    global $current_user;
+                                    wp_get_current_user(); 
+                                    $uid = $current_user->ID;  
+                                    $query_order = array(
+                                        'post_type' => 'orders',
+                                        'posts_per_page' => 1,
+                                        'order' => 'desc',                                                                                                                    
+                                        'meta_query' => array(
+                                            'relation' => 'AND',
+                                            array(
+                                                'key' => 'order_day',
+                                                'value' => $today,
+                                                'compare' => '=',
+                                            ),
+                                            array(
+                                                'key' => 'user_type',
+                                                'value' => 'Company',
+                                                'compare' => '=',
+                                            ),
+                                            array(
+                                                'key' => 'order_type',
+                                                'value' => 'Fixed Delivery',
+                                                'compare' => '=',
+                                            ),
+                                            array(
+                                                'key' => 'order_uid',
+                                                'value' => $uid,
+                                                'compare' => '=',
+                                            ),
+                                        )
+                                    );
+
+                                    $postData = new WP_Query($query_order);
+                                    if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
+                                         $post_id = get_the_ID();
+                                         $day_price = get_post_meta($post_id, 'order_total',true);
+                                    ?>
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
                                      </div>
 
                                      <?php
-                                 }
+                                endwhile; wp_reset_query(); else :  endif;   }
 
                                  ?>
                             </div>
