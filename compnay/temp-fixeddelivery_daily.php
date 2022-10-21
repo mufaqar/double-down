@@ -169,7 +169,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
-                                     $the_date = $dt->format('m-d-Y');
+                                     $the_date = $dt->format('Y-m-d');
                                      ?>
                                       <div class="d-flex align-items-center">
                                         <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?>>

@@ -33,8 +33,7 @@ include 'navigation.php';?>
                                         <div class="row">
                                         <div class="col-lg-12 mx-auto mb-5">
                                                     <?php
-$current_week = date("W-m-y");
-$current_year = date("Y");
+$tomorrow = date("Y-m-d", strtotime('today'));
 global $current_user;
 wp_get_current_user();
 $query_meta = array(
@@ -46,7 +45,7 @@ $query_meta = array(
         'relation' => 'AND',
         array(
             'key' => 'order_type',
-            'value' => 'Weekly',
+            'value' => 'Fixed Delivery',
             'compare' => '=',
         ),
         array(
@@ -55,8 +54,8 @@ $query_meta = array(
             'compare' => '=',
         ),
         array(
-            'key' => 'order_week',
-            'value' => $current_week,
+            'key' => 'order_day',
+            'value' => $tomorrow,
             'compare' => '=',
         ),
         array(

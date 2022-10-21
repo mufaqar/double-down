@@ -331,10 +331,11 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
                                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                                         data: {
                                             action: "dailyfood",
-                                            date : date,
+                                            day : date,
                                             menu_items : menu_items,   
                                             weekid : weekid,
                                             usertype : "Company",  
+                                            order_type : "Day",  
                                             uid : uid           
                                         
                                         },   

@@ -421,10 +421,11 @@ jQuery(document).ready(function($)
                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
                    data: {
                        action: "dailyfood",
-                       date : date,
+                       day : date,
                        menu_items : menu_items,
                        weekid : weekid,
                        usertype : "Personal",
+                       order_type : "Day",
                        uid : uid,
 
                    },
