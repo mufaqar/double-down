@@ -1,28 +1,14 @@
     <?php /* Template Name: Admin-OrderHandling  */
+        get_header('admin');    ?>    	
 
-
-
-    get_header('admin');
-
-   
-  
-
-
-
-    ?>
-    	
-	
-</head>
     <?php include('navigation.php'); ?>
-    <div class="admin_parrent">
-       
+    <div class="admin_parrent">       
         <section id="div1" class="targetDiv activediv tablediv">
                 <table id="all" class="table table-striped orders_table" style="width:100%">
                 <?php include('partials/daily-orders.php'); ?>
                 </table>
-
+            <a target="_blank" data-id="<?php echo $pid;?>" href="<?php echo home_url('pdf-all'); ?>/?order_id=<?php echo $pid;?>" class="download_pdf btn_primary">Download All Food</a> 
             </section>
-
     </div>
     
     

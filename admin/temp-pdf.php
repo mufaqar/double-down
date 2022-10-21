@@ -3,8 +3,6 @@
 
 
 
-
-
 global $wpdb;	
 $orderid = $_REQUEST['order_id'];	
 $order_uid = get_post_meta($orderid, 'order_uid', true);
