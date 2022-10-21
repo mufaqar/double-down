@@ -32,7 +32,7 @@
                                 <tr>
                                     <td><?php echo $i ?></td>
                                     <td><?php the_title() ?></td>
-                                    <td><?php the_date('Y-m-d');?></td>    
+                                    <td><?php echo get_post_meta( get_the_ID(), 'order_day', true );	;?></td>    
                                     <td><?php echo $user_info->user_login ?></td>  
                                     <td>
                                         <ul>
@@ -43,8 +43,6 @@
                                         ?>
 
                                             <li>
-                                                <h5><strong><?php echo $index ?></h5>
-                                              
                                               
                                                 <?php   foreach($food as $key => $ky_item) { 	?>
                                                     <p>
