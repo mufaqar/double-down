@@ -28,73 +28,83 @@ $weeksid = $date->format("W-m-y");
                                     </div>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                                    <?php if ($query_date != '') {
-    $query_order = array(
-        'post_type' => 'orders',
-        'posts_per_page' => -1,
-        'order' => 'desc',
-        'meta_query' => array(
-            'relation' => 'AND',
-            array(
-                'key' => 'order_day',
-                'value' => $query_date,
-                'compare' => '=',
-            ),
-            array(
-                'key' => 'user_type',
-                'value' => 'Personal',
-                'compare' => '=',
-            ),
-        ),
-    );
+                                                $query_order = array(
+                                                    'post_type' => 'orders',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',
+                                                    'meta_query' => array(
+                                                        'relation' => 'AND',
+                                                        array(
+                                                            'key' => 'order_day',
+                                                            'value' => $query_date,
+                                                            'compare' => '=',
+                                                        ),
+                                                        array(
+                                                            'key' => 'user_type',
+                                                            'value' => 'Personal',
+                                                            'compare' => '=',
+                                                        ),
+                                                        array(
+                                                            'key' => 'order_type',
+                                                            'value' => 'Day',
+                                                            'compare' => '=',
+                                                        ),
+                                                    ),
+                                                );
 
-} else {
+                                            } else {
 
-    $current_date = date("Y-m-d");
-    $query_order = array(
-        'post_type' => 'orders',
-        'posts_per_page' => -1,
-        'order' => 'desc',
-        'meta_query' => array(
-            'relation' => 'AND',
-            array(
-                'key' => 'order_day',
-                'value' => $current_date,
-                'compare' => '=',
-            ),
-            array(
-                'key' => 'user_type',
-                'value' => 'Personal',
-                'compare' => '=',
-            ),
-        ),
-    );
+                                                $current_date = date("Y-m-d");
+                                                $query_order = array(
+                                                    'post_type' => 'orders',
+                                                    'posts_per_page' => 1,
+                                                    'order' => 'desc',
+                                                    'meta_query' => array(
+                                                        'relation' => 'AND',
+                                                        array(
+                                                            'key' => 'order_day',
+                                                            'value' => $current_date,
+                                                            'compare' => '=',
+                                                        ),
+                                                        array(
+                                                            'key' => 'user_type',
+                                                            'value' => 'Personal',
+                                                            'compare' => '=',
+                                                        ),
+                                                        array(
+                                                            'key' => 'order_type',
+                                                            'value' => 'Day',
+                                                            'compare' => '=',
+                                                        ),
+                                                    ),
+                                                );
 
-}
-$postData = new WP_Query($query_order);
-if ($postData->have_posts()): while ($postData->have_posts()): $postData->the_post();
+                                            }
+                                        $postData = new WP_Query($query_order);
+                                        if ($postData->have_posts()): while ($postData->have_posts()): $postData->the_post();
 
-        $post_id = get_the_ID();
+                                                $post_id = get_the_ID();
 
-        $food_order = get_post_meta(get_the_ID(), 'food_order', true);
-        $luchbox = array();
-        $add = array();
+                                                $food_order = get_post_meta(get_the_ID(), 'food_order', true);
+                                                $luchbox = array();
+                                                $add = array();
 
-        foreach ($food_order as $order) {
-            foreach ($order as $pro_id => $pro_qty) {
-                if (has_term('lunch-boxes', 'menu_types', $pro_id)) {
-                    $luchbox[] = $pro_qty;
-                }
-                if (has_term('additionals', 'menu_types', $pro_id)) {
-                    $add[] = $pro_qty;
-                }
-            }
+                                                foreach ($food_order as $order) {
+                                                    foreach ($order as $pro_id => $pro_qty) {
+                                                        if (has_term('lunch-boxes', 'menu_types', $pro_id)) {
+                                                            $luchbox[] = $pro_qty;
+                                                        }
+                                                        if (has_term('additionals', 'menu_types', $pro_id)) {
+                                                            $add[] = $pro_qty;
+                                                        }
+                                                    }
 
-        }
+                                                }
 
-        $total_boxes = array_sum($luchbox);
-        $total_add = array_sum($add);
+                                                $total_boxes = array_sum($luchbox);
+                                                $total_add = array_sum($add);
 
-        ?>
+                                                ?>
 
 				                                        <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?> NOK </p>
 
@@ -123,46 +133,46 @@ if ($postData->have_posts()): while ($postData->have_posts()): $postData->the_po
                                     <div class="catering_card_wrapper">
                                     <?php
 
-if ($query_date != '') {
-    $query_meta = array(
-        'post_type' => 'menu_items',
-        'posts_per_page' => -1,
-        'order' => 'desc',
-        'meta_query' => array(
-            array(
-                'key' => 'date',
-                'value' => $query_date,
-                'compare' => 'LIKE',
-                'type' => 'DATE',
-            ),
-        ),
-    );
+                                        if ($query_date != '') {
+                                            $query_meta = array(
+                                                'post_type' => 'menu_items',
+                                                'posts_per_page' => -1,
+                                                'order' => 'desc',
+                                                'meta_query' => array(
+                                                    array(
+                                                        'key' => 'date',
+                                                        'value' => $query_date,
+                                                        'compare' => 'LIKE',
+                                                        'type' => 'DATE',
+                                                    ),
+                                                ),
+                                            );
 
-} else {
+                                        } else {
 
-    $current_date = date("Y-m-d");
-    $query_meta = array(
-        'post_type' => 'menu_items',
-        'posts_per_page' => -1,
-        'order' => 'desc',
-        'menu_types' => 'lunch-boxes',
-        'meta_query' => array(
-            array(
-                'key' => 'date',
-                'value' => $current_date,
-                'compare' => 'LIKE',
-                'type' => 'DATE',
-            ),
-        ),
-    );
+                                            $current_date = date("Y-m-d");
+                                            $query_meta = array(
+                                                'post_type' => 'menu_items',
+                                                'posts_per_page' => -1,
+                                                'order' => 'desc',
+                                                'menu_types' => 'lunch-boxes',
+                                                'meta_query' => array(
+                                                    array(
+                                                        'key' => 'date',
+                                                        'value' => $current_date,
+                                                        'compare' => 'LIKE',
+                                                        'type' => 'DATE',
+                                                    ),
+                                                ),
+                                            );
 
-}
+                                        }
 
-$postinweek = new WP_Query($query_meta);
-if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
-        $pid = get_the_ID();
-        $menu_price = get_post_meta(get_the_ID(), 'menu_item_price', true);
-        $vat = $menu_price / 100 * 15;?>
+                                        $postinweek = new WP_Query($query_meta);
+                                        if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
+                                                $pid = get_the_ID();
+                                                $menu_price = get_post_meta(get_the_ID(), 'menu_item_price', true);
+                                                $vat = $menu_price / 100 * 15;?>
 
 
 				                                            <div class="catering_card _pro_salat">
@@ -200,7 +210,7 @@ if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->
 				                                            </div>
 
 				                                            <?php endwhile;
-    wp_reset_query();else: ?>
+                                                                wp_reset_query();else: ?>
                                                 <div class="_pro_card">
                                                                 <h3>Sorry no food added yet</h3>
                                                                 <p> We did't added menu for this day yet! </p>
@@ -236,16 +246,15 @@ if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->
                                         <div class="d-flex justify-content-between mt-5 mb-4 accessories">
                                             <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
                                         </div>
-
                                         <div class="product_wrapper row mb-4">
                                             <?php query_posts(array(
-    'post_type' => 'menu_items',
-    'posts_per_page' => -1,
-    'order' => 'desc',
-    'menu_types' => 'additionals',
-));
-if (have_posts()): while (have_posts()): the_post();
-        $pid = get_the_ID();?>
+                                                    'post_type' => 'menu_items',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',
+                                                    'menu_types' => 'additionals',
+                                                        ));
+                                                        if (have_posts()): while (have_posts()): the_post();
+                                                                $pid = get_the_ID();?>
 
 				                                                    <div class="col-md-6 col-lg-4 mt-4">
 				                                                        <div class="product_card p-4">
@@ -268,7 +277,7 @@ if (have_posts()): while (have_posts()): the_post();
 				                                                    </div>
 
 				                                            <?php endwhile;
-    wp_reset_query();else: ?>
+                                                        wp_reset_query();else: ?>
                                             <h2><?php _e('Nothing Found', 'lbt_translate');?></h2>
                                             <?php endif;?>
 
@@ -336,24 +345,13 @@ if (have_posts()): while (have_posts()): the_post();
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/reources/js/calender.js"></script>
-
-
-
-
 <script type="text/javascript">
-
-
-
 jQuery(document).ready(function($)
    {
 
        $('#date').change(function() {
            $(this).closest('form').submit();
        });
-
-
-
-
        $('#date-datepicker div').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
@@ -362,14 +360,11 @@ jQuery(document).ready(function($)
             startDate: '1d',
             weekStart : 1,
             beforeShowDay: function(date) {
-            var hilightedDays = [10,18,20,26];
-            if (~hilightedDays.indexOf(date.getDate())) {
-              //  return {classes: 'highlight', tooltip: 'Order'};
-            }
-    }
-
-
-
+                var hilightedDays = [10,18,20,26];
+                if (~hilightedDays.indexOf(date.getDate())) {
+                //  return {classes: 'highlight', tooltip: 'Order'};
+                }
+             }
         });
         $("#date-datepicker div").on("changeDate", function(event) {
             $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
@@ -377,11 +372,7 @@ jQuery(document).ready(function($)
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
            $("#dateform").submit();
-
-
-
         });
-
 
        $('._cross').click(function(){
 
@@ -408,40 +399,34 @@ jQuery(document).ready(function($)
             // alert(newdata[0]);
             var menu_items = newdata[0];
             console.log(menu_items);
+            var menu_items = menu_items;
+            $.ajax(
+                {
+                    type:"POST",
+                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
+                    data: {
+                        action: "dailyfood",
+                        day : date,
+                        menu_items : menu_items,
+                        weekid : weekid,
+                        usertype : "Personal",
+                        order_type : "Day",
+                        uid : uid,
 
+                    },
+                    success: function(data){
 
-           var menu_items = menu_items;
+                        if(data.code==0) {
+                                    alert(data.message);
+                        }
+                        else {
+                                $(".alertmessage").css("display", "flex");
+                                $('.alertmessage').delay(1500).fadeOut();
+                                location.reload();
+                        }
+                }
 
-
-
-
-           $.ajax(
-               {
-                   type:"POST",
-                   url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                   data: {
-                       action: "dailyfood",
-                       day : date,
-                       menu_items : menu_items,
-                       weekid : weekid,
-                       usertype : "Personal",
-                       order_type : "Day",
-                       uid : uid,
-
-                   },
-                   success: function(data){
-
-                       if(data.code==0) {
-                                   alert(data.message);
-                       }
-                       else {
-                            $(".alertmessage").css("display", "flex");
-                            $('.alertmessage').delay(1500).fadeOut();
-                            location.reload();
-                       }
-               }
-
-           });
+            });
        });
 
 
