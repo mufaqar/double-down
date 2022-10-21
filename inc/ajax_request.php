@@ -1341,7 +1341,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 
 												?> 
 														<tr>
-																<td><strong><?php the_title() ?></strong></td>
+																<td><strong><?php the_title() ?></strong><br/> <?php echo $order_type ?></td>
 																<td><?php   foreach($food as $key => $ky_item) { 	?>
 																<p>  <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?> NOK <?php $price = get_post_meta( $key, 'menu_item_price', true ); 
 																		echo $price   ?> </p>                                                                                                                        
