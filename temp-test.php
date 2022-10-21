@@ -2,20 +2,23 @@
 get_header('landing');
 
 
+$order_days = get_dates_of_month('10',22);
 
 
-$weeks= date("W-m-y"); 
+
+
 $i = 0;
+
+
 query_posts(array(
 	'post_type' => 'orders',
 	'posts_per_page' => -1,
 	'order' => 'desc',
 	'meta_query' => array(   
 			array(
-				'key'     => 'food_order',
-			
-            'value' => array ( 'Monday', 'community' ),
-            'compare' => 'IN'
+				'key'     => 'order_day',			
+				'value' => $order_days,
+				'compare' => 'IN'
 			)
 	)   
 ));

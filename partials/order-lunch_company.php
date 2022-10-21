@@ -80,16 +80,16 @@
 
                                                $lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
                                                $lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
-                                               $fixed_total = $order_total-$lunch_benefit;
-                                               $order_total_price =  $order_total * $company_days  * $total_emp ;
-                                                $fix_remaing =  $fixed_total * $company_days  * $total_emp ;
-                                                if($lunch_benfit_type == '%')
-                                                {
-                                                    $company_pay = $lunch_benefit /100 * $order_total_price;
-                                                }
-                                                else{
-                                                    $company_pay = $order_total_price - $fix_remaing;
-                                                }
+                                            //    $fixed_total = $order_total-$lunch_benefit;
+                                            //    $order_total_price =  $order_total * $company_days  * $total_emp ;
+                                            //     $fix_remaing =  $fixed_total * $company_days  * $total_emp ;
+                                            //     if($lunch_benfit_type == '%')
+                                            //     {
+                                            //         $company_pay = $lunch_benefit /100 * $order_total_price;
+                                            //     }
+                                            //     else{
+                                            //         $company_pay = $order_total_price - $fix_remaing;
+                                            //     }
 
                                           
 

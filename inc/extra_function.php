@@ -394,5 +394,18 @@ function my_get_current_user_roles() {
         
         
         }
-  
+
+        function get_dates_of_month($month, $year) {
+            $order_days=array();
+            $month = $month;
+            $year = $year;
+            for($d=1; $d<=31; $d++)
+            {
+                $time=mktime(12, 0, 0, $month, $d, $year);          
+                if (date('m', $time)==$month)       
+                    $order_days[]=date('Y-m-d', $time);
+            }
+
+            return $order_days;
+}
   

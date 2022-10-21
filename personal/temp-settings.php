@@ -318,7 +318,8 @@ foreach ($allergies_tax as $allergy) {
                                             <th scope="col">ID</th>
                                             <th scope="col">Week</th>
                                             <th scope="col">Type</th>
-                                            <th scope="col">Price</th>
+                                            <th scope="col">Day</th>
+                                            <!-- <th scope="col">Price</th> -->
                                             <th scope="col">Action</th>
                                             <th scope="col">Details</th>
                                         </tr>
@@ -326,47 +327,45 @@ foreach ($allergies_tax as $allergy) {
                                         <tbody>
 
                                             <?php
-global $current_user;
-wp_get_current_user();
-query_posts(array(
-    'post_type' => 'orders',
-    'posts_per_page' => -1,
-    'order' => 'desc',
+                                                global $current_user;
+                                                wp_get_current_user();
+                                                query_posts(array(
+                                                    'post_type' => 'orders',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',
 
-    'meta_query' => array(
+                                                    'meta_query' => array(
 
-        'relation' => 'AND',
+                                                        'relation' => 'AND',
 
-        array(
-            'key' => 'user_type',
-            'value' => 'Personal',
-            'compare' => '=',
+                                                        array(
+                                                            'key' => 'user_type',
+                                                            'value' => 'Personal',
+                                                            'compare' => '=',
 
-        ),
-        array(
-            'key' => 'order_uid',
-            'value' => $current_user->ID,
-            'compare' => '=',
-        ),
-    ),
+                                                        ),
+                                                        array(
+                                                            'key' => 'order_uid',
+                                                            'value' => $current_user->ID,
+                                                            'compare' => '=',
+                                                        ),
+                                                    ),
 
-));
+                                                ));
 
-if (have_posts()): while (have_posts()): the_post();?>
-																																																																		                                                                    <tr>
-																																																																		                                                                            <td scope="row"><?php the_title()?></td>
-																																																																		                                                                            <td><?php echo get_post_meta(get_the_ID(), 'order_week', true); ?>   </td>
-																																																																		                                                                            <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?>
-																																																																		                                                                            <?php if ((get_post_meta(get_the_ID(), "order_day", true))) {?>
-																																																																		                                                                                ( <?php echo get_post_meta(get_the_ID(), 'order_day', true); ?> )
-																																																																		                                                                                <?php }?>
-																																																																		                                                                        </td>
-																																																																		                                                                            <td><?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
-																																																																		                                                                            <td><button data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
-																																																																		                                                                           <td><button id="" data-id="<?php echo get_the_ID() ?>" class="btn_primary checkout-button">Checkout</button></td>
-																																																																		                                                                            </tr>
-																																																																		                                                <?php endwhile;
-    wp_reset_query();else: ?>
+                                                if (have_posts()): while (have_posts()): the_post();?>
+                                                <tr>
+                                                <td scope="row"><?php the_title()?></td>
+                                                <td><?php echo get_post_meta(get_the_ID(), 'order_week', true); ?>   </td>
+                                                <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
+
+                                                <td><?php echo get_post_meta(get_the_ID(), 'order_day', true); ?></td>
+
+                                                <td><button data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
+                                                <td><button id="" data-id="<?php echo get_the_ID() ?>" class="btn_primary checkout-button">Checkout</button></td>
+                                                </tr>
+                                                <?php endwhile;
+                                                    wp_reset_query();else: ?>
                                                     <tr>  <td colspan="6"><?php _e('No Invoice  Found', 'lbt_translate');?></td></tr>
                                                     <?php endif;?>
                                         </tbody>
