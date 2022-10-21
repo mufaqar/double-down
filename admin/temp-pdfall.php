@@ -9,8 +9,8 @@ $order_uid = get_post_meta($orderid, 'order_uid', true);
 $user_info = get_userdata($order_uid); 
 $compnay_name = get_user_meta($order_uid, 'compnay_name', true);               
 $food_items =  get_post_meta( $orderid, 'food_order', true );	
-$compnay_address =  get_user_meta( $order_uid, 'compnay_delivery_address', true );	
 
+$today = date("Y-m-d", strtotime('today'));
 
 ob_start();
 
@@ -28,12 +28,12 @@ $pdf->Cell(59 ,5,$order_week,0,1);
 
 
 $pdf->Cell(130 ,5,'',0,0);
-$pdf->Cell(25 ,5,'Order Id:',0,0);
-$pdf->Cell(34 ,5,$orderid,0,1);
+$pdf->Cell(25 ,5,'Date:',0,0);
+$pdf->Cell(34 ,5,$today,0,1);
 
 
 $pdf->SetFont('Arial','B',20);
-$pdf->Cell(130 ,5,'Food Summary',0,0);
+$pdf->Cell(130 ,5,'Food  Summary',0,0);
 $pdf->Cell(59 ,5,'',0,0);
 $pdf->SetFont('Arial','B',10);
 $pdf->Cell(189 ,10,'',0,1);
@@ -44,7 +44,7 @@ $pdf->Cell(189 ,10,'',0,1);
 /*Heading Of the table end*/
 $pdf->SetFont('Arial','',10);
 
-$today = date("Y-m-d", strtotime('today'));
+
 
 		$user_arr = array();
 		$i = 0;
@@ -75,12 +75,20 @@ $today = date("Y-m-d", strtotime('today'));
 
 
 			$company_name = 	get_user_meta($company, 'compnay_name', true );
+			$compnay_address =  get_user_meta( $company, 'compnay_delivery_address', true );	
 				
 			$pdf->SetFont('Arial','B',20);
 			$pdf->Cell(130 ,5,$company_name,0,0);
 			$pdf->Cell(59 ,5,'',0,0);
 			$pdf->SetFont('Arial','B',10);
 			$pdf->Cell(189 ,10,'',0,1);
+			
+
+			$pdf->SetFont('Arial','B',15);
+			$pdf->Cell(130 ,5,$compnay_address,0,0);
+			$pdf->Cell(59 ,5,'',0,0);
+			$pdf->SetFont('Arial','B',10);
+			$pdf->Cell(50 ,10,'',0,1);
 
 
 			$pdf->SetFont('Arial','B',10);
@@ -114,12 +122,9 @@ $today = date("Y-m-d", strtotime('today'));
 				)); 
 				if (have_posts()) :  while (have_posts()) : the_post(); 
 
-				$pid = get_the_ID();
-
-				
+				$pid = get_the_ID();				
 
 				$food_orderd_data = get_post_meta($pid, 'food_order', true);
-
 					foreach($food_orderd_data as $index => $food) {
 						$item_price_arr = array();
 						$i = 1 ;
@@ -133,12 +138,15 @@ $today = date("Y-m-d", strtotime('today'));
 							$pdf->Cell(23 ,6,$ky_item,1,0,'R');
 							$pdf->Cell(30 ,6,$price,1,0,'R');
 							$pdf->Cell(20 ,6,$item_vat,1,0,'R');
-							$pdf->Cell(25 ,6,$item_total,1,1,'R');
+							$pdf->Cell(25 ,6,$item_total,1,1,'R');							
 							$i++; 
 						}
+						$pdf->Ln();
+						
 				}
 			
 				endwhile; wp_reset_query(); else : endif; 
+			
 
 		}
 
