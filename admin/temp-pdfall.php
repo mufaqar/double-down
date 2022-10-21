@@ -18,21 +18,20 @@ require( get_stylesheet_directory() . '/fpdf/fpdf.php');
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();	
 $pdf->SetFont('Arial','B',20);
-
-$pdf->SetFont('Arial','B',15);
 $pdf->Cell(71 ,5,'Order Details',0,0);
 $pdf->Cell(59 ,5,'',0,0);
 $pdf->Cell(59 ,5,$order_week,0,1);
 
 
 
-
+$pdf->SetFont('Arial','B',12);
 $pdf->Cell(130 ,5,'',0,0);
 $pdf->Cell(25 ,5,'Date:',0,0);
 $pdf->Cell(34 ,5,$today,0,1);
+$pdf->Ln();
 
 
-$pdf->SetFont('Arial','B',20);
+$pdf->SetFont('Arial','B',16);
 $pdf->Cell(130 ,5,'Food  Summary',0,0);
 $pdf->Cell(59 ,5,'',0,0);
 $pdf->SetFont('Arial','B',10);
@@ -40,9 +39,6 @@ $pdf->Cell(189 ,10,'',0,1);
 
 
 
-
-/*Heading Of the table end*/
-$pdf->SetFont('Arial','',10);
 
 
 
@@ -77,21 +73,21 @@ $pdf->SetFont('Arial','',10);
 			$company_name = 	get_user_meta($company, 'compnay_name', true );
 			$compnay_address =  get_user_meta( $company, 'compnay_delivery_address', true );	
 				
-			$pdf->SetFont('Arial','B',20);
+			$pdf->SetFont('Arial','B',15);
 			$pdf->Cell(130 ,5,$company_name,0,0);
 			$pdf->Cell(59 ,5,'',0,0);
 			$pdf->SetFont('Arial','B',10);
 			$pdf->Cell(189 ,10,'',0,1);
 			
 
-			$pdf->SetFont('Arial','B',15);
+			$pdf->SetFont('Arial','B',12);
 			$pdf->Cell(130 ,5,$compnay_address,0,0);
 			$pdf->Cell(59 ,5,'',0,0);
 			$pdf->SetFont('Arial','B',10);
 			$pdf->Cell(50 ,10,'',0,1);
 
 
-			$pdf->SetFont('Arial','B',10);
+			$pdf->SetFont('Arial','',10);
 				/*Heading Of the table*/
 				$pdf->Cell(10 ,6,'Sr',1,0,'C');
 				$pdf->Cell(80 ,6,'Food Item',1,0,'C');
