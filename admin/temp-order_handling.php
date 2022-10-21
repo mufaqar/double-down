@@ -23,18 +23,13 @@
                             <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
                             <h2 class="mb-5 mt-5"><div class="res">Load Ajax Data</div></h2>
-
                         </div>
                     </div>
-
                 </div>
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
         </div>
-    </section>
-
-
-    
+    </section>    
     <section class="hideme  overlay invoice_detail_popup">                                               
             <div class="popup">
                 <div class="popup_wrapper">
@@ -43,9 +38,6 @@
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
                 </div>                
     </section>
-
-   
-
     
 
     
