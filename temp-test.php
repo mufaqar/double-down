@@ -17,7 +17,7 @@ query_posts(array(
 	'meta_query' => array(   
 			array(
 				'key'     => 'order_day',			
-				'value' => $order_days,
+				'value' => array('2022-10-21'),
 				'compare' => 'IN'
 			)
 	)   

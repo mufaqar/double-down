@@ -16,7 +16,7 @@ else
 
 $tomorrow = date("Y-m-d", strtotime('today'));
 
-echo $tomorrow;
+$order_days = get_dates_of_month('10',22);
 
 ?>
                 
@@ -34,7 +34,7 @@ echo $tomorrow;
                     </thead>
                     <tbody>
                     <?php 
-                        $weeks= date("W-m-y"); 
+                 
                         $i = 0;
                         query_posts(array(
                             'post_type' => 'orders',
@@ -42,13 +42,15 @@ echo $tomorrow;
                             'order' => 'desc',
                             'meta_query' => array(   
                                     array(
-                                        'key'   => 'order_day',
-                                        'value' => $tomorrow,
+                                        'key'     => 'order_day',			
+                                        'value' => $order_days,
                                         'compare' => 'IN'
                                     )
                             )   
                         ));
+                        
                         if (have_posts()) :  while (have_posts()) : the_post();
+                        
                                 $pid = get_the_ID();
                                 $order_uid = get_post_meta(get_the_ID(), 'order_uid', true);
                                 $user_info = get_userdata($order_uid);                    
