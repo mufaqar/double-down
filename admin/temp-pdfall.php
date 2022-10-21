@@ -130,7 +130,7 @@ $pdf->Cell(189 ,10,'',0,1);
 							$item_total = ($price+$item_vat)*$ky_item;	
 							$item_price_arr[] = $item_total;
 							$pdf->Cell(10 ,6,$i,1,0);
-							$pdf->Cell(80 ,6, get_the_title($key),1,0);
+							$pdf->Cell(80 ,6, strip_tags(get_the_title($key)),1,0);
 							$pdf->Cell(23 ,6,$ky_item,1,0,'R');
 							$pdf->Cell(30 ,6,$price,1,0,'R');
 							$pdf->Cell(20 ,6,$item_vat,1,0,'R');
