@@ -14,6 +14,8 @@ else
     $query_week = $query_week;
 }
 
+$tomorrow = date("Y-m-d", strtotime('today'));
+
 ?>
                 
                 <thead>
@@ -38,8 +40,8 @@ else
                             'order' => 'desc',
                             'meta_query' => array(   
                                     array(
-                                        'key'     => 'order_week',
-                                        'value' => $query_week,
+                                        'key'     => 'order_day',
+                                        'value' => $tomorrow,
                                         'compare' => 'IN'
                                     )
                             )   
@@ -56,10 +58,10 @@ else
                                 $i++; ?>
                                 <tr>
                                     <td><?php echo $i ?></td>
-                                    <td><?php the_title() ?></td>                                   
+                                    <td><?php the_title() ?><br/><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>                                   
                                     <td><?php echo $user_info->user_login ?></td> 
                                     <td><?php echo $compnay_delivery_address ?></td>  
-                                    <td><?php the_date('Y-m-d');?></td> 
+                                    <td><?php echo get_post_meta(get_the_ID(), 'order_day', true); ?></td>
                                     <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
                                                               
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>

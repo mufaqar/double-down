@@ -16,31 +16,9 @@
     <?php include('navigation.php'); ?>
     <div class="admin_parrent">
        
-        <div class="calender_wrapper d-md-flex justify-content-between align-items-center mt-5">
-                            <h2>This week's Orders   <?php  echo $query_week; ?></h2>
-                            <div class="calender week_calender">
-                                    <form action="" method="GET" id="weekform">                                      
-                                        <input type="text" id="weekPicker1" name="week" value="" >
-                                        <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                                    </form>
-                            </div> 
-        </div>
-<!-- 
-        <div class="toggle_btn">
-            <div class="row ">
-                <div class="catering_wrapper mt-5 mb-2 col-md-8 p-0">
-                    <div class="catering_menu buttons">
-                        <a id="1" class="showSingle _active" target="1" data="">All Users</a>
-                        <a id="2" class="showSingle" target="2" data="personal">Personal Profile</a>
-                        <a id="2" class="showSingle" target="2" data="Company">All Companies</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-       
         <section id="div1" class="targetDiv activediv tablediv">
                 <table id="all" class="table table-striped orders_table" style="width:100%">
-                <?php include('partials/weekly-orders.php'); ?>
+                <?php include('partials/daily-orders.php'); ?>
                 </table>
 
             </section>
