@@ -174,7 +174,7 @@
 						$pdf->Ln(5);
 
 						$pdf->SetFont('Arial','B',15);
-						$pdf->Cell(130 ,5,'Allengies By Employees',0,0);
+						$pdf->Cell(130 ,5,'Allergies By Employees',0,0);
 						$pdf->Cell(59 ,5,'',0,0);
 						$pdf->SetFont('Arial','B',10);
 						$pdf->Cell(189 ,10,'',0,1);
