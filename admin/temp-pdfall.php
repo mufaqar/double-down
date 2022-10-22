@@ -168,17 +168,24 @@
 							$i++; 
 						}
 
-						$pdf->SetFont('Arial','B',15);
+						
+
+						
+						$pdf->Ln(5);
+						
+						
+				}
+
+				
+			
+				endwhile; wp_reset_query(); else : endif; 
+
+
+				$pdf->SetFont('Arial','B',15);
 						$pdf->Cell(130 ,5,'Allengies By Employees',0,0);
 						$pdf->Cell(59 ,5,'',0,0);
 						$pdf->SetFont('Arial','B',10);
 						$pdf->Cell(189 ,10,'',0,1);
-
-						
-						$pdf->Ln();
-						
-						
-				}
 
 				foreach ($available_active_employee as $employee) {
 					$emp_id = $employee->ID;
@@ -200,8 +207,8 @@
 					 }
 	
 				}
-			
-				endwhile; wp_reset_query(); else : endif; 
+
+				$pdf->Ln(20);
 			
 
 		}
