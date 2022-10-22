@@ -10,6 +10,7 @@
 		$compnay_name = get_user_meta($order_uid, 'compnay_name', true);               
 		$food_items =  get_post_meta( $orderid, 'food_order', true );
 		$today = date("Y-m-d", strtotime('today'));
+		$today = "2022-10-21";
 		ob_start();
 		require( get_stylesheet_directory() . '/fpdf/fpdf.php');
 		
