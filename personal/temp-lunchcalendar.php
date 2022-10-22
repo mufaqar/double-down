@@ -15,6 +15,9 @@ if ($query_date != '' && $cal_date == '') {
 $date = new DateTime($today_date);
 $weeksid = $date->format("W-m-y");
 
+global $current_user;
+wp_get_current_user(); 
+
 ?><?php include 'navigation.php';?>
 
 <div class="tab_wrapper">
@@ -49,6 +52,11 @@ $weeksid = $date->format("W-m-y");
                                                             'value' => 'Day',
                                                             'compare' => '=',
                                                         ),
+                                                        array(
+                                                            'key' => 'order_uid',
+                                                            'value' => $uid,
+                                                            'compare' => '=',
+                                                        ),
                                                     ),
                                                 );
 
@@ -74,6 +82,11 @@ $weeksid = $date->format("W-m-y");
                                                         array(
                                                             'key' => 'order_type',
                                                             'value' => 'Day',
+                                                            'compare' => '=',
+                                                        ),
+                                                        array(
+                                                            'key' => 'order_uid',
+                                                            'value' => $uid,
                                                             'compare' => '=',
                                                         ),
                                                     ),
