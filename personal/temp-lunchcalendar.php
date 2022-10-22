@@ -18,7 +18,7 @@ $weeksid = $date->format("W-m-y");
 ?><?php include 'navigation.php';?>
 
 <div class="tab_wrapper">
-<?php page_title();?>
+<?php page_title(); ?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
@@ -117,9 +117,9 @@ $weeksid = $date->format("W-m-y");
                                                 <form action="" method="POST" id="dateform">
                                                 <input type="hidden" id="send" name="send" />
                                                      <input type="date"  min="<?php echo date("Y-m-d"); ?>"  name="date" value="<?php if ($query_date == '') {echo date("Y-m-d");} else {
-    echo $query_date;
-}
-?>" id="date">
+                                                            echo $today_date;
+                                                        }
+                                                        ?>" id="date">
                                                 </form>
                                             </div>
 
