@@ -178,7 +178,7 @@
 
 				
 			
-				endwhile; wp_reset_query(); else : endif; 
+				endwhile;
 
 
 				$pdf->SetFont('Arial','B',15);
@@ -209,6 +209,13 @@
 				}
 
 				$pdf->Ln(20);
+				
+				
+				
+				wp_reset_query(); else : endif; 
+
+
+				
 			
 
 		}
