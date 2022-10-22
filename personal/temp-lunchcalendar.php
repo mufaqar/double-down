@@ -302,6 +302,55 @@ $weeksid = $date->format("W-m-y");
 
                 </div>
             </div>
+
+            <?php $query_date_order = array(
+                'post_type' => 'orders',
+                'posts_per_page' => -1,
+                'order' => 'desc',
+                'meta_query' => array(
+                    'relation' => 'AND',
+                
+                    array(
+                        'key' => 'user_type',
+                        'value' => 'Personal',
+                        'compare' => '=',
+                    ),
+                    array(
+                        'key' => 'order_type',
+                        'value' => 'Day',
+                        'compare' => '=',
+                    ),
+                ),
+            );
+
+            $daily_order_dates = array();
+
+            $date_Data = new WP_Query($query_date_order);
+            if ($date_Data->have_posts()): while ($date_Data->have_posts()): $date_Data->the_post();
+
+            $pid = get_the_ID();
+            $order_day = get_post_meta(get_the_ID(), 'order_day', true);
+            $timestamp = strtotime($order_day);
+            $day = date('d', $timestamp);
+            $daily_order_dates[] = $day;
+        
+
+            endwhile;wp_reset_query();else:  endif;  
+            
+            foreach($daily_order_dates as $daily_date)
+            {
+                $daily_dates =  $daily_date;
+            }
+
+           
+           
+          
+
+          
+            ?>
+
+
+
         </div>
     </main>
 
@@ -341,6 +390,11 @@ $weeksid = $date->format("W-m-y");
 </style>
 
 
+
+
+
+
+
 <?php get_footer()?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -360,9 +414,15 @@ jQuery(document).ready(function($)
             startDate: '1d',
             weekStart : 1,
             beforeShowDay: function(date) {
-                var hilightedDays = [21,24,20,26];
+                             var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
+                                {
+                                    
+                                    echo $s . $daily_date;
+                                    $s = ', ';
+                                }
+                            ?> ];
                 if (~hilightedDays.indexOf(date.getDate())) {
-                  // return {classes: 'highlight', tooltip: 'Order'};
+                 return {classes: 'highlight', tooltip: 'Order'};
                 }
              }
         });
