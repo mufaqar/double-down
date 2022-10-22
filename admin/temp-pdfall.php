@@ -174,31 +174,31 @@
 						$pdf->SetFont('Arial','B',10);
 						$pdf->Cell(189 ,10,'',0,1);
 
-						foreach ($available_active_employee as $employee) {
-							$emp_id = $employee->ID;
-							$emp_name = $employee->user_login;
-							$emp_allergies = get_user_meta( $emp_id, 'profile_alergies', true ); 
-							if((get_user_meta($emp_id, "profile_alergies", true))) {
-									$pdf->SetFont('Arial','',13);
-									$pdf->Cell(100,4,$emp_name,0,1,'L');
-									$pdf->Ln(3);								
-									if(!empty($emp_allergies)) {
-										foreach($emp_allergies as $allergy)	{
-											$pdf->SetFont('Arial','',10);
-											$pdf->Cell(100,4,$allergy,0,1,'L');							
-												
-										}
-										$pdf->Ln(10);
-									}	
-
-							 }
-							
-			
-			
-						}
+						
 						$pdf->Ln();
 						
 						
+				}
+
+				foreach ($available_active_employee as $employee) {
+					$emp_id = $employee->ID;
+					$emp_name = $employee->user_login;
+					$emp_allergies = get_user_meta( $emp_id, 'profile_alergies', true ); 
+					if((get_user_meta($emp_id, "profile_alergies", true))) {
+							$pdf->SetFont('Arial','',13);
+							$pdf->Cell(100,4,$emp_name,0,1,'L');
+							$pdf->Ln(3);								
+							if(!empty($emp_allergies)) {
+								foreach($emp_allergies as $allergy)	{
+									$pdf->SetFont('Arial','',10);
+									$pdf->Cell(100,4,$allergy,0,1,'L');							
+										
+								}
+								$pdf->Ln(10);
+							}	
+
+					 }
+	
 				}
 			
 				endwhile; wp_reset_query(); else : endif; 
