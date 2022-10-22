@@ -1,6 +1,8 @@
 <?php /* Template Name: PDF-All */
 //get_header();
 
+
+
 		global $wpdb;	
 		$orderid = $_REQUEST['order_id'];	
 		$order_uid = get_post_meta($orderid, 'order_uid', true);
@@ -10,6 +12,8 @@
 		$today = date("Y-m-d", strtotime('today'));
 		ob_start();
 		require( get_stylesheet_directory() . '/fpdf/fpdf.php');
+		
+
 		$pdf = new FPDF('P','mm','A4');
 		
 		$pdf->AddPage();	
@@ -30,6 +34,10 @@
 		$pdf->Cell(59 ,5,'',0,0);
 		$pdf->SetFont('Arial','B',10);
 		$pdf->Cell(189 ,10,'',0,1);
+
+
+		
+
 
 
 
@@ -66,6 +74,33 @@
 
 			$company_name = 	get_user_meta($company, 'compnay_name', true );
 			$compnay_address =  get_user_meta( $company, 'compnay_delivery_address', true );	
+
+			
+			$available_active_employee = get_users(
+				array(
+					'role' => 'personal',
+					'meta_query' => array(
+						array(
+							'key' => 'employee',
+							'value' => $company,
+							'compare' => '=='
+						),
+						array(
+							'key' => 'status',
+							'value' => 'active',
+							'compare' => '=='
+						)
+					)
+				)
+			);
+
+			
+
+
+			
+				
+
+
 				
 			$pdf->SetFont('Arial','B',15);
 			$pdf->Cell(130 ,5,$company_name,0,0);
@@ -81,7 +116,7 @@
 			$pdf->Cell(50 ,10,'',0,1);
 
 
-			$pdf->SetFont('Arial','',10);
+			   $pdf->SetFont('Arial','',10);
 				/*Heading Of the table*/
 				$pdf->Cell(10 ,6,'Sr',1,0,'C');
 				$pdf->Cell(80 ,6,'Food Item',1,0,'C');
@@ -132,6 +167,56 @@
 							$i++; 
 						}
 						$pdf->Ln();
+
+
+						$pdf->SetFont('Arial','B',15);
+						$pdf->Cell(130 ,5,'Allengies By Employees',0,0);
+						$pdf->Cell(59 ,5,'',0,0);
+						$pdf->SetFont('Arial','B',10);
+						$pdf->Cell(189 ,10,'',0,1);
+
+						foreach ($available_active_employee as $employee) {
+
+							
+
+							$emp_id = $employee->ID;
+							$emp_name = $employee->user_login;
+
+							
+
+							$emp_allergies = get_user_meta( $emp_id, 'profile_alergies', true ); 
+
+
+							if((get_user_meta($emp_id, "profile_alergies", true))) {
+
+								$pdf->SetFont('Arial','',13);
+								$pdf->Cell(100,4,$emp_name,0,1,'L');
+								$pdf->Ln(3);
+
+								
+							if(!empty($emp_allergies)) {
+								
+
+								foreach($emp_allergies as $allergy)
+								{
+									$pdf->SetFont('Arial','',10);
+									$pdf->Cell(100,4,$allergy,0,1,'L');
+									
+										
+								}
+								$pdf->Ln(10);
+							}	
+
+							}
+			
+							
+			
+							
+						
+							
+			
+			
+						}
 						
 				}
 			
