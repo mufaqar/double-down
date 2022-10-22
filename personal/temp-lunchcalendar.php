@@ -33,7 +33,7 @@ wp_get_current_user();
                                    <?php if ($query_date != '') {
                                                 $query_order = array(
                                                     'post_type' => 'orders',
-                                                    'posts_per_page' => -1,
+                                                    'posts_per_page' => 1,
                                                     'order' => 'desc',
                                                     'meta_query' => array(
                                                         'relation' => 'AND',
@@ -95,9 +95,7 @@ wp_get_current_user();
                                             }
                                         $postData = new WP_Query($query_order);
                                         if ($postData->have_posts()): while ($postData->have_posts()): $postData->the_post();
-
                                                 $post_id = get_the_ID();
-
                                                 $food_order = get_post_meta(get_the_ID(), 'food_order', true);
                                                 $luchbox = array();
                                                 $add = array();
