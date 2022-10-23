@@ -111,7 +111,13 @@
                                         'order' => 'desc',
                                         'menu_types' => 'additionals'                                                                     
                                         )); 
-                                        if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID(); ?>
+                                        if (have_posts()) :  while (have_posts()) : the_post();  $pid = get_the_ID();
+                                        $menu_price = get_post_meta(get_the_ID(), 'menu_item_price', true);
+                                        $vat = $menu_price / 100 * 15;
+                                        $menu_price = $menu_price+$vat;
+                                        
+                                        
+                                        ?>
 
                                                 <div class="col-md-6 col-lg-4 mt-4">
                                                     <div class="product_card p-4">
@@ -120,7 +126,7 @@
                                                             } else { ?>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
                                                         <?php } ?>
-                                                        <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
+                                                        <h2><?php the_title(); ?> , NOK <?php echo $menu_price ?> </h2>
                                                         <button  id="<?php echo get_the_ID()?>" class="btn_primary  select_product_btn id<?php echo get_the_ID();?>"
                                                         onmouseover="showCounter(<?php echo get_the_ID();;?>)">Select</button>
                                                         <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo get_the_ID();?>">

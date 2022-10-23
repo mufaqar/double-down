@@ -75,8 +75,6 @@ get_header('company');
                 <div class="d-flex justify-content-between mt-1 mb-4 accessories">
                     <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
                     </div>
-                  
-
                         <div class="week_days">
                             <div class="d-flex justify-content-between flex-wrap">
                                 <?php

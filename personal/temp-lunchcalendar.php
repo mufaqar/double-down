@@ -119,8 +119,7 @@ wp_get_current_user();
 
 				                                  <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?> NOK </p>
 
-				                                        <?php endwhile;
-    wp_reset_query();else: ?>
+				                                        <?php endwhile; wp_reset_query();else: ?>
                                             <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
                                             <?php endif;?>
 
