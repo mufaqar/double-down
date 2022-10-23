@@ -472,7 +472,7 @@ jQuery(document).ready(function($)
             $("#weeklyfood .product-quantity").each(function () {
             var productid =  $(this).data('id');
             var value = $(this).val() ;
-                if(value >1) {
+                if(value >=1) {
                     datas.push( [productid, $(this).val() ]);
                     }
             newdata.push(datas);
@@ -503,7 +503,7 @@ jQuery(document).ready(function($)
                         else {
                                 $(".alertmessage").css("display", "flex");
                                 $('.alertmessage').delay(1500).fadeOut();
-                                location.reload();
+                              //  location.reload();
                         }
                 }
 
