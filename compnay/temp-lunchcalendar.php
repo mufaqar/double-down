@@ -98,7 +98,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
             <div class="calender_wrapper d-flex justify-content-between align-items-center">
                  <form action="" method="GET" id="weekform">
                         <div class="calender week_calender">
-                            <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>" name="week_id">
+                            <input type="text" id="weekPicker2" value="<?php echo $query_week ?>" name="week_id">
                             <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                         </div>
                   </form>
