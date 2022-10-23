@@ -75,141 +75,68 @@ get_header('company');
                 <div class="d-flex justify-content-between mt-1 mb-4 accessories">
                     <h2 class="mt-4"><span style="color: #5FB227"></span> Weekdays</h2>
                     </div>
-                    <?php
-                        $current_week =   date("W-m-y");                    
-                        global $current_user;
-                        wp_get_current_user(); 
-
-                                    $query_order = array(
-                                        'post_type' => 'orders',
-                                        'posts_per_page' => -1,
-                                        'order' => 'desc',                                                                                                                    
-                                        'meta_query' => array(
-                                            'relation' => 'AND',
-                                                                        array(
-                                                                            'key'   => 'order_type',
-                                                                            'value' => 'Weekly',
-                                                                            'compare' => '='
-                                                                        ),
-                                                                        array(
-                                                                            'key'     => 'user_type',
-                                                                            'value' => 'Company',
-                                                                            'compare' => '=',
-                                                                        ),
-                                                                        array(
-                                                                            'key'     => 'order_uid',
-                                                                            'value' => $current_user->ID,
-                                                                            'compare' => '='
-                                                                        ),
-                                                                        array(
-                                                                            'key'     => 'order_week',
-                                                                            'value' => $current_week,
-                                                                            'compare' => '='
-                                                                        )
-                                        )
-                                    );
-
-
-
-            $postData = new WP_Query($query_order);
-            if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
-
-            $post_id = get_the_ID();
-            //  echo $post_id;
-            $food_order =  get_post_meta(get_the_ID(), 'food_order', true);
-            // print "<pre>";
-            // print_r($food_order);
-
-            $food_Monday = $food_order['Monday'];
-            $food_Tuesday = $food_order['Tuesday'];
-            $food_Wednesday = $food_order['Wednesday'];
-            $food_Thursday = $food_order['Thursday'];
-            $food_Friday = $food_order['Friday'];
-
-            if (is_array($food_Monday) || is_object($food_Monday))
-            {
-
-              
-
-            $food_Monday_arr = array();  
-            foreach($food_Monday as $key_Monday => $qty_Monday){
-                $price_Monday =  get_post_meta($key_Monday, 'menu_item_price', true);                     
-                $food_Monday_arr[] = $price_Monday*$qty_Monday;	
-            }
-            $total_Monday = array_sum($food_Monday_arr);
-
-            }
-
-            if (is_array($food_Tuesday) || is_object($food_Tuesday))
-            {
-
-             
-            $food_Tuesday_arr = array();  
-            foreach($food_Tuesday as $key_Tuesday => $qty_Tuesday){
-                $price_Tuesday =  get_post_meta($key_Tuesday, 'menu_item_price', true);                     
-                $food_Tuesday_arr[] = $price_Tuesday*$qty_Tuesday;	
-            }
-            $total_Tuesday = array_sum($food_Tuesday_arr);
-
-            }
-
-            if (is_array($food_Wednesday) || is_object($food_Wednesday))
-            {
-                    $food_Wednesday_arr = array();  
-            foreach($food_Wednesday as $key_Wednesday => $qty_Wednesday){
-                $price_Wednesday =  get_post_meta($key_Wednesday, 'menu_item_price', true);                     
-                $food_Wednesday_arr[] = $price_Wednesday*$qty_Wednesday;	
-            }
-            $total_Wednesday = array_sum($food_Wednesday_arr);
-
-            }
-
-            if (is_array($food_Thursday) || is_object($food_Thursday))
-            {
-
-            $food_Thursday_arr = array();  
-            foreach($food_Thursday as $key_Thursday => $qty_Thursday){
-                $price_Thursday =  get_post_meta($key_Thursday, 'menu_item_price', true);                     
-                $food_Thursday_arr[] = $price_Thursday*$qty_Thursday;	
-            }
-            $total_Thursday = array_sum($food_Thursday_arr);
-            }
-            if (is_array($food_Friday) || is_object($food_Friday))
-            {
-            $food_Friday_arr = array();  
-            foreach($food_Friday as $key_Friday => $qty_Friday){
-                $price_Friday =  get_post_meta($key_Friday, 'menu_item_price', true);                     
-                $food_Friday_arr[] = $price_Friday*$qty_Friday;	
-            }
-            $total_Friday = array_sum($food_Friday_arr);
-
-            }
-
-
- ?>
-
- <?php endwhile; wp_reset_query(); else : ?>
-   
-     <?php endif; ?>
+                  
 
                         <div class="week_days">
                             <div class="d-flex justify-content-between flex-wrap">
-                            <?php
-                                 $dt = new DateTime();                     
+                                <?php
+                                 $dt = new DateTime(); 
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
-                                     $the_date = $dt->format('Y-m-d');
-                                     ?> 
-                                      <div class="d-flex align-items-center">
-                                            <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>">
-                                            <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> </label>
-                                        </div>
+                                     $the_date = $dt->format('Y-m-d');                                    
+                                     $today =   $the_date;                    
+                                        global $current_user;
+                                        wp_get_current_user(); 
+                                        $query_order = array(
+                                            'post_type' => 'orders',
+                                            'posts_per_page' => -1,
+                                            'order' => 'desc',                                                                                                                    
+                                            'meta_query' => array(
+                                                'relation' => 'AND',
+                                                array(
+                                                    'key' => 'order_day',
+                                                    'value' => $today,
+                                                    'compare' => '=',
+                                                ),
+                                                array(
+                                                    'key' => 'user_type',
+                                                    'value' => 'Company',
+                                                    'compare' => '=',
+                                                ),
+                                                array(
+                                                    'key' => 'order_type',
+                                                    'value' => 'Fixed Delivery',
+                                                    'compare' => '=',
+                                                ),
+                                                array(
+                                                    'key' => 'order_uid',
+                                                    'value' => $uid,
+                                                    'compare' => '=',
+                                                ),
+                                            )
+                                        );
 
-                                     <?php
-                                 }
+                                        $postData = new WP_Query($query_order);
+                                        if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
+                                            $post_id = get_the_ID();
+                                            $day_price = get_post_meta($post_id, 'order_total' , true);
+                                            $order_date = get_post_meta($post_id, 'order_day' , true);
+                                           
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" checked>                                             
+                                                <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?>NOK</label>
+                                            </div>
+                                            <?php endwhile; wp_reset_query(); else : ?>
+                                                <div class="d-flex align-items-center">
+                                                    <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>">  
+                                                    <label for="weekday-<?php echo $d ?>"><?php echo $the_day?>  </label>  
+                                                </div>
+	                             <?php endif; } ?> 
 
-                                 ?>
+
+
                             </div>
                         </div>
 

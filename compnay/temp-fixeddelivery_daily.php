@@ -156,29 +156,26 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
    
      <?php endif; ?>
 
-                <div class="selected_day mt-3">
+     <div class="selected_day mt-3">
                             <div class="d-md-flex justify-content-md-between flex-wrap">
-                             
                                 <?php
-                                 $dt = new DateTime();                     
+                                 $dt = new DateTime();  
+                                // print_r($dt);
+                                                 
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
                                      ?>
-                                      <div>
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?>>
-                                        <?php
+                                     
+                                     <?php
 
-                                    $today =   $the_date; 
-                                    
-                                    
+                                    $today =   $the_date;                    
                                     global $current_user;
                                     wp_get_current_user(); 
-                                    $uid = $current_user->ID;  
                                     $query_order = array(
                                         'post_type' => 'orders',
-                                        'posts_per_page' => 1,
+                                        'posts_per_page' => -1,
                                         'order' => 'desc',                                                                                                                    
                                         'meta_query' => array(
                                             'relation' => 'AND',
@@ -204,20 +201,22 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                                             ),
                                         )
                                     );
-
                                     $postData = new WP_Query($query_order);
                                     if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
                                          $post_id = get_the_ID();
-                                         $day_price = get_post_meta($post_id, 'order_total',true);
+                                         $day_price = get_post_meta($post_id, 'order_total' , true);
                                     ?>
+                                     <div>
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?> >
                                         <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
                                      </div>
-
-                                     <?php
-                                endwhile; wp_reset_query(); else :  endif;   }
-
-                                 ?>
-                            </div>
+                                     <?php endwhile; wp_reset_query(); else : ?>
+                                         <div class="d-flex align-items-center">                                                   
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($d == 1) { echo "checked";} ?>>
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> </label>
+                                     </div>
+	                             <?php endif; } ?> 
+                                </div>
                         </div>
 
                 <?php

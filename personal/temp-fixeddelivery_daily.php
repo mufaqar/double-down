@@ -67,7 +67,6 @@
                                             ),
                                         )
                                     );
-
                                     $postData = new WP_Query($query_order);
                                     if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
                                          $post_id = get_the_ID();

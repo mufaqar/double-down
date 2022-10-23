@@ -86,11 +86,6 @@ get_header('');
                             <div class="d-flex justify-content-between flex-wrap">
                                 <?php
                                  $dt = new DateTime(); 
-
-                               
-                                 
-                                 
-
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
