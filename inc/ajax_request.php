@@ -620,6 +620,12 @@ function dailyfood()
 			foreach($order_price as $key => $price )
 			{   
 				$get_price =  get_post_meta($key, 'menu_item_price', true);
+				if($usertype == 'Personal')
+				{
+					$vat = $get_price / 100 * 15;
+				    $get_price = $get_price+$vat;
+
+				}
 				$price_arr[] = $get_price*$price;					
 			}    			
 		}
@@ -651,7 +657,42 @@ endwhile; wp_reset_query(); else :
 		add_post_meta($user_id, 'user_type', $usertype, true);
 		add_post_meta($user_id, 'order_week', $week, true);
 		add_post_meta($user_id, 'food_order', $days);
-		add_post_meta($user_id, 'order_uid', $uid);	  	
+		add_post_meta($user_id, 'order_uid', $uid);	
+		
+		
+		$orders_price = get_post_meta($user_id, 'food_order' , true);
+		$price_arr = [];
+		foreach($orders_price as $index => $order_price)
+		{
+			foreach($order_price as $key => $price )
+			{   
+				$get_price =  get_post_meta($key, 'menu_item_price', true);
+
+				if($usertype == 'Personal')
+				{
+					$vat = $get_price / 100 * 15;
+				    $get_price = $get_price+$vat;
+
+				}
+
+				
+
+
+
+				$price_arr[] = $get_price*$price;					
+			}    			
+		}
+		$order_total = array_sum($price_arr);
+		add_post_meta($user_id, 'food_order', $days);
+		add_post_meta($user_id, 'order_total', $order_total);
+		
+		
+
+
+
+
+
+
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 		die();
 
