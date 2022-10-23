@@ -21,7 +21,7 @@ wp_get_current_user();
 ?><?php include 'navigation.php';?>
 
 <div class="tab_wrapper">
-<?php page_title(); ?>
+<?php page_title(); //echo $today_date;?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
@@ -39,7 +39,7 @@ wp_get_current_user();
                                                         'relation' => 'AND',
                                                         array(
                                                             'key' => 'order_day',
-                                                            'value' => $query_date,
+                                                            'value' => $today_date,
                                                             'compare' => '=',
                                                         ),
                                                         array(
@@ -95,7 +95,7 @@ wp_get_current_user();
                                             }
                                         $postData = new WP_Query($query_order);
                                         if ($postData->have_posts()): while ($postData->have_posts()): $postData->the_post();
-                                                $post_id = get_the_ID();
+                                                $post_id = get_the_ID();                                              
                                                 $food_order = get_post_meta(get_the_ID(), 'food_order', true);
                                                 $luchbox = array();
                                                 $add = array();
@@ -117,7 +117,7 @@ wp_get_current_user();
 
                                                 ?>
 
-				                                        <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?> NOK </p>
+				                                  <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?> NOK </p>
 
 				                                        <?php endwhile;
     wp_reset_query();else: ?>
