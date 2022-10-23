@@ -1,7 +1,58 @@
 <?php /* Template Name: Comapny-LunchCaldendar  */
 get_header('company');
 global $current_user; wp_get_current_user();  $uid = $current_user->ID;
+
 $query_week  = $_REQUEST['week_id'];
+
+
+if($query_week == '')
+{
+
+    $query_week  =  date("Y-W");
+
+}
+
+echo $query_week;
+
+
+$week_arr = explode("-", $query_week, 2);
+$week = $week_arr[1];
+$year = $week_arr[0];
+$result = array();	
+function get_Date_Week($week, $year) {
+        $dateTime = new DateTime();
+        $dateTime->setISODate($year, $week);
+        $result['start_date'] = $dateTime->format('Y-m-d');
+        $dateTime->modify('+4 days');
+        $result['end_date'] = $dateTime->format('Y-m-d');
+        return $result;
+ }
+
+$week_start_end_date = get_Date_Week($week,$year);  
+$week_first_date = $week_start_end_date['start_date'];
+$week_end_date = $week_start_end_date['end_date'];
+
+
+function getDatesFromRange($start, $end, $format = 'Y-m-d') {
+    $array = array();
+    $interval = new DateInterval('P1D');
+
+    $realEnd = new DateTime($end);
+    $realEnd->add($interval);
+
+    $period = new DatePeriod(new DateTime($start), $interval, $realEnd);
+
+    foreach($period as $date) { 
+        $array[] = $date->format($format); 
+    }
+
+    return $array;
+}
+
+
+$week_days = getDatesFromRange($week_first_date,$week_end_date);
+
+
 
 
 
@@ -18,18 +69,13 @@ $query_week  = $_REQUEST['week_id'];
 
 <div class="tab_wrapper">
 <?php page_title() ; 
-    $week_arr = explode("-", $query_week, 2);
-    $week = $week_arr[1];
-    $year = $week_arr[0];	
-    function get_Date_Week($week, $year) {
-            $dateTime = new DateTime();
-            $dateTime->setISODate($year, $week);
-            $date  = $dateTime->format('Y-m-d'); 
-            return $date;
-     }
-    $week_first_date = get_Date_Week($week,$year);   
-    
-    ?>
+
+
+
+
+
+
+?>
     <div class='panels'>
         <div class='panel launchClander'>
 
@@ -45,89 +91,74 @@ $query_week  = $_REQUEST['week_id'];
                 to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
             </p>
 
-                             <?php                                              
-                                                    $this_week =  date("W-m-y"); 
-                                                    $query_order = array(
-                                                        'post_type' => 'orders',
-                                                        'posts_per_page' => -1,
-                                                        'order' => 'desc',                                                                                                       
-                                                        'meta_query' => array(
-                                                            array(
-                                                                'key' => 'order_week',
-                                                                'value' => $this_week,
-                                                                'compare' => '='
-                                                            ),
-                                                            array(
-                                                                'key' => 'order_type',
-                                                                'value' => 'Day',
-                                                                'compare' => '='
-                                                            ),
-                                                            array(
-                                                                'key' => 'order_uid',
-                                                                'value' => $uid,
-                                                                'compare' => '='
-                                                            ),
-                                                            array(
-                                                                'key' => 'user_type',
-                                                                'value' => 'Company',
-                                                                'compare' => '='
-                                                            ),
-
-                                                            
-                                                        )
-                                                    );
-                                                    ?>
-
-
+                           
 
 
 
             <div class="calender_wrapper d-flex justify-content-between align-items-center">
-            <form action="" method="GET" id="weekform">
-                <div class="calender week_calender">
-                    <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>" name="week_id">
-                    <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                </div>
-
-                                    </form>
-
-
-
+                 <form action="" method="GET" id="weekform">
+                        <div class="calender week_calender">
+                            <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>" name="week_id">
+                            <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                        </div>
+                  </form>
                 <div class="info">
-                 <?php $postData = new WP_Query($query_order);
+                         <?php 
+                                  $query_order = array(
+                                                    'post_type' => 'orders',
+                                                    'posts_per_page' => -1,
+                                                    'order' => 'desc',                                                                                                       
+                                                    'meta_query' => array(
+                                                        'relation' => 'AND',   
+                                                        array(
+                                                            'key'     => 'order_day',			
+                                                            'value' => $week_days,
+                                                            'compare' => 'IN'
+                                                        ),
+                                                        array(
+                                                            'key' => 'order_type',
+                                                            'value' => 'Day',
+                                                            'compare' => '='
+                                                        ),
+                                                        array(
+                                                            'key' => 'order_uid',
+                                                            'value' => $uid,
+                                                            'compare' => '='
+                                                        ),
+                                                        array(
+                                                            'key' => 'user_type',
+                                                            'value' => 'Company',
+                                                            'compare' => '='
+                                                        ),
+
+                                                        
+                                                    )
+                                                );
+                 
+                                             $postData = new WP_Query($query_order);
 
                                                 $total_week_price = array();
                                              if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
                                                  $post_id = get_the_ID();
-
-                                                 //echo $post_id;
-                                                 //echo get_post_meta(get_the_ID(), 'order_day', true);
-
-                                                 $total_week_price[] = get_post_meta(get_the_ID(), 'order_total', true);
-
-                                                 
-                                                 
-                                                 
+                                                 $order_day_price =  get_post_meta(get_the_ID(), 'order_day', true);
+                                                 $total_week_price[] = $order_day_price;
                                                  ?>                                            
                                               
 
-<?php endwhile;   ?>
-<h6>Total this Week | <span>NOK <?php  echo array_sum($total_week_price); ?></span></h6>
-<?php wp_reset_query(); else : ?>
-    <p>Total this Week,<br>:  NOK </p>
-    <?php endif; ?>
-                    
+                            <?php endwhile;   ?>
+                            <h6>Total this Week | <span>NOK <?php  echo array_sum($total_week_price); ?></span></h6>
+                            <?php wp_reset_query(); else : ?>
+                             <p>Total this Week,<br>:  NOK </p>
+                        <?php endif; ?>                    
                 </div>
             </div>
             <div class="accordion_wrapper">
                 <div class="row">
                     <div class="col-lg-12 mx-auto">                  
                         <div id="accordionExample" class="accordion">
-                            <?php
-                            $week = [];
-                            //$saturday = strtotime('monday this week');
+                            <?php                         
+                            $week = [];                         
                             $saturday = strtotime($week_first_date);
-
                             $i = 0;
                             $k = 6;
                             foreach (range(0, 4) as $day) {
