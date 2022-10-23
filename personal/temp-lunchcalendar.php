@@ -183,7 +183,10 @@ wp_get_current_user();
                                         if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
                                                 $pid = get_the_ID();
                                                 $menu_price = get_post_meta(get_the_ID(), 'menu_item_price', true);
-                                                $vat = $menu_price / 100 * 15;?>
+                                                $vat = $menu_price / 100 * 15;
+                                                $menu_price = $menu_price+$vat;
+                                                
+                                                ?>
 
 
 				                                            <div class="catering_card _pro_salat">
@@ -265,12 +268,19 @@ wp_get_current_user();
                                                     'menu_types' => 'additionals',
                                                         ));
                                                         if (have_posts()): while (have_posts()): the_post();
-                                                                $pid = get_the_ID();?>
+                                                                $pid = get_the_ID();
+
+                                                                $menu_price = get_post_meta($pid, 'menu_item_price', true);
+                                                                $vat = $menu_price / 100 * 15;
+                                                                $menu_price = $menu_price+$vat;
+                                                                
+                                                                
+                                                                ?>
 
 				                                                    <div class="col-md-6 col-lg-4 mt-4">
 				                                                        <div class="product_card p-4">
 				                                                            <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="">
-				                                                            <h2><?php the_title();?> , NOK <?php the_field('menu_item_price');?> </h2>
+				                                                            <h2><?php the_title();?> , NOK <?php echo $menu_price?> </h2>
 				                                                            <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>"
 				                                                                    onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
 				                                                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
@@ -428,8 +438,8 @@ jQuery(document).ready(function($)
                              var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
                                 {
                                     
-                                    echo $s . $daily_date;
-                                    $s = ', ';
+                                 //   echo $s . $daily_date;
+                                 //   $s = ', ';
                                 }
                             ?> ];
                 if (~hilightedDays.indexOf(date.getDate())) {
