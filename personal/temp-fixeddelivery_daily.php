@@ -18,9 +18,7 @@
                     <h2>Fixed delivery to Personal</h2>
                     <p>Here you can easily choose between or cancel the various lunch options from day
                         to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
-                    </p>
-
-                
+                    </p>               
 
                         <div class="selected_day mt-3">
                             <div class="d-md-flex justify-content-md-between flex-wrap">
@@ -38,6 +36,7 @@
 
                                     $today =   $the_date;                    
                                     global $current_user;
+                                    $uid = $current_user->ID;
                                     wp_get_current_user(); 
                                     $query_order = array(
                                         'post_type' => 'orders',

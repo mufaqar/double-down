@@ -24,137 +24,8 @@ get_header('company');
                     to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
                 </p>
 
-                <?php
+                
 
-$current_week =   date("W-m-y");                    
-global $current_user;
- wp_get_current_user(); 
-
- $query_order = array(
-     'post_type' => 'orders',
-     'posts_per_page' => -1,
-     'order' => 'desc',                                                                                                                    
-     'meta_query' => array(
-         'relation' => 'AND',
-                                     array(
-                                         'key'   => 'order_type',
-                                         'value' => 'Weekly',
-                                         'compare' => '='
-                                     ),
-                                     array(
-                                         'key'     => 'user_type',
-                                         'value' => 'Company',
-                                         'compare' => '=',
-                                     ),
-                                     array(
-                                         'key'     => 'order_uid',
-                                         'value' => $current_user->ID,
-                                         'compare' => '='
-                                     )
-     )
- );
-
-
-
- $postData = new WP_Query($query_order);
- if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
-
- $post_id = get_the_ID();
-
-
-//  echo $post_id;
- $food_order =  get_post_meta(get_the_ID(), 'food_order', true);
-// print "<pre>";
-// print_r($food_order);
-
- $food_Monday = $food_order['Monday'];
- $food_Tuesday = $food_order['Tuesday'];
- $food_Wednesday = $food_order['Wednesday'];
- $food_Thursday = $food_order['Thursday'];
- $food_Friday = $food_order['Friday'];
-
- if (is_array($food_Monday) || is_object($food_Monday))
- {
-
-
- $food_Monday_arr = array();  
- foreach($food_Monday as $key_Monday => $qty_Monday){
-     $price_Monday =  get_post_meta($key_Monday, 'menu_item_price', true);                     
-     $food_Monday_arr[] = $price_Monday*$qty_Monday;	
- }
- $total_Monday = array_sum($food_Monday_arr). " NOk";
-
-}
-
-if (is_array($food_Tuesday) || is_object($food_Tuesday))
-{
- $food_Tuesday_arr = array();  
- foreach($food_Tuesday as $key_Tuesday => $qty_Tuesday){
-     $price_Tuesday =  get_post_meta($key_Tuesday, 'menu_item_price', true);                     
-     $food_Tuesday_arr[] = $price_Tuesday*$qty_Tuesday;	
- }
- $total_Tuesday = array_sum($food_Tuesday_arr). " NOk";
-
-}
-
- if (is_array($food_Wednesday) || is_object($food_Wednesday))
- {
-        $food_Wednesday_arr = array();  
- foreach($food_Wednesday as $key_Wednesday => $qty_Wednesday){
-     $price_Wednesday =  get_post_meta($key_Wednesday, 'menu_item_price', true);                     
-     $food_Wednesday_arr[] = $price_Wednesday*$qty_Wednesday;	
- }
- $total_Wednesday = array_sum($food_Wednesday_arr). " NOk";
-
-}
-
- if (is_array($food_Thursday) || is_object($food_Thursday))
- {
-
- $food_Thursday_arr = array();  
- foreach($food_Thursday as $key_Thursday => $qty_Thursday){
-     $price_Thursday =  get_post_meta($key_Thursday, 'menu_item_price', true);                     
-     $food_Thursday_arr[] = $price_Thursday*$qty_Thursday;	
- }
- $total_Thursday = array_sum($food_Thursday_arr). " NOk";
-}
- if (is_array($food_Friday) || is_object($food_Friday))
- {
- $food_Friday_arr = array();  
- foreach($food_Friday as $key_Friday => $qty_Friday){
-     $price_Friday =  get_post_meta($key_Friday, 'menu_item_price', true);                     
-     $food_Friday_arr[] = $price_Friday*$qty_Friday;	
- }
- $total_Friday = array_sum($food_Friday_arr). " NOk";
-
-}
-
-
-
-
-
-
-                 //  $luchbox =  array();
-                 //  $add = array();
-
-                 //  foreach($food_order as $order)    {                                                
-                 //             foreach($order as $pro_id => $pro_qty) {                                                                                   
-                 //                     if (has_term('lunch-boxes', 'menu_types' , $pro_id )) {                                            
-                 //                         $luchbox[] = $pro_qty;
-                 //                     }
-                 //                     if (has_term('additionals', 'menu_types' , $pro_id )) {                                              
-                 //                         $add[] = $pro_qty;
-                 //                     }
-                 //                 }
-
-                 //     } 
-
-                 //   $total_boxes =  array_sum($luchbox);
-                 //   $total_add =  array_sum($add);  ?>
-
- <?php endwhile; wp_reset_query(); else : ?>
-   
-     <?php endif; ?>
 
      <div class="selected_day mt-3">
                             <div class="d-md-flex justify-content-md-between flex-wrap">
@@ -168,6 +39,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                                      $the_date = $dt->format('Y-m-d');
                                      $today =   $the_date;                    
                                     global $current_user;
+                                    $uid = $current_user->ID;
                                     wp_get_current_user(); 
                                     $query_order = array(
                                         'post_type' => 'orders',
