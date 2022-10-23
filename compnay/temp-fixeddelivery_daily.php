@@ -166,11 +166,7 @@ if (is_array($food_Tuesday) || is_object($food_Tuesday))
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
-                                     ?>
-                                     
-                                     <?php
-
-                                    $today =   $the_date;                    
+                                     $today =   $the_date;                    
                                     global $current_user;
                                     wp_get_current_user(); 
                                     $query_order = array(
