@@ -29,19 +29,10 @@ include 'navigation.php';?>
                                     </div>
                                     <div class="accordion_wrapper">
                                         <h2>Fixed Lunch Orders</h2>
-
-                                        <?php get_template_part('partials/profile', 'calfixed');?>
-
-                                      
+                                        <?php get_template_part('partials/profile', 'calfixed');?>                                      
                                     </div>
-
-                                    <h2>Lunch Orders  </h2>
-
+                                    <h2>Lunch Orders</h2>
                                     <?php get_template_part('partials/profile', 'calorders');?>
-
-
-
-
                                 </div>
 
                             </div>

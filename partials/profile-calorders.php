@@ -9,9 +9,8 @@
     <div class="accordion_wrapper">
                         <div class="row">
                             <div class="col-lg-12 mx-auto mb-5">
-                                <?php
-
-                                $tomorrow = date("Y-m-d", strtotime('today'));
+                                <?php                              
+                                $tomorrow = date("Y-m-d", strtotime('tomorrow'));                              
                                 $query_meta = array(
                                     'post_type' => 'orders',
                                     'posts_per_page' => -1,

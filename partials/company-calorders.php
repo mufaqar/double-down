@@ -7,50 +7,49 @@ $uid = $current_user->ID;
 ?>
 
 <div class="accordion_wrapper">
-                                        <div class="row">
+     <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">
                                               <?php
+                                                    $current_week = date("W-m-y");
+                                                    $tomorrow = date("Y-m-d", strtotime('tomorrow'));
+                                                    echo $tomorrow."-----------";
+                                                    $query_meta = array(
+                                                        'post_type' => 'orders',
+                                                        'posts_per_page' => -1,
+                                                        'order' => 'desc',
+                                                        'meta_query' => array(
+                                                            'relation' => 'AND',
+                                                            array(
+                                                                'key' => 'order_type',
+                                                                'value' => 'Day',
+                                                                'compare' => '=',
+                                                            ),
+                                                            array(
+                                                                'key' => 'user_type',
+                                                                'value' => 'Company',
+                                                                'compare' => '=',
+                                                            ),
+                                                            array(
+                                                                'key' => 'order_day',
+                                                                'value' => $tomorrow,
+                                                                'compare' => '=',
+                                                            ),
+                                                            array(
+                                                                'key' => 'order_uid',
+                                                                'value' => $current_user->ID,
+                                                                'compare' => '=',
+                                                            ),
+                                                        ),
 
-$current_week = date("W-m-y");
-$tomorrow = date("Y-m-d", strtotime('today'));
+                                                    );
 
-$query_meta = array(
-    'post_type' => 'orders',
-    'posts_per_page' => -1,
-    'order' => 'desc',
-    'meta_query' => array(
-        'relation' => 'AND',
-        array(
-            'key' => 'order_type',
-            'value' => 'Day',
-            'compare' => '=',
-        ),
-        array(
-            'key' => 'user_type',
-            'value' => 'Company',
-            'compare' => '=',
-        ),
-        array(
-            'key' => 'order_day',
-            'value' => $tomorrow,
-            'compare' => '=',
-        ),
-        array(
-            'key' => 'order_uid',
-            'value' => $current_user->ID,
-            'compare' => '=',
-        ),
-    ),
-
-);
-
-//    print_r($query_meta);
-$postinweek = new WP_Query($query_meta);
-if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
-        $pid = get_the_ID();
-        $food_orderd_data = get_post_meta($pid, 'food_order', true);
-        uksort($food_orderd_data, "weekdaySort");
-        foreach ($food_orderd_data as $key => $order_data) {?>
+                                                    //    print_r($query_meta);
+                                                    $postinweek = new WP_Query($query_meta);
+                                                    if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
+                                                            $pid = get_the_ID();
+                                                            $food_orderd_data = get_post_meta($pid, 'food_order', true);
+                                                            uksort($food_orderd_data, "weekdaySort");
+                                                            foreach ($food_orderd_data as $key => $order_data) {?>
 
 
 		                                                            <div class="_pro_card">
