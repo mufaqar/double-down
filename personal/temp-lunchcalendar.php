@@ -21,7 +21,7 @@ wp_get_current_user();
 ?><?php include 'navigation.php';?>
 
 <div class="tab_wrapper">
-<?php page_title(); //echo $today_date;?>
+<?php page_title(); echo $today_date;?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
