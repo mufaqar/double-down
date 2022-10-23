@@ -25,14 +25,15 @@
                         <div class="selected_day mt-3">
                             <div class="d-md-flex justify-content-md-between flex-wrap">
                                 <?php
-                                 $dt = new DateTime();                     
+                                 $dt = new DateTime();  
+                                // print_r($dt);
+                                                 
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
                                      ?>
-                                      <div>
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($d == 1) { echo "checked";} ?>>
+                                     
                                      <?php
 
                                     $today =   $the_date;                    
@@ -72,9 +73,16 @@
                                          $post_id = get_the_ID();
                                          $day_price = get_post_meta($post_id, 'order_total' , true);
                                     ?>
+                                     <div>
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" >
                                         <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
                                      </div>
-                                    <?php   endwhile; wp_reset_query(); else :  endif;   } ?>
+                                     <?php endwhile; wp_reset_query(); else : ?>
+                                         <div class="d-flex align-items-center">                                                   
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($d == 1) { echo "checked";} ?>>
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> </label>
+                                     </div>
+	                             <?php endif; } ?> 
                                 </div>
                         </div>
 
