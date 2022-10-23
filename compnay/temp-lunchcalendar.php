@@ -1,11 +1,35 @@
 <?php /* Template Name: Comapny-LunchCaldendar  */
 get_header('company');
 global $current_user; wp_get_current_user();  $uid = $current_user->ID;
+$query_week  = $_REQUEST['week_id'];
+
+
+
+
+
+
+
+
+
+
+
 ?>
 <?php include('navigation.php'); ?>
 
 <div class="tab_wrapper">
-    <?php page_title() ?>
+<?php page_title() ; 
+    $week_arr = explode("-", $query_week, 2);
+    $week = $week_arr[1];
+    $year = $week_arr[0];	
+    function get_Date_Week($week, $year) {
+            $dateTime = new DateTime();
+            $dateTime->setISODate($year, $week);
+            $date  = $dateTime->format('Y-m-d'); 
+            return $date;
+     }
+    $week_first_date = get_Date_Week($week,$year);   
+    
+    ?>
     <div class='panels'>
         <div class='panel launchClander'>
 
@@ -59,10 +83,16 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
 
 
             <div class="calender_wrapper d-flex justify-content-between align-items-center">
+            <form action="" method="GET" id="weekform">
                 <div class="calender week_calender">
-                    <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>">
+                    <input type="text" id="weekPicker2" value="<?php echo date("Y-W"); ?>" name="week_id">
                     <div class="wc-icon"><i class="fa-solid fa-calendar-days"></i></div>
                 </div>
+
+                                    </form>
+
+
+
                 <div class="info">
                  <?php $postData = new WP_Query($query_order);
 
@@ -91,12 +121,13 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
             </div>
             <div class="accordion_wrapper">
                 <div class="row">
-                    <div class="col-lg-12 mx-auto">
-                        <!-- Accordion -->
+                    <div class="col-lg-12 mx-auto">                  
                         <div id="accordionExample" class="accordion">
                             <?php
                             $week = [];
-                            $saturday = strtotime('monday this week');
+                            //$saturday = strtotime('monday this week');
+                            $saturday = strtotime($week_first_date);
+
                             $i = 0;
                             $k = 6;
                             foreach (range(0, 4) as $day) {
@@ -276,8 +307,37 @@ global $current_user; wp_get_current_user();  $uid = $current_user->ID;
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
 <script>
+
+
     convertToWeekPicker($("#weekPicker2"));
+
+    window.addEventListener('load', function() {
+            var element = document.getElementById('displayDate');
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            var observer = new MutationObserver(myFunction);
+            observer.observe(element, {
+                childList: true
+            });
+            function myFunction() { 
+              document.getElementById("weekform").submit();   
+              // jqueryFunction();        
+                }
+            
+        });
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
     jQuery(document).ready(function($) {
 

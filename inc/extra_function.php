@@ -408,4 +408,19 @@ function my_get_current_user_roles() {
 
             return $order_days;
 }
+
+function weekOfMonth($date) {
+    list($y, $m, $d) = explode('-', date('Y-m-d', strtotime($date)));  
+    $w = 1;
+    for ($i = 1; $i < $d; ++$i) {
+        // if that day was a sunday and is not the first day of month
+        if ($i > 1 && date('w', strtotime("$y-$m-$i")) == 0) {
+            // increment current week
+            ++$w;
+        }
+    }
+    
+    // now return
+    return $w;
+}
   

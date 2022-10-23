@@ -12,7 +12,6 @@ $uid = $current_user->ID;
                                               <?php
                                                     $current_week = date("W-m-y");
                                                     $tomorrow = date("Y-m-d", strtotime('tomorrow'));
-                                                    echo $tomorrow."-----------";
                                                     $query_meta = array(
                                                         'post_type' => 'orders',
                                                         'posts_per_page' => -1,

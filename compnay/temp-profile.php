@@ -34,8 +34,7 @@ include 'navigation.php';?>
                                         
                                     </div>
 
-                                    <h2>Lunch Orders  </h2>
-
+                                    <h2>Lunch Orders</h2>
                                     <?php get_template_part('partials/company', 'calorders');?>
                                 </div>
 
