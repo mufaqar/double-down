@@ -74,7 +74,7 @@
                                          $day_price = get_post_meta($post_id, 'order_total' , true);
                                     ?>
                                      <div>
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" >
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?> >
                                         <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
                                      </div>
                                      <?php endwhile; wp_reset_query(); else : ?>
