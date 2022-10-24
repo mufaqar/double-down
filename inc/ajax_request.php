@@ -640,7 +640,7 @@ function dailyfood()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 	    // updated Existing Food order Weekly 
-		echo "UPdate Order Query";
+		//echo "UPdate Order Query";
 		$updated_post_id = get_the_ID();	
 		update_post_meta($updated_post_id, 'food_order', $days);		
 		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
@@ -659,8 +659,7 @@ function dailyfood()
 				$price_arr[] = $get_price*$price;					
 			}    			
 		}
-		$order_total = array_sum($price_arr);
-		
+		$order_total = array_sum($price_arr);		
 		update_post_meta($updated_post_id, 'order_total', $order_total);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 		die();
@@ -704,25 +703,11 @@ endwhile; wp_reset_query(); else :
 				    $get_price = $get_price+$vat;
 
 				}
-
-				
-
-
-
 				$price_arr[] = $get_price*$price;					
 			}    			
 		}
-		$order_total = array_sum($price_arr);
-		add_post_meta($user_id, 'food_order', $days);
-		add_post_meta($user_id, 'order_total', $order_total);
-		
-		
-
-
-
-
-
-
+		$order_total = array_sum($price_arr);	
+		add_post_meta($user_id, 'order_total', $order_total);	
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 		die();
 
