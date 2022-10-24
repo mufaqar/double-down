@@ -41,21 +41,17 @@
                     $food_order_data = get_post_meta($pid, 'food_order', true);  
                     foreach ($food_order_data as $key => $order_data) { ?>
 
-                    ONe
+                    <div class="_pro_card d-flex justify-content-between align-items-center">
+                        <div class="cont_card">
+                        <h3><?php echo  date('l', strtotime($key));?> <span> <?php echo $key?> </span></h3>
+                            <p> <?php foreach ($order_data as $product_id => $product_qty) {
+                                    echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
 
-                    
-                                                                                                        
-                                                        <div class="_pro_card d-flex justify-content-between align-items-center">
-                                                            <div class="cont_card">
-                                                            <h3><?php echo  date('l', strtotime($key));?> <span> <?php echo $key?> </span></h3>
-                                                                <p> <?php foreach ($order_data as $product_id => $product_qty) {
-                                                                        echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
-
-                                                                            }
-                                                                        ?>                                                                                            </p>
-                                                            </div>		
-                                                            <?php cancel_Oder($pid,$key) ?>
-                                                        </div>
+                                        }
+                                    ?>                                                                                            </p>
+                        </div>		
+                        <?php cancel_Oder($pid,$key) ?>
+                    </div>
                         <?php }
             endwhile;
             wp_reset_query();else: ?>
