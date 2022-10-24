@@ -429,9 +429,6 @@ function weeklyfood_byday()
 	$weekid = $_POST['weekid'];
 	$tdate = $_POST['tdate'];
 
-	echo $uid;
-
-
 	$daily_food = [];
 	$product_items = array();
 	foreach ($menu_items as $menu_item) {
@@ -571,13 +568,11 @@ function weeklyfood_byday()
 			
 			}
 			$order_total = array_sum($price_arr);
-			update_post_meta($user_id, 'order_total', $order_total);
-			//sendmail($username,$password);
+			update_post_meta($user_id, 'order_total', $order_total);		
 			echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Create')));
 		} else {
 			echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
-		}
-		
+		}		
 
 		endif;
 
