@@ -10,8 +10,8 @@ $uid = $current_user->ID;
      <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">
                                               <?php
-                                                    $current_week = date("W-m-y");
-                                                    $tomorrow = date("Y-m-d", strtotime('tomorrow'));
+                                                   $tomorrow = date("Y-m-d", strtotime('tomorrow'));    
+                                                   $today = date("Y-m-d", strtotime('today'));  
                                                     $query_meta = array(
                                                         'post_type' => 'orders',
                                                         'posts_per_page' => -1,
@@ -30,12 +30,12 @@ $uid = $current_user->ID;
                                                             ),
                                                             array(
                                                                 'key' => 'order_day',
-                                                                'value' => $tomorrow,
-                                                                'compare' => '=',
+                                                                'value' => array($tomorrow,$today),
+                                                                'compare' => 'IN',
                                                             ),
                                                             array(
                                                                 'key' => 'order_uid',
-                                                                'value' => $current_user->ID,
+                                                                'value' => $uid,
                                                                 'compare' => '=',
                                                             ),
                                                         ),

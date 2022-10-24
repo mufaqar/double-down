@@ -1,48 +1,46 @@
-<div class="row">
-                                        <div class="col-lg-12 mx-auto mb-5">
-                                                    <?php
-$tomorrow = date("Y-m-d", strtotime('today'));
-global $current_user;
-wp_get_current_user();
-$query_meta = array(
-    'post_type' => 'orders',
-    'posts_per_page' => -1,
-    'order' => 'asc',
-    'meta_query' => array(
+    <div class="row">
+        <div class="col-lg-12 mx-auto mb-5">
+                 <?php
+                      $tomorrow = date("Y-m-d", strtotime('tomorrow'));    
+                      $today = date("Y-m-d", strtotime('today'));  
+                        global $current_user;
+                        wp_get_current_user();
+                        $query_meta = array(
+                            'post_type' => 'orders',
+                            'posts_per_page' => -1,
+                            'order' => 'asc',
+                            'meta_query' => array(
+                                'relation' => 'AND',
+                                array(
+                                    'key' => 'order_type',
+                                    'value' => 'Fixed Delivery',
+                                    'compare' => '=',
+                                ),
+                                array(
+                                    'key' => 'user_type',
+                                    'value' => 'Company',
+                                    'compare' => '=',
+                                ),
+                                array(
+                                    'key' => 'order_day',
+                                    'value' => array($tomorrow,$today),
+                                    'compare' => 'IN',
+                                ),
+                                array(
+                                    'key' => 'order_uid',
+                                    'value' => $current_user->ID,
+                                    'compare' => '=',
+                                ),
+                            ),
 
-        'relation' => 'AND',
-        array(
-            'key' => 'order_type',
-            'value' => 'Fixed Delivery',
-            'compare' => '=',
-        ),
-        array(
-            'key' => 'user_type',
-            'value' => 'Company',
-            'compare' => '=',
-        ),
-        array(
-            'key' => 'order_day',
-            'value' => $tomorrow,
-            'compare' => '=',
-        ),
-        array(
-            'key' => 'order_uid',
-            'value' => $current_user->ID,
-            'compare' => '=',
-        ),
-    ),
+                        );
 
-);
+                        $postinweek = new WP_Query($query_meta);
+                         if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
+                                                $pid = get_the_ID();
+                                                $food_order_data = get_post_meta($pid, 'food_order', true);                                            
 
-$postinweek = new WP_Query($query_meta);
-if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
-        $pid = get_the_ID();
-
-        $food_orderd_data = get_post_meta($pid, 'food_order', true);
-       
-
-        foreach ($food_orderd_data as $key => $order_data) {?>
+                                                foreach ($food_order_data as $key => $order_data) {?>
 
 
 																		                                                          
