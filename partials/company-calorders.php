@@ -15,7 +15,7 @@ $uid = $current_user->ID;
                                                     $query_meta = array(
                                                         'post_type' => 'orders',
                                                         'posts_per_page' => -1,
-                                                        'order' => 'desc',
+                                                        'order' => 'asc',
                                                         'meta_query' => array(
                                                             'relation' => 'AND',
                                                             array(

@@ -13,7 +13,7 @@
                                                         $query_meta = array(
                                                             'post_type' => 'orders',
                                                             'posts_per_page' => -1,
-                                                            'order' => 'desc',
+                                                            'order' => 'asc',
                                                             'meta_query' => array(
                                                                 'relation' => 'AND',
                                                                 array(
@@ -44,13 +44,8 @@
                                                         $postinweek = new WP_Query($query_meta);
                                                         if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
                                                                 $pid = get_the_ID();
-                                                            
-
-                                                                //echo $pid;
-                                                                $food_orderd_data = get_post_meta($pid, 'food_order', true);
-                                                            
+                                                                $food_orderd_data = get_post_meta($pid, 'food_order', true);                                                            
                                                                 foreach ($food_orderd_data as $key => $order_data) {?>
-
 						                                                            <div class="_pro_card d-flex justify-content-between align-items-center">
                                                                                         <div class="cont_card">
                                                                                         <h3><?php echo  date('l', strtotime($key));?> <span> <?php echo $key?> </span></h3>
