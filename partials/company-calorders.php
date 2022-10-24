@@ -62,8 +62,8 @@ $uid = $current_user->ID;
                                                                                     </div>
 
 		                                                        <?php }
-    endwhile;
-    wp_reset_query();else: ?>
+                                                                    endwhile;
+                                                                    wp_reset_query();else: ?>
 
                                                             <div class="_pro_card">
                                                                 <h3>No lunch menu for this week</h3>
