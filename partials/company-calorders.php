@@ -46,11 +46,8 @@ $uid = $current_user->ID;
                                                     $postinweek = new WP_Query($query_meta);
                                                     if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
                                                             $pid = get_the_ID();
-                                                            $food_orderd_data = get_post_meta($pid, 'food_order', true);
-                                                            uksort($food_orderd_data, "weekdaySort");
-                                                            foreach ($food_orderd_data as $key => $order_data) {?>
-
-		                                                            
+                                                            $food_orderd_data = get_post_meta($pid, 'food_order', true);                                                          
+                                                            foreach ($food_orderd_data as $key => $order_data) {?>	                                                            
                                                                                    
 						                                                            <div class="_pro_card d-flex justify-content-between align-items-center">
                                                                                         <div class="cont_card">
@@ -61,7 +58,7 @@ $uid = $current_user->ID;
                                                                                                         }
                                                                                                     ?>                                                                                            </p>
                                                                                         </div>		
-                                                                                        <?php cancel_Oder($pid) ?>
+                                                                                        <?php cancel_Oder($pid,$key)  ?>
                                                                                     </div>
 
 		                                                        <?php }
