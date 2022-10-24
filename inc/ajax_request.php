@@ -606,7 +606,7 @@ function dailyfood()
 	$days = [];
 	$days[$day] = $food_items;
 
-	print_r($days);
+	//print_r($days);
 
 	// check if order already placed by week
 	$query_meta = array(
