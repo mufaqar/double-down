@@ -53,11 +53,11 @@ if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->
                                                                                                                                     <h3><?php echo date('l', strtotime($key)); ?>  <span><?php echo $key ?> </span></h3>
 																		                                                                <p> <?php foreach ($order_data as $product_id => $product_qty) {
 
-            //echo $product_id . " : " . $product_qty . "<br/>";
+                                                                                                                                //echo $product_id . " : " . $product_qty . "<br/>";
 
-            echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
+                                                                                                                                echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
 
-        }?>
+                                                                                                                            }?>
 																		                                                                </p>
                                                                                                                                         <?php cancel_Oder($pid) ?>
 																		                                                            </div>
