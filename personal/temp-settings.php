@@ -14,7 +14,7 @@ $user_info = get_userdata($uid);
         <div class='panel launchClander setting_tab'>
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Fast Levering</h3>
+                    <h3>Fixed Delivery</h3>
                     <p><?php echo get_user_meta($uid, 'Personal_days', true); ?> Days</p>
                 </div>
 
@@ -34,7 +34,7 @@ $user_info = get_userdata($uid);
             <!-- 3rd  -->
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Compnay contact email</h3>
+                    <h3>Company Contact Email</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement', true); ?></p>
                     <p>
                         <strong><span>Email : </span></strong>
@@ -73,7 +73,7 @@ $user_info = get_userdata($uid);
             <!-- 6th  -->
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Allergies and others</h3>
+                    <h3>Select your allergens and save</h3>
 
 
                     <?php $user_allergies = get_user_meta($uid, 'profile_alergies', true);
@@ -247,7 +247,7 @@ foreach ($allergies_tax as $allergy) {
                             <div class="d-flex justify-content-between flex-wrap">
                                 <div class="d-flex align-items-left">
                                     <input type="checkbox" id="via_lunch" name="contact" value="lunch" checked>
-                                    <label for="via_lunch">I would like to receive relevant information about products and services from the via_Lunch Collective. This can, for example, be general information about the lunch menu and nutritional content, news and changes, offers, campaigns, surveys, etc. We promise not to bother you prematurely!
+                                    <label for="via_lunch">I would like to receive relevant information about products and services from the Double Down Dish. This can, for example, be general information about the lunch menu and nutritional content, news and changes, offers, campaigns, surveys, etc. We promise not to bother you prematurely!
                                         </label>
                                 </div>
                                 <div>

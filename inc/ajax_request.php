@@ -1034,7 +1034,7 @@ function profile_allergies_other()
 	$user_id = update_user_meta($uid, 'profile_alergies', $choices_alergies);
 	if (!is_wp_error($user_id)) {
 
-		echo wp_send_json(array('code' => 200, 'message' => __('Profile allergies updated')));
+		echo wp_send_json(array('code' => 200, 'message' => __('Your allergens are now updated')));
 		die;
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
