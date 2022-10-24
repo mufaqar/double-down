@@ -40,7 +40,6 @@
                     $pid = get_the_ID();
                     $food_order_data = get_post_meta($pid, 'food_order', true);  
                     foreach ($food_order_data as $key => $order_data) { ?>
-
                     <div class="_pro_card d-flex justify-content-between align-items-center">
                         <div class="cont_card">
                         <h3><?php echo  date('l', strtotime($key));?> <span> <?php echo $key?> </span></h3>
