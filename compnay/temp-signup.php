@@ -10,9 +10,7 @@ reddirectProfile();
             <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/left arrow.png" class="arrow position-absolute" alt="back arrow" /></a>
                 <h2 class="mt-5">Your Information</h2>
                 <p>
-                    As a buisness administrator, you must hve your own user to log in.
-                    Then you get full access tothe corporate agreement , and can add
-                    more administrators
+                Here you can register your profile as an individual user outside of a company agreement but still have the opportunity to order lunch, catering or meeting food.
                 </p>
                 
                 <div class="mt-5 w-500">
