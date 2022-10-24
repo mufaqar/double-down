@@ -268,6 +268,7 @@ get_header('company');
                         alert(data.message);
                     } else {
                      $(".alertmessage").css("display", "flex");
+                     location.reload();   
 
                     }
                 }

@@ -174,6 +174,11 @@ function weeklyfood()
 						'compare' => '='
 					),
 					array(
+						'key' => 'order_type',
+						'value' => $order_type,
+						'compare' => '='
+					),
+					array(
 						'key'     => 'user_type',
 						'value' => $usertype,
 						'compare' => '='
@@ -191,9 +196,7 @@ function weeklyfood()
 
 				// Updted order
 			$updated_post_id = get_the_ID();
-			update_post_meta($updated_post_id, 'food_order', $sel_day);
-
-			
+			update_post_meta($updated_post_id, 'food_order', $sel_day);			
 			    $orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 				$price_arr = [];
 				foreach($orders_price as $index => $order_price)
@@ -213,6 +216,8 @@ function weeklyfood()
 				$order_total = array_sum($price_arr);
 				update_post_meta($updated_post_id, 'food_order', $days);
 				update_post_meta($updated_post_id, 'order_total', $order_total);
+
+				echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 
 
 
@@ -253,7 +258,7 @@ function weeklyfood()
 				
 
 
-				//echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
+				echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
 
 				
 				
@@ -596,6 +601,8 @@ function dailyfood()
 	$author =  $author_obj->display_name;
 	$order_type = $_POST['order_type'];		
 
+	echo $usertype;
+
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
 		$product_id = $menu_item[0];
@@ -606,7 +613,7 @@ function dailyfood()
 	$days = [];
 	$days[$day] = $food_items;
 
-	//print_r($days);
+	print_r($days);
 
 	// check if order already placed by week
 	$query_meta = array(

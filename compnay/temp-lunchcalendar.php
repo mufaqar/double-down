@@ -69,12 +69,6 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
 
 <div class="tab_wrapper">
 <?php page_title() ; 
-
-
-
-
-
-
 ?>
     <div class='panels'>
         <div class='panel launchClander'>
