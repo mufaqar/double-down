@@ -60,7 +60,7 @@
                                                                                                         }
                                                                                                     ?>                                                                                            </p>
                                                                                         </div>		
-                                                                                        <?php cancel_Oder($pid) ?>
+                                                                                        <?php cancel_Oder($pid,$key) ?>
                                                                                     </div>
                                                   
 

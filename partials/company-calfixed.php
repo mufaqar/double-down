@@ -40,11 +40,7 @@ if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->
         $pid = get_the_ID();
 
         $food_orderd_data = get_post_meta($pid, 'food_order', true);
-        // print "<pre>";
-
-        // print_r($food_orderd_data);
-
-        uksort($food_orderd_data, "weekdaySort");
+       
 
         foreach ($food_orderd_data as $key => $order_data) {?>
 
@@ -59,7 +55,7 @@ if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->
                                                                                                         }
                                                                                                     ?>                                                                                            </p>
                                                                                         </div>		
-                                                                                        <?php cancel_Oder($pid) ?>
+                                                                                        <?php cancel_Oder($pid,$key) ?>
                                                                                     </div>
 																		                                                        <?php }
     endwhile;

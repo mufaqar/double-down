@@ -425,23 +425,35 @@ function weekOfMonth($date) {
 }
   
 
-function cancel_Oder($oid)
+function cancel_Oder($oid, $date)
 {
 
 
+    echo $date ."<hr/>";
 
-    
+    $today_date =  date('Y-m-d');
 
-    if(strtotime(date('H:i')) > strtotime(date('11:00'))){
-      ?> 
+    $current_time =  date('H:i');
 
-        <button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button>
-      
-      <?php
-      }
-    else {
-       // echo 'Less than 11 AM';
-      }
+    echo $today_date ."<br/>";
+
+    echo $today_time ."<hr/>";
+
+
+    if($today_date == $date && $current_time < strtotime(date('11:00')))
+    {
+        ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php
+    }
+    else{
+
+       ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button> <?php
+    }
+   
+
+
+
+
+
 
 
 
