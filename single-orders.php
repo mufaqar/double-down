@@ -17,11 +17,13 @@ print "<pre>";
 
 $updated_post_id = get_the_ID();
 
-$sel_day = "Tuesday";
+
 	
 		
-		$food_orderd_data = array();
-		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);
+	
+		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order');
+
+        print_r($food_orderd_data);
 
 		
 		print_r($food_orderd_data);

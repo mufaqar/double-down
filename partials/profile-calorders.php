@@ -10,11 +10,13 @@
                         <div class="row">
                             <div class="col-lg-12 mx-auto mb-5">
                                 <?php                              
-                                $tomorrow = date("Y-m-d", strtotime('tomorrow'));                              
+                                $tomorrow = date("Y-m-d", strtotime('tomorrow'));    
+                                $today = date("Y-m-d", strtotime('today'));  
+                                                     
                                 $query_meta = array(
                                     'post_type' => 'orders',
                                     'posts_per_page' => -1,
-                                    'order' => 'desc',
+                                    'order' => 'asc',
                                     'meta_query' => array(
                                         'relation' => 'AND',
                                         array(
@@ -29,8 +31,8 @@
                                         ),
                                         array(
                                             'key' => 'order_day',
-                                            'value' => $tomorrow,
-                                            'compare' => '=',
+                                            'value' => array($tomorrow,$today),
+                                            'compare' => 'IN',
                                         ),
                                         array(
                                             'key' => 'order_uid',
@@ -46,7 +48,7 @@
                                                  if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
                                                         $pid = get_the_ID();
                                                         $food_orderd_data = get_post_meta($pid, 'food_order', true);
-                                                        uksort($food_orderd_data, "weekdaySort");
+                                                      
                                                         foreach ($food_orderd_data as $key => $order_data) {?>
 
 
@@ -57,11 +59,13 @@
                                                             //echo $product_id . " : " . $product_qty . "<br/>";
 
                                                             echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
+                                                            
 
                                                         }
 
                                                                      ?>
 				                                                                </p>
+                                                                                <?php cancel_Oder($pid) ?>
 				                                                            </div>
 
 				                                                        <?php }

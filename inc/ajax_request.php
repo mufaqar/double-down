@@ -106,6 +106,27 @@ function addcatering_email()
 
 
 
+add_action('wp_ajax_delete_order_product', 'delete_order_product', 0);
+add_action('wp_ajax_nopriv_delete_order_product', 'delete_order_product');
+
+function delete_order_product()
+{
+	global $wpdb;
+	$oid = $_REQUEST['oid'];	
+
+	echo $oid;
+	$deleted_id = wp_delete_post($oid);
+	if (!is_wp_error($deleted_id)) {
+		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Deleted')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
+	}
+
+	die;
+}
+
+
+
 
 
 add_action('wp_ajax_weeklyfood', 'weeklyfood', 0);
@@ -584,6 +605,9 @@ function dailyfood()
 	}
 	$days = [];
 	$days[$day] = $food_items;
+
+	print_r($days);
+
 	// check if order already placed by week
 	$query_meta = array(
         'posts_per_page' => -1,
@@ -616,9 +640,9 @@ function dailyfood()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 	    // updated Existing Food order Weekly 
+		echo "UPdate Order Query";
 		$updated_post_id = get_the_ID();	
-		update_post_meta($updated_post_id, 'food_order', $days);
-		
+		update_post_meta($updated_post_id, 'food_order', $days);		
 		$orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 		$price_arr = [];
 		foreach($orders_price as $index => $order_price)
@@ -636,7 +660,7 @@ function dailyfood()
 			}    			
 		}
 		$order_total = array_sum($price_arr);
-		update_post_meta($updated_post_id, 'food_order', $days);
+		
 		update_post_meta($updated_post_id, 'order_total', $order_total);
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 		die();

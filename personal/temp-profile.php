@@ -70,6 +70,9 @@ include 'navigation.php';?>
     </section>
 
 
+    
+
+
     <?php get_footer();?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -96,6 +99,34 @@ include 'navigation.php';?>
             $('#delivery_address').click(function(){
                 $(".delivery_address").css("display", "block");
             });
+
+
+            $( "button.cancel_order" ).click(function(event) {                
+                        var oid = $(this).data('oid'); 
+                        $.ajax({
+                            type:"GET",
+                            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                            data: {
+                                action: "delete_order_product",
+                                oid: oid
+                            },           
+                            success: function(data) {
+                                if (data.code == 0) {
+                                    alert(data.message);
+                                } else {
+                                 $(".overlay").css("display", "flex");                             
+
+                                }
+                            }
+
+                        });
+                    
+                 
+               
+            });
+
+
+
             $('#agreement').click(function(){
                 $(".agreement").css("display", "block");
             });

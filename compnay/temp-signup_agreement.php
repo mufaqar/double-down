@@ -6,8 +6,6 @@ reddirectProfile();
 
 $date  = date('Y-m-d', strtotime(' +1 day'));
 
-
-
 ?>  <main class="business_agreement">
         <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
         <a href="<?php echo home_url(); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo"></a>

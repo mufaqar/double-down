@@ -424,3 +424,31 @@ function weekOfMonth($date) {
     return $w;
 }
   
+
+function cancel_Oder($oid)
+{
+
+
+
+    
+
+    if(strtotime(date('H:i')) > strtotime(date('11:00'))){
+      ?> 
+
+        <button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button>
+      
+      <?php
+      }
+    else {
+       // echo 'Less than 11 AM';
+      }
+
+
+
+
+    ?>
+
+   
+
+    <?php
+}
