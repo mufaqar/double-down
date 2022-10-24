@@ -267,9 +267,9 @@ get_header('company');
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                     $(".alertmessage").css("display", "flex");
-                     location.reload();   
-
+                        $(".alertmessage").css("display", "flex");
+                       $('.alertmessage').delay(1500).fadeOut();
+                            location.reload();     
                     }
                 }
 
