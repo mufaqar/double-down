@@ -51,20 +51,17 @@
                                                             
                                                                 foreach ($food_orderd_data as $key => $order_data) {?>
 
+						                                                            <div class="_pro_card d-flex justify-content-between align-items-center">
+                                                                                        <div class="cont_card">
+                                                                                        <h3><?php echo  date('l', strtotime($key));?> <span> <?php echo $key?> </span></h3>
+                                                                                            <p> <?php foreach ($order_data as $product_id => $product_qty) {
+                                                                                                    echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
 
-						                                                            <div class="_pro_card">
-						                                                                <h3><?php echo  date('l', strtotime($key));?> <span> <?php echo $key?> </span></h3>
-						                                                                <p> <?php foreach ($order_data as $product_id => $product_qty) {
-                                                                                                     echo "Product  : " . get_the_title($product_id) . "  <span>(" . $product_qty . ") </span><br/>";
-
-                                                                                                                }
-
-                                                                                                ?>
-                                                                                         </p>
-
-                                                                                         <?php cancel_Oder($pid) ?>
-                                                                                               </div>
-
+                                                                                                        }
+                                                                                                    ?>                                                                                            </p>
+                                                                                        </div>		
+                                                                                        <?php cancel_Oder($pid) ?>
+                                                                                    </div>
                                                   
 
 						                                                        <?php }
