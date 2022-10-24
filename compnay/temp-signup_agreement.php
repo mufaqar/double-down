@@ -47,7 +47,7 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
 
                 <div class="pl-4 inner-content pr-4">
                     <h2 class=""> Customize company agreement for Oranchy AS</h2>
-                    <p class="align-self-start">Should the company cover all or some of the lunch?</p>
+                    <p class="align-self-start">Choose if the company should cover some of the employees lunch.</p>
                     <div class="launch mt-3 mb-4 form-group w-100 d-lg-flex align-items-center">
                         <input type="text" class="form-control" id="lunch_benefit" 
                             placeholder="Company Pay 20">
@@ -113,12 +113,14 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                     </div>
 
                     <div class="pinfo mt-5">
-                        <h2 class="">Term of use, privacy andcrelevant information</h2>
-                        <p class="text"> I will receive relevant information about product and services from the
-                            Lunch
-                            Collective. This can be , for example,information about the lunch menu and nutritional
-                            content,news and changes, offers, compaigns, surveys etc. We promise not to bother you
-                            prematurely</p>
+                        <h2 class="">Terms of use, privacy and relevant information</h2>
+                        <p class="text"> 
+                            I would like to receive relevant information about products and services
+                            from Double Down Dish. This could be information, for example
+                            about lunch menus and nutritional content, news and changes,
+                            offers, promotions, surveys, etc. We promise not to bother you prematurely.                       
+                        
+                        </p>
                     </div>
 
                     <div class="d-flex align-items-center mb-5">
