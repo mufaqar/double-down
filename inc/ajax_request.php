@@ -147,19 +147,42 @@ function weeklyfood()
 	$total_days = count($weekdays);
 	
 	update_user_meta( $uid, $usertype.'_days', $total_days);
+	print "<pre>";
 
-		$food_items = array();
-		foreach ($menu_items as $menu_item) {
-			$product_id = $menu_item[0];
-			$menu_item = $menu_item[1];
-			$food_items[$product_id] = $menu_item;
-			$day_food[$product_id] = $menu_item;
-		}
+
+
+	
+	
+
+
+		
+
+		print_r($food_items);
+
+		
 				
-		foreach ($weekdays as $key => $weekday) {		
-			$day_food = $food_items;
+		foreach ($weekdays as $weekday) {		
+
+
+
+
+			$food_items = array();
+			foreach ($menu_items as $menu_item) {
+				$product_id = $menu_item[0];
+				$menu_item = $menu_item[1];		
+				$food_items[$product_id] = $menu_item;
+	
+			}	
+
+
+
+		
 			$sel_day = array();
 			$sel_day[$weekday] = $food_items;
+
+		
+
+		
 			
 
 			// check if order already placed by week
@@ -213,11 +236,10 @@ function weeklyfood()
 						$price_arr[] = $get_price*$price;					
 					}    			
 				}
-				$order_total = array_sum($price_arr);
-				update_post_meta($updated_post_id, 'food_order', $days);
+				$order_total = array_sum($price_arr);		
 				update_post_meta($updated_post_id, 'order_total', $order_total);
+				//echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 
-				echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 
 
 
@@ -225,7 +247,10 @@ function weeklyfood()
 
 			endwhile; wp_reset_query(); else : 
 
-				// insert order
+				//insert order
+
+		
+				
 
 				$postdata = array(
 					'post_title'    => "OHYSX-" . rand(10, 100),
@@ -251,19 +276,16 @@ function weeklyfood()
 						$price_arr[] = $get_price*$price;					
 					}    			
 				}
-				$order_total = array_sum($price_arr);
-				add_post_meta($post_id, 'food_order', $days);
+				$order_total = array_sum($price_arr);		
 				add_post_meta($post_id, 'order_total', $order_total);
-				
-				
+				//echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
 
-
-				echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
+				
 
 				
 				
 
-			endif;
+			     endif;
 
 
 
@@ -271,6 +293,9 @@ function weeklyfood()
 
 
 		}
+
+
+	echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
 
 
 		

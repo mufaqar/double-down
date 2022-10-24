@@ -7,9 +7,6 @@
                                                         global $current_user;
                                                         wp_get_current_user();
                                                         $uid = $current_user->ID;
-
-
-
                                                         $query_meta = array(
                                                             'post_type' => 'orders',
                                                             'posts_per_page' => -1,

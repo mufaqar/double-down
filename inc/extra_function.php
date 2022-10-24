@@ -429,17 +429,9 @@ function cancel_Oder($oid, $date)
 {
 
 
-    echo $date ."<hr/>";
 
     $today_date =  date('Y-m-d');
-
     $current_time =  date('H:i');
-
-    echo $today_date ."<br/>";
-
-    echo $today_time ."<hr/>";
-
-
     if($today_date == $date && $current_time < strtotime(date('11:00')))
     {
         ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php
@@ -448,9 +440,6 @@ function cancel_Oder($oid, $date)
 
        ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button> <?php
     }
-   
-
-
 
 
 

@@ -231,7 +231,7 @@ get_header('company');
                 var productid = $(this).data('id');
                 var value = $(this).val();
                 if (value > 0) {
-                    datas.push([productid, $(this).val()]);
+                    datas.push([productid, $(this).val()]);                  
                 }
                 newdata.push(datas);
             });
@@ -239,7 +239,9 @@ get_header('company');
             var weekdays = weekdays;
             var menu_items = menu_items;
 
-            console.log(weekdays);
+        
+
+          
           
             $.ajax({
                 type: "POST",
@@ -259,9 +261,9 @@ get_header('company');
                     if (data.code == 0) {
                         alert(data.message);
                     } else {
-                       $(".alertmessage").css("display", "flex");
-                       $('.alertmessage').delay(1500).fadeOut();
-                            location.reload();       
+                      $(".alertmessage").css("display", "flex");
+                      $('.alertmessage').delay(1500).fadeOut();
+                           location.reload();       
                      
 
                     }
