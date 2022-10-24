@@ -594,9 +594,9 @@ function dailyfood()
 	$usertype = $_POST['usertype'];	
 	$author_obj = get_user_by('id', $uid);
 	$author =  $author_obj->display_name;
-	$order_type = $_POST['order_type'];		
+	$order_type = $_POST['order_type'];
 
-	echo $usertype;
+
 
 	$food_items = [];
 	foreach ($menu_items as $menu_item) {
@@ -608,7 +608,7 @@ function dailyfood()
 	$days = [];
 	$days[$day] = $food_items;
 
-	print_r($days);
+
 
 	// check if order already placed by week
 	$query_meta = array(
