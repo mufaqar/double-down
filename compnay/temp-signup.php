@@ -40,7 +40,7 @@ reddirectProfile();
                         </h2>
                         <p style="margin-top: -.8rem;" class="mb-4">
                             I will receive relevant information about product and services
-                            from the Lunch Collective. This can be , for example,information
+                            from the Double Down Dish. This can be , for example,information
                             about the lunch menu and nutritional content,news and changes,
                             offers, compaigns, surveys etc. We promise not to bother you
                             prematurely
@@ -70,11 +70,9 @@ reddirectProfile();
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt="" />
                     </div>
                     <h1 class="finished">Finished!</h1>
-                    <h2 class="looking">We Looking forward to make lunch with you</h2>
+                    <h2 class="looking">We look forward to make you lunch</h2>
                     <p class="find_information">
-                        We have now sent you an Email where you will find information on
-                        how to login and manage your company and your orders.Companies
-                        receive an invoice at the end of each month.
+                    We have now sent you an email where youwill find information on how to login and manage your company and your orders. Companies receive an invoice every second week.
                     </p>
                     <h3 class="employees_receive">
                         Employees receive it at the end of each week

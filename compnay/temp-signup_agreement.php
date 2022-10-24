@@ -143,11 +143,10 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                 <div class="content mt-5">
                     <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
                     <h1 class="finished">Finished!</h1>
-                    <h2 class="looking">We Looking forward to make lunch with you</h2>
-                    <p class="find_information">We have now sent you an Email where you will find information on how to login
-                        and manage your company and your orders.Companies receive an invoice at the end of each month.
+                    <h2 class="looking">We look forward to make you lunch</h2>
+                    <p class="find_information">We have now sent you an email where youwill find information on how to login and manage your company and your orders. Companies receive an invoice every second week.
                     </p>
-                    <h3 class="employees_receive">Employees receive it at the end of each week</h3>
+                    <h3 class="employees_receive">Employees will be withdraw from their cards every end of the lunch week.</h3>
                     <a href="<?php echo home_url(); ?>" class="btn_primary mb-5">Go to the front</a>
                 </div>                    
             </div>
