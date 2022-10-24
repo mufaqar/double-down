@@ -59,6 +59,7 @@ if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->
 
         }?>
 																		                                                                </p>
+                                                                                                                                        <?php cancel_Oder($pid) ?>
 																		                                                            </div>
 
 																		                                                        <?php }

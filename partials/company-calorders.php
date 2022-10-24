@@ -60,6 +60,7 @@ $uid = $current_user->ID;
 
             ?>
 		                                                                </p>
+                                                                        <?php cancel_Oder($pid) ?>
 		                                                            </div>
 
 		                                                        <?php }
