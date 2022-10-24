@@ -8,7 +8,7 @@ get_header();
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
         <h2>Personal Catering Form </h2>
-        <p>Here you change your regular lunch delivery from us. If you only want to cancel or change the type of lunch on certain days, do so <span>her.</span></p>
+        <p>Order your catering right here. Choose your preferred food type, allergens and more and we will contact you right.</p>
     </div>
     <hr>
     <div class="_form mt-5 p-4 pt-5 pb-5">
@@ -69,25 +69,6 @@ get_header();
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
                     </div>
                 </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="">Product Category</label>
-                    <div class="_select">
-                        <select id="pro_cat">
-                    <?php   
-                            $product_tax = get_terms( array('taxonomy' => 'product_category','hide_empty' => false ) ); 
-                            foreach( $product_tax as $product_cat )  {
-                                        $product_cat_slug = $product_cat->term_id ;
-                                        $product_cat_name = $product_cat->name ; ?>                            
-                                        <option value="<?php echo $product_cat_slug; ?>" > <?php echo $product_cat_name; ?> </option>
-                                            <?php
-                                }                                                    
-                            ?>
-                         </select>
-                        <img src="<?php bloginfo('template_directory'); ?>/reources/images/down-arrow.png" alt="">
-                    </div>
-                </div>
-
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
 
