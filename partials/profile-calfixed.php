@@ -2,15 +2,15 @@
                                             <div class="col-lg-12 mx-auto mb-5">                                       
                                               <?php
                                               
-                                                $query_date = $_REQUEST['date'];
-                                                $today_date = date("Y-m-d");
+                                                        $query_date = $_REQUEST['date'];
+                                                        $today_date = date("Y-m-d");
 
-                                                if ($query_date == '' ) {
-                                                    $query_date = $today_date;
-                                                } 
-                                                else {
-                                                    $query_date = $query_date;
-                                                }                                           
+                                                        if ($query_date == '' ) {
+                                                            $query_date = $today_date;
+                                                        } 
+                                                        else {
+                                                            $query_date = $query_date;
+                                                        }                                           
 
                                                         $today = $query_date;
                                                        

@@ -52,29 +52,24 @@ if ($query_date == '' ) {
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">
-                                       
-
-                                      <div class="calender_wrapper">
-                                        <div class="row">
-                                        <div class="col-md-10">
-                                        <h2>Fixed Lunch Orders <span><?php echo $query_date ?></span> </h2>
-                                        </div>
-                                        <div class="col-md-2">
-                                        <div class="calender">
-                                                <form action="" method="POST" id="dateform">
-                                                <input type="hidden" id="send" name="send" />
-                                                     <input type="date"  min="<?php echo date("Y-m-d"); ?>"  name="date" value="<?php if ($query_date == '') {echo date("Y-m-d");} else {
-                                                            echo $query_date;
-                                                        }
-                                                        ?>" id="date">
-                                                </form>
+                                        <div class="calender_wrapper">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <h2>Fixed Lunch Orders <span><?php echo $query_date ?></span> </h2>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <div class="calender">
+                                                            <form action="" method="POST" id="dateform">
+                                                                <input type="hidden" id="send" name="send" />
+                                                                    <input type="date"  min="<?php echo date("Y-m-d"); ?>"  name="date" value="<?php if ($query_date == '') {echo date("Y-m-d");} else {
+                                                                            echo $query_date;
+                                                                        }
+                                                                        ?>" id="date">
+                                                            </form>
+                                                        </div>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        
-                                       
-                                            </div>
-                                        <?php get_template_part('partials/profile', 'calfixed');?>                                      
+                                           <?php get_template_part('partials/profile', 'calfixed');?>                                      
                                     </div>
                                     <h2>Lunch Orders <span><?php echo $query_date ?></span> </h2>
                                     <?php get_template_part('partials/profile', 'calorders');?>
@@ -142,8 +137,8 @@ if ($query_date == '' ) {
         {
 
             $('#date').change(function() {
-           $(this).closest('form').submit();
-       });
+                  $(this).closest('form').submit();
+             });
 
             $('#delivery_address').click(function(){
                 $(".delivery_address").css("display", "block");
