@@ -1,9 +1,19 @@
 <div class="row">
                                             <div class="col-lg-12 mx-auto mb-5">                                       
                                               <?php
+                                              
+                                                $query_date = $_REQUEST['date'];
+                                                $today_date = date("Y-m-d");
 
-                                                        $today = date("Y-m-d", strtotime('today'));
-                                                        $tomorrow = date("Y-m-d", strtotime('tomorrow'));
+                                                if ($query_date == '' ) {
+                                                    $query_date = $today_date;
+                                                } 
+                                                else {
+                                                    $query_date = $query_date;
+                                                }                                           
+
+                                                        $today = $query_date;
+                                                       
                                                         global $current_user;
                                                         wp_get_current_user();
                                                         $uid = $current_user->ID;

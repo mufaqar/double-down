@@ -1,6 +1,30 @@
     <?php /* Template Name: Perosnal-Profile  */
 get_header();
-include 'navigation.php';?>
+include 'navigation.php';
+
+
+
+$query_date = $_REQUEST['date'];
+$today_date = date("Y-m-d");
+
+if ($query_date == '' ) {
+    $query_date = $today_date;
+} 
+ else {
+    $query_date = $query_date;
+}
+
+
+
+
+
+
+
+
+
+
+
+?>
       <div class="tab_wrapper">
                      <?php page_title()?>
                             <div class='panels'>
@@ -28,10 +52,31 @@ include 'navigation.php';?>
                                         </div>
                                     </div>
                                     <div class="accordion_wrapper">
-                                        <h2>Fixed Lunch Orders</h2>
+                                       
+
+                                      <div class="calender_wrapper">
+                                        <div class="row">
+                                        <div class="col-md-10">
+                                        <h2>Fixed Lunch Orders <span><?php echo $query_date ?></span> </h2>
+                                        </div>
+                                        <div class="col-md-2">
+                                        <div class="calender">
+                                                <form action="" method="POST" id="dateform">
+                                                <input type="hidden" id="send" name="send" />
+                                                     <input type="date"  min="<?php echo date("Y-m-d"); ?>"  name="date" value="<?php if ($query_date == '') {echo date("Y-m-d");} else {
+                                                            echo $today_date;
+                                                        }
+                                                        ?>" id="date">
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        
+                                       
+                                            </div>
                                         <?php get_template_part('partials/profile', 'calfixed');?>                                      
                                     </div>
-                                    <h2>Lunch Orders</h2>
+                                    <h2>Lunch Orders <span><?php echo $query_date ?></span> </h2>
                                     <?php get_template_part('partials/profile', 'calorders');?>
                                 </div>
 
@@ -95,6 +140,10 @@ include 'navigation.php';?>
  <script type="text/javascript">
      jQuery(document).ready(function($)
         {
+
+            $('#date').change(function() {
+           $(this).closest('form').submit();
+       });
 
             $('#delivery_address').click(function(){
                 $(".delivery_address").css("display", "block");

@@ -25,6 +25,10 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                         <label for="compnay_name">Company Name</label>
                         <input type="text" class="form-control" id="compnay_name" placeholder="Company Name" required >
                     </div>
+                    <div class="form-group w-100">
+                        <label for="compnay_name">Company Number</label>
+                        <input type="text" class="form-control" id="compnay_number" placeholder="Company Number" required >
+                    </div>
 
                     <div class="form-group w-100 mt-3 mb-5">
                         <label for="compnay_delivery_address">Delivery adress</label>

@@ -10,8 +10,16 @@
                         <div class="row">
                             <div class="col-lg-12 mx-auto mb-5">
                                 <?php                              
-                                $tomorrow = date("Y-m-d", strtotime('tomorrow'));    
-                                $today = date("Y-m-d", strtotime('today'));  
+                                 $query_date = $_REQUEST['date'];
+                                 $today_date = date("Y-m-d");
+
+                                 if ($query_date == '' ) {
+                                     $query_date = $today_date;
+                                 } 
+                                 else {
+                                     $query_date = $query_date;
+                                 }   
+                                 $today = $query_date;  
                                                      
                                 $query_meta = array(
                                     'post_type' => 'orders',
