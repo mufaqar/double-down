@@ -269,8 +269,33 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
  
 
     <div class="accordion_btns d-flex justify-content-end mb-5 mr-3">
+
+
+                                    <?php 
+                                         $system_order_date =  strtotime(date('Y-m-d'));
+                                         $order_date =  strtotime($today_date);
+                                         $current_time =  strtotime(date('H:i'));
+                                         $order_time = strtotime(date('11:00'));
+                                            if($order_date <= $system_order_date &&  $current_time < $order_time  )
+                                            {
+                                                ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                            }
+
+                                        elseif($order_date > $system_order_date)
+                                            {
+                                            
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                        }
+                                        else
+                                        {
+                                            
+                                            ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+                                        }
+                                        
+                                         
+                                         ?>
       
-        <input type="submit" class="btn_primary" value="Save" />
+     
     </div>
                                             </div>
                                         </div>

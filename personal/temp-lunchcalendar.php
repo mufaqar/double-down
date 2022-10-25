@@ -314,28 +314,39 @@ wp_get_current_user();
                                         <div>
 
                                         <?php 
-                                         $system_today_date_system =  date('Y-m-d');
-                                         $current_time =  date('H:i');
+                                         $system_order_date =  strtotime(date('Y-m-d'));
+                                         $order_date =  strtotime($today_date);
+                                         $current_time =  strtotime(date('H:i'));
+                                         $order_time = strtotime(date('11:00'));
 
-                                         
-
-                                         echo  "Order Date " .$today_date . "<br/>";
-                                         echo  "System  Date " .$system_today_date_system . "<br/>";
-                                         echo $current_time;
-
-                                     
                                         
 
+                                     
+                                  
 
 
-                                         if(strtotime($today_date) >= strtotime($system_today_date_system) && $current_time > strtotime(date('11:00')))
+
+                                         if($order_date <= $system_order_date &&  $current_time < $order_time  )
                                          {
-                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/>Create Order</button> <?php
+
+
+                                          
+
+                                            //&& $current_time < $order_time 
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                         }
-                                        else{
-                                    
-                                           ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" > Sory Date Over</button> <?php
-                                        }
+
+                                       elseif($order_date > $system_order_date)
+                                        {
+                                           
+                                           ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                       }
+                                       else
+                                       {
+                                         
+                                          ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+                                      }
+                                        
                                          
                                          ?>
 
