@@ -21,7 +21,7 @@ wp_get_current_user();
 ?><?php include 'navigation.php';?>
 
 <div class="tab_wrapper">
-<?php page_title();// echo $today_date;?>
+<?php page_title();  echo $today_date;?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
@@ -312,7 +312,34 @@ wp_get_current_user();
                                                 <a href="" class="btn_primary btn_sec d-block">Daily</a>
                                             </div>
                                         <div>
-                                        <input type="submit" id="order" class="btn_primary"  value="Save"/>
+
+                                        <?php 
+                                         $system_today_date_system =  date('Y-m-d');
+                                         $current_time =  date('H:i');
+
+                                         
+
+                                         echo  "Order Date " .$today_date . "<br/>";
+                                         echo  "System  Date " .$system_today_date_system . "<br/>";
+                                         echo $current_time;
+
+                                     
+                                        
+
+
+
+                                         if(strtotime($today_date) >= strtotime($system_today_date_system) && $current_time > strtotime(date('11:00')))
+                                         {
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/>Create Order</button> <?php
+                                        }
+                                        else{
+                                    
+                                           ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" > Sory Date Over</button> <?php
+                                        }
+                                         
+                                         ?>
+
+                                        
 
                                         <div id="cal" > </div>
                                 </div>

@@ -137,8 +137,12 @@ $year = $week_arr[0];
                                             foreach ($allergens_tax as $allergens_cat) {
                                                 $allergens_cat_slug = $allergens_cat->term_id;
                                                 $allergens_cat_name = $allergens_cat->name;?>
-                                                  <p><input type="checkbox" class="radio" value="<?php echo $allergens_cat_slug; ?>" name="allergens" />
-                                                 <label> <?php echo $allergens_cat_name; ?> </label> </p>
+                                               
+
+                                                 <label class="caterting_lable_checkbox"><?php echo $allergens_cat_name; ?> 
+                                                <input type="checkbox" value="<?php echo $allergens_cat_slug; ?>" name="allergens" >
+                                                <span class="checkmark"></span>
+                                                </label>
                                                  <?php
                                             }
                                             ?>
