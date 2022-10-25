@@ -31,7 +31,7 @@
                                         ),
                                         array(
                                             'key' => 'order_day',
-                                            'value' => array($tomorrow,$today),
+                                            'value' => array($today),
                                             'compare' => 'IN',
                                         ),
                                         array(

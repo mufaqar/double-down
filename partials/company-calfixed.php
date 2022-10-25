@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12 mx-auto mb-5">
             <?php
-            $tomorrow = date("Y-m-d", strtotime('tomorrow'));    
+            
             $today = date("Y-m-d", strtotime('today'));  
                 global $current_user;
                 wp_get_current_user();
@@ -23,7 +23,7 @@
                         ),
                         array(
                             'key' => 'order_day',
-                            'value' => array('2022-10-25','2022-10-24'),
+                            'value' =>  $today,
                             'compare' => 'IN',
                         ),
                         array(
