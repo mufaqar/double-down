@@ -108,14 +108,14 @@ foreach ($types_tax as $type) {
                                 <div class="_select">
                                     <select id="pro_sub_cat">
                                     <?php
-$product_sub_tax = get_terms(array('taxonomy' => 'product_sub_category', 'hide_empty' => false));
-foreach ($product_sub_tax as $product_sub_cat) {
-    $product_sub_cat_slug = $product_sub_cat->term_id;
-    $product_sub_cat_name = $product_sub_cat->name;?>
-                                                    <option value="<?php echo $product_sub_cat_slug; ?>" > <?php echo $product_sub_cat_name; ?> </option>
-                                                        <?php
-}
-?>
+                                        $product_sub_tax = get_terms(array('taxonomy' => 'product_sub_category', 'hide_empty' => false));
+                                        foreach ($product_sub_tax as $product_sub_cat) {
+                                            $product_sub_cat_slug = $product_sub_cat->term_id;
+                                            $product_sub_cat_name = $product_sub_cat->name;?>
+                                                                                            <option value="<?php echo $product_sub_cat_slug; ?>" > <?php echo $product_sub_cat_name; ?> </option>
+                                                                                                <?php
+                                        }
+                                        ?>
                                     </select>
                                     <img src="<?php bloginfo('template_directory');?>/reources/images/down-arrow.png" alt="">
                                 </div>

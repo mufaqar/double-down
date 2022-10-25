@@ -71,7 +71,6 @@ get_header();
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-
                 <label for="">Heating Options</label>
                     <div class="_select">
                         <select id="pro_sub_cat">
