@@ -51,7 +51,7 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                             placeholder="Company Pay 20">
                         <select name="lunch_benfit_type" id="lunch_benfit_type" class="">
                             <option value="%">%</option>
-                            <option value="$">$</option>
+                            <option value="$">NOK</option>
                         </select>
                         <p class="text-nowrap">of the lunch to each employee?</p>
                     </div>
