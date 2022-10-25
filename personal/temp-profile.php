@@ -64,7 +64,7 @@ if ($query_date == '' ) {
                                                 <form action="" method="POST" id="dateform">
                                                 <input type="hidden" id="send" name="send" />
                                                      <input type="date"  min="<?php echo date("Y-m-d"); ?>"  name="date" value="<?php if ($query_date == '') {echo date("Y-m-d");} else {
-                                                            echo $today_date;
+                                                            echo $query_date;
                                                         }
                                                         ?>" id="date">
                                                 </form>
