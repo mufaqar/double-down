@@ -269,7 +269,7 @@ get_header('company');
                     } else {
                         $(".alertmessage").css("display", "flex");
                        $('.alertmessage').delay(1500).fadeOut();
-                            location.reload();     
+                          
                     }
                 }
 

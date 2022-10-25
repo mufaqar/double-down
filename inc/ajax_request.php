@@ -280,7 +280,6 @@ function weeklyfood()
 							{
 								$vat = $get_price / 100 * 15;
 								$get_price = $get_price+$vat;
-
 							}
 						$price_arr[] = $get_price*$price;					
 					}    			
@@ -314,6 +313,11 @@ function weeklyfood()
 					foreach($order_price as $key => $price )
 					{   
 						$get_price =  get_post_meta($key, 'menu_item_price', true);
+						if($usertype == 'Personal')
+							{
+								$vat = $get_price / 100 * 15;
+								$get_price = $get_price+$vat;
+							}
 						$price_arr[] = $get_price*$price;					
 					}    			
 				}

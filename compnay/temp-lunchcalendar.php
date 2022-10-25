@@ -430,7 +430,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                             }  
                                             else {                                              
                                              $(".alertmessage").css("display", "flex");  
-                                             location.reload();  
+                                           
                                             }      
                                         }
                             
