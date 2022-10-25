@@ -3481,6 +3481,10 @@ body.page-template-temp-landing {
   border-radius: 10px;
 }
 
+.caterting_lable input[type='checkbox'] {
+  display: block;
+}
+
 /* **************************************
 ***********   >1400px  ****************
 ************************************** */

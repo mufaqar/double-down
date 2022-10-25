@@ -87,14 +87,14 @@ $year = $week_arr[0];
                                     <select id="food_type">
 
                                         <?php
-$types_tax = get_terms(array('taxonomy' => 'food_type', 'hide_empty' => false));
-foreach ($types_tax as $type) {
-    $type_slug = $type->term_id;
-    $type_name = $type->name;?>
-                                                    <option value="<?php echo $type_slug; ?>" > <?php echo $type_name; ?> </option>
-                                                        <?php
-}
-?>
+                                        $types_tax = get_terms(array('taxonomy' => 'food_type', 'hide_empty' => false));
+                                        foreach ($types_tax as $type) {
+                                            $type_slug = $type->term_id;
+                                            $type_name = $type->name;?>
+                                                                                            <option value="<?php echo $type_slug; ?>" > <?php echo $type_name; ?> </option>
+                                                                                                <?php
+                                        }
+                                        ?>
                                     </select>
                                     <img src="<?php bloginfo('template_directory');?>/reources/images/down-arrow.png" alt="">
                                 </div>
@@ -121,31 +121,32 @@ foreach ($types_tax as $type) {
                                 </div>
 
                             </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label for="">Allergens</label>
-                                <div class="_select">
-                                    <select id="allergens" multiple >
-                                    <?php
-                                            $allergens_tax = get_terms(array('taxonomy' => 'allergens', 'hide_empty' => false));
-                                            foreach ($allergens_tax as $allergens_cat) {
-                                                $allergens_cat_slug = $allergens_cat->term_id;
-                                                $allergens_cat_name = $allergens_cat->name;?>
-                                                                                                <option value="<?php echo $allergens_cat_slug; ?>" > <?php echo $allergens_cat_name; ?> </option>
-                                                                                                    <?php
-                                            }
-                                            ?>
-                                    </select>
-
-                                </div>
-                            </div>
-
                             <div class="col-md-6 mb-3">
                             <label for="">Budget Per Person</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="NOK 349" id="person" required>
                                 </div>
                             </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="">Allergens</label>
+                                <div class="_select caterting_lable">
+                                  
+                                    <?php
+                                            $allergens_tax = get_terms(array('taxonomy' => 'allergens', 'hide_empty' => false));
+                                            foreach ($allergens_tax as $allergens_cat) {
+                                                $allergens_cat_slug = $allergens_cat->term_id;
+                                                $allergens_cat_name = $allergens_cat->name;?>
+                                                  <label><input type="checkbox" class="radio" value="<?php echo $allergens_cat_slug; ?>" name="allergens" /><?php echo $allergens_cat_name; ?>  </label>
+                                                 <?php
+                                            }
+                                            ?>
+                                 
+
+                                </div>
+                            </div>
+
+                           
                             <div class="d-flex justify-content-end savebtn">
                                 <input type="submit" class="btn_primary"  value="Send Email"/>
                             </div>
