@@ -137,7 +137,6 @@ function weeklyfood()
 
 	
 	global $wpdb;
-
 	$weekdays = $_POST['weekdays'];
 	$usertype = $_POST['usertype'];
 	$menu_items = $_POST['menu_items'];
@@ -147,45 +146,94 @@ function weeklyfood()
 	$total_days = count($weekdays);
 	
 	update_user_meta( $uid, $usertype.'_days', $total_days);
-	print "<pre>";
 
+
+					$dt = new DateTime(); 
+					$this_week_days = array();
+					for ($d = 1; $d <= 5; $d++) {
+					$dt->setISODate($dt->format('o'), $dt->format('W'), $d);
+					$the_day = $dt->format('l') ;
+					$the_date = $dt->format('Y-m-d');  
+					$this_week_days[] = $the_date;
+
+				}
+
+
+				
+
+	$remaing_days = array_diff($this_week_days,$weekdays);
 
 
 	
-	
-
-
-		
-
-		print_r($food_items);
 
 		
 				
-		foreach ($weekdays as $weekday) {		
-
-
-
-
+		foreach ($weekdays as $weekday) {	
 			$food_items = array();
 			foreach ($menu_items as $menu_item) {
 				$product_id = $menu_item[0];
 				$menu_item = $menu_item[1];		
-				$food_items[$product_id] = $menu_item;
-	
-			}	
-
-
-
-		
+				$food_items[$product_id] = $menu_item;	
+			}		
 			$sel_day = array();
 			$sel_day[$weekday] = $food_items;
 
-		
 
-		
 			
 
-			// check if order already placed by week
+
+			if(empty($food_items)) {
+
+				// Start if Delete Query
+				foreach($remaing_days as $remain_day)
+				{
+
+
+					$query_del_meta = array(
+						'posts_per_page' => -1,
+						'post_type' => 'orders',
+						'meta_query' => array(
+							'relation' => 'AND',
+							array(
+								'key' => 'order_day',
+								'value' => $remain_day,
+								'compare' => '='
+							),
+							array(
+								'key' => 'order_type',
+								'value' => $order_type,
+								'compare' => '='
+							),
+							array(
+								'key'     => 'user_type',
+								'value' => $usertype,
+								'compare' => '='
+							),
+							array(
+								'key'     => 'order_uid',
+								'value' => $uid,
+								'compare' => '='
+							),
+						)
+					);	
+		
+					$post_not_in_week = new WP_Query($query_del_meta);
+					if ( $post_not_in_week->have_posts() ): while ( $post_not_in_week->have_posts() ): $post_not_in_week->the_post();
+					$delete_post_id = get_the_ID();					
+					wp_delete_post( $delete_post_id, true); 
+					endwhile; wp_reset_query(); else :   endif;					
+					
+				}
+
+				// End Delete Query
+			
+			}
+			else {
+
+
+
+
+				// check if order already placed by week
 			$query_meta = array(
 				'posts_per_page' => -1,
 				'post_type' => 'orders',
@@ -218,8 +266,9 @@ function weeklyfood()
 			if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
 				// Updted order
-			$updated_post_id = get_the_ID();
-			update_post_meta($updated_post_id, 'food_order', $sel_day);			
+
+				$updated_post_id = get_the_ID();
+			    update_post_meta($updated_post_id, 'food_order', $sel_day);			
 			    $orders_price = get_post_meta($updated_post_id, 'food_order' , true);
 				$price_arr = [];
 				foreach($orders_price as $index => $order_price)
@@ -238,19 +287,11 @@ function weeklyfood()
 				}
 				$order_total = array_sum($price_arr);		
 				update_post_meta($updated_post_id, 'order_total', $order_total);
-				//echo wp_send_json(array('code' => 200, 'message' => __('Order Updated Sucessfully')));
-
-
-
-
-
+				
 
 			endwhile; wp_reset_query(); else : 
 
 				//insert order
-
-		
-				
 
 				$postdata = array(
 					'post_title'    => "OHYSX-" . rand(10, 100),
@@ -278,19 +319,12 @@ function weeklyfood()
 				}
 				$order_total = array_sum($price_arr);		
 				add_post_meta($post_id, 'order_total', $order_total);
-				//echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Created')));
-
 				
-
-				
-				
-
 			     endif;
 
-
-
-
-
+			}
+			
+			
 
 		}
 
