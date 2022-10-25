@@ -3476,7 +3476,9 @@ body.page-template-temp-landing {
   background: #5f5f5f;
 }
 
-.addmeeting {
+.meeting_img {
+  max-height: 180px;
+  border-radius: 10px;
 }
 
 /* **************************************
