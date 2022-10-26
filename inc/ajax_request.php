@@ -1041,11 +1041,26 @@ add_action('wp_ajax_nopriv_profile_details', 'profile_details');
 
 function profile_details()
 {
+
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
 	$profile_delivery_phone = $_POST['profile_delivery_phone'];
 	update_user_meta($uid, 'profile_delivery_phone', $profile_delivery_phone);
 	echo wp_send_json(array('code' => 200, 'message' => __('Profile details updated')));
+	die;
+}
+
+// Profile Password
+add_action('wp_ajax_profile_password', 'profile_password', 0);
+add_action('wp_ajax_nopriv_profile_password', 'profile_password');
+
+function profile_password()
+{
+	global $wpdb;
+	$uid = stripcslashes($_POST['uid']);
+	$profile_password = $_POST['profile_password'];
+	wp_update_user( array ( 'ID' => $uid, 'user_pass' => $profile_password ) );		
+	echo wp_send_json(array('code' => 200, 'message' => __('Password updated')));
 	die;
 }
 

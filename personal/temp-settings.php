@@ -59,6 +59,17 @@ $user_info = get_userdata($uid);
                 </div>
             </div>
 
+            
+           
+            <div class="deatil_card d-flex justify-content-between align-items-center">
+                <div class="info">
+                    <h3>Change Password</h3>                   
+                </div>
+                <div class="">
+                    <button id="show_password" class="btn_primary">Change Password</button>
+                </div>
+            </div> 
+
             <!-- 5th  -->
             <!-- <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
@@ -201,6 +212,30 @@ foreach ($user_allergies as $key => $user_alery) {
     </div>
 </section>
 
+
+
+<section class="hideme overlay show_password_popup">
+    <div class="popup">
+            <form class="profile_password" id="profile_password" action="#">
+                <div class="popup_wrapper">
+                    <h3 class="ad_productss">Change your password</h3>                
+                    <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                        <label>Enter New Password</label>
+                        <div class="_field d-flex justify-content-between align-items-center">
+                            <input type="text"  name="new_password" id="new_password" placeholder="Please enter new password"  >
+                        </div>
+                    </div> 
+                    <div class="mt-5">
+                        <input type="submit" class="btn_primary" value="Update Password" />
+                    </div>
+                    <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
+                </div>
+            </form>
+        </div>
+</section>
+
+
+
 <section class="hideme overlay show_allergies_popup">
     <div class="popup">
         <form class="profile_allergies_form" id="profile_allergies_form" action="#">
@@ -213,15 +248,15 @@ foreach ($user_allergies as $key => $user_alery) {
 
                <select id="choices-alergies" placeholder="Select allergies" multiple>
 
-               <?php
-$allergies_tax = get_terms(array('taxonomy' => 'allergies', 'hide_empty' => false));
-foreach ($allergies_tax as $allergy) {
-    $type_slug = $allergy->slug;
-    $type_name = $allergy->name;?>
-                                        <option value="<?php echo $type_slug; ?>"><?php echo $type_name; ?> </option>
-                                            <?php
-}
-?>
+                  <?php
+                        $allergies_tax = get_terms(array('taxonomy' => 'allergies', 'hide_empty' => false));
+                        foreach ($allergies_tax as $allergy) {
+                            $type_slug = $allergy->slug;
+                            $type_name = $allergy->name;?>
+                                                                <option value="<?php echo $type_slug; ?>"><?php echo $type_name; ?> </option>
+                                                                    <?php
+                        }
+                        ?>
                         </select>
 
                         <section>
@@ -262,9 +297,6 @@ foreach ($allergies_tax as $allergy) {
 
                             </div>
                         </div>
-
-
-
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
 
                 </div>
@@ -476,6 +508,10 @@ foreach ($allergies_tax as $allergy) {
         $('#show_profile').click(function() {
             $(".show_profile_popup").css("display", "block");
         });
+
+        $('#show_password').click(function() {
+            $(".show_password_popup").css("display", "block");
+        });        
         $('#show_contact').click(function() {
             $(".show_contact_popup").css("display", "block");
         });
@@ -557,6 +593,37 @@ foreach ($allergies_tax as $allergy) {
                     } else {
 
                                $(".show_profile_popup").hide();
+                               $(".res").html(data.message);
+                               $(".alertmessage").show();
+
+                    }
+                }
+
+            });
+
+        });
+
+
+        $("#profile_password").submit(function(e) {
+            e.preventDefault();
+            var profile_password = jQuery('#new_password').val();
+            var uid = jQuery('#uid').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: {
+                    action: "profile_password",
+                    profile_password: profile_password,
+                    uid: uid
+                },
+                success: function(data) {
+
+                    if (data.code == 0) {
+
+                        alert(data.message);
+                    } else {
+
+                               $(".show_password_popup").hide();
                                $(".res").html(data.message);
                                $(".alertmessage").show();
 
