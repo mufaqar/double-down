@@ -995,7 +995,8 @@ function update_agreement()
 {
 	global $wpdb;
 	$uid = stripcslashes($_POST['uid']);
-	$compnay_agreement = $_POST['compnay_agreement'];
+	$compnay_name = $_POST['compnay_name'];
+	$compnay_number = $_POST['compnay_number'];
 	$lunch_benefit = $_POST['lunch_benefit'];
 	$benefit_type = $_POST['benefit_type'];
 	$user_id = update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
@@ -1003,7 +1004,8 @@ function update_agreement()
 	if (!is_wp_error($user_id)) {
 		update_user_meta($uid, 'lunch_benefit', $lunch_benefit);
 		update_user_meta($uid, 'lunch_benfit_type', $benefit_type);
-		update_user_meta($uid, 'compnay_name', $compnay_agreement);
+		update_user_meta($uid, 'compnay_name', $compnay_name);
+		update_user_meta($uid, 'compnay_number', $compnay_number);
 		//sendmail($username,$password);
 		echo wp_send_json(array('code' => 200, 'message' => __('Agreement detail updated')));
 	} else {
@@ -1406,7 +1408,8 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 							}
 
 							$order_total = get_post_meta( $orderid, 'order_total',true); 
-							$compnay_name =  get_user_meta($uid ,'compnay_name',true);   
+							$compnay_name =  get_user_meta($uid ,'compnay_name',true);  
+							$compnay_number=  get_user_meta($uid ,'compnay_number',true);  
 
 							$args = array(
 								'post_type' => 'orders',
@@ -1469,7 +1472,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 										</thead>							
 										<tbody>
 											<tr>
-												<td scope="row"><strong>Company : </strong><?php echo $compnay_name ?></td>
+												<td scope="row"><strong>Company : </strong><?php echo $compnay_name ?> <strong>No : </strong><?php echo $compnay_number ?></td>
 												<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>                        
 											</tr>
 											<tr>									

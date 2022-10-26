@@ -156,6 +156,7 @@ add_action('wp_ajax_nopriv_get_orders_by_user', 'get_orders_by_user');
 								$order_total = get_post_meta( $orderid, 'order_total', true ); 
 
 								$compnay_name =  get_user_meta($uid ,'compnay_name',true); 
+								$compnay_number=  get_user_meta($uid ,'compnay_number',true); 
 
 
 							$args = array(
@@ -224,7 +225,7 @@ add_action('wp_ajax_nopriv_get_orders_by_user', 'get_orders_by_user');
 										</thead>							
 										<tbody>
 											<tr>
-												<td scope="row"><strong>Company : </strong><?php echo $compnay_name ?></td>
+												<td scope="row"><strong>Company : </strong><?php echo $compnay_name ?> No <?php echo $compnay_number?></td>
 												<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>                        
 											</tr>
 											<tr>

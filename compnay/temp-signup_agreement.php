@@ -21,11 +21,11 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                     agreement for an invitation to join</p>
                 <div class="pl-4 pr-4">
                     <h2 class="">Create Buisness Agreement</h2>
-                    <div class="form-group w-100">
+                    <div class="form-group w-100 ">
                         <label for="compnay_name">Company Name</label>
                         <input type="text" class="form-control" id="compnay_name" placeholder="Company Name" required >
                     </div>
-                    <div class="form-group w-100">
+                    <div class="form-group w-100 mt-2">
                         <label for="compnay_name">Company Number</label>
                         <input type="text" class="form-control" id="compnay_number" placeholder="Company Number" required >
                     </div>
@@ -181,7 +181,7 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
             var phone = jQuery('#phone').val();	             
             var compnay_name = jQuery('#compnay_name').val();	 
             var compnay_delivery_address = jQuery('#compnay_delivery_address').val();	 
-            //var compnay_agreement = jQuery('#compnay_agreement').val();	            
+            var compnay_number = jQuery('#compnay_number').val();	            
             var start_date = jQuery('#start_date').val();      
             var lunch_benefit = jQuery('#lunch_benefit').val();	 
             var lunch_benfit_type = jQuery('#lunch_benfit_type').val();	 
@@ -198,7 +198,8 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                         username : username,
                         name : name,
                         phone : phone,
-                        compnay_name : compnay_name,                  
+                        compnay_name : compnay_name,   
+                        compnay_number : compnay_number,                  
                         compnay_delivery_address : compnay_delivery_address,
                         lunch_benfit_type : lunch_benfit_type,
                         lunch_benefit : lunch_benefit,

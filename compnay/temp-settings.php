@@ -63,6 +63,7 @@ $uid = get_current_user_id();
                         <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> of each luch</p>
                         <ul class="mt-2">
                         <li><span>Company Name:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
+                        <li><span>Company Number:</span> <?php echo get_user_meta($uid, 'compnay_number', true );  ?> </li>
                         </ul>
                     </div>
 
@@ -356,8 +357,15 @@ $uid = get_current_user_id();
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                         <label>Company Name</label>
                         <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text" name="compnay_agreement" id="compnay_agreement" value="<?php echo get_user_meta($uid, 'compnay_name', true );  ?>" >
+                            <input type="text" name="compnay_name" id="compnay_name" value="<?php echo get_user_meta($uid, 'compnay_name', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
+                        </div>
+                    </div>
+                    <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                        <label>Company Number</label>
+                        <div class="_field d-flex justify-content-between align-items-center">
+                            <input type="text" name="compnay_number" id="compnay_number" value="<?php echo get_user_meta($uid, 'compnay_number', true );  ?>" >
+                                                     
                         </div>
                     </div>
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
@@ -735,7 +743,8 @@ $uid = get_current_user_id();
             }); 
             $("#update_agreement").submit(function(e) { 
                 e.preventDefault(); 
-                var compnay_agreement = jQuery('#compnay_agreement').val();
+                var compnay_name = jQuery('#compnay_name').val();
+                var compnay_number = jQuery('#compnay_number').val();
                 var lunch_benefit = jQuery('#lunch_benefit').val();  
                 var benefit_type = jQuery('#business_setting_type').val();
                 var uid = jQuery('#uid').val();
@@ -745,7 +754,8 @@ $uid = get_current_user_id();
                         url:"<?php echo admin_url('admin-ajax.php'); ?>",
                         data: {
                             action: "update_agreement",
-                            compnay_agreement : compnay_agreement,  
+                            compnay_name : compnay_name, 
+                            compnay_number : compnay_number,
                             lunch_benefit : lunch_benefit,  
                             benefit_type : benefit_type,                           
                             uid : uid

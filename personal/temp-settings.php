@@ -322,6 +322,7 @@ foreach ($user_allergies as $key => $user_alery) {
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
                     </div>
                 </div>
+                
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Starting Date</label>
                     <div class="_field d-flex justify-content-between align-items-center">

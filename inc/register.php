@@ -83,6 +83,7 @@ function companysignup() {
 		$name = $_POST['name'];
 		$phone = stripcslashes($_POST['phone']);
 		$compnay_name = $_POST['compnay_name'];	
+		$compnay_number = $_POST['compnay_number'];	
 		$compnay_delivery_address = $_POST['compnay_delivery_address'];		
 		$lunch_benefit = $_POST['lunch_benefit'];
 		$lunch_benfit_type = $_POST['lunch_benfit_type'];
@@ -111,6 +112,7 @@ function companysignup() {
 			update_user_meta( $user_id, 'starting_date', $start_date);
 			update_user_meta( $user_id, 'profile_delivery_phone', $phone);
 			update_user_meta( $user_id, 'compnay_name', $compnay_name);
+			update_user_meta( $user_id, 'compnay_number', $compnay_number);
 
 			// User Inviated 
 			if($invite_user1 != '') {
@@ -157,7 +159,7 @@ function companysignup() {
 			}
 
 			sendmail($username,$password);
-			echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
+			echo wp_send_json( array('code' => 200 , 'message'=>__('we have created an account for you.')));
 
 	  	} else {
 	    	if (isset($user_id->errors['empty_user_login'])) {	          
