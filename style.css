@@ -3466,6 +3466,11 @@ body.page-template-temp-landing {
 .highlight {
   background-color: var(--green);
   color: #fff !important;
+  border-radius: 50px !important;
+}
+
+.disabled {
+  color: #9c9898 !important;
   border-radius: 50px;
 }
 
