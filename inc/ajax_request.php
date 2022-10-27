@@ -1454,10 +1454,6 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 								$meeting_orders =  $total_order_type['Meeting'];
 								$weekly_orders =  $total_order_type['Weekly'];
 								$daily_orders = $total_order_type['Day']; 
-								
-								
-
-							
 							?>
 
 				
