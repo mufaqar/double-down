@@ -112,16 +112,13 @@ add_action('wp_ajax_nopriv_delete_order_product', 'delete_order_product');
 function delete_order_product()
 {
 	global $wpdb;
-	$oid = $_REQUEST['oid'];	
-
-	echo $oid;
+	$oid = $_REQUEST['oid'];
 	$deleted_id = wp_delete_post($oid);
 	if (!is_wp_error($deleted_id)) {
 		echo wp_send_json(array('code' => 200, 'message' => __('Order Sucessfully Deleted')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please fill up form carefully.')));
 	}
-
 	die;
 }
 
