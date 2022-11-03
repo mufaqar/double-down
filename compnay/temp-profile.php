@@ -89,8 +89,7 @@ if ($query_date == '' ) {
                         <div class="content mt-5">
                             <div class="right"><img src="<?php bloginfo('template_directory');?>/reources/images/img 3.png" alt=""></div>
                             <h1 class="finished">Finished!</h1>
-                            <h2 class="mb-5 mt-5">Your order has beed submitted!</h2>
-
+                            <h2 class="mb-5 mt-5">Your order has beed deleted !</h2>
                         </div>
                     </div>
 
@@ -111,14 +110,6 @@ if ($query_date == '' ) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-      <!-- week calender  -->
-
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reources/js/weekPicker.min.js"></script>
-<script>
-    convertToWeekPicker($("#weekPicker2"));
-</script>
-
 
  <script type="text/javascript">
      jQuery(document).ready(function($)
@@ -126,160 +117,41 @@ if ($query_date == '' ) {
 
             $('#date').change(function() {
                   $(this).closest('form').submit();
-             });
-
-            $('#delivery_address').click(function(){
-                $(".delivery_address").css("display", "block");
-            });
-            $('#agreement').click(function(){
-                $(".agreement").css("display", "block");
-            });
-
-            $('#emp_agreement').click(function(){
-                $(".emp_agreement").css("display", "block");
-            });
-
-
-
-            $('#invoice').click(function(){
-                $(".invoice").css("display", "block");
-            });
+             });          
 
             $('._cross').click(function(){
 
                 $(".hideme").css("display", "none");
             });
 
+            $( "button.cancel_order" ).click(function(event) {                
+                        var oid = $(this).data('oid'); 
+                        $.ajax({
+                            type:"GET",
+                            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                            data: {
+                                action: "delete_order_product",
+                                oid: oid
+                            },           
+                            success: function(data) {
+                                if (data.code == 0) {
+                                    alert(data.message);
+                                } else {
+                                 $(".alertmessage").css("display", "flex");                             
 
-
-            $("#weeklyfood").submit(function(e) {
-                e.preventDefault();
-                var weekid = jQuery('#weekid').val();
-                var usertype = jQuery('#usertype').val();
-
-
-                var uid = jQuery('#uid').val();
-                var weekdays = [];
-                $.each($("input[name='sport']:checked"), function(){
-                    weekdays.push($(this).val());
-                });
-
-                var datas = [];
-                        var newdata = [];
-                        $("#weeklyfood .product-quantity").each(function () {
-                        var productid =  $(this).data('id');
-                        var value = $(this).val() ;
-                            if(value >1) {
-                                datas.push( [productid, $(this).val() ]);
                                 }
-                        newdata.push(datas);
+                            }
+
                         });
-                    // alert(newdata[0]);
-                        var menu_items = newdata[0];
-
-                        console.log(menu_items);
-                    //  alert(postid);
-
-                var weekdays = weekdays;
-                var menu_items = menu_items;
-
-                $.ajax(
-                    {
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "weeklyfood",
-                            weekdays : weekdays,
-                            menu_items : menu_items,
-                            weekid : weekid,
-                            usertype : usertype,
-                            uid : uid,
-
-                        },
-                        success: function(data){
-
-                            if(data.code==0) {
-                                        alert(data.message);
-                            }
-                            else {
-                            $(".alertmessage").css("display", "flex");
-
-                            }
-                    }
-
-                });
+                    
+                 
+               
             });
-
-            $("#dailyfood0").submit(function(e) {
-
-                e.preventDefault();
-                submitTwoForms();
-
-            });
-
-            $("#dailyfood1").submit(function(e) {
-
-
-                e.preventDefault();
-                submitTwoForms(this);
-
-            });
-            $("#dailyfood2").submit(function(e) {
-                e.preventDefault();
-                submitTwoForms();
-
-            });
-            $("#dailyfood3").submit(function(e) {
-                e.preventDefault();
-                submitTwoForms();
-
-            });
-
 
         });
 
 
-        function submitTwoForms() {
-
-            var day = jQuery('#day').val();
-            var uid = jQuery('#uid').val();
-                var datas = [];
-                var newdata = [];
-                $(".dailyfood .product-quantity").each(function () {
-                    var productid =  $(this).data('id');
-                    var value = $(this).val() ;
-                    if(value >1) {
-                        datas.push( [productid, $(this).val() ]);
-                        }
-                    newdata.push(datas);
-                });
-                var menu_items = newdata[0];
-                console.log(menu_items);
-                $.ajax(
-                    {
-                        type:"POST",
-                        url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                        data: {
-                            action: "dailyfood",
-                            day : day,
-                            menu_items : menu_items,
-                            uid : uid
-
-                        },
-                        success: function(data){
-                            if(data.code==0) {
-                                alert(data.message);
-                            }
-                            else {
-                           $(".alertmessage").css("display", "flex");
-                            }
-                         }
-
-                     });
-
-}
-
-
+        
 
 	</script>
 

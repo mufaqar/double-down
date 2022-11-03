@@ -389,9 +389,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
 
 
 <script type="text/javascript">
-    jQuery(document).ready(function($) {
-
-      
+    jQuery(document).ready(function($) {     
 
              $('._cross').click(function(){
            
