@@ -3,9 +3,6 @@
 //get_header('landing');
 
 
-
-
-
 require_once('stripe/init.php');
 
 $request_body = '{
