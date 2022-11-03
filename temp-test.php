@@ -6,7 +6,7 @@
 
 
 
-require_once('vendor/autoload.php');
+require_once('stripe/init.php');
 
 $request_body = '{
     "id": "il_tmp_1M00A2DzDUDvWAFdObtPvr5g",
@@ -59,11 +59,25 @@ $request_body = '{
   }';
 
 
+ 
+
+  // $stripe = new \Stripe\StripeClient('sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc');
+  // $customer = $stripe->customers->create([
+  //     'description' => 'Softs Gens Customer',
+  //     'email' => 'softsgens@gmail.com',
+  //     'payment_method' => 'pm_card_visa',
+  // ]);
+  // echo $customer;
+
+
+
   $stripe = new \Stripe\StripeClient(
-  'sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc'
-);
-$stripe->invoices->create([
-  'customer' => 'cus_MjTBmGArSI8Z3O',
-]);
+    'sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc'
+  );
+  $stripe->invoices->create([
+    'customer' => 'cus_MjTPbSKMklrE1N',
+    
+  ]);
+
 
 
