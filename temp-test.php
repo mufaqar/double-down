@@ -207,22 +207,7 @@ print "<pre>";
   $stripe = new \Stripe\StripeClient(
     'sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV'
   );
-  // $stripe->invoices->create([
-  //   'customer' => 'cus_MjTPbSKMklrE1N',
-  // ]);
-
-  // $stripe = new \Stripe\StripeClient(
-  //   'sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc'
-  // );
-
-  $customer_data  = array (
-    'email' => 'customer@gmail.com'
-    );
-
-  $stripe = new \Stripe\StripeClient(
-    'sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc'
-  );
- // $customer_added = $stripe->customers->create($customer_data);
+ 
 
 
 
@@ -233,14 +218,16 @@ print "<pre>";
 
 
 
+  // $stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
+  // $customer = $stripe->customers->create([
+  //     'description' => 'Softs Gens Customer',
+  //     'email' => 'softsgens@gmail.com',
+  //     'payment_method' => 'pm_card_visa',
+  // ]);
+  // echo $customer;
 
 
 
-
-
-$stripe = new \Stripe\StripeClient(
-  'sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc'
-);
 $method =  $stripe->paymentMethods->create([
   'type' => 'card',
   'card' => [
@@ -252,33 +239,17 @@ $method =  $stripe->paymentMethods->create([
 ]);
 
 
-$get_payment_method  = $stripe->customers->allPaymentMethods(
-  'cus_MjTPbSKMklrE1N',
-  ['type' => 'card']
-);
 
-
-print_r($get_payment_method);
-
-die("Die");
-
-
-
-
-
-$stripe = new \Stripe\StripeClient(
-  'sk_test_W47QwqKfeqCRhaWhxOzZrvMt00Ihvlk5oc'
-);
 
 
 
  $customer_added = $stripe->paymentIntents->create(
   array(
-       'amount' => 1500,
+       'amount' => 16500,
        'currency' => 'NOK',      
       'payment_method_types' => array('card'),
       'payment_method' => $method->id,
-      'customer' => 'cus_MlKcuFassOMnRL',
+      'customer' => 'cus_MlTVknOyPYZluK',
       
       
       )
