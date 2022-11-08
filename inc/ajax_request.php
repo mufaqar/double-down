@@ -1088,6 +1088,31 @@ function profile_deliver_fast()
 
 // Profile Payment Card Number Address
 
+add_action('wp_ajax_update_payment', 'update_payment', 0);
+add_action('wp_ajax_nopriv_update_payment', 'update_payment');
+
+function update_payment()
+{
+	global $wpdb;
+	$uid = stripcslashes($_POST['uid']);
+	$card_number = $_POST['card_number'];
+	$expiry_date = $_POST['expiry_date'];
+	$expiry_month = $_POST['expiry_month'];
+	$card_csv = $_POST['card_csv'];
+
+	$user_id = update_user_meta($uid, 'card_number', $card_number);
+	if (!is_wp_error($user_id)) {
+		 update_user_meta($uid, 'expiry_date', $expiry_date);
+		 update_user_meta($uid, 'expiry_month', $expiry_month);
+		 update_user_meta($uid, 'card_csv', $card_csv);
+
+		echo wp_send_json(array('code' => 200, 'message' => __('Payment Details Updated')));
+	} else {
+		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
+	}
+	die;
+}
+
 
 add_action('wp_ajax_profile_contact', 'profile_contact', 0);
 add_action('wp_ajax_nopriv_profile_contact', 'profile_contact');

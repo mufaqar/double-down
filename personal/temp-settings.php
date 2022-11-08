@@ -70,18 +70,23 @@ $user_info = get_userdata($uid);
                 </div>
             </div> 
 
-            <!-- 5th  -->
-            <!-- <div class="deatil_card d-flex justify-content-between align-items-center">
+          
+           <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Payment</h3>
-                    <p>**** **** **** 2124</p>
+                    <p>**** **** **** <?php $card_number =  get_user_meta($uid, 'card_number',true);
+
+                        echo  substr($card_number,-4);
+                    
+                    
+                    ?></p>
                 </div>
                 <div class="">
-                    <button id="change_payment_card_no" class="btn_primary">Change</button>
+                    <button id="show_payment_detail" class="btn_primary">Change</button>
                 </div>
-            </div> -->
+            </div> 
 
-            <!-- 6th  -->
+         
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Select your allergens and save</h3>
@@ -310,6 +315,47 @@ foreach ($user_allergies as $key => $user_alery) {
 </section>
 
 
+<section class="hideme overlay payment_detail_popup">
+    <div class="popup">
+        <form class="update_payment" id="update_payment" action="#">
+            <div class="popup_wrapper">
+                <h3 class="ad_productss">Payments Details</h3>
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>Card Number</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="card_number" id="card_number" value="<?php echo get_user_meta($uid, 'card_number', true); ?>" required>
+                        <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
+                    </div>
+                </div>                
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>Expiry Date</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="expiry_date" id="expiry_date" value="<?php echo get_user_meta($uid, 'expiry_date', true); ?>" required>
+                    </div>
+                </div>
+
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>Expiry Month</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="expiry_month" id="expiry_month" value="<?php echo get_user_meta($uid, 'expiry_month', true); ?>" required>
+                    </div>
+                </div>
+                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                    <label>CSV</label>
+                    <div class="_field d-flex justify-content-between align-items-center">
+                        <input type="text" name="card_csv" id="card_csv" value="<?php echo get_user_meta($uid, 'card_csv', true); ?>" required>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <input type="submit" class="btn_primary" value="Save" />
+                </div>
+                <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
+            </div>
+        </form>
+    </div>
+</section>
+
+
 <section class="hideme overlay agreement">
     <div class="popup">
         <form class="update_agreement" id="update_agreement" action="#">
@@ -521,9 +567,16 @@ foreach ($user_allergies as $key => $user_alery) {
             $(".show_allergies_popup").css("display", "block");
         });
 
+        $('#show_payment_detail').click(function() {
+            $(".payment_detail_popup").css("display", "block");
+        });
+
         $('#show_invoice').click(function() {
             $(".invoice").css("display", "block");
         });
+
+
+        
 
         $('.show_invoice_detail').click(function() {
             $(".invoice").hide();
@@ -565,6 +618,10 @@ foreach ($user_allergies as $key => $user_alery) {
 
            $(".invoice_detail_popup").css("display", "none");
        });
+
+
+
+
 
         $('._cross').click(function(){
 
@@ -775,12 +832,40 @@ foreach ($user_allergies as $key => $user_alery) {
                 },
                 success: function(data) {
 
-                    if (data.code == 0) {
-                        alert(data.message);
-                    } else {
-                        //alert(data.message);
+                    $(".show_contact_popup").hide();
+                               $(".res").html(data.message);
+                               $(".alertmessage").show();
+                }
 
-                    }
+            });
+
+        });
+
+        $("#update_payment").submit(function(e) {
+            e.preventDefault();
+            var card_number = jQuery('#card_number').val();
+            var expiry_date = jQuery('#expiry_date').val();
+            var expiry_month = jQuery('#expiry_month').val();
+            var card_csv = jQuery('#card_csv').val();
+            
+            
+            var uid = jQuery('#uid').val();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                data: {
+                    action: "update_payment",
+                    card_number: card_number,
+                    expiry_date: expiry_date,
+                    expiry_month: expiry_month,
+                    card_csv: card_csv,
+                    uid: uid
+                },
+                success: function(data) {
+
+                    $(".payment_detail_popup").hide();
+                               $(".res").html(data.message);
+                               $(".alertmessage").show();
                 }
 
             });
