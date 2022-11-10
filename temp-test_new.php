@@ -317,5 +317,4 @@ function get_invoice_pay_direct($week , $year , $uid)
 	}
 
 
-	get_invoice_pay_direct(43,2022,46);
-=
+	get_invoice_pay_direct(43,2022,46)
