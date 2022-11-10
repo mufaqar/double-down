@@ -36,7 +36,9 @@ include( get_template_directory() . '/stripe/init.php' );
 							['payment_method' => 'pm_card_visa']
 						  );						  
 						
-						  $status = $confirm_payment->status;
+						  //$status = $confirm_payment->status;
+
+						  print_r($confirm_payment);
 
 
 
