@@ -1420,6 +1420,8 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 	{
 							global $wpdb;
 							$order_days = get_dates_of_month('10',22);
+
+							
 							$orderid = $_POST['orderid'];				
 							$uid = $_POST['uid'];	
 							$user_info = get_userdata( $uid);

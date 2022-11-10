@@ -190,31 +190,31 @@ foreach ($user_allergies as $key => $user_alery) {
 </section>
 
 <section class="hideme overlay show_profile_popup">
-<div class="popup">
-        <form class="profile_details" id="profile_details" action="#">
-            <div class="popup_wrapper">
-                <h3 class="ad_productss">Profile details</h3>
-                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Phone </label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_phone', true); ?>">
-                    </div>
-                </div>
-                <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Email Addres</label>
-                    <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="profile_email" id="profile_email" placeholder="<?php echo $user_info->user_email ?>" value="<?php echo $user_info->user_email ?>" disabled>
-                    </div>
-                </div>
+        <div class="popup">
+                <form class="profile_details" id="profile_details" action="#">
+                    <div class="popup_wrapper">
+                        <h3 class="ad_productss">Profile details</h3>
+                        <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                            <label>Phone </label>
+                            <div class="_field d-flex justify-content-between align-items-center">
+                                <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_phone', true); ?>">
+                            </div>
+                        </div>
+                        <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
+                            <label>Email Addres</label>
+                            <div class="_field d-flex justify-content-between align-items-center">
+                                <input type="text" name="profile_email" id="profile_email" placeholder="<?php echo $user_info->user_email ?>" value="<?php echo $user_info->user_email ?>" disabled>
+                            </div>
+                        </div>
 
-                <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
-                </div>
+                        <div class="mt-5">
+                            <input type="submit" class="btn_primary" value="Save" />
+                        </div>
 
-                <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
+                        <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
 </section>
 
 
@@ -396,9 +396,8 @@ foreach ($user_allergies as $key => $user_alery) {
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Week</th>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Day</th>
-                                            <!-- <th scope="col">Price</th> -->
+                                            <th scope="col">User</th>    
+                                            <th scope="col">Price</th> 
                                             <th scope="col">Action</th>
                                             <th scope="col">Details</th>
                                         </tr>
@@ -581,7 +580,6 @@ foreach ($user_allergies as $key => $user_alery) {
         $('.show_invoice_detail').click(function() {
             $(".invoice").hide();
             $(".invoice_detail_popup").css("display", "block");
-
             var orderid = $(this).attr('data-id')
             var uid = jQuery('#uid').val();
             $.ajax({
