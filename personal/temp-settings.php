@@ -396,7 +396,7 @@ foreach ($user_allergies as $key => $user_alery) {
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Week</th>
-                                            <th scope="col">User</th>    
+                                            <th scope="col">User Type</th>    
                                             <th scope="col">Price</th> 
                                             <th scope="col">Action</th>
                                             <th scope="col">Details</th>
@@ -408,22 +408,18 @@ foreach ($user_allergies as $key => $user_alery) {
                                                 global $current_user;
                                                 wp_get_current_user();
                                                 query_posts(array(
-                                                    'post_type' => 'orders',
+                                                    'post_type' => 'invoice',
                                                     'posts_per_page' => -1,
                                                     'order' => 'desc',
-
                                                     'meta_query' => array(
-
                                                         'relation' => 'AND',
-
                                                         array(
                                                             'key' => 'user_type',
                                                             'value' => 'Personal',
                                                             'compare' => '=',
-
                                                         ),
                                                         array(
-                                                            'key' => 'order_uid',
+                                                            'key' => 'invoice_uid',
                                                             'value' => $current_user->ID,
                                                             'compare' => '=',
                                                         ),
@@ -434,12 +430,14 @@ foreach ($user_allergies as $key => $user_alery) {
                                                 if (have_posts()): while (have_posts()): the_post();?>
                                                 <tr>
                                                 <td scope="row"><?php the_title()?></td>
-                                                <td><?php echo get_post_meta(get_the_ID(), 'order_week', true); ?>   </td>
-                                                <td><?php echo get_post_meta(get_the_ID(), 'order_type', true); ?></td>
+                                                <td><?php echo get_post_meta(get_the_ID(), 'inovice_week', true); ?>  
+                                            -<?php echo get_post_meta(get_the_ID(), 'inovice_year', true); ?>   </td>
+                                               
+                                                <td>Personal</td>
+                                                <td><?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
 
-                                                <td><?php echo get_post_meta(get_the_ID(), 'order_day', true); ?></td>
-
-                                                <td><button data-id="<?php echo get_the_ID() ?>" class="show_invoice_detail btn_primary">Detail</button></td>
+                                                <td><button data-week="<?php echo get_post_meta(get_the_ID(), 'inovice_week', true) ?>" 
+                                                data-year="<?php echo get_post_meta(get_the_ID(), 'inovice_year', true) ?>"  class="show_invoice_detail btn_primary">Detail</button></td>
                                                 <td><button id="" data-id="<?php echo get_the_ID() ?>" class="btn_primary checkout-button">Checkout</button></td>
                                                 </tr>
                                                 <?php endwhile;
@@ -572,28 +570,25 @@ foreach ($user_allergies as $key => $user_alery) {
 
         $('#show_invoice').click(function() {
             $(".invoice").css("display", "block");
-        });
-
-
-        
+        });      
 
         $('.show_invoice_detail').click(function() {
             $(".invoice").hide();
             $(".invoice_detail_popup").css("display", "block");
-            var orderid = $(this).attr('data-id')
+            var week = $(this).attr('data-week')
+            var year = $(this).attr('data-year')
             var uid = jQuery('#uid').val();
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
                 data: {
                     action: "get_invoice_detail_personal",
-                    orderid: orderid,
+                    week: week,
+                    year: year,
                     uid: uid
                 },
                 success: function(data) {
-
                     if (data.code == 0) {
-
                        // alert(data.message);
                     } else {
                         $(".ajax_invoice").html(data);
