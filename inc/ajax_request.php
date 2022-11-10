@@ -1469,6 +1469,28 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 						$postinweek = new WP_Query($query_meta);
 						if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
+						
+
+
+					endwhile; wp_reset_query(); else : 
+
+						$user_type = 'Personal';
+						$post = array(
+							'post_title'    => "INVP-$uid" . $inovice_week."-".$inovice_year,
+							'post_status'   => 'publish',
+							'post_type'     => 'invoice',
+							'post_author' => $uid
+						);
+						$invoice_id = wp_insert_post($post);	
+						add_post_meta($invoice_id, 'total_price', $grand_total, true);
+						add_post_meta($invoice_id, 'invoice_days', $order_days, true);
+						add_post_meta($invoice_id, 'order_status', 'Pending', true);
+						add_post_meta($invoice_id, 'user_type', $user_type, true);
+						add_post_meta($invoice_id, 'inovice_week', $inovice_week, true);
+						add_post_meta($invoice_id, 'inovice_year',$inovice_year, true);
+						add_post_meta($invoice_id, 'invoice_uid',$uid, true);
+
+
 
 						include( get_template_directory() . '/stripe/init.php' );
 	
@@ -1502,31 +1524,6 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 							['payment_method' => 'pm_card_visa']
 						);
   
-
-						
-
-
-					endwhile; wp_reset_query(); else : 
-
-						$user_type = 'Personal';
-						$post = array(
-							'post_title'    => "INVP-$uid" . $inovice_week."-".$inovice_year,
-							'post_status'   => 'publish',
-							'post_type'     => 'invoice',
-							'post_author' => $uid
-						);
-						$invoice_id = wp_insert_post($post);	
-						add_post_meta($invoice_id, 'total_price', $grand_total, true);
-						add_post_meta($invoice_id, 'invoice_days', $order_days, true);
-						add_post_meta($invoice_id, 'order_status', 'Pending', true);
-						add_post_meta($invoice_id, 'user_type', $user_type, true);
-						add_post_meta($invoice_id, 'inovice_week', $inovice_week, true);
-						add_post_meta($invoice_id, 'inovice_year',$inovice_year, true);
-						add_post_meta($invoice_id, 'invoice_uid',$uid, true);
-
-
-
-						
 
 
 
