@@ -4,9 +4,8 @@
 
 
 
-get_invoice_pay_direct(42 , 2022 ,46);
-get_invoice_pay_direct(43 , 2022 ,46);
-get_invoice_pay_direct(44 , 2022 ,46);
+get_invoice_pay_direct(42,2022,46);
+
 
 
 
@@ -266,8 +265,7 @@ function get_invoice_pay_direct($week , $year , $uid)
 								'payment_method_types' => array('card'),
 								'payment_method' => $method->id,
 								'customer' => 'cus_MlTVknOyPYZluK',
-								'description' => "INVP-" . $inovice_week."-".$inovice_year,
-								
+								'description' => "INVP-" . $inovice_week."-".$inovice_year,							
 								
 								)
 						);
