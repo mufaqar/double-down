@@ -1420,13 +1420,10 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 	{
 							global $wpdb;
 							$order_days = get_dates_of_month('10',22);
-
-							
 							$orderid = $_POST['orderid'];				
 							$uid = $_POST['uid'];	
 							$user_info = get_userdata( $uid);
 							$args = array('p' => $orderid, 'post_type' => 'orders');
-
 							$available_active_employee = get_users(
 								array(
 									'role' => 'personal',
@@ -1452,9 +1449,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 							$lunch_benefit =  get_user_meta($uid ,'lunch_benefit',true);
 							$lunch_benfit_type =  get_user_meta($uid ,'lunch_benfit_type',true);                                               
 							$fixed_total = $order_total-$lunch_benefit;
-							$order_total_price =  $order_total * $company_days  * $total_emp ;
-
-						
+							$order_total_price =  $order_total * $company_days  * $total_emp ;		
 
 
 
@@ -1702,7 +1697,27 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 						   
 	
 
-					<?php	die;
+					<?php	
+
+		
+					$user_type = 'Compnay';
+					$post = array(
+						'post_title'    => "INVHSX-" . rand(10, 100),
+						'post_status'   => 'publish',
+						'post_type'     => 'invoice',
+						'post_author' => $uid
+					);
+					$invoice_id = wp_insert_post($post);	
+					add_post_meta($invoice_id, 'total_price', $invoice_price_with_emp, true);
+					add_post_meta($invoice_id, 'invoice_days', $order_days, true);
+					add_post_meta($invoice_id, 'order_status', 'Pending', true);
+					add_post_meta($invoice_id, 'user_type', $user_type, true);
+					add_post_meta($invoice_id, 'inovice_month', 10, true);
+					add_post_meta($invoice_id, 'inovice_year', 2022, true);
+					
+					
+					
+					die;
 	}
 
 

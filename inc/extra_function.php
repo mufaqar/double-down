@@ -423,6 +423,33 @@ function weekOfMonth($date) {
     // now return
     return $w;
 }
+
+
+function createDateRangeArray($strDateFrom,$strDateTo)
+{
+    $aryRange = [];
+    $iDateFrom = mktime(1, 0, 0, substr($strDateFrom, 5, 2), substr($strDateFrom, 8, 2), substr($strDateFrom, 0, 4));
+    $iDateTo = mktime(1, 0, 0, substr($strDateTo, 5, 2), substr($strDateTo, 8, 2), substr($strDateTo, 0, 4));
+    if ($iDateTo >= $iDateFrom) {
+        array_push($aryRange, date('Y-m-d', $iDateFrom)); // first entry
+        while ($iDateFrom<$iDateTo) {
+            $iDateFrom += 86400; // add 24 hours
+            array_push($aryRange, date('Y-m-d', $iDateFrom));
+        }
+    }
+    return $aryRange;
+}
+
+
+function get_dates_of_week($week,$year) {
+$dateTime = new DateTime();
+$dateTime->setISODate($year,$week);
+$w_start_date = $dateTime->format('Y-m-d');
+$dateTime->modify('+4 days');
+$w_end_date = $dateTime->format('Y-m-d');
+$result = createDateRangeArray($w_start_date, $w_end_date);
+return $result;
+}
   
 
 function cancel_Oder($oid, $date)

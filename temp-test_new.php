@@ -4,17 +4,27 @@
 
 
 
+
+print "<pre>";
+   
+    $dates = get_dates_of_week(45,2022);
+    print_r($dates);
+
+  
+
+
+
   $query_order = array(
       'post_type' => 'orders',
       'posts_per_page' => -1,
       'order' => 'desc',
       'meta_query' => array(
           'relation' => 'AND',
-          array(
-              'key' => 'order_week',
-              'value' => '45-11-22',
-              'compare' => '=',
-          ),
+        //   array(
+        //       'key' => 'order_week',
+        //       'value' => '45-11-22',
+        //       'compare' => '=',
+        //   ),
           array(
               'key' => 'user_type',
               'value' => 'Personal',
@@ -35,25 +45,11 @@ if ($postData->have_posts()): while ($postData->have_posts()): $postData->the_po
   $post_id = get_the_ID();    
   
  // the_title() . "<br/>";
-echo get_post_meta(get_the_ID(), 'order_week', true) . "<hr/>";;
-  $food_order = get_post_meta(get_the_ID(), 'food_order', true);
-  $luchbox = array();
-  $add = array();
+    echo get_post_meta(get_the_ID(), 'order_week', true) . "<hr/>";;
 
-  foreach ($food_order as $order) {
-      foreach ($order as $pro_id => $pro_qty) {
-          if (has_term('lunch-boxes', 'menu_types', $pro_id)) {
-              $luchbox[] = $pro_qty;
-          }
-          if (has_term('additionals', 'menu_types', $pro_id)) {
-              $add[] = $pro_qty;
-          }
-      }
+  
 
-  }
 
-  $total_boxes = array_sum($luchbox);
-  $total_add = array_sum($add);
 
   ?>
 
