@@ -263,7 +263,7 @@ function get_invoice_pay_direct($week , $year , $uid)
 								'currency' => 'NOK',      
 								'payment_method_types' => array('card'),
 								'payment_method' => $method->id,
-								'customer' => 'cus_MlTVknOyPYZluK',
+								'customer' => 'cus_MleUl7A5IEsbaf',
 								'description' => "Invoice Paid ",							
 								
 								)
