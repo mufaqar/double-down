@@ -239,12 +239,8 @@ function get_invoice_pay_direct($week , $year , $uid)
 
 
 
-						include( get_template_directory() . '/stripe/init.php' );
-	
+						include( get_template_directory() . '/stripe/init.php' );	
 						$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
-						
-						
-						
 						$method =  $stripe->paymentMethods->create([
 							'type' => 'card',
 							'card' => [
@@ -254,14 +250,6 @@ function get_invoice_pay_direct($week , $year , $uid)
 							  'cvc' => '314',
 							],
 						  ]);
-						  
-
-
-						 
-						  
-						  
-						  
-						  
 						   $customer_added = $stripe->paymentIntents->create(
 							array(
 								 'amount' => $grand_total,
@@ -269,26 +257,22 @@ function get_invoice_pay_direct($week , $year , $uid)
 								'payment_method_types' => array('card'),
 								'payment_method' => $method->id,
 								'customer' => 'cus_MlTVknOyPYZluK',
-								'description' => $inovice_week.$inovice_year
+								'description' => "Order Week : ".$inovice_week." Order Year :".$inovice_year
 								
 								
 								)
 						  );
-						  
-						  
-						  
 						  $confirm_payment = $stripe->paymentIntents->confirm(
 							$customer_added->id,
 							['payment_method' => 'pm_card_visa']
-						  );
-						  
+						  );						  
 						
 						  $status = $confirm_payment->status;
 
 
 						add_post_meta($invoice_id, 'invoice_status',$status, true);
 
-						print_r($status);
+						print_r($confirm_payment);
 
 
 
@@ -317,4 +301,4 @@ function get_invoice_pay_direct($week , $year , $uid)
 	}
 
 
-	get_invoice_pay_direct(43,2022,46)
+	get_invoice_pay_direct(43,2022,46);
