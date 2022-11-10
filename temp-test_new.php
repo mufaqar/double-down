@@ -285,6 +285,8 @@ function get_invoice_pay_direct($week , $year , $uid)
 
 						add_post_meta($invoice_id, 'invoice_status',$status, true);
 
+						print_r($status);
+
 
 
   
