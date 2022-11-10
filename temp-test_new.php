@@ -4,7 +4,14 @@
 
 
 
-get_invoice_pay_direct(42 , 2022 ,1);
+get_invoice_pay_direct(42 , 2022 ,46);
+get_invoice_pay_direct(43 , 2022 ,46);
+get_invoice_pay_direct(44 , 2022 ,46);
+
+
+get_invoice_pay_direct(42 , 2022 ,89);
+get_invoice_pay_direct(43 , 2022 ,89);
+get_invoice_pay_direct(44 , 2022 ,89);
 
 
 
