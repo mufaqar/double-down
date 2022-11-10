@@ -18,7 +18,6 @@ function get_invoice_pay_direct($week , $year , $uid)
 							$shipping_price = 90;
 							$uid = $uid;
 							$user_info = get_userdata( $uid);
-							$order_week = 45;
 							$args = array(
 								'post_type' => 'orders',
 								'posts_per_page' => -1,
