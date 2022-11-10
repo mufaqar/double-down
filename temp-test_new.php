@@ -228,7 +228,7 @@ function get_invoice_pay_direct($week , $year , $uid)
 
 						$user_type = 'Personal';
 						$post = array(
-							'post_title'    => "INVP-" . $inovice_week."-".$inovice_year,
+							'post_title'    => "INVP-$uid" . $inovice_week."-".$inovice_year,
 							'post_status'   => 'publish',
 							'post_type'     => 'invoice',
 							'post_author' => $uid
