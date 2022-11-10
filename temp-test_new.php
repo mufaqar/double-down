@@ -264,7 +264,7 @@ function get_invoice_pay_direct($week , $year , $uid)
 								'payment_method_types' => array('card'),
 								'payment_method' => $method->id,
 								'customer' => 'cus_MlTVknOyPYZluK',
-								'description' => "INVP-" . $inovice_week."-".$inovice_year,							
+								'description' => "Invoice Paid ",							
 								
 								)
 						);
@@ -273,6 +273,9 @@ function get_invoice_pay_direct($week , $year , $uid)
 							$customer_added->id,
 							['payment_method' => 'pm_card_visa']
 						);
+
+
+						add_post_meta($invoice_id, 'invoice_status','Paid', true);
 
 
 
