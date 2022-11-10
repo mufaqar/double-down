@@ -255,6 +255,12 @@ function get_invoice_pay_direct($week , $year , $uid)
 							],
 						  ]);
 						  
+
+
+						  foreach($order_days as $des_day)
+						  {
+							$day =  $des_day;
+						  }
 						  
 						  
 						  
@@ -262,11 +268,12 @@ function get_invoice_pay_direct($week , $year , $uid)
 						  
 						   $customer_added = $stripe->paymentIntents->create(
 							array(
-								 'amount' => 16500,
+								 'amount' => $grand_total,
 								 'currency' => 'NOK',      
 								'payment_method_types' => array('card'),
 								'payment_method' => $method->id,
 								'customer' => 'cus_MlTVknOyPYZluK',
+								'description' => $day,
 								
 								
 								)
