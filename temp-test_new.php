@@ -276,6 +276,41 @@ function get_invoice_pay_direct($week , $year , $uid)
 							$customer_added->id,
 							['payment_method' => 'pm_card_visa']
 						);
+
+
+
+						include( get_template_directory() . '/stripe/init.php' );
+	
+						$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
+						$method =  $stripe->paymentMethods->create([
+							'type' => 'card',
+							'card' => [
+							  'number' => '4242424242424242',
+							  'exp_month' => 11,
+							  'exp_year' => 2023,
+							  'cvc' => '314',
+							],
+						  ]);
+
+												
+						$customer_added = $stripe->paymentIntents->create(
+							array(
+								'amount' => $grand_total,
+								'currency' => 'NOK',      
+								'payment_method_types' => array('card'),
+								'payment_method' => $method->id,
+								'customer' => 'cus_MlTVknOyPYZluK',
+								'description' => "inovice  Paid for". $order_days,
+								
+								
+								)
+						);
+						
+						$confirm_payment = $stripe->paymentIntents->confirm(
+							$customer_added->id,
+							['payment_method' => 'pm_card_visa']
+						);
+  
   
 
 
