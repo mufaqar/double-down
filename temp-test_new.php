@@ -3,9 +3,9 @@
 //get_header('landing');
 
 
-get_invoice_pay_direct(44 , 2022 ,1);
+
 get_invoice_pay_direct(42 , 2022 ,1);
-get_invoice_pay_direct(42 , 2022 ,1);
+
 
 
 function get_invoice_pay_direct($week , $year , $uid)
