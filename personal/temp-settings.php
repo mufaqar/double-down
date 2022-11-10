@@ -847,6 +847,9 @@ foreach ($user_allergies as $key => $user_alery) {
             var expiry_date = jQuery('#expiry_date').val();
             var expiry_month = jQuery('#expiry_month').val();
             var card_csv = jQuery('#card_csv').val();
+            var uid = jQuery('#uid').val();
+
+            
             
             
             var uid = jQuery('#uid').val();
