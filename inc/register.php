@@ -29,8 +29,6 @@ function sendmail($to,$password,$name) {
 			  <p>Nå som du har opprettet bedriftskontoen din er du automatisk administrator, i tillegg til at du har muligheten til å bestille mat som alle andre.</p>
 			  <p>Om du har andre på kontoret som har ansvar for å organisere lunsj, invitere nye ansatte, endre/ kansellere leveringer etc. kan du gi disse administratortilgang.</p>
               <p>Ønsker du dette kan du sende meg en epost med navn og epost til de du ønsker skal ha administratortilgang. De vil motta en info-epost om dette sammen med en oversikt over funksjonene slik som du har mottatt nå. De kan også ta direkte kontakt med meg om de trenger ytterligere opplæring.</p>
-			
-			
 			";
 	
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
@@ -40,6 +38,39 @@ function sendmail($to,$password,$name) {
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	mail( $to, $subject, $body, $headers );
 	}
+
+
+	function sendmail_users($to,$password,$name) {
+		$to = $to;
+		$admin = 'hei@doubledowndish.no';
+		$subject = 'Double Down Dish | Username & Password';
+		$body  = "<p> Hei :) </p><p>($name) har inngått en bedriftsavtale med oss i Double Down Dish og du har blitt invitert med disse loggin detaljer:</p>";
+		$body  .= "<p><strong> Username :  </strong> $to </p> <p> <strong> Password : </strong> $password  </p>";
+		$body  .= "<p>Litt om oss, og litt om hva din bedriftsavtale gjør for deg.</p>
+					<p>Double Down Dish leverer porsjonspakket, hjemmelaget og smakfull lunsj direkte på jobben, hver dag. </p>
+					<p>Alt styres enkelt med telefonen eller PC. Når du registrerer deg får du din egen profil og her kan du styre og tilpasse jobblunsjen din slik at den blir akkurat slik du ønsker deg.</p>
+					<p>Noen funksjoner (og fordeler) hos Double Down Dish:</p>
+					<p>Velg selv hvilken lunsj du ønsker daglig</p>
+					<p>Nye retter hver eneste dag</p>
+					<p>Kommer fersk og klar til å spises, der du er</p>
+					<p>Avbestill/ endre lunsjen enkelt om du har hjemmekontor eller er bortreist</p>
+					<p>Hjemmelaget, smakfull og mettende lunsj hver dag på jobben</p>
+					<p>Velg mellom enkeltbestilling eller fast leveranse</p>
+					<p>Ingen bindingstid</p>
+					<p>I filmen under viser vi deg hvordan du enkelt setter opp din egen profil, legger til allergener/ behov (f eks vegetar), legger inn betalingsinformasjon og bestiller lunsjen din!</p>		
+					<p>PHOTO WITH EXPLAINING VIDEO LINK WILL BE HERE</p>
+					<p>Vi gleder oss til å få lage lunsj til deg!</p>
+					<p>Mvh</p>
+					<p>Double Down Dish AS </p>				
+				  ";
+		
+		$headers = array('Content-Type: text/html; charset=UTF-8');	
+		$headers  = "From: " . $admin . "\r\n";
+		$headers .= "Reply-To: " . $to . "\r\n";		
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+		mail( $to, $subject, $body, $headers );
+		}
 
 
 
@@ -89,11 +120,11 @@ function company_signup() {
 
 
 
-add_action('wp_ajax_companysignup', 'companysignup', 0);
-add_action('wp_ajax_nopriv_companysignup', 'companysignup');
-function companysignup() {	
+add_action('wp_ajax_company_signup_with_employees', 'company_signup_with_employees', 0);
+add_action('wp_ajax_nopriv_company_signup_with_employees', 'company_signup_with_employees');
+function company_signup_with_employees() {	
 
-	//require_once('../../../wp-config.php');
+
 		global $wpdb;		
 		$username = ($_POST['username']);
 		$email = ($_POST['username']);
@@ -122,7 +153,7 @@ function companysignup() {
 		
 	  	if (!is_wp_error($user_id)) {
 
-			//update_user_meta( $user_id, 'country', 'Pakistan');
+	
 			update_user_meta( $user_id, 'compnay_delivery_address', $compnay_delivery_address);
 			update_user_meta( $user_id, 'lunch_benefit', $lunch_benefit);
 			update_user_meta( $user_id, 'lunch_benfit_type', $lunch_benfit_type);
@@ -130,6 +161,8 @@ function companysignup() {
 			update_user_meta( $user_id, 'profile_delivery_phone', $phone);
 			update_user_meta( $user_id, 'compnay_name', $compnay_name);
 			update_user_meta( $user_id, 'compnay_number', $compnay_number);
+
+			sendmail($username,$password, $name);
 
 			// User Inviated 
 			if($invite_user1 != '') {
@@ -142,7 +175,7 @@ function companysignup() {
 	
 				$c_user_id = wp_insert_user($invited_user_data);
 				update_user_meta( $c_user_id, '_afflite', $username);
-				sendmail($invite_user1,$password);
+				sendmail_users($invite_user1,$password);
 	
 			}
 			// User Inviated 

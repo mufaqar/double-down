@@ -193,7 +193,7 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                     type:"POST",
                     url:"<?php echo admin_url('admin-ajax.php'); ?>",
                     data: {
-                        action: "companysignup",
+                        action: "company_signup_with_employees",
                         username : username,
                         name : name,
                         phone : phone,
