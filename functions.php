@@ -766,7 +766,7 @@ if ( ! wp_next_scheduled( 'create_invoice_every_three_minutes' ) ) {
 add_action( 'create_invoice_every_three_minutes', 'every_three_minutes_event_func' );
 function every_three_minutes_event_func() {
     
-        $week_start = date('Y-m-d', strtotime("last week"));
+        $week_start = date('Y-m-d', strtotime("-14 days"));
         $wdate = $week_start;
         $week_date = new DateTime($wdate);
         $week = $week_date->format("W");

@@ -7,7 +7,7 @@
 
 
 
-$week_start = date('Y-m-d', strtotime("this week"));
+$week_start = date('Y-m-d', strtotime("-14 days"));
 $wdate = $week_start;
 $week_date = new DateTime($wdate);
 $week = $week_date->format("W");
