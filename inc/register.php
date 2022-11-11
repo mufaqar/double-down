@@ -11,11 +11,28 @@ function generateRandomString($length = 10) {
 	return $randomString;
 }
 
-function sendmail($to,$password) {
+function sendmail($to,$password,$name) {
 	$to = $to;
 	$admin = 'hei@doubledowndish.no';
 	$subject = 'Double Down Dish | Username & Password';
-	$body  = "<p><strong> Username :  </strong> $to </p> <p> <strong> Password : </strong> $password  </p>";
+	$body  = "<p>Velkommen til Double Down Dish! Vi er glade for å ha deg med!</p>
+			  <p>Nå som du har registrert ($name) er du klar til å komme i gang med en smartere lunsjordning for deg og alle dine kolleger.</p>";
+	$body  .= "<p><strong> Username :  </strong> $to </p> <p> <strong> Password : </strong> $password  </p>";
+	$body  .= "<p>Jeg er din kundekontakt, og uansett hva du lurer på så er det bare å ta kontakt. Du kan alltid nå meg på hei@doubledowndish.no </p>
+			  <p>Jeg lar deg få trykke litt rundt først, så ringer jeg deg opp enten i løpet av dagen eller morgendagen slik at vi sammen kan sørge for at alt er på plass til dere.</p>
+			  <p>Under får du info om hvordan løsningen vår fungerer.</p>
+			  <p>Legg til ansatte</p>
+			  <p> Det som er viktig nå er at alle ansatte får muligheten til å opprette seg sin egen konto. Dette er selve grunnlaget for at din bedrift skal effektivisere og spare unødvendig kostnader. </p>
+              <p>En av grunnene til at dere vil spare kostnader på dette er at de ansatte med få trykk, fjerner/ endrer leveringen, selv de dagene de ikke skal på kontoret. Slik vil dere kun betale for mat dere faktisk spiser.</p>
+			  <p>(Link / knapp for å legge til ansatte!)</p>
+			  <p>Hvordan legge til ansatte - se filmen under</p>
+			  <p>Nå som du har opprettet bedriftskontoen din er du automatisk administrator, i tillegg til at du har muligheten til å bestille mat som alle andre.</p>
+			  <p>Om du har andre på kontoret som har ansvar for å organisere lunsj, invitere nye ansatte, endre/ kansellere leveringer etc. kan du gi disse administratortilgang.</p>
+              <p>Ønsker du dette kan du sende meg en epost med navn og epost til de du ønsker skal ha administratortilgang. De vil motta en info-epost om dette sammen med en oversikt over funksjonene slik som du har mottatt nå. De kan også ta direkte kontakt med meg om de trenger ytterligere opplæring.</p>
+			
+			
+			";
+	
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
 	$headers  = "From: " . $admin . "\r\n";
 	$headers .= "Reply-To: " . $to . "\r\n";		
@@ -26,11 +43,11 @@ function sendmail($to,$password) {
 
 
 
-add_action('wp_ajax_usersignup', 'usersignup', 0);
-add_action('wp_ajax_nopriv_usersignup', 'usersignup');
+add_action('wp_ajax_company_signup', 'company_signup', 0);
+add_action('wp_ajax_nopriv_company_signup', 'company_signup');
 
 
-function usersignup() {	
+function company_signup() {	
 
 	  //require_once('../../../wp-config.php');
 	  global $wpdb;
@@ -52,7 +69,7 @@ function usersignup() {
 		);
 	    $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {		    
-			sendmail($username,$password);
+			sendmail($username,$password, $name);
 			echo wp_send_json( array('code' => 200 , 'message'=>__('We have Created an account for you.')));
 
 	  	} else {

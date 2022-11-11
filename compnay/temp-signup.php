@@ -96,7 +96,7 @@ reddirectProfile();
                     type:"POST",
                     url:"<?php echo admin_url('admin-ajax.php'); ?>",
                     data: {
-                        action: "usersignup",
+                        action: "company_signup",
                         username : username,
                         name : name,
                         referral : referral,
