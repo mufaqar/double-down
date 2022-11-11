@@ -175,7 +175,7 @@ function company_signup_with_employees() {
 	
 				$c_user_id = wp_insert_user($invited_user_data);
 				update_user_meta( $c_user_id, '_afflite', $username);
-				sendmail_users($invite_user1,$password);
+				sendmail_users($invite_user1,$password,$name);
 	
 			}
 			// User Inviated 
@@ -189,7 +189,7 @@ function company_signup_with_employees() {
 	
 				$c_user2_id = wp_insert_user($invited_user2_data);
 				update_user_meta( $c_user2_id, '_afflite', $username);
-				sendmail($invite_user2,$password);
+				sendmail_users($invite_user2,$password,$name);
 	
 			}
 
@@ -204,11 +204,11 @@ function company_signup_with_employees() {
 	
 				$c_user3_id = wp_insert_user($invite_user3_data);
 				update_user_meta( $c_user3_id, '_afflite', $username);
-				sendmail($invite_user3,$password);
+				sendmail_users($invite_user3,$password,$name);
 	
 			}
 
-			sendmail($username,$password);
+	
 			echo wp_send_json( array('code' => 200 , 'message'=>__('we have created an account for you.')));
 
 	  	} else {
