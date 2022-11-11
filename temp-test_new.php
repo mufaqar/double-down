@@ -48,11 +48,11 @@ foreach($latest_orders as $order)
 }
 $authorlist = array_unique($author_arr);
 
-print_r($authorlist);
+//print_r($authorlist);
 
 foreach($authorlist as $author){   
 
-	echo $author;
+	echo $author."<br/>";
 	//get_invoice_pay_direct($week,$year,$author);
 }
 
