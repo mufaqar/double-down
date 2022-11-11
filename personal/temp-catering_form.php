@@ -7,8 +7,11 @@ get_header();
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
-        <h2>Personal Catering Form </h2>
-        <p>Order your catering right here. Choose your preferred food type, allergens and more and we will contact you right.</p>
+    <h2>We create and deliver catering for most occasions. </h2>
+                    <p>
+
+For example, could you think of "Spicy Streetfood" for the football evening with the boys, "High Tea" with the girls or perhaps "Turkish evening" with everyone at work? Feel free to send us information, wishes and needs for the catering of your event! When we receive the form, we will contact you to tailor together a fantastic and tasty menu where only your imagination sets limits!
+</p>
     </div>
     <hr>
     <div class="_form mt-5 p-4 pt-5 pb-5">

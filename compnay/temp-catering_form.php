@@ -4,8 +4,11 @@ get_header('company');?>
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
-        <h2>Catering Form Company</h2>
-        <p>Here you change your regular lunch delivery from us. If you only want to cancel or change the type of lunch on certain days, do so <span>her.</span></p>
+    <h2>We create and deliver catering for most occasions. </h2>
+                    <p>
+
+For example, could you think of "Spicy Streetfood" for the football evening with the boys, "High Tea" with the girls or perhaps "Turkish evening" with everyone at work? Feel free to send us information, wishes and needs for the catering of your event! When we receive the form, we will contact you to tailor together a fantastic and tasty menu where only your imagination sets limits!
+</p>
     </div>
     <hr>
     <div class="_form mt-5 p-4 pt-5 pb-5">
