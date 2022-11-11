@@ -120,8 +120,7 @@ $date  = date('Y-m-d', strtotime(' +1 day'));
                             I would like to receive relevant information about products and services
                             from Double Down Dish. This could be information, for example
                             about lunch menus and nutritional content, news and changes,
-                            offers, promotions, surveys, etc. We promise not to bother you prematurely.                       
-                        
+                            offers, promotions, surveys, etc. We promise not to bother you prematurely.
                         </p>
                     </div>
 

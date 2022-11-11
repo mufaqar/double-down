@@ -33,8 +33,7 @@ reddirectProfile();
 
                     <div class="tou mt-5">
                         <h2 class="">
-                            Term of use, privacy andrelevant
-                            information
+                        Terms of use, privacy and relevant information
                         </h2>
                         <p style="margin-top: -.8rem;" class="mb-4">
                             I will receive relevant information about product and services
