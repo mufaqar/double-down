@@ -31,7 +31,7 @@ function sendmail($to,$password,$name) {
               <p>Ønsker du dette kan du sende meg en epost med navn og epost til de du ønsker skal ha administratortilgang. De vil motta en info-epost om dette sammen med en oversikt over funksjonene slik som du har mottatt nå. De kan også ta direkte kontakt med meg om de trenger ytterligere opplæring.</p>
 			";
 	
-	$headers = array('Content-Type: text/html; charset=UTF-8');	
+
 	$headers  = "From: " . $admin . "\r\n";
 	$headers .= "Reply-To: " . $to . "\r\n";		
 	$headers .= "MIME-Version: 1.0\r\n";
@@ -64,8 +64,8 @@ function sendmail($to,$password,$name) {
 					<p>Double Down Dish AS </p>				
 				  ";
 		
-		$headers = array('Content-Type: text/html; charset=UTF-8');	
-		$headers  .= "From: " . $admin . "\r\n";
+	
+		$headers  = "From: " . $admin . "\r\n";
 		$headers .= "Reply-To: " . $to . "\r\n";		
 		$headers .= "MIME-Version: 1.0\r\n";
 		$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
