@@ -1104,48 +1104,30 @@ function update_payment()
 
 	$user_info = get_userdata($uid);
 	$customer_email =  $user_info->user_email;
-	$customer_name = $user_info->first_name;		
+	$customer_name = $user_info->display_name;	
+	$phone = get_user_meta( $uid,'profile_delivery_phone',true);	
+	$address = get_user_meta( $uid,'compnay_delivery_address',true);	
 
 	include( get_template_directory() . '/stripe/init.php' );
 	
 	$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
+
 	$customer = $stripe->customers->create([
 		'description' => $customer_name,
 		'email' => $customer_email,
 		'payment_method' => 'pm_card_visa',
+		'name' => $customer_name,
+		'phone' => $phone,
 	]);
 
 
-
-
-
-
-
-
-
-
-
-
-
+	
 
 	$user_id = update_user_meta($uid, 'card_number', $card_number);
 	if (!is_wp_error($user_id)) {
 		 update_user_meta($uid, 'expiry_date', $expiry_date);
 		 update_user_meta($uid, 'expiry_month', $expiry_month);
 		 update_user_meta($uid, 'card_csv', $card_csv);
-
-
-		 
-
-		
-		 
-
-
-
-
-
-
-
 		echo wp_send_json(array('code' => 200, 'message' => __('Payment Details Updated')));
 	} else {
 		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
@@ -1769,7 +1751,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 							$postinweek = new WP_Query($query_meta);
 							if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
-							echo "updated";
+							//echo "updated";
 
 
 						endwhile; wp_reset_query(); else : 

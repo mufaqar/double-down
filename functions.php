@@ -439,11 +439,9 @@ function create_invoices() {
 
 
 
-function get_invoice_pay_direct($week , $year , $uid)
+function get_invoice_pay_direct($week,$year,$uid)
 	{
-							global $wpdb;	
-
-							
+							global $wpdb;								
 							// $week = $_POST['week'];	
 							// $year = $_POST['year'];	
 							$inovice_week	= $week;	
@@ -657,7 +655,7 @@ function get_invoice_pay_direct($week , $year , $uid)
 
 						$user_type = 'Personal';
 						$post = array(
-							'post_title'    => "INVP$uid-" . $inovice_week."-".$inovice_year,
+							'post_title'    => "INVP$uid-" . rand(10, 100),
 							'post_status'   => 'publish',
 							'post_type'     => 'invoice'			
 						);
@@ -686,7 +684,7 @@ function get_invoice_pay_direct($week , $year , $uid)
 					  ]);
 					   $customer_added = $stripe->paymentIntents->create(
 						array(
-							 'amount' => intval(4953.6),
+							 'amount' => intval($grand_total),
 							 'currency' => 'NOK',      
 							'payment_method_types' => array('card'),
 							'payment_method' => $method->id,
@@ -701,12 +699,11 @@ function get_invoice_pay_direct($week , $year , $uid)
 						['payment_method' => 'pm_card_visa']
 					  );						  
 					
-					  $status = $confirm_payment->status;
+					    $status = $confirm_payment->status;
+                        add_post_meta($invoice_id, 'invoice_status',$status, true);
+                        add_post_meta($invoice_id, 'payment_message', $confirm_payment, true);
 
-
-					add_post_meta($invoice_id, 'invoice_status',$status, true);
-
-					print_r($confirm_payment);
+					//print_r($confirm_payment);
 
 
 						
@@ -764,9 +761,8 @@ if ( ! wp_next_scheduled( 'create_invoice_every_three_minutes' ) ) {
 
 // Hook into that action that'll fire every three minutes
 add_action( 'create_invoice_every_three_minutes', 'every_three_minutes_event_func' );
-function every_three_minutes_event_func() {
-    
-        $week_start = date('Y-m-d', strtotime("-14 days"));
+function every_three_minutes_event_func() {    
+        $week_start = date('Y-m-d', strtotime("-7 days"));
         $wdate = $week_start;
         $week_date = new DateTime($wdate);
         $week = $week_date->format("W");

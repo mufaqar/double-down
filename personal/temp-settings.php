@@ -841,11 +841,6 @@ foreach ($user_allergies as $key => $user_alery) {
             var expiry_month = jQuery('#expiry_month').val();
             var card_csv = jQuery('#card_csv').val();
             var uid = jQuery('#uid').val();
-
-            
-            
-            
-            var uid = jQuery('#uid').val();
             $.ajax({
                 type: "POST",
                 url: "<?php echo admin_url('admin-ajax.php'); ?>",
