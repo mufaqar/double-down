@@ -120,6 +120,103 @@ add_filter("manage_edit-orders_sortable_columns", "my_column_register_sortable" 
 
 
 
+// For invoices
+
+
+
+
+add_filter( 'manage_invoice_posts_columns', 'set_custom_edit_invoice_columns' );    
+add_action( 'manage_invoice_posts_custom_column' , 'custom_invoice_column', 10, 2 );
+function set_custom_edit_invoice_columns($columns) {    
+    unset( $columns['author'] );   
+  
+    
+    $columns['inovice_week'] = ' Week';
+    $columns['inovice_year'] = ' Year';
+    $columns['user_type'] = 'User Type';
+    $columns['order_uid'] = 'Invoice By';
+    $columns['order_total'] = 'Invoice Price';
+    $columns['order_status'] = 'Invoice Status';  
+    return $columns;    
+}
+
+function custom_invoice_column( $column, $post_id ) {   
+    global $post;
+    switch ( $column ) {
+        case 'inovice_year' :
+            if(get_field( "inovice_year", $post_id )) {
+                echo get_field( "inovice_year", $post_id );
+            } else {
+                echo 0;
+            }
+        break;
+        case 'inovice_week' :
+            if(get_field( "inovice_week", $post_id )) {
+                echo get_field( "inovice_week", $post_id ); 
+            } else {
+                echo 0;
+            }
+        break;
+        
+        case 'order_status' :
+            if(get_field( "invoice_status", $post_id )) {
+                echo get_field( "invoice_status", $post_id );
+            } else {
+                echo 0;
+            }
+        break;
+
+        case 'order_week' :
+            if(get_field( "order_week", $post_id )) {
+                echo get_field( "order_week", $post_id ); 
+            } else {
+                echo 0;
+            }
+        break;
+        case 'user_type' :
+          if(get_field( "user_type", $post_id )) {            
+             echo   get_field( "user_type", $post_id );
+             
+          } else {
+              echo 0;
+          }
+      break; 
+      break;  
+        case 'order_total' :
+          if(get_field( "total_price", $post_id )) {
+              echo " NOK " .get_field( "total_price", $post_id );
+          } else {
+              echo 0;
+          }
+      break; 
+      break;  
+        case 'order_uid' :
+          if(get_field( "invoice_uid", $post_id )) {           
+              $uid =  get_field( "invoice_uid", $post_id );
+              $the_user = get_user_by( 'id', $uid ); // 54 is a user ID
+              echo $the_user->user_email;
+          } else {
+              echo 0;
+          }
+      break;    
+    }   
+}
+
+function my_invoice_register_sortable( $columns ) {
+     $columns['order_status'] = 'order_status';
+    $columns['order_type'] = 'order_type';
+    return $columns;
+}
+
+add_filter("manage_edit-invoice_sortable_columns", "my_invoice_register_sortable" );
+
+
+
+
+
+
+
+
 add_filter( 'manage_catering_posts_columns', 'set_custom_edit_catering_columns' );    
 add_action( 'manage_catering_posts_custom_column' , 'custom_catering_column', 10, 2 );
 function set_custom_edit_catering_columns($columns) {    
