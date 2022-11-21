@@ -7,8 +7,8 @@
         <div class="row">
             <div class="catering_wrapper c2 mt-5 mb-5">
                 <div class="catering_menu">
-                    <a href="<?php echo home_url('profile'); ?>" class="">Lunch Calendar</a>
-                    <a href="" class="_active">Fixed Delivery</a>
+                    <a href="<?php echo home_url('profile'); ?>" class="">Individual Orders</a>
+                    <a href="" class="_active">Fixed Orders</a>
                 </div>
                 <div class="calender_wrapper mt-5">
                     <h3>Fixed Delivery</h3>

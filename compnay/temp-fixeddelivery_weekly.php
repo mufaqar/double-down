@@ -14,7 +14,7 @@ get_header('company');
         <div class='panel launchClander Fixed_delivery'>
             <div class="catering_wrapper c2 mt-5 mb-5">
                 <div class="catering_menu">
-                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="">Lunch Calendar</a>
+                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="">Individual Orders</a>
                     <a href="<?php echo home_url('/company-profile/fixed-delivery'); ?>" class="_active">Fixed Delivery</a>
                 </div>
             </div>
