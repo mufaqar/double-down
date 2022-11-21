@@ -36,13 +36,12 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Time of delivery</label>
                     <div class="_select">
-                        <input type="time" value="" placeholder="02-05-22" id="time">
-                        <!-- <img src="./reources//images/date.png" alt=""> -->
+                        <input type="time" value="" placeholder="02-05-22" id="time">                 
                     </div>
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                    <label for="">Delivery address</label>
+                    <label for="">Address of delivery</label>
                     <div class="_select">
                         <input type="text" value="" placeholder="Add your address" id="address" required>
                     </div>
@@ -93,29 +92,36 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="">Allergens</label>
-                    <div class="_select">
-                        <select id="allergens" multiple>
-                        <?php   
-                            $allergens_tax = get_terms( array('taxonomy' => 'allergens','hide_empty' => false ) ); 
-                            foreach( $allergens_tax as $allergens_cat )  {                                
-                                        $allergens_cat_slug = $allergens_cat->term_id ;
-                                        $allergens_cat_name = $allergens_cat->name ; ?>                            
-                                        <option value="<?php echo $allergens_cat_slug; ?>" > <?php echo $allergens_cat_name; ?> </option>
-                                            <?php
-                                }                                                    
-                            ?>
-                         </select>
-                      
-                    </div>
-                </div>
+                            <label for="">Budget Per Person</label>
+                                <div class="_select">
+                                    <input type="text" value="" placeholder="NOK 349" id="person" required>
+                                </div>
+                            </div>
 
                 <div class="col-md-6 mb-3">
-                <label for="">Budget Per Person</label>
-                    <div class="_select">
-                        <input type="text" value="" placeholder="NOK 349" id="person" required>
-                    </div>
-                </div>
+                                <label for="">Allergens</label>
+                                <div class="_select caterting_lable">
+                                  
+                                    <?php
+                                            $allergens_tax = get_terms(array('taxonomy' => 'allergens', 'hide_empty' => false));
+                                            foreach ($allergens_tax as $allergens_cat) {
+                                                $allergens_cat_slug = $allergens_cat->term_id;
+                                                $allergens_cat_name = $allergens_cat->name;?>
+                                               
+
+                                                 <label class="caterting_lable_checkbox"><?php echo $allergens_cat_name; ?> 
+                                                <input type="checkbox" value="<?php echo $allergens_cat_slug; ?>" name="allergens" >
+                                                <span class="checkmark"></span>
+                                                </label>
+                                                 <?php
+                                            }
+                                            ?>
+                                 
+
+                                </div>
+                            </div>
+
+               
                 <div class="d-flex justify-content-end savebtn">
                     <input type="submit" class="btn_primary"  value="Save"/>
                 </div>
