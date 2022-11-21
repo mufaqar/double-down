@@ -8,6 +8,24 @@ require_once('stripe/init.php');
 print "<pre>";
 
 
+$email = 'jaweria@live.com';
+
+$stripe = new \Stripe\StripeClient(
+  'sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV'
+);
+$customers = $stripe->customers->search([
+  //'query' => 'email:jaweria@live.com',
+  'query' => [
+    'email' => 'jaweria@live.com',
+  
+  ],
+]);
+
+print_r($customers);
+
+die();
+
+
 
 // // get token and user details
 // $stripeToken  = $_POST['stripeToken'];

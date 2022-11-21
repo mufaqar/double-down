@@ -91,13 +91,13 @@ get_header('landing');
 <h2>Price NOK 79.13</h2>
 <p>Really big company? Get in touch and we will find a solution!</p>
 <div class="row d-flex align-items-center _slider mt-4">
-    <div class="col-lg-2 categories_links">
+    <!-- <div class="col-lg-2 categories_links">
         <a href="">	Salad Lunch</a>
         <a href="">Bread Lunch</a>
         <a href="">Wrap Lunch</a>
         <a href="">Additional</a>
       
-    </div>
+    </div> -->
     <div class="col-lg-10 _slider_items">
         <div class="autoplay">
         
