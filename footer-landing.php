@@ -18,7 +18,7 @@
     <a class="measures_text">Measures against the coronavirus</a>
     <div class="divider"></div>
     <div class="footer_social">
-        <img src="<?php bloginfo('template_directory'); ?>/reources/images/facebook.png" alt="facebook">
+        <a href="https://www.facebook.com/doubledowndish/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/reources/images/facebook.png" alt="facebook"></a>
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/twitter.png" alt="twitter">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/instagram.png" alt="instagram">
     </div>
