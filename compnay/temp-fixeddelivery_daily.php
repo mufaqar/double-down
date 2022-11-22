@@ -99,7 +99,7 @@ get_header('company');
                     <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
                     <input type="hidden" value="Company" id="usertype">
                     <input type="hidden" value="<?php echo date("Y-m-d"); ?>" id="tdate">
-                    <?php get_template_part( 'partials/lunchbox', 'fixeditems' ); ?>
+                    <?php get_template_part( 'compnay/parts/lunchbox', 'fixeditems' ); ?>
                 </div>
 
                 <div class="d-flex justify-content-between mt-5 mb-4 accessories">
