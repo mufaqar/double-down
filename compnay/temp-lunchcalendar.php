@@ -82,7 +82,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
 
             <h2>Business lunch calendar</h2>
             <p>Here you can easily choose between or cancel the various lunch options from day
-                to day. If you want to change a fixed subscription, do so <a href="<?php echo home_url('/contact-us'); ?>">her.</a>
+                to day. 
             </p>
 
                            
