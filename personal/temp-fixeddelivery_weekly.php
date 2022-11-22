@@ -5,7 +5,7 @@ get_header('');
         <div class="tab_wrapper">
             <div class='toggle mb-5'>
                         <div class='tabs'>
-                            <div class='tab active'>Lunch Calendar</div>           
+                            <div class='tab active'>Order Lunch</div>           
                         </div>
                 </div>        
         <div class='panels'>

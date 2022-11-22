@@ -75,7 +75,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
 
             <div class="catering_wrapper c2 mt-5 mb-5">
                 <div class="catering_menu">
-                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="_active">Lunch Calendar</a>
+                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="_active">Individual Orders</a>
                     <a href="<?php echo home_url('/company-profile/lunch-calendar/fixed-delivery'); ?>" class="">Fixed Orders</a>
                 </div>
              </div>

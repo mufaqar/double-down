@@ -6,7 +6,7 @@ get_header('company');
 <div class="tab_wrapper">
             <div class='toggle mb-5'>
                         <div class='tabs'>
-                            <div class='tab active'>Lunch Calendar</div>           
+                            <div class='tab active'>Order Lunch</div>           
                         </div>
                 </div>
 
@@ -14,7 +14,7 @@ get_header('company');
         <div class='panel launchClander Fixed_delivery'>
             <div class="catering_wrapper c2 mt-5 mb-5">
                 <div class="catering_menu">
-                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>">Lunch Calendar</a>
+                    <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>">Individual Orders</a>
                     <a href="<?php echo home_url('/company-profile/fixed-delivery'); ?>" class="_active">Fixed Orders</a>
                 </div>
             </div>
