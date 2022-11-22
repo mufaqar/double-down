@@ -191,7 +191,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
     </section>
 
 
-    <?php get_footer();?>
+    <?php get_footer('landing');?>
 
      <!-- Font Awsome -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" ></script>
