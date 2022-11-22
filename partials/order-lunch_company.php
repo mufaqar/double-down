@@ -17,7 +17,7 @@
                                         <th scope="col">Emplyees</th>
                                         <th scope="col">Benifit</th>
                                         <th scope="col">Days</th>
-                                        <th scope="col">Compnay Pay</th>
+                                        <th scope="col">Company Pay</th>
                                         <th scope="col">Total</th>
                                     </tr>
                                     </thead>
