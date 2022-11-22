@@ -60,7 +60,7 @@ $year=$week_arr[0];
 </main>
 
 
-<?php get_footer(); ?>
+<?php get_footer('landing')?>
 
 
 
