@@ -87,8 +87,10 @@ if ( is_user_logged_in() ) {
 <?php get_footer('landing'); ?>
 <script type="text/javascript">   
    jQuery(document).ready(function($) {    
-        $("#loginform").submit(function(e) {          
+        $("#loginform").submit(function(e) {   
+                   
             e.preventDefault();
+
             var username = jQuery('#username').val();
             var password = jQuery('#password').val();       
             jQuery.ajax({
@@ -100,7 +102,7 @@ if ( is_user_logged_in() ) {
                 password : password
             },
             success: function(response){
-               // alert(response.message);
+               alert(response.message);
                window.location.href = "<?php echo home_url('profile'); ?>";
             },
             error: function(response) {
