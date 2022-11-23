@@ -15,7 +15,7 @@ if ( is_user_logged_in() ) {
 
 } else {
 
-echo "Not Login" ;
+//echo "Not Login" ;
 
 
 }
@@ -110,10 +110,8 @@ echo "Not Login" ;
             $(".hideme").css("display", "none");
         });
 
-        $("#loginform").submit(function(e) {   
-                   
+        $("#loginform").submit(function(e) {                      
             e.preventDefault();
-
             var username = jQuery('#username').val();
             var password = jQuery('#password').val();       
             jQuery.ajax({
