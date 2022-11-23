@@ -18,9 +18,17 @@ function userlogin() {
    
       if ( is_wp_error($user_verify) )   {            
              echo wp_send_json( array('code' => 0 , 'message'=>__('Please Enter Corrent Username and Password')));
+             die();
       } else {   
-       // echo "your are logged in";
-      } 	
+       echo wp_send_json( array('code' => 200 , 'message'=>__('Working')));
+       die();
+      } 
+
+     
+
+    
+      
+    
 		
 }
 
