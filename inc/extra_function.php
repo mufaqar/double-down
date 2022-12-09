@@ -557,6 +557,12 @@ function cancel_Oder($oid, $date)
     $today_date =  date('Y-m-d');
     $current_time =  date('H:i');
 
+    $system_order_date =  strtotime(date('Y-m-d'));
+    // echo $today_date;
+$today_day_name = date('l', $system_order_date);
+
+
+
 //     echo $today_date;
 //     echo "<br/>";
 //    echo  $current_time;
@@ -566,7 +572,18 @@ function cancel_Oder($oid, $date)
     }
     else{
 
-       ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button> <?php
+        if($today_day_name == 'Friday'  && $current_time > strtotime(date('11:00')) ) {
+
+            ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button> <?php
+        }
+        else 
+        {
+
+            ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php
+
+        }
+
+      
     }
 
 
