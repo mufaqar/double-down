@@ -556,6 +556,10 @@ function cancel_Oder($oid, $date)
 
     $today_date =  date('Y-m-d');
     $current_time =  date('H:i');
+
+//     echo $today_date;
+//     echo "<br/>";
+//    echo  $current_time;
     if($today_date == $date && $current_time < strtotime(date('11:00')))
     {
         ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php

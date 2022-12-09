@@ -325,14 +325,8 @@ wp_get_current_user();
 
                                          
 
-                                      
-                                         
-                                        
-
-
                                          if($order_date <= $system_order_date &&  $current_time < $order_time  )
                                          {
-
 
                                             ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                         }
@@ -342,12 +336,12 @@ wp_get_current_user();
                                            
                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                        }
-                                       else
-                                       {
-                                         
-                                          ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
-                                      }
-                                        
+                                        else
+                                        {
+                                            
+                                            ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+                                        }
+                                            
                                          
                                          ?>
 
