@@ -15,13 +15,18 @@ if ($query_date != '' && $cal_date == '') {
 $date = new DateTime($today_date);
 $weeksid = $date->format("W-m-y");
 
+// echo $today_date;
+$today_day_name = date('l', strtotime($today_date));
+
+
+
 global $current_user;
 wp_get_current_user(); 
 
 ?><?php include 'navigation.php';?>
 
 <div class="tab_wrapper">
-<?php page_title(); // echo $today_date;?>
+<?php page_title(); echo $today_date . $today_day_name;?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
@@ -324,24 +329,34 @@ wp_get_current_user();
                                          $order_time = strtotime(date('11:00'));                                       
                                       
 
-                                        $hide_day = date('l', $system_order_date);
 
                                       
-                                       if($hide_day == 'Friday' &&  $current_time > $order_time )
-                                        {
-                                            ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
-                                        }
-
-                                         elseif($order_date <= $system_order_date &&  $current_time < $order_time  )
+                                    
+                                     if( $order_date <= $system_order_date  &&  $current_time < $order_time  )
                                          {
+
+                                            // Query when date date and time is less then 11
 
                                             ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                         }
 
-                                       elseif($order_date > $system_order_date)
+                                       elseif($order_date > $system_order_date  )
                                         {
+
+                                        
+                                            // When date is greator then and time is greator then 11 
+                                            if($today_day_name == 'Monday' &&  $order_date > $system_order_date ) {
+                                                ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over Friday</a><?php
+                                            }
+                                            
+                                            else {
+
+                                                ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+
+
+                                            }
                                            
-                                           ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                          
                                        }
                                        
                                         else
