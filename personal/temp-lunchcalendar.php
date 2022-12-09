@@ -321,11 +321,18 @@ wp_get_current_user();
                                          $system_order_date =  strtotime(date('Y-m-d'));
                                          $order_date =  strtotime($today_date);
                                          $current_time =  strtotime(wp_date('H:i'));
-                                         $order_time = strtotime(date('11:00'));
+                                         $order_time = strtotime(date('11:00'));                                       
+                                      
 
-                                         
+                                        $hide_day = date('l', $system_order_date);
 
-                                         if($order_date <= $system_order_date &&  $current_time < $order_time  )
+                                      
+                                       if($hide_day == 'Friday' &&  $current_time > $order_time )
+                                        {
+                                            ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+                                        }
+
+                                         elseif($order_date <= $system_order_date &&  $current_time < $order_time  )
                                          {
 
                                             ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
@@ -336,6 +343,7 @@ wp_get_current_user();
                                            
                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                        }
+                                       
                                         else
                                         {
                                             
