@@ -1108,31 +1108,42 @@ function update_payment()
 	$phone = get_user_meta( $uid,'profile_delivery_phone',true);	
 	$address = get_user_meta( $uid,'compnay_delivery_address',true);	
 
+	$customer_id = get_user_meta( $uid,'customer_id',true);	
+
 	include( get_template_directory() . '/stripe/init.php' );
 	
 	$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
+		if($customer_id == '') {
+				$customer = $stripe->customers->create([
+					'description' => $customer_name,
+					'email' => $customer_email,
+					'payment_method' => 'pm_card_visa',
+					'name' => $customer_name,
+					'phone' => $phone,
+				]);
+				update_user_meta($uid, 'customer_id', $customer->id);	
+				update_user_meta($uid, 'card_number', $card_number);					
+				update_user_meta($uid, 'expiry_date', $expiry_date);
+				update_user_meta($uid, 'expiry_month', $expiry_month);
+				update_user_meta($uid, 'card_csv', $card_csv);
+				echo wp_send_json(array('code' => 200, 'message' => __('Customer Created Sucessfully ')));
+				die;
 
-	$customer = $stripe->customers->create([
-		'description' => $customer_name,
-		'email' => $customer_email,
-		'payment_method' => 'pm_card_visa',
-		'name' => $customer_name,
-		'phone' => $phone,
-	]);
-
+		}
+		else {
+		
+				update_user_meta($uid, 'card_number', $card_number);					
+				update_user_meta($uid, 'expiry_date', $expiry_date);
+				update_user_meta($uid, 'expiry_month', $expiry_month);
+				update_user_meta($uid, 'card_csv', $card_csv);
+				echo wp_send_json(array('code' => 200, 'message' => __('Payment Details Updated')));
+				die;
+			} 
+	
+		
 
 	
-
-	$user_id = update_user_meta($uid, 'card_number', $card_number);
-	if (!is_wp_error($user_id)) {
-		 update_user_meta($uid, 'expiry_date', $expiry_date);
-		 update_user_meta($uid, 'expiry_month', $expiry_month);
-		 update_user_meta($uid, 'card_csv', $card_csv);
-		echo wp_send_json(array('code' => 200, 'message' => __('Payment Details Updated')));
-	} else {
-		echo wp_send_json(array('code' => 0, 'message' => __('Error Occured please check address')));
-	}
-	die;
+	
 }
 
 

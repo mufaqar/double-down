@@ -74,12 +74,14 @@ $user_info = get_userdata($uid);
            <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
                     <h3>Payment</h3>
+                    <p> Customer Id : <?php echo get_user_meta($uid, 'customer_id',true); ?></p>
                     <p>**** **** **** <?php $card_number =  get_user_meta($uid, 'card_number',true);
 
                         echo  substr($card_number,-4);
                     
                     
                     ?></p>
+
                 </div>
                 <div class="">
                     <button id="show_payment_detail" class="btn_primary">Change</button>
