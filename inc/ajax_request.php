@@ -1390,7 +1390,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 
 												<?php }  endwhile; 
 
-												print_r($shipping_days_arr);
+												
 
 													$shipping_days =  count($shipping_days_arr);
 													$tatal_vat = array_sum($food_total_vat_arr);
