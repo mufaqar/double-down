@@ -401,7 +401,7 @@ foreach ($user_allergies as $key => $user_alery) {
                                             <th scope="col">User Type</th>    
                                             <th scope="col">Price</th> 
                                             <th scope="col">Action</th>
-                                            <th scope="col">Details</th>
+                                    
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -440,7 +440,7 @@ foreach ($user_allergies as $key => $user_alery) {
 
                                                 <td><button data-week="<?php echo get_post_meta(get_the_ID(), 'inovice_week', true) ?>" 
                                                 data-year="<?php echo get_post_meta(get_the_ID(), 'inovice_year', true) ?>"  class="show_invoice_detail btn_primary">Detail</button></td>
-                                                <td><button id="" data-id="<?php echo get_the_ID() ?>" class="btn_primary checkout-button">Checkout</button></td>
+                                           
                                                 </tr>
                                                 <?php endwhile;
                                                     wp_reset_query();else: ?>
