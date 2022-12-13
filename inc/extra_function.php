@@ -574,7 +574,7 @@ $today_day_name = date('l', $system_order_date);
 
         if($today_day_name == 'Friday'  && $current_time > strtotime(date('11:00')) ) {
 
-            ?><button data-oid="<?php echo $oid?>" class="btn_primary cancel_order" >Cancel Order</button> <?php
+            ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel" >Cancel Order</button> <?php
         }
         else 
         {
