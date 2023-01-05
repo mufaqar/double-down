@@ -17,18 +17,12 @@ function userlogin() {
     $user_verify = wp_signon( $login_data, false );   
    
       if ( is_wp_error($user_verify) )   {            
-             echo wp_send_json( array('code' => 0 , 'message'=>__('Please Enter Corrent Username and Password')));
+             echo wp_send_json( array('code' => 0 , 'message'=>__('Please Enter correct Username and Password')));
              die();
       } else {   
        echo wp_send_json( array('code' => 200 , 'message'=>__('Working')));
        die();
-      } 
-
-     
-
-    
-      
-    
+      }       
 		
 }
 
