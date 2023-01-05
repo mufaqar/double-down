@@ -1258,7 +1258,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
                                     wp_reset_query(); else : ?>
                                    <div class="catering_card _pro_salat">
 										<h3> Sorry, no <span><?php echo $catname ?></span> menu added for this (<?php echo $week?>)week</h3>
-										<p class="mt-3"> We are workign on it, we will add it soon</p>                            
+										<p class="mt-3"> We are working on it, we will add it soon</p>                            
 									</div>
                                 <?php endif; 
 
