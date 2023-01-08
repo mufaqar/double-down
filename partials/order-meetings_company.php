@@ -5,14 +5,7 @@
                             <h2>Meetings Orders</h2>
                             <!-- <div><a href="<?php echo home_url('catering-form'); ?>"><i class="fa-solid fa-plus"></i></a></div> -->
                         </div>
-                        <!-- <div class="calender">
-                            <form class="showresult" id="showresult" action="" > 
-                            <input type="date" value="" name="qdate" onchange="this.form.submit()">
-                            <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >
-                            </form>
-
-                            
-                        </div> -->
+                       
                         </div>
                         <div class="catering_card_wrapper">
                             <div class="invoice_table">
