@@ -493,12 +493,12 @@ jQuery(document).ready(function($)
                              var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
                                 {
                                     
-                                    echo $s . $daily_date;
-                                    $s = ', ';
+                                  //  echo $s . $daily_date;
+                                 //   $s = ', ';
                                 }
                             ?> ];
                 if (~hilightedDays.indexOf(date.getDate())) {
-                 return {classes: 'highlight', tooltip: 'Order'};
+               //  return {classes: 'highlight', tooltip: 'Order'};
                 }
              }
         });
