@@ -2,7 +2,7 @@
   "checkout": {
     "integrationType": "EmbeddedCheckout",
     "url": "https://<YOUR_SERVER>/checkout.html",
-    "termsUrl": "https://<YOUR_SERVER>/terms.html"
+    "termsUrl": "https:<doubledoun.co/terms.html"
   },
   "order": {
     "items": [
