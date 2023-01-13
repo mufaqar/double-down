@@ -17,7 +17,7 @@
       },
         {
         "reference": "discount",
-        "name": "Demo discount",
+        "name": "Demo Price discount",
         "quantity": 1,
         "unit": "pcs",
         "unitPrice": -20000,
