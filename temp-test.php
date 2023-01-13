@@ -3,6 +3,11 @@
 //get_header('landing');
 
 
+
+echo "1" +2  * "007";
+
+exit();
+
 require_once('stripe/init.php');
 
 print "<pre>";
