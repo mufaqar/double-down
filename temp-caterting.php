@@ -140,8 +140,6 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                                             foreach ($allergens_tax as $allergens_cat) {
                                                 $allergens_cat_slug = $allergens_cat->term_id;
                                                 $allergens_cat_name = $allergens_cat->name;?>
-                                               
-
                                                  <label class="caterting_lable_checkbox"><?php echo $allergens_cat_name; ?> 
                                                 <input type="checkbox" value="<?php echo $allergens_cat_slug; ?>" name="allergens" >
                                                 <span class="checkmark"></span>

@@ -99,6 +99,9 @@ function addcatering_email()
 	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	mail( $admin, $subject, $body, $headers );
+
+	echo $allergens;
+	die("asdf");
 	echo wp_send_json(array('code' => 200, 'message' => __('Email sent sucessfully ')));
 	die;
 }
