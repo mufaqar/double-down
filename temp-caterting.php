@@ -253,7 +253,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                                     alert(data.message);
                         }
                         else {
-                          // $(".overlay").css("display", "flex");
+                          $(".overlay").css("display", "flex");
 
                         }
             }
