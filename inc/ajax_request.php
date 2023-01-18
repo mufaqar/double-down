@@ -77,8 +77,8 @@ function addcatering_email()
 	$user_type = $_POST['user_type'];
 	$uid = $_POST['uid'];
 	$admin = 'bestilling@doubledowndish.no';	
-	$to = 'mufaqar@gmail.com';
-	//$to = 'hei@doubledowndish.no,mufaqar@gmail.com';
+	//$to = 'mufaqar@gmail.com';
+	$to = 'hei@doubledowndish.no';
 	$cc = $email;
 
 
