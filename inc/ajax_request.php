@@ -77,8 +77,20 @@ function addcatering_email()
 	$user_type = $_POST['user_type'];
 	$uid = $_POST['uid'];
 	$admin = 'bestilling@doubledowndish.no';	
-	$to = 'hei@doubledowndish.no';
+	$to = 'hei@doubledowndish.no,mufaqar@gmail.com';
 	$cc = $email;
+
+
+	$allergn_list = "";
+	foreach($allergens as $alergy)
+	{
+		$allergn_list .=  $alergy . "<br/>";
+
+
+	}
+
+	//echo $allergn_list;
+
 	$subject = "Double Downdish | Catering Inquiry";
 	$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
 	$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
@@ -90,7 +102,7 @@ function addcatering_email()
 	$body  .= "<p><strong> Reason  </strong>:  ".$reason."  </p>";
 	$body  .= "<p><strong> Product Category  </strong>:  ".$pro_cat."  </p>";
 	$body  .= "<p><strong> Heating Options </strong>:  ".$pro_sub_cat."  </p>";
-	$body  .= "<p><strong> Allergens  </strong>:  ".$allergens."  </p>";
+	$body  .= "<p><strong> Allergens  </strong>:  ".$allergn_list."  </p>";
 	$body  .= "<p><strong> Budget Per Person  </strong>:  ".$person."  </p>";	
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
 	$headers  = "From: " . $to . "\r\n";
@@ -100,7 +112,7 @@ function addcatering_email()
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 	mail( $admin, $subject, $body, $headers );
 
-	echo $allergens;
+
 
 	echo wp_send_json(array('code' => 200, 'message' => __('Email sent sucessfully ')));
 	die;
