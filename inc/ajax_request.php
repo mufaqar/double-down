@@ -71,7 +71,6 @@ function addcatering_email()
 	$person = $_POST['person'];
 	$food_type = $_POST['food_type'];
 	$reason = $_POST['reason'];
-	$pro_cat = $_POST['pro_cat'];
 	$pro_sub_cat = $_POST['pro_sub_cat'];
 	$allergens = $_POST['allergens'];
 	$user_type = $_POST['user_type'];
@@ -101,7 +100,6 @@ function addcatering_email()
 	$body  .= "<p><strong> Address  </strong>:  ".$address."  </p>";
 	$body  .= "<p><strong> Food Type  </strong>:  ".$food_type."  </p>";
 	$body  .= "<p><strong> Reason  </strong>:  ".$reason."  </p>";
-	$body  .= "<p><strong> Product Category  </strong>:  ".$pro_cat."  </p>";
 	$body  .= "<p><strong> Heating Options </strong>:  ".$pro_sub_cat."  </p>";
 	$body  .= "<p><strong> Allergens  </strong>:  ".$allergn_list."  </p>";
 	$body  .= "<p><strong> Budget Per Person  </strong>:  ".$person."  </p>";	

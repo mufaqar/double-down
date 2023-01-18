@@ -115,7 +115,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                                         foreach ($product_sub_tax as $product_sub_cat) {
                                             $product_sub_cat_slug = $product_sub_cat->term_id;
                                             $product_sub_cat_name = $product_sub_cat->name;?>
-                                              <option value="<?php echo $product_sub_cat_slug; ?>" > <?php echo $product_sub_cat_name; ?> </option>
+                                              <option value="<?php echo $product_sub_cat_name; ?>" > <?php echo $product_sub_cat_name; ?> </option>
                                                 <?php
                                         }
                                         ?>
