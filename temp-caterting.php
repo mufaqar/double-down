@@ -32,7 +32,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                         <div class="col-md-6 mb-3">
                                 <label for="">Your name</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Please enter Name" id="name" required>
+                                    <input type="text" value="Mufaqar" placeholder="Please enter Name" id="name" required>
 
                                 </div>
                             </div>
@@ -40,7 +40,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             <div class="col-md-6 mb-3">
                                 <label for="">Your Email</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Please enter Email" id="email" required>
+                                    <input type="text" value="mufaqar@gmail.com" placeholder="Please enter Email" id="email" required>
 
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             <div class="col-md-6 mb-3">
                                 <label for="">Number of People</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                    <input type="text" value="10" placeholder="Please enter Number" id="people" required>
 
                                 </div>
                             </div>
@@ -73,14 +73,14 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
                                 <label for="">Address of delivery</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Add your address" id="address" required>
+                                    <input type="text" value="lahore" placeholder="Add your address" id="address" required>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Reason</label>
                                 <div class="_select">
-                                <input type="text" value="" placeholder="Please enter Reason" id="reason" required>
+                                <input type="text" value="10" placeholder="Please enter Reason" id="reason" required>
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                                                 $allergens_cat_slug = $allergens_cat->term_id;
                                                 $allergens_cat_name = $allergens_cat->name;?>
                                                  <label class="caterting_lable_checkbox"><?php echo $allergens_cat_name; ?> 
-                                                <input type="checkbox" value="<?php echo $allergens_cat_slug; ?>" name="allergens" >
+                                                   <input type="checkbox" value="<?php echo $allergens_cat_name; ?>" name="allergens" >
                                                 <span class="checkmark"></span>
                                                 </label>
                                                  <?php
@@ -214,8 +214,18 @@ For example, could you think of "Spicy Streetfood" for the football evening with
             var pro_cat = jQuery('#pro_cat').val();
             var pro_sub_cat = jQuery('#pro_sub_cat').val();
             var person = jQuery('#person').val();
-            var allergens = jQuery('#allergens').val();
+            var allergens = jQuery('input:checkbox:checked').val();
             var uid = jQuery('#uid').val();
+
+
+                var allergens_list = [];
+                $('input:checkbox').each(function() {
+                if(this.checked) {
+                    allergens_list.push(this.value);
+                }
+                });
+
+           // alert(allergens_list);
 
             $.ajax(
                 {
@@ -231,7 +241,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                         address : address,
                         food_type : food_type,
                         reason : reason,
-                        allergens : allergens ,
+                        allergens : allergens_list ,
                         pro_cat : pro_cat,
                         pro_sub_cat : pro_sub_cat,
                         person : person
@@ -243,7 +253,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                                     alert(data.message);
                         }
                         else {
-                           $(".overlay").css("display", "flex");
+                          // $(".overlay").css("display", "flex");
 
                         }
             }
