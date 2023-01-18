@@ -32,7 +32,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                         <div class="col-md-6 mb-3">
                                 <label for="">Your name</label>
                                 <div class="_select">
-                                    <input type="text" value="Mufaqar" placeholder="Please enter Name" id="name" required>
+                                    <input type="text" value="" placeholder="Please enter Name" id="name" required>
 
                                 </div>
                             </div>
@@ -40,7 +40,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             <div class="col-md-6 mb-3">
                                 <label for="">Your Email</label>
                                 <div class="_select">
-                                    <input type="text" value="mufaqar@gmail.com" placeholder="Please enter Email" id="email" required>
+                                    <input type="text" value="" placeholder="Please enter Email" id="email" required>
 
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             <div class="col-md-6 mb-3">
                                 <label for="">Number of People</label>
                                 <div class="_select">
-                                    <input type="text" value="10" placeholder="Please enter Number" id="people" required>
+                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
 
                                 </div>
                             </div>
@@ -73,14 +73,14 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
                                 <label for="">Address of delivery</label>
                                 <div class="_select">
-                                    <input type="text" value="lahore" placeholder="Add your address" id="address" required>
+                                    <input type="text" value="" placeholder="Add your address" id="address" required>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Reason</label>
                                 <div class="_select">
-                                <input type="text" value="10" placeholder="Please enter Reason" id="reason" required>
+                                <input type="text" value="" placeholder="Please enter Reason" id="reason" required>
                                 </div>
                             </div>
 
