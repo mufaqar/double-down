@@ -7,11 +7,11 @@
   "order": {
     "items": [
       {
-        "reference": "ref423515",
+        "reference": "ref4235",
         "name": "Demo product",
         "quantity": 2,
         "unit": "hours",
-        "unitPrice": 80000,
+        "unitPrice": 9000,
         "grossTotalAmount": 19000,
         "netTotalAmount": 160000
       },
