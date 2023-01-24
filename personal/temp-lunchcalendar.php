@@ -492,7 +492,10 @@ jQuery(document).ready(function($)
             clearBtn: false,
             startDate: '1d',
             weekStart : 1,
-            daysOfWeekDisabled: [0,6],            
+           // dates: ["2023-01-15", "2022-01-25"]
+            daysOfWeekDisabled: [0,6],
+            
+            
             beforeShowDay: function(date) {
                              var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
                                 {
@@ -501,7 +504,7 @@ jQuery(document).ready(function($)
                                    $s = ', ';
                                 }
                             ?> ];
-                if (~hilightedDays.indexOf(date.getDate())) {
+                if (~hilightedDays.indexOf(date.getMonth() === 0 && date.getDate())) {
                return {classes: 'highlight', tooltip: 'Order'};
                 }
              }

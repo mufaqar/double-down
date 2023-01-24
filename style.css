@@ -3567,3 +3567,7 @@ body.page-template-temp-landing {
     margin: 0px auto;
   }
 }
+
+.highlighted-date {
+  background-color: #ffc107;
+}
