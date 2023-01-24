@@ -482,6 +482,9 @@ jQuery(document).ready(function($)
        $('#date').change(function() {
            $(this).closest('form').submit();
        });
+
+       var highlightDates = ["2023-01-24", "2023-01-26", "2023-01-28"];
+
        $('#date-datepicker div').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true,
@@ -489,6 +492,7 @@ jQuery(document).ready(function($)
             clearBtn: false,
             startDate: '1d',
             weekStart : 1,
+            daysOfWeekDisabled: [0,6],            
             beforeShowDay: function(date) {
                              var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
                                 {
