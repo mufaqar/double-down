@@ -94,7 +94,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                                         foreach ($types_tax as $type) {
                                             $type_slug = $type->term_id;
                                             $type_name = $type->name;?>
-                                                                                            <option value="<?php echo $type_slug; ?>" > <?php echo $type_name; ?> </option>
+                                                                                            <option value="<?php echo $type_name; ?>" > <?php echo $type_name; ?> </option>
                                                                                                 <?php
                                         }
                                         ?>
