@@ -366,7 +366,10 @@ wp_get_current_user();
                 </div>
             </div>
 
-            <?php $query_date_order = array(
+            <?php 
+            
+          
+            $query_date_order = array(
                 'post_type' => 'orders',
                 'posts_per_page' => -1,
                 'order' => 'desc',
@@ -374,20 +377,26 @@ wp_get_current_user();
                     'relation' => 'AND',
                 
                     array(
-                        'key' => 'user_type',
-                        'value' => 'Personal',
-                        'compare' => '=',
-                    ),
-                    array(
                         'key' => 'order_type',
                         'value' => 'Day',
                         'compare' => '=',
+                    ),
+                    array(
+                        'key' => 'order_uid',
+                        'value' => $uid,
+                        'compare' => '='
+                    ),
+                    array(
+                        'key' => 'user_type',
+                        'value' => 'Personal',
+                        'compare' => '='
                     ),
                 ),
             );
 
             $daily_order_dates = array();
 
+            
             $date_Data = new WP_Query($query_date_order);
             if ($date_Data->have_posts()): while ($date_Data->have_posts()): $date_Data->the_post();
 
@@ -399,14 +408,18 @@ wp_get_current_user();
         
 
             endwhile;wp_reset_query();else:  endif;  
+
+
+           // print_r($daily_dates);
             
             foreach($daily_order_dates as $daily_date)
             {
                 $daily_dates =  $daily_date;
+              //  echo $daily_date;
             }
 
            
-           
+          
           
 
           
@@ -480,12 +493,12 @@ jQuery(document).ready(function($)
                              var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
                                 {
                                     
-                                  //  echo $s . $daily_date;
-                                 //   $s = ', ';
+                                   echo $s . $daily_date;
+                                   $s = ', ';
                                 }
                             ?> ];
                 if (~hilightedDays.indexOf(date.getDate())) {
-               //  return {classes: 'highlight', tooltip: 'Order'};
+               return {classes: 'highlight', tooltip: 'Order'};
                 }
              }
         });
