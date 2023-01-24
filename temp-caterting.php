@@ -210,8 +210,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
             var time = jQuery('#time').val();
             var address = jQuery('#address').val();
             var food_type = jQuery('#food_type').val();
-            var reason = jQuery('#reason').val();
-            var pro_cat = jQuery('#pro_cat').val();
+            var reason = jQuery('#reason').val();     
             var pro_sub_cat = jQuery('#pro_sub_cat').val();
             var person = jQuery('#person').val();
             var allergens = jQuery('input:checkbox:checked').val();
@@ -241,8 +240,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                         address : address,
                         food_type : food_type,
                         reason : reason,
-                        allergens : allergens_list ,
-                        pro_cat : pro_cat,
+                        allergens : allergens_list ,                 
                         pro_sub_cat : pro_sub_cat,
                         person : person
 
