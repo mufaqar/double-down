@@ -1,10 +1,8 @@
 <?php /* Template Name: Personal-LunchCalednar  */
 get_header();
-
 $cal_date = $_REQUEST['send'];
 $query_date = $_REQUEST['date'];
 $today_date = date("Y-m-d");
-
 if ($query_date != '' && $cal_date == '') {
     $today_date = $query_date;
 } elseif ($cal_date != '' && $query_date != '') {
@@ -14,17 +12,11 @@ if ($query_date != '' && $cal_date == '') {
 }
 $date = new DateTime($today_date);
 $weeksid = $date->format("W-m-y");
-
 // echo $today_date;
 $today_day_name = date('l', strtotime($today_date));
-
-
-
 global $current_user;
 wp_get_current_user(); 
-
 ?><?php include 'navigation.php';?>
-
 <div class="tab_wrapper">
 <?php page_title(); //echo $today_date . $today_day_name;?>
                     <div class="custom_container">
