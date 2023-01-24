@@ -60,7 +60,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             foreach( $food_types as $food_type )  {
                                         $food_type_slug = $food_type->term_id ;
                                         $food_type_name = $food_type->name ; ?>                            
-                                        <option value="<?php echo $food_type_slug; ?>" > <?php echo $food_type_name; ?> </option>
+                                        <option value="<?php echo $food_type_name; ?>" > <?php echo $food_type_name; ?> </option>
                                             <?php
                                 }                                                    
                             ?>
@@ -78,7 +78,7 @@ For example, could you think of "Spicy Streetfood" for the football evening with
                             foreach( $product_sub_tax as $product_sub_cat )  {
                                         $product_sub_cat_slug = $product_sub_cat->term_id ;
                                         $product_sub_cat_name = $product_sub_cat->name ; ?>                            
-                                        <option value="<?php echo $product_sub_cat_slug; ?>" > <?php echo $product_sub_cat_name; ?> </option>
+                                        <option value="<?php echo $product_sub_cat_name; ?>" > <?php echo $product_sub_cat_name; ?> </option>
                                             <?php
                                 }                                                    
                             ?>
