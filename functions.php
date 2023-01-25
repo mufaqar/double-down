@@ -404,21 +404,8 @@ function create_invoices() {
             <tbody>
             </table>
     </div>
-    
-    
-
-
-
-
-   
-
-
-<?php	die;
-
-
-
-
-
+<?php	
+die;
 }
 
 
