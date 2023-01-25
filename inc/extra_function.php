@@ -321,28 +321,6 @@ function menu_items_column_register_sortable( $columns ) {
 add_filter("manage_edit-menu_items_sortable_columns", "menu_items_column_register_sortable" );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function  page_title() {
 
     ?> <div class='toggle mb-5'>
@@ -376,28 +354,14 @@ function my_get_current_user_roles() {
         if($c_user_role == 'personal') { ?>
             <a href="<?php echo get_site_url(); ?>/profile" class="singleprofile myprofile active" onclick="myProfile()">My <br> Profile</a>
             <?php
-
-
         }
         else {
 
         ?>
         <a href="<?php echo get_site_url(); ?>/profile" class="myprofile active" onclick="myProfile()">My <br> Profile</a>
         <a href="<?php echo get_site_url(); ?>/company-profile" class="companyProfile active" onclick="companyProfile()">Company<br> Profile</a>
-
-
-
         <?php
-
-
-
-    }
-
-
-
-   
-
-   
+    }  
    
   }
 
@@ -551,15 +515,12 @@ return $result;
 
 function cancel_Oder($oid, $date)
 {
-
-
-
     $today_date =  date('Y-m-d');
     $current_time =  date('H:i');
 
     $system_order_date =  strtotime(date('Y-m-d'));
     // echo $today_date;
-$today_day_name = date('l', $system_order_date);
+    $today_day_name = date('l', $system_order_date);
 
 
 
@@ -581,20 +542,7 @@ $today_day_name = date('l', $system_order_date);
 
             ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php
 
-        }
-
-      
+        }      
     }
-
-
-
-
-
-
-
-    ?>
-
-   
-
-    <?php
+    
 }
