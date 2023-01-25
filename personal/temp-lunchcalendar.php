@@ -403,7 +403,12 @@ wp_get_current_user();
             $order_day = get_post_meta(get_the_ID(), 'order_day', true);
             $timestamp = strtotime($order_day);
             $day = date('d', $timestamp);
-            $daily_order_dates[] = $day;
+            $daily_order_dates[] = $order_day;
+
+           // echo "<h4>";
+
+           //  echo $order_day;
+           //  echo "</h4>";
         
 
             endwhile;wp_reset_query();else:  endif;  
@@ -414,7 +419,7 @@ wp_get_current_user();
             foreach($daily_order_dates as $daily_date)
             {
                 $daily_dates =  $daily_date;
-              //  echo $daily_date;
+               // echo $daily_date;
             }
 
            
@@ -478,39 +483,31 @@ wp_get_current_user();
 jQuery(document).ready(function($)
    {
 
+
+   // var specificDates = ["15-05-2022", "20-05-2022", "25-05-2022"];
+    $('#date-datepicker div').datepicker({
+       daysOfWeekDisabled: [0, 6], //disable sunday and saturday
+        
+    });
+
+
+
+
+
+
+
        $('#date').change(function() {
            $(this).closest('form').submit();
-       });
+       });       
+		
+        var specificDates = [new Date("2023,01,24"), new Date("2023,01,25"), new Date("2023,01,28")  ];
 
-       var highlightDates = ["2023-01-24", "2023-01-26", "2023-01-28"];
+        // $('#date-datepicker div').datepicker(
+        //    //  'setDates', specificDates
+        // );
 
-       $('#date-datepicker div').datepicker({
-            format: "yyyy-mm-dd",
-            autoclose: true,
-            todayHighlight: false,
-            clearBtn: false,
-            startDate: '1d',
-            weekStart : 1,
-           // dates: ["2023-01-15", "2022-01-25"]
-            daysOfWeekDisabled: [0,6],
-            
-            
-            beforeShowDay: function(date) {
-                             var hilightedDays = [ <?php $s = ''; foreach($daily_order_dates as $daily_date)
-                                {
-                                    
-                                   echo $s . $daily_date;
-                                   $s = ', ';
-                                }
-                            ?> ];
-                if (~hilightedDays.indexOf(date.getMonth() === 0 && date.getDate())) {
-               return {classes: 'highlight', tooltip: 'Order'};
-                }
-                if (~hilightedDays.indexOf(date.getMonth() === 1 && date.getDate())) {
-              // return {classes: 'highlight', tooltip: 'Order'};
-                }
-             }
-        });
+
+
         $("#date-datepicker div").on("changeDate", function(event) {
             $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
