@@ -1717,9 +1717,8 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 												$shipping_vat = $final_shipping*25/100;
 												$ship_vat_total = $final_shipping+$shipping_vat;
 
-
-												 $order_extra_total = $ship_vat_total+$final_order_price+$food_item_vat_total;
-												 $invoice_price_with_emp = ($order_extra_total+$food_item_price_total)*$total_emp;
+												$order_extra_total = $ship_vat_total+$final_order_price+$food_item_vat_total;
+												$invoice_price_with_emp = ($order_extra_total+$food_item_price_total)*$total_emp;
 												
 												
 												?>  
@@ -1754,19 +1753,8 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 									<tbody>
                					 </table>
 							</div>
-							
-							
-                      
-                     
 
-				 
-						   
-	
-
-					<?php	
-
-
-						
+					<?php							
 								// check if order already placed by week
 							$query_meta = array(
 								'posts_per_page' => -1,
@@ -1800,11 +1788,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 							if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
 
 							//echo "updated";
-
-
 						endwhile; wp_reset_query(); else : 
-
-
 							$user_type = 'Compnay';
 							$post = array(
 								'post_title'    => "INVHSX-" . rand(10, 100),
