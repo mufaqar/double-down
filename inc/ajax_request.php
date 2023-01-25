@@ -1821,14 +1821,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 							add_post_meta($invoice_id, 'inovice_year', 2022, true);
 
 
-						endif;
-
-
-
-
-
-		
-				
+						endif;		
 					
 					
 					

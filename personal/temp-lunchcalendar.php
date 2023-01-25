@@ -374,8 +374,7 @@ wp_get_current_user();
                 'posts_per_page' => -1,
                 'order' => 'desc',
                 'meta_query' => array(
-                    'relation' => 'AND',
-                
+                    'relation' => 'AND',                
                     array(
                         'key' => 'order_type',
                         'value' => 'Day',
@@ -506,6 +505,9 @@ jQuery(document).ready(function($)
                             ?> ];
                 if (~hilightedDays.indexOf(date.getMonth() === 0 && date.getDate())) {
                return {classes: 'highlight', tooltip: 'Order'};
+                }
+                if (~hilightedDays.indexOf(date.getMonth() === 1 && date.getDate())) {
+              // return {classes: 'highlight', tooltip: 'Order'};
                 }
              }
         });
