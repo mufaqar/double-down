@@ -503,18 +503,17 @@ function createDateRangeArray($strDateFrom,$strDateTo)
 
 
 function get_dates_of_week($week,$year) {
-$dateTime = new DateTime();
-$dateTime->setISODate($year,$week);
-$w_start_date = $dateTime->format('Y-m-d');
-$dateTime->modify('+4 days');
-$w_end_date = $dateTime->format('Y-m-d');
-$result = createDateRangeArray($w_start_date, $w_end_date);
-return $result;
-}
+        $dateTime = new DateTime();
+        $dateTime->setISODate($year,$week);
+        $w_start_date = $dateTime->format('Y-m-d');
+        $dateTime->modify('+4 days');
+        $w_end_date = $dateTime->format('Y-m-d');
+        $result = createDateRangeArray($w_start_date, $w_end_date);
+        return $result;
+    }
   
 
-function cancel_Oder($oid, $date)
-{
+function cancel_Oder($oid, $date) {
     $today_date =  date('Y-m-d');
     $current_time =  date('H:i');
 
