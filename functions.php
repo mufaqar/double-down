@@ -178,11 +178,6 @@ function create_invoices() {
     $fixed_total = $order_total-$lunch_benefit;
     $order_total_price =  $order_total * $company_days  * $total_emp ;
 
-
-
-
-
-
     $method =  get_user_meta($uid, 'compnay_shipping_method', true );
     $shipping_cost = get_option('shipping_price');
     $vat_cost = get_option('vat_price');
