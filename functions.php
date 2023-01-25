@@ -290,9 +290,7 @@ function create_invoices() {
                 <th scope="col">Benifit</th>
                 <th scope="col">Price</th>
             </thead>
-            <tbody>
-
-            
+            <tbody>            
                 <?php   
                 
                     $shipping_days_arr = array();
@@ -300,20 +298,14 @@ function create_invoices() {
                     $food_item_price__arr = array();
                     $food_item_vat__arr = array();
                     $food_item_benfit__arr = array();
-
-                    $k = 0;
-
-                    
+                    $k = 0;                    
                     $query = new WP_Query( $args );
                     if ( $query->have_posts() ) {
-                        while ( $query->have_posts() ) {   $query->the_post(); $k++;															
-                            
+                        while ( $query->have_posts() ) {   $query->the_post(); $k++;	
                             $order_type = get_post_meta( get_the_ID(), 'order_type', true );
                             $weekid = get_post_meta( get_the_ID(), 'order_week', true ); 
                             $food_items =  get_post_meta( get_the_ID(), 'food_order', true );
                             $shipping_days_arr[] = $k;
-                            
-
                             foreach($food_items as $index => $food) {
 
                         ?> 
