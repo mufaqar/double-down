@@ -3572,10 +3572,10 @@ body.page-template-temp-landing {
   background-color: #ffc107;
 }
 
-/* .datepicker-days .datepicker {
+.datepicker-days .datepicker {
   display: none !important;
 }
 
 .datepicker-inline .datepicker-inline .datepicker-days {
   display: none !important;
-} */
+}

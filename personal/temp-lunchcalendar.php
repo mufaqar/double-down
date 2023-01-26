@@ -125,9 +125,6 @@ wp_get_current_user();
                                                 </form>
                                             </div>
 
-
-
-
                                     </div>
                                     <form class="weeklyfood" id="weeklyfood" action="#">
                                       <input type="hidden" id="uid" name="uid" value="<?php echo get_current_user_id() ?>" />
@@ -151,7 +148,6 @@ wp_get_current_user();
                                             );
 
                                         } else {
-
                                             $current_date = date("Y-m-d");
                                             $query_meta = array(
                                                 'post_type' => 'menu_items',
@@ -167,19 +163,14 @@ wp_get_current_user();
                                                     ),
                                                 ),
                                             );
-
                                         }
-
                                         $postinweek = new WP_Query($query_meta);
                                         if ($postinweek->have_posts()): while ($postinweek->have_posts()): $postinweek->the_post();
                                                 $pid = get_the_ID();
                                                 $menu_price = get_post_meta(get_the_ID(), 'menu_item_price', true);
                                                 $vat = $menu_price / 100 * 15;
-                                                $menu_price = $menu_price+$vat;
-                                                
+                                                $menu_price = $menu_price+$vat;                                                
                                                 ?>
-
-
 				                                            <div class="catering_card _pro_salat">
 				                                                <h3><?php the_title()?></h3>
 				                                                <p class="mt-3"><?php the_content()?></p>
@@ -222,9 +213,6 @@ wp_get_current_user();
                                                             </div>
 
                                             <?php endif;?>
-
-
-
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-5">
@@ -366,8 +354,7 @@ wp_get_current_user();
                 </div>
             </div>
 
-            <?php 
-            
+            <?php             
           
             $query_date_order = array(
                 'post_type' => 'orders',
@@ -394,11 +381,9 @@ wp_get_current_user();
             );
 
             $daily_order_dates = array();
-
             
             $date_Data = new WP_Query($query_date_order);
             if ($date_Data->have_posts()): while ($date_Data->have_posts()): $date_Data->the_post();
-
             $pid = get_the_ID();
             $order_day = get_post_meta(get_the_ID(), 'order_day', true);
             $timestamp = strtotime($order_day);
@@ -488,33 +473,31 @@ jQuery(document).ready(function($)
 
 
 
-    // $('#date-datepicker div').datepicker({
-    //    daysOfWeekDisabled: [0, 6], //disable sunday and saturday
-     
-    //    weekStart : 1,
+    $('#date-datepicker div').datepicker({
+       daysOfWeekDisabled: [0, 6],
+       format: "yyyy-mm-dd",
+       weekStart : 1,
+       autoclose: true,
+       todayHighlight: false,
+       clearBtn: false,
+       startDate: '1d',
+       weekStart : 1,
+       startMonth:1
         
-    // });
+    });
 
 
        $('#date').change(function() {
            $(this).closest('form').submit();
        });       
 		
-        var specificDates = [
-
-        <?php  foreach($daily_order_dates as $daily_date)
+        var specificDates = [ <?php  foreach($daily_order_dates as $daily_date)
             {
                 $req_dates = date_create($daily_date);
-
                 $newdate =  date_format($req_dates,"Y,m,d");
-
                 echo  'new Date("'. $newdate . '"), ';
             }
-                            ?>
-    
-    
-    
-    ];
+                            ?>  ];
 
     //var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
 
