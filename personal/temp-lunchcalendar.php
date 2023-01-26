@@ -372,7 +372,7 @@ wp_get_current_user();
             $query_date_order = array(
                 'post_type' => 'orders',
                 'posts_per_page' => -1,
-                'order' => 'desc',
+                'order' => 'asc',
                 'meta_query' => array(
                     'relation' => 'AND',                
                     array(
