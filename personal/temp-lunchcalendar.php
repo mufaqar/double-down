@@ -416,11 +416,14 @@ wp_get_current_user();
 
            // print_r($daily_dates);
             
-            foreach($daily_order_dates as $daily_date)
-            {
-                $daily_dates =  $daily_date;
-               // echo $daily_date;
-            }
+            // foreach($daily_order_dates as $daily_date)
+            // {
+            //     $req_dates = date_create($daily_date);
+
+            //     $newdate =  date_format($req_dates,"Y,m,d");
+
+            //     echo  $daily_date ."<br/>";
+            // }
 
            
           
@@ -484,27 +487,40 @@ jQuery(document).ready(function($)
    {
 
 
-   // var specificDates = ["15-05-2022", "20-05-2022", "25-05-2022"];
-    $('#date-datepicker div').datepicker({
-       daysOfWeekDisabled: [0, 6], //disable sunday and saturday
+
+    // $('#date-datepicker div').datepicker({
+    //    daysOfWeekDisabled: [0, 6], //disable sunday and saturday
+     
+    //    weekStart : 1,
         
-    });
-
-
-
-
-
+    // });
 
 
        $('#date').change(function() {
            $(this).closest('form').submit();
        });       
 		
-        var specificDates = [new Date("2023,01,24"), new Date("2023,01,25"), new Date("2023,01,28")  ];
+        var specificDates = [
 
-        // $('#date-datepicker div').datepicker(
-        //    //  'setDates', specificDates
-        // );
+        <?php  foreach($daily_order_dates as $daily_date)
+            {
+                $req_dates = date_create($daily_date);
+
+                $newdate =  date_format($req_dates,"Y,m,d");
+
+                echo  'new Date("'. $newdate . '"), ';
+            }
+                            ?>
+    
+    
+    
+    ];
+
+    //var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
+
+        $('#date-datepicker div').datepicker(
+             'setDates', specificDates
+        );
 
 
 

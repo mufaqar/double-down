@@ -3571,3 +3571,11 @@ body.page-template-temp-landing {
 .highlighted-date {
   background-color: #ffc107;
 }
+
+/* .datepicker-days .datepicker {
+  display: none !important;
+}
+
+.datepicker-inline .datepicker-inline .datepicker-days {
+  display: none !important;
+} */
