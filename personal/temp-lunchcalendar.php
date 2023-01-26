@@ -480,9 +480,9 @@ jQuery(document).ready(function($)
        autoclose: true,
        todayHighlight: false,
        clearBtn: false,
-       startDate: '1d',
-       weekStart : 1,
-       startMonth:1
+       startDate: '0d',
+       weekStart : 1
+   
         
     });
 

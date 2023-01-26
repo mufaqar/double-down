@@ -53,7 +53,9 @@
                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
-                                                    <h2><?php _e('Nothing Found','lbt_translate'); ?></h2>
+                                                <tr>   
+                                                <td colspan="5"> <h2><?php _e('Nothing Found','lbt_translate'); ?></h2></td>
+                                                </tr>
                                                 <?php endif; ?>  
                                         
                                         
