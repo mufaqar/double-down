@@ -9,12 +9,11 @@ $monday  = date( 'Y-m-d', strtotime( 'monday next week' ) );
 $current_time =  strtotime(current_datetime()->format('H:i'));
 $order_time = strtotime('11:00');
 if ($current_time >= $order_time) {
-    $tomorrow  = date('Y-m-d', strtotime(' +2 day'));    
-}
-else
-{
-    $tomorrow  = date('Y-m-d', strtotime(' +1 day'));    
-}
+    $tomorrow  = date('Y-m-d', strtotime(' +2 day'));  
+    }
+else { 
+     $tomorrow  = date('Y-m-d', strtotime(' +1 day'));      
+    }
 if ($week == '5') {
     $order_date =  $monday;}
 else {
