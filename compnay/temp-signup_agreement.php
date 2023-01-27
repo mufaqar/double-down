@@ -4,10 +4,25 @@ get_header();
 
 reddirectProfile();
 
-$tomorrow  = date('Y-m-d', strtotime(' +1 day'));
-$monday  = date('Y-m-d', strtotime(' +4 day'));
+$week =  date('w') ;
+$monday  = date( 'Y-m-d', strtotime( 'monday next week' ) );
+$current_time =  strtotime(current_datetime()->format('H:i'));
+$order_time = strtotime('11:00');
+if ($current_time >= $order_time) {
+    $tomorrow  = date('Y-m-d', strtotime(' +2 day'));    
+}
+else
+{
+    $tomorrow  = date('Y-m-d', strtotime(' +1 day'));    
+}
+if ($week == '5') {
+    $order_date =  $monday;}
+else {
+    $order_date = $tomorrow; 
+}
+?>
 
-?>  <main class="business_agreement">
+<main class="business_agreement">
         <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
         <a href="<?php echo home_url(); ?>"> <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" class="logo" alt="logo"></a>
             <div class="agreement_steps d-flex justify-content-center align-items-center mt-4 mt-lg-5 mb-lg-5">
@@ -63,14 +78,11 @@ $monday  = date('Y-m-d', strtotime(' +4 day'));
                     <h6>First Possible start Date</h6>
                     <p class="text">Employees will not automatically start up on this data, but no one can startup,
                         earlier than the specific date</p>
-
-                    
-
                     <div class="form-group w-100 mt-3 mb-5">
-                        <input type="text" class="form-control" id="starting_date" value="<?php echo  (date('w') == '5') ? $monday : $tomorrow; ?>"
-                            placeholder="<?php echo  date('w') == '5' ? $monday : $tomorrow; ?>" disabled>
+                        <input type="text" class="form-control" id="starting_date" value="<?php echo $order_date;?>"
+                            placeholder="<?php  echo $order_date; ?>" disabled>
                         <p class="invite">Invite more people from work to the company agreement</p>
-                        <h6>It’s easy to add more employees Later too</h6>
+                        <h6>It’s easy to add more employees later too</h6>
                     </div>
 
                     <div class="emplate form-group w-100 mb-3 d-flex align-items-center">
