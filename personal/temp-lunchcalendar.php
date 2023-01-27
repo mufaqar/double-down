@@ -7,11 +7,18 @@ $today_date = date("Y-m-d");
 
 
 
-if ($query_date != '' && $cal_date == '') {
-    $today_date = $query_date;
-} elseif ($cal_date != '' && $query_date != '') {
+if ($query_date == '' && $cal_date == '') {
+    $today_date = $today_date;
+} elseif ($cal_date != '' && $query_date == '') {
     $today_date = $cal_date;
-} else {
+}
+elseif ($cal_date == '' && $query_date != '') {
+    $today_date = $query_date;
+}
+elseif ($cal_date != '' && $query_date != '') {
+    $today_date = $cal_date;
+}
+else {
     $today_date = $today_date;
 }
 $date = new DateTime($today_date);
@@ -22,7 +29,7 @@ global $current_user;
 wp_get_current_user(); 
 ?><?php include 'navigation.php';?>
 <div class="tab_wrapper">
-<?php page_title(); echo $query_date; echo date("Y-m-d");?>
+<?php page_title(); //echo $today_date?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
@@ -120,7 +127,7 @@ wp_get_current_user();
                                             <?php endif;?>
 
                                             <div class="calender">
-                                                <form action="" method="POST" id="dateform">
+                                                <form action="" method="GET" id="dateform">
                                                 <input type="hidden" id="send" name="send" />
                                                      <input type="date"  min="<?php echo date("Y-m-d"); ?>"  name="date" value="<?php if ($query_date == '') {echo date("Y-m-d");} else {
                                                             echo $today_date;
@@ -496,17 +503,15 @@ jQuery(document).ready(function($)
    {
 
     $("#date-datepicker div").on("changeDate", function(event) {
-            $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
+            $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'));
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
            $("#dateform").submit();
+         
         });
-
-
        $('#date').change(function() {
           $(this).closest('form').submit();
-          alert("done");
        });       
 		
         var specificDates = [ <?php  foreach($daily_order_dates as $daily_date)
