@@ -626,18 +626,13 @@ $uid = get_current_user_id();
                         },   
                         success: function(data){                      
                         
-                            if(data.code==0) {
-                                     //   alert(data.message);
+                           
 
                                $(".emp_agreement").hide();      
                                $(".res").html(data.message);                                 
                                $(".alertmessage").show();  
-                            }  
-                            else {
-                               // alert("Ajax Working");
-                               // alert(data.message);
-                        
-                            }      
+                             
+                                
                     }
                 
                 });

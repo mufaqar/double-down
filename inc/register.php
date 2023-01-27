@@ -268,13 +268,13 @@ function add_employes() {
 		$password = generateRandomString();	
 		$user_id = wp_create_user($invite_user1, $password, $invite_user1);
 		if (is_wp_error($user_id)) {
-			echo wp_send_json_error(array('code' => 0 ,'message' => $user_id->get_error_message()));
+			echo wp_send_json(array('code' => 0 ,'message' => $user_id->get_error_message()));
 			die;
 		} else {
 			update_user_meta( $user_id, 'employee', $uid);
 			update_user_meta( $user_id, 'status', 'active');
 			sendmail($invite_user1,$password,$invite_user1);
-			echo wp_send_json_success( array('code' => 200 , 'message'=>__('New Employee created for this compnay')));
+			echo wp_send_json( array('code' => 200 , 'message'=>__('New Employee created for this compnay')));
 			die;
 		}
 
