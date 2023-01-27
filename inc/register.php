@@ -266,33 +266,36 @@ function add_employes() {
 		$uid = $_POST['uid'];
 		$invite_user1 = $_POST['email'];
 		$password = generateRandomString();			
-		$user_data = array(
-			'user_login' => $invite_user1,
-			'user_email' => $invite_user1,
-			'user_pass' => $password,	
-			'role' => 'personal'
-			);
-	    $user_id = wp_insert_user($user_data);
-
-	
 		
-	  	if (!is_wp_error($user_id)) {
 
+
+		$user_id = wp_create_user($invite_user1, $password, $invite_user1);
+		if (is_wp_error($user_id)) {
+			echo wp_send_json_error(array('code' => 0 ,'message' => $user_id->get_error_message()));
+		} else {
 			update_user_meta( $user_id, 'employee', $uid);
 			update_user_meta( $user_id, 'status', 'active');
 			sendmail($invite_user1,$password);
-			//update_user_meta( $uid, 'employer', $user_id);
-			echo wp_send_json( array('code' => 0 , 'message'=>__('New user Created for this Compnay')));
-			die;
-			
-			//echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
+			echo wp_send_json_success( array('code' => 200 , 'message'=>__('New user Created for this Compnay')));
+		}
 
-	  	} else {	
+	
+		
+	  	// if (!is_wp_error($user_id)) {
+
+		// 	update_user_meta( $user_id, 'employee', $uid);
+		// 	update_user_meta( $user_id, 'status', 'active');
+		// 	sendmail($invite_user1,$password);
+		// 	echo wp_send_json( array('code' => 200 , 'message'=>__('New user Created for this Compnay')));
+			
+	  	// } else {	
 	    		         
-			  echo wp_send_json( array('code' => 0 , 'message'=>__('Sorry, that username already exists!)')));
-			  die;
+		// 	  echo wp_send_json( array('code' => 0 , 'message'=>__('Sorry, that username already exists!)')));
+			
 	      	
-	  	}
+	  	// }
+
+		die;
 	
 		
 }
