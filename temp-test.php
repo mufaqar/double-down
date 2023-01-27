@@ -5,14 +5,15 @@
 
 //var specificDates = [new Date("2023,01,24"), new Date("2023,01,25"), new Date("2023,01,28") 
 
-<?php $s = 'new Date("'; foreach($daily_order_dates as $daily_date)
-                        {
-                            
-                           echo $s . $daily_date;
-                           $s = '),';
-                        }
-                    ?>
 
+
+
+    
+
+
+
+
+/*
 
 
 echo "1" +2  * "007";
