@@ -274,7 +274,7 @@ function add_employes() {
 			);
 	    $user_id = wp_insert_user($user_data);
 
-		print_r($user_id);
+	
 		
 	  	if (!is_wp_error($user_id)) {
 
