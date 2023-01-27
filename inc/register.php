@@ -276,7 +276,7 @@ function add_employes() {
 			update_user_meta( $user_id, 'employee', $uid);
 			update_user_meta( $user_id, 'status', 'active');
 			sendmail($invite_user1,$password);
-			echo wp_send_json_success( array('code' => 200 , 'message'=>__('New user Created for this Compnay')));
+			echo wp_send_json_success( array('code' => 200 , 'message'=>__('New Employee created for this compnay')));
 		}
 
 	
