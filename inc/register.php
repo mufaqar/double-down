@@ -265,10 +265,7 @@ function add_employes() {
 		global $wpdb;		
 		$uid = $_POST['uid'];
 		$invite_user1 = $_POST['email'];
-		$password = generateRandomString();			
-		
-
-
+		$password = generateRandomString();	
 		$user_id = wp_create_user($invite_user1, $password, $invite_user1);
 		if (is_wp_error($user_id)) {
 			echo wp_send_json_error(array('code' => 0 ,'message' => $user_id->get_error_message()));
