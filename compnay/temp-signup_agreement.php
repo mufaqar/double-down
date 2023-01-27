@@ -5,7 +5,7 @@ get_header();
 reddirectProfile();
 
 $tomorrow  = date('Y-m-d', strtotime(' +1 day'));
-$monday  = date('Y-m-d', strtotime(' +2 day'));
+$monday  = date('Y-m-d', strtotime(' +4 day'));
 
 ?>  <main class="business_agreement">
         <div class="agreement_wrapper d-flex position-relative justify-content-center flex-column align-items-center p-4">
@@ -67,30 +67,8 @@ $monday  = date('Y-m-d', strtotime(' +2 day'));
                     
 
                     <div class="form-group w-100 mt-3 mb-5">
-                        <input type="text" class="form-control" id="starting_date" value="    <?php
-
-if (date('w') == 5) {
-   echo  $monday;
-}
-else{
-
-    echo $tomorrow;
-
-    
-}
-?>" aria-describedby="emailHelp"
-                            placeholder="    <?php
-
-if (date('w') == 5) {
-   echo  $monday;
-}
-else{
-
-    echo $tomorrow;
-
-    
-}
-?>" disabled>
+                        <input type="text" class="form-control" id="starting_date" value="<?php echo  (date('w') == '5') ? $monday : $tomorrow; ?>"
+                            placeholder="<?php echo  date('w') == '5' ? $monday : $tomorrow; ?>" disabled>
                         <p class="invite">Invite more people from work to the company agreement</p>
                         <h6>It’s easy to add more employees Later too</h6>
                     </div>
