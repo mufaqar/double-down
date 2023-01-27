@@ -81,10 +81,7 @@ add_action('wp_ajax_nopriv_company_signup', 'company_signup');
 function company_signup() {	
 
 	  //require_once('../../../wp-config.php');
-	  global $wpdb;
-
-
-		
+	  global $wpdb;		
 	  $username = ($_POST['username']);
       $email = ($_POST['username']);
       $phone = stripcslashes($_POST['phone']);
@@ -101,7 +98,7 @@ function company_signup() {
 	    $user_id = wp_insert_user($user_data);
 	  	if (!is_wp_error($user_id)) {		    
 			sendmail($username,$password, $name);
-			echo wp_send_json( array('code' => 200 , 'message'=>__('We have Created an account for you.')));
+			echo wp_send_json( array('code' => 200 , 'message'=>__('We have created an account for you.')));
 
 	  	} else {
 	    	if (isset($user_id->errors['empty_user_login'])) {
@@ -268,10 +265,7 @@ function add_employes() {
 		global $wpdb;		
 		$uid = $_POST['uid'];
 		$invite_user1 = $_POST['email'];
-		$password = generateRandomString();	
-
-
-		
+		$password = generateRandomString();			
 		$user_data = array(
 			'user_login' => $invite_user1,
 			'user_email' => $invite_user1,
@@ -279,6 +273,8 @@ function add_employes() {
 			'role' => 'personal'
 			);
 	    $user_id = wp_insert_user($user_data);
+
+		print_r($user_id);
 		
 	  	if (!is_wp_error($user_id)) {
 
@@ -287,15 +283,17 @@ function add_employes() {
 			sendmail($invite_user1,$password);
 			//update_user_meta( $uid, 'employer', $user_id);
 			echo wp_send_json( array('code' => 0 , 'message'=>__('New user Created for this Compnay')));
+			die;
 			
 			//echo wp_send_json( array('code' => 200 , 'message'=>__('we have Created an account for you.')));
 
-	  	} else {
+	  	} else {	
 	    		         
-			  echo wp_send_json( array('code' => 0 , 'message'=>__('Error Occured please fill up the sign up form carefully.')));
+			  echo wp_send_json( array('code' => 0 , 'message'=>__('Sorry, that username already exists!)')));
+			  die;
 	      	
 	  	}
-	die;
+	
 		
 }
 

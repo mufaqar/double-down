@@ -3,6 +3,10 @@ get_header();
 $cal_date = $_REQUEST['send'];
 $query_date = $_REQUEST['date'];
 $today_date = date("Y-m-d");
+
+
+
+
 if ($query_date != '' && $cal_date == '') {
     $today_date = $query_date;
 } elseif ($cal_date != '' && $query_date != '') {
@@ -18,7 +22,7 @@ global $current_user;
 wp_get_current_user(); 
 ?><?php include 'navigation.php';?>
 <div class="tab_wrapper">
-<?php page_title(); //echo $today_date . $today_day_name;?>
+<?php page_title(); echo $query_date; echo date("Y-m-d");?>
                     <div class="custom_container">
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
@@ -296,38 +300,58 @@ wp_get_current_user();
                                                 <a href="" class="btn_primary btn_sec d-block">Daily</a>
                                             </div>
                                         <div>
+                                            
 
                                         <?php 
                                          $system_order_date =  strtotime(date('Y-m-d'));
                                          $order_date =  strtotime($today_date);
                                          $current_time =  strtotime(wp_date('H:i'));
-                                         $order_time = strtotime(date('11:00'));                                       
-                                      
+                                         $order_time = strtotime(date('11:00'));    
+                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+2 day"))); 
+
+                                       
+
+                                       
 
 
-                                      
+                                        // $order_date  Query DAte
+                                        // Systemdate = today date 
+
+                                        //&&  $current_time < $order_time 
                                     
-                                     if( $order_date <= $system_order_date  &&  $current_time < $order_time  )
+                                     if( $order_date >= $next_order_date   )
                                          {
+
+                                           // echo $today_day_name;
 
                                             // Query when date date and time is less then 11
 
                                             ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                         }
 
-                                       elseif($order_date > $system_order_date  )
+                                       elseif($order_date > $next_order_date &&  $today_day_name == 'Monday')
                                         {
 
+                                            echo "Create logic for firday";
+
+
+
+                                            
+                                           
                                         
                                             // When date is greator then and time is greator then 11 
                                             if($today_day_name == 'Monday' &&  $order_date > $system_order_date ) {
                                                 ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over Friday</a><?php
                                             }
                                             
+                                            elseif($next_order_date <= $system_order_date ) {
+
+                                                ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+
+
+                                            }
                                             else {
-
                                                 ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
-
 
                                             }
                                            
@@ -471,24 +495,18 @@ wp_get_current_user();
 jQuery(document).ready(function($)
    {
 
-
-
-    $('#date-datepicker div').datepicker({
-       daysOfWeekDisabled: [0, 6],
-       format: "yyyy-mm-dd",
-       weekStart : 1,
-       autoclose: true,
-       todayHighlight: false,
-       clearBtn: false,
-       startDate: '0d',
-       weekStart : 1
-   
-        
-    });
+    $("#date-datepicker div").on("changeDate", function(event) {
+            $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
+            console.log($('#date-datepicker div').datepicker('getFormattedDate'))
+            var date = $('#input_date').val();
+            document.getElementById("send").value = date;
+           $("#dateform").submit();
+        });
 
 
        $('#date').change(function() {
-           $(this).closest('form').submit();
+          $(this).closest('form').submit();
+          alert("done");
        });       
 		
         var specificDates = [ <?php  foreach($daily_order_dates as $daily_date)
@@ -501,19 +519,28 @@ jQuery(document).ready(function($)
 
     //var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
 
-        $('#date-datepicker div').datepicker(
-             'setDates', specificDates
-        );
+        // $('#date-datepicker div').datepicker(
+        //      'setDates', specificDates
+        // );
+
+        
+    $('#date-datepicker div').datepicker({
+      daysOfWeekDisabled: [0, 6],
+       format: "yyyy-mm-dd",
+       weekStart : 1,
+       autoclose: true,
+       todayHighlight: false,
+       clearBtn: false,
+        startDate: '0d',
+        weekStart : 1
+   
+        
+    });
 
 
 
-        $("#date-datepicker div").on("changeDate", function(event) {
-            $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'), )
-            console.log($('#date-datepicker div').datepicker('getFormattedDate'))
-            var date = $('#input_date').val();
-            document.getElementById("send").value = date;
-           $("#dateform").submit();
-        });
+
+       
 
        $('._cross').click(function(){
 
