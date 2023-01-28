@@ -4,23 +4,29 @@ $cal_date = $_REQUEST['send'];
 $query_date = $_REQUEST['date'];
 $today_date = date("Y-m-d");
 
-
-
+//echo $today_date;
 
 if ($query_date == '' && $cal_date == '') {
-    $today_date = $today_date;
+  //  $today_date = $today_date;
 } elseif ($cal_date != '' && $query_date == '') {
-    $today_date = $cal_date;
+   // $today_date = $cal_date;
 }
 elseif ($cal_date == '' && $query_date != '') {
-    $today_date = $query_date;
+   // $today_date = $query_date;
 }
 elseif ($cal_date != '' && $query_date != '') {
-    $today_date = $cal_date;
+   // $today_date = $cal_date;
 }
 else {
-    $today_date = $today_date;
+  //  $today_date = $today_date;
 }
+
+echo $today_date;
+
+
+
+
+
 $date = new DateTime($today_date);
 $weeksid = $date->format("W-m-y");
 // echo $today_date;
@@ -507,41 +513,44 @@ jQuery(document).ready(function($)
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
             var date = $('#input_date').val();
             document.getElementById("send").value = date;
-           $("#dateform").submit();
+            $("#dateform").submit();
          
         });
        $('#date').change(function() {
-          $(this).closest('form').submit();
-       });       
-		
-        var specificDates = [ <?php  foreach($daily_order_dates as $daily_date)
-            {
-                $req_dates = date_create($daily_date);
-                $newdate =  date_format($req_dates,"Y,m,d");
-                echo  'new Date("'. $newdate . '"), ';
-            }
-                            ?>  ];
-
-    //var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
-
-        // $('#date-datepicker div').datepicker(
-        //      'setDates', specificDates
-        // );
-
-        
-    $('#date-datepicker div').datepicker({
-      daysOfWeekDisabled: [0, 6],
-       format: "yyyy-mm-dd",
-       weekStart : 1,
-       autoclose: true,
-       todayHighlight: false,
-       clearBtn: false,
-        startDate: '0d',
-        weekStart : 1
+        $(this).closest('form').submit();
+       }); 
+       
+       
+       $('#date-datepicker div').datepicker({
+            daysOfWeekDisabled: [0, 6],
+            format: "yyyy-mm-dd",
+            weekStart : 1,
+            autoclose: true,
+            todayHighlight: false,
+            clearBtn: false,
+            startDate: '0d',
+            weekStart : 1
    
         
-    });
+        });
 
+		 //var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
+        var specificDates = [ <?php  foreach($daily_order_dates as $daily_date)
+                                {
+                                    $req_dates = date_create($daily_date);
+                                    $newdate =  date_format($req_dates,"Y,m,d");
+                                    echo  'new Date("'. $newdate . '"), ';
+                                }
+                            ?>  ];
+
+    
+
+        $('#date-datepicker div').datepicker(
+        // 'setDates', specificDates
+        );
+
+        
+   
 
 
 
