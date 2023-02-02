@@ -444,7 +444,7 @@ foreach ($user_allergies as $key => $user_alery) {
                                                 </tr>
                                                 <?php endwhile;
                                                     wp_reset_query();else: ?>
-                                                    <tr>  <td colspan="6"><?php _e('No Invoice  Found', 'lbt_translate');?></td></tr>
+                                                    <tr>  <td colspan="6"><?php _e('No Invoice  Found', 'ddd_translate');?></td></tr>
                                                     <?php endif;?>
                                         </tbody>
                                     </table>
