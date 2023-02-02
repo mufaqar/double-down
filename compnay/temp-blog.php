@@ -28,7 +28,7 @@ get_header('company'); ?>
                                     </div>   
                         <?php endwhile; ?>        
                     <?php else : ?>
-                        <p class="noposts"><?php _e('To add Blog Posts, go to Admin Panel > Posts > Add New','author_ts'); ?></p>
+                        <p class="noposts"><?php _e('To add Blog Posts, go to Admin Panel > Posts > Add New','text_domain'); ?></p>
                     <?php endif; ?>
                 </div>
                 <div class="d-none load_more d-flex justify-content-center mt-5 mb-5">
