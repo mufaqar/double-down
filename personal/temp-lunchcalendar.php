@@ -507,13 +507,13 @@ jQuery(document).ready(function($)
     $("#date-datepicker div").on("changeDate", function(event) {
             $("input[type='hidden'][name='date']").val($('#date-datepicker div').datepicker('getFormattedDate'));
             console.log($('#date-datepicker div').datepicker('getFormattedDate'))
-            var date = $('#input_date').val();
-            document.getElementById("send").value = date;
-            $("#dateform").submit();
+           // var date = $('#input_date').val();
+           //document.getElementById("send").value = date;
+           // $("#dateform").submit();
          
         });
        $('#date').change(function() {
-        $(this).closest('form').submit();
+      $(this).closest('form').submit();
        }); 
        
        
@@ -529,8 +529,8 @@ jQuery(document).ready(function($)
    
         
         });
-
-		 //var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
+       
+		 var specificDates =  [new Date("2022,01,24"), new Date("2023,01,25"), new Date("2023,2,28"), new Date("2023,03,28")];
         var specificDates = [ <?php  foreach($daily_order_dates as $daily_date)
                                 {
                                     $req_dates = date_create($daily_date);
@@ -539,11 +539,15 @@ jQuery(document).ready(function($)
                                 }
                             ?>  ];
 
-    
 
-        $('#date-datepicker div').datepicker(
-        // 'setDates', specificDates
+
+
+$('#date-datepicker div').datepicker(
+          'setDates', specificDates
         );
+
+
+       
 
         
    
