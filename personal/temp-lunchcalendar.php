@@ -4,26 +4,22 @@ $cal_date = $_REQUEST['send'];
 $query_date = $_REQUEST['date'];
 $today_date = date("Y-m-d");
 
-//echo $today_date;
-
-if ($query_date == '' && $cal_date == '') {
-  //  $today_date = $today_date;
-} elseif ($cal_date != '' && $query_date == '') {
-   // $today_date = $cal_date;
-}
-elseif ($cal_date == '' && $query_date != '') {
-   // $today_date = $query_date;
-}
-elseif ($cal_date != '' && $query_date != '') {
-   // $today_date = $cal_date;
-}
-else {
-  //  $today_date = $today_date;
-}
-
 echo $today_date;
 
-
+if ($query_date == '' && $cal_date == '') {
+    $today_date = $today_date;
+} elseif ($cal_date != '' && $query_date == '') {
+    $today_date = $cal_date;
+}
+elseif ($cal_date == '' && $query_date != '') {
+    $today_date = $query_date;
+}
+elseif ($cal_date != '' && $query_date != '') {
+   $today_date = $cal_date;
+}
+else {
+    $today_date = $today_date;
+}
 
 
 
