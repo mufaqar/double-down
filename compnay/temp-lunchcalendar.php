@@ -80,8 +80,8 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                 </div>
              </div>
 
-            <h2><?php _e('Business lunch calendar','text_domain'); ?></h2>
-            <p><?php _e('Here you can easily choose between or cancel the various lunch options from day to day. ','text_domain'); ?>
+            <h2><?php _e('Business lunch calendar','ddd_translate'); ?></h2>
+            <p><?php _e('Here you can easily choose between or cancel the various lunch options from day to day. ','ddd_translate'); ?>
             </p>
 
                            

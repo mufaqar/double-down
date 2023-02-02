@@ -18,7 +18,7 @@
                                                 <h6 class="author mt-2">Written by <?php echo get_the_author(); ?> </h6>
                                             </div>
                                     </div>  
-	<?php edit_post_link(__('Edit','text_domain'),'','.'); ?>
+	<?php edit_post_link(__('Edit','ddd_translate'),'','.'); ?>
 	<?php //comments_template(); ?>
 <?php endwhile; endif; ?>
 

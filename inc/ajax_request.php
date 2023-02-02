@@ -1267,7 +1267,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 								$order_day =  date('D', $timestamp); 
 								?>
 								<div class="catering_card _pro_salat">
-									<h3><?php  echo __( the_title(), 'text_domain' );   ?> ( <?php  echo __( $order_day, 'text_domain' );  ?> | <span><?php echo $date ?> ) </h3>
+									<h3><?php  echo __( the_title(), 'ddd_translate' );   ?> ( <?php  echo __( $order_day, 'ddd_translate' );  ?> | <span><?php echo $date ?> ) </h3>
 									<p class="mt-3"><?php the_content() ?></p>
 									<?php show_Allergens() ?>									
 								</div>

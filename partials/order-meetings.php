@@ -1,7 +1,7 @@
 <div class="custom_container catering_wrapper mt-5 mb-5">
                  <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                         <div class="catering_heading d-flex align-items-center">
-                        <h2><?php _e('Meetings Orders','text_domain'); ?></h2>                           
+                        <h2><?php _e('Meetings Orders','ddd_translate'); ?></h2>                           
                         </div>                     
                         </div>
                         <div class="catering_card_wrapper">

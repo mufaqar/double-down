@@ -12,11 +12,11 @@
 				<?php 
 					global $more;    // Declare global $more (before the loop).
 					$more = 0;       // Set (inside the loop) to display content above the more tag.
-					the_content(__('Continue Reading','text_domain'));
+					the_content(__('Continue Reading','ddd_translate'));
 				?>
             <div class="clear"></div>
             <div class="tags">
-				<?php the_tags( __('Tags:','text_domain'),'','.'); ?>
+				<?php the_tags( __('Tags:','ddd_translate'),'','.'); ?>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
     pagination($additional_loop->max_num_pages);
 } ?>		
 <?php else : ?>
-    <h2><?php _e('Nothing Found','text_domain'); ?></h2>
+    <h2><?php _e('Nothing Found','ddd_translate'); ?></h2>
 <?php endif; ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
