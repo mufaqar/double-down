@@ -723,7 +723,7 @@ add_filter( 'cron_schedules', 'create_invoice_every_three_minutes' );
 function create_invoice_every_three_minutes( $schedules ) {
     $schedules['every_three_minutes'] = array(
             'interval'  => 180,
-            'display'   => __( 'Every 3 Minutes', 'textdomain' )
+            'display'   => __( 'Every 3 Minutes', 'ddd_translate' )
     );
     return $schedules;
 }
