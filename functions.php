@@ -1,4 +1,4 @@
-<?php load_theme_textdomain('dd_domain'); 
+<?php load_theme_textdomain('ddd_translate'); 
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 140, 140, true );
 	add_image_size( 'single-post-thumbnail', 300, 9999 );
