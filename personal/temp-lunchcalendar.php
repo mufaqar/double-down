@@ -526,7 +526,7 @@ picker.addEventListener('input', function(e){
   }
 });
        
-       
+
        $('#date-datepicker div').datepicker({
             daysOfWeekDisabled: [0, 6],
             format: "yyyy-mm-dd",
@@ -535,7 +535,8 @@ picker.addEventListener('input', function(e){
             todayHighlight: false,
             clearBtn: false,
             startDate: '0d',
-            weekStart : 1
+            weekStart : 1,
+            
    
         
         });
