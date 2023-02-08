@@ -29,15 +29,11 @@ get_header('');
                         <div class="product_wrapper row mb-4">
                                 <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                                
-                                <?php get_template_part( 'partials/lunchbox', 'fixeditems' ); ?>                      
-                            
+                                <?php get_template_part( 'partials/lunchbox', 'fixeditems' ); ?>    
                         </div>
-
                         <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
-                            
+                            <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>                            
                         </div>
-
                         <div class="product_wrapper row mb-4">
                             <?php query_posts(array(
                                         'post_type' => 'menu_items',
