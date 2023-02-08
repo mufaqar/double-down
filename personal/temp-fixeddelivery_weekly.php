@@ -86,15 +86,20 @@ get_header('');
                         <div class="week_days">
                             <div class="d-flex justify-content-between flex-wrap">
                                 <?php
+
+                             
                                  $dt = new DateTime(); 
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
-                                     ?> 
-                                                                         
                                      
-                                        <?php
+                                     $system_order_date =  strtotime(date('Y-m-d'));
+                                     $order_date =  strtotime($the_date);
+                                     $current_time =  strtotime(wp_date('H:i'));
+                                     $order_time = strtotime(date('11:00'));    
+                                     $next_order_date = strtotime(date('Y-m-d',strtotime("+2 day"))); 
+                                     
 
                                         $today =   $the_date;                    
                                         global $current_user;
@@ -137,13 +142,17 @@ get_header('');
                                            
                                         ?>
                                             <div class="d-flex align-items-center">
-                                                <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" checked>                                             
+                                                <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" <?php if($next_order_date <= $order_date) { echo "checked";} else {
+                                            echo "disabled";
+                                        } ?>>                                             
                                                 <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?>NOK</label>
                                             </div>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <div class="d-flex align-items-center">
-                                                    <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>">  
-                                                    <label for="weekday-<?php echo $d ?>"><?php echo $the_day?>  </label>  
+                                                    <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" <?php if($next_order_date <= $order_date) { echo "checked";} else {
+                                            echo "disabled";
+                                        } ?>>  
+                                                    <label for="weekday-<?php echo $d ?>"><?php echo $the_day?>   </label>  
                                                 </div>
 	                             <?php endif; } ?> 
 
@@ -162,7 +171,8 @@ get_header('');
                                 <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary btn_sec d-block">Daily</a>
                             </div>
                         <div>
-                        <input type="submit" id="order" class="btn_primary"  value="Save"/>
+                        <input type="submit" id="order" class="btn_primary"  value="Save OLD"/>
+
                        
                     </div>
                 </form>

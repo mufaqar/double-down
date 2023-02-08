@@ -24,15 +24,20 @@
                             <div class="d-md-flex justify-content-md-between flex-wrap">
                                 <?php
                                  $dt = new DateTime();  
-                                // print_r($dt);
+                               
                                                  
                                  for ($d = 1; $d <= 5; $d++) {
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
-                                     ?>
+
+
+                                     $system_order_date =  strtotime(date('Y-m-d'));
+                                     $order_date =  strtotime($the_date);
+                                     $current_time =  strtotime(wp_date('H:i'));
+                                     $order_time = strtotime(date('11:00'));    
+                                     $next_order_date = strtotime(date('Y-m-d',strtotime("+2 day"))); 
                                      
-                                     <?php
 
                                     $today =   $the_date;                    
                                     global $current_user;
@@ -70,15 +75,31 @@
                                     if ( $postData->have_posts() ): while ( $postData->have_posts() ): $postData->the_post();
                                          $post_id = get_the_ID();
                                          $day_price = get_post_meta($post_id, 'order_total' , true);
+
+                                        
                                     ?>
                                      <div>
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?> >
-                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1 && $next_order_date <= $order_date) { echo "checked";} ?> >
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day; 
+                                        
+                                        
+                                        
+                                        ?> <?php echo $day_price; ?> NOK </label>
                                      </div>
                                      <?php endwhile; wp_reset_query(); else : ?>
                                          <div class="d-flex align-items-center">                                                   
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($d == 1) { echo "checked";} ?>>
-                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> </label>
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($next_order_date <= $order_date) { echo "checked";} else {
+                                            echo "disabled";
+                                        } ?>>
+                                        <label for="weekday-<?php echo $d ?>"><?php echo $the_day;
+
+                                       
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        ?> </label>
                                      </div>
 	                             <?php endif; } ?> 
                                 </div>
