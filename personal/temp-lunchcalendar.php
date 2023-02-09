@@ -316,7 +316,8 @@ wp_get_current_user();
                                          $order_date =  strtotime($today_date);
                                          $current_time =  strtotime(wp_date('H:i'));
                                          $order_time = strtotime(date('11:00'));    
-                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+1 day")));                                   
+                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+1 day")));   
+                                         $next_order_date2 = strtotime(date('Y-m-d',strtotime("+2 day")));                                   
 
                                        
 
@@ -336,15 +337,18 @@ wp_get_current_user();
                                             ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
                                         }
 
+                                        elseif( $order_date >= $next_order_date2  )
+                                        {
+
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+
+
+                                        }
+
                                        elseif($order_date > $next_order_date &&  $today_day_name == 'Monday')
                                         {
 
                                            // echo "Create logic for firday";
-
-
-
-                                            
-                                           
                                         
                                             // When date is greator then and time is greator then 11 
                                             if($today_day_name == 'Monday' &&  $order_date > $system_order_date ) {
