@@ -1,5 +1,6 @@
 <?php /* Template Name: Personal-FD Weekly  */ 
-get_header('');
+get_header();
+
 ?>
 <?php include('navigation.php'); ?>
         <div class="tab_wrapper">
@@ -171,9 +172,7 @@ get_header('');
                                 <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary btn_sec d-block">Daily</a>
                             </div>
                         <div>
-                        <input type="submit" id="order" class="btn_primary"  value="Save OLD"/>
-
-                       
+                        <input type="submit" id="order" class="btn_primary"  value="Save"/>                       
                     </div>
                 </form>
             </div>
@@ -187,8 +186,6 @@ get_header('');
 </div>
 </div>
 </main>
-
-
 <section class="hideme alertmessage">
         <div class="popup">
             <div class="popup_wrapper">
@@ -273,7 +270,22 @@ get_header('');
                 console.log(menu_items);  
                 var weekdays = weekdays;
 
-                console.log(weekdays);
+                if(weekdays === '')
+                {
+                    
+
+                    
+                }
+                else {
+                    alert("Please Select Day");
+                    return false;
+                   
+
+                }
+               // alert(weekdays);
+
+              
+
               
                 
             
