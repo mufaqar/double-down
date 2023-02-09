@@ -267,7 +267,20 @@
                         });
                     // alert(newdata[0]);
                         var menu_items = newdata[0];                  
-                        console.log(menu_items);                   
+                        console.log(menu_items);   
+                        
+                        if(sel_day === '')
+                {
+                    
+
+                    
+                }
+                else {
+                    alert("Please Select Day");
+                    return false;
+                   
+
+                }
             
             
                 $.ajax(

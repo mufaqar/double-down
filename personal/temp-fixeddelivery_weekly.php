@@ -265,11 +265,9 @@ get_header();
                 newdata.push(datas);
                 });
             // alert(newdata[0]);
-                var menu_items = newdata[0];
-            
+                var menu_items = newdata[0];            
                 console.log(menu_items);  
                 var weekdays = weekdays;
-
                 if(weekdays === '')
                 {
                     
