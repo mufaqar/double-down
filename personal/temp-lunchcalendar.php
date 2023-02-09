@@ -339,7 +339,7 @@ wp_get_current_user();
                                        elseif($order_date > $next_order_date &&  $today_day_name == 'Monday')
                                         {
 
-                                            echo "Create logic for firday";
+                                           // echo "Create logic for firday";
 
 
 
