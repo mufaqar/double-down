@@ -270,17 +270,17 @@
                         console.log(menu_items);   
                         
                         if(sel_day === '')
-                {
-                    
+                            {
+                                
 
-                    
-                }
-                else {
-                    alert("Please Select Day");
-                    return false;
-                   
+                                
+                            }
+                            else {
+                                alert("Please Select Day");
+                                return false;
+                            
 
-                }
+                            }
             
             
                 $.ajax(
