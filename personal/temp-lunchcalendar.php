@@ -316,7 +316,7 @@ wp_get_current_user();
                                          $order_date =  strtotime($today_date);
                                          $current_time =  strtotime(wp_date('H:i'));
                                          $order_time = strtotime(date('11:00'));    
-                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+2 day")));                                   
+                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+1 day")));                                   
 
                                        
 
