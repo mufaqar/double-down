@@ -88,7 +88,7 @@ get_header('company');
                                      $order_date =  strtotime($the_date);
                                      $current_time =  strtotime(wp_date('H:i'));
                                      $order_time = strtotime(date('11:00'));    
-                                     $next_order_date = strtotime(date('Y-m-d',strtotime("+2 day"))); 
+                                     $next_order_date = strtotime(date('Y-m-d',strtotime("+1 day"))); 
                                      $today =   $the_date;                    
                                         global $current_user;
                                         wp_get_current_user(); 
@@ -130,14 +130,14 @@ get_header('company');
                                            
                                         ?>
                                             <div class="d-flex align-items-center">
-                                                <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" <?php if($next_order_date <= $order_date) { echo "checked";} else {
+                                                <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" <?php if($next_order_date <= $order_date && $current_time  <= $order_time) { echo "checked";} else {
                                             echo "disabled";
                                         } ?>  >                                           
                                                 <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?>NOK</label>
                                             </div>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <div class="d-flex align-items-center">
-                                                    <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" <?php if($next_order_date <= $order_date) { echo "checked";} else {
+                                                    <input type="checkbox" id="weekday-<?php echo $d ?>" name="sport" value="<?php echo $the_date?>" <?php if($next_order_date <= $order_date && $current_time  <= $order_time) { echo "checked";} else {
                                             echo "disabled";
                                         } ?>  >
                                                     <label for="weekday-<?php echo $d ?>"><?php echo $the_day?>  </label>  
@@ -248,6 +248,18 @@ get_header('company');
             var menu_items = newdata[0];  
             var weekdays = weekdays;
             var menu_items = menu_items;
+
+            if(weekdays === '')
+                            {                             
+
+                                
+                            }
+                            else {
+                                alert("Please Select Day");
+                                return false;
+                            
+
+                            }
 
         
 

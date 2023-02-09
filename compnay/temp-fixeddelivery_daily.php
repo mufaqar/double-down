@@ -37,6 +37,13 @@ get_header('company');
                                      $dt->setISODate($dt->format('o'), $dt->format('W'), $d);
                                      $the_day = $dt->format('l') ;
                                      $the_date = $dt->format('Y-m-d');
+
+                                     $system_order_date =  strtotime(date('Y-m-d'));
+                                     $order_date =  strtotime($the_date);
+                                     $current_time =  strtotime(wp_date('H:i'));
+                                     $order_time = strtotime(date('11:00'));    
+                                     $next_order_date = strtotime(date('Y-m-d',strtotime("+1 day"))); 
+
                                      $today =   $the_date;                    
                                     global $current_user;
                                     $uid = $current_user->ID;
@@ -75,12 +82,16 @@ get_header('company');
                                          $day_price = get_post_meta($post_id, 'order_total' , true);
                                     ?>
                                      <div>
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if($d == 1) { echo "checked";} ?> >
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>" <?php if( $next_order_date <= $order_date && $current_time  <= $order_time ) { echo "checked";} else {
+                                            echo "disabled";
+                                        }?> >
                                         <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> <?php echo $day_price; ?> NOK </label>
                                      </div>
                                      <?php endwhile; wp_reset_query(); else : ?>
                                          <div class="d-flex align-items-center">                                                   
-                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($d == 1) { echo "checked";} ?>>
+                                        <input type="radio" id="weekday-<?php echo $d ?>" name="sel_day" value="<?php echo $the_date?>"  <?php if($next_order_date <= $order_date && $current_time  <= $order_time ) { echo "checked";} else {
+                                            echo "disabled";
+                                        } ?>>
                                         <label for="weekday-<?php echo $d ?>"><?php echo $the_day?> </label>
                                      </div>
 	                             <?php endif; } ?> 
@@ -246,6 +257,18 @@ get_header('company');
             // alert(newdata[0]);
             var menu_items = newdata[0];
             console.log(menu_items);
+
+            if(sel_day === '')
+                            {                             
+
+                                
+                            }
+                            else {
+                                alert("Please Select Day");
+                                return false;
+                            
+
+                            }
            
 
             $.ajax({

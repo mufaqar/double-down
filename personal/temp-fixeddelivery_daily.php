@@ -178,8 +178,7 @@
                                 <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary  d-block">Daily</a>
                             </div>
                         <div>
-                        <input type="submit" id="order" class="btn_primary"  value="Save"/>
-                       
+                        <input type="submit" id="order" class="btn_primary"  value="Save"/>                       
                     </div>
                 </form>
             </div>
@@ -270,8 +269,7 @@
                         console.log(menu_items);   
                         
                         if(sel_day === '')
-                            {
-                                
+                            {                             
 
                                 
                             }
