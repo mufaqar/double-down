@@ -316,9 +316,7 @@ wp_get_current_user();
                                          $order_date =  strtotime($today_date);
                                          $current_time =  strtotime(wp_date('H:i'));
                                          $order_time = strtotime(date('11:00'));    
-                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+2 day"))); 
-
-                                       
+                                         $next_order_date = strtotime(date('Y-m-d',strtotime("+1 day")));                                   
 
                                        
 
@@ -328,7 +326,7 @@ wp_get_current_user();
 
                                         //&&  $current_time < $order_time 
                                     
-                                     if( $order_date >= $next_order_date   )
+                                     if( $order_date >= $next_order_date  &&  $current_time  <= $order_time  )
                                          {
 
                                            // echo $today_day_name;
