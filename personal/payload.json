@@ -9,7 +9,7 @@
       {
         "reference": "ref423501",
         "name": "Demo product",
-        "quantity": 23,
+        "quantity": 50,
         "unit": "weekly",
         "unitPrice": 15000,
         "grossTotalAmount": 19000,
