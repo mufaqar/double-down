@@ -753,8 +753,7 @@ function every_three_minutes_event_func() {
                         'key'      => 'user_type',
                         'value'    => 'Personal',
                         'compare'  => '='
-                    ),
-                    
+                    ),                    
                     array(
                         'key'     => 'order_week',
                         'value' => $order_week,
@@ -763,6 +762,7 @@ function every_three_minutes_event_func() {
             )   
         );      
         $latest_orders = get_posts( $order_args );    
+        
         $author_arr = array();    
         foreach($latest_orders as $order)
         {
@@ -771,7 +771,6 @@ function every_three_minutes_event_func() {
             $author_arr[]  = $order_uid;
         }
         $authorlist = array_unique($author_arr);
-
         foreach($authorlist as $author){   
             get_invoice_pay_direct($week,$year,$author);
         }

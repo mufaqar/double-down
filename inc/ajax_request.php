@@ -1123,9 +1123,20 @@ function update_payment()
 	$address = get_user_meta( $uid,'compnay_delivery_address',true);	
 	$customer_id = get_user_meta( $uid,'customer_id',true);	
 	include( get_template_directory() . '/stripe/init.php' );
+
 	
 	$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
-		if($customer_id == '') {
+
+
+	$customers = $stripe->customers->all(['email' => $customer_email, 'limit' => 1]);
+	//$filteredCustomers = $customers->search(['email' => 'mufaqar@gmail.com']);
+
+	$customer_exist =  $customers['data'][0]['id'];
+	echo $customer_exist;
+
+
+
+		if($customer_exist == '') {
 				$customer = $stripe->customers->create([
 					'description' => $customer_name,
 					'email' => $customer_email,
@@ -1155,20 +1166,14 @@ function update_payment()
 			  ]);
 
 			 // echo $token->id;
-
 			// print_r($token);
-
-
+			
 			 $add_payment  = $stripe->customers->createSource(
-				'cus_MyWVgzxq27n15p',
+				$customer_exist,
 				['source' => $token->id]
 			  );
 
-			 // print_r($add_payment);
-
-
-
-		
+			 // print_r($add_payment);		
 				update_user_meta($uid, 'card_number', $card_number);					
 				update_user_meta($uid, 'expiry_date', $expiry_date);
 				update_user_meta($uid, 'expiry_month', $expiry_month);
