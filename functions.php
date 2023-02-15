@@ -640,39 +640,26 @@ function get_invoice_pay_direct($week,$year,$uid)
 						add_post_meta($invoice_id, 'inovice_week', $inovice_week, true);
 						add_post_meta($invoice_id, 'inovice_year',$inovice_year, true);
 						add_post_meta($invoice_id, 'invoice_uid',$uid, true);
-
-
-
 						
-					include(get_template_directory() . '/stripe/init.php');	
-					$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
-					$method =  $stripe->paymentMethods->create([
-						'type' => 'card',
-						'card' => [
-						  'number' => '4242424242424242',
-						  'exp_month' => 11,
-						  'exp_year' => 2023,
-						  'cvc' => '314',
-						],
-					  ]);
-					   $customer_added = $stripe->paymentIntents->create(
-						array(
-							 'amount' => intval($grand_total),
-							 'currency' => 'NOK',      
-							'payment_method_types' => array('card'),
-							'payment_method' => $method->id,
-							'customer' => 'cus_MlTVknOyPYZluK',
-							'description' => "Order Week : ".$inovice_week." Order Year :".$inovice_year
-							
-							
-							)
-					  );
-					  $confirm_payment = $stripe->paymentIntents->confirm(
-						$customer_added->id,
-						['payment_method' => 'pm_card_visa']
-					  );						  
-					
-					    $status = $confirm_payment->status;
+                        include(get_template_directory() . '/stripe/init.php');	
+                        $stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
+                        $customers = $stripe->customers->all([
+                            'limit' => 1,
+                            'email' => $email,
+                        ]);
+                      
+                        $customer = $customers['data'][0]['id'];                        
+                        $create_payment = $stripe->charges->create([
+                            'customer' => $customer, // replace with the actual customer ID
+                            'amount' => intval($grand_total),
+                            'currency' => 'NOK',
+                            'description' => "Order Week : ".$inovice_week." Order Year :".$inovice_year
+                        ]);
+                        
+                        //print_r($intent);
+                        
+                   
+					    $status = $create_payment->status;
                         add_post_meta($invoice_id, 'invoice_status',$status, true);
                         add_post_meta($invoice_id, 'payment_message', $confirm_payment, true);
 
