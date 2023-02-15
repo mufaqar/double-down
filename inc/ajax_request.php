@@ -1132,7 +1132,7 @@ function update_payment()
 	//$filteredCustomers = $customers->search(['email' => 'mufaqar@gmail.com']);
 
 	$customer_exist =  $customers['data'][0]['id'];
-	echo $customer_exist;
+	//echo $customer_exist;
 
 
 
