@@ -626,7 +626,6 @@ function get_invoice_pay_direct($week,$year,$uid)
 
 
 					endwhile; wp_reset_query(); else : 
-
 						$user_type = 'Personal';
 						$post = array(
 							'post_title'    => "INVP$uid-" . rand(10, 100),
