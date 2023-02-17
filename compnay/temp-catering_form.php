@@ -4,11 +4,9 @@ get_header('company');?>
 
 <div class="custom_container catering_form mt-5 mb-5">
     <div class="_info mt-5 mb-5">
-    <h2>We create and deliver catering for most occasions. </h2>
+    <h2>Vi lager og leverer catering til de fleste anledninger. </h2>
                     <p>
-
-For example, could you think of "Spicy Streetfood" for the football evening with the boys, "High Tea" with the girls or perhaps "Turkish evening" with everyone at work? Feel free to send us information, wishes and needs for the catering of your event! When we receive the form, we will contact you to tailor together a fantastic and tasty menu where only your imagination sets limits!
-</p>
+                    Kunne dere for eksempel tenke dere «Spicy Streetfood» til fotballkvelden med gutta, «High Tea» med jentene eller kanskje «Tyrkisk aften» med alle på jobben? Send oss gjerne informasjon, ønsker og behov til catering av deres arrangement! Når vi mottar skjema tar vi kontakt med dere for å sammen skreddersy en fantastisk og smakfull meny hvor kun fantasien setter begrensinger!</p>
     </div>
     <hr>
     <div class="_form mt-5 p-4 pt-5 pb-5">

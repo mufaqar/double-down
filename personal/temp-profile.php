@@ -41,7 +41,7 @@ if ($query_date == '' ) {
                                         <div class="info d-flex align-items-center">
                                             <h6>
                                                 <?php
-                                                    echo get_user_meta($uid, 'compnay_delivery_address', true); ?> | <span> Fixed <?php echo get_user_meta($uid, 'Personal_days', true); ?>  days a week </span></h6>
+                                                    echo get_user_meta($uid, 'compnay_delivery_address', true); ?> | <span> faste  <?php echo get_user_meta($uid, 'Personal_days', true); ?>  dager i uken </span></h6>
                                             
 
                                         </div>

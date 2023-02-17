@@ -76,7 +76,7 @@
                                 <?php echo get_the_terms($post->ID, 'food_type')[0]->name; ?>
                             </div>
                             <div class="">
-                                <h6>Budget per person:</h6>
+                                <h6>Budsjett per person:</h6>
                                 <p>NOK <?php the_field('person'); ?></p>
                             </div>
                             <div class="">
