@@ -36,8 +36,8 @@ wp_get_current_user();
                             <div class="row">
                                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
                                     <div class="catering_menu">
-                                        <a href="<?php echo home_url('profile/lunch-calendar'); ?>" class="_active">Individual Orders</a>
-                                        <a href="<?php echo home_url('profile/fixed-delivery'); ?>">Fixed Orders</a>
+                                        <a href="<?php echo home_url('profile/lunch-calendar'); ?>" class="_active">Enkelt bestillinger</a>
+                                        <a href="<?php echo home_url('profile/fixed-delivery'); ?>">Faste bestillinger</a>
                                     </div>
                                     <div class="calender_wrapper d-flex justify-content-between align-items-center mt-5">
                                    <?php if ($query_date != '') {

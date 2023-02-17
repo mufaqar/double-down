@@ -60,7 +60,7 @@ if($c_user_role == 'personal') { die(" Not Allowed");}
                                         exit;
                                     }
                                     ?></h6>
-                                <p>Agreement: <?php echo get_user_meta($current_user->ID, 'compnay_name', true);?></p>
+                                <p>Avtale: <?php echo get_user_meta($current_user->ID, 'compnay_name', true);?></p>
                             </div>
                             <img src="<?php bloginfo('template_directory'); ?>/reources//images/profile.webp" alt="">
                         </div>                        

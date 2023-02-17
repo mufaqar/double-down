@@ -10,8 +10,8 @@
             <div class='panel launchClander Fixed_delivery'>            
                 <div class="catering_wrapper c2 mt-5 mb-5">
                     <div class="catering_menu">
-                    <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" >Individual Orders</a>
-                    <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="_active">Fixed Orders</a>
+                    <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" >Enkelt bestillinger</a>
+                    <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="_active">Faste bestillinger</a>
                     </div>                
                 </div>
                 <form class="weeklyfood_daily" id="weeklyfood_daily" action="#" >                
