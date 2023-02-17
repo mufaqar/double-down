@@ -27,11 +27,10 @@ get_header('landing');
 
 <section class="container landing_contents" id="work">
     <h1>Vi er din 2.0 kantine, <span>digital styring</span> <br>
-        for a varied, nutritious and <br>
-        <span>flexible job lunch</span>
+    for en variert, næringsrik og <br>
+        <span>fleksibel jobblunsj</span>
     </h1>
-<p>The company saves time on administration and gets a flexible lunch arrangement where you obviously do not pay
-    for lunch on the days that are canceled. Have a good lunch!</p>
+<p>Bedriften sparer tid på administrasjon og får en fleksibel lunsjordning hvor du åpenbart ikke betaler for lunsj de dagene som er kansellerte. Spesielle behov som f eks vegan, vegetar eller allergener kan legges inn. Ha en fin lunsj!</p>
 <div class="row landing_step d-flex justify-content-center align-items-center mt-4">
     <div class="col-md-3">
         <div class="head d-flex">
@@ -39,9 +38,8 @@ get_header('landing');
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/Register.png" alt="Register" >
             </div>
             <div>
-                <h3>1. Register</h3>
-                <p>Register your business in minutes. If you order before 11 am, you can have lunch the next
-                    day.</p>
+                <h3>1. Registrere</h3>
+                <p>Registrer bedriften din på få minutter. Bestiller du før kl 11, kan du spise lunsj neste dag.</p>
             </div>
         </div>
         <div class="head d-flex">
@@ -49,9 +47,8 @@ get_header('landing');
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/add_emp.png" alt="">
             </div>
             <div>
-                <h3>2. Add employees</h3>
-                <p>Each employee selects a menu and can easily cancel, change or add additional products on My
-                    page.</p>
+                <h3>2. Legg til ansatte</h3>
+                <p>Hver ansatt velger en sine lunsjretter og kan enkelt avbryte, endre eller legge til tilleggsprodukter på Min Side.</p>
             </div>
         </div>
     </div>
@@ -64,9 +61,8 @@ get_header('landing');
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/Register.png" alt="">
             </div>
             <div>
-                <h3>3. Welcome!</h3>
-                <p>You will hear from us after you have registered so that we make sure that you get exactly
-                    what you want. We deliver to all types of companies regardless of size.</p>
+                <h3>3. Velkommen</h3>
+                <p>Du hører fra oss etter at du har registrert deg slik at vi sørger for at du får nøyaktig hva du vil. Vi leverer til alle typer bedrifter uansett størrelse.</p>
             </div>
         </div>
         <div class="head d-flex">
@@ -74,22 +70,21 @@ get_header('landing');
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/Register.png" alt="">
             </div>
             <div>
-                <h3>4. Fix it done!</h3>
-                <p>All employees receive a stress-free and good lunch that is good for the body, delivered to
-                    the door by 1115 every day.</p>
+                <h3>4. Fiks ferdig!</h3>
+                <p>Alle ansatte får en stressfri og god lunsj som er god for kroppen, levert til døren innen 11:15 hver dag.</p>
             </div>
         </div>
     </div>
 </div>
 <div class="d-flex justify-content-center mb-5 mt-5 links">
-    <a href="<?php echo home_url('/create-business-agreement'); ?>" class="btn_primary">Start Now</a>
-    <a href="<?php echo home_url('/sign-up'); ?>" class="btn_primary btn_sec">Order without a company agreement?</a>
+    <a href="<?php echo home_url('/create-business-agreement'); ?>" class="btn_primary">Start nå</a>
+    <a href="<?php echo home_url('/sign-up'); ?>" class="btn_primary btn_sec">Bestille utenfor en bedrift?</a>
 </div>
 </section>
 
 <div class="mt-5 category_slider">
-<h2>Price NOK 79.13</h2>
-<p>Really big company? Get in touch and we will find a solution!</p>
+<h2>Pris NOK 79.35</h2>
+<p>Virkelig stort bedrift? Ta kontakt så finner vi en løsning!</p>
 <div class="row d-flex align-items-center _slider mt-4">
     <!-- <div class="col-lg-2 categories_links">
         <a href="">	Salad Lunch</a>
@@ -105,22 +100,22 @@ get_header('landing');
 
             <div class="item_wrapper">
                 <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/salad.jpg" alt="">						
-                    <h5>Salad lunch</h5>
+                    <h5>Salatlunsj</h5>
                 </div>
             </div>
             <div class="item_wrapper">
                 <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/bread.jpg" alt="">						
-                    <h5>Bread lunch,</h5>
+                    <h5>Brødlunsj</h5>
                 </div>
             </div>
             <div class="item_wrapper">
                 <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/wrap.jpg" alt="">						
-                    <h5>Wrap lunch</h5>
+                    <h5>Wraplunsj</h5>
                 </div>
             </div>
             <div class="item_wrapper">
                 <div><img src="<?php bloginfo('template_directory'); ?>/reources/images/additional.jpg" alt="">						
-                    <h5>Additional</h5>
+                    <h5>Tillegg</h5>
                 </div>
             </div>
           
@@ -136,7 +131,7 @@ get_header('landing');
         
     </div>
     <div class="mt-3 mb-5 d-flex justify-content-end startNow">
-        <a href="<?php echo home_url('/create-business-agreement'); ?>" class="btn_primary">Start Now</a>
+        <a href="<?php echo home_url('/create-business-agreement'); ?>" class="btn_primary">Start nå</a>
     </div>
 </div>
 </div>
