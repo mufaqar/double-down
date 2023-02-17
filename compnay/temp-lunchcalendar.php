@@ -204,7 +204,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                             <div class="col-md-6 first border-end mb-5">
                                 <h3><?php the_title() ?> | <span> NOK <?php the_field('menu_item_price'); ?></span></h3>
                                 <p class="mt-3"><?php the_content() ?></p>
-                                <h6 class="mt-2">Allergenes:</h6>
+                                <h6 class="mt-2">Allergener:</h6>
                                 <p>
                                     <?php echo strip_tags (
                                                         get_the_term_list( get_the_ID(), 'menu_sub_types',"",", " )

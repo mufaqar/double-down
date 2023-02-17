@@ -409,7 +409,7 @@ function my_get_current_user_roles() {
     function show_Allergens(){
         ?>
 
-        <h6 class="mt-2">Allergenes:</h6>
+        <h6 class="mt-2">Allergener:</h6>
                                                 <p class="allergens">
                                                     <?php 
                                                     echo strip_tags (
