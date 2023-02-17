@@ -9,13 +9,13 @@
     <div class="footer_logo p-4 rounded-">
         <img src="<?php bloginfo('template_directory'); ?>/reources/images/logo.png" alt="Footer logo">
     </div>
-    <p class="contact_text">Feel free to contact us by email or phone:</p>
+    <p class="contact_text">Kontakt oss via telefon eller e-post:</p>
     <span>455 02 754 / hei@doubledowndish.no</span>
     <div class="links">
-        <a href="<?php echo home_url('/terms'); ?>">Terms </a>|
-        <a href="<?php echo home_url('/privacy'); ?>">Privacy</a>
+        <a href="<?php echo home_url('/terms'); ?>"> Vilkår  </a>|
+        <a href="<?php echo home_url('/privacy'); ?>">Personvern</a>
     </div>
-    <a class="measures_text">Measures against the coronavirus</a>
+    <a class="measures_text">Tiltak mot korona</a>
     <div class="divider"></div>
     <div class="footer_social">
         <a href="https://www.facebook.com/doubledowndish/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/reources/images/facebook.png" alt="facebook"></a>
