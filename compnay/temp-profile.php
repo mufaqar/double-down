@@ -25,7 +25,7 @@ if ($query_date == '' ) {
                                         <div class="d-flex align-items-center __btn">
                                             <a href="<?php echo home_url('/company-profile/lunch-calendar'); ?>" class="btn_primary d-flex align-items-center">
                                                 <i class="fa-solid fa-fork-knife"></i>
-                                                <p style="margin-left: .5rem; color:white">Company Lunch</p>
+                                                <p style="margin-left: .5rem; color:white">Selskapslunsj</p>
                                             </a>
                                             <a  href="<?php echo home_url('/company-profile/orders'); ?>"  class="btn_primary btn_sec d-flex align-items-center">
                                                 <i class="fa-solid fa-newspaper"></i>
