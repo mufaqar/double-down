@@ -14,7 +14,7 @@ get_header('company');
         <div class="catering_wrapper mt-5 mb-5 col-md-8">
             <div class="catering_menu buttons">
                 <a id="1" class="showSingle _active" target="1">Lunsjbestillinger</a>
-                <a id="2" class="showSingle" target="2">Catering Orders</a>
+                <a id="2" class="showSingle" target="2">Catering bestillinger</a>
                 <a id="3" class="showSingle" target="3">Meeting Orders</a>
             </div>
         </div>
