@@ -9,9 +9,9 @@ get_header('landing');
  <div class="container ml-auto">
     <div class="d-flex justify-content-between align-content-center align-items-center row">
         <div class="col-md-6 hero_content">
-            <h1>Lunch boxes for <br> service</h1>
-            <p class="mb-4">Smart job lunch with full flexibility and cost control...</p>
-            <a href="#work" class="btn_primary">Read More</a>
+            <h1>Lunsjbokser til din <br> bedrift</h1>
+            <p class="mb-4">Smart jobblunsj med full fleksibilitet og kostnadskontroll...</p>
+            <a href="#work" class="btn_primary">Les mer</a>
         </div>
         <div class="col-md-6 hero_right">
            
@@ -26,7 +26,7 @@ get_header('landing');
 
 
 <section class="container landing_contents" id="work">
-    <h1>We are your canteen 2.0 <span>digital management</span> <br>
+    <h1>Vi er din 2.0 kantine, <span>digital styring</span> <br>
         for a varied, nutritious and <br>
         <span>flexible job lunch</span>
     </h1>
