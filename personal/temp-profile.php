@@ -33,10 +33,10 @@ if ($query_date == '' ) {
                                         <div class="d-flex align-items-center __btn">
                                             <a href="<?php echo home_url('/profile/lunch-calendar'); ?>" class="btn_primary d-flex align-items-center">
                                                 <i class="fa-solid fa-fork-knife"></i>
-                                                <p style="margin-left: .5rem; color:white">My Lunch</p></a>
+                                                <p style="margin-left: .5rem; color:white">Min lunsj</p></a>
                                             <a  href="<?php echo home_url('/profile/orders'); ?>"  class="btn_primary btn_sec d-flex align-items-center">
                                                 <i class="fa-solid fa-newspaper"></i>
-                                                <p style="margin-left: .5rem; color:#5FB227">My Orders</p></a>
+                                                <p style="margin-left: .5rem; color:#5FB227">Mine ordrer</p></a>
                                         </div>
                                         <div class="info d-flex align-items-center">
                                             <h6>

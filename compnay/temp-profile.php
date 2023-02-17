@@ -29,7 +29,7 @@ if ($query_date == '' ) {
                                             </a>
                                             <a  href="<?php echo home_url('/company-profile/orders'); ?>"  class="btn_primary btn_sec d-flex align-items-center">
                                                 <i class="fa-solid fa-newspaper"></i>
-                                                <p style="margin-left: .5rem; color:#5FB227">My Orders</p>
+                                                <p style="margin-left: .5rem; color:#5FB227">Mine ordrer</p>
                                             </a>
                                         </div>
                                         <div class="info d-flex align-items-center">
