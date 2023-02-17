@@ -133,8 +133,8 @@ $uid = get_current_user_id();
                 <!-- 5th  -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h3>Daily Overview</h3>
-                        <p>Daily overview of orders</p>
+                        <h3>Daglig Overview</h3>
+                        <p>Daglig overview of orders</p>
                     </div>
                     <div class="pt-4 pt-md-0">
                     <button id="daily_orders" class="btn_primary">See overview</button>
@@ -475,7 +475,7 @@ $uid = get_current_user_id();
     <section class="hideme  overlay daily_orders_popup">                                               
             <div class="popup">
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Daily overview of orders</h3> 
+                    <h3 class="ad_productss">Daglig overview of orders</h3> 
                 <div class="custom_container catering_wrapper mt-5 mb-5">
                                 <div class="calender_wrapper d-flex justify-content-between align-items-center">                        
                                         <div class="catering_card_wrapper">

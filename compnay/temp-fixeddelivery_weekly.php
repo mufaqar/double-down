@@ -1,4 +1,4 @@
-<?php /* Template Name: Company-FD Weekly  */
+<?php /* Template Name: Company-FD Ukentlig  */
 get_header('company');
 ?>
 <?php include('navigation.php'); ?>
@@ -155,8 +155,8 @@ get_header('company');
 
                 <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
-                        <a href="<?php echo home_url('/company-profile/lunch-calendar/fixed-delivery-weekly'); ?>" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
-                        <a href="<?php echo home_url('/company-profile/lunch-calendar/fixed-delivery'); ?>" class="btn_primary btn_sec d-block">Daily</a>
+                        <a href="<?php echo home_url('/company-profile/lunch-calendar/fixed-delivery-weekly'); ?>" class="btn_primary d-block" style="margin-right: 1rem;"> Ukentlig</a>
+                        <a href="<?php echo home_url('/company-profile/lunch-calendar/fixed-delivery'); ?>" class="btn_primary btn_sec d-block">Daglig</a>
                     </div>
                     <div>
                         <input type="submit" id="order" class="btn_primary" value="Save" />

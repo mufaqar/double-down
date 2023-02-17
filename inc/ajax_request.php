@@ -545,7 +545,7 @@ function weeklyfood_byday()
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();			
 		
-		// updated Existing Food order Weekly 
+		// updated Existing Food order Ukentlig 
 		$updated_post_id = get_the_ID();			
 		$food_orderd_data = array();
 		$food_orderd_data = get_post_meta( $updated_post_id, 'food_order' , true);		
@@ -715,7 +715,7 @@ function dailyfood()
 
     $postinweek = new WP_Query($query_meta);
 	if ( $postinweek->have_posts() ): while ( $postinweek->have_posts() ): $postinweek->the_post();
-	    // updated Existing Food order Weekly 
+	    // updated Existing Food order Ukentlig 
 		//echo "UPdate Order Query";
 		$updated_post_id = get_the_ID();	
 		update_post_meta($updated_post_id, 'food_order', $days);		

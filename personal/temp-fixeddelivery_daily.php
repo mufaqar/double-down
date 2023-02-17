@@ -1,4 +1,4 @@
-<?php /* Template Name: Personal-FD Daily  */  get_header();?>
+<?php /* Template Name: Personal-FD Daglig  */  get_header();?>
 <?php include('navigation.php'); ?>
 <div class="tab_wrapper">
             <div class='toggle mb-5'>
@@ -169,13 +169,13 @@
 
                         </div>
                         <div class="vat">
-                            <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
+                            <h6 class=" d-flex justify-content-end mt-4">*Alle priser ink. 15% Mva</h6>
                         </div>
 
                          <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center">
-                                <a href="<?php echo home_url('/profile/fixed-delivery-weekly'); ?>" class="btn_primary btn_sec d-block" style="margin-right: 1rem;"> Weekly</a>
-                                <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary  d-block">Daily</a>
+                                <a href="<?php echo home_url('/profile/fixed-delivery-weekly'); ?>" class="btn_primary btn_sec d-block" style="margin-right: 1rem;"> Ukentlig</a>
+                                <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary  d-block">Daglig</a>
                             </div>
                         <div>
                         <input type="submit" id="order" class="btn_primary"  value="Save"/>                       

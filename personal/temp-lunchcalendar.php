@@ -300,13 +300,13 @@ wp_get_current_user();
 
                                         </div>
                                         <div class="vat">
-                                            <h6 class=" d-flex justify-content-end mt-4">* All prices incl. 15% VAT</h6>
+                                            <h6 class=" d-flex justify-content-end mt-4">*Alle priser ink. 15% Mva</h6>
                                         </div>
 
                                         <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
                                             <div class="d-flex align-items-center">
-                                                <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Weekly</a>
-                                                <a href="" class="btn_primary btn_sec d-block">Daily</a>
+                                                <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Ukentlig</a>
+                                                <a href="" class="btn_primary btn_sec d-block">Daglig</a>
                                             </div>
                                         <div>
                                             
