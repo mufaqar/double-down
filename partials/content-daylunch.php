@@ -13,7 +13,7 @@
                                     If you want to change a fixed subscription,
                                     do so <a href="<?php echo home_url('contact-us'); ?>">her.</a></p>
                                 <div class="order_wrapper mt-3">                                 
-                                    <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
+                                    <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Velg </button>
                                     <div class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo get_the_ID() ?>">
                                         <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/minus-thin.png" alt="" onclick="handleCountDec(<?php echo get_the_ID() ?>)"></i>
                                         <input type="text" data-id="<?php echo get_the_ID(); ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />
@@ -48,7 +48,7 @@
                                                         <?php } ?>
                                     <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
                                     <button  id="<?php echo get_the_ID()?>" class="btn_primary  select_product_btn id<?php echo get_the_ID();?>"
-                                                        onmouseover="showCounter(<?php echo get_the_ID();;?>)">Select</button>
+                                                        onmouseover="showCounter(<?php echo get_the_ID();;?>)">Velg </button>
                                                         <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo get_the_ID();?>">
                                                             <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"

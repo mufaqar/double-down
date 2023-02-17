@@ -46,7 +46,7 @@ $uid =  get_current_user_id() ;
                                                         <?php } ?>
                                     <h3><?php the_title(); ?><span> | NOK <?php the_field('menu_item_price'); ?> </span></h3>
                                     <p><?php the_content()?>  </p>
-                                    <button  class="btn_primary  id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
+                                    <button  class="btn_primary  id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Velg </button>
                                     <div class="d-none product_counter mt-4 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">                                   
                                         <i class="count-down" onclick="handleCountDec(<?php echo get_the_ID(); ?>)">
                                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/minus-thin.png"  alt="" ></i>

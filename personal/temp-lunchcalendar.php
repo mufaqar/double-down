@@ -125,7 +125,7 @@ wp_get_current_user();
                                                 ?>
 				                                  <p>A Total of <?php echo $total_boxes ?> Boxes,<br> Additions <?php echo $total_add ?>, you pay: <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?> NOK </p>
                                                     <?php endwhile; wp_reset_query();else: ?>
-                                            <p>A Total of Boxes,<br> Additions you pay:  NOK </p>
+                                            <p>Totale bokser,<br> Du betaler tillegg:  NOK </p>
                                             <?php endif;?>
 
                                             <div class="calender">
@@ -201,7 +201,7 @@ wp_get_current_user();
 				                                                    </div>
 				                                                    <div class="product_card ">
 				                                                        <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>"
-				                                                                        onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
+				                                                                        onmouseover="showCounter(<?php echo $pid; ?>)">Velg </button>
 				                                                                            <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
 				                                                                                <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
 				                                                                                        src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
@@ -278,7 +278,7 @@ wp_get_current_user();
                                                         <?php } ?>
 				                                                            <h2><?php the_title();?> , NOK <?php echo $menu_price?> </h2>
 				                                                            <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>"
-				                                                                    onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
+				                                                                    onmouseover="showCounter(<?php echo $pid; ?>)">Velg </button>
 				                                                                        <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
 				                                                                            <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img
 				                                                                                    src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"

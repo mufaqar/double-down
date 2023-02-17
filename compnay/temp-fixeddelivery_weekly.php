@@ -57,7 +57,7 @@ get_header('company');
                                                         <img src="<?php echo get_template_directory_uri(); ?>/reources/images/product1.png" alt="Featured Thumbnail" />
                                                         <?php } ?>
                                     <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price'); ?> </h2>
-                                    <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Select</button>
+                                    <button href="" class="btn_primary  select_product_btn id<?php echo $pid; ?>" onmouseover="showCounter(<?php echo $pid; ?>)">Velg </button>
                                     <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $pid; ?>">
                                         <i class="count-down" onclick="handleCountDec(<?php echo $pid ?>)"><img src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png" alt="" ></i>
                                         <input type="text" data-id="<?php echo $pid; ?>" value="0" class="product-quantity form-control text-center incrDecrCounter" />

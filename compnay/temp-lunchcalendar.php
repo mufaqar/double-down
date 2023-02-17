@@ -211,7 +211,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                                     ); ?> 
                                     </p>
                                 <div class="order_wrapper mt-3">                                 
-                                    <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Select</button>
+                                    <button class="btn_primary _id<?php echo $new_id ?>" onmouseover="showOrderCounter(<?php echo $new_id?>)">Velg </button>
                                     <div class="d-none product_counter  d-flex justify-content-center align-items-center _cid<?php echo $new_id; ?>">
                                         <i class="count-down"><img src="<?php bloginfo('template_directory'); ?>/reources/images/minus-thin.png" alt="" onclick="handleCountDec(<?php echo $new_id ?>)"></i>
                                         <input type="text" data-id="<?php echo $new_id ?>" data-pro="<?php echo $data_id;?>"  value="0" class="product-quantity form-control text-center incrDecrCounter" />
@@ -247,7 +247,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                                         <?php } ?>
                                     <h2><?php the_title(); ?> , NOK <?php the_field('menu_item_price');  ?> </h2>
                                     <button  id="<?php echo $add_id?>" class="btn_primary  select_product_btn id<?php echo $add_id;?>"
-                                                        onmouseover="showCounter(<?php echo $add_id;?>)">Select</button>
+                                                        onmouseover="showCounter(<?php echo $add_id;?>)">Velg </button>
                                                         <div class="d-none product_counter mt-2 d-flex justify-content-center align-items-center cid<?php echo $add_id;?>">
                                                             <i class="count-down" onclick="handleCountDec(<?php echo $add_id; ?>)"><img
                                                                     src="<?php echo get_template_directory_uri(); ?>/reources/images/neg.png"
