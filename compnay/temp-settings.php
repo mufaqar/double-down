@@ -144,7 +144,7 @@ $uid = get_current_user_id();
                 <!-- 6th  -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h3>Billing and order details</h3>
+                        <h3>Betaling og ordreinfo</h3>
                       
                     </div>
                     <div class="pt-4 pt-md-0">

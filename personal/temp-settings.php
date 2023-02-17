@@ -115,7 +115,7 @@ foreach ($user_allergies as $key => $user_alery) {
 
                 </div>
                 <div class="pt-4 pt-md-0">
-                    <button id="show_contact" class="btn_primary">See Info</button>
+                    <button id="show_contact" class="btn_primary">Se Info</button>
 
 
                 </div>
@@ -124,7 +124,7 @@ foreach ($user_allergies as $key => $user_alery) {
             <!-- 8th  -->
             <div class="deatil_card d-md-flex justify-content-between align-items-center mb-5">
                 <div class="info">
-                    <h3>Billing and order details</h3>
+                    <h3>Betaling og ordreinfo</h3>
                 </div>
                 <div class="pt-4 pt-md-0">
                 <button id="show_invoice" class="btn_primary">Payment details</button>
