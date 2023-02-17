@@ -22,7 +22,7 @@ $user_info = get_userdata($uid);
             <!-- 2nd -->
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Delivery Address</h3>
+                    <h3>Leveringsadresse</h3>
                     <p><?php echo get_user_meta($uid, 'profile_delivery_address', true); ?>
                     </p>
                 </div>
@@ -146,9 +146,9 @@ foreach ($user_allergies as $key => $user_alery) {
     <div class="popup">
         <form class="profile_deliver_address" id="profile_deliver_address" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Delivery Address</h3>
+                <h3 class="ad_productss">Leveringsadresse</h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label>Delivery Address</label>
+                    <label>Leveringsadresse</label>
                     <div class="_field d-flex justify-content-between align-items-center">
                         <input type="text" name="profile_delivery_address" id="profile_delivery_address" value="<?php echo get_user_meta($uid, 'profile_delivery_address', true); ?>">
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">

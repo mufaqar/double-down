@@ -122,7 +122,7 @@ $uid = get_current_user_id();
                 <!-- 4th  -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h3>Delivery Address</h3>
+                        <h3>Leveringsadresse</h3>
                         <p> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> <br> </p>
                      </div>
                     <div class="pt-4 pt-md-0">
@@ -173,9 +173,9 @@ $uid = get_current_user_id();
         <div class="popup">
             <form class="update_deliver_address" id="update_deliver_address" action="#" > 
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Compnay Delivery Address</h3>               
+                    <h3 class="ad_productss">Compnay Leveringsadresse</h3>               
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Delivery Address</label>
+                        <label>Leveringsadresse</label>
                         <div class="_field d-flex justify-content-between align-items-center">
                             <input type="text" name="address" id="address" placeholder="<?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    

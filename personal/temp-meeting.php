@@ -17,7 +17,7 @@ $uid =  get_current_user_id() ;
                          <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
 
                     </div>
-                    <div class="col"> <label>Choose Time</label>
+                    <div class="col"> <label>Velg leveringstid</label>
                     <input type="time"  value="" placeholder="02-05-22" id="time">
 
                     </div>
@@ -28,7 +28,7 @@ $uid =  get_current_user_id() ;
             </div>            
 
             <div class="_content mt-5 mb-5">
-                <h2>Select Product </h2>
+                <h2>Velg dato </h2>
                 <div class="row">
                     <?php query_posts(array(
                         'post_type' => 'meeting_food',
@@ -68,7 +68,7 @@ $uid =  get_current_user_id() ;
 
             <div class="row">
                 <div class="col-md-6">
-                    <h6 class="mt-2"><strong>Delivery Address</strong></h6>
+                    <h6 class="mt-2"><strong>Leveringsadresse</strong></h6>
                     <p><?php echo get_user_meta( $uid, 'profile_delivery_address', true ); ?></p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end align-items-end">
