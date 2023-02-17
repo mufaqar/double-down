@@ -34,10 +34,10 @@ $user_info = get_userdata($uid);
             <!-- 3rd  -->
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Company Contact Email</h3>
+                    <h3>E-post for firmakontakt</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement', true); ?></p>
                     <p>
-                        <strong><span>Email : </span></strong>
+                        <strong><span>Epost : </span></strong>
                         <span class="underline"><?php echo $user_info->user_email ?></span>
                     </p>
                 </div>
@@ -47,11 +47,11 @@ $user_info = get_userdata($uid);
             <!-- 4th  -->
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Profile</h3>
+                    <h3>Profil</h3>
                     <p><?php echo get_user_meta($uid, 'compnay_agreement', true); ?><br>
                     <br>
-                        <strong><span>Phone: </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone', true); ?>
-                        |<strong><span>Email: </span></strong> <?php echo $user_info->user_email ?>
+                        <strong><span>Telefon : </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone', true); ?>
+                        |<strong><span>Epost: </span></strong> <?php echo $user_info->user_email ?>
 
                 </div>
                 <div class="pt-4 pt-md-0">
@@ -63,17 +63,17 @@ $user_info = get_userdata($uid);
            
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Change Password</h3>                   
+                    <h3>Endre passord</h3>                   
                 </div>
                 <div class="">
-                    <button id="show_password" class="btn_primary">Change Password</button>
+                    <button id="show_password" class="btn_primary">Endre passord/button>
                 </div>
             </div> 
 
           
            <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Payment</h3>
+                    <h3>Betalingskort</h3>
                     <p> Customer Id : <?php echo get_user_meta($uid, 'customer_id',true); ?></p>
                     <p>**** **** **** <?php $card_number =  get_user_meta($uid, 'card_number',true);
 
@@ -91,7 +91,7 @@ $user_info = get_userdata($uid);
          
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Select your allergens and save</h3>
+                    <h3>Velg dine allergener og lagre dem</h3>
 
 
                     <?php $user_allergies = get_user_meta($uid, 'profile_alergies', true);
@@ -104,14 +104,14 @@ foreach ($user_allergies as $key => $user_alery) {
 
                 </div>
                 <div class="pt-4 pt-md-0">
-                    <button id="change_allergies" class="btn_primary">Select allergies</button>
+                    <button id="change_allergies" class="btn_primary">Endre allergier og annet</button>
                 </div>
             </div>
 
             <!-- 7th  -->
             <div class="deatil_card d-md-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>How can we contact you?</h3>
+                    <h3>Hvordan kan vi nå deg?</h3>
 
                 </div>
                 <div class="pt-4 pt-md-0">
@@ -283,7 +283,7 @@ foreach ($user_allergies as $key => $user_alery) {
     <div class="popup">
         <form class="profile_contact" id="profile_contact" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss"> How can we contact you?</h3>
+                <h3 class="ad_productss"> Hvordan kan vi nå deg?</h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                        <div class="week_days">
                             <div class="d-flex justify-content-between flex-wrap">
