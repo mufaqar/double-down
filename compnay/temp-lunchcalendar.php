@@ -139,9 +139,9 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                               
 
                             <?php endwhile;   ?>
-                            <h6>Total this Week | <span>NOK <?php  echo array_sum($total_week_price); ?></span></h6>
+                            <h6>Totalt denne uken | <span>NOK <?php  echo array_sum($total_week_price); ?></span></h6>
                             <?php wp_reset_query(); else : ?>
-                             <p>Total this Week,<br>:  NOK </p>
+                             <p>Totalt denne uken,<br>:  NOK </p>
                         <?php endif; ?>                    
                 </div>
             </div>
