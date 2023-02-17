@@ -16,7 +16,7 @@
                                         <th scope="col">Week</th>
                                         <th scope="col">Order Type</th>
                                        
-                                        <th scope="col">Total Price</th>
+                                        <th scope="col">Total pris</th>
                                         <th scope="col">User Type</th>
                                         <th scope="col">Status</th>
                                     </tr>

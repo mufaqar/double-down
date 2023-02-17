@@ -13,7 +13,7 @@
                                     <tr>
                                         <th scope="col">Order ID</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Total Price</th>
+                                        <th scope="col">Total pris</th>
                                         <th scope="col">User Type</th>
                                         <th scope="col">Status</th>
                                     </tr>
