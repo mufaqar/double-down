@@ -17,7 +17,7 @@
                                         <th scope="col">Order Type</th>
                                        
                                         <th scope="col">Total pris</th>
-                                        <th scope="col">User Type</th>
+                                        <th scope="col">Brukertype</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                     </thead>

@@ -399,7 +399,7 @@ $uid = get_current_user_id();
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Week</th>                                                                 
+                                            <th scope="col">Uke</th>                                                               
                                             <th scope="col">Type</th>                                    
                                             <th scope="col">Price</th>                                     
                                             <th scope="col">Details</th>
@@ -488,7 +488,7 @@ $uid = get_current_user_id();
                                                         <th scope="col">Order Type</th>
                                                         <th scope="col">Week Id</th>
                                                         <th scope="col">Total pris</th>
-                                                        <th scope="col">User Type</th>
+                                                        <th scope="col">Brukertype</th>
                                                         <th scope="col">Status</th>
                                                     </tr>
                                                     </thead>

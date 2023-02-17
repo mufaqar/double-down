@@ -398,7 +398,7 @@ foreach ($user_allergies as $key => $user_alery) {
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Week</th>
-                                            <th scope="col">User Type</th>    
+                                            <th scope="col">Brukertype</th>    
                                             <th scope="col">Price</th> 
                                             <th scope="col">Action</th>
                                     
