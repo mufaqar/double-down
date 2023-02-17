@@ -44,7 +44,7 @@ if ($query_date == '' ) {
                                         <div class="calender_wrapper">
                                             <div class="row">
                                             <div class="col-md-10">
-                                            <h2>Fixed Lunch Orders <span><?php echo $query_date ?></span> </h2>
+                                            <h2>Faste leveringer <span><?php echo $query_date ?></span> </h2>
                                             </div>
                                             <div class="col-md-2">
                                             <div class="calender">
@@ -62,7 +62,7 @@ if ($query_date == '' ) {
                                         
                                     </div>
 
-                                    <h2>Lunch Orders <span><?php echo $query_date ?></span> </h2>
+                                    <h2>Lunsjbestillinger <span><?php echo $query_date ?></span> </h2>
                                     <?php get_template_part('partials/company', 'calorders');?>
                                 </div>
 
