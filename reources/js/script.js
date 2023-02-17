@@ -220,7 +220,7 @@ function inactiveEmp() {
   inActiveContent.classList.add('active');
 }
 
-// my Profile script section
+// Min profil script section
 
 function lastStep() {
   var myProfile_reg = document.querySelector('.first_step');

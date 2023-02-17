@@ -63,7 +63,7 @@
 									'walker'          => new WP_Bootstrap_Navwalker(),
 								) );
 								?>
-								<a href="<?php echo is_user_logged_in() ? home_url('profile') : home_url('login') ;  ?>" class="signin"><?php echo is_user_logged_in() ? 'My Profile' : 'Sign In'; ?></a>
+								<a href="<?php echo is_user_logged_in() ? home_url('profile') : home_url('login') ;  ?>" class="signin"><?php echo is_user_logged_in() ? 'Min profil' : 'Sign In'; ?></a>
 							</div>
 						</div>
 					</div>

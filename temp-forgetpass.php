@@ -65,8 +65,8 @@ if ( is_user_logged_in() ) {
                 </div>
             </div>
             <div class="col-sm-12 right col-md-6 p-3">
-                <h3>Welcome Back to <br>Double Down Dish</h3>
-                <p>Reset Password</p>
+                <h3>Velkommen tilbake til <br>Double Down Dish</h3>
+                <p>Husker du ikke ditt</p>
                 <form class="resetpassword" id="resetpassword">
                     <div class="form-group">
                         <label for="username">Email</label>
@@ -76,7 +76,7 @@ if ( is_user_logged_in() ) {
                     
                     <div class="d-flex justify-content-between align-items-center " style="margin-top: 3rem !important;">
                     
-                        <button type="submit" class="green_btn">Reset Password</button>
+                        <button type="submit" class="green_btn">Husker du ikke ditt</button>
                     </div>
                     
                 </form>

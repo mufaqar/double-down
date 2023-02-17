@@ -55,7 +55,7 @@ if ( is_user_logged_in() ) {
                 </div>
             </div>
             <div class="col-sm-12 right col-md-6 p-3">
-                <h3>Welcome Back to <br>Double Down Dish</h3>
+                <h3>Velkommen tilbake til <br>Double Down Dish</h3>
                 <p>Please log in below to manage your profile.</p>
                 <form class="login_form" id="loginform">
                     <div class="form-group">
