@@ -221,8 +221,8 @@ wp_get_current_user();
 				                                            <?php endwhile;
                                                                 wp_reset_query();else: ?>
                                                 <div class="_pro_card">
-                                                                <h3>Sorry no food added yet</h3>
-                                                                <p> We did't added menu for this day yet! </p>
+                                                                <h3>Beklager, ingen mat lagt til ennå</h3>
+                                                                <p> Vi har ikke lagt til meny for denne dagen ennå! </p>
                                                             </div>
 
                                             <?php endif;?>
