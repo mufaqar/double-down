@@ -24,7 +24,7 @@ get_header();
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                    <label for="">Date of delivery</label>
+                    <label for="">Leveringsdato</label>
                     <div class="_select">
                         <input type="date" value="<?php echo date("Y-m-d"); ?>" placeholder="02-05-22" id="date" required>
                     </div>
