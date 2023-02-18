@@ -13,7 +13,7 @@ $uid =  get_current_user_id() ;
             <div class="date_filter d-flex justify-content-center flex-column align-items-center">
                 <div class="row">
                     <div class="col">
-                    <label>Choose Date</label>
+                    <label>Velg dato</label>
                          <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>">
 
                     </div>
