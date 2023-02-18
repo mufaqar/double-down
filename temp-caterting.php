@@ -62,7 +62,7 @@ $year = $week_arr[0];
 
 
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                                <label for="">Time of delivery</label>
+                                <label for="">Leveringstid</label>
                                 <div class="_select">
                                     <input type="time" value="" placeholder="02-05-22" id="time">
                                 </div>
@@ -76,9 +76,9 @@ $year = $week_arr[0];
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Reason</label>
+                                <label for="">Anledning</label>
                                 <div class="_select">
-                                <input type="text" value="" placeholder="Please enter Reason" id="reason" required>
+                                <input type="text" value="" placeholder="Please enter Anledning" id="reason" required>
                                 </div>
                             </div>
 

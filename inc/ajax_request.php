@@ -99,7 +99,7 @@ function addcatering_email()
 	$body  .= "<p><strong> Time  </strong>:  ".$time."  </p>";
 	$body  .= "<p><strong> Address  </strong>:  ".$address."  </p>";
 	$body  .= "<p><strong> Food Type  </strong>:  ".$food_type."  </p>";
-	$body  .= "<p><strong> Reason  </strong>:  ".$reason."  </p>";
+	$body  .= "<p><strong> Anledning  </strong>:  ".$reason."  </p>";
 	$body  .= "<p><strong> Heating Options </strong>:  ".$pro_sub_cat."  </p>";
 	$body  .= "<p><strong> Allergens  </strong>:  ".$allergn_list."  </p>";
 	$body  .= "<p><strong> Budget Per Person  </strong>:  ".$person."  </p>";	
