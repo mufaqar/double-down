@@ -83,7 +83,7 @@ $year = $week_arr[0];
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Food Type</label>
+                                <label for="">Mattype</label>
                                 <div class="_select">
                                     <select id="food_type">
 

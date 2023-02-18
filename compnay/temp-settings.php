@@ -126,7 +126,7 @@ $uid = get_current_user_id();
                         <p> <?php echo get_user_meta($uid, 'compnay_delivery_address', true );  ?> <br> </p>
                      </div>
                     <div class="pt-4 pt-md-0">
-                        <button id="delivery_address" class="btn_primary">Update address</button>
+                        <button id="delivery_address" class="btn_primary">Oppdatere adresse</button>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@ $uid = get_current_user_id();
                       
                     </div>
                     <div class="pt-4 pt-md-0">
-                    <button id="show_invoice_detail" data-id="<?php echo $uid ?>" class="btn_primary">Payment details</button>
+                    <button id="show_invoice_detail" data-id="<?php echo $uid ?>" class="btn_primary">Betalingsdetaljer</button>
                     </div>
                 </div>
 

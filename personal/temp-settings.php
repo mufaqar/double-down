@@ -27,7 +27,7 @@ $user_info = get_userdata($uid);
                     </p>
                 </div>
                 <div class="pt-4 pt-md-0">
-                    <button id="show_address" class="btn_primary">Update address</button>
+                    <button id="show_address" class="btn_primary">Oppdatere adresse</button>
                 </div>
 
             </div>
@@ -55,7 +55,7 @@ $user_info = get_userdata($uid);
 
                 </div>
                 <div class="pt-4 pt-md-0">
-                    <button id="show_profile" class="btn_primary">Update profile</button>
+                    <button id="show_profile" class="btn_primary">Oppdater profil</button>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@ $user_info = get_userdata($uid);
 
                 </div>
                 <div class="">
-                    <button id="show_payment_detail" class="btn_primary">Change</button>
+                    <button id="show_payment_detail" class="btn_primary">Endre </button>
                 </div>
             </div> 
 
@@ -127,7 +127,7 @@ foreach ($user_allergies as $key => $user_alery) {
                     <h3>Betaling og ordreinfo</h3>
                 </div>
                 <div class="pt-4 pt-md-0">
-                <button id="show_invoice" class="btn_primary">Payment details</button>
+                <button id="show_invoice" class="btn_primary">Betalingsdetaljer</button>
                 </div>
             </div>
 
