@@ -114,7 +114,7 @@ get_header('company');
                 </div>
 
                 <div class="d-flex justify-content-between mt-5 mb-4 accessories">
-                    <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Additionals</h2>
+                    <h2 class="mt-4"><span style="color: #5FB227">2 -</span> Tilbehør</h2>
                    
                 </div>
 
