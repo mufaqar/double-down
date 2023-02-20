@@ -358,7 +358,7 @@ function my_get_current_user_roles() {
         else {
 
         ?>
-        <a href="<?php echo get_site_url(); ?>/profile" class="myprofile active" onclick="myProfile()">Min <br> Profile</a>
+        <a href="<?php echo get_site_url(); ?>/profile" class="myprofile active" onclick="myProfile()">Min <br> Profil</a>
         <a href="<?php echo get_site_url(); ?>/company-profile" class="companyProfile active" onclick="companyProfile()">Selskaps<br>  Profil</a>
         <?php
     }  
