@@ -197,7 +197,7 @@ foreach ($user_allergies as $key => $user_alery) {
                     <div class="popup_wrapper">
                         <h3 class="ad_productss">Profile details</h3>
                         <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                            <label>Phone </label>
+                            <label>Telefon </label>
                             <div class="_field d-flex justify-content-between align-items-center">
                                 <input type="text" name="profile_delivery_phone" id="profile_delivery_phone" placeholder="<?php echo get_user_meta($uid, 'profile_delivery_phone', true); ?>">
                             </div>

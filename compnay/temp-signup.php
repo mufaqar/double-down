@@ -23,12 +23,12 @@ reddirectProfile();
                         <input type="text" class="form-control" id="name"  placeholder="Your Name" value="" required  />
                     </div>
                     <div class="form-group  mt-3">
-                        <label for="exampleInputEmail1">Email</label>
+                        <label for="exampleInputEmail1">E-post adresse</label>
                         <input type="email" class="form-control" id="username"  placeholder="Enter Email Address" value=""  required  />
                     </div>
                     <div class="form-group  mt-3 mb-5">
-                        <label for="exampleInputEmail1">Phone</label>
-                        <input type="number" class="form-control" id="phone"  placeholder="Enter Phone Number" value=""   />
+                        <label for="exampleInputEmail1">Telefon</label>
+                        <input type="number" class="form-control" id="phone"  placeholder="Enter Telefon Number" value=""   />
                     </div>
 
                     <div class="tou mt-5">

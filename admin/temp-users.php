@@ -26,7 +26,7 @@ get_header('admin');
                     <th>Sr #</th>
                     <th>Name</th>
                     <th>Type</th>
-                    <th>Phone Number</th>
+                    <th>Telefon Number</th>
                     <th>Email Address</th>
                    
                 </tr>

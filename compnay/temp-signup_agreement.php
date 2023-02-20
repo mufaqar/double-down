@@ -124,8 +124,8 @@ else {
                         <input type="text" class="form-control" id="username" placeholder="Your Email Address" value="" required>
                     </div>
                     <div class="form-group w-100 mt-3">
-                        <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Your Phone Number" value="">
+                        <label for="phone">Telefon</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Your Telefon Number" value="">
                     </div>
 
                     <div class="pinfo mt-5">
