@@ -462,7 +462,7 @@ $uid = get_current_user_id();
     <section class="hideme  overlay invoice_detail_popup">                                               
             <div class="popup">
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Invoice Details</h3>                 
+                    <h3 class="ad_productss">Fakturadetaljer</h3>                 
                         <div class="w-100 ajax_invoice"> </div>  
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross ">
                 </div>                
