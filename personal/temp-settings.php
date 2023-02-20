@@ -225,15 +225,15 @@ foreach ($user_allergies as $key => $user_alery) {
     <div class="popup">
             <form class="profile_password" id="profile_password" action="#">
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Change your password</h3>                
+                    <h3 class="ad_productss">Endre passord</h3>                
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Enter New Password</label>
+                        <label>Skriv inn nytt passord</label>
                         <div class="_field d-flex justify-content-between align-items-center">
-                            <input type="text"  name="new_password" id="new_password" placeholder="Please enter new password"  >
+                            <input type="text"  name="new_password" id="new_password" placeholder="Skriv passord her"  >
                         </div>
                     </div> 
                     <div class="mt-5">
-                        <input type="submit" class="btn_primary" value="Update Password" />
+                        <input type="submit" class="btn_primary" value="Oppdater passord" />
                     </div>
                     <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
                 </div>
