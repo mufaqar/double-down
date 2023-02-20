@@ -72,7 +72,7 @@ echo "<h2>Order for " . $today . "</h2>";
                             <?php endwhile;
                             wp_reset_query();
                         else : ?>
-                            <h2><?php _e('Nothing Found', 'ddd_translate'); ?></h2>
+                            <h2><?php _e('Ingenting funnet', 'ddd_translate'); ?></h2>
                         <?php endif; ?>
 
                     </tbody>

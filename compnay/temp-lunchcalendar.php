@@ -220,7 +220,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                 </div>
                             </div>
                         <?php endwhile; wp_reset_query();  else : ?>
-                        <h2><?php _e('Nothing Found', 'ddd_translate'); ?></h2>
+                        <h2><?php _e('Ingenting funnet', 'ddd_translate'); ?></h2>
                     <?php endif; ?>
                 </div>
 
@@ -263,7 +263,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
 
                         <?php endwhile;
                         wp_reset_query();  else : ?>
-                        <h2><?php _e('Nothing Found', 'ddd_translate'); ?></h2>
+                        <h2><?php _e('Ingenting funnet', 'ddd_translate'); ?></h2>
                     <?php endif; ?>
 
                 </div>

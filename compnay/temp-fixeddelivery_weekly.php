@@ -69,7 +69,7 @@ get_header('company');
                         <?php endwhile;
                         wp_reset_query();
                     else : ?>
-                        <h2><?php _e('Nothing Found', 'ddd_translate'); ?></h2>
+                        <h2><?php _e('Ingenting funnet', 'ddd_translate'); ?></h2>
                     <?php endif; ?>
                 </div>
                 <div class="d-flex justify-content-between mt-1 mb-4 accessories">

@@ -54,7 +54,7 @@
                                                                         </tr>
                                             <?php endwhile; wp_reset_query(); else : ?>
                                                 <tr>   
-                                                <td colspan="5"> <h2><?php _e('Nothing Found','ddd_translate'); ?></h2></td>
+                                                <td colspan="5"> <h2><?php _e('Ingenting funnet','ddd_translate'); ?></h2></td>
                                                 </tr>
                                                 <?php endif; ?>  
                                         
