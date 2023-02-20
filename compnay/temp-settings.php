@@ -330,11 +330,11 @@ $uid = get_current_user_id();
                        <div class="btn_wrapper d-inline-flex justify-content-center">
                               <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
                               <input type="radio" id="method_one" name="shipping_methods" value="method_one">
-                              <label for="method_one">Method 1 (Compnay Pay $<?php echo get_option('shipping_price');  ?>)</label><br>
+                              <label for="method_one">Metode 1 (Compnay Pay $<?php echo get_option('shipping_price');  ?>)</label><br>
                               <input type="radio" id="method_two" name="shipping_methods" value="method_two">
-                              <label for="method_two">Method 2 (Divided on Employees)</label><br>
+                              <label for="method_two">Metode 2 (delt på ansatte)</label><br>
                               <input type="radio" id="method_three" name="shipping_methods" value="method_three">
-                              <label for="method_three">Method 3 (Pickup)</label>
+                              <label for="method_three">Metode 3 (henting)</label>
                         </div>  
                         <div class="mt-5">                    
                         <input type="submit" class="btn_primary"  value="Lagre"/>
@@ -350,9 +350,9 @@ $uid = get_current_user_id();
         <div class="popup">
         <form class="update_agreement" id="update_agreement" action="#" > 
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Details of the agreement</h3>               
+                    <h3 class="ad_productss">Detaljer om avtalen</h3>               
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Company Name</label>
+                        <label>selskapsnavn</label>
                         <div class="_field d-flex justify-content-between align-items-center">
                             <input type="text" name="compnay_name" id="compnay_name" value="<?php echo get_user_meta($uid, 'compnay_name', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
