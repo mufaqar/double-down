@@ -397,10 +397,10 @@ foreach ($user_allergies as $key => $user_alery) {
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Week</th>
+                                            <th scope="col">Uke</th>
                                             <th scope="col">Brukertype</th>    
-                                            <th scope="col">Price</th> 
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Pris</th> 
+                                            <th scope="col">Handling</th>
                                     
                                         </tr>
                                         </thead>
@@ -435,11 +435,11 @@ foreach ($user_allergies as $key => $user_alery) {
                                                 <td><?php echo get_post_meta(get_the_ID(), 'inovice_week', true); ?>  
                                             -<?php echo get_post_meta(get_the_ID(), 'inovice_year', true); ?>   </td>
                                                
-                                                <td>Personal</td>
+                                                <td>Personlig</td>
                                                 <td><?php echo get_post_meta(get_the_ID(), 'total_price', true); ?></td>
 
                                                 <td><button data-week="<?php echo get_post_meta(get_the_ID(), 'inovice_week', true) ?>" 
-                                                data-year="<?php echo get_post_meta(get_the_ID(), 'inovice_year', true) ?>"  class="show_invoice_detail btn_primary">Detail</button></td>
+                                                data-year="<?php echo get_post_meta(get_the_ID(), 'inovice_year', true) ?>"  class="show_invoice_detail btn_primary">Detaljer</button></td>
                                            
                                                 </tr>
                                                 <?php endwhile;

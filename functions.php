@@ -463,7 +463,7 @@ function get_invoice_pay_direct($week,$year,$uid)
 									<tbody>
 									<tr>
 										<td scope="row"><strong>Name: </strong><?php echo $user_info->display_name; ?></td>
-										<td scope="row"><strong>Week: </strong><?php echo $inovice_week ?></td>										
+										<td scope="row"><strong>Uke: </strong><?php echo $inovice_week ?></td>										
 									</tr>
 									<tr>
 										<td scope="row"><strong>Email: </strong><?php echo $user_info->user_login ?></td>

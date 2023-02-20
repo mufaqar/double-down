@@ -12,7 +12,7 @@
                                     <tr>
                                         <th scope="col">Bestillings ID</th>                                  
                                         <th scope="col">Type</th>
-                                        <th scope="col">Week Id</th>
+                                        <th scope="col">Uke</th>
                                         <th scope="col">Item Price</th>
                                         <th scope="col">Emplyees</th>
                                         <th scope="col">Benifit</th>
