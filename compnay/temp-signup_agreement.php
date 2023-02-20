@@ -155,12 +155,12 @@ else {
             <div  class="finish_step step_wrapper d-flex justify-content-center flex-column align-items-center text-center">            
                 <div class="content mt-5">
                     <div class="right"><img src="<?php bloginfo('template_directory'); ?>/reources/images/img 3.png" alt=""></div>
-                    <h1 class="finished">Finished!</h1>
-                    <h2 class="looking">We look forward to make you lunch</h2>
-                    <p class="find_information">We have now sent you an email where youwill find information on how to login and manage your company and your orders. Companies receive an invoice every second week.
-                    </p>
-                    <h3 class="employees_receive">Employees will be withdraw from their cards every end of the lunch week.</h3>
-                    <a href="<?php echo home_url(); ?>" class="btn_primary mb-5">Go to the front</a>
+                    <h1 class="finished">Ferdig!</h1>
+                    <h2 class="looking">Vi gleder oss til å lage lunsj til deg</h2>
+                    <p class="find_information">
+                    Vi har nå sendt deg en e-post hvor du finner informasjon om hvordan du logger inn og administrerer din bedrift og dine bestillinger. Bedrifter mottar en faktura annenhver uke.</p>
+                    <h3 class="employees_receive">Ansatte vil bli trukket fra registrert betalingskort hver ende av lunsjuken.</h3>
+                    <a href="<?php echo home_url(); ?>" class="btn_primary mb-5">Gå til startside</a>
                 </div>                    
             </div>
 
