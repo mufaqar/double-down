@@ -13,9 +13,9 @@ get_header('company');?>
     <form class="addcatering" id="addcatering" action="#" > 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="">Number of People</label>
+                    <label for="">Antall personen</label>
                     <div class="_select">
-                        <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                        <input type="text" value="" placeholder="Skriv antall" id="people" required>
                         <input type="hidden" value="<?php echo $uid ?>"  id="uid" >
                     </div>
                 </div>
@@ -36,7 +36,7 @@ get_header('company');?>
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                    <label for="">Address of delivery</label>
+                    <label for="">Leveringsadresse</label>
                     <div class="_select">
                         <input type="text" value="" placeholder="Add your address" id="address" required>
                     </div>
@@ -45,7 +45,7 @@ get_header('company');?>
                 <div class="col-md-6 mb-3">
                     <label for="">Anledning</label>
                     <div class="_select">
-                    <input type="text" value="" placeholder="Please enter Anledning" id="reason" required>
+                    <input type="text" value="" placeholder="Vennligst skriv anledning" id="reason" required>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@ get_header('company');?>
                 </div>
 
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                <label for="">Heating Options</label>
+                <label for="">Oppvarmingsmuligheter</label>
                     <div class="_select">
                         <select id="pro_sub_cat">
                         <?php   
@@ -87,14 +87,14 @@ get_header('company');?>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                            <label for="">Budget Per Person</label>
+                            <label for="">Budsjett per person</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="NOK 349" id="person" required>
                                 </div>
                             </div>
 
                 <div class="col-md-6 mb-3">
-                                <label for="">Allergens</label>
+                                <label for="">Alergener </label>
                                 <div class="_select caterting_lable">
                                   
                                     <?php

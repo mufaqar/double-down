@@ -28,7 +28,7 @@ $year = $week_arr[0];
                         <div class="row">
 
                         <div class="col-md-6 mb-3">
-                                <label for="">Your name</label>
+                                <label for="">Ditt navn</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="Please enter Name" id="name" required>
 
@@ -36,18 +36,18 @@ $year = $week_arr[0];
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Your Email</label>
+                                <label for="">Din e-post</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Please enter Email" id="email" required>
+                                    <input type="text" value="" placeholder="Skriv din e-post" id="email" required>
 
                                 </div>
                             </div>
 
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Number of People</label>
+                                <label for="">Antall personen</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Please enter Number" id="people" required>
+                                    <input type="text" value="" placeholder="Skriv antall" id="people" required>
 
                                 </div>
                             </div>
@@ -69,7 +69,7 @@ $year = $week_arr[0];
                             </div>
 
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
-                                <label for="">Address of delivery</label>
+                                <label for="">Leveringsadresse</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="Add your address" id="address" required>
                                 </div>
@@ -78,7 +78,7 @@ $year = $week_arr[0];
                             <div class="col-md-6 mb-3">
                                 <label for="">Anledning</label>
                                 <div class="_select">
-                                <input type="text" value="" placeholder="Please enter Anledning" id="reason" required>
+                                <input type="text" value="" placeholder="Vennligst skriv anledning" id="reason" required>
                                 </div>
                             </div>
 
@@ -105,7 +105,7 @@ $year = $week_arr[0];
 
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
 
-                            <label for="">Heating Options</label>
+                            <label for="">Oppvarmingsmuligheter</label>
                                 <div class="_select">
                                     <select id="pro_sub_cat">
                                     <?php
@@ -123,14 +123,14 @@ $year = $week_arr[0];
 
                             </div>
                             <div class="col-md-6 mb-3">
-                            <label for="">Budget Per Person</label>
+                            <label for="">Budsjett per person</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="NOK 349" id="person" required>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Allergens</label>
+                                <label for="">Alergener </label>
                                 <div class="_select caterting_lable">
                                   
                                     <?php
@@ -152,7 +152,7 @@ $year = $week_arr[0];
 
                            
                             <div class="d-flex justify-content-end savebtn">
-                                <input type="submit" class="btn_primary"  value="Send Email"/>
+                                <input type="submit" class="btn_primary"  value="Send e-post"/>
                             </div>
                         </div>
                     </form>

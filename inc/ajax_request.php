@@ -94,15 +94,15 @@ function addcatering_email()
 	$subject = "Double Downdish | Catering Inquiry";
 	$body  = "<p><strong> Name </strong>:  ".$name."  </p>";
 	$body  .= "<p><strong> Email </strong>:  ".$email."  </p>";
-	$body  .= "<p><strong> Number of People  </strong>:  ".$people."  </p>";
+	$body  .= "<p><strong> Antall personen  </strong>:  ".$people."  </p>";
 	$body  .= "<p><strong> Date  </strong>:  ".$date."  </p>";
 	$body  .= "<p><strong> Time  </strong>:  ".$time."  </p>";
 	$body  .= "<p><strong> Address  </strong>:  ".$address."  </p>";
 	$body  .= "<p><strong> Food Type  </strong>:  ".$food_type."  </p>";
 	$body  .= "<p><strong> Anledning  </strong>:  ".$reason."  </p>";
-	$body  .= "<p><strong> Heating Options </strong>:  ".$pro_sub_cat."  </p>";
+	$body  .= "<p><strong> Oppvarmingsmuligheter </strong>:  ".$pro_sub_cat."  </p>";
 	$body  .= "<p><strong> Allergens  </strong>:  ".$allergn_list."  </p>";
-	$body  .= "<p><strong> Budget Per Person  </strong>:  ".$person."  </p>";	
+	$body  .= "<p><strong> Budsjett per person  </strong>:  ".$person."  </p>";	
 	$headers = array('Content-Type: text/html; charset=UTF-8');	
 	$headers  = "From: " . $to . "\r\n";
 	$headers .= "Reply-To: " . $cc . "\r\n";
