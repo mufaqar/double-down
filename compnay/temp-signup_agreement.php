@@ -67,12 +67,12 @@ else {
                     <p class="align-self-start">Velg om bedriften skal dekke noen av de ansattes lunsj.</p>
                     <div class="launch mt-3 mb-4 form-group w-100 d-lg-flex align-items-center">
                         <input type="text" class="form-control" id="lunch_benefit" 
-                            placeholder="Company Pay 20">
+                            placeholder="Bedriften betaler 20">
                         <select name="lunch_benfit_type" id="lunch_benfit_type" class="">
                             <option value="%">%</option>
                             <option value="$">NOK</option>
                         </select>
-                        <p class="text-nowrap">of the lunch to each employee?</p>
+                        <p class="text-nowrap">av lunsjen til hver ansatt?</p>
                     </div>
                     <h6>Første mulige startdato</h6>
                     <p class="text">Ansatte vil ikke automatisk starte opp på disse dataene, men ingen kan starte opp tidligere enn den spesifikke datoen
