@@ -29,7 +29,7 @@ $year=$week_arr[0];
     </div>
 
 
-    <div class="custom_container catering_wrapper ">                       
+        <div class="custom_container catering_wrapper ">                       
                        <div class="calender_wrapper d-md-flex justify-content-between align-items-center mt-5">
                             <h2>Denne ukens<span id="type">brød lunsj</span> Meny</h2>
                             <div class="calender week_calender">
@@ -41,21 +41,21 @@ $year=$week_arr[0];
                             </div> 
                        </div>
     
-    <section id="div1" class="targetDiv activediv">
-    <?php  get_template_part( 'partials/menu', 'lunch' );  ?>          
-    </section>                
-    <section id="div2" class="targetDiv">   
-         <div class="catering_card_wrapper">
-            <div class="ajaxload"></div>         
-            </div> 
-    </section>
-    <section id="div3" class="targetDiv">
-    <div class="catering_card_wrapper">
-            <div class="ajaxload"></div>         
-            </div> 
-    </section>
+                    <section id="div1" class="targetDiv activediv">
+                    <?php  get_template_part( 'partials/menu', 'lunch' );  ?>          
+                    </section>                
+                    <section id="div2" class="targetDiv">   
+                        <div class="catering_card_wrapper">
+                            <div class="ajaxload"></div>         
+                            </div> 
+                    </section>
+                    <section id="div3" class="targetDiv">
+                    <div class="catering_card_wrapper">
+                            <div class="ajaxload"></div>         
+                            </div> 
+                    </section>
 
-    </div>
+            </div>
 
     </div>
     </div>
