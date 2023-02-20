@@ -53,7 +53,7 @@ get_header();
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label for="">Food Type</label>
+                    <label for="">Type mat</label>
                     <div class="_select">
                         <select id="food_cat">
                         <?php   

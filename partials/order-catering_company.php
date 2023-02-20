@@ -75,7 +75,7 @@
                                                             <p><?php the_field('address'); ?> </p>
                                                         </div>
                                                         <div class="">
-                                                            <h6>Food Type:</h6>
+                                                            <h6>Type mat:</h6>
                                                             <?php echo get_the_terms( $post->ID, 'food_type' )[0]->name;?>
                                                         </div>
                                                         <div class="">
