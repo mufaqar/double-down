@@ -37,50 +37,45 @@
                                     <td>
                                         <ul>
 
-                                    <?php
+                                                    <?php
 
-                                    foreach($food_items as $index => $food){
-                                        ?>
+                                                    foreach($food_items as $index => $food){
+                                                        ?>
 
-                                            <li>
-                                              
-                                                <?php   foreach($food as $key => $ky_item) { 	?>
-                                                    <p>
-                                                        <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?>
-                                                       
-                                                        <p>
-                                                
-                                                    <?php 	}  ?>
-                                                   
-                                               
-                                          
-                                                   
-                                             
-																
-                                                </li>
+                                                            <li>
+                                                            
+                                                                <?php   foreach($food as $key => $ky_item) { 	?>
+                                                                    <p>
+                                                                        <?php echo  get_the_title($key) . " [". $ky_item . "] " ; ?>
+                                                                    
+                                                                        <p>
+                                                                
+                                                                    <?php 	}  ?>
+                                                                
+                                                            
+                                                        
+                                                                
+                                                            
+                                                                                
+                                                                </li>
 
-                                        <?php
-
-
-                                    }
+                                                        <?php
 
 
+                                                    }
 
-                                    ?> </ul>
+
+
+                                                    ?> </ul>
                                     </td>  
-                                    <td></td>   
-                                                         
+                                    <td></td>                                                            
                                     <td>NOK <?php echo get_post_meta(get_the_ID(), 'order_total', true); ?></td>
                                     <td><span class="status <?php echo get_post_meta(get_the_ID(), 'order_status', true); ?>"><?php echo get_post_meta(get_the_ID(), 'order_status', true); ?> </span> </td>
                                 </tr>
                             <?php endwhile;
                             wp_reset_query();
                         else : ?>
-                         <tr>
-                            <td colspan="8">
-                            <?php _e('Ingenting funnet', 'ddd_translate'); ?>
-                        </td>
-                        </tr>
+                          
                         <?php endif; ?>
 
                     </tbody>
