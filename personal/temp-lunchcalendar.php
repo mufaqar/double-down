@@ -334,13 +334,13 @@ wp_get_current_user();
 
                                             // Query when date date and time is less then 11
 
-                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Lagre"/> <?php
                                         }
 
                                         elseif( $order_date >= $next_order_date2  )
                                         {
 
-                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Lagre"/> <?php
 
 
                                         }
@@ -362,7 +362,7 @@ wp_get_current_user();
 
                                             }
                                             else {
-                                                ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                                ?><input type="submit" id="order" class="btn_primary"  value="Lagre"/> <?php
 
                                             }
                                            

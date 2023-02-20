@@ -162,7 +162,7 @@ get_header('company');
                         <a href="<?php echo home_url('/company-profile/lunch-calendar/fixed-delivery'); ?>" class="btn_primary  d-block">Daglig</a>
                     </div>
                     <div>
-                        <input type="submit" id="order" class="btn_primary" value="Save" />
+                        <input type="submit" id="order" class="btn_primary" value="Lagre" />
 
                     </div>
             </form>

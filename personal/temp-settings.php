@@ -156,7 +156,7 @@ foreach ($user_allergies as $key => $user_alery) {
                     </div>
                 </div>
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
 
                 <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
@@ -182,7 +182,7 @@ foreach ($user_allergies as $key => $user_alery) {
 
 
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
 
                 <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
@@ -210,7 +210,7 @@ foreach ($user_allergies as $key => $user_alery) {
                         </div>
 
                         <div class="mt-5">
-                            <input type="submit" class="btn_primary" value="Save" />
+                            <input type="submit" class="btn_primary" value="Lagre" />
                         </div>
 
                         <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
@@ -269,7 +269,7 @@ foreach ($user_allergies as $key => $user_alery) {
                         <section>
                 </div>
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
                 <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
@@ -308,7 +308,7 @@ foreach ($user_allergies as $key => $user_alery) {
 
                 </div>
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
                 <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
@@ -349,7 +349,7 @@ foreach ($user_allergies as $key => $user_alery) {
                     </div>
                 </div>
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
                 <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">
             </div>
@@ -378,7 +378,7 @@ foreach ($user_allergies as $key => $user_alery) {
                     </div>
                 </div>
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
 
                 <img src="<?php bloginfo('template_directory');?>/reources/images/red cross.png" alt="" class="_cross">

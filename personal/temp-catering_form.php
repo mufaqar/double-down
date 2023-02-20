@@ -121,7 +121,7 @@ get_header();
 
                
                 <div class="d-flex justify-content-end savebtn">
-                    <input type="submit" class="btn_primary"  value="Save"/>
+                    <input type="submit" class="btn_primary"  value="Lagre"/>
                 </div>
             </div>
         </form>

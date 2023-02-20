@@ -187,7 +187,7 @@ $uid = get_current_user_id();
                         <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
                     </div> -->
                     <div class="mt-5">
-                        <input type="submit" class="btn_primary"  value="Save"/>
+                        <input type="submit" class="btn_primary"  value="Lagre"/>
                     </div>
                     
                     <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
@@ -340,7 +340,7 @@ $uid = get_current_user_id();
                               <label for="method_three">Method 3 (Pickup)</label>
                         </div>  
                         <div class="mt-5">                    
-                        <input type="submit" class="btn_primary"  value="Save"/>
+                        <input type="submit" class="btn_primary"  value="Lagre"/>
                     </div>
                 </div>
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
@@ -379,7 +379,7 @@ $uid = get_current_user_id();
                     </div>
                     </div>                    
                     <div class="mt-5">                    
-                        <input type="submit" class="btn_primary"  value="Save"/>
+                        <input type="submit" class="btn_primary"  value="Lagre"/>
                     </div>
                     
                     <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">

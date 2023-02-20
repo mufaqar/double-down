@@ -56,7 +56,7 @@ $user_info = get_userdata($uid);
                     </div>
                 </div>
                 <div class="mt-5">
-                    <input type="submit" class="btn_primary" value="Save" />
+                    <input type="submit" class="btn_primary" value="Lagre" />
                 </div>
                 <img src="<?php bloginfo('template_directory'); ?>/reources/images/red cross.png" alt="" class="_cross">
             </div>

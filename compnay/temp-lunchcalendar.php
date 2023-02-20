@@ -281,13 +281,13 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                          $order_time = strtotime(date('11:00'));
                                             if($order_date <= $system_order_date &&  $current_time < $order_time  )
                                             {
-                                                ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                                ?><input type="submit" id="order" class="btn_primary"  value="Lagre"/> <?php
                                             }
 
                                         elseif($order_date > $system_order_date)
                                             {
                                             
-                                            ?><input type="submit" id="order" class="btn_primary"  value="Save"/> <?php
+                                            ?><input type="submit" id="order" class="btn_primary"  value="Lagre"/> <?php
                                         }
                                         else
                                         {

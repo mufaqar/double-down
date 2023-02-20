@@ -74,5 +74,5 @@
 
     <div class="accordion_btns d-flex justify-content-end mb-5 mr-3">
       
-        <input type="submit" class="btn_primary" value="Save" />
+        <input type="submit" class="btn_primary" value="Lagre" />
     </div>

@@ -178,7 +178,7 @@
                                 <a href="<?php echo home_url('/profile/fixed-delivery'); ?>" class="btn_primary  d-block">Daglig</a>
                             </div>
                         <div>
-                        <input type="submit" id="order" class="btn_primary"  value="Save"/>                       
+                        <input type="submit" id="order" class="btn_primary"  value="Lagre"/>                       
                     </div>
                 </form>
             </div>
