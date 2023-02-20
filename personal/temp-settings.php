@@ -247,13 +247,13 @@ foreach ($user_allergies as $key => $user_alery) {
     <div class="popup">
         <form class="profile_allergies_form" id="profile_allergies_form" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Change allergies & other</h3>
+                <h3 class="ad_productss">Endre allergener </h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
 
                 <section class="w-100">
 
 
-               <select id="choices-alergies" placeholder="Select allergies" multiple>
+               <select id="choices-alergies" placeholder="Velg allergener" multiple>
 
                   <?php
                         $allergies_tax = get_terms(array('taxonomy' => 'allergies', 'hide_empty' => false));
@@ -289,17 +289,17 @@ foreach ($user_allergies as $key => $user_alery) {
                             <div class="d-flex justify-content-between flex-wrap">
                                 <div class="d-flex align-items-left">
                                     <input type="checkbox" id="via_lunch" name="contact" value="lunch" checked>
-                                    <label for="via_lunch">I would like to receive relevant information about products and services from the Double Down Dish. This can, for example, be general information about the lunch menu and nutritional content, news and changes, offers, campaigns, surveys, etc. We promise not to bother you prematurely!
-                                        </label>
+                                    <label for="via_lunch">Jeg vil gjerne motta relevant informasjon om produkter og tjenester fra Double Down Dish. Dette kan for eksempel være generell informasjon om lunsjmeny og næringsinnhold, nyheter og endringer, tilbud, kampanjer, undersøkelser osv. Vi lover å ikke plage deg for tidlig!
+</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" id="weekday-2" name="contact" value="Tuesday" checked>
-                                    <label for="weekday-2">Regardless of any marketing reservation, you will receive order confirmation and delivery information by e-mail and/or SMS.</label>
+                                    <label for="weekday-2">Uavhengig av eventuell markedsføringsreservasjon vil du motta ordrebekreftelse og leveringsinformasjon på e-post og/eller SMS.</label>
                                 </div>
                                 <div>
                                     <input type="checkbox" id="via_email" name="contact" value="Email" checked>
-                                    <label for="via_email">Weekly email with your orders for the following week. If you have an active customer relationship,
-                                        but have not placed orders, you will get an overview of the menu and a reminder to order.Text when no one is there to receive your lunch.</label>
+                                    <label for="via_email">En ukentlig e-post med bestillingene dine for neste uke. Har du et aktivt kundeforhold, men ikke har lagt inn bestillinger, får du oversikt over menyen og påminnelse om å bestille. Send SMS når ingen er der for å motta lunsjen din.
+</label>
                                 </div>
 
                             </div>
