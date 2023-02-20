@@ -485,7 +485,7 @@ $uid = get_current_user_id();
                                                     <tr>
                                                         <th scope="col">Bestillings ID</th>
                                                         <th scope="col">Date</th>
-                                                        <th scope="col">Order Type</th>
+                                                        <th scope="col">Ordre type</th>
                                                         <th scope="col">Week Id</th>
                                                         <th scope="col">Total pris</th>
                                                         <th scope="col">Brukertype</th>

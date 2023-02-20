@@ -13,8 +13,8 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">Bestillings ID</th>
-                                        <th scope="col">Week</th>
-                                        <th scope="col">Order Type</th>
+                                        <th scope="col">Uke</th>
+                                        <th scope="col">Ordre type</th>
                                        
                                         <th scope="col">Total pris</th>
                                         <th scope="col">Brukertype</th>
