@@ -25,11 +25,11 @@ echo "<h2>Ordrer for " . $today . "</h2>";
                 <thead>
                         <tr>
                             <th>Sr #</th>
-                            <th>Bestillings ID</th>
-                            <th>Compnay Name</th>
-                            <th>Address</th>
-                            <th>Order Date</th>                      
-                            <th>Price</th>
+                            <th>Ordre ID</th>
+                            <th>Bedrifts navn</th>
+                            <th>Adresse</th>
+                            <th>Ordre dato</th>                      
+                            <th>Pris</th>
                             <th>Status</th>
                             <th>PDF</th>
                         </tr>
