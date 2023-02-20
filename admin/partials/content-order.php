@@ -77,8 +77,8 @@
                             wp_reset_query();
                         else : ?>
                          <tr>
-                            <td colspan="5">
-                            <h2><?php _e('Ingenting funnet', 'ddd_translate'); ?></h2>
+                            <td colspan="8">
+                            <?php _e('Ingenting funnet', 'ddd_translate'); ?>
                         </td>
                         </tr>
                         <?php endif; ?>
