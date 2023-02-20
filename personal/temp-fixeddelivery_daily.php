@@ -111,7 +111,7 @@
                         $weeksid = $date->format("W-m-y");
                     
                     ?>
-                    <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
+                    <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Matbokser</h2>
                         <div class="product_wrapper row mb-4">
                                 <input type="hidden" value="<?php echo $weeksid ?>" id="weekid" >
                                 <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >  

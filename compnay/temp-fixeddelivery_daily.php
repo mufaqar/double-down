@@ -19,9 +19,8 @@ get_header('company');
                 </div>
             </div>
             <form class="weeklyfood_daily" id="weeklyfood_daily" action="#">
-                <h2>Fixed delivery to Company</h2>
-                <p>Here you can easily choose between or cancel the various lunch options from day
-                    to day.
+                <h2>Fast levering til selskapet</h2>
+                <p>Her kan du enkelt velge mellom eller avbestille de ulike lunsjalternativene fra dag til dag.
                 </p>
 
                 
@@ -104,7 +103,7 @@ get_header('company');
                 $weeksid = $date->format("W-m-y");
 
                 ?>
-                <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Lunch Boxes</h2>
+                <h2 class="mt-4"><span style="color: #5FB227">1 -</span> Matbokser</h2>
                 <div class="product_wrapper row mb-4">
                     <input type="hidden" value="<?php echo $weeksid ?>" id="weekid">
                     <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
