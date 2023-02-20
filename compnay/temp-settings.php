@@ -325,7 +325,7 @@ $uid = get_current_user_id();
         <div class="popup">
         <form class="update_shipping_method" id="update_shipping_method" action="#" > 
             <div class="popup_wrapper">
-                <h3>Shipping Methods</h3>
+                <h3>Forsendelsesmetoder</h3>
                 <div>
                        <div class="btn_wrapper d-inline-flex justify-content-center">
                               <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
