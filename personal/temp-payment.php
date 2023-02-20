@@ -130,7 +130,7 @@ $uid =  get_current_user_id() ;
             <div class="row">
                 
                 <div class="col-md-6 d-flex justify-content-end align-items-end">
-                    <button class="btn green_btn">Order Now</button>
+                    <button class="btn green_btn">Bestill nå</button>
                 </div>
             </div>
         </div>
