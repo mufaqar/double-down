@@ -12,7 +12,7 @@
                                 <table class="_table">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Bestillings ID</th>
                                         <th scope="col">Week</th>
                                         <th scope="col">Order Type</th>
                                        

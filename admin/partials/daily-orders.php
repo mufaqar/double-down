@@ -25,7 +25,7 @@ echo "<h2>Order for " . $today . "</h2>";
                 <thead>
                         <tr>
                             <th>Sr #</th>
-                            <th>Order ID</th>
+                            <th>Bestillings ID</th>
                             <th>Compnay Name</th>
                             <th>Address</th>
                             <th>Order Date</th>                      

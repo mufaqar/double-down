@@ -1,7 +1,7 @@
                 <thead>
                         <tr>
                             <th>Sr #</th>
-                            <th>Order ID</th>
+                            <th>Bestillings ID</th>
                             <th>Date</th>
                             <th>Name</th>
                             <th>Products</th>  
