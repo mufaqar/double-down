@@ -13,10 +13,10 @@
                                         <th scope="col">Bestillings ID</th>                                  
                                         <th scope="col">Type</th>
                                         <th scope="col">Uke</th>
-                                        <th scope="col">Item Price</th>
-                                        <th scope="col">Emplyees</th>
+                                        <th scope="col">Varepris</th>
+                                        <th scope="col">Ansatte</th>
                                         <th scope="col">Benifit</th>
-                                        <th scope="col">Days</th>
+                                        <th scope="col">Dager</th>
                                         <th scope="col">Bedriftslønn</th>
                                         <th scope="col">Total</th>
                                     </tr>
