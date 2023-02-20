@@ -28,7 +28,7 @@ $uid =  get_current_user_id() ;
             </div>            
 
             <div class="_content mt-5 mb-5">
-                <h2>Velg dato </h2>
+              
                 <div class="row">
                     <?php query_posts(array(
                         'post_type' => 'meeting_food',
