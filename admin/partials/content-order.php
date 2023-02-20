@@ -1,12 +1,12 @@
                 <thead>
                         <tr>
                             <th>Sr #</th>
-                            <th>Bestillings ID</th>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Products</th>  
-                            <th>Allergenes</th>
-                            <th>Price</th>
+                            <th>Ordre ID</th>
+                            <th>Dato</th>
+                            <th>Navn</th>
+                            <th>Produkter</th>  
+                            <th>Allergener</th>
+                            <th>Pris</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -76,7 +76,11 @@
                             <?php endwhile;
                             wp_reset_query();
                         else : ?>
+                         <tr>
+                            <td colspan="5">
                             <h2><?php _e('Ingenting funnet', 'ddd_translate'); ?></h2>
+                        </td>
+                        </tr>
                         <?php endif; ?>
 
                     </tbody>
