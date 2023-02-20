@@ -50,35 +50,32 @@ $uid = get_current_user_id();
         
         <div class='panels'>
             <div class='panel launchClander setting_tab'>
-                <h2>Corporate agreement settings</h2>
-                <p>As a company administrator, you can get an overview of and make changes
-                    to
-                    the
-                    company agreement here. Using the menu above, you can also see the
-                    company's
-                    lunch calendar, or change the regular deliveries.</p>
+                <h2>Innstillinger for bedriftsavtale</h2>
+                <p>Som bedriftsadministrator kan du få oversikt over og gjøre endringer
+                    til de firmaavtale her. Ved å bruke menyen ovenfor kan du også se selskapets
+                    lunsjkalender, eller endre de vanlige leveransene.</p>
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h3>Details of the agreement</h3>
-                        <p>The company pays  <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> of each luch</p>
+                        <h3>Detaljer om avtalen</h3>
+                        <p>Selskapet betaler <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> of each luch</p>
                         <ul class="mt-2">
-                        <li><span>Company Name:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
-                        <li><span>Company Number:</span> <?php echo get_user_meta($uid, 'compnay_number', true );  ?> </li>
+                        <li><span>selskapsnavn:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
+                        <li><span>Firmanummer:</span> <?php echo get_user_meta($uid, 'compnay_number', true );  ?> </li>
                         </ul>
                     </div>
 
                     <div class="pt-4 pt-md-0">
-                        <button id="agreement" class="btn_primary">Update agreement</button>
+                        <button id="agreement" class="btn_primary">Oppdater avtale</button>
                     </div>
                 </div>
                 <!-- 2nd -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">                    
-                        <h3>Employees in the agreement</h3>
-                        <p><?php echo  count($available_active_employee); ?> Employee : Submit</p>
+                        <h3>Ansatte i avtalen</h3>
+                        <p><?php echo  count($available_active_employee); ?> Ansatt : Send inn</p>
                     </div>
                     <div class="pt-4 pt-md-0">
-                        <button id="emp_agreement" class="btn_primary">Update Employees</button>                        
+                        <button id="emp_agreement" class="btn_primary">Oppdater ansatte</button>                        
                     </div>
 
                 </div>
@@ -87,7 +84,7 @@ $uid = get_current_user_id();
                 <!-- 2 A -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">                    
-                        <h3>Shipping Methods</h3>
+                        <h3>Forsendelsesmetoder</h3>
                         <p><?php $method =  get_user_meta($uid, 'compnay_shipping_method', true );
 
                         if($method == 'method_one')
@@ -103,19 +100,19 @@ $uid = get_current_user_id();
                         ?></p>
                     </div>
                     <div class="pt-4 pt-md-0">
-                        <button id="shipping_method" class="btn_primary">Update Method</button>                        
+                        <button id="shipping_method" class="btn_primary">Oppdateringsmetode</button>                        
                     </div>
 
                 </div>
                 <!-- 3rd  -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h3>Meeting Food</h3>
-                        <p>Everyone deserves good food - even those you
-                            have invited to a meeting!</p>
+                        <h3>Møtemat</h3>
+                        <p>Alle fortjener god mat - også de du
+                            har invitert til møte!</p>
                     </div>
                     <div class="pt-4 pt-md-0">
-                        <a href="<?php echo home_url('meeting'); ?>" class="btn_primary">Order Meeting Food</a>
+                        <a href="<?php echo home_url('meeting'); ?>" class="btn_primary">Bestill møtemat</a>
                     </div>
                 </div>
 
@@ -137,7 +134,7 @@ $uid = get_current_user_id();
                         <p>Daglig overview of orders</p>
                     </div>
                     <div class="pt-4 pt-md-0">
-                    <button id="daily_orders" class="btn_primary">See overview</button>
+                    <button id="daily_orders" class="btn_primary">Se oversikt</button>
                     </div>
                 </div>
 
