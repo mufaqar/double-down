@@ -48,7 +48,7 @@
                         <div class="user">
                                 <h6><?php global $current_user; wp_get_current_user();  $uid = $current_user->ID;?>
                                     <?php if ( is_user_logged_in() ) { 
-                                    echo 'Hey, ' .  $current_user->display_name ; } 
+                                    echo 'Hei, ' .  $current_user->display_name ; } 
                                     else {
 
                                         wp_redirect( home_url('login'));                                     
