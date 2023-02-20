@@ -14,7 +14,7 @@ $user_info = get_userdata($uid);
         <div class='panel launchClander setting_tab'>
             <div class="deatil_card d-flex justify-content-between align-items-center">
                 <div class="info">
-                    <h3>Fixed Delivery</h3>
+                    <h3>Faste bestillinger</h3>
                     <p><?php echo get_user_meta($uid, 'Personal_days', true); ?> Days</p>
                 </div>
 
@@ -66,7 +66,7 @@ $user_info = get_userdata($uid);
                     <h3>Endre passord</h3>                   
                 </div>
                 <div class="">
-                    <button id="show_password" class="btn_primary">Endre passord/button>
+                    <button id="show_password" class="btn_primary">Endre passord</button>
                 </div>
             </div> 
 
