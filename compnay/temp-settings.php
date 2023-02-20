@@ -392,7 +392,7 @@ $uid = get_current_user_id();
     <section class="hideme overlay invoice">
         <div class="popup">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Invoice</h3>
+                <h3 class="ad_productss">Faktura</h3>
 
                 <div class="invoice_table">
                 <table class="_table">
