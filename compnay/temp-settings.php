@@ -195,8 +195,8 @@ $uid = get_current_user_id();
     <section class="hideme overlay emp_agreement">
         <div class="popup">
             <div class="popup_wrapper">
-                <h3>Employees in the Agreement</h3>
-                <h6>Total number of employees: <?php echo  count($available_active_employee); ?> </h6>
+                <h3>Ansatte i avtalen</h3>
+                <h6>Totalt antall ansatte: <?php echo  count($available_active_employee); ?> </h6>
                 <hr>
                 <div class="hideme alert alert-success showalert" role="alert">
                         <div class="response"></div>
@@ -204,8 +204,8 @@ $uid = get_current_user_id();
                 <div>
                     <div class="btn_toggle">
                         <div class="btn_wrapper d-flex justify-content-center">
-                            <button href="" class="activeEmp " onclick="activeEmp()">Active employees | <?php echo  count($available_active_employee); ?></button>
-                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inactive Employees | <?php echo  count($available_in_active_employee); ?></button>
+                            <button href="" class="activeEmp " onclick="activeEmp()">Aktive ansatte | <?php echo  count($available_active_employee); ?></button>
+                            <button href="" class="inactiveEmp active" onclick="inactiveEmp()">Inaktive ansatte | <?php echo  count($available_in_active_employee); ?></button>
                         </div>
                     </div>
 
@@ -216,7 +216,7 @@ $uid = get_current_user_id();
                             <form class="deactivate_employes" id="deactivate_employes" action="#">
                             <div class="p-4 _action" id="_action">                   
                                 <div class="d-flex justify-content-between mt-3">
-                                    <button id="todoactive" class="btn_primary">Deactivate</button>
+                                    <button id="todoactive" class="btn_primary">Deaktiver</button>
                                 </div>
                             </div>
 
@@ -350,21 +350,21 @@ $uid = get_current_user_id();
                 <div class="popup_wrapper">
                     <h3 class="ad_productss">Detaljer om avtalen</h3>               
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>selskapsnavn</label>
+                        <label>Selskapsnavn</label>
                         <div class="_field d-flex justify-content-between align-items-center">
                             <input type="text" name="compnay_name" id="compnay_name" value="<?php echo get_user_meta($uid, 'compnay_name', true );  ?>" >
                             <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >                               
                         </div>
                     </div>
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                        <label>Company Number</label>
+                        <label>Firmanummer</label>
                         <div class="_field d-flex justify-content-between align-items-center">
                             <input type="text" name="compnay_number" id="compnay_number" value="<?php echo get_user_meta($uid, 'compnay_number', true );  ?>" >
                                                      
                         </div>
                     </div>
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                    <label class="mt-4 ">Company Pay</label>
+                    <label class="mt-4 ">Bedriftslønn</label>
                     <div class="_field _pay mb-4 form-group w-100 d-flex align-items-center">
                         <input type="text" class="form-control" id="lunch_benefit"  value="<?php echo get_user_meta($uid, 'lunch_benefit', true );  ?>">
                         <select name="business_setting_type" id="business_setting_type" >
