@@ -1,4 +1,4 @@
-<?php /* Template Name: Lunch View  */
+<?php /* Template Name: Personal-Lunch View  */
 get_header();
 
 $no_week =  date("Y-W");
