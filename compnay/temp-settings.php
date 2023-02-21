@@ -128,8 +128,8 @@ $uid = get_current_user_id();
                 <!-- 5th  -->
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
-                        <h3>Daglig Overview</h3>
-                        <p>Daglig overview of orders</p>
+                        <h3>Daglig oversikt</h3>
+                        <p>Daglig oversikt av bestillinger</p>
                     </div>
                     <div class="pt-4 pt-md-0">
                     <button id="daily_orders" class="btn_primary">Se oversikt</button>

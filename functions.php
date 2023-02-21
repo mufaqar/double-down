@@ -268,14 +268,14 @@ function create_invoices() {
                     </tr>
                     
                     <tr>									
-                        <td scope="row"><strong>Shipping Method: </strong></td>
+                        <td scope="row"><strong>Shipping Metode: </strong></td>
                         <td scope="row">
                             <?php  if($method == 'method_one')
-                                    { echo "Method 1"; echo " [Company Pay ". get_option('shipping_price') . "]";  }
+                                    { echo "Metode 1"; echo " [Company Pay ". get_option('shipping_price') . "]";  }
                                     elseif($method == 'method_two')
-                                    { echo "Method 2"; echo " [Divided on all Employees]";  }
+                                    { echo "Metode 2"; echo " [Divided on all Employees]";  }
                                     else {
-                                        { echo "Method 3"; echo " [Pickup]";  }
+                                        { echo "Metode 3"; echo " [Pickup]";  }
                                     }?>
                         </td>                       
                 </tr>
