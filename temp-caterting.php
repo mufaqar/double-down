@@ -30,7 +30,7 @@ $year = $week_arr[0];
                         <div class="col-md-6 mb-3">
                                 <label for="">Ditt navn</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Please enter Name" id="name" required>
+                                    <input type="text" value="" placeholder="skriv inn navn" id="name" required>
 
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ $year = $week_arr[0];
 
 
                             <div class="col-md-6 mb-3">
-                                <label for="">Antall personen</label>
+                                <label for="">Antall personer</label>
                                 <div class="_select">
                                     <input type="text" value="" placeholder="Skriv antall" id="people" required>
 
@@ -71,7 +71,7 @@ $year = $week_arr[0];
                             <div class="col-md-6 mt-3 mt-md-0 mb-3">
                                 <label for="">Leveringsadresse</label>
                                 <div class="_select">
-                                    <input type="text" value="" placeholder="Add your address" id="address" required>
+                                    <input type="text" value="" placeholder="Skriv inn adresse" id="address" required>
                                 </div>
                             </div>
 

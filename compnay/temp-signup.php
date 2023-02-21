@@ -22,7 +22,7 @@ reddirectProfile();
                     </div>
                     <div class="form-group  mt-3">
                         <label for="exampleInputEmail1">E-post</label>
-                        <input type="email" class="form-control" id="username"  placeholder="E-skriv din epost" value=""  required  />
+                        <input type="email" class="form-control" id="username"  placeholder="Skriv din epost" value=""  required  />
                     </div>
                     <div class="form-group  mt-3 mb-5">
                         <label for="exampleInputEmail1">Telefon</label>
