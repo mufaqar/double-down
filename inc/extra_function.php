@@ -528,18 +528,18 @@ function cancel_Oder($oid, $date) {
 //    echo  $current_time;
     if($today_date == $date && $current_time < strtotime(date('11:00')))
     {
-        ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php
+        ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Avbryt bestillingen</button> <?php
     }
     else{
 
         if($today_day_name == 'Friday'  && $current_time > strtotime(date('11:00')) ) {
 
-            ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel" >Cancel Order</button> <?php
+            ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel" >Avbryt bestillingen</button> <?php
         }
         else 
         {
 
-            ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Cancel Order</button> <?php
+            ?><button data-oid="<?php echo $oid?>" class="btn_primary btn_cancel " >Avbryt bestillingen</button> <?php
 
         }      
     }
