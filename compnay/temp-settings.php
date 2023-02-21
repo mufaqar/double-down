@@ -168,7 +168,7 @@ $uid = get_current_user_id();
         <div class="popup">
             <form class="update_deliver_address" id="update_deliver_address" action="#" > 
                 <div class="popup_wrapper">
-                    <h3 class="ad_productss">Compnay Leveringsadresse</h3>               
+                    <h3 class="ad_productss">Selskap Leveringsadresse</h3>               
                     <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                         <label>Leveringsadresse</label>
                         <div class="_field d-flex justify-content-between align-items-center">
@@ -294,7 +294,7 @@ $uid = get_current_user_id();
                                     </form>
                                     <form class="add_employes" id="add_employes" action="#">
                                     <hr class="mt-4 mb-4">
-                                    <h3>+ Invite new employees</h3>
+                                    <h3>+ Inviter nye ansatte</h3>
                                     <div class="__inner add  d-flex align-items-center justify-content-between mt-3">
                                        
                                             <div class="d-flex align-items-center w-100">
@@ -302,7 +302,7 @@ $uid = get_current_user_id();
                                                 <input type="hidden" id="uid" name="uid" value="<?php echo $uid?>" class="w-100">
                                                 <button class="d-flex align-items-center">
                                                     <img src="<?php bloginfo('template_directory'); ?>/reources/images/plus-thin.png" alt="">
-                                                    <span>Add</span>
+                                                    <span>Legg til</span>
                                                 </button>
                                             </div>  
                                                                             
@@ -328,7 +328,7 @@ $uid = get_current_user_id();
                        <div class="btn_wrapper d-inline-flex justify-content-center">
                               <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
                               <input type="radio" id="method_one" name="shipping_methods" value="method_one">
-                              <label for="method_one">Metode 1 (Compnay Pay $<?php echo get_option('shipping_price');  ?>)</label><br>
+                              <label for="method_one">Metode 1 (Bedriftslønn $<?php echo get_option('shipping_price');  ?>)</label><br>
                               <input type="radio" id="method_two" name="shipping_methods" value="method_two">
                               <label for="method_two">Metode 2 (delt på ansatte)</label><br>
                               <input type="radio" id="method_three" name="shipping_methods" value="method_three">
@@ -479,7 +479,7 @@ $uid = get_current_user_id();
                                                     <thead>
                                                     <tr>
                                                         <th scope="col">Bestillings ID</th>
-                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Dato</th>
                                                         <th scope="col">Ordre type</th>
                                                         <th scope="col">Uke</th>
                                                         <th scope="col">Total pris</th>
@@ -524,7 +524,7 @@ $uid = get_current_user_id();
                                                                                         <td><?php echo get_post_meta( get_the_ID(), 'order_status', true ); ?> <i class="fa-solid fa-down-to-line"></i></td>
                                                                                         </tr>
                                                             <?php endwhile; wp_reset_query(); else : ?>
-                                                                    <h2><?php _e('Ingenting funnet','ddd_translate'); ?></h2>
+                                                                
                                                                 <?php endif; ?>  
                                                         
                                                         
