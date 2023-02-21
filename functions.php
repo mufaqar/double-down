@@ -287,7 +287,7 @@ function create_invoices() {
                 <th scope="col">Description</th>
                 <th scope="col">Products</th>
                 <th scope="col">VAT</th>										
-                <th scope="col">Benifit</th>
+                <th scope="col">Fordel</th>
                 <th scope="col">Price</th>
             </thead>
             <tbody>            

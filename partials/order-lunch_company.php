@@ -15,7 +15,7 @@
                                         <th scope="col">Uke</th>
                                         <th scope="col">Varepris</th>
                                         <th scope="col">Ansatte</th>
-                                        <th scope="col">Benifit</th>
+                                        <th scope="col">Fordel</th>
                                         <th scope="col">Dager</th>
                                         <th scope="col">Bedriftslønn</th>
                                         <th scope="col">Total</th>

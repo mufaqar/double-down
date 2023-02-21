@@ -1637,7 +1637,7 @@ add_action('wp_ajax_nopriv_get_type_products', 'get_type_products');
 									    <th scope="col">Description</th>
 										<th scope="col">Products</th>
 										<th scope="col">VAT</th>										
-										<th scope="col">Benifit</th>
+										<th scope="col">Fordel</th>
 										<th scope="col">Price</th>
 									</thead>
 									<tbody>
