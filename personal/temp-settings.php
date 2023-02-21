@@ -104,7 +104,7 @@ foreach ($user_allergies as $key => $user_alery) {
 
                 </div>
                 <div class="pt-4 pt-md-0">
-                    <button id="change_allergies" class="btn_primary">Endre allergier og annet</button>
+                    <button id="change_allergies" class="btn_primary">Endre allergener </button>
                 </div>
             </div>
 
@@ -195,7 +195,7 @@ foreach ($user_allergies as $key => $user_alery) {
         <div class="popup">
                 <form class="profile_details" id="profile_details" action="#">
                     <div class="popup_wrapper">
-                        <h3 class="ad_productss">Profile details</h3>
+                        <h3 class="ad_productss">Profildetaljer</h3>
                         <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                             <label>Telefon </label>
                             <div class="_field d-flex justify-content-between align-items-center">
@@ -203,7 +203,7 @@ foreach ($user_allergies as $key => $user_alery) {
                             </div>
                         </div>
                         <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
-                            <label>Email Addres</label>
+                            <label>E-post</label>
                             <div class="_field d-flex justify-content-between align-items-center">
                                 <input type="text" name="profile_email" id="profile_email" placeholder="<?php echo $user_info->user_email ?>" value="<?php echo $user_info->user_email ?>" disabled>
                             </div>
@@ -321,7 +321,7 @@ foreach ($user_allergies as $key => $user_alery) {
     <div class="popup">
         <form class="update_payment" id="update_payment" action="#">
             <div class="popup_wrapper">
-                <h3 class="ad_productss">Payments Details</h3>
+                <h3 class="ad_productss">Betalingsdetaljer</h3>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Kortnummer</label>
                     <div class="_field d-flex justify-content-between align-items-center">
