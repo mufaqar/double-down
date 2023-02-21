@@ -94,7 +94,7 @@ get_header('company');?>
                             </div>
 
                 <div class="col-md-6 mb-3">
-                                <label for="">Alergener </label>
+                                <label for="">Allergener </label>
                                 <div class="_select caterting_lable">
                                   
                                     <?php
