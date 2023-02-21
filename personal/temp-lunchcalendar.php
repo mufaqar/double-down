@@ -352,12 +352,12 @@ wp_get_current_user();
                                         
                                             // When date is greator then and time is greator then 11 
                                             if($today_day_name == 'Monday' &&  $order_date > $system_order_date ) {
-                                                ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over Friday</a><?php
+                                                ?><a href="#" class="btn_primary btn_cancel">Beklager dato over Friday</a><?php
                                             }
                                             
                                             elseif($next_order_date <= $system_order_date ) {
 
-                                                ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+                                                ?><a href="#" class="btn_primary btn_cancel">Beklager dato over</a><?php
 
 
                                             }
@@ -372,7 +372,7 @@ wp_get_current_user();
                                         else
                                         {
                                             
-                                            ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over</a><?php
+                                            ?><a href="#" class="btn_primary btn_cancel">Beklager dato over</a><?php
                                         }
                                             
                                          

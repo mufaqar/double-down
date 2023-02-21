@@ -292,7 +292,7 @@ $week_days = getDatesFromRange($week_first_date,$week_end_date);
                                         else
                                         {
                                             
-                                            ?><a href="#" class="btn_primary btn_cancel">Sorry Date Over </a><?php
+                                            ?><a href="#" class="btn_primary btn_cancel">Beklager dato over </a><?php
                                         }
                                         
                                          
