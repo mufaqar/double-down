@@ -16,7 +16,7 @@ get_header();
     <form class="addcatering" id="addcatering" action="#" > 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="">Number of people</label>
+                    <label for="">Antall personer</label>
                     <div class="_select">
                         <input type="text" value="" placeholder="Skriv antall" id="people" required>
                         <input type="hidden" value="<?php echo $uid ?>"  id="uid" >

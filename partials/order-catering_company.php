@@ -67,11 +67,11 @@
                                                     <h3><?php echo $day; ?> | <span><?php the_title()?></span></h3>
                                                     <div class="d-flex justify-content-between flex-wrap mt-4">
                                                         <div class="">
-                                                            <h6>Number of people:</h6>
+                                                            <h6>Antall personer:</h6>
                                                             <p><?php the_field('people'); ?> </p>
                                                         </div>
                                                         <div class="">
-                                                            <h6>Address:</h6>
+                                                            <h6>Adresse:</h6>
                                                             <p><?php the_field('address'); ?> </p>
                                                         </div>
                                                         <div class="">
