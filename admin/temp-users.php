@@ -14,7 +14,7 @@ get_header('admin');
                 <div class="catering_menu buttons">
                     <a id="1" class="showSingle _active" target="1" data="">Alle brukere</a>
                     <a id="2" class="showSingle" target="2" data="personal">Ansatter</a>
-                    <a id="2" class="showSingle" target="2" data="Company">Berifter</a>
+                    <a id="2" class="showSingle" target="2" data="Company">Bedrifte</a>
                 </div>
             </div>
         </div>

@@ -328,7 +328,7 @@ $uid = get_current_user_id();
                        <div class="btn_wrapper d-inline-flex justify-content-center">
                               <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid" >    
                               <input type="radio" id="method_one" name="shipping_methods" value="method_one">
-                              <label for="method_one">Metode 1 (Bedriftslønn $<?php echo get_option('shipping_price');  ?>)</label><br>
+                              <label for="method_one">Metode 1 (Bedriftslønn Kr <?php echo get_option('shipping_price');  ?>)</label><br>
                               <input type="radio" id="method_two" name="shipping_methods" value="method_two">
                               <label for="method_two">Metode 2 (delt på ansatte)</label><br>
                               <input type="radio" id="method_three" name="shipping_methods" value="method_three">
