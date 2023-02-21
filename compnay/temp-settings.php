@@ -51,15 +51,13 @@ $uid = get_current_user_id();
         <div class='panels'>
             <div class='panel launchClander setting_tab'>
                 <h2>Innstillinger for bedriftsavtale</h2>
-                <p>Som bedriftsadministrator kan du få oversikt over og gjøre endringer
-                    til de firmaavtale her. Ved å bruke menyen ovenfor kan du også se selskapets
-                    lunsjkalender, eller endre de vanlige leveransene.</p>
+                <p>Som bedriftsadministrator kan du få oversikt over og gjøre endringer til din firmaavtale her. </p>
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Detaljer om avtalen</h3>
-                        <p>Selskapet betaler <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> of each luch</p>
+                        <p>Selskapet betaler <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> av hver lusj</p>
                         <ul class="mt-2">
-                        <li><span>selskapsnavn:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
+                        <li><span>Selskapsnavn:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
                         <li><span>Firmanummer:</span> <?php echo get_user_meta($uid, 'compnay_number', true );  ?> </li>
                         </ul>
                     </div>
@@ -72,7 +70,7 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">                    
                         <h3>Ansatte i avtalen</h3>
-                        <p><?php echo  count($available_active_employee); ?> Ansatt : Send inn</p>
+                        <p><?php echo  count($available_active_employee); ?> Ansatt : </p>
                     </div>
                     <div class="pt-4 pt-md-0">
                         <button id="emp_agreement" class="btn_primary">Oppdater ansatte</button>                        
