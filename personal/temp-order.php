@@ -15,7 +15,7 @@ get_header();
             <div class="catering_menu buttons">
                 <a id="1" class="showSingle _active" target="1">Lunsjbestillinger</a>
                 <a id="2" class="showSingle" target="2">Catering bestillinger</a>
-                <a id="3" class="showSingle" target="3">Meeting Orders</a>
+                <a id="3" class="showSingle" target="3">Møtematbestillinger</a>
             </div>
         </div>
     </div>
