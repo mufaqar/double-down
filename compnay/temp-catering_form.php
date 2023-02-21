@@ -38,7 +38,7 @@ get_header('company');?>
                 <div class="col-md-6 mt-3 mt-md-0 mb-3">
                     <label for="">Leveringsadresse</label>
                     <div class="_select">
-                        <input type="text" value="" placeholder="Add your address" id="address" required>
+                        <input type="text" value="" placeholder="Skriv inn adresse" id="address" required>
                     </div>
                 </div>
 
