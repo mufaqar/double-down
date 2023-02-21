@@ -191,11 +191,11 @@ wp_get_current_user();
 				                                                <div class="d-flex align-items-center justify-content-between _info  mb-3">
 				                                                    <div class="d-flex">
 				                                                        <div>
-				                                                            <strong class="title">Price:</strong>
+				                                                            <strong class="title">Pris:</strong>
 				                                                            <p><strong>Nok <?php echo $menu_price ?></strong></p>
 				                                                        </div>
 				                                                        <div style="margin-left: 3rem;">
-				                                                            <strong class="title">VAT:</strong>
+				                                                            <strong class="title">mva:</strong>
 				                                                            <p><?php echo $vat; ?></p>
 				                                                        </div>
 				                                                    </div>
