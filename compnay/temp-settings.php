@@ -55,7 +55,7 @@ $uid = get_current_user_id();
                 <div class="deatil_card d-md-flex justify-content-between align-items-center">
                     <div class="info">
                         <h3>Detaljer om avtalen</h3>
-                        <p>Selskapet betaler <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> av hver lusj</p>
+                        <p>Selskapet betaler <span><strong><?php echo get_user_meta($uid, 'lunch_benefit', true );  ?></strong><?php $type =  get_user_meta($uid, 'lunch_benfit_type', true ); echo $type;  ?> <?php if($type == '$') { echo "Nok";} ?> </span> av hver lusnj</p>
                         <ul class="mt-2">
                         <li><span>Selskapsnavn:</span> <?php echo get_user_meta($uid, 'compnay_name', true );  ?> </li>
                         <li><span>Firmanummer:</span> <?php echo get_user_meta($uid, 'compnay_number', true );  ?> </li>
