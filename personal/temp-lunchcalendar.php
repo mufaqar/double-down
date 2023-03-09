@@ -304,10 +304,7 @@ wp_get_current_user();
                                         </div>
 
                                         <div class="mt-5 mb-5 d-flex align-items-center justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <a href="" class="btn_primary d-block" style="margin-right: 1rem;"> Ukentlig</a>
-                                                <a href="" class="btn_primary btn_sec d-block">Daglig</a>
-                                            </div>
+                                            
                                         <div>
                                             
 
