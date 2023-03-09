@@ -1,4 +1,4 @@
-<?php /* Template Name: Order ( Personal )  */
+<?php /* Template Name: Persoanl-Orders  */
 get_header();
 ?>
 <?php include('navigation.php'); ?>
