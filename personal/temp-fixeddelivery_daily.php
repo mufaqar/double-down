@@ -1,4 +1,4 @@
-<?php /* Template Name: Personal-FD Daglig  */  get_header();?>
+<?php /* Template Name: Personal-FD  */  get_header();?>
 <?php include('navigation.php'); ?>
 <div class="tab_wrapper">
             <div class='toggle mb-5'>
