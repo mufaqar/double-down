@@ -51,7 +51,7 @@ $user_info = get_userdata($uid);
                     <p><?php echo get_user_meta($uid, 'compnay_agreement', true); ?><br>
                     <br>
                         <strong><span>Telefon : </span></strong><?php echo get_user_meta($uid, 'profile_delivery_phone', true); ?>
-                        |<strong><span>Epost: </span></strong> <?php echo $user_info->user_email ?>
+                        | <strong><span>Epost: </span></strong> <?php echo $user_info->user_email ?>
 
                 </div>
                 <div class="pt-4 pt-md-0">
