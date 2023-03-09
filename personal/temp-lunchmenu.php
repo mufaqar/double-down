@@ -34,7 +34,7 @@ if ( is_user_logged_in() ) {
                 <div class="catering_wrapper mt-5 mb-5 col-md-8">
                     <div class="catering_menu buttons">
                         <a id="1" class="showSingle _active" target="1" data="bread-lunch" data-title="Brød lunsj">Brød lunsj</a>
-                        <a id="2" class="showSingle" target="2" data="salad-lunch" data-title="Salat lunsj<">Salat lunsj</a>
+                        <a id="2" class="showSingle" target="2" data="salad-lunch" data-title="Salat lunsj">Salat lunsj</a>
                         <a id="3" class="showSingle" target="3" data="wrap-lunch" data-title="Wrap lunsj">Wrap lunsj</a>
                     </div>
                 </div>
