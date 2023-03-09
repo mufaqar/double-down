@@ -369,7 +369,7 @@ $uid = get_current_user_id();
                         <input type="text" class="form-control" id="lunch_benefit"  value="<?php echo get_user_meta($uid, 'lunch_benefit', true );  ?>">
                         <select name="business_setting_type" id="business_setting_type" >
                             <option value="%">%</option>
-                            <option value="$">$</option>
+                            <option value="$">NOK</option>
                         </select>
                     </div>
                     </div>                    
