@@ -1114,8 +1114,6 @@ function update_payment()
 	$expiry_month = $_POST['expiry_month'];
 	$card_csv = $_POST['card_csv'];
 
-	
-
 	$user_info = get_userdata($uid);
 	$customer_email =  $user_info->user_email;
 	$customer_name = $user_info->display_name;	
@@ -1123,18 +1121,14 @@ function update_payment()
 	$address = get_user_meta( $uid,'compnay_delivery_address',true);	
 	$customer_id = get_user_meta( $uid,'customer_id',true);	
 	include( get_template_directory() . '/stripe/init.php' );
-
 	
-	$stripe = new \Stripe\StripeClient('sk_test_51LzR9tB7gTQeC9cUuSk9M2d6UmOcDzbgZZLwW8zwQUSF4on9CIENpzRo1RtXjEWByNVj1sWxvotQbjP48LHYqXCc00HeF10taV');
+	$stripe = new \Stripe\StripeClient('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');
 
 
 	$customers = $stripe->customers->all(['email' => $customer_email, 'limit' => 1]);
 	//$filteredCustomers = $customers->search(['email' => 'mufaqar@gmail.com']);
-
 	$customer_exist =  $customers['data'][0]['id'];
 	//echo $customer_exist;
-
-
 
 		if($customer_exist == '') {
 				$customer = $stripe->customers->create([

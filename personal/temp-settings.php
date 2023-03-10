@@ -325,27 +325,27 @@ foreach ($user_allergies as $key => $user_alery) {
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Kortnummer</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="card_number" id="card_number" value="<?php echo get_user_meta($uid, 'card_number', true); ?>" required>
+                        <input type="number" name="card_number" id="card_number" value="<?php echo get_user_meta($uid, 'card_number', true); ?>" required>
                         <input type="hidden" value="<?php echo get_current_user_id() ?>" id="uid">
                     </div>
                 </div>                
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Utløpsdato</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="expiry_date" id="expiry_date" value="<?php echo get_user_meta($uid, 'expiry_date', true); ?>" required>
+                        <input type="number" name="expiry_date" id="expiry_date" value="<?php echo get_user_meta($uid, 'expiry_date', true); ?>" required>
                     </div>
                 </div>
 
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>Utløpsmåne</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="expiry_month" id="expiry_month" value="<?php echo get_user_meta($uid, 'expiry_month', true); ?>" required>
+                        <input type="number" name="expiry_month" id="expiry_month" value="<?php echo get_user_meta($uid, 'expiry_month', true); ?>" required>
                     </div>
                 </div>
                 <div class="_delivery_address d-flex flex-column justify-content-start align-items-start">
                     <label>CSV</label>
                     <div class="_field d-flex justify-content-between align-items-center">
-                        <input type="text" name="card_csv" id="card_csv" value="<?php echo get_user_meta($uid, 'card_csv', true); ?>" required>
+                        <input type="number" name="card_csv" id="card_csv" value="<?php echo get_user_meta($uid, 'card_csv', true); ?>" required>
                     </div>
                 </div>
                 <div class="mt-5">
