@@ -644,10 +644,7 @@ function get_invoice_pay_direct($week,$year,$uid)
 						add_post_meta($invoice_id, 'invoice_uid',$uid, true);
 						
                         include(get_template_directory() . '/stripe/init.php');
-                        
-                        $API_KEY = '123';
-
-                        echo $API_KEY;
+                        $API_KEY = API_KEY;                       
                         $stripe = new \Stripe\StripeClient($API_KEY);
                         $customers = $stripe->customers->all([
                             'limit' => 1,
