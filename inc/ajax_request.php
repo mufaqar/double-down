@@ -1122,7 +1122,7 @@ function update_payment()
 	$customer_id = get_user_meta( $uid,'customer_id',true);	
 	include( get_template_directory() . '/stripe/init.php' );
 
-	$key = "123"
+	$key = "123";
 	
 	$stripe = new \Stripe\StripeClient($key);
 
