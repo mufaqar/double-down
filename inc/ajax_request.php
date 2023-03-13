@@ -1,5 +1,11 @@
 <?php
 
+$API_KEY = API_KEY;
+
+
+
+
+
 
 add_action('wp_ajax_addcatering', 'addcatering', 0);
 add_action('wp_ajax_nopriv_addcatering', 'addcatering');
@@ -1122,9 +1128,9 @@ function update_payment()
 	$customer_id = get_user_meta( $uid,'customer_id',true);	
 	include( get_template_directory() . '/stripe/init.php' );
 
-	$key = "123";
 	
-	$stripe = new \Stripe\StripeClient($key);
+	
+	$stripe = new \Stripe\StripeClient($API_KEY);
 
 
 	$customers = $stripe->customers->all(['email' => $customer_email, 'limit' => 1]);
