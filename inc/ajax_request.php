@@ -1,12 +1,7 @@
 <?php
 
 $API_KEY = API_KEY;
-
-
-
-
-
-
+echo $API_KEY;
 add_action('wp_ajax_addcatering', 'addcatering', 0);
 add_action('wp_ajax_nopriv_addcatering', 'addcatering');
 

@@ -2,6 +2,7 @@
 
 get_header('landing');
 
+$API_KEY = API_KEY;
 
 
 						
@@ -9,9 +10,8 @@ include(get_template_directory() . '/stripe/init.php');
 //$stripe = new \Stripe\StripeClient('pk_test_51LzR9tB7gTQeC9cUBlTwfbRhQXdpCd8ZlQ2Ym1ywybFIsuehLeZVpmcoh1gGfm00TslhdRu3w7OgcvGrTIUjokVc00yQFrXViz');
 $email = 'mufaqar@gmail.com';
 
-$key = "123";
 
-$stripe = new \Stripe\StripeClient($key);
+$stripe = new \Stripe\StripeClient($API_KEY);
 $customers = $stripe->customers->all([
   'limit' => 1,
   'email' => $email,
