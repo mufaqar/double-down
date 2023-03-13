@@ -643,8 +643,12 @@ function get_invoice_pay_direct($week,$year,$uid)
 						add_post_meta($invoice_id, 'inovice_year',$inovice_year, true);
 						add_post_meta($invoice_id, 'invoice_uid',$uid, true);
 						
-                        include(get_template_directory() . '/stripe/init.php');	
-                        $stripe = new \Stripe\StripeClient('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');
+                        include(get_template_directory() . '/stripe/init.php');
+                        
+                        $API_KEY = '123';
+
+                        echo $API_KEY;
+                        $stripe = new \Stripe\StripeClient($API_KEY);
                         $customers = $stripe->customers->all([
                             'limit' => 1,
                             'email' => $email,

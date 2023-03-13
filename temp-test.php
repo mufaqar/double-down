@@ -9,7 +9,9 @@ include(get_template_directory() . '/stripe/init.php');
 //$stripe = new \Stripe\StripeClient('pk_test_51LzR9tB7gTQeC9cUBlTwfbRhQXdpCd8ZlQ2Ym1ywybFIsuehLeZVpmcoh1gGfm00TslhdRu3w7OgcvGrTIUjokVc00yQFrXViz');
 $email = 'mufaqar@gmail.com';
 
-$stripe = new \Stripe\StripeClient("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");
+$key = "123";
+
+$stripe = new \Stripe\StripeClient($key);
 $customers = $stripe->customers->all([
   'limit' => 1,
   'email' => $email,

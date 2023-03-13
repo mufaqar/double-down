@@ -1121,8 +1121,10 @@ function update_payment()
 	$address = get_user_meta( $uid,'compnay_delivery_address',true);	
 	$customer_id = get_user_meta( $uid,'customer_id',true);	
 	include( get_template_directory() . '/stripe/init.php' );
+
+	$key = "123"
 	
-	$stripe = new \Stripe\StripeClient('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');
+	$stripe = new \Stripe\StripeClient($key);
 
 
 	$customers = $stripe->customers->all(['email' => $customer_email, 'limit' => 1]);
